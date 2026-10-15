@@ -157,9 +157,11 @@ class ToolContext:
 
     def require(self, scope: str, what: str = "this tool") -> None:
         if not self.auth.can(scope):
-            raise ToolError(f"Permission denied: {what} requires the '{scope}' permission, which "
-                            f"{self.auth.persona_info.name} ({self.auth.persona}) does not have. Investigations and "
-                            "case work are limited to Compliance and AML personas.")
+            raise ToolError(f"Permission denied: {what} requires the '{scope}' permission, which this session "
+                            f"({self.auth.persona_info.name}, {self.auth.persona}; scopes: "
+                            f"{', '.join(self.auth.scopes) or 'none'}) does not have. Investigations and case work "
+                            "are limited to Compliance and AML personas, and MCP tokens minted from the site are "
+                            "read-only.")
 
     async def q(self, name: str, cypher: str, params: dict | None = None, *, timeout_ms: int = 10_000,
                 write: bool = False) -> list[list[Any]]:
