@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #070b14;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+/* Markdown answers */
+.md {
+  line-height: 1.6;
+  font-size: 0.925rem;
+}
+.md > * + * {
+  margin-top: 0.6rem;
+}
+.md h1,
+.md h2,
+.md h3,
+.md h4 {
+  font-weight: 600;
+  color: #f8fafc;
+  margin-top: 1rem;
+}
+.md h1 { font-size: 1.15rem; }
+.md h2 { font-size: 1.05rem; }
+.md h3,
+.md h4 { font-size: 0.95rem; }
+.md ul { list-style: disc; padding-left: 1.25rem; }
+.md ol { list-style: decimal; padding-left: 1.25rem; }
+.md li + li { margin-top: 0.2rem; }
+.md a { color: #93c5fd; text-decoration: underline; text-underline-offset: 2px; }
+.md strong { color: #f8fafc; }
+.md code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: #1e293b;
+  padding: 0.05rem 0.3rem;
+  border-radius: 0.25rem;
+}
+.md pre {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.4rem;
+  overflow-x: auto;
+}
+.md pre code { background: none; padding: 0; }
+.md table { border-collapse: collapse; font-size: 0.82rem; width: 100%; }
+.md th,
+.md td { border: 1px solid #1e293b; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+.md th { background: #0f172a; color: #cbd5e1; }
+.md blockquote { border-left: 3px solid #334155; padding-left: 0.75rem; color: #94a3b8; }
+
+/* Redaction tokens such as ⟨PHONE_0042⟩ */
+.pii-token {
+  font-family: var(--font-mono);
+  font-size: 0.78em;
+  background: rgba(244, 63, 94, 0.14);
+  color: #fda4af;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  border-radius: 0.25rem;
+  padding: 0 0.2rem;
+  white-space: nowrap;
+}
+
+.cite-chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 0.25rem;
+  padding: 0 0.25rem;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.ent-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #fcd34d;
+  border-bottom: 1px dashed rgba(252, 211, 77, 0.5);
+  text-decoration: none !important;
+  cursor: pointer;
+}
