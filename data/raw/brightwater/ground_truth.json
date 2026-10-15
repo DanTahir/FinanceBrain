@@ -1,0 +1,91 @@
+{
+ "tenant": "brightwater",
+ "refs": {
+  "ring_clients": [
+   "c_0050",
+   "c_0061",
+   "c_0064"
+  ],
+  "ring_accounts": [
+   "a_00113",
+   "a_00135",
+   "a_00140"
+  ],
+  "ring_counterparties": {
+   "origin1": "cp_019",
+   "origin2": "cp_020",
+   "exit": "cp_021"
+  },
+  "ring_shared": [
+   {
+    "type": "phone",
+    "clients": [
+     "c_0050",
+     "c_0061"
+    ]
+   },
+   {
+    "type": "address",
+    "clients": [
+     "c_0061",
+     "c_0064"
+    ]
+   },
+   {
+    "type": "device_id",
+    "clients": [
+     "c_0050",
+     "c_0064"
+    ]
+   }
+  ],
+  "ring_wire_1": "t_r010",
+  "ring_wire_2": "t_r017",
+  "cutoff": "2026-10-01",
+  "personas": {
+   "lender": "e_011",
+   "compliance_officer": "e_016",
+   "aml_analyst": "e_017",
+   "engineer": "e_019"
+  },
+  "recon_system": "sys_sharerecon",
+  "recon_expert": "e_020"
+ },
+ "cast": {
+  "ceo": "e_001",
+  "head_member": "e_003",
+  "head_lending": "e_011",
+  "cco": "e_016",
+  "aml_analyst": "e_017",
+  "head_it": "e_019",
+  "recon_expert": "e_020",
+  "head_ops": "e_023"
+ },
+ "beat_docs": {
+  "re_doc": "doc-00001",
+  "fr_onboard_3": "crm-00010",
+  "fr_onboard_2": "crm-00014",
+  "re_slack_1": "slack-00180",
+  "re_slack_2": "slack-00181",
+  "fr_onboard_1": "crm-00015",
+  "fr_alert_0412": "ticket-00036",
+  "fr_alert_0419": "ticket-00040"
+ },
+ "storyline_docs": {
+  "recon": [
+   "doc-00001",
+   "slack-00180",
+   "slack-00181"
+  ],
+  "fraud_ring": [
+   "crm-00010",
+   "crm-00014",
+   "crm-00015",
+   "ticket-00036",
+   "ticket-00040"
+  ]
+ },
+ "decisions": {},
+ "mnpi_docs": [],
+ "mnpi_outside_deal_team": []
+}

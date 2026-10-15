@@ -1,0 +1,64 @@
+{
+ "messages": [
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Hey IT, the check printer at the Cary branch is jamming again. Third time this week. Tellers are hand-feeding paper to get cashier's checks out. Can someone look at it before the weekend?"
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Ugh, that's the older LaserJet right? We have a replacement fuser kit in the supply closet. Hector, can you swing by Monday, or is it urgent enough for today?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "I can't get out there today, I'm heads down on the ShareRecon nightly run. It threw a weird GL mismatch warning last night and I want to babysit it. Monday morning works for the fuser."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 12,
+   "reply_to": 2,
+   "text": "Monday is fine as long as they can limp through the weekend. I'll tell the branch to use the lobby printer for anything non-check. Thanks Hector."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Unrelated hardware thing: two of the new card readers at the teller stations aren't showing up after the firmware push. Anyone else seeing that? Wondering if it affects the CardProcessor test feed."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 23,
+   "reply_to": 4,
+   "text": "Not that I've seen. The readers are USB-side only, so CardProcessor authorization shouldn't be touched. Shannon, which stations? Send me the asset tags and I'll check the driver version."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 31,
+   "reply_to": 5,
+   "text": "Teller stations 2 and 4. Rolling back the driver on 2 now to see if it fixes it. Will post results here."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 40,
+   "reply_to": -1,
+   "text": "Side note for Hector: since you're the only one who really knows the ShareRecon scripts, can you drop your notes on that GL mismatch warning in the wiki? I'd like to be able to at least triage if you're out."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 47,
+   "reply_to": 7,
+   "text": "Fair point, Amy. I'll write up a short runbook after the run finishes tonight. Not pretty, but it'll cover the common warnings and the restart steps."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 65,
+   "reply_to": 6,
+   "text": "Driver rollback fixed station 2. Doing station 4 now. Looks like the new firmware version is the culprit, so I'll hold off on pushing it to the other branches."
+  }
+ ]
+}

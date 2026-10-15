@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. Heads up, the DataLake nightly loads look way behind. Last partition I can see in the recon views is from about 02:40 this morning. Anyone else seeing stale data?"
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Wire Room console is fine, but the fraud score dashboard we use for holds looks like it's showing yesterday's trend lines. Not sure if related."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "Acknowledged, looking now. Opening this as a SEV3 for DataLake ingestion lag. Will update here. Tasha, can you tell me which tables you're checking?"
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "The settlement and GL extract tables feeding the EOD recon comparison. Both stuck at the 02:40 watermark. ReconLegacy itself ran clean, it's just the lake side that's behind."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Found it so far: the ingestion consumers are backed up. Lag is about 6 hours and growing. A vendor file drop last night was roughly 4x normal size and the compaction job is hogging the workers."
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 21,
+   "reply_to": -1,
+   "text": "Does this touch payments? We lean on the fraud score for ACH holds. Want to know if I should be manually reviewing anything."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 26,
+   "reply_to": 5,
+   "text": "Good question. FraudScore depends on DataLake for its feature refresh, but scoring is still running on the last good features. Scores are slightly stale, not down. No manual review needed yet, I'll flag if that changes."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 29,
+   "reply_to": 6,
+   "text": "Ok. We'll keep an eye on outbound wires over the threshold and escalate anything odd to Compliance the usual way."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 45,
+   "reply_to": -1,
+   "text": "Update: killed the stuck compaction run and scaled the ingestion workers from 4 to 10. Lag is dropping, down to about 4.5 hours now. Not touching AuthSSO or OMS, both are unaffected here."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 52,
+   "reply_to": 8,
+   "text": "Thanks. Is there risk of duplicate rows when the backlog replays? Last time we had to dedupe the GL extract by hand."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 58,
+   "reply_to": 9,
+   "text": "Fair concern. The loader is idempotent on batch id now, so replays should upsert rather than append. I'll run a row count check against source after catch-up and share it."
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Quick FYI, ACH batch for the 11:00 window went out normally. No fraud score timeouts on our side."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Lag is at about 40 minutes and falling. Should be fully caught up shortly."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 150,
+   "reply_to": -1,
+   "text": "Caught up. Watermark is current and FraudScore feature refresh has resumed. Row counts for the settlement and GL extracts match source, no duplicates. Downgrading to monitoring."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 158,
+   "reply_to": 13,
+   "text": "Confirmed on my end, recon comparison views are current and the variance report is clean. I'll rerun this morning's break list now."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 165,
+   "reply_to": 13,
+   "text": "Fraud dashboard is showing today's data again. Thanks Sam."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 240,
+   "reply_to": -1,
+   "text": "Closing this out. Root cause was an oversized vendor file plus compaction contention. Follow-ups: add a file size alert, cap compaction concurrency, and autoscale ingestion workers. Ticket for the postmortem notes will go in the usual place Monday."
+  }
+ ]
+}

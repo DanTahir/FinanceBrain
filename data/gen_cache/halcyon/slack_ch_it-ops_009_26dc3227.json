@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quarterly access recert campaign opened yesterday for Technology. Please clear your assigned reviews by EOD Tuesday. PositionStore and DataLake entitlements are the big ones this round."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Are we reviewing direct reports only, or also the service accounts we own? I've got 3 service accounts showing up in my queue."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 11,
+   "reply_to": 1,
+   "text": "Both. Service accounts need an owner attestation plus a justification note. If nobody can say why it exists, flag it for revocation."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 19,
+   "reply_to": -1,
+   "text": "Heads up, DataLake has about 40 read-write grants on the raw zone that look stale. Several people have moved teams since the last cycle. I'm going to mark those for downgrade to read-only."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 27,
+   "reply_to": 3,
+   "text": "+1 on that. Just make sure the nightly ETL role isn't caught in the sweep. It needs write on raw or the loads will fail."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 31,
+   "reply_to": 4,
+   "text": "Good call, I'll exclude the ETL role and list it as approved with a note. Thanks Leo."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Question on PositionStore: the break-glass admin group still has 9 members. Last audit said keep it under 5. Who actually needs standing access?"
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 63,
+   "reply_to": 6,
+   "text": "Agree it's too many. Proposal: SRE on-call plus Leo as backup, everyone else moves to just-in-time elevation through the ticket flow. I'll draft the change."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 78,
+   "reply_to": 7,
+   "text": "I'm in that group from the migration last year and don't need it anymore. Feel free to pull me out."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 92,
+   "reply_to": 7,
+   "text": "Works for me. Please keep the JIT approval SLA tight though, 15 minutes max, otherwise we'll be stuck during an incident."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 140,
+   "reply_to": 2,
+   "text": "Done with my service accounts. Revoked one that was orphaned from a decommissioned batch job and attested the other two."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 151,
+   "reply_to": -1,
+   "text": "Nice progress everyone. Current completion is about 60%. I'll post the remaining list tomorrow and send the evidence export to Compliance once we hit 100%."
+  }
+ ]
+}

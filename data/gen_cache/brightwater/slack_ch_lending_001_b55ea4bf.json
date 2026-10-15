@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, two dealers called me this morning about slow decisions on indirect auto apps. One said they had a deal walk to another lender over the weekend. Anyone else hearing this?"
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Yes. One of the dealers emailed me about {{CLIENT_NAME:c_0032}}'s app. They say it sat over 24 hours with no status update. Our promise is 4 business hours on complete packages."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Let's get specifics. Martin, which dealers and what were the turnaround times? I want to know if it's a queue issue or a stips issue."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 10,
+   "reply_to": 2,
+   "text": "Two of our top five dealers. Both said apps submitted Friday afternoon weren't touched until Monday morning. I'll pull the timestamps from LoanDesk and post them here."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "For context on my side: we had CreditPull timeouts Friday around 3 PM. A bunch of apps got stuck waiting on bureau returns and I had to re-pull manually. That probably explains some of the delay."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 17,
+   "reply_to": 4,
+   "text": "Confirming. I counted 11 apps with a failed pull Friday afternoon. Most were re-run by 5, but several didn't get flagged back to the dealers. That's a comms gap on our end."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "OK, so partly vendor, partly us not closing the loop. Richard, can you list every app that had a failed pull and never got a status note? Kathleen and Martin can then reach out to each dealer today."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 25,
+   "reply_to": 6,
+   "text": "On it. I'll have the list in the next 30 minutes or so."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Separate issue: the dealer also said the applicant, {{CLIENT_NAME:c_0032}}, called them upset because nobody contacted them to confirm the loan was approved. I'd like to call the client directly, but I don't want to step on the dealer."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 35,
+   "reply_to": 8,
+   "text": "That app was approved Friday at 4:40, with conditions: proof of income and insurance binder. If the dealer never passed those to the client, that's likely the confusion."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 39,
+   "reply_to": 8,
+   "text": "Kathleen, call the dealer first, then the client with the dealer's OK. Use the number on file in the CRM, {{CLIENT_PHONE:c_0032}}, and note the call in the record."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Timestamps are in. Average time from submit to first decision was 6.2 hours last week versus 3.1 the week before. Biggest spikes were Friday afternoon and this morning. Posting the export in the thread."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 60,
+   "reply_to": 11,
+   "text": "That's a real slip. Rita, can we put a second underwriter on the dealer queue through Wednesday? I'll also ask IT to alert us when CreditPull errors out instead of finding out from the dealers."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 64,
+   "reply_to": 12,
+   "text": "Yes, I can cover the morning queue and Richard can take afternoons. I'll also send the dealers a short note acknowledging the delay and the fix. Draft by 2 PM for your review."
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "tickets": [
+  {
+   "title": "Structuring alert: repeated sub-$10K cash deposits on share savings",
+   "description": "BSAWatch generated a structuring alert on {{ACCOUNT_NUMBER:a_00019}} belonging to {{CLIENT_NAME:c_0010}} (individual, member segment, risk low). Four cash deposits between $8,200 and $9,400 posted over six business days, totaling $35,600 against a 30-day baseline of roughly $1,500. Alert scenario is cash aggregation just under the CTR threshold. Please pull the deposit tickets, review the branch teller notes, and decide whether to escalate to an SAR referral or close as a false positive. Member has been with Brightwater since 2021 with no prior alerts.",
+   "reporter_id": "e_017",
+   "assignee_id": "e_018",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_018",
+     "text": "Reviewed the teller notes and deposit slips. The deposits trace to proceeds from the sale of a vehicle, paid in installments by the buyer. The client brought a signed bill of sale and the installment schedule to the branch, and MemberCRM has the note. Deposit amounts match the schedule, so the pattern reflects the buyer's payment plan rather than any effort to avoid reporting."
+    },
+    {
+     "author_id": "e_017",
+     "text": "Agreed. Documentation is on file and nothing else on the account is unusual. Closing as a false positive, no SAR. I'll add a tuning note on the scenario for installment-sale deposits."
+    }
+   ]
+  },
+  {
+   "title": "CTR review: $12,500 cash deposit, high-risk member",
+   "description": "Daily CTR report flagged a single cash deposit of $12,500 into checking {{ACCOUNT_NUMBER:a_00097}} for {{CLIENT_NAME:c_0043}} (individual, member segment, risk high, client since 2019). Need to confirm the CTR was filed accurately within the 15-day window, that the member identification fields were captured at the teller line, and that the activity is consistent with the profile. Because the client is rated high risk, a second-level look at the source of funds is required before we sign off on the filing.",
+   "reporter_id": "e_016",
+   "assignee_id": "e_017",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_017",
+     "text": "CTR filed and acknowledged by FinCEN. ID fields complete. Source of funds was documented at the window as proceeds from selling used restaurant equipment, with a receipt scanned to the file. A one-time deposit of this size fits that explanation and the account shows no layering or rapid outflow afterward. No suspicious activity. Closing."
+    }
+   ]
+  },
+  {
+   "title": "CTR review: aggregated cash deposits across two accounts",
+   "description": "Weekly CTR aggregation review shows same-day cash deposits into {{ACCOUNT_NUMBER:a_00096}} and {{ACCOUNT_NUMBER:a_00097}}, both held by {{CLIENT_NAME:c_0043}}, that combine to over $10,000. Neither deposit crossed the threshold alone, so the CTR needs to be confirmed as aggregated across the member's accounts. Please verify that the filing exists, that both transactions are listed on it, and that the combined activity makes sense for a high-risk member who has several earlier CTRs on file.",
+   "reporter_id": "e_018",
+   "assignee_id": "e_017",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_017",
+     "text": "Confirmed. A single aggregated CTR was filed covering both deposits, and both are listed. The split between share savings and checking matches the member's usual habit of moving a portion into savings the same day as a deposit. Prior CTRs follow the same pattern and the business cash receipts are documented. No further action."
+    },
+    {
+     "author_id": "e_016",
+     "text": "Thanks, Monica. Resolving. Please make sure the aggregation logic note stays in the CTR procedure."
+    }
+   ]
+  },
+  {
+   "title": "Structuring alert on high-risk member checking and savings",
+   "description": "BSAWatch raised a structuring alert for {{CLIENT_NAME:c_0043}} after three cash deposits of $9,000, $9,300, and $8,750 across {{ACCOUNT_NUMBER:a_00097}} and {{ACCOUNT_NUMBER:a_00096}} within four days. Member is rated high risk, so the alert was routed for full analyst review rather than auto-closure. Review the transaction detail, compare against the prior 12 months of cash activity, and check the relationship manager notes from Nichole Kirk. Determine whether an SAR is warranted.",
+   "reporter_id": "e_016",
+   "assignee_id": "e_018",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_018",
+     "text": "Compared against the last 12 months: this member makes regular cash deposits of similar size every few days, tied to a small seasonal retail business that peaks in September. The pattern is stable year over year and was documented in the last EDD refresh. Nichole Kirk confirmed the seasonal sales through the member's last visit. No indication of structuring intent. Recommending false positive."
+    },
+    {
+     "author_id": "e_016",
+     "text": "Concur. Close it out and keep the risk rating at high for now, with the EDD refresh date unchanged."
+    }
+   ]
+  },
+  {
+   "title": "Look-back review of inbound wire and follow-on withdrawals on lending account",
+   "description": "A structuring alert fired on {{ACCOUNT_NUMBER:a_00088}} for {{CLIENT_NAME:c_0039}} after several withdrawals just below $10,000 followed the inbound wire t_000796, a $47,873.74 wire in on 2026-08-26 from Goodwin, Davis and Hill carrying a fraud score of 0.69. Analyst to review the wire origin, the loan relationship in LoanDesk, and the withdrawal pattern to decide whether the activity is related and whether any escalation is needed.",
+   "reporter_id": "e_017",
+   "assignee_id": "e_018",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_018",
+     "text": "Initial findings: the wire sender matches the counterparty named in the loan documents on file, and the amount aligns with the expected payoff funds. The fraud score of 0.69 appears driven by the new-sender flag, not by any adverse signal. Withdrawals went to scheduled loan-related payments. Leaning toward false positive and waiting on the relationship manager to confirm the purpose in writing."
+    },
+    {
+     "author_id": "e_017",
+     "text": "Sounds right. Please attach the wire instructions and the written confirmation, then resolve."
+    }
+   ]
+  }
+ ]
+}

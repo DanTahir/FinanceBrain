@@ -1,0 +1,77 @@
+{
+ "emails": [
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_031",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Credit committee agenda - Tuesday 7/7",
+   "body": "Team,\n\nBelow is the draft agenda for Tuesday's credit committee. Please send me any additions by end of day Monday.\n\n1. Pipeline review: commercial and consumer lending, approvals outstanding over $1.5M\n2. Watchlist update from Risk, including the two names flagged for covenant headroom\n3. Exception policy: proposed tightening of DSCR exceptions below 1.20x\n4. Individual credit: the {{CLIENT_NAME:c_0209}} refinance request, with Brendan presenting the RM view\n5. CreditScoring model refresh timeline and the DataLake feed dependency\n\nJoshua and Tammy, please have your underwriting memos circulated by Monday noon so Owen's team can pre-read. We will keep the session to 60 minutes.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_033",
+   "to_ids": [
+    "e_029",
+    "e_030"
+   ],
+   "cc_ids": [
+    "e_058"
+   ],
+   "subject": "Covenant breach - commercial term loan, Q2 test",
+   "body": "Brian, Joshua,\n\nI finished the Q2 compliance certificate review on one of our mid-market commercial term loans and the borrower has breached its fixed charge coverage covenant. Reported FCCR came in at 1.08x against a 1.20x minimum. Leverage is still inside the 3.5x limit, so this is an isolated breach, but the trend is down for the third straight quarter.\n\nThe driver is a one-time inventory write-down plus higher floating-rate interest expense. Adjusting for the write-down, FCCR would be roughly 1.22x, so the borrower will likely ask for a waiver.\n\nProposed next steps:\n- Issue a reservation of rights letter this week\n- Request the monthly management accounts and a 13-week cash flow forecast\n- Bring the name to the credit committee tomorrow week for a risk rating review\n\nI have copied Lance so Credit Risk can assess a possible downgrade. Draft analysis is attached to the file.\n\nRegards,\nJasmine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_033",
+    "e_031"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Credit committee agenda - Thursday 7/23",
+   "body": "All,\n\nAgenda for today's credit committee, starting at 2:00 PM in the large conference room:\n\n1. Covenant breach on the commercial term loan Jasmine flagged yesterday: FCCR at 1.08x versus 1.20x. We need a decision on waiver versus amendment with a fee and tighter reporting.\n2. Risk rating review and provisioning impact, led by Owen's team\n3. Consumer pipeline: {{CLIENT_NAME:c_0182}} limit increase request\n4. Exception report for the month\n5. Open items from the 7/7 meeting\n\nJasmine, please bring a one-page summary of the borrower's 13-week cash flow. Joshua, I would like your underwriting view on whether the write-down add-back is defensible under the credit agreement definition.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_035",
+    "e_038",
+    "e_031",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "HELOC rate change effective August 1",
+   "body": "Hi all,\n\nFollowing the Fed's latest guidance and the ALCO review, we are adjusting HELOC pricing effective Saturday, August 1. The index remains prime, but the margin on new draws moves up 25 bps for the 700-739 FICO tier. All other tiers are unchanged for now.\n\nWhat this means for you:\n- Existing HELOC borrowers on variable rates will see the index move at their next reset, with the standard 15-day notice\n- Pipeline applications locked before 8/1 keep the old margin\n- Updated rate sheets are in LoanOrigination and on the shared drive\n\nHeidi and Cassandra, please make sure customer notices go out by Monday. Grace, flagging this for your advisors since several wealth clients use HELOCs as a bridge liquidity tool.\n\nCall me with questions.\n\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_035",
+    "e_038",
+    "e_031",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "HELOC rate change effective October 5",
+   "body": "Hi team,\n\nHeads up on another HELOC pricing adjustment, effective Monday, October 5. ALCO approved a 25 bp reduction in the margin for the 740+ FICO tier to stay competitive, and the introductory rate period will be extended from 6 to 9 months on new originations.\n\nAction items:\n- Loan officers: update the borrower disclosure templates before Monday. Marcus, copying you so Compliance can confirm the TILA change-in-terms language\n- Relationship managers: contact clients such as {{CLIENT_NAME:c_0209}} who previously declined a HELOC on price and let them know about the new terms\n- Brandon: new closing packages must reflect the revised rate by Monday morning\n\nRate sheets are posted in LoanOrigination. Please do not quote the new pricing externally before the effective date.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,114 @@
+{
+ "tickets": [
+  {
+   "title": "Periodic KYC refresh overdue for lending client, medium-risk cycle missed",
+   "description": "The annual periodic review for {{CLIENT_NAME:c_0159}} (individual, lending segment, medium risk, client since 2024-09-03) was due 2026-07-10 and is now two weeks past due. KYCPipeline shows the review task stuck in 'awaiting documents' because the refresh outreach from ClientHub never went out. The client holds a checking account ({{ACCOUNT_NUMBER:a_00332}}) and an active loan ({{ACCOUNT_NUMBER:a_00333}}), so this is on the quarterly overdue list that goes to the CCO. Need to re-issue the document request, confirm the employment and source of funds attestations are current, and rerun SanctionsScreen against the refreshed profile.",
+   "reporter_id": "e_064",
+   "assignee_id": "e_050",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Confirmed the outreach template was keyed to the old ClientHub contact preference, so nothing was sent. Re-sent via email to {{CLIENT_EMAIL:c_0159}} and flagged Joshua Gordon so he can nudge on the lending side."
+    },
+    {
+     "author_id": "e_064",
+     "text": "Thanks. Please log the root cause on the ticket so Ops can fix the trigger when we sweep the other medium-risk reviews due in August."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Documents received 2026-07-31. Refresh complete, SanctionsScreen rerun came back clean with no hits, and the next review is scheduled for 2027-07. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Passport expiry date does not match ID scan on file for loan borrower",
+   "description": "During the file refresh for {{CLIENT_NAME:c_0159}}, KYCPipeline's document check flagged a mismatch between the expiry date on the government ID image in DocVault and the date captured in the CDD record. The scan appears to be a renewed document, while the structured field still holds the prior expiry. The date of birth also needs re-verification against {{CLIENT_DOB:c_0159}} since the OCR confidence was low. Loan servicing on {{ACCOUNT_NUMBER:a_00333}} is not affected yet, but the pipeline has blocked the profile from moving to 'verified'. Please validate the document and correct the record.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_052",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_052",
+     "text": "Pulled the image from DocVault. It is the renewed document; the CDD field was never updated after the last refresh. OCR misread one digit in the expiry. Correcting manually and attaching the reviewed image."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Good. Can you also confirm the DOB on the new document ties to {{CLIENT_DOB:c_0159}}? I want that noted before we release the block."
+    },
+    {
+     "author_id": "e_052",
+     "text": "DOB matches. Record updated, profile moved to verified, and I logged the OCR misread for Jenna's team to review in the pipeline tuning backlog."
+    }
+   ]
+  },
+  {
+   "title": "Beneficial ownership certification missing for pledged closely held entity",
+   "description": "The client in the lending segment, {{CLIENT_NAME:c_0159}}, is offering an interest in a closely held LLC as additional collateral on {{ACCOUNT_NUMBER:a_00333}}. The KYC file has no beneficial ownership certification for the entity, and KYCPipeline cannot clear the CDD step without identifying every person owning 25% or more plus a control person. Joshua Gordon needs this before the collateral amendment can proceed. Request the signed certification and the operating agreement, screen all identified owners through SanctionsScreen, and document the ownership chain in the file.",
+   "reporter_id": "e_063",
+   "assignee_id": "e_054",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_054",
+     "text": "Requested the certification and operating agreement through the client portal. Also asked for the cap table, since the agreement alone may not show current ownership percentages."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Please keep Lending posted. The amendment is the only thing holding the paperwork on their side."
+    },
+    {
+     "author_id": "e_054",
+     "text": "Received the signed certification on 2026-09-08. Two owners above threshold plus one control person. All three screened clean in SanctionsScreen. Ownership chain documented and CDD step cleared."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Reviewed the file, no concerns. Closing out."
+    }
+   ]
+  },
+  {
+   "title": "Address verification failed on KYC refresh, utility proof rejected",
+   "description": "The address check in KYCPipeline failed for {{CLIENT_NAME:c_0159}}. The address on file, {{CLIENT_ADDRESS:c_0159}}, did not match the third-party address data source, and the proof of address uploaded to DocVault was rejected because it is older than 90 days. The client recently mentioned a move, so the mismatch may be legitimate. Statements and loan correspondence for {{ACCOUNT_NUMBER:a_00333}} may be going to the wrong place. Please contact the client for a current proof of address, update ClientHub if the address changed, and rerun verification. Hold any address-dependent mailings until this is resolved.",
+   "reporter_id": "e_071",
+   "assignee_id": "e_055",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Called the client's number on file, {{CLIENT_PHONE:c_0159}}, and left a voicemail. Also sent a secure message asking for a recent bank statement or lease as proof of address."
+    },
+    {
+     "author_id": "e_071",
+     "text": "I put a mail hold on paper statements for {{ACCOUNT_NUMBER:a_00332}} until we confirm. Let me know when the address is verified so I can lift it."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Client replied and confirmed a move. New proof is in DocVault and under review. I will update ClientHub once the verification passes."
+    }
+   ]
+  },
+  {
+   "title": "ID document mismatch on refresh, name and SSN fields conflict in pipeline",
+   "description": "KYCPipeline flagged an identity document mismatch for {{CLIENT_NAME:c_0159}} on 2026-10-05. The name on the newly uploaded driver license image does not exactly match the CDD record, with a suffix and middle initial difference, and the SSN captured by the extraction step does not agree with {{CLIENT_SSN:c_0159}} on file. This could be an OCR issue or a data entry error at onboarding. Verify against the original document, correct the record if it is an extraction problem, and escalate to Compliance if the discrepancy is real. Note that KYCPipeline ownership transfers from Operations to Compliance on 2026-10-06, so please leave clear notes for the handoff.",
+   "reporter_id": "e_066",
+   "assignee_id": "e_050",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Picking this up. First step is comparing the original upload to the extraction output. If the SSN really differs, I will treat it as a potential identity issue and loop in Nadia."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Since the pipeline moves to Compliance tomorrow, Wayne, please add everything you have checked so far to this ticket so John does not have to redo it."
+    }
+   ]
+  }
+ ]
+}

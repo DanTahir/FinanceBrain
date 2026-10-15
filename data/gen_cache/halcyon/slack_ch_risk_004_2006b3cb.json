@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: RiskEngine flagged the single-name concentration limit on one of the financials issuers at 94% utilization this morning. Still inside the limit but trending the wrong way after the Friday flows."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Thanks Paul. What's the hard limit again and who's the desk owner on that name? I want to know before the 3pm risk call."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Hard limit is 5% of the book on a single issuer, soft trigger at 4.5%. We're at 4.7%. Daniel's desk owns the position, I've already pinged him."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Separate but related: ReportingBI concentration dashboard is still showing last Thursday's sector buckets for me. Is anyone else seeing stale numbers or is it my cache?"
+  },
+  {
+   "author_id": "e_060",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Seeing the same on my end. The sector rollup looks one refresh behind the RiskEngine exposures. I'd trust RiskEngine for now."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 17,
+   "reply_to": -1,
+   "text": "On the credit side, our top 10 counterparty exposure is 38% of total lending commitments. Internal guideline is 40%, so we have thin headroom if the pipeline closes as scheduled."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 21,
+   "reply_to": 5,
+   "text": "That's tight. Phillip, can you model the pipeline closing in full and show me the pro forma by end of day? If we breach, I want a mitigation plan, e.g. participations or syndicating down."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 24,
+   "reply_to": 6,
+   "text": "Will do. I'll use the Q4 expected closings and run a haircut scenario too. John, can you pull the latest drawn vs undrawn splits?"
+  },
+  {
+   "author_id": "e_060",
+   "minutes_after_start": 27,
+   "reply_to": 7,
+   "text": "Yep, on it. Undrawn revolvers are the swing factor, so I'll show both committed and expected-utilization views."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 41,
+   "reply_to": 1,
+   "text": "Update from Daniel: they can trim about $12M of the position this afternoon, which takes us back to roughly 4.3%. He wants to do it in two clips to limit market impact."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Good, go ahead. Please document the breach-avoidance rationale in the limit log so it's clean for the audit trail."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 58,
+   "reply_to": 3,
+   "text": "Confirmed the dashboard lag was a stale cache job on the BI side. Reran it and the sector buckets now match RiskEngine. I'll put a note in the channel if it happens again."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 95,
+   "reply_to": -1,
+   "text": "Trim is done, both clips filled. Single-name utilization is now at 4.3% of the 5% limit. Logging it now."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 170,
+   "reply_to": 6,
+   "text": "Pro forma is posted in the risk folder. Full pipeline close takes us to 40.6%, so a slight breach. A $15M participation sale would bring us back to about 39%. Happy to walk through it tomorrow."
+  }
+ ]
+}

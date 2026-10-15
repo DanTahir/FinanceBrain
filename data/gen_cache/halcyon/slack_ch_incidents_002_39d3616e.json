@@ -1,0 +1,10 @@
+{
+ "messages": [
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, SEV3 for now: OMS FIX session to one of our exchange venues dropped at 12:56 ET. Alerts show logon rejects, seq num mismatch. Trading desk hasn't escalated yet but order routing to that venue is stalled."
+  }
+ ]
+}

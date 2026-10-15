@@ -1,0 +1,52 @@
+{
+ "emails": [
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_003"
+   ],
+   "subject": "Confidential: Your approved leave and coverage plan",
+   "body": "Hi Zachary,\n\nThank you for sharing the details with Michelle and me. I'm writing to confirm that your leave request has been approved. HR has the supporting paperwork on file: {{EMP_MEDICAL:e_004}}. Please don't feel any need to share more than that with the team.\n\nPaul is copied so he can plan member advocate coverage. Joanna and Nichole will pick up your open escalations, and Paul will talk with you about a handoff list before your first day out. Beyond that, please focus on your health. Michelle will follow up separately on benefits and return-to-work steps.\n\nIf anything changes, reach out to me or Michelle directly.\n\nWarm regards,\nGloria Ibarra\nPresident and CEO",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_014"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "Confidential: Approved leave and pipeline coverage",
+   "body": "Hi Martin,\n\nI'm glad you came to us early. Your leave has been approved, and HR has the documentation on file: {{EMP_MEDICAL:e_014}}. This stays between the four of us and Michelle in HR.\n\nKara is copied so she can arrange coverage for your relationship portfolio. I'd suggest the two of you sit down this week to review your active loan pipeline, pending commitments and any member conversations that need a warm handoff to Kathleen or another colleague. Please keep the handoff notes in the LoanDesk records so nothing slips.\n\nMichelle will contact you about benefits and your return plan. Take the time you need, and please reach out to me if I can help.\n\nBest,\nGloria Ibarra\nPresident and CEO",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_021"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "Confidential: Compensation adjustment following mid-year review",
+   "body": "Hi Amy,\n\nFollowing the mid-year review cycle, I'm pleased to let you know your compensation is being adjusted in recognition of your work this year, particularly on the data pipeline improvements and your support of reconciliation reporting. The details are as follows: {{EMP_SALARY:e_021}}.\n\nThe change will take effect in the next full payroll cycle, and Michelle in HR will send the formal paperwork for your records. Andre is copied since he supported the recommendation.\n\nPlease keep this information confidential, and let Michelle know if you have any questions about how it appears in your pay statement.\n\nThank you for everything you do for Brightwater.\n\nSincerely,\nGloria Ibarra\nPresident and CEO",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_003"
+   ],
+   "subject": "Confidential: Payroll record update after your move",
+   "body": "Hi Catherine,\n\nCongratulations on the move! Michelle in HR let me know you've asked to update your payroll and personnel records. The new address we have on file for you is {{EMP_HOME_ADDRESS:e_005}}. If anything there looks incorrect, please tell Michelle as soon as you can so your tax withholding and mailed documents aren't affected.\n\nPaul is copied only so he's aware, and no change is needed to your schedule or branch assignment unless you tell us otherwise. The update will be reflected in the next payroll cycle.\n\nPlease keep any further questions between you and HR.\n\nBest regards,\nGloria Ibarra\nPresident and CEO",
+   "reply_to_previous": false
+  }
+ ]
+}

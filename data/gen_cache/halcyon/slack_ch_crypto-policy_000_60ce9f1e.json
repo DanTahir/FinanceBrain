@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick update for the group: we've got three blockchain analytics vendors in the final round. Demos are done, and I'd like input on criteria before I send the scorecard to the board committee. Cluster attribution, coverage of chains, and API latency are the big ones for me."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "From Risk: I want exposure scoring we can actually feed into RiskEngine, not just a PDF report. Does any of them expose risk scores via API with historical lookback? Also need to know how they handle mixers and cross-chain bridges."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 11,
+   "reply_to": 1,
+   "text": "Two of the three have a REST API with lookback. The third is mostly dashboard plus batch export. Bridge tracing is decent on vendor A, weaker on B. I'll put that in the scorecard."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "From the portfolio side, what matters to me is false positive rate. If we're screening inbound transfers for digital asset clients and half the alerts are noise, the team will drown. Did anyone get actual alert-rate numbers from the pilots?"
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 24,
+   "reply_to": 3,
+   "text": "Fair point, Janet. Vendor A gave us a sample test on historical data, roughly 4% alert rate. Vendor B claimed 2% but wouldn't share methodology. I'd treat B's number with caution until they do a proper proof of concept."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Marcus, what's the timeline? With onboarding paused from 8/22 to 10/12, I'd like the vendor chosen and contracted so we're ready to go when the pause lifts, not scrambling afterwards."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 41,
+   "reply_to": 5,
+   "text": "Agreed, Catherine. Plan is selection by end of August, contract in September, integration and testing during the pause. That gives us about three weeks of buffer before 10/12. Tight but doable if Technology has capacity."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Wealth angle: advisors need something readable. If an alert fires, they should see a plain-language reason, not a graph only compliance can interpret. Can we weight usability in the scorecard?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 63,
+   "reply_to": 7,
+   "text": "+1 to Grace. Also curious about pricing model. Per-address lookups can get expensive fast if we're monitoring ongoing activity versus just onboarding checks."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 78,
+   "reply_to": 8,
+   "text": "Good catch, Tricia. I'd like a cost model at three volume scenarios. Vendor C's tiered pricing looks cheap at low volume but jumps sharply past the second tier. Let's not get surprised by that."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 92,
+   "reply_to": 9,
+   "text": "I'll ask all three for a quote at low, base, and high volume, using the same assumptions so we can compare apples to apples. I'll also add usability as a weighted criterion at 15%."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "One more thing: references. I'd like to hear from at least two other regulated firms per finalist, ideally ones that went through an exam with the tool in place. Regulators care about how it's used, not just that we bought it."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 134,
+   "reply_to": 11,
+   "text": "Already requesting those. Vendor A offered two bank references and one broker-dealer. I'll share notes in this channel once calls are done, likely next week."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 151,
+   "reply_to": -1,
+   "text": "Thanks all. Marcus, I can join the reference calls if useful, since I'd be one of the heavier users on the portfolio side."
+  }
+ ]
+}

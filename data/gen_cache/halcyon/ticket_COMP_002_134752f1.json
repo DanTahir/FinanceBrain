@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Monthly complaint log review: unresolved items older than 15 business days",
+   "description": "Per the quarterly complaint handling procedure, I pulled the June complaint log and found 7 entries still open past the 15 business day internal target. Three relate to delayed wire confirmations, two to fee disputes, and two to account access after the password reset. One fee dispute involves {{CLIENT_NAME:c_0163}} on the checking account {{ACCOUNT_NUMBER:a_00338}}. Need each owner to confirm status, document root cause, and update the resolution field so the log is clean ahead of the July attestation. Please also flag any item that should be escalated as a potential reportable complaint.",
+   "reporter_id": "e_047",
+   "assignee_id": "e_051",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_051",
+     "text": "Reviewed all 7. Five have documented resolutions and just needed the log updated. Two (access issue and one wire delay) are still waiting on responses from the business owners. Chasing today."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Thanks. Please send me the two stragglers by Friday. Fee dispute for {{CLIENT_NAME:c_0163}} looks fine to close if the refund is confirmed in the GL."
+    },
+    {
+     "author_id": "e_051",
+     "text": "Refund confirmed. All 7 now updated with root cause and resolution dates. None meet the reportable threshold. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Complaint log review: misclassified complaint categories in Q2 sample",
+   "description": "While sampling 25 complaints from the Q2 log for the testing program, I found 6 where the category does not match the narrative. Several service delays were tagged as 'general inquiry' rather than 'complaint', which understates our complaint counts in the board compliance report. One example involves {{CLIENT_NAME:c_0287}} who complained about a card decline on {{CARD_NUMBER:a_00587}}, logged as an inquiry. Need a re-classification pass on the Q2 population and a short guidance note for intake staff on when an expression of dissatisfaction counts as a complaint.",
+   "reporter_id": "e_052",
+   "assignee_id": "e_054",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_054",
+     "text": "Started the re-classification pass. Of the full Q2 population of 212, I'm finding about 14 that need a category change. Will send the full list once done."
+    },
+    {
+     "author_id": "e_052",
+     "text": "Good. Please also draft the intake guidance. A one-page summary with 4 or 5 examples should be enough. Marcus wants it before the next training session."
+    },
+    {
+     "author_id": "e_054",
+     "text": "Done: 16 entries re-classified, Q2 count moves from 212 to 212 total but complaints up from 61 to 77. Guidance note drafted and sent to Marcus for review."
+    }
+   ]
+  },
+  {
+   "title": "Complaint log review: missing resolution letters for closed complaints",
+   "description": "Mid-month review of the complaint log for lending and wealth segments showed 9 closed complaints with no final resolution letter attached in the record. Regulators expect a documented written response for each complaint, so this is a gap in our file. Affected cases include one tied to {{CLIENT_NAME:c_0163}} loan account {{ACCOUNT_NUMBER:a_00339}} regarding a payment posting error. Please locate the letters or reissue them, attach to the log, and confirm whether any client was never sent a response. If so, send the response promptly and note the delay in the record.",
+   "reporter_id": "e_047",
+   "assignee_id": "e_050",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Located letters for 5 of 9 in the shared mailbox and attached them. The remaining 4 appear never to have been sent. Drafting responses now."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Please have the 4 reviewed by me before they go out, and record the lateness in the log notes."
+    },
+    {
+     "author_id": "e_050",
+     "text": "All 4 sent after your review and logged with the delay noted. Payment posting complaint for {{CLIENT_NAME:c_0163}} is among them. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Complaint log review: repeat complainants and trend analysis for July",
+   "description": "Request to analyze the complaint log for repeat complainants and emerging themes ahead of the monthly Compliance Committee. Early look shows 4 clients with 2 or more complaints in the last 90 days, including {{CLIENT_NAME:c_0287}} who has raised issues on both card servicing and operating account statements. Also seeing a cluster of wire delay complaints. Please produce a short summary with counts by product, root cause, and average days to resolve, and recommend whether any theme warrants a formal corrective action plan. Include contact preference for follow-up outreach where the client has asked, using the CRM record rather than copying details here.",
+   "reporter_id": "e_048",
+   "assignee_id": "e_053",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Pulled the data. Wire delay complaints are 11 in 90 days, up from 4 in the prior period. Most trace to cutoff time confusion rather than actual processing failures. Still building the product breakdown."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Interesting. If cutoff messaging is the driver, that may be a disclosure fix rather than an ops one. Include that hypothesis in the summary."
+    }
+   ]
+  },
+  {
+   "title": "KYC exception: expired beneficial ownership certification on commercial onboarding refresh",
+   "description": "During the periodic review for {{CLIENT_NAME:c_0287}}, the KYC pipeline raised an exception because the beneficial ownership certification on file is older than the 12 month refresh window. The operating account {{ACCOUNT_NUMBER:a_00587}} remains open and risk rating is low, but the file cannot be marked complete. Need a fresh certification from the client via the RM, a re-run of sanctions screening on the listed owners, and an updated record in DocVault. Note ownership of the KYCPipeline moved to Compliance on 2026-10-06, so please log this under the new exception workflow. Contact the client at {{CLIENT_EMAIL:c_0287}} only through the RM.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_050",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Picking this up. I'll ask Brandi Palmer to request the updated certification and will rerun SanctionsScreen once we have the owner list."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Sounds good. Target is 10 business days from today before the exception ages into the escalation bucket."
+    }
+   ]
+  }
+ ]
+}

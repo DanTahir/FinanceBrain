@@ -1,0 +1,114 @@
+{
+ "tickets": [
+  {
+   "title": "Rebuild fragmented indexes on PositionStore holdings tables",
+   "description": "Weekly index health check flagged heavy fragmentation on the holdings and lot-level tables in PositionStore. Average fragmentation is above 45% on the primary position-by-account index and the as-of-date composite index, and p95 read latency for end-of-day position snapshots has crept up about 30% over the last two weeks. Requesting an online index rebuild during the Saturday maintenance window, with fill factor reviewed to 85%. Need to confirm that downstream consumers such as RiskEngine and PortfolioMgr tolerate brief replica lag, and take a pre-change statistics snapshot so we can compare query plans afterwards.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Reviewed the plan. Will run the rebuild online in batches, largest tables first, and pause if replica lag exceeds 20 seconds. Scheduled for Saturday 02:00 ET."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Thanks. I captured baseline query plans and stats for the three heaviest snapshot queries so we can diff them after."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Rebuild finished in about 74 minutes. Fragmentation is now under 5% across the board and the snapshot query p95 is back to baseline. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "Read-only access to MarketDataFeed production metrics for new data engineer",
+   "description": "Requesting read-only access to the MarketDataFeed production Grafana dashboards and the ingestion lag metrics in the monitoring stack. I am building a vendor latency comparison for the data lake and need to pull per-feed tick latency and gap counts for the last 90 days. No access to the ingestion hosts or config is needed, and no write permissions. Access should be granted through the standard AuthSSO group for market data observability, with a 90-day expiry to be reviewed. Manager approval is pending from the Director of Engineering.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_078",
+   "status": "closed",
+   "priority": "P4",
+   "comments": [
+    {
+     "author_id": "e_072",
+     "text": "Approved. Read-only dashboards and the metrics API only, 90-day expiry. No host or config access."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Added to the market-data-observability SSO group with a 90-day expiry. Please confirm you can see the per-feed latency panels and the metrics API token works."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Confirmed, I can see everything I need. Thanks for the quick turnaround."
+    }
+   ]
+  },
+  {
+   "title": "Reindex MarketDataFeed tick archive after slow replay queries",
+   "description": "Replay queries against the MarketDataFeed tick archive database have slowed noticeably since the vendor feed expansion in July. Explain plans show full scans on the symbol and timestamp range lookups, and the existing composite index appears bloated and partially unused due to a changed column order in recent queries. Proposal: create a new composite index on (symbol, exchange_ts) concurrently, drop the old redundant index after a week of observation, and run a vacuum analyze on the partitions from the last 60 days. Expected to affect disk usage by roughly 40 GB. Please schedule outside the market-hours ingestion peak.",
+   "reporter_id": "e_074",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Created the new composite index concurrently overnight. Replay query on a one-day range dropped from about 38s to 2s in staging-like checks. Leaving the old index for a week before dropping."
+    },
+    {
+     "author_id": "e_074",
+     "text": "Looks good from the replay side. Backtests are running much faster. Go ahead and drop the old index once the week is up."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Old index dropped, vacuum analyze completed on the recent partitions. Disk usage is up about 31 GB net. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Quarterly index maintenance and stats refresh for PositionStore replicas",
+   "description": "Quarterly maintenance request for PositionStore. Scope: refresh optimizer statistics on all large tables, identify and drop unused indexes flagged by the usage report (there are six candidates, mostly legacy account-lookup indexes), and rebuild indexes with more than 30% bloat on both the primary and the read replicas. We saw a few slow queries from the PortfolioMgr rebalancing job last week that suggest stale statistics. Please coordinate with Wealth Management on timing so rebalancing runs are not interrupted, and keep a rollback script for the dropped indexes in case anything regresses.",
+   "reporter_id": "e_079",
+   "assignee_id": "e_078",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Stats refreshed on all large tables. Of the six unused index candidates, I am dropping four now and holding two that show occasional use during month-end. Rollback scripts are attached to the change record."
+    },
+    {
+     "author_id": "e_079",
+     "text": "Agreed on holding the two month-end ones. I will recheck usage after the September close and we can decide then."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Replica rebuilds complete, no lag alerts. Marking resolved, pending your month-end recheck in a separate ticket."
+    }
+   ]
+  },
+  {
+   "title": "Temporary elevated access for PositionStore failover test",
+   "description": "Priya Raman leaves the firm on 2026-10-09, and her admin permissions on the PositionStore cluster need to be reassigned before then. Requesting that Angelica Schneider be granted the PositionStore DBA admin role through AuthSSO so she can take over the failover runbook, and that Priya's elevated role be removed on her last day. Also need Angelica added to the on-call rotation for PositionStore and MarketDataFeed escalation. Please verify no service accounts or scheduled jobs are still tied to Priya's personal credentials before revoking.",
+   "reporter_id": "e_072",
+   "assignee_id": "e_077",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Started the audit. Found two scheduled backup verification jobs still running under Priya's credentials. I am moving them to a service account before anything is revoked."
+    },
+    {
+     "author_id": "e_073",
+     "text": "Confirmed, those two jobs are the only ones I know of. I will walk Angelica through the failover runbook on Wednesday and Thursday."
+    },
+    {
+     "author_id": "e_081",
+     "text": "Thanks both. I will review the runbook ahead of the sessions. Please add me to the escalation rotation once admin access is in place."
+    }
+   ]
+  }
+ ]
+}

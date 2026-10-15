@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_033",
+   "to_ids": [
+    "e_029",
+    "e_030"
+   ],
+   "cc_ids": [
+    "e_058"
+   ],
+   "subject": "Covenant breach - DSCR test on {{CLIENT_NAME:c_0016}} loan",
+   "body": "Brian, Joshua,\n\nDuring the Q2 covenant compliance review I found that the borrower on {{ACCOUNT_NUMBER:a_00034}} (client c_0016) fell below the minimum debt service coverage ratio. The covenant requires 1.25x and the trailing twelve month figure from the June financials comes out at 1.08x. The drop is mostly from a $340K increase in operating expenses and a delayed receivable.\n\nThis is a technical default under section 7.2 of the credit agreement. The notice and cure period is 30 days, so the clock is running. Given the client's high risk rating, I think we should move the file to the watch list and request a management call this week.\n\nI have attached my spreadsheet with the recalculated ratios. Joshua, since you are the RM, could you confirm whether the client has said anything about the shortfall? I will draft the reservation of rights letter once you both agree on the approach.\n\nThanks,\nJasmine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_030",
+   "to_ids": [
+    "e_033",
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Re: Covenant breach - DSCR test on {{CLIENT_NAME:c_0016}} loan",
+   "body": "Jasmine, Brian,\n\nThanks for the quick work on this. I spoke with {{CLIENT_NAME:c_0016}} yesterday. The client acknowledged the opex increase and said the delayed receivable should clear by the end of July, which would bring the ratio back above 1.20x but probably not to 1.25x.\n\nMy recommendation is a 90-day waiver of the DSCR test in exchange for a 25 bps fee, monthly financial reporting, and a cash sweep on the operating account. I do not want to amend the covenant level itself. Owen, I have copied you so Risk can weigh in on the watch list downgrade before we send anything.\n\nThe client can be reached on {{CLIENT_PHONE:c_0016}} if anyone needs to talk before the call. Brian, I would like your sign-off on the waiver terms by Friday so we can issue the reservation of rights letter alongside it and stay inside the cure window.\n\nJoshua",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_035",
+   "to_ids": [
+    "e_029",
+    "e_038"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "HELOC rate change effective August 1",
+   "body": "Brian, Cassandra,\n\nFollowing the Fed's decision and the Treasury's updated prime guidance, the HELOC variable rate index is moving. Effective August 1, the margin on new and existing HELOC lines goes from prime plus 0.50% to prime plus 0.75% for balances under $250K. Lines above that amount stay at prime plus 0.50%.\n\nExisting borrowers need a 30-day change in terms notice, so letters have to go out by Friday, July 24 at the latest. I pulled the affected list from LoanOrigination and it is 214 active lines. One of them is {{CLIENT_NAME:c_0080}}, whose line is tied to {{ACCOUNT_NUMBER:a_00171}}, and the client will want an explanation because of the recent rate lock conversation.\n\nGrace, copying you because some wealth clients hold HELOCs through our lending desk and your advisors may get questions. I can prepare a short FAQ for them.\n\nCassandra, can you review the letter template for the required disclosure language before it goes to compliance?\n\nHeidi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_037",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_030",
+    "e_058"
+   ],
+   "subject": "Underwriting exception request - LTV and DTI on {{CLIENT_NAME:c_0080}} file",
+   "body": "Brian,\n\nI am asking for your approval of a policy exception on the loan tied to {{ACCOUNT_NUMBER:a_00171}} for {{CLIENT_NAME:c_0080}}. Two items fall outside guidelines. The debt-to-income ratio is 46% against our 43% cap, and the LTV is 82% against a 80% limit for this product.\n\nCompensating factors: low risk rating, a clean payment history since the client joined in May 2024, more than 14 months of reserves after closing, and stable W-2 income for nine years. The credit score is well above our floor and there are no derogatory items in the file.\n\nCredit Risk has reviewed the file and has no objection, provided we price at the standard rate plus 15 bps. Brendan Alvarez, as RM, supports the exception.\n\nIf you approve, I need written confirmation by Monday so Brandon can start scheduling the closing. Documentation is in the LoanOrigination file under the exceptions tab.\n\nThanks,\nTammy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_001",
+    "e_056",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_031",
+    "e_032"
+   ],
+   "subject": "Lending pipeline report - week ending September 24",
+   "body": "Catherine, Owen, Ravi,\n\nHere is the weekly lending pipeline summary for the week ending September 24.\n\nTotal pipeline stands at $186M across 47 deals, up 6% from last week. Commercial real estate is $92M, C&I is $54M, and consumer and HELOC make up the remaining $40M. Closings scheduled for the next two weeks total $31M, with Brandon coordinating funding with Operations.\n\nWatch items: two commercial loans are delayed pending KYC refresh. Ravi, the KYCPipeline ownership moves to Compliance on October 6, so I want to make sure those files do not fall between teams. The covenant waiver on the c_0016 loan is still open and under monthly monitoring. Owen, I will send you updated exposure numbers for the concentration review on Monday.\n\nFull detail is in the shared dashboard. Brendan and Lynn will walk through their individual books in Tuesday's pipeline meeting. Let me know if you want any cuts added.\n\nBrian",
+   "reply_to_previous": false
+  }
+ ]
+}

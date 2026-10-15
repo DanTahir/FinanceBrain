@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "GLCore suspense is sitting at about $184k at midday, up from $31k yesterday. Anyone know what's driving it? Recon output looks thin this morning."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Seeing the same. A bunch of the wires from Wednesday and Thursday are still parked there."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "I need a breakdown of the suspense balance before Monday's close. Please get me aging buckets and the top items."
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 10,
+   "reply_to": 0,
+   "text": "Did the end-of-day recon batch even run last night? Nothing cleared overnight and I don't see a completion note."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "I can't speak to ReconLegacy internals. The Perl jobs, the Oracle side and the cron schedule are all Priya's area. I'll ping her now."
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 16,
+   "reply_to": 4,
+   "text": "Thanks Kevin. Is there a runbook anywhere, or is it all in her head?"
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 19,
+   "reply_to": 5,
+   "text": "Honestly it's mostly her. Nobody else on the team has touched that batch. Waiting on her reply."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 28,
+   "reply_to": -1,
+   "text": "Pulled the suspense detail. 6 wires are sitting there flagged unmatched because the reference field is blank. That's roughly $97k of the balance."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 32,
+   "reply_to": 7,
+   "text": "Are those posted in GLCore but with no counterpart in the recon output?"
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 35,
+   "reply_to": 8,
+   "text": "Yes, GL side is posted. Nothing on the recon side to match against."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Priya got back to me. The 2am matching job skipped last night because the holiday calendar treated today as a non-business day. She says the data is fine, it just needs a manual rerun."
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 58,
+   "reply_to": 10,
+   "text": "Makes sense, markets are closed today for the holiday. So most of this should clear after the rerun?"
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 62,
+   "reply_to": 11,
+   "text": "That's what she expects. She's triggering it manually at 17:30 and will flag anything that still doesn't match."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 70,
+   "reply_to": -1,
+   "text": "Good. Until the rerun finishes, nobody posts manual journals against suspense. We'll sort out whatever is left after that."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 73,
+   "reply_to": 13,
+   "text": "Agreed, I won't touch it."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 215,
+   "reply_to": -1,
+   "text": "Rerun finished. Suspense is down to about $12k. Priya says the leftovers are the unmatched items with the blank reference field."
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 220,
+   "reply_to": 15,
+   "text": "Great. I'll chase the originating desks for references on those and send Ravi the aging breakdown first thing Monday."
+  }
+ ]
+}

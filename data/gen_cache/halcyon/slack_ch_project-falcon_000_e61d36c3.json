@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Draft v2 of the Falcon diligence request list is in the deal folder. Sections: financial, commercial, legal, HR/benefits, IT, environmental. Elena, can you review before we send to Meridian's counsel?"
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 12,
+   "reply_to": 0,
+   "text": "Thanks Susan. Skimming now. First reaction: financial section needs more on working capital seasonality, and I want the fleet capex breakdown by asset class, not just a total."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 15,
+   "reply_to": 1,
+   "text": "Got it. I'll add monthly NWC for the last 36 months and capex split by tractors, trailers, and warehouse equipment. Want maintenance vs growth capex separated too?"
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 18,
+   "reply_to": 2,
+   "text": "Yes, definitely. Also ask for the lease schedule, both operating and finance leases. Under ASC 842 those will move the leverage math."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Quick compliance note on the list: keep the request wording generic. Nothing in it should reference our deal timeline or the announcement date. Also confirm the distribution is limited to wall-crossed people only."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 35,
+   "reply_to": 4,
+   "text": "Understood, Marcus. I've stripped the timeline language from the cover note. Distribution is the deal team plus Meridian's counsel through the data room, nobody else."
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 38,
+   "reply_to": 4,
+   "text": "Agreed. Susan, please also double check the file name and metadata don't carry anything sensitive before it leaves the building."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 44,
+   "reply_to": 6,
+   "text": "Good call. Scrub the doc properties and tracked changes. I'd also like a copy of the final sent version for the Falcon restricted-list file."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Update: added legal section items on pending litigation, customer contract change-of-control clauses, and union agreements. Also added an IT item for TMS and routing software licenses."
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 75,
+   "reply_to": 8,
+   "text": "Good. For commercial, add top 20 customer concentration with contract expiry dates and any volume commitments. And ask for churn data by lane over the last three years."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 79,
+   "reply_to": 9,
+   "text": "Adding both. Should I flag the customer concentration item as priority one? I figure it's the most likely to be slow to come back."
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 82,
+   "reply_to": 10,
+   "text": "Yes, mark it priority one along with the lease schedule and the change-of-control provisions. Those drive the structure discussion."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 140,
+   "reply_to": -1,
+   "text": "v3 is up with all comments incorporated. 112 line items total, 14 flagged priority one. Metadata scrubbed. Marcus, ready for your look."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 165,
+   "reply_to": 12,
+   "text": "Reviewed. Wording is clean and nothing sensitive in the properties. Cleared to send via the data room. Please save the sent copy to the Falcon compliance folder."
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 170,
+   "reply_to": 13,
+   "text": "Great, thanks both. Susan, send it over and note the time. We'll aim for a first-pass response from their side by end of next week."
+  }
+ ]
+}

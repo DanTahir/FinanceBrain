@@ -1,0 +1,64 @@
+{
+ "messages": [
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: the vendor pushed the July OS patch bundle for the app servers. I'd like to get CreditPull's integration host patched this week. Hector, can you take it?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Yep. CreditPull host is easy, no scheduled jobs on it. I can do it Wednesday after 6pm. The one I'm nervous about is the ShareRecon box."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Why that one specifically? It's on the same patch baseline."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 12,
+   "reply_to": 2,
+   "text": "The scripts lean on an older Python runtime and a couple of cron wrappers I wrote years ago. The bundle bumps the Python minor version, so the nightly share/GL recon could break silently. I'd want to test in a clone first."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Ops perspective: if ShareRecon fails overnight we don't find out until the GL variance report the next morning, and that delays settlement sign-off. Can we avoid patching it on a Thursday or month-end?"
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 19,
+   "reply_to": 3,
+   "text": "Is any of that documented? I've read the repo, but the wrapper logic isn't in the README. Honestly Hector is the only one who could debug it at 2am, which worries me."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 24,
+   "reply_to": 5,
+   "text": "Fair point. Not documented enough. I'll write a runbook while I test the clone. Amy, if you can shadow me on the dry run, that'd spread the knowledge around a bit."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 28,
+   "reply_to": -1,
+   "text": "Plan then: CreditPull gets patched Wednesday evening. ShareRecon gets cloned and tested first, and we hold the prod patch until the runbook exists and Amy has done the dry run. Target is the week of the 20th, not month-end."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 31,
+   "reply_to": 7,
+   "text": "Works for me. Please post the planned window in here once it's set so I can warn the settlements folks."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 34,
+   "reply_to": 6,
+   "text": "Happy to shadow. I'll block Thursday afternoon for the clone test."
+  }
+ ]
+}

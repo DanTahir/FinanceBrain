@@ -1,0 +1,102 @@
+{
+ "tickets": [
+  {
+   "title": "Outbound wire repair - beneficiary account rejected by correspondent",
+   "description": "Outbound domestic wire requested by {{CLIENT_NAME:c_0004}} on 7/16 was returned to our wire queue by the receiving bank with a repair code for an invalid beneficiary account. Beneficiary is Robertson, Weaver and Williams. The account on the wire request does not match what the counterparty has on file ({{CP_ACCOUNT:cp_014}}). Funds are sitting in the wire suspense GL and the share account {{ACCOUNT_NUMBER:a_00007}} was debited for $4,850.00. Need to confirm correct instructions with the member, resubmit before the afternoon Fedwire cutoff if possible, and make sure no duplicate wire fee is charged. Member was told to expect an update today.",
+   "reporter_id": "e_025",
+   "assignee_id": "e_024",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_024",
+     "text": "Called the member on {{CLIENT_PHONE:c_0004}} and confirmed the account digits were transposed on the original request. Got a signed amended wire form back by email at {{CLIENT_EMAIL:c_0004}}."
+    },
+    {
+     "author_id": "e_025",
+     "text": "Resubmitted at 2:10 PM, ahead of the cutoff. Fedwire acknowledgment received. Waived the repair fee per policy since the error was caught at intake review."
+    },
+    {
+     "author_id": "e_023",
+     "text": "Good catch. Closing this out. Please add a second-person verification on beneficiary account fields for wires over $2,500 to the intake checklist."
+    }
+   ]
+  },
+  {
+   "title": "Debit card dispute - unrecognized merchant charges on checking",
+   "description": "Member {{CLIENT_NAME:c_0069}} reported three unrecognized online charges totaling $312.40 posted to the debit card {{CARD_NUMBER:a_00149}} tied to checking {{ACCOUNT_NUMBER:a_00149}}. Member still has the card in hand, so this looks like card-not-present fraud. Need to file the Reg E dispute with the network, issue provisional credit within the required window, block and reissue the card, and review the CardProcessor authorization logs for related attempts. Member prefers contact by email at {{CLIENT_EMAIL:c_0069}}. Reg E clock starts 7/17.",
+   "reporter_id": "e_023",
+   "assignee_id": "e_025",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_025",
+     "text": "Card blocked and replacement ordered. Pulled auth logs from CardProcessor and found two additional declined attempts from the same merchant descriptor the following morning."
+    },
+    {
+     "author_id": "e_025",
+     "text": "Provisional credit of $312.40 posted to {{ACCOUNT_NUMBER:a_00149}} on 7/20, well inside the ten business day window. Dispute filed with the network."
+    },
+    {
+     "author_id": "e_023",
+     "text": "Network ruled in the member's favor and chargebacks are final. Closing the ticket."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair - intermediary bank rejection on international-format payment",
+   "description": "A $18,200.00 wire to Robertson, Weaver and Williams for {{CLIENT_NAME:c_0004}} was kicked back on 8/11 because the intermediary bank rejected the payment for missing beneficiary address detail in the originator-to-beneficiary field. Settlement beneficiary account on file is {{CP_ACCOUNT:cp_014}}. We need to repair the message with complete beneficiary information, reconfirm the amount with the member, and resend. Also check whether the wire template for this counterparty is missing required fields so repeat rejections are avoided.",
+   "reporter_id": "e_024",
+   "assignee_id": "e_025",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_025",
+     "text": "Updated the saved counterparty template with the full beneficiary address and a purpose-of-payment line. Resent the wire this morning and the bank confirmed acceptance."
+    },
+    {
+     "author_id": "e_024",
+     "text": "Confirmed credit with the beneficiary bank. I'll leave this in resolved until the suspense GL entry clears at month-end rec."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair - amount mismatch between request and Fed message",
+   "description": "During the morning wire review on 9/3, found an outgoing wire for {{CLIENT_NAME:c_0069}} where the Fed message amount of $9,500.00 did not match the signed request of $5,900.00 from share savings {{ACCOUNT_NUMBER:a_00148}}. The wire was held before release by the dual-control check, so no funds left the credit union. Need to correct the entry, document the keying error, get the member's reconfirmation, and release the correct amount. Review whether other wires keyed by the same shift show similar issues.",
+   "reporter_id": "e_023",
+   "assignee_id": "e_024",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_024",
+     "text": "Voided the original entry and rekeyed at $5,900.00. Waiting on a callback confirmation from the member at {{CLIENT_PHONE:c_0069}} before release."
+    },
+    {
+     "author_id": "e_023",
+     "text": "Please pull the last two weeks of wires from that shift and spot check the rest. I'd like the results documented here before we close."
+    }
+   ]
+  },
+  {
+   "title": "ACH return R03 on incoming payroll-style credit batch",
+   "description": "ACHHub flagged a return on 9/17 for a debit originated by Robertson, Weaver and Williams against {{CLIENT_NAME:c_0004}}. The return is coded R03 (no account/unable to locate account), which conflicts with the active share savings {{ACCOUNT_NUMBER:a_00007}} on the member's profile. Amount is $640.00. Need to verify how the receiving record was matched in ACHHub, confirm whether an account number was entered wrongly by the originator, and reach out to the originator's bank if needed. Return must be handled within the NACHA return timeframe.",
+   "reporter_id": "e_025",
+   "assignee_id": "e_024",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_024",
+     "text": "Looking at the ACHHub file now. The trace shows the originator submitted a different account number than {{ACCOUNT_NUMBER:a_00007}}, so this may be an originator-side error rather than ours."
+    },
+    {
+     "author_id": "e_023",
+     "text": "Please document the trace details here and confirm the return deadline before we contact the originator's bank."
+    }
+   ]
+  }
+ ]
+}

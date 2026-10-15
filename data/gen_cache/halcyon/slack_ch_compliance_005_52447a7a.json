@@ -1,0 +1,124 @@
+{
+ "messages": [
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. KYCPipeline shows 143 overdue refreshes today, up from 131 last Wednesday. Ops hands the pipeline over to us on Oct 6, so I'd like to be under 100 by then."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Ugh. Is the growth new overdue files or stuff aging out of the 30-day grace window?"
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Mostly aging out of grace. Roughly 40 are medium-risk individuals whose cycle came due in Q3. The rest are high-risk files with missing docs."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "I'll take the high-risk ones with missing docs. Outreach goes out today and I'll log everything in ClientHub. Is anyone already touching those?"
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Not me, I'm buried in AML alerts. But if any file on your list has an open alert, ping me before you send outreach so we don't tip anyone off."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 14,
+   "reply_to": 4,
+   "text": "Will do. I'll cross-check the list against open alerts before anything goes out."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Quick policy check: {{CLIENT_NAME:c_0025}} hits the one-year mark Oct 7. For a medium-risk wealth client, is that a full refresh or are we still on the 3-year cycle?"
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 21,
+   "reply_to": 6,
+   "text": "3-year for full refresh on medium. Wealth only gets the light 12-month attestation. So c_0025 goes in the quick queue, no new docs needed unless something changed."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 24,
+   "reply_to": 6,
+   "text": "Email on file ({{CLIENT_EMAIL:c_0025}}) hasn't bounced, so the attestation can go by email. Sandra Stone is the RM if you want her looped in."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 27,
+   "reply_to": 8,
+   "text": "Perfect, I'll send it after the sanctions rescreen finishes and cc Sandra."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Separate one: {{CLIENT_NAME:c_0248}} is on the overdue list. Lending client since 2022, so well past 3 years. Lynn Chase is the RM. Who owns it?"
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 38,
+   "reply_to": 10,
+   "text": "That one's mine. Needs a full refresh and the ID on file looks expired. Lynn says the client will upload new docs to DocVault this week."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 41,
+   "reply_to": 11,
+   "text": "Heads up, the loan {{ACCOUNT_NUMBER:a_00510}} is still open and LoanOrigination reads KYCPipeline status. A lapsed refresh could block any modification or draw."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 44,
+   "reply_to": 12,
+   "text": "Good point. I'll tell Lynn there's a hard deadline so she pushes the client. If it slips past Oct 6 I'll escalate it."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 70,
+   "reply_to": -1,
+   "text": "Does an event-driven review for {{CLIENT_NAME:c_0174}} go in the refresh queue or with AML? It's triggered by the Sept 8 wire into {{ACCOUNT_NUMBER:a_00360}}, fraudscore was 0.79."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 74,
+   "reply_to": 14,
+   "text": "AML for now, I'll take it. It won't count toward the refresh backlog. If I find CDD gaps I'll hand it back to you."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Update: 12 attestations sent, 9 already e-signed. The sanctions rescreen came back clean on all of them."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 150,
+   "reply_to": 16,
+   "text": "Nice. That puts the overdue count at 134 by my numbers. Still a lot of ground before Oct 6."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 200,
+   "reply_to": -1,
+   "text": "Outreach is done for 18 high-risk files. Six have bounced contact details, so I need RMs to confirm current info in ClientHub. I'll post the list in-thread tomorrow morning."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 280,
+   "reply_to": 18,
+   "text": "Thanks Heather. Let's do a short sync Monday to plan the handover prep. I'll build an aging report by risk tier before then."
+  }
+ ]
+}

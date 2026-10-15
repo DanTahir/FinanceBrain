@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_007",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Q2 broker commission review - tiering and soft dollar check",
+   "body": "Hi Jessica, Ronald,\n\nAhead of the Q2 broker commission review, I pulled the commission summary from TradeBlotter for April through June. Total commissions came in around $1.84M, up about 6% on Q1, mostly because of higher cash equity volumes in May. Two things I'd like you both to look at before we meet:\n\n1. Three of our top five brokers are now above the volume tier where we negotiated a rate step-down. I don't see that reflected in the invoices, so please confirm with each coverage desk.\n2. Soft dollar usage with the research-heavy broker looks out of line with the vote scores we collected. Let's see whether the research received justifies the spend.\n\nPlease send me your broker vote scores and any rate exceptions by Friday 7/10. We'll review as a group the following Tuesday. Owen is copied since Risk wants visibility into concentration across our executing brokers.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005",
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Best execution quarterly report - Q2 draft for review",
+   "body": "Daniel, Steven,\n\nAttached in spirit is the draft Q2 best execution report. I built the slippage figures from OMS fill data against arrival price and interval VWAP. Headline numbers: average slippage on liquid large-cap orders was 2.1 bps versus arrival, improved from 2.8 bps last quarter. Small-cap slippage was flat at roughly 7 bps, and I think that is mostly a function of the wider spreads in June.\n\nA few items I want flagged before it goes to Marcus:\n- About 4% of orders had no clean arrival timestamp in OMS because of the routing restart on 5/19. I excluded them and noted it in the methodology section.\n- Dark pool fill rates dropped on two venues. I'd like to include a short explanation of why we shifted flow.\n\nSteven, can you check the algo breakdown table against your own numbers? Daniel, please review the narrative on venue selection. Marcus, you're copied so Compliance can raise anything on the disclosure language early. I'd like to finalize by Wednesday 7/22.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_010",
+   "to_ids": [
+    "e_005",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_009"
+   ],
+   "subject": "Follow-up: intraday risk limit breach on 8/6 - cause and remediation",
+   "body": "Daniel, Owen,\n\nFollowing up on the single-name concentration limit breach from Thursday 8/6. For the record, my position in the tech name exceeded the desk limit by roughly $2.3M for about 40 minutes mid-afternoon. Here is what happened and what I'm doing about it.\n\nCause: a large fill came back on a parent order after the pricing refresh, and the pre-trade check in OMS was evaluating against a stale position snapshot. I did not notice the exposure until the RiskEngine alert fired. I reduced the position immediately once I saw it and was back inside the limit by 3:35 PM.\n\nRemediation:\n- I'll cross-check the blotter exposure against the RiskEngine view every hour on volatile days.\n- Robert is helping me test a check that flags when position snapshot age exceeds a threshold.\n\nOwen, let me know if Risk needs anything further for the breach log. Happy to walk through the timeline whenever suits.\n\nRegards,\nErik",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_005",
+    "e_008"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_063"
+   ],
+   "subject": "Trade error write-up - mis-sized order on 8/24",
+   "body": "Daniel, Travis,\n\nBelow is the write-up for the trade error on Monday 8/24. I was working a sell order for a wealth client account and entered the quantity as 45,000 shares instead of 4,500 when I split the parent into child orders. The first child went to market before the size warning registered. We sold 18,000 shares before I canceled the remainder.\n\nImpact: we were over-sold by roughly 13,500 shares versus the intended order. We bought back the excess the same afternoon, and the net cost to the error account was about $11,200 after the price moved against us. The client was not affected.\n\nRoot cause: manual entry with no hard cap on child order size relative to the parent. OMS only displays a soft warning.\n\nProposed fixes: ask Technology for a hard reject when child quantity exceeds 2x the intended slice, and add a second-person check for orders above a set notional.\n\nMarcus and Ravi are copied for the error log and the P&L booking. I'm available to discuss anytime.\n\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_005",
+    "e_006"
+   ],
+   "cc_ids": [
+    "e_013"
+   ],
+   "subject": "Q3 broker commission review - preliminary numbers and rate asks",
+   "body": "Daniel, Derek,\n\nPreliminary look at broker commissions through the first ten weeks of Q3, pulled from TradeBlotter. We're tracking at about $0.62M a month, a bit lower than Q2 because summer volumes have been softer. Jonathan helped me reconcile the broker statements and found two invoices where the rate didn't reflect the tier step-down we agreed to last quarter. Those are being corrected.\n\nFor the review, I'd suggest we:\n- Ask the two mid-tier brokers for a rate cut in exchange for steady flow into fall.\n- Reduce commission-sharing allocations to brokers whose research scores fell below our threshold.\n- Review electronic versus high-touch mix, since high-touch costs more per share.\n\nDerek, can you give me your high-touch order list for August so I can compare against rates? Daniel, let me know if you'd like these ready by Friday or for the meeting itself.\n\nThanks,\nRonald",
+   "reply_to_previous": false
+  }
+ ]
+}

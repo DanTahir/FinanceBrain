@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0090",
+   "text": "2026-09-22 - Kelly Robinson. Call with {{CLIENT_NAME:c_0090}}, who has been with us since 2018. The client wants to refer a longtime friend and business contact who is looking to consolidate investments with us. I explained our standard onboarding steps and KYC requirements, and noted that a referral does not change the review process. Agreed to send an intro email to {{CLIENT_EMAIL:c_0090}} with a summary of services. Also confirmed funding for {{ACCOUNT_NUMBER:a_00191}} is unchanged, and {{ACCOUNT_NUMBER:a_00192}} sweep settings are fine. Risk rating remains high; no changes. Follow up in two weeks and log the referral in ClientHub."
+  },
+  {
+   "client_id": "c_0018",
+   "text": "2026-09-04 - Brendan Alvarez. Met with {{CLIENT_NAME:c_0018}} to discuss renewal of the term loan on {{ACCOUNT_NUMBER:a_00040}}, which matures in the coming quarter. Operating account {{ACCOUNT_NUMBER:a_00039}} has shown steady deposits and no overdrafts since onboarding. The client is asking for a modestly larger line to fund equipment purchases and would like to keep pricing flat. I told them I'd need updated financials and a current debt schedule. Will send a document checklist to {{CLIENT_EMAIL:c_0018}} and loop in underwriting. Risk remains low. Next touchpoint after financials arrive."
+  },
+  {
+   "client_id": "c_0114",
+   "text": "2026-09-09 - Brendan Alvarez. {{CLIENT_NAME:c_0114}} called from {{CLIENT_PHONE:c_0114}} to change the beneficiary designation tied to the checking relationship on {{ACCOUNT_NUMBER:a_00241}}. Client cited a recent life event and wants the new designee reflected on file. I verified identity through our standard callback and security questions, then explained that a signed beneficiary form is required and cannot be processed verbally. Mailed the form to the address on file, {{CLIENT_ADDRESS:c_0114}}, and sent a copy to {{CLIENT_EMAIL:c_0114}}. Will confirm receipt and route to operations once returned."
+  },
+  {
+   "client_id": "c_0170",
+   "text": "2026-09-07 - Jamie Washington. Review with {{CLIENT_NAME:c_0170}} on risk tolerance. The client is nearing a planned career change and now prefers a more conservative posture than the current allocation in {{ACCOUNT_NUMBER:a_00350}}. We discussed moving toward higher-quality fixed income and trimming equity concentration, with liquidity parked in {{ACCOUNT_NUMBER:a_00351}}. Risk profile stays low but questionnaire will be updated and re-signed. I'll send revised model proposal to {{CLIENT_EMAIL:c_0170}} and coordinate with the portfolio team before any rebalancing. Client understands tax implications of sales and wants to review first."
+  },
+  {
+   "client_id": "c_0013",
+   "text": "2026-07-24 - Jamie Washington. Spoke with {{CLIENT_NAME:c_0013}} about the renewal of the securities-backed credit line collateralized by {{ACCOUNT_NUMBER:a_00029}}. Client wants to extend for another 12 months at current terms and asked whether rates could improve. I said I'd raise it with lending but market spreads have not moved much. Reviewed collateral coverage; portfolio value comfortably exceeds the required margin. No concerns on risk, rated low. I will submit the renewal request to Lending and call the client at {{CLIENT_PHONE:c_0013}} once terms are confirmed."
+  },
+  {
+   "client_id": "c_0010",
+   "text": "2026-08-21 - Jasmine Johnson. {{CLIENT_NAME:c_0010}} contacted us after misplacing the debit card on {{ACCOUNT_NUMBER:a_00021}}. Card was blocked and a replacement ordered to {{CLIENT_ADDRESS:c_0010}}, expected in 5-7 business days. Client is also traveling abroad next month and requested a travel notice on the checking account. Noted dates and destinations in the file. Loan {{ACCOUNT_NUMBER:a_00022}} payments are current and auto-pay is active. Given the high risk rating, I flagged the travel notice for fraud monitoring awareness. Confirmation will go to {{CLIENT_EMAIL:c_0010}}."
+  },
+  {
+   "client_id": "c_0228",
+   "text": "2026-10-01 - Brandon George. Check-in with {{CLIENT_NAME:c_0228}} regarding estate planning following closing of the loan on {{ACCOUNT_NUMBER:a_00469}}. The client is updating a will and trust with an outside attorney and asked how the loan would be treated on death. I explained it is a firm lending matter, and suggested sharing the loan summary with counsel. Not providing legal advice. Also confirmed beneficiary info on {{ACCOUNT_NUMBER:a_00468}} should be reviewed. Will email a loan statement to {{CLIENT_EMAIL:c_0228}} and offer a referral to our wealth team."
+  },
+  {
+   "client_id": "c_0267",
+   "text": "2026-08-27 - Jonathan Chandler. Annual estate planning check-in with {{CLIENT_NAME:c_0267}}. Client has been with us since 2018 and recently had a change in family circumstances. We reviewed how {{ACCOUNT_NUMBER:a_00551}} is titled and whether transfer-on-death registration reflects current intentions. Recommended the client confirm with their estate attorney before we update anything. I'll send a beneficiary review form to {{CLIENT_EMAIL:c_0267}} and schedule a follow-up call at {{CLIENT_PHONE:c_0267}} in about a month. Risk profile unchanged at low. No trades discussed."
+  },
+  {
+   "client_id": "c_0191",
+   "text": "2026-08-05 - Brandi Palmer. {{CLIENT_NAME:c_0191}} called to dispute a series of fees on operating account {{ACCOUNT_NUMBER:a_00396}}, including a late fee and a wire charge. The client was frustrated and said the fees were not disclosed clearly. I reviewed the loan on {{ACCOUNT_NUMBER:a_00397}} and the fee schedule; the late fee appears valid but the wire charge may have been assessed twice. Will open a ticket with operations to verify and consider a one-time waiver. Given the high risk rating, I'll keep communication documented. Will respond to {{CLIENT_EMAIL:c_0191}} within three business days."
+  },
+  {
+   "client_id": "c_0141",
+   "text": "2026-08-18 - Janet Brown. Reviewed risk tolerance with {{CLIENT_NAME:c_0141}} by phone at {{CLIENT_PHONE:c_0141}}. Client has become somewhat more comfortable with volatility after the recent market stretch and asked whether to raise equity exposure in {{ACCOUNT_NUMBER:a_00294}}. We agreed a modest increase is reasonable but the overall profile stays low pending a new questionnaire. Cash needs for the next year remain covered in {{ACCOUNT_NUMBER:a_00295}}. I'll send the updated questionnaire to {{CLIENT_EMAIL:c_0141}} and hold any rebalancing until it is signed."
+  }
+ ]
+}

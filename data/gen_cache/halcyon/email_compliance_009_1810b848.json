@@ -1,0 +1,79 @@
+{
+ "emails": [
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_001",
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_051"
+   ],
+   "subject": "Reminder: personal trading pre-clearance requirements",
+   "body": "Hi all,\n\nA quick reminder ahead of the late-July earnings stretch. Under the Code of Ethics, any personal trade in a single-name equity, option, or ETF on the restricted-adjacent list requires pre-clearance before you place the order. Approvals are valid through the close of the next trading day only, so please do not sit on an approval and execute later in the week.\n\nTwo points we keep seeing in the quarterly review: (1) employees on deal teams, including anyone wall-crossed on active mandates, need to confirm with their group head that a name is not on the watch list before submitting; (2) 30-day minimum holding periods apply to all covered positions, and flipping inside that window will be escalated.\n\nPlease relay this to your teams. Linda Jones can walk anyone through the pre-clearance form in the compliance portal if they have questions. Reach out to me directly for anything ambiguous.\n\nThanks,\nMarcus Bell\nChief Compliance Officer",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_050",
+   "to_ids": [
+    "e_047",
+    "e_048"
+   ],
+   "cc_ids": [
+    "e_055",
+    "e_051"
+   ],
+   "subject": "KYC periodic refresh backlog - status as of 7/23",
+   "body": "Marcus, Nadia,\n\nFlagging that the periodic KYC refresh queue has grown to 142 files past their review date, up from 96 at the start of the month. Of those, 31 are high-risk tier, where our policy requires an annual refresh, and 9 of the high-risk files are more than 60 days overdue.\n\nMain drivers: the onboarding surge in Lending has pulled Luis and me onto new-client screening, and several refreshes are stuck waiting on updated ID documents from clients. One example is {{CLIENT_NAME:c_0010}} (c_0010), a high-risk lending client, where the address and ID verification are outstanding and we cannot close the refresh without them.\n\nProposal: Luis and I take the high-risk files first, and Linda handles the low-risk document chasing. If we can borrow Heather for roughly 10 hours a week, we think we can clear the 60-plus-day items by mid-August.\n\nHappy to talk through this at tomorrow's stand-up.\n\nRegards,\nJohn Smith\nKYC Specialist",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_055",
+   "to_ids": [
+    "e_047",
+    "e_050"
+   ],
+   "cc_ids": [
+    "e_048",
+    "e_054"
+   ],
+   "subject": "KYC refresh backlog - week 2 update",
+   "body": "Hi Marcus, John,\n\nUpdate on the refresh backlog since last Thursday's note. We are down to 118 overdue files, from 142. High-risk overdue is 22, down from 31, and nothing is left beyond 60 days except two files tied to complex ownership structures that need beneficial owner confirmation.\n\nFor {{CLIENT_NAME:c_0010}}, we finally received updated ID documentation and I have logged it in DocVault. The remaining step is re-screening against SanctionsScreen, which I will run tomorrow, then I will send the file to Nadia for the final risk rating review since the client is high risk.\n\nHeather's hours helped a lot. At this pace we should be under 80 files by the end of next week. One ask: could the relationship managers in Lending send reminders to clients with outstanding document requests? Our email nudges have a low response rate.\n\nThanks,\nLuis Bowen\nKYC Specialist",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_050",
+    "e_055",
+    "e_048"
+   ],
+   "cc_ids": [
+    "e_029",
+    "e_063"
+   ],
+   "subject": "KYC refresh backlog - August status and next steps",
+   "body": "Team,\n\nPulling together where we stand on the periodic refresh program as of August 20. The overdue count is now 37 files, down from the 142 we had in July. All high-risk files are current except four, each of which has a documented client-side delay. That is a solid result, and thank you to John, Luis, and Heather for the push.\n\nA few items going forward:\n\n1. Brian, please have your relationship managers keep following up on the remaining document requests. I will include the outstanding list in Friday's report.\n2. Ravi, with KYCPipeline ownership moving to Compliance from October 6, I would like Operations to send us the current runbook and open tickets by the end of September.\n3. We will set a standing monthly review of any file more than 30 days overdue so we do not rebuild this backlog.\n\nLet me know if you see any blockers.\n\nMarcus Bell\nChief Compliance Officer",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_051",
+   "to_ids": [
+    "e_001",
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: pre-clear personal trades before placing them",
+   "body": "Hello all,\n\nOn behalf of Marcus, a brief reminder on personal trading pre-clearance as Q3 winds down. All covered persons must submit a pre-clearance request in the compliance portal before placing any personal trade in equities, options, ETFs, or digital asset products. Approvals expire at the close of the following trading day.\n\nOur August surveillance review found several trades placed before the approval was granted. Those cases have been referred to Marcus for follow-up. Please also remember:\n\n- Quarter-end holdings attestation is due by the first week of October.\n- Brokerage accounts held outside the firm must be disclosed, and we need duplicate statements sent to Compliance.\n- If you are wall-crossed on an active deal, check with your group head before submitting a request.\n\nIf you are unsure whether an instrument is covered, ask before you trade. I am happy to help with the portal form or any other question.\n\nBest regards,\nLinda Jones\nCompliance Associate",
+   "reply_to_previous": false
+  }
+ ]
+}

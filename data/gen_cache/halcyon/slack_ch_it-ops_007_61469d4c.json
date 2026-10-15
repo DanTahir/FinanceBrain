@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Reminder that the monthly patching window is this Saturday 2026-09-05, 22:00 to 02:00 ET. Draft scope: Oracle CPU on the ReconLegacy db host and the DocVault storage nodes. Please add anything else to the doc by EOD Wednesday."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Ack. For ReconLegacy, the Oracle 11g box is on extended support only, so I need to confirm the patch we're applying is actually the last one vendor-certified for that version. Will check this morning."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Good. Also remember the EOD recon batch kicks off at 23:30 on Saturdays for the weekly close. We either finish patching before then or hold the batch. Don't want it dying halfway."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "Question on DocVault: are we doing a rolling restart of the storage nodes or taking the whole thing down? Ops said some teams pull client records on weekends for audit prep."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Rolling should work, we have 3 nodes and quorum needs 2. I did it last quarter, about 12 min per node. Only gotcha is AuthSSO token cache needs a flush after each restart or you get stale 401s."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 19,
+   "reply_to": 4,
+   "text": "Nice, thanks Kevin. Can you add that flush step to the runbook? I'll review it Wednesday."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 21,
+   "reply_to": 5,
+   "text": "Yep, doing it now."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "Who's on call Saturday night? I can take the primary shift if someone covers secondary. I have a family thing Sunday morning so I'd like to be done by 3am."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 44,
+   "reply_to": 7,
+   "text": "Travis, you're primary. Angelica, can you take secondary? Omar from SRE is also on standby for infra-level stuff."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 47,
+   "reply_to": 8,
+   "text": "Works for me. I'll swap my Monday morning off."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 95,
+   "reply_to": 1,
+   "text": "Confirmed: the October CPU is the last certified one for 11g on our OS version. I'll snapshot the DB volume first and test restore on staging Thursday. Estimated patch time is about 50 min including opatch and a datapatch run."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 101,
+   "reply_to": 10,
+   "text": "Great. Please also test the Perl DBD driver against the patched client libs on staging. Last time a libclntsh mismatch broke the batch and nobody noticed until Monday."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 104,
+   "reply_to": 11,
+   "text": "Right, painful lesson. I'll run the full batch on staging against the patched DB and compare row counts to Friday's output."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 160,
+   "reply_to": -1,
+   "text": "Heads up, change request for the window is in the CAB queue. It lists ReconLegacy and DocVault with a 4 hour max downtime and a rollback trigger at 01:00 if anything is unhealthy."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 166,
+   "reply_to": 13,
+   "text": "Thanks Travis. I'll ping Ravi's team in Ops so settlements knows the recon batch may shift by about 90 min Saturday night."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 210,
+   "reply_to": -1,
+   "text": "Pre-patch checklist is up in the wiki. Items: snapshots, staging validation, flush step, comms to Ops, rollback owner. Please sign off by Thursday noon."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 216,
+   "reply_to": 15,
+   "text": "Signed off on my items. Staging DocVault test is scheduled for Wednesday afternoon."
+  }
+ ]
+}

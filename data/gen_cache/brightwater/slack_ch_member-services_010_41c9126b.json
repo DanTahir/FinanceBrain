@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quick question on disputes: {{CLIENT_NAME:c_0038}} just called about a debit card transaction they don't recognize on checking {{ACCOUNT_NUMBER:a_00086}}. Are we still filing the claim in the dispute portal first, or do I need the signed affidavit up front?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Portal first, Joanna. Log the claim so the clock starts, then send the affidavit form for signature. Don't hold the claim waiting on paperwork."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 5,
+   "reply_to": 0,
+   "text": "Also confirm whether the card is still in their possession. If it's lost or stolen or the number may be compromised, block it and reissue before you do anything else."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 8,
+   "reply_to": 2,
+   "text": "Good call, they still have the card but I'll block it and order a replacement. Thanks Nichole."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Related: what's our timeline for provisional credit again? I had a member ask yesterday and I said 10 business days but wasn't 100% sure."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 17,
+   "reply_to": 4,
+   "text": "10 business days for provisional credit on Reg E claims is right. Document the date you received notice from the member in the claim notes, that's what we measure from."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 22,
+   "reply_to": 4,
+   "text": "Ops side: once the claim is in, we send it to the card network and wait on the merchant response. Provisional credit posts through CoreBanking, so if you don't see it on the member's account the day after approval, ping me."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 25,
+   "reply_to": 6,
+   "text": "Will do, thanks Rita. And if the member gets a final denial, who sends the letter?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 29,
+   "reply_to": 7,
+   "text": "Ops generates the denial letter, but the advocate who owns the case should call the member first so it isn't a surprise. Compliance wants the call noted too."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Heads up, {{CLIENT_NAME:c_0062}} came in wanting to dispute a recurring ACH debit on share savings {{ACCOUNT_NUMBER:a_00136}}. That's not a card dispute, right? Different process?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Right, ACH is different. Unauthorized debits need a written statement of unauthorized debit from the member, and there's a return window of 60 days. Check the posting date first."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 47,
+   "reply_to": 9,
+   "text": "If it's just a subscription they forgot about, it might be a revocation of authorization instead. Ask whether they authorized the originator at some point."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 52,
+   "reply_to": 10,
+   "text": "Posted 19 days ago, so we're well inside the window. They say they never authorized it. I'll have them sign the statement now."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 58,
+   "reply_to": 11,
+   "text": "Send me the statement once it's signed and I'll get the return through ACHHub same day if it's before the cutoff. Anything after goes out next business day."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 61,
+   "reply_to": 13,
+   "text": "Perfect, should have it to you within the hour. I'll reach out to {{CLIENT_NAME:c_0062}} by phone once the return is submitted."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Reminder to everyone: add a MemberCRM note on every dispute conversation, include claim type and dates. Makes quarterly audit prep way easier. Thanks team."
+  }
+ ]
+}

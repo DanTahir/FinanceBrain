@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quick sync on Kestrel lender meetings. We've got the first batch of banks lined up for Thursday and Friday. Joshua, can you confirm the schedule is final?"
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Mostly. Three of the five lenders are locked: two on Thursday afternoon, one Friday morning. Still waiting on the last two to confirm time slots. I'll chase them after lunch."
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "Reminder that the lender presentation should lead with the credit story, not the strategic rationale. These guys care about leverage and cash conversion first. Aisha, where are we on the deck?"
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 10,
+   "reply_to": 2,
+   "text": "v4 is in the shared folder. I restructured so credit highlights are slides 3-6, then the financing structure. Still need updated LTM EBITDA bridge from Erik's model."
+  },
+  {
+   "author_id": "e_046",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Bridge is about 80% done. Working through the add-backs now, the run-rate synergy piece needs a sanity check. I'll have it to you by 2pm."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 17,
+   "reply_to": 4,
+   "text": "Be conservative on the synergies. Lenders will haircut them anyway, and I'd rather we show a defensible number than get pushed on it in the room."
+  },
+  {
+   "author_id": "e_046",
+   "minutes_after_start": 19,
+   "reply_to": 5,
+   "text": "Got it. I'll show the case with only cost synergies that have an identified owner, and keep the revenue upside as a footnote."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 25,
+   "reply_to": -1,
+   "text": "Separate question: do we want to reuse the Q&A prep from Osprey? The lender questions on covenant headroom and sponsor equity cushion looked pretty similar."
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 29,
+   "reply_to": 7,
+   "text": "Yes, start from the Osprey Q&A doc but don't copy blindly. Kestrel has a different capital structure and the term loan B vs. unitranche discussion is going to come up much earlier."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 33,
+   "reply_to": 8,
+   "text": "I can adapt it. Should I add a section on the delayed-draw tranche too? That was an open item in the last term sheet turn."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 36,
+   "reply_to": 9,
+   "text": "Yes please. Also flag the pricing flex assumptions so we're aligned on what we can and can't say about OID."
+  },
+  {
+   "author_id": "e_046",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Quick one: for the lender model access, are we sending the full Excel or a locked PDF output pack? Last time some banks wanted the live file."
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 55,
+   "reply_to": 11,
+   "text": "PDF output pack only for the first round. Live model access only after they're through NDA and we've seen indications. Check with compliance if you're unsure on the distribution list."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 61,
+   "reply_to": -1,
+   "text": "Update: one more lender confirmed for Friday 10am. That leaves one still pending. I'll update the calendar invites and send the dial-ins this afternoon."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 64,
+   "reply_to": 13,
+   "text": "Great. Let's do a dry run Wednesday at 4pm so we can tighten the opening and the Q&A. Everyone block the time."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 67,
+   "reply_to": 14,
+   "text": "Blocked. I'll circulate the final deck draft by noon tomorrow so people have time to mark it up."
+  },
+  {
+   "author_id": "e_046",
+   "minutes_after_start": 70,
+   "reply_to": 15,
+   "text": "Works for me. Model and bridge will be locked before then."
+  }
+ ]
+}

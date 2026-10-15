@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_062"
+   ],
+   "subject": "Stress test scenario update - Q3 rate shock and credit spread widening",
+   "body": "Hi Owen, Catherine,\n\nQuick update on the Q3 stress test scenario set. We have added two scenarios to the standard library: a 150bp parallel rate shock over ten days, and a combined credit spread widening of 120bp on IG and 350bp on HY with an equity drawdown of 18%. Christopher has loaded both into RiskEngine and the first pass of results ran overnight.\n\nHeadline: under the combined scenario, the firm-wide stressed loss is roughly $41M, about 6% of regulatory capital and inside our 8% limit. Most of the contribution comes from the trading book's HY inventory. The rate shock is more benign at around $17M.\n\nOpen items: we still need Lending's input on collateral haircut assumptions, and ReportingBI will need a refresh before the numbers can go into the monthly pack. I plan to finalize by August 4.\n\nHappy to walk through the details whenever suits.\n\nBest,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_072"
+   ],
+   "subject": "Model validation findings - intraday VaR model, July review",
+   "body": "Owen, Paul,\n\nThe July validation review of the RiskEngine intraday VaR model is complete. Summary of findings:\n\n1. High: the volatility scaling for newly listed instruments relies on a proxy series that has not been revisited since last year. In a few cases it understates VaR by 8-12%.\n2. Medium: the correlation matrix refresh is running on a stale window when PricingSvc has a late close, which happened twice in June.\n3. Low: documentation of the lookback parameters does not match the production config.\n\nI recommend we remediate item 1 before the next quarterly attestation, and I would like Sam's team to help with a fix for item 2 so the refresh waits on the PricingSvc close flag.\n\nThe full write-up is on the shared drive. Can we meet next week to agree owners and dates?\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_063",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_057"
+   ],
+   "subject": "Liquidity coverage report - week ending Aug 7",
+   "body": "Hello all,\n\nAttached is the liquidity coverage summary for the week ending August 7. The firm LCR proxy stands at 142%, down from 151% the prior week, mainly because of a $60M increase in projected 30-day outflows tied to settlement funding on the trading desk. High-quality liquid assets were broadly flat at about $410M.\n\nTwo things to flag. First, intraday liquidity usage peaked at $88M on Tuesday, higher than our usual range, so Ravi, it would help to understand whether the wire timing shifted. Second, Marcus, the regulatory reporting extract in ReportingBI is still pulling the older outflow assumptions, and we are fixing that before month-end.\n\nWe remain comfortably above the internal floor of 120%. I will send the next update on August 20.\n\nRegards,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_057",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_061"
+   ],
+   "subject": "Model validation findings - credit exposure model follow-up",
+   "body": "Hi Angelica, Owen,\n\nFollowing up on the July findings, I have completed the re-test of the remediation for the volatility proxy issue. Results:\n\nThe new proxy approach brings the VaR understatement on newly listed instruments to within 2% in all 14 sampled cases, which is inside our tolerance. The correlation window fix is staged in test and should go live in the September release.\n\nOne new observation from this round: the exposure aggregation for netted counterparties double counts a small subset of collateral where positions sit in PositionStore under two legal entities. The impact is under $3M, so I rate it Medium, but it needs a data fix upstream.\n\nI propose we close the High finding and keep the other two open with revised dates of September 30. Let me know if you agree and I will update the tracker.\n\nThanks,\nChristopher",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_005",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_057",
+    "e_062"
+   ],
+   "subject": "VaR backtesting exceptions - August summary",
+   "body": "Hi all,\n\nSummary of VaR backtesting for the 250-day window through September 11. The 99% one-day VaR for the trading book had 5 exceptions, which puts us in the yellow zone under the standard traffic-light framework. Three of those occurred in the last 30 days, concentrated on volatile days in August when HY spreads gapped.\n\nInitial analysis points to two drivers: the lookback window reacting slowly to the volatility regime change, and a gap in intraday position capture for the desk's late-day trades. Daniel, I would like Trading to confirm the timing of booking for those trades.\n\nProposed actions: shorten the volatility decay factor on a trial basis, add an exceptions annex to the monthly risk pack, and brief the Risk Committee on September 24. A formal write-up will follow by the end of this week.\n\nPlease flag any concerns.\n\nBest,\nPaul",
+   "reply_to_previous": false
+  }
+ ]
+}

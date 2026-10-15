@@ -1,0 +1,64 @@
+{
+ "messages": [
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Anyone else seeing a bump in online banking lockouts today? I've had three members at the window since 11:30 saying the app keeps rejecting their MFA code."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Yep, I've had two calls on the phone queue. Both got the 'verification failed' loop after a password reset. Looks like MemberSSO to me, not the core."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Same here. One member could still see balances on the card side, so CoreBanking is fine. It's just the login/MFA step."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Heads up, I'm on with {{CLIENT_NAME:c_0074}} right now. Locked out after 3 failed MFA attempts. I verified identity on the call, but should I unlock in the admin console or wait for IT?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Go ahead and unlock after full verification, Joanna. Don't reset the MFA device though, that needs IT until we know what's going on. Log it in MemberCRM with the word 'lockout' so we can pull a count."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "{{CLIENT_NAME:c_0002}} just called, same issue. Unlocked fine but the SMS code never arrived. Contact on file is current, I confirmed it on the call. Could be a delivery delay on the text side."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 18,
+   "reply_to": 5,
+   "text": "That matches mine, Zach. Codes were arriving 5+ minutes late or not at all. I'll tell members to use the authenticator app option if they have it set up."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "I'm raising this with Andre in #it now. Please keep tallying lockout calls and walk-ins in the thread so I can give him a number. Don't promise members a fix time yet."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 26,
+   "reply_to": 7,
+   "text": "Count at the teller line is 5 so far. Two of them I walked through the unlock with Joanna's steps and they got in on the second try."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "I'm at 4 on the advocate side. For anyone still locked out, I'm telling them to try again in 15 minutes and call back if the code still doesn't come. I'll email the details through once IT confirms the cause."
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "emails": [
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Confidential: your approved leave and desk coverage",
+   "body": "Hi Erik,\n\nThank you for speaking with me and for the documentation you provided. I'm writing to confirm that your leave, related to {{EMP_MEDICAL:e_010}}, has been approved by HR and runs from the date we discussed. Please treat this note as confidential.\n\nI've copied Daniel so the two of you can sort out coverage for your book and open orders. Daniel, please plan a clean handover of Erik's working orders and counterparty contacts before he steps away, and keep the explanation to the desk limited to the fact that he is on approved leave.\n\nErik, you don't need to monitor email or the OMS while you are out. HR will be your point of contact for benefits and return-to-work paperwork. Please reach out to me directly if anything changes.\n\nTake care,\nLinda Brandt\nChief Operating Officer",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_012"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Confidential: approved leave and quant coverage plan",
+   "body": "Hi Sean,\n\nFollowing our conversation, I'm confirming that your leave request, connected to {{EMP_MEDICAL:e_012}}, has been approved. Please keep this message confidential.\n\nDaniel is copied so he can arrange coverage for your model maintenance and any in-flight research requests. Daniel, please have Sean document the status of his current work and name a backup among the quant team for anything that touches production pricing inputs. When informing the wider desk, please say only that Sean will be out on approved leave.\n\nSean, there's no expectation that you check email or chat while you're away. HR will contact you separately about benefits and the return process, and you can come to me with any questions at all.\n\nBest wishes,\nLinda Brandt\nChief Operating Officer",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Confidential: compensation adjustment following mid-year review",
+   "body": "Hi Steven,\n\nFollowing the mid-year review cycle, I'm pleased to confirm that your compensation has been adjusted. The updated figure is {{EMP_SALARY:e_011}}, effective with the next payroll cycle. Daniel has recommended this change in recognition of your execution quality and your work on the desk's routing improvements this year.\n\nHR will send the formal letter shortly, and the change will be reflected in HRIS once processed. Please keep this information confidential and don't discuss it with colleagues. If you have questions about the adjustment, Daniel or I are happy to talk it through.\n\nThank you for your contribution to the desk.\n\nBest regards,\nLinda Brandt\nChief Operating Officer",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_079"
+   ],
+   "cc_ids": [
+    "e_072"
+   ],
+   "subject": "Confidential: payroll record update for your new address",
+   "body": "Hi Vincent,\n\nThanks for letting us know about your move. I'm writing to confirm that HR will update your payroll and tax records to show your new home address, {{EMP_HOME_ADDRESS:e_079}}. The change should be reflected in HRIS and in payroll by the next cycle.\n\nPlease review your employee profile once it's updated and tell HR if anything looks wrong. If you have any employer-provided equipment or mailed documents, let HR know so those records are corrected too. Sam is copied only so he is aware that you may need a few minutes to verify the update.\n\nPlease keep this message confidential and don't forward it. Congratulations on the move, and let me know if I can help with anything.\n\nBest,\nLinda Brandt\nChief Operating Officer",
+   "reply_to_previous": false
+  }
+ ]
+}

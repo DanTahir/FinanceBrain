@@ -1,0 +1,75 @@
+{
+ "emails": [
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_017",
+    "e_026",
+    "e_020"
+   ],
+   "cc_ids": [
+    "e_021"
+   ],
+   "subject": "Proposed Q3 model portfolio changes - growth and balanced models",
+   "body": "Hi all,\n\nAhead of Thursday's investment committee, here is the proposed set of changes to our model portfolios for Q3.\n\nGrowth model: trim US large-cap growth from 34% to 30% and add 2% each to international developed and short-duration investment grade credit. Balanced model: extend duration modestly by moving 3% from T-bills into the intermediate Treasury sleeve, and cap single-sector equity exposure at 18%.\n\nRationale is mostly valuation dispersion plus the rate path. I ran the rebalance in PortfolioMgr in preview mode and estimated turnover at about 6.5%, with limited realized gains for most taxable accounts. Tricia, please sanity check this against the higher-risk clients on your book, including {{CLIENT_NAME:c_0172}}, where the concentration limits are tighter.\n\nI'd like feedback by end of day Wednesday so I can finalize the trade lists before the committee meets.\n\nThanks,\nJanet",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_026",
+   "to_ids": [
+    "e_017",
+    "e_019",
+    "e_020",
+    "e_021"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "Model portfolio update effective after Labor Day - rebalance schedule",
+   "body": "Team,\n\nHope everyone had a good holiday weekend. Quick note on the model changes approved by the committee in July. The rebalance window opens today, and we will run the batches in PortfolioMgr over the next three trading days.\n\nSchedule: Balanced and Conservative models today and tomorrow, Growth model on Wednesday. Please hold any manual trades in affected accounts until the batch has completed, otherwise we risk drift against the target weights.\n\nAdvisors, if a client has a restriction or a tax-loss harvesting instruction that conflicts with the new weights, send me the account and the details by noon tomorrow. For example, the brokerage account {{ACCOUNT_NUMBER:a_00474}} has a restricted position that I have already flagged for an exception.\n\nSandra, can you pull the exception list into one sheet for the team?\n\nThanks,\nMichael",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_026"
+   ],
+   "cc_ids": [
+    "e_019",
+    "e_022"
+   ],
+   "subject": "Re: Model portfolio update effective after Labor Day - rebalance schedule",
+   "body": "Hi Michael,\n\nThanks for the schedule. Two items from my book after reviewing the preview trade lists.\n\nFirst, {{CLIENT_NAME:c_0231}} has a medium risk profile and holds a large legacy position in the brokerage account {{ACCOUNT_NUMBER:a_00474}}. The rebalance would realize a meaningful short-term gain, so I'd like to exclude that lot and rebalance only the remaining holdings. The client asked me last week to defer any gains until after year end.\n\nSecond, the Growth batch on Wednesday overlaps with a client call I have scheduled, so please send me the confirmation report once it has settled and I will follow up with clients who have large changes.\n\nI will document the exception in ClientHub today. Please confirm the exclusion works with the target drift tolerance.\n\nBest,\nJamie",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_019",
+    "e_026",
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Post-rebalance review and drift exceptions on high-risk accounts",
+   "body": "Janet, Michael, Grace,\n\nFollowing the rebalance this week, I reviewed drift on my high-risk clients. Most accounts landed within the 1% tolerance, but there are two items.\n\nThe brokerage account for {{CLIENT_NAME:c_0172}}, {{ACCOUNT_NUMBER:a_00356}}, ended with international developed about 1.8% overweight because a pending corporate action delayed the final buy. I would like to run a corrective trade tomorrow morning rather than wait for the monthly cycle.\n\nSecond, the cash management sleeve was not included in the batch at all, which is correct per policy, but the cash buffer is now thinner than the client's stated minimum. I'll contact the client directly to confirm preferences before moving anything.\n\nOwen, copying you since the corrective trade slightly increases the account's equity beta. I expect it to remain inside the limit but wanted you aware.\n\nRegards,\nTricia",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_072",
+    "e_063",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_019",
+    "e_023"
+   ],
+   "subject": "Custody platform migration - wealth management readiness and cutover dates",
+   "body": "Hi Sam, Ravi, Marcus,\n\nI want to align on the custody platform migration timeline from the Wealth Management side. Our advisors and portfolio managers have a few dependencies we need to settle before cutover.\n\nPortfolioMgr needs to be validated against the new custody position feeds, and we need a clean reconciliation of holdings with PositionStore for at least two consecutive days before we sign off. Ravi, could Operations confirm that settlement and cash movement testing will include the cash management accounts, for example {{ACCOUNT_NUMBER:a_00357}} as one of our sample accounts?\n\nMarcus, we also need compliance sign-off on the client communication wording, since some clients will see new statements and account identifiers. We do not want to send anything before it has been reviewed.\n\nSam, please share the latest cutover calendar and rollback plan. I would like to avoid cutting over during the month-end rebalance window. Janet will coordinate model portfolio freezes on our side.\n\nCan we meet Friday to confirm?\n\nThanks,\nGrace",
+   "reply_to_previous": false
+  }
+ ]
+}

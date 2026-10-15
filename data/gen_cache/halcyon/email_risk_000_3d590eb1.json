@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_062"
+   ],
+   "subject": "VaR backtesting exceptions - Q2 close summary",
+   "body": "Hi Owen,\n\nFollowing the Q2 close, here is where we landed on the 99% one-day VaR backtest. RiskEngine logged 4 exceptions across the trailing 250 days, which puts us at the upper edge of the green zone under the Basel traffic-light approach. Three of the four fell in the equity derivatives book, clustered around the late-June volatility spike. The fourth was a rates book exception on a single day when a vendor curve update arrived after the VaR snapshot.\n\nChristopher is rerunning the exception days with the corrected curve timestamps to confirm the fourth was a timing issue and not a model miss. I expect those results Tuesday. If the three equity exceptions persist after the rerun, I would like to look at whether our volatility surface interpolation is lagging in fast markets.\n\nI will bring a one-page summary to Monday's risk meeting and flag the numbers for ReportingBI so the regulatory dashboard matches what we present.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_062"
+   ],
+   "subject": "Model validation findings - PD scorecard and VaR overlay",
+   "body": "Hi Owen, Paul,\n\nI finished the first pass of the annual model validation and wanted to share the headline findings before the written report goes out.\n\n1. Credit PD scorecard: discriminatory power is stable (Gini essentially flat versus last year), but the population stability index on two inputs has drifted above our 0.25 threshold. I recommend recalibration review.\n2. VaR volatility overlay: the documentation does not match the code path currently running in RiskEngine. The logic is sound, but the decay factor in production differs from the approved methodology paper. This is a documentation and change-control finding, rated medium.\n3. Data lineage: two input feeds to the model lack an owner attestation.\n\nNone of these are rated high, but items 1 and 2 need remediation plans with dates. Can we agree owners at Monday's meeting? Christopher has the supporting test files if anyone wants to review them.\n\nBest,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_057"
+   ],
+   "subject": "Stress test scenario update - rates shock and credit spread widening",
+   "body": "Hi Owen, Daniel,\n\nWe are refreshing the quarterly stress scenarios and I want to give the trading desk early visibility. Proposed changes for this cycle:\n\n- Rates: parallel +200bp shock replaced with a steepener (2s up 150bp, 10s up 250bp) to better reflect the recent curve dynamics.\n- Credit: investment grade spreads +120bp and high yield +450bp, with a liquidity haircut on less liquid corporates.\n- Equity: -25% index move with a volatility spike to 45.\n\nDaniel, I would like your desk's view on whether the steepener is plausible enough and whether any concentrated positions deserve a bespoke overlay. Angelica will run the scenarios through RiskEngine once we lock them, and results will feed into ReportingBI for the committee pack.\n\nCould you send comments by next Friday? Happy to walk through this on a quick call.\n\nRegards,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_057"
+   ],
+   "subject": "Re: Stress test scenario update - rates shock and credit spread widening",
+   "body": "Paul,\n\nThanks for the heads-up. The steepener makes sense to us and is closer to what we are seeing in flows. Two comments:\n\n1. The equity vol spike to 45 feels a bit light given how the book behaves in a gap-down. Could we run a 55 variant alongside it? Our short gamma positions around quarter-end are where the loss would show up.\n2. On the liquidity haircut for corporates, please confirm it applies to inventory held in the trading book and not only to the banking book. We hold a meaningful amount of off-the-run paper.\n\nI will have Derek pull a concentration list by Thursday so you can decide on bespoke overlays. Happy to talk Wednesday afternoon.\n\nThanks,\nDaniel",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_056",
+   "to_ids": [
+    "e_001",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_057",
+    "e_061"
+   ],
+   "subject": "Model validation findings - remediation status",
+   "body": "Hi Catherine, Marcus,\n\nAn update on the annual model validation. The final report is complete and the findings were reviewed with model owners last week.\n\nSummary: no high-rated findings. Two medium items remain open. First, the credit PD scorecard shows input drift on two variables, and recalibration is scheduled for the end of November. Second, the production decay factor in the VaR volatility overlay did not match the approved methodology document. We have aligned the documentation and submitted the change through formal change control, so this is closed pending sign-off.\n\nMarcus, since the scorecard feeds onboarding and lending decisions, I would like your team to be aware of the recalibration timeline in case it affects any regulatory commitments. Angelica will track remediation and send a status note each month. I am glad to take questions at next week's risk committee.\n\nBest regards,\nOwen",
+   "reply_to_previous": false
+  }
+ ]
+}

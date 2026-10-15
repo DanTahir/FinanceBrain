@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_063"
+   ],
+   "subject": "Trade error write-up: duplicate child orders on 6/30 close",
+   "body": "Hi Daniel,\n\nFollowing up on yesterday's issue, here is the write-up. During the closing auction on 6/30, a parent order in OMS was amended while two child slices were still working at the venue. The amend did not cancel the working slices, so the algo re-sent the residual and we ended up with roughly 18,400 shares of duplicate fills, about $412K notional. We caught it at 4:07 PM when the TradeBlotter position did not match the desk's expected position.\n\nImpact: we closed out the excess in the auction at a net loss of about $3,150 versus arrival. No client was disadvantaged; the error was absorbed in the firm error account.\n\nRoot cause: the amend workflow in OMS lets a trader edit quantity without a hard check on live child orders. I should have cancelled the slices first, and that is on me.\n\nNext steps: I will file a ticket with Technology for a pre-amend validation, and I will add a checklist step to the desk's close procedures. Happy to walk through the timeline with Marcus and Ravi if useful.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_010",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_011",
+    "e_047"
+   ],
+   "subject": "Trade error write-up: wrong side on small-cap block, 7/13",
+   "body": "Daniel,\n\nWriting up the error from yesterday afternoon so it is on record.\n\nAt about 2:40 PM I keyed a 25,000 share small-cap block as a buy when the client instruction was a sell. The order routed through OMS to the dark pool before the confirmation call came back and I realized the mismatch. Total executed before cancel was 6,200 shares, roughly $186K notional. I reversed the position at 2:52 PM and the realized loss on the round trip was about $1,900, booked to the error account.\n\nContributing factors: the order ticket defaults to Buy on a new line, and I was handling two tickets at once during a busy tape. Steven spotted the discrepancy on the TradeBlotter first, which helped limit the size.\n\nCorrective actions: I will read back side and quantity before release on every block over $100K, and I have asked that the default side be removed from the ticket template. I am also happy to present the case at Thursday's desk meeting.\n\nRegards,\nErik",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_005",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_014",
+    "e_056"
+   ],
+   "subject": "Q2 best execution quarterly report: draft for review",
+   "body": "Hi Daniel, Marcus,\n\nThe draft Q2 best execution report is ready for your review. Data is pulled from OMS fills and matched against the consolidated tape benchmarks.\n\nHeadlines:\n- Average implementation shortfall on algo orders came in at 6.1 bps, down from 7.4 bps in Q1.\n- Price improvement on marketable limit orders averaged 0.9 bps, with the largest gains on mid-cap names.\n- Two venues fell below our fill-quality threshold on short-duration orders and are flagged for the Execution Committee.\n- Rate of orders routed away from the top-ranked venue was 3.2%, mostly due to size constraints, and each exception is annotated.\n\nJessica Guzman validated the methodology section and the TCA sample. I would like to confirm the wording on the venue-flagging language with Compliance before this goes to the committee.\n\nCould you send comments by Friday 8/28? I can turn a revision the following Tuesday.\n\nThanks,\nRobert",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_006",
+    "e_007",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Broker commission review: Q3 scorecard and proposed tiering",
+   "body": "Team,\n\nAs we do each quarter, I am pulling together the broker commission review before the vote allocation is finalized. Please look at the attached scorecard figures by Wednesday 10/7 and send me your feedback.\n\nWhere we are:\n- Total commissions paid in Q3 were around $2.3M, roughly 4% below Q2 on lower volumes.\n- Three brokers account for about 55% of the spend. I would like to rebalance a bit toward the two that scored best on execution quality and research usefulness.\n- One bulge-bracket broker has been under-delivering on block liquidity and I propose cutting its share by about a quarter.\n\nPlease weigh in on three things: research quality, quality of sales coverage, and any settlement friction you have seen. Jessica and Ronald, your client-driven direction matters here, so let me know if any soft-dollar commitments need protecting.\n\nI will take the recommendation to Martin once we agree on the tiers.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_072",
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_008",
+    "e_056"
+   ],
+   "subject": "New FIX connection to a venue: UAT plan and cutover",
+   "body": "Hi Sam,\n\nWe are ready to move ahead with the new FIX 4.4 session to the alternative trading venue the desk approved last month. Here is what we need from Technology.\n\nScope:\n- A new FIX acceptor/initiator session configured in OMS, with separate sender and target comp IDs for UAT and production.\n- Support for new order, cancel/replace, and IOC and minimum quantity instructions.\n- Execution reports flowing back to TradeBlotter with correct venue tagging.\n\nTimeline: venue certification slot is Tuesday 10/20. Could your team have the UAT session stood up by Friday 10/16 so Travis and I can run the standard test script? Production cutover would be the week of 10/26, starting with a low-volume symbol list.\n\nOwen, copying you because we will want a pre-trade risk limit applied to the new route before any live flow.\n\nDaniel, FYI on the schedule. Let me know if the dates are tight and I will get back to the venue.\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Got a heated voicemail from {{CLIENT_NAME:c_0022}} last night. Says the June statement for {{ACCOUNT_NUMBER:a_00049}} shows a cost basis that doesn't match what they have in their own records. Anyone seen this on other statements?"
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Not on my book, but I did get one from {{CLIENT_NAME:c_0073}} yesterday. Different issue though: the cash management statement for {{ACCOUNT_NUMBER:a_00156}} doesn't show the sweep activity, just the ending balance."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 9,
+   "reply_to": 0,
+   "text": "Kelly, can you tell me which lots they're disputing? If it's the tax lots from the transfer in, PortfolioMgr sometimes defaults to average cost after a rebalance. I can pull the lot detail this morning."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 14,
+   "reply_to": 2,
+   "text": "That'd help. They mentioned a position they bought in 2021 that now shows a higher basis than expected. I'll call back at 10 once I know more. Their callback number is in ClientHub: {{CLIENT_PHONE:c_0022}}."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 20,
+   "reply_to": -1,
+   "text": "Heads up, two statement complaints in one morning is a pattern. Grace, are we sure nothing changed in the statement template last cycle? I recall ops mentioning a format tweak in June."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "Good flag Scott. There was a layout change, but it wasn't supposed to touch basis or sweep detail. Let's log both complaints in ClientHub under one tag so we can trace them. James, please create it."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 31,
+   "reply_to": 5,
+   "text": "On it. Tagging both as STMT-JUN so Ops and Tech can filter. Should I attach the PDFs or just reference the account?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 35,
+   "reply_to": 6,
+   "text": "Reference the account only, keep PDFs in DocVault. No client details in the tag description please."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 58,
+   "reply_to": 3,
+   "text": "Pulled the lots. The 2021 position was adjusted for a corporate action, and the statement is showing the post-adjustment basis. The client's records probably show the original. Basis is correct, but the statement doesn't footnote the adjustment."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 63,
+   "reply_to": 8,
+   "text": "That makes sense, thanks Michael. Can you send me a one-page summary of the adjustment so I can walk {{CLIENT_NAME:c_0022}} through it? They're pretty anxious about the tax impact."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 70,
+   "reply_to": 9,
+   "text": "Will do by 9:30. I'll show original basis, the adjustment, and the resulting basis side by side. Might be worth suggesting they loop in their CPA."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 112,
+   "reply_to": 1,
+   "text": "Update on the sweep issue: the statement only shows ending balance because the activity section got moved to page 3 in the new layout. Nothing is missing, just buried. I'll email {{CLIENT_EMAIL:c_0073}} with a marked-up page."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 125,
+   "reply_to": -1,
+   "text": "So both are really presentation problems, not data errors. We should ask Tech to add a basis adjustment footnote and put sweep activity back on page 1. Grace, want me to open the ticket?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 131,
+   "reply_to": 12,
+   "text": "Yes please, Scott. Mark it priority for the August cycle and cc me. I'd also like a short heads-up in this channel so advisors are ready if more calls come in."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 186,
+   "reply_to": -1,
+   "text": "Spoke with {{CLIENT_NAME:c_0022}}. Walked through the summary and they're satisfied with the explanation. Will send a follow-up note today and ask that they confirm with their CPA. Closing this one out in ClientHub."
+  }
+ ]
+}

@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up all: MemberSSO MFA rollout for members is targeted for the week of July 20. Want to pin down what could bite us before we announce anything. Anyone see conflicts?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "From Ops side I'm mostly worried about the nightly stuff. If MFA enrollment spikes load on CoreBanking, does that touch the ShareRecon window?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Good question. ShareRecon pulls from CoreBanking starting around 11pm. MFA enrollment itself lives in MemberSSO, so no direct dependency, but the extra OnlineBanking logins could slow CoreBanking a bit at peak."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "Separate question: are we sending enrollment events to the warehouse? I'd like to build a dashboard for adoption % by day if so."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 13,
+   "reply_to": 3,
+   "text": "Yes, MemberSSO can export enrollment status daily. Amy, you and Hector sync on the feed format. Aggregate counts only, nothing member-identifying."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Perfect, aggregates are all I need. Will draft a schema Monday."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 19,
+   "reply_to": 2,
+   "text": "Hector, honest question: if ShareRecon breaks that week, who else can fix it? Feels like it's all in your head right now."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 24,
+   "reply_to": 6,
+   "text": "Fair, and yeah, it's mostly me. Those scripts are a decade of patches with almost no docs. I'll be out July 23-24 too, which is right in the rollout window."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 28,
+   "reply_to": 7,
+   "text": "That's a risk I don't love. Hector, can you do a walkthrough doc plus a recorded session before the 17th? Amy can shadow so there's a second person."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 31,
+   "reply_to": 8,
+   "text": "Happy to shadow. I know the GL tables well, just not the script logic."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 36,
+   "reply_to": 8,
+   "text": "Works. I'll write up the run order, the restart steps, and the known failure modes. Probably a couple hours Tuesday and Wednesday."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 41,
+   "reply_to": 10,
+   "text": "Please include what Ops should check in the morning if recon fails. Right now we just ping you and wait."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 45,
+   "reply_to": 11,
+   "text": "Will do, a one-page checklist for Ops with the log location and when to escalate."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Also proposing a soft launch: staff and a small member pilot July 15-17, then full rollout the 20th if clean. Thoughts?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 56,
+   "reply_to": 13,
+   "text": "+1. A pilot lets us see recon results after real MFA traffic before everyone's on it."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 60,
+   "reply_to": 13,
+   "text": "Agree. I'll watch the first two nightly ShareRecon runs during the pilot and report back in this channel."
+  }
+ ]
+}

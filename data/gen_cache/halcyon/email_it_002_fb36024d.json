@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_074",
+    "e_079",
+    "e_081"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Q3 access recertification - Technology entitlements due Sept 30",
+   "body": "Hi all,\n\nThe quarterly access recertification kicked off this morning and Technology's attestations are due by end of day Wednesday, September 30. Marcus Bell's team will be pulling the final report on October 1, so we have no slack on this one.\n\nPlease review the following for the systems you own or administer: AuthSSO admin group membership, production database roles on ReconLegacy (the Oracle 11g schema owners in particular), and any break-glass accounts. Anyone who has moved projects since April should have their access reduced, not just reviewed.\n\nLast quarter we had three orphaned service accounts that nobody claimed. If you see a service account without a named owner, flag it to me and do not simply approve it. I would rather disable it and deal with the fallout than carry it into the audit.\n\nPriya, since you are leaving us in October, please make sure your owner assignments are transferred to someone before your last day so nothing falls through.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_078"
+   ],
+   "cc_ids": [],
+   "subject": "Laptop refresh - wave 2 schedule and imaging notes",
+   "body": "Hi Sam, Barbara,\n\nQuick update on the laptop refresh. Wave 1 (Trading support and Risk) wrapped on Thursday with 22 of 24 devices swapped. The two stragglers are waiting on users who are traveling and will do swaps next week.\n\nWave 2 starts Monday, September 21 and covers Technology and Operations, roughly 40 machines. A few things to be aware of:\n\n1. The new image enrolls devices in SSO at first login, so users need to have their AuthSSO MFA token handy or they will get locked out at the enrollment screen.\n2. Engineers with local Docker volumes should back them up to the shared dev store. We will not migrate local containers.\n3. Old devices must be returned within five business days so we can wipe and log them for asset tracking.\n\nBarbara, can you cover the Monday and Tuesday swap slots? I will take Wednesday through Friday. I will send the sign-up sheet to the team this afternoon.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_078",
+   "to_ids": [
+    "e_072",
+    "e_077",
+    "e_063"
+   ],
+   "cc_ids": [],
+   "subject": "DR test planning - proposed scope and dates for Q4 failover exercise",
+   "body": "Hi all,\n\nI have drafted a first pass at the Q4 disaster recovery test plan and want feedback before we socialize it more widely. Proposed window is Saturday, November 14, with a 6-hour failover exercise to the secondary site.\n\nIn scope: AuthSSO, MarketDataFeed, PricingSvc, PositionStore and GLCore. Because OMS depends on both PricingSvc and AuthSSO, I would like to validate those two before we bring OMS up, in that order. SettlementEngine is stretch scope if the first tier goes cleanly.\n\nOpen question for Ravi: can Operations confirm availability for validating GLCore balances after failover? We need someone to sign off that the ledger state matches the pre-test snapshot.\n\nI also want to explicitly call out ReconLegacy. The Oracle 11g instance has never been failed over and the runbook is two years old. I suggest we do a dry run on a cloned instance beforehand.\n\nPlease send comments by Friday, October 2.\n\nThanks,\nBarbara",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_078"
+   ],
+   "cc_ids": [
+    "e_077",
+    "e_063",
+    "e_056"
+   ],
+   "subject": "DR test planning - recovery objectives and ReconLegacy dry run",
+   "body": "Barbara,\n\nThanks for the draft last week. Following up with comments as promised. Overall the scope looks right, and I agree with ordering AuthSSO and PricingSvc ahead of OMS.\n\nA few changes I would like to see before we circulate it:\n\n1. Add explicit RTO and RPO targets per system. Critical systems should be at 30 minutes RTO and near-zero RPO. Owen, please confirm RiskEngine expectations so we can add it as a downstream check after PricingSvc and PositionStore come up.\n2. Add FraudScore and DataLake to the plan. They are not in the current list, but AMLMonitor and ReportingBI both rely on them and Compliance will ask.\n3. Agree on the ReconLegacy dry run. Omar, can you clone the Oracle instance by October 16 so we have a month to fix the runbook?\n\nRavi has confirmed Operations staff for GLCore validation on the November date. I will schedule a walkthrough with all system owners the week of October 19.\n\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_073",
+   "to_ids": [
+    "e_072",
+    "e_079",
+    "e_081"
+   ],
+   "cc_ids": [
+    "e_077"
+   ],
+   "subject": "AuthSSO migration - handover notes before my last day",
+   "body": "Hi all,\n\nToday is my last day, so I wanted to leave a clear status on the AuthSSO migration to the new identity provider tenant.\n\nDone: all internal web apps, ClientHub and DocVault are cut over and have been stable for two weeks. The OMS integration passed testing in staging with the new token claims.\n\nRemaining: the legacy SAML apps and the service-to-service flows. ReconLegacy still authenticates through a local Oracle account and is not covered by the migration. I recommend leaving it alone until the batch is retired. Changing it risks breaking the end-of-day run.\n\nRisks: the old IdP certificate expires in mid-December. If the remaining apps are not cut over by then, users will lose login. Vincent, you have the best context on the SAML apps, so please own that list. Angelica, please take the service account inventory.\n\nMy runbook and rollback steps are in the migration folder in the wiki. Sam has the cutover calendar. It has been a pleasure working with you all.\n\nPriya",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_032",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Pulling pipeline numbers for Brian's 10am. I have 23 deals in active pipeline, about $41.6M total committed volume. Can everyone confirm their stage updates in LoanOrigination before 9:30?"
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Credit memos: 9 in analysis, 6 waiting on financials from borrowers. Two of those are over 10 days stale, I'll flag them in the sheet."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 9,
+   "reply_to": 0,
+   "text": "I've got 6 on my side, roughly $12.4M. Two should hit underwriting this week. {{CLIENT_NAME:c_0057}} is the biggest, a term loan upsize on the existing facility."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 14,
+   "reply_to": 2,
+   "text": "For {{CLIENT_NAME:c_0057}}, I still need the updated debt schedule and the interim P&L. Can't clear underwriting without them. Realistic submit is Monday."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "Understood, chasing the client's CFO this morning. I'll push the stage to 'Docs Pending' so it doesn't inflate the underwriting count."
+  },
+  {
+   "author_id": "e_038",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Closing side: 4 loans scheduled to fund by end of month, ~$7.8M. One slipped because the title work isn't back. Will update the forecast tab."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 33,
+   "reply_to": 5,
+   "text": "Which one slipped? If it's the one I'm thinking of, that moves us under the monthly funding target by a bit. Need to know before I talk to Martin."
+  },
+  {
+   "author_id": "e_038",
+   "minutes_after_start": 37,
+   "reply_to": 6,
+   "text": "It's {{CLIENT_NAME:c_0046}}, the refinance. Title company says Tuesday at the earliest, so it likely funds first week of September. Rest are on track."
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Heads up, CreditScoring reran overnight and a couple of scores shifted. {{CLIENT_NAME:c_0197}} moved from a 'pass' to a 'refer' on the revised model. Josh, do you want to look at it before it goes in the pipeline totals?"
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 58,
+   "reply_to": 8,
+   "text": "Yes, send me the memo draft. A refer isn't a decline, but I want to see what drove the change. Probably the updated cash flow ratio."
+  },
+  {
+   "author_id": "e_032",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Updated total: 22 deals, $39.9M after moving the refinance out of the month-end bucket and parking {{CLIENT_NAME:c_0197}} as 'under review'. Sheet is refreshed."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 91,
+   "reply_to": 10,
+   "text": "Thanks Lynn. Month-end funded forecast is the number I care about. Anyone see upside beyond the 4 closings?"
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 97,
+   "reply_to": 11,
+   "text": "Possibly one small one, about $1.1M, if the borrower signs the commitment letter by Friday. I'd call it 50/50, so I'd leave it out of the base case."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 104,
+   "reply_to": 12,
+   "text": "Agreed, keep it out of the base case. Let's list it as upside only. Great work everyone, see you at 10."
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 131,
+   "reply_to": -1,
+   "text": "FYI {{CLIENT_NAME:c_0086}}'s application is complete and in my queue. Should have the memo to Josh by end of day tomorrow."
+  }
+ ]
+}

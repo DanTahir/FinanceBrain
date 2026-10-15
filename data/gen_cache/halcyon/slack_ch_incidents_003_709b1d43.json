@@ -1,0 +1,112 @@
+{
+ "messages": [
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: the overnight CreditScoring batch failed. Nightly model refresh job exited non-zero around 02:40 ET, so decision scores in LoanOrigination are still showing yesterday's run. Opening this as a SEV3 for now."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Thanks Angelica. Do we know the failure point yet? Is it the job itself or something upstream like DataLake?"
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Looking at logs now. The feature extraction step pulled from DataLake fine, but the scoring step threw a schema mismatch error on a new column. Looks like a partition got loaded with an extra field late last night."
+  },
+  {
+   "author_id": "e_071",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "Dropping in from Ops. Is this going to touch SettlementEngine at all? We have the morning clearing run at 9:30 and I just want to confirm nothing on our side depends on the scoring output."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "No, CreditScoring only feeds LoanOrigination. SettlementEngine depends on OMS and GLCore, so you're clear. Same for PricingSvc, not involved here."
+  },
+  {
+   "author_id": "e_071",
+   "minutes_after_start": 13,
+   "reply_to": 4,
+   "text": "Perfect, thanks. Carry on with clearing as normal then."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 18,
+   "reply_to": 2,
+   "text": "Who owns the DataLake load that added the column? If it's a one-off we should patch the job. If it's permanent we need the schema contract updated and Lending told."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 26,
+   "reply_to": 6,
+   "text": "Traced it to a data engineering change that shipped yesterday afternoon, adding a bureau_flag field to the upstream table. It's meant to be permanent. Nobody updated the scoring job's expected schema."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 29,
+   "reply_to": 7,
+   "text": "OK. Impact is limited to loan applicants scored this morning getting stale scores, correct? Any in-flight decisions at risk?"
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 35,
+   "reply_to": 8,
+   "text": "Correct. Lending has a handful of applications queued that would normally use fresh scores. Nothing auto-approved on stale data, the origination workflow flags scores older than 24h for manual review. So it's slowdown, not bad decisions."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "Good. Let's keep this SEV3 then. Angelica, please push the schema fix and rerun the batch. I'll let Brian Kowalski's team know to expect delayed scores until midday."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Fix is up for review: updated the expected schema to include the new column and made the loader tolerant of additive fields going forward so this class of change won't break the job again."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 62,
+   "reply_to": 10,
+   "text": "Reviewed and approved. Nice call on the additive tolerance. Go ahead and deploy and trigger a manual rerun."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 95,
+   "reply_to": -1,
+   "text": "Rerun kicked off at 9:35 ET and is running through feature extraction now. Expect about 40 minutes based on the usual duration."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 140,
+   "reply_to": -1,
+   "text": "Batch completed successfully at 10:20 ET. Spot checked scores in LoanOrigination, they're current and distributions look in line with yesterday's. Queued applications are now flowing."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 145,
+   "reply_to": 13,
+   "text": "Great, thanks. Marking this resolved. Please add a schema-change notification step to the DataLake release checklist so we hear about it before the batch does."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 150,
+   "reply_to": 14,
+   "text": "Will do. I'll file a ticket today and write up a short postmortem. Root cause: unannounced additive schema change plus a strict schema check in the scoring job. Fix is deployed."
+  },
+  {
+   "author_id": "e_071",
+   "minutes_after_start": 155,
+   "reply_to": -1,
+   "text": "Clearing ran fine on our end this morning. Thanks for the quick heads-up, both."
+  }
+ ]
+}

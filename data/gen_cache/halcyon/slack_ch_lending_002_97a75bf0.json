@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Need a second set of eyes on an underwriting exception for {{CLIENT_NAME:c_0064}}. Renewal on the operating line, DSCR came back at 1.12x against our 1.25x policy floor. Anyone free to look at it this afternoon?"
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "I can take it. What's driving the DSCR miss, one-time item or a structural drop in cash flow?"
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Mostly a one-time equipment repair plus a slow Q2 on receivables. Client says Q3 is already recovering. Loan is a_00137 if you want to pull the history in LoanOrigination."
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "FYI I'm rerunning the spreads for {{CLIENT_NAME:c_0064}} with the repair add-back normalized. Should have the adjusted DSCR in about 20 min."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Careful with the add-back, policy only allows non-recurring items with third-party documentation. Do we have the invoice from the repair vendor in the file?"
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "Good catch. Invoice is in DocVault but the proof of payment isn't. Brendan, can you get a bank statement showing it cleared?"
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "Will ask the client now. Statements for the operating account should be quick, they usually respond same day."
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Reminder that any exception over 10 bps of pricing relief or below DSCR floor needs a written mitigant and sign-off from two underwriters. Not just a verbal OK in the channel."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 38,
+   "reply_to": 7,
+   "text": "Understood. Tammy, would you be my second signer on this one? You're free of any relationship conflict since Brendan owns the client."
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 41,
+   "reply_to": 8,
+   "text": "Yes, send me the memo once the adjusted numbers are in. I want to see the trailing 12 month cash flow and the covenant package."
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Adjusted DSCR with normalized add-back comes to 1.24x. Still a hair under 1.25x, but close. Spreads are attached in the credit file."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 63,
+   "reply_to": 10,
+   "text": "That looks right to me. I'd suggest we also tighten the covenant to quarterly testing as a mitigant, plus a springing cash dominion if it dips below 1.15x."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 70,
+   "reply_to": 11,
+   "text": "Quarterly testing works for me. Cash dominion might be heavy for a client at medium risk with a clean payment history. Let's propose quarterly testing and a reporting trigger instead."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 92,
+   "reply_to": -1,
+   "text": "Unrelated but similar: {{CLIENT_NAME:c_0219}} consumer loan, a_00453, has a thin file on income docs. Can one of the seniors confirm whether the pay stub plus bank history satisfies the alt-doc exception?"
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 97,
+   "reply_to": 13,
+   "text": "Yes if you have 90 days of deposits that match the stub cadence. Document the reconciliation in the exception log. Happy to review it after I finish the memo for Brendan's deal."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 140,
+   "reply_to": 0,
+   "text": "Update: client sent the cleared payment proof for the repair. Uploaded to DocVault and linked it to the credit file. Joshua, you should be unblocked."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 155,
+   "reply_to": 15,
+   "text": "Thanks. Memo drafted with quarterly testing and a reporting trigger. Tammy, it's in your queue for the second signature. Once you sign it we can go back to the client with terms."
+  }
+ ]
+}

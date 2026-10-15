@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_048",
+    "e_051"
+   ],
+   "cc_ids": [
+    "e_049"
+   ],
+   "subject": "Regulatory exam document request - first production due 7/17",
+   "body": "Hi Nadia, Linda,\n\nWe received the examiner's initial document request this morning. The first production is due Friday 7/17, and I'd like us to be ahead of it.\n\nItems that land on Compliance: (1) the AML program policy and the last two independent test reports, (2) the SAR decisioning log for Q1 and Q2, (3) KYC/CDD procedures, and (4) the OFAC screening configuration summary. The examiners also asked for sample files on high-risk commercial clients, and {{CLIENT_NAME:c_0191}} is likely to be pulled given the risk rating and the open loan account.\n\nNadia, please own items 1 and 2. Linda, please build the request tracker and own item 3. Jenna, can you confirm what SanctionsScreen and AMLMonitor config exports we can produce without engineering support?\n\nLet's hold a 20-minute sync Thursday to check gaps. Please route anything that goes outside the firm through me first.\n\nThanks,\nMarcus",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_055",
+   "to_ids": [
+    "e_047",
+    "e_050"
+   ],
+   "cc_ids": [
+    "e_054"
+   ],
+   "subject": "KYC refresh backlog - status as of 7/30",
+   "body": "Marcus, John,\n\nQuick update on the periodic KYC refresh backlog. We now have 143 overdue refreshes, down from 171 at the start of the month, but high-risk accounts remain the sticking point. 22 of the overdue files are high-risk and 9 are over 60 days past due.\n\nMain blockers: clients not returning updated beneficial ownership certifications, and slow document retrieval from DocVault on larger files. For commercial relationships like {{CLIENT_NAME:c_0191}}, the relationship manager has to chase the client, and that adds days.\n\nProposal: John and I take the high-risk files first, Heather handles the standard-risk batch, and we send the RMs a weekly overdue list. If a client has not responded after the second outreach, we escalate to restrict new activity per policy.\n\nI'd like your sign-off on the escalation step before we start sending notices next week.\n\nThanks,\nLuis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_048",
+    "e_053"
+   ],
+   "subject": "Q3 AML training completion - 91% as of today",
+   "body": "Hi Marcus,\n\nHere is the status on the quarterly AML training, with the deadline Friday 9/4.\n\nFirm-wide completion is 91%. By area: Compliance 100%, Operations 96%, Wealth Management 94%, Lending 88%, Trading 84%, Technology 79%. About 34 people are still outstanding, including several in the wire room and a few relationship managers who handle high-risk commercial clients.\n\nI plan to send reminders to each outstanding employee today and copy their department heads tomorrow. Anyone still incomplete after the deadline will be listed in the exception report for your review, in line with our policy.\n\nNadia and Daniel, if you know of anyone on leave who needs an extension, please let me know by end of day Thursday so I can document it.\n\nBest,\nAnthony",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_048",
+   "to_ids": [
+    "e_047",
+    "e_051"
+   ],
+   "cc_ids": [
+    "e_052"
+   ],
+   "subject": "Exam request - second batch, SAR and transaction monitoring evidence",
+   "body": "Marcus, Linda,\n\nThe examiners sent a follow-up request today, with a response due 9/10. They want evidence of how alerts are tuned and closed in AMLMonitor, plus a sample of 25 closed alerts with the investigator rationale.\n\nThey have also asked specifically for the full file on {{CLIENT_NAME:c_0191}}, covering the operating account {{ACCOUNT_NUMBER:a_00396}} and the loan account {{ACCOUNT_NUMBER:a_00397}}. That includes KYC documents, the risk rating history, and any alerts or SAR considerations. I will review it for anything that needs privileged handling before it goes out.\n\nLinda, please add these items to the tracker and pull the threshold-tuning memos from the shared drive. Anthony can help redact internal notes that are out of scope.\n\nMarcus, I would like 30 minutes with you Monday to agree on how we present the tuning history for the two scenarios that changed in Q2.\n\nThanks,\nNadia",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_047",
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_051"
+   ],
+   "subject": "Marketing material review - wealth management brochure, comments",
+   "body": "Hi Marcus, Grace,\n\nI have completed the first compliance review of the updated Wealth Management brochure and the accompanying webinar slides. A few items must change before approval:\n\n1. The phrase \"consistently outperforms\" has no supporting data and needs to be removed or backed by a performance disclosure.\n2. The sample portfolio chart shows gross returns only. We need net-of-fee figures with the standard disclosure footer.\n3. The testimonial on slide 6 needs to be checked against our rules on client endorsements and must carry the required disclosure.\n4. The product descriptions should note that investments are not FDIC insured and may lose value.\n\nThe rest is fine. Once Grace's team revises, please send me the tracked version and I will turn it around within two business days. Marcus, this is for your awareness since the webinar is scheduled for 9/22.\n\nThanks,\nHeather",
+   "reply_to_previous": false
+  }
+ ]
+}

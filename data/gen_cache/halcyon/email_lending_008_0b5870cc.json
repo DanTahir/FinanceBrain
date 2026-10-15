@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_030",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Exception request: DTI over policy cap on {{CLIENT_NAME:c_0154}} refinance",
+   "body": "Hi Brian,\n\nI need your sign-off on a policy exception for the refinance of the existing facility on {{ACCOUNT_NUMBER:a_00321}}. The client is {{CLIENT_NAME:c_0154}}, a client since 2017 and low risk on our scale. Back-end DTI comes out at 46.8% against our 43% cap, driven by a recent increase in a property tax escrow rather than new debt.\n\nMitigants: 27 months of reserves post-close, a 71% LTV, a clean payment history on the current loan with no lates in 8 years, and a stable primary checking relationship with us. Jasmine's updated cash flow worksheet is attached to the file in LoanOrigination.\n\nI recommend approval with a 25 bp pricing add-on and a covenant to maintain the primary deposit relationship. Owen is copied since this touches the portfolio concentration exception count for Q3.\n\nCould you let me know by Monday so Cassandra can lock the rate for the client?\n\nThanks,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_033",
+    "e_036",
+    "e_037",
+    "e_035"
+   ],
+   "cc_ids": [],
+   "subject": "Credit committee agenda - Thursday 7/30",
+   "body": "Team,\n\nHere is the draft agenda for next Thursday's credit committee. Please send me any additions by end of day Tuesday.\n\n1. Q2 portfolio review: delinquency trends, watchlist migrations, and the two downgrades Brandi flagged\n2. Exceptions log: July approvals to date and the DTI exception trend (Joshua to present)\n3. CreditScoring model recalibration: Jasmine to walk through the back-test results and the proposed cutoff changes\n4. LoanOrigination turnaround: KYC hold times since the onboarding queue changes\n5. Concentration limits: CRE and jumbo residential, with input from Risk\n6. Pipeline outlook for August and September\n7. Open items and action tracking from the June meeting\n\nTammy, please prepare a short summary of the two complex underwriting files from this month. Heidi, I would like a view on borrower feedback on pricing.\n\nPre-reads will go out Wednesday afternoon.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_037",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_033"
+   ],
+   "subject": "Exception approval needed: LTV exception for {{CLIENT_NAME:c_0106}}",
+   "body": "Hi Brian,\n\nI am asking for an exception on the loan application for {{CLIENT_NAME:c_0106}}, who has been with us since 2019 and banks with us through checking account {{ACCOUNT_NUMBER:a_00227}}. Heidi is the relationship manager on the file.\n\nThe request is for a home equity line at 85% combined LTV, versus our 80% policy maximum. The appraisal came in lower than expected, and the borrower does not want to reduce the line amount.\n\nSupporting factors: a credit score well into our top tier, a 22% DTI, verified income from two sources, and 18 months of liquid reserves. Jasmine's analysis shows no stress scenario in which the payment exceeds 30% of income.\n\nMy recommendation is to approve at a 40 bp premium with a draw cap of 75% for the first year, reviewable after 12 months. If you agree, please reply and I will update the decision memo in LoanOrigination.\n\nThanks,\nTammy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_030",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_038"
+   ],
+   "subject": "Exception request: documentation waiver, {{CLIENT_NAME:c_0154}} loan modification",
+   "body": "Hi Brian,\n\nFollowing up on our earlier discussion, I would like to request an exception on one documentation requirement for the modification on {{ACCOUNT_NUMBER:a_00321}} for {{CLIENT_NAME:c_0154}}. The client has been unable to obtain a current-year employer verification letter because of a payroll vendor transition, but has provided the last two pay stubs and bank statements showing consistent deposits.\n\nI would like to waive the letter and rely on the pay stubs plus a verbal verification, which Cassandra can complete and note in the file. Marcus is copied so Compliance can confirm there is no KYC refresh trigger tied to this; the client's profile has not changed, and the CDD record is current.\n\nThe modification itself reduces the rate by 50 bp and extends the term by 24 months, which lowers monthly payment pressure. Risk rating remains low.\n\nPlease let me know if you approve by Tuesday so we can close next week. I will document the exception on the exceptions log.\n\nThanks,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_035",
+   "to_ids": [
+    "e_029",
+    "e_030",
+    "e_037"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Loan pipeline report - week of 9/28",
+   "body": "Hi all,\n\nHere is the pipeline snapshot as of this morning, from LoanOrigination.\n\nTotals: 41 active applications, $187M in requested volume, up from 36 applications and $162M two weeks ago.\n\nBy stage:\n- Application/intake: 12 ($38M)\n- Underwriting: 14 ($71M)\n- Conditional approval: 8 ($44M)\n- Clear to close: 7 ($34M)\n\nItems to watch:\n- Three files in underwriting are waiting on KYC clearance. With the KYCPipeline ownership transition to Compliance on 10/6, I would like these cleared before the handover so we avoid hand-offs mid-file.\n- Two exceptions are pending Brian's approval, including a pricing exception on a file for {{CLIENT_NAME:c_0106}}.\n- Month-end closings: 6 fundings are scheduled this week. Ravi, copying you so the Wire Room has the volume forecast.\n\nExpected Q3 fundings are on track at about $52M. I will send the full detail by file tomorrow.\n\nThanks,\nHeidi",
+   "reply_to_previous": false
+  }
+ ]
+}

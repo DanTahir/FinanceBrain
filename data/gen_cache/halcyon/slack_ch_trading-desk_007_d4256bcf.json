@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Pension clients are lighting up my phone. Quarter-end rebal tickets coming, equities lighter after the H1 run. Anyone have a read on size?"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Model has the 60/40 universe needing to sell roughly $18bn of US equity into the close. Bonds have underperformed, so the drift is mostly to the upside on equity weight."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "That's a decent chunk. Expecting MOC imbalances to skew sell. I'll hold back on the passive stuff until after 3:30."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 8,
+   "reply_to": 1,
+   "text": "Fwiw my number is lower, closer to $12bn. Equities were flat to down in June, so drift isn't as bad as the H1 run suggests."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 11,
+   "reply_to": 3,
+   "text": "Fair, you're using month-end drift and I'm using the quarter. Gap is just the lookback window. Either way it's a net seller."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Two of my accounts want to get ahead of it and sell now rather than at the print. Thoughts on working it through the afternoon?"
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 16,
+   "reply_to": 5,
+   "text": "I'd do 40% in VWAP now, rest into the close. Spreads are tight at the moment, no point paying up late if imbalances get ugly."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 19,
+   "reply_to": 6,
+   "text": "Agree. Keep participation under 8% so we don't leak. I can pull the intraday volume curve if useful."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Works. I'll send the first tranche to OMS now, flagging them as VWAP with a 3:45 end time."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Orders are staged in OMS. Blotter is lagging a bit on fills though, TradeBlotter P&L looks stale by a couple of minutes. Anyone else seeing it?"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 37,
+   "reply_to": 9,
+   "text": "Yeah, mine is behind too. Probably just pricing refresh lag. I'd trust the OMS fills over the blotter for now."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Early imbalance indication is showing sell-side skew. Looks like the pension selling is real, about $2bn so far at the 3:00 look."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 124,
+   "reply_to": 11,
+   "text": "Good call getting ahead of it. Our fills are averaging a touch better than VWAP. Will confirm with the clients after the close."
+  }
+ ]
+}

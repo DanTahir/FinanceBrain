@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0252",
+   "text": "2026-07-17 - Estate planning check-in with {{CLIENT_NAME:c_0252}}. Reviewed the current will and trust structure and confirmed the client wants to keep a simple setup for now. Discussed titling of the brokerage account {{ACCOUNT_NUMBER:a_00518}} and whether to add a transfer-on-death registration. Cash management account {{ACCOUNT_NUMBER:a_00519}} stays as is. Client will ask their attorney about updating the healthcare proxy. Follow-ups: send a summary of TOD options by 7/24 and schedule a call after the attorney meeting. Confirmed best contact is {{CLIENT_EMAIL:c_0252}}. Risk profile unchanged at low."
+  },
+  {
+   "client_id": "c_0235",
+   "text": "2026-07-20 - Call with {{CLIENT_NAME:c_0235}} regarding a beneficiary designation change. The client wants to update the named beneficiary tied to the operating account {{ACCOUNT_NUMBER:a_00481}} following an ownership transition within the business. Explained that we need the signed change form and updated authorization documents; nothing on the loan account {{ACCOUNT_NUMBER:a_00482}} is affected, and covenants are unchanged. Sent the forms to {{CLIENT_EMAIL:c_0235}}. Will flag to Compliance for the standard document review once received. Follow up Friday if nothing returned."
+  },
+  {
+   "client_id": "c_0017",
+   "text": "2026-08-27 - {{CLIENT_NAME:c_0017}} called to ask about alternative investments, specifically private credit and real asset funds, after strong liquidity this quarter in operating account {{ACCOUNT_NUMBER:a_00036}}. As a loan officer I explained I can't advise on investments, and offered a warm introduction to Wealth Management. Reminded the client that the loan {{ACCOUNT_NUMBER:a_00037}} has no restrictions on this but any pledged-asset ideas would need credit review. Client agreed to the introduction. Will email Grace Lin's team today and copy {{CLIENT_EMAIL:c_0017}}. Risk rating stays medium."
+  },
+  {
+   "client_id": "c_0122",
+   "text": "2026-07-21 - Met with {{CLIENT_NAME:c_0122}} about financing a business expansion. The client is planning to open a second location and is looking at roughly $250K for build-out and equipment. Currently has a loan on {{ACCOUNT_NUMBER:a_00256}} with a clean payment history, and checking {{ACCOUNT_NUMBER:a_00255}} shows steady deposits. Discussed term loan versus line of credit options. Need updated financials, a lease draft, and a basic projection. Will pass the preliminary request to underwriting once received. Reach client at {{CLIENT_PHONE:c_0122}} with questions."
+  },
+  {
+   "client_id": "c_0294",
+   "text": "2026-09-29 - Spoke with {{CLIENT_NAME:c_0294}} about funding a business expansion. Client is interested in borrowing against the brokerage portfolio {{ACCOUNT_NUMBER:a_00594}} rather than selling positions. Given the high risk profile and concentrated holdings, I explained that margin or securities-based lending would have conservative advance rates and potential call risk. Not a commitment either way. I will loop in the Lending team and Grace Lin for a review of options and send the preliminary materials to {{CLIENT_EMAIL:c_0294}}. Next check-in is next week."
+  },
+  {
+   "client_id": "c_0275",
+   "text": "2026-07-27 - {{CLIENT_NAME:c_0275}} requested a replacement card for the business operating account {{ACCOUNT_NUMBER:a_00564}} after the original was reported damaged. Verified identity on the call and ordered the replacement to the address on file, {{CLIENT_ADDRESS:c_0275}}. Client is also traveling abroad in mid-August, so I added a travel notice to avoid declines. Loan account {{ACCOUNT_NUMBER:a_00565}} payments continue on auto-pay, no changes. Told the client to expect the card in 5-7 business days. Confirmation sent to {{CLIENT_EMAIL:c_0275}}."
+  },
+  {
+   "client_id": "c_0280",
+   "text": "2026-08-05 - {{CLIENT_NAME:c_0280}} called upset about monthly fees on operating account {{ACCOUNT_NUMBER:a_00575}}, mainly a wire fee and a maintenance charge that the client felt was not disclosed. Pulled the fee schedule and reviewed the last three statements together. The maintenance charge is correct per the agreement, but the client may qualify for a waiver if the average balance threshold is met. I will request a one-time courtesy credit for the wire fee and check the account tier. Will call back at {{CLIENT_PHONE:c_0280}} by Friday with the outcome."
+  },
+  {
+   "client_id": "c_0096",
+   "text": "2026-08-26 - {{CLIENT_NAME:c_0096}} reached out to update beneficiaries following a recent life event. Reviewed the current designations on brokerage {{ACCOUNT_NUMBER:a_00205}} and cash management {{ACCOUNT_NUMBER:a_00206}}. Client wants to name a new primary and adjust contingent percentages on both. I sent the change forms to {{CLIENT_EMAIL:c_0096}} and explained that a medallion guarantee is not needed for this type of change, but a wet or verified e-signature is. Will process on receipt and send confirmation. Client is relatively new, so I also offered a full portfolio review in the fall."
+  },
+  {
+   "client_id": "c_0076",
+   "text": "2026-07-31 - Planning call with {{CLIENT_NAME:c_0076}} on required minimum distributions. Client is approaching the first RMD year and wants to understand timing and tax withholding. Walked through the calculation approach and proposed taking the distribution from the brokerage account {{ACCOUNT_NUMBER:a_00162}}, with proceeds landing in cash management {{ACCOUNT_NUMBER:a_00163}}. Discussed raising cash in advance via dividends and bond maturities instead of forced sales. Client prefers to consult their CPA before the withholding election. Will send a draft schedule to {{CLIENT_EMAIL:c_0076}} and set a reminder for early November."
+  },
+  {
+   "client_id": "c_0047",
+   "text": "2026-10-02 - {{CLIENT_NAME:c_0047}} raised a fee complaint, questioning the advisory fee billed this quarter on brokerage account {{ACCOUNT_NUMBER:a_00099}} and the lack of activity in cash management {{ACCOUNT_NUMBER:a_00100}}. Client felt the value did not match the cost. I reviewed the fee calculation, which was correct against the signed agreement, and walked through performance versus benchmark. Acknowledged the frustration and offered a review of the fee tier and service model. Escalating to Grace Lin for visibility. I will call back at {{CLIENT_PHONE:c_0047}} within two business days."
+  }
+ ]
+}

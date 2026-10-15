@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Q4 model portfolio rebalance for the Balanced and Growth sleeves is queued in PortfolioMgr for today. Trade list should be final by 10:30 ET. Please flag any client-specific restrictions before then."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Tricia. What's the main change vs. the September model? Heard we're trimming duration and adding to the quality factor."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Right. Cutting intermediate IG credit by 3%, adding 2% to short Treasuries and 1% to quality large cap. Equity/fixed split is unchanged. Drift threshold stays at 5% absolute."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Heads up, a few of my households have tax-loss harvesting flags in place. Is PortfolioMgr honoring those on this run or do I need to exclude them manually?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 19,
+   "reply_to": 3,
+   "text": "It honors wash-sale flags if they're set at the account level. If you only noted it in ClientHub, it won't see it. Send me the list and I'll hold those accounts out of the batch."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Question on {{CLIENT_NAME:c_0051}}: she's medium risk and the brokerage account {{ACCOUNT_NUMBER:a_00105}} is showing about 7% drift on fixed income. Is that included in the first batch?"
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 31,
+   "reply_to": 5,
+   "text": "That's one of mine. Confirming {{CLIENT_NAME:c_0051}} is in the batch. Her cash management account {{ACCOUNT_NUMBER:a_00106}} is separate and shouldn't be touched, but she did ask last week to keep a bigger cash buffer."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 37,
+   "reply_to": 6,
+   "text": "Good catch Sandra. I'll keep {{ACCOUNT_NUMBER:a_00106}} out of scope. For the brokerage side, do you want me to fund the short Treasury add from the credit trim only, so no new cash is needed?"
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 42,
+   "reply_to": 7,
+   "text": "Yes, funding from the credit trim is fine. I'll log the buffer preference in ClientHub so it's documented."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Reminder: any rebalance touching more than 10% of an account's market value needs a documented client contact or an existing discretionary mandate. Please double check before approving."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 63,
+   "reply_to": 9,
+   "text": "Understood. Most of mine are discretionary, but two are advisory-only so I'll need to call them first. Will update the tracker."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 78,
+   "reply_to": 4,
+   "text": "List sent to your DM, Tricia. Six households total. Two of them also have concentrated positions I'd rather not sell into this week."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 92,
+   "reply_to": 11,
+   "text": "Got it, all six are excluded. Re-running the preview now. Orders drop from 214 to 171."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "One more: {{CLIENT_NAME:c_0281}} (Kelly's client, low risk) is showing in the preview but her mandate has an ESG exclusion. Can someone confirm it was applied to {{ACCOUNT_NUMBER:a_00576}}?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 127,
+   "reply_to": 13,
+   "text": "Checked. The exclusion is applied and the quality-factor ETF was swapped for the ESG-screened version in that account. Preview looks clean. Kelly, flagging for your awareness too."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 141,
+   "reply_to": -1,
+   "text": "Great work, everyone. Tricia, please post confirmation in here once the batch is released and execution is complete so advisors can start client outreach."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 148,
+   "reply_to": 15,
+   "text": "Will do. Releasing the batch at 10:30 ET after final sign-off. I expect execution to wrap by early afternoon barring any market data hiccups."
+  }
+ ]
+}

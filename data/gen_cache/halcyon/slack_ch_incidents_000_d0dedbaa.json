@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: the noon ACH origination file to our ODFI got rejected. PaymentsGateway shows status REJECTED_FILE, no batches accepted. Looking at the return now."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Seeing it too. PaymentsGateway alert fired at 12:01 ET, file-level reject from the bank. Craig, do you have the reject reason code?"
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 4,
+   "reply_to": 1,
+   "text": "Yep, it's a file header error, immediate origination field is wrong. Looks like the header record has the wrong format. Bank said the file failed at record 1, so nothing was processed."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "Declaring this SEV3 for now. Impact: same-day ACH batch from this morning not sent, roughly 140 payments queued. No wires affected, WireRoom is fine. I'll own the incident, Angelica can you dig into the file generator?"
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 9,
+   "reply_to": 3,
+   "text": "On it. Pulling the generated file from the gateway's outbound spool and diffing against the last accepted one from Friday."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Recon side: this will show as unmatched in the ACH settlement comparison tonight if it's not resubmitted. I'll hold off flagging breaks until we know the new send time."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 19,
+   "reply_to": 4,
+   "text": "Found it. The header's destination routing field got a trailing space padded in. Config change deployed this morning at 07:40 touched the bank profile template and dropped the field trim. Friday's file was clean."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Ugh, that's from the profile refactor. Can you revert the template and regenerate? Don't touch the batch contents, just the header."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 27,
+   "reply_to": 7,
+   "text": "Reverting template now, PR is small. Will regenerate from the same batch set so the entries and totals stay identical."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Called the bank ops desk. Same-day window cutoff for the next ACH window is 14:45 ET, so we have time if the file goes out before that."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 44,
+   "reply_to": 8,
+   "text": "Revert merged and deployed to PaymentsGateway. Regenerated file, trim is back. Header fields check out against the bank's spec and Friday's file."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 47,
+   "reply_to": 10,
+   "text": "Can you give me the control totals? I want to confirm entry count and total dollar amount match the original batch before I transmit."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 50,
+   "reply_to": 11,
+   "text": "Entry count 142, total credits $1,284,615.20, total debits $1,284,615.20. Matches the original build log exactly."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Transmitted the corrected file at 13:01 ET, bank acknowledged and accepted. All batches show ACCEPTED in PaymentsGateway."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 64,
+   "reply_to": 13,
+   "text": "Great. I'll expect settlement on the next business day cycle and will tag today's items as delayed, not broken, in the recon sheet. No downstream impact on TradeBlotter or GL that I can see."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 70,
+   "reply_to": -1,
+   "text": "Downgrading to resolved. Root cause: header trim dropped by this morning's bank profile template change. Follow-ups: add a pre-send header validation check and a unit test on the template. Angelica, can you file tickets?"
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 73,
+   "reply_to": 15,
+   "text": "Will do. I'll file both tickets today and add a validator that blocks transmission on any header spec mismatch. Writing it up in the incident doc too."
+  }
+ ]
+}

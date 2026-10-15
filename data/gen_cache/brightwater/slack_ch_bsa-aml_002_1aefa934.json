@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Overnight OFAC screening flagged two potential SDN matches on the lending side. One is {{CLIENT_NAME:c_0066}} (name match only, 78% score), the other is {{CLIENT_NAME:c_0039}}. Starting my review now, will post findings here."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "I can take c_0039 if you want to split. That one has the wire_in from late August that already carried a fraud score, so I'd like to look at it alongside the hit."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Yes please. I'll keep c_0066. Their loan a_00144 is still open so we need to be careful about any servicing activity until we clear it."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Reminder for both: do not tell the clients or the RM anything beyond \"we're completing a routine review.\" Kathleen is RM on both, so I'll give her a heads-up that a hold may be coming without details. Document your secondary identifiers comparison in the case file."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "c_0066 update: compared DOB, country, and address against the SDN entry. Entry lists a different birth year and a different country of residence. Only the name is similar. Leaning toward a false positive. Pulling the ID verification from onboarding in 2019 to confirm."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 26,
+   "reply_to": 4,
+   "text": "Good. Check whether the SDN entry has aliases that could tighten or loosen the match. Also note the screening score and list version date in the case notes so the audit trail is clean."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "c_0039 is murkier. Name and country both line up closely with the listing, and the client only opened {{ACCOUNT_NUMBER:a_00088}} in April. Checking the t_000796 originator, Goodwin, Davis and Hill, against the list too. No hit on that entity so far."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 47,
+   "reply_to": 6,
+   "text": "Chris, is there any exposure on the loan side or is it only the checking account? Want to know if we need to pause anything before end of day."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 52,
+   "reply_to": 7,
+   "text": "Gloria, checking only for c_0039, no loan. I'd recommend we place a precautionary hold on outbound activity until I finish secondary ID checks. Wesley, your call."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 55,
+   "reply_to": 8,
+   "text": "Agreed. Restrict outbound on a_00088 now, inbound can post but stays in review. If we confirm a true match we block and file within 10 business days, then call the OFAC hotline. Chris, log the hold time."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 88,
+   "reply_to": 4,
+   "text": "Confirmed: 2019 onboarding ID shows a birth year and country that don't match the SDN entry. Closing c_0066 as a false positive with notes and attaching the ID evidence. No restrictions on {{ACCOUNT_NUMBER:a_00143}} or the loan."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 93,
+   "reply_to": 10,
+   "text": "Approved. I'll sign off on the disposition. Thanks Monica, nice clean file."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 165,
+   "reply_to": -1,
+   "text": "c_0039 update: onboarding ID has a birth date that doesn't match the SDN entry, and the middle name differs. Still waiting on the second document from the client's file. I'm leaning false positive but won't release the hold until that's in. Will update by 3pm."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 170,
+   "reply_to": 12,
+   "text": "Thanks, Chris. Keep me posted. If it clears I'd like the hold released the same day so the member isn't inconvenienced."
+  }
+ ]
+}

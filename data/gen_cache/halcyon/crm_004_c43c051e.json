@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0271",
+   "text": "2026-07-06 - Call with {{CLIENT_NAME:c_0271}}. The client has been with us since 2019 and holds checking {{ACCOUNT_NUMBER:a_00556}} and the loan {{ACCOUNT_NUMBER:a_00557}}. Said a friend and fellow Halcyon Ridge client suggested we help with a small home improvement financing need. Gave the client a rundown of our personal loan options and what documents we would need. Confirmed contact details on file: {{CLIENT_PHONE:c_0271}} and {{CLIENT_EMAIL:c_0271}}. Will reach out to the referring client with thanks and set up an intro call for the new prospect this week. Risk rating unchanged at medium."
+  },
+  {
+   "client_id": "c_0128",
+   "text": "Call 2026-09-18 with {{CLIENT_NAME:c_0128}} (client since 2018, brokerage {{ACCOUNT_NUMBER:a_00271}}, cash management {{ACCOUNT_NUMBER:a_00272}}). Client wants to refer a colleague who is looking for a wealth advisor after a job change. Explained our onboarding steps and the KYC documents the colleague will need. I will pass the referral to the advisory team and loop in the senior advisor for the first meeting. Client asked that we reach out by email at {{CLIENT_EMAIL:c_0128}} rather than by phone. Logged the referral source for the referral program records. No changes to the client's own profile."
+  },
+  {
+   "client_id": "c_0092",
+   "text": "2026-09-10: {{CLIENT_NAME:c_0092}} called to update the main business phone. New number is {{CLIENT_PHONE:c_0092}}, replacing the old one on file. I verified identity with the callback procedure and two authorized-signer confirmation questions before changing anything. Updated the record for the operating account {{ACCOUNT_NUMBER:a_00196}} and the loan {{ACCOUNT_NUMBER:a_00197}}. Email {{CLIENT_EMAIL:c_0092}} and the address {{CLIENT_ADDRESS:c_0092}} remain unchanged. Sent a confirmation notice to the existing email on file. Risk rating remains low, no other issues raised on the call."
+  },
+  {
+   "client_id": "c_0042",
+   "text": "2026-10-01 - {{CLIENT_NAME:c_0042}} contacted me about changing a beneficiary designation connected to the checking account {{ACCOUNT_NUMBER:a_00088}}. Told the client we need the signed beneficiary change form, and that I cannot make the change over the phone. Verified identity against the contact details on file ({{CLIENT_PHONE:c_0042}}, {{CLIENT_EMAIL:c_0042}}). Emailed the form and instructions. Once the signed form comes back, I will route it to operations for processing and review it against policy. Follow up planned in one week if nothing is received."
+  },
+  {
+   "client_id": "c_0256",
+   "text": "Meeting note 2026-09-28. {{CLIENT_NAME:c_0256}} came in with a referral: a family member interested in a managed brokerage relationship. The client has been with us since 2017 and has brokerage {{ACCOUNT_NUMBER:a_00528}} plus cash management {{ACCOUNT_NUMBER:a_00529}}, risk low. Walked through our service tiers and how the referral is tracked. The client prefers contact through {{CLIENT_PHONE:c_0256}} during business hours. Next step: I will send the prospect an introduction email and schedule a discovery call with the advisory team. Thanked the client for the referral."
+  },
+  {
+   "client_id": "c_0026",
+   "text": "2026-09-21: {{CLIENT_NAME:c_0026}} requested an address change, moving to {{CLIENT_ADDRESS:c_0026}}. Requested proof of address and started the update for brokerage {{ACCOUNT_NUMBER:a_00058}}. Will confirm by email at {{CLIENT_EMAIL:c_0026}} once the file is updated and KYC refreshed. During the call the client again asked about buying crypto. I reminded them that the digital asset policy is still under review by the working group and I cannot offer any product yet. Will notify the client if the policy changes. Risk remains low."
+  },
+  {
+   "client_id": "c_0197",
+   "text": "Call 2026-08-26 with {{CLIENT_NAME:c_0197}} on renewing the existing business loan. The operating account is {{ACCOUNT_NUMBER:a_00410}}. The client would like to extend the term and is open to a modest rate adjustment. Discussed the updated financials we will need: the latest year-end statements, recent bank statements, and a current debt schedule. Primary contact stays {{CLIENT_PHONE:c_0197}}, with documents sent to {{CLIENT_EMAIL:c_0197}}. I will prepare the renewal package and run it by credit risk before sending terms. Risk rating medium, no covenant concerns so far."
+  },
+  {
+   "client_id": "c_0130",
+   "text": "2026-08-04 - Spoke with {{CLIENT_NAME:c_0130}} about renewing a credit line secured by the brokerage portfolio {{ACCOUNT_NUMBER:a_00275}}. The client is happy with the current terms and wants to keep the facility in place another year. Cash management {{ACCOUNT_NUMBER:a_00276}} stays the funding account. I explained the renewal needs a fresh collateral valuation and updated documents. The client asked again about crypto exposure; I said we have no offering at this time. Will send the renewal paperwork to {{CLIENT_EMAIL:c_0130}} later this week."
+  },
+  {
+   "client_id": "c_0172",
+   "text": "Note 2026-09-24. {{CLIENT_NAME:c_0172}} called to request a replacement card for cash management {{ACCOUNT_NUMBER:a_00357}} because the old card is damaged. Ordered the replacement and confirmed it will ship to {{CLIENT_ADDRESS:c_0172}}. The client also gave notice of upcoming international travel and wants the card to work overseas, so I placed the travel notice. Reminded the client to keep {{CLIENT_PHONE:c_0172}} reachable for fraud alerts. Brokerage {{ACCOUNT_NUMBER:a_00356}} was not affected. Risk rating high, so I flagged the travel notice for the monitoring team as a courtesy."
+  },
+  {
+   "client_id": "c_0155",
+   "text": "2026-08-26 - Reviewed the risk tolerance questionnaire with {{CLIENT_NAME:c_0155}}. The client would like to move from a moderate toward a somewhat more conservative stance after a change in near-term liquidity needs. Brokerage {{ACCOUNT_NUMBER:a_00323}} will be reviewed for rebalancing, and cash management {{ACCOUNT_NUMBER:a_00324}} may take a higher allocation. Updated the risk profile record pending signed acknowledgment, which I will send to {{CLIENT_EMAIL:c_0155}}. Will schedule a portfolio review with the portfolio manager next week. Phone on file is {{CLIENT_PHONE:c_0155}}."
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. FOMC is tomorrow 2pm, so today is positioning. Curve is flat into the print, 2s10s barely moved overnight. Keep gross tight until we see how the dots shake out."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "Fed funds futures pricing roughly 85% odds of a hold. Implied vol on front-end rates is bid, straddles look rich vs realized. Might be worth fading some of it."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Agree on rich. Realized on 2y has been sleepy the last two weeks. But skew says the market wants downside protection on the hawkish dots risk."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 11,
+   "reply_to": 1,
+   "text": "Don't fade anything size before the print. Small, defined risk only. Tails on a surprise dot plot will hurt more than the carry pays."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Risk here. Intraday VaR limit for the desk stays as is, but I'll be watching DV01 on rates and equity beta into tomorrow. Flag anything that pushes you over 80% of limit."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "Copy. Current DV01 is about half of limit. Will send a snapshot at 3pm today and again at noon tomorrow."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Equities: SPX futures flat, tech lagging a touch. Breadth is thin. Feels like everyone's waiting. Volume is 20% below the 30-day average at this hour."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "Thin tape is exactly when a headline gaps you. Make sure resting orders in OMS have sane limits and no stale GTCs from last week."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 38,
+   "reply_to": 7,
+   "text": "Ran an OMS sweep. Found three stale GTCs on the desk, all canceled. Nothing from the quants."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "TradeBlotter P&L looks off for me. Showing the rates book up about 40k but the marks look a few ticks stale. Anyone else seeing it?"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 55,
+   "reply_to": 9,
+   "text": "Same on my view. Probably the 8:45 refresh lagging. Hit refresh and it caught up for me, now showing 31k."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 60,
+   "reply_to": 9,
+   "text": "Use the blotter as directional only until the pricing refresh settles. I'll ping Tech if it drifts again."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 95,
+   "reply_to": -1,
+   "text": "Quick scenario ask: can the quants run +25bp and -25bp parallel shocks plus a 10bp bear steepener on the current book? Want it before the close."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 99,
+   "reply_to": 12,
+   "text": "On it. Should have all three by 1pm. Will include the equity delta overlay for a hawkish surprise scenario too."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 180,
+   "reply_to": -1,
+   "text": "Midday: 10y trading 2bp cheaper, dollar firmer, credit spreads unchanged. Real money seems to be staying sidelined. Nothing crazy yet."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 185,
+   "reply_to": 14,
+   "text": "Fine. Hold the line. We'll reassess after Jessica's scenarios land and decide if we trim into the close."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 240,
+   "reply_to": 12,
+   "text": "Scenarios posted in the risk folder. Worst case is the bear steepener, about 70% of the desk limit. Within bounds but not much cushion."
+  }
+ ]
+}

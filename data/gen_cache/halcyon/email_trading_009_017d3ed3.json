@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_007",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Broker commission review - Q3 prep",
+   "body": "Hi Jessica, Ronald,\n\nAhead of the quarterly broker commission review, I'd like each of you to pull your flow by counterparty for July and send me a short summary by next Wednesday. I'm mainly interested in three things: where our blended rate on cash equities has crept above 1.8 cents per share, which brokers are getting commission wallet without a matching research or algo-quality justification, and any CSA balances that are running ahead of what we've actually consumed.\n\nTravis has flagged that two of the regional brokers are showing worse fill quality in the OMS venue analysis, so I'd like to see whether we can trim their share and move it to the algo providers who are consistently beating arrival. Please use the TradeBlotter P&L view for slippage versus arrival rather than rebuilding it by hand.\n\nI'll consolidate everything for Martin before the review meeting so we go in with a clear recommendation on tiering.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_010",
+    "e_006"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Follow-up: intraday sector limit breach on Tuesday",
+   "body": "Erik, Derek,\n\nFollowing up on Tuesday's sector concentration breach. As Owen's team noted, the technology book went about 12% over its intraday gross limit between roughly 2:10 and 3:05 pm before it was brought back inside. The limit was approved at the desk level, but the pre-trade warning in the OMS was overridden twice, and I want to understand why.\n\nPlease send me a short written account by end of day Friday covering: what drove the additions, who authorized the overrides, and whether the stale exposure numbers coming from the risk side played any part. Owen, if the RiskEngine refresh lag was a factor, please share the timestamps so we can line them up with the order log.\n\nThis is not about blame; I want a clean record and a fix. I'm proposing a hard block at 95% of limit rather than a soft warning, and we can discuss on Monday.\n\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_012",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_009"
+   ],
+   "subject": "Best execution quarterly report - Q2 draft data",
+   "body": "Hi Daniel,\n\nAttached to the shared folder is the first cut of the Q2 best execution data set for your review. Headline numbers: average implementation shortfall on US large cap came in at 6.4 bps, versus 7.1 bps last quarter. Price improvement versus NBBO on marketable limit orders was positive in 78% of fills. Dark venue participation was around 21% of notional, with slightly higher reversion than lit on the smallest names.\n\nTwo caveats. First, a handful of orders in late May have missing parent-child links in the OMS, so I excluded about 0.4% of notional until Robert confirms the mapping. Second, TradeBlotter's venue tags changed in June, so I normalized them manually.\n\nMarcus, I've kept the methodology section in the format your team asked for. Let me know if you want additional cuts by order type before the committee meets.\n\nBest,\nSean",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_012",
+    "e_008"
+   ],
+   "subject": "Best execution report - routing changes and final sign-off",
+   "body": "Marcus,\n\nSean has finalized the best execution report for the quarter and I'm comfortable with the numbers. Before it goes to the committee, here is the narrative I'd like included.\n\nWe shifted roughly 9% of small-cap flow away from two venues after the reversion analysis showed consistent adverse selection. Travis and Steven reviewed the router logic and confirmed the new weights went live in the OMS in mid-August. Early results show shortfall improving by about 0.8 bps on those orders, though the sample is only three weeks old and I wouldn't oversell it.\n\nWe also reconciled the parent-child mapping gaps, so the excluded notional is now zero. Sean will update the appendix.\n\nIf you need anything else for the file, such as venue-level tables or the routing change tickets, tell Sean and he'll pull them. I'd like sign-off by next Friday.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_011",
+    "e_063"
+   ],
+   "subject": "Trade error write-up - partial fill duplicate on Wednesday",
+   "body": "Daniel, Marcus,\n\nHere is the write-up for the trade error identified on Wednesday afternoon. An algo child order was resubmitted in the OMS after a session reconnect, and the original had in fact been acknowledged. This produced a duplicate buy of about 18,000 shares in a mid-cap name, roughly $410,000 notional. We caught it at 2:42 pm during blotter review and sold the excess within 25 minutes. Net loss on the correction was about $3,800, booked to the error account.\n\nRoot cause: the reconnect handler did not check for outstanding acknowledgments before replaying. Steven and I have raised a ticket with Technology to add an idempotency check, and until it ships we will manually confirm open orders after any session drop.\n\nRavi, operations should expect an adjustment entry for settlement, and I'll send the trade details once finance confirms the booking.\n\nRegards,\nTravis",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "items": [
+  {
+   "beat_id": "fr_onboard_3",
+   "title": "New member onboarding - checking and online banking setup",
+   "text": "Opened new membership today for {{CLIENT_NAME:c_0064}}. Contact phone on file is {{CLIENT_PHONE:c_0064}}. Home address is {{CLIENT_ADDRESS:c_0064}}, verified against the ID presented. Checking account {{ACCOUNT_NUMBER:a_00140}} opened with the standard opening deposit. Member enrolled in online banking at the counter from device {{CLIENT_DEVICE:c_0064}}, and MFA was set up without issues. Source of funds is self-employed consulting income. Member mentioned they expect incoming wires from overseas customers, so I walked them through our incoming wire instructions and cutoff times. Friendly, quick visit. No follow-up needed right now."
+  },
+  {
+   "beat_id": "fr_onboard_2",
+   "title": "Onboarding note - new consulting member, checking opened",
+   "text": "New member visit this afternoon. {{CLIENT_NAME:c_0061}} joined and opened checking account {{ACCOUNT_NUMBER:a_00135}}. Best contact number is {{CLIENT_PHONE:c_0061}}. Home address on file is {{CLIENT_ADDRESS:c_0061}}. Online banking enrollment completed in branch from device {{CLIENT_DEVICE:c_0061}}. Member stated source of funds is self-employed consulting income and said they expect incoming wires from overseas customers for project payments. Gave them the incoming wire instruction sheet and explained that international wires can take a day or two to post. Debit card ordered. Routine opening, everything in order."
+  },
+  {
+   "beat_id": "fr_onboard_1",
+   "title": "New member - checking account and online banking enrollment",
+   "text": "Completed onboarding for {{CLIENT_NAME:c_0050}} today. Phone: {{CLIENT_PHONE:c_0050}}. Home address: {{CLIENT_ADDRESS:c_0050}}. Checking account {{ACCOUNT_NUMBER:a_00113}} opened and funded with the initial deposit. Member enrolled in online banking from device {{CLIENT_DEVICE:c_0050}} before leaving the branch and confirmed they could log in. Source of funds is self-employed consulting income. Member expects incoming wires from overseas customers and asked about fees, so I went over the incoming wire fee and our receiving instructions. Also signed up for e-statements. Pleasant visit, nothing else to note."
+  },
+  {
+   "beat_id": "fr_alert_0412",
+   "title": "BSAWatch alert: inbound wire $22,000.00",
+   "text": "BSAWatch generated an alert on transaction t_r010.\n\nDetails:\n- Type: inbound wire\n- Amount: $22,000.00\n- Originator: Pinecrest Remote Services LLC\n- Originator account: {{CP_IBAN:cp_019}}\n- Beneficiary: member account {{ACCOUNT_NUMBER:a_00113}} ({{CLIENT_NAME:c_0050}})\n- Rule triggered: large inbound international wire to a newly opened account (opened 2026-08-05)\n\nAssigning to myself for review. Pulling account history from CoreBanking and the onboarding notes in MemberCRM.\n\n--- Comment by Monica Feld ---\nInitial review: the full $22,000.00 did not stay put. Funds moved to two other member accounts within hours of the wire posting, via internal transfers initiated through online banking. Stated source of funds at onboarding was self-employed consulting income with expected overseas customer wires, but nothing in the account looks like ordinary business activity, no operating expenses, just in and out. I'm tracing the two receiving accounts now and checking whether they have similar inbound wire activity. Will loop in Chris Burgess once I have the flow mapped. Holding off on any member contact until then."
+  },
+  {
+   "beat_id": "fr_alert_0419",
+   "title": "BSAWatch alert: inbound wire $14,750.00",
+   "text": "BSAWatch generated an alert on transaction t_r017.\n\nDetails:\n- Type: inbound wire\n- Amount: $14,750.00\n- Originator: Tidewell Holdings Ltd\n- Beneficiary: member account {{ACCOUNT_NUMBER:a_00140}} ({{CLIENT_NAME:c_0064}})\n- Rule triggered: large inbound international wire to a recently opened account (opened 2026-07-25)\n\nLogging for review. To do: pull transaction history from CoreBanking, review onboarding notes in MemberCRM, and check for outbound transfers following the wire posting. Possibly related to BSA-0412 given the similar profile (new member, self-employed consulting, overseas wires expected). Will confirm before linking."
+  }
+ ]
+}

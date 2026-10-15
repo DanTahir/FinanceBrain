@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_017",
+    "e_022"
+   ],
+   "cc_ids": [],
+   "subject": "Prep for Thursday review with {{CLIENT_NAME:c_0111}}",
+   "body": "Hi Grace, Sandra,\n\nI'd like to lock down the agenda for Thursday's review with {{CLIENT_NAME:c_0111}}. Since the client opened the brokerage account ({{ACCOUNT_NUMBER:a_00237}}) in April 2024, the portfolio has been run at a high risk tolerance, and I expect questions about drawdown during the July volatility.\n\nSandra, could you pull the Q2 performance summary from PortfolioMgr and a current holdings snapshot, and confirm the contact details in ClientHub are up to date? The client prefers email, so please use {{CLIENT_EMAIL:c_0111}} for the calendar invite.\n\nGrace, would you like to join for the first 20 minutes? I'd like to discuss concentration in the tech sleeve and whether we should propose trimming. I'll circulate a one-page talking points doc by end of day Wednesday.\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_024",
+    "e_027",
+    "e_028"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Coverage plan for my vacation, Aug 17-28",
+   "body": "Hi all,\n\nI'm out from August 17 through August 28 and wanted to get coverage nailed down early. Proposed split:\n\n- Jonathan: primary advisor contact for my households, including any rebalancing requests that come in\n- Kelly: backup for anything involving trust or estate questions\n- James: day-to-day service requests, ClientHub notes, and meeting scheduling\n\nI'll leave a handoff sheet in the shared drive by August 14 with open items, pending transfers, and any clients who have flagged upcoming liquidity needs. For anything involving a wire or a change to standing instructions, please follow the usual callback verification, and loop in Compliance if something looks off.\n\nGrace, please let me know if you'd prefer a different arrangement. I'll be reachable for true emergencies only.\n\nThanks,\nJamie",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_025",
+   "to_ids": [
+    "e_017",
+    "e_072",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_018"
+   ],
+   "subject": "Custody platform migration: client communication timing",
+   "body": "Hi Grace, Sam, Ravi,\n\nAhead of the custody platform migration, I want to align on client communications. Several of my relationships have asked whether there will be any downtime on statements or transfers over the cutover weekend.\n\nCould Sam and Ravi confirm:\n1. The final cutover window and whether PositionStore will be read-only during it\n2. Whether PortfolioMgr rebalancing will be paused, and for how long\n3. Expected timing for the first reconciled positions report afterward\n\nFor example, {{CLIENT_NAME:c_0192}} has a pending move between the brokerage ({{ACCOUNT_NUMBER:a_00398}}) and cash management ({{ACCOUNT_NUMBER:a_00399}}) accounts, and David wants to know whether to submit it before the freeze.\n\nOnce I have the dates I'll draft a client notice for Grace's review.\n\nBest,\nScott",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_017",
+    "e_020",
+    "e_026"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Model portfolio changes effective Oct 5",
+   "body": "Hi team,\n\nFollowing the investment committee meeting, here are the model portfolio changes we plan to implement on Monday, October 5:\n\n- Growth model: reduce US large-cap growth by 2 points, add to short-duration investment grade credit\n- Aggressive model: cut single-sector overweight in tech from 14% to 11%\n- Income model: extend duration modestly, adding 1 point of intermediate Treasuries\n\nTricia and Michael, please review the tax-lot impact on the taxable accounts before we run the rebalance in PortfolioMgr. Owen, FYI since the shift will modestly lower the aggregate VaR for the high-risk models; please let me know if RiskEngine limits need any adjustment.\n\nAdvisors will need talking points for clients in the high-risk segment, such as {{CLIENT_NAME:c_0111}}. I'll send a draft tomorrow.\n\nRegards,\nJanet",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_018",
+   "to_ids": [
+    "e_017",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Estate planning referral for {{CLIENT_NAME:c_0192}}",
+   "body": "Hi Grace, Elena,\n\nI'd like to flag an estate planning opportunity for {{CLIENT_NAME:c_0192}}, a client of ours since 2019. In our last conversation the client mentioned wanting to restructure how assets are held ahead of a possible business sale, and asked about trust options and succession planning.\n\nI'd like to refer the client to an outside estate planning attorney, and Elena, I wanted your view on whether the M&A group has any relevant context or conflicts to be aware of. I haven't shared anything beyond what the client told me directly.\n\nMarcus, I'm copying you so Compliance can confirm the referral process is clean and that we don't take any referral fees, per policy. I'll also document the conversation in ClientHub. The client can be reached at {{CLIENT_PHONE:c_0192}} and I plan to follow up Monday.\n\nThanks,\nDavid",
+   "reply_to_previous": false
+  }
+ ]
+}

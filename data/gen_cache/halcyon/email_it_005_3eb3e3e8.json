@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_074",
+    "e_079"
+   ],
+   "cc_ids": [
+    "e_077"
+   ],
+   "subject": "AuthSSO migration - cutover plan and service owner checklist",
+   "body": "Hi all,\n\nAhead of the AuthSSO migration to the new identity provider tenant, I want each of you to confirm the integrations you own before we lock the cutover window. Priya, please verify the OIDC client configs for PricingSvc and the internal admin consoles. Leo, you have the service-account token rotation for MarketDataFeed ingest. Vincent, please cover the SAML apps that sit behind OMS login.\n\nProposed plan: dual-run both IdPs for two weeks starting July 20, then cut over on a Saturday night with a rollback path that stays warm for 72 hours. Omar will own the monitoring dashboards for login failure rates and token latency.\n\nPlease reply by Friday with any apps that cannot support the new redirect URIs, and flag anything that depends on long-lived sessions. I would rather find the ugly cases now than at 2 a.m. on cutover night.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_081",
+   "to_ids": [
+    "e_072",
+    "e_077",
+    "e_078"
+   ],
+   "cc_ids": [],
+   "subject": "Laptop refresh - wave 1 schedule for Technology",
+   "body": "Hi team,\n\nQuick update on the laptop refresh. Wave 1 covers the Technology group and starts Monday, July 20. Each engineer will receive the new 16-inch developer build with 32 GB RAM, and the standard image already includes the VPN client, endpoint protection, and the updated SSO agent.\n\nTo keep downtime low, please do the following before your slot: push all local branches, back up any scratch data to your DataLake sandbox, and note any custom tooling you rely on. Omar and Barbara, since you carry on-call, I suggest we stagger your swaps so there is always one SRE on a fully configured machine.\n\nSam, can you approve the proposed slots in the attached sheet? I will send individual calendar invites once you confirm.\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_079",
+    "e_081"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Vulnerability scan results - July 31 summary and remediation asks",
+   "body": "Hi all,\n\nThe monthly authenticated vulnerability scan finished overnight. Headline numbers: 3 critical, 14 high, 47 medium findings across 212 hosts. That is down from 5 critical last month.\n\nThe criticals break down as follows: two are an outdated OpenSSL build on the PricingSvc worker nodes, and one is an unpatched Java runtime on a legacy host that feeds MarketDataFeed. I have opened tickets for each and tagged them with a 7-day SLA. Vincent, the OpenSSL upgrade is in your area, so please confirm whether we can fold it into next Tuesday's maintenance window.\n\nMarcus, copying you since the compliance team tracks critical findings for the quarterly attestation. I will send a full CSV export and a remediation burn-down chart on Monday.\n\nHigh findings will be triaged in our Wednesday sync. Let me know if you want any item prioritized differently.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_074",
+   "to_ids": [
+    "e_081",
+    "e_072"
+   ],
+   "cc_ids": [],
+   "subject": "Laptop refresh - wave 2 delays and loaner machines",
+   "body": "Angelica, Sam,\n\nFollowing up on the refresh. Wave 1 went mostly well, but I heard from three engineers that their new machines hit a problem where the SSO agent prompts for re-enrollment on every reboot. It looks tied to the device certificate being issued before the AuthSSO migration profile was applied. Worth checking before wave 2 starts August 10.\n\nAlso, the vendor says the second shipment is slipping about a week, so about 12 units will not arrive in time. I suggest we use loaner machines for anyone on release duty and push the data engineering group to the end of the schedule.\n\nCan we get a fix for the certificate ordering into the image before we ship more machines? I can test a corrected profile on my own device this afternoon if that helps.\n\nBest,\nLeo",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_075",
+    "e_076",
+    "e_078",
+    "e_080"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Access recertification - due August 21, please review your entitlements",
+   "body": "Hi everyone,\n\nThe quarterly access recertification for Technology opens today and closes Friday, August 21. Each of you will receive a list of your current entitlements in the governance tool. Please review each item and mark keep or revoke. Anything left unreviewed after the deadline will be revoked automatically, which has caused avoidable pain in past cycles.\n\nA few areas deserve extra attention: production database access, admin roles on AuthSSO, and write access to the PricingSvc and MarketDataFeed configuration repos. If you no longer need elevated access, please remove it rather than keeping it as a convenience.\n\nBarbara and Michael, please also review the service accounts you own and confirm each still has a named owner. Marcus and his team will sample results for the audit file.\n\nReach out to me if the list looks wrong or you are unsure about any entitlement.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  }
+ ]
+}

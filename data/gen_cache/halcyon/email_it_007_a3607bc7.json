@@ -1,0 +1,68 @@
+{
+ "emails": [
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Q2 cloud cost review - MarketDataFeed and PositionStore spend",
+   "body": "Hi all,\n\nI finished the Q2 cloud cost review and wanted to share the headlines before the July planning session.\n\nTotal spend came in about 7% over forecast. Most of the overage comes from two places. First, MarketDataFeed ingestion nodes were left at peak-volatility sizing after the June rate-decision week and never scaled back down. Right-sizing them should save roughly $18K per month without touching headroom for open and close. Second, PositionStore snapshot retention is set to 90 days of hourly snapshots, which is well beyond what Operations and Risk actually restore from. Moving to 30 days hourly plus weekly archives cuts storage by around 40%.\n\nI would like to get both changes done by July 17. Ravi, can your team confirm that the 30-day window works for settlement look-backs? Martin, I will send the full tagged-cost breakdown by Tuesday.\n\nHappy to walk through the numbers if useful.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_078"
+   ],
+   "cc_ids": [
+    "e_074"
+   ],
+   "subject": "Weekend patching window - Aug 15/16",
+   "body": "Hi Sam, Barbara,\n\nHere is the proposed plan for the weekend patching window on Saturday Aug 15 into Sunday Aug 16.\n\nSaturday 22:00 ET: patch the application tier for PricingSvc and PositionStore, rolling one node at a time. Both stay up behind the load balancer.\nSunday 01:00 ET: OS kernel updates on the MarketDataFeed ingestion hosts. This one needs a brief failover to the secondary feed handler. The markets are closed, so exposure is low, but I want a feed-gap check afterward.\nSunday 03:00 ET: AuthSSO database minor version upgrade. This is the riskiest step, so I would like Leo on call for it.\nSunday 06:00 ET: smoke tests and sign-off.\n\nRollback snapshots will be taken before each step. If anyone sees a conflict with Asia-session activity or a Trading request, please flag it by end of day Thursday so I can lock the change tickets.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_081",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_079"
+   ],
+   "subject": "Laptop refresh - first batch schedule and imaging",
+   "body": "Hi Sam,\n\nQuick update on the laptop refresh. The first batch of 25 devices arrives next Wednesday, and I plan to start imaging Thursday. Priority goes to engineers on machines older than four years, then the Trading and Operations users who have open hardware tickets.\n\nA few points I want to confirm:\n1. The new standard image includes the updated endpoint protection agent and disk encryption enforced from first boot.\n2. SSO enrollment with hardware keys will be done at handover so people are not locked out afterward.\n3. Data migration will use the managed backup tool rather than manual copies. Local DataLake extracts should not be moved to the new devices.\n\nVincent has offered to help with desk-side handovers on the 6th floor. Can you approve the rollout order and sign off on the budget line for the remaining 40 devices in the October batch?\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_073",
+   "to_ids": [
+    "e_072",
+    "e_077"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_063"
+   ],
+   "subject": "DR test planning - Q4 failover exercise",
+   "body": "Hi all,\n\nI am kicking off planning for the Q4 disaster recovery test and would like to lock the scope early, since Priya's schedule is tight and she needs to hand over before she leaves in October.\n\nProposed scope: full failover of the critical tier to the secondary region, covering MarketDataFeed, PricingSvc, PositionStore, and AuthSSO, with the RiskEngine and OMS validated against the failed-over data. Target recovery objectives are 30 minutes for RTO and under 5 minutes of data loss for RPO.\n\nOpen questions:\n1. Date: I am leaning toward the weekend of Oct 24, which avoids quarter-end processing.\n2. Marcus, Compliance should confirm which evidence artifacts auditors expect from the run.\n3. Ravi, Operations needs to name a contact for SettlementEngine and GLCore validation.\n\nI will circulate a draft runbook by Sept 4 and we can review in a working session the week after.\n\nThanks,\nPriya",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_002",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_078"
+   ],
+   "subject": "Cloud cost review - Q3 progress and next steps",
+   "body": "Hi Martin, Ravi,\n\nFollowing up on the July review, here is where we stand as of mid-September.\n\nThe MarketDataFeed right-sizing is complete and saved about $17K per month, close to our estimate. PositionStore snapshot retention was cut to 30 days hourly, with weekly archives, and storage costs are down roughly 38%. Combined, we are tracking about $29K per month below the Q2 run rate.\n\nRemaining items:\n1. Unattached volumes and orphaned snapshots left over from the migration. Barbara is cleaning these up and estimates another $6K per month.\n2. Reserved instance coverage is only about 55% for steady-state workloads. I would like to commit to one-year terms for the stable services, which Finance would need to approve.\n3. Non-production environments run around the clock. A shutdown schedule for evenings and weekends could save about 20% on that spend.\n\nMartin, can we find 30 minutes next week to discuss the reserved instance commitment?\n\nThanks,\nSam",
+   "reply_to_previous": false
+  }
+ ]
+}

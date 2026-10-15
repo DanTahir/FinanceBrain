@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_014",
+    "e_012"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Dealer agreement renewals due before end of Q3",
+   "body": "Hi Martin and Kathleen,\n\nThe annual dealer agreements for our indirect auto partners come up for renewal this quarter, and I want us to start early. Please pull the current agreements for your dealers and flag anyone whose volume dropped below our minimum of 8 funded loans over the last 12 months. Also note any dealer with a repurchase or early payment default issue.\n\nWesley, I'm copying you because the updated template needs your review of the compliance addendum on dealer reserve and fair lending language before we send anything out.\n\nLet's aim to have the dealer list with notes in LoanDesk by Friday 2026-07-17. Martin, {{CLIENT_NAME:c_0026}}'s auto loan came through one of the renewing dealers, so please include that file as a reference for how well the dealer's documentation held up.\n\nThanks,\nKara",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_012",
+    "e_013",
+    "e_014",
+    "e_015"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Auto loan rate change effective Aug 10",
+   "body": "Team,\n\nFollowing last week's ALCO discussion, we are lowering our new auto loan rates by 25 basis points for tier 1 and tier 2 borrowers, effective Monday 2026-08-10. Tier 3 pricing stays where it is. Used vehicles older than 7 model years are unchanged.\n\nRita J., please confirm the pricing matrix in LoanDesk is updated by end of day Friday 2026-08-07 so nothing is quoted at old rates after the cutover. Richard, I need a quick estimate of the impact on the projected portfolio yield.\n\nRelationship managers: any application already in underwriting before the 10th keeps the original rate unless the member asks for a reprice. {{CLIENT_NAME:c_0076}} asked about financing last month, so I'll follow up with that member myself.\n\nRita S., copying you so Operations is ready for the disclosure updates.\n\nThanks,\nKara",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_013"
+   ],
+   "subject": "Early read on auto rate change volume",
+   "body": "Hi Kara,\n\nOne week in, here is an early read on the rate change. Auto applications are up about 14% over the same stretch last month, and the approval rate is steady at 71%. The average tier 1 rate on funded loans dropped from the old level as expected, so the yield impact is landing close to my forecast of roughly 6 basis points on the new-vehicle book.\n\nTwo things to flag. First, three applications that were already in underwriting before the cutover were repriced at the member's request, which adds a little manual work for Rita's team. Second, CreditPull inquiries have increased, so please watch for any slowdowns in bureau response times.\n\nI can send a fuller breakdown by tier after the month closes. Let me know if you want any specific cuts, for example by dealer or by term length.\n\nThanks,\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "August delinquency report: auto and consumer",
+   "body": "Hi Kara and Gloria,\n\nAttached is the delinquency report through 2026-08-28. Highlights:\n\n- 30+ day delinquency on consumer and auto loans is 1.9% of balances, up from 1.7% last month.\n- Auto 60+ day delinquency held flat at 0.6%.\n- Most of the increase comes from loans originated in late 2025 with longer terms.\n- Roll rate from 30 to 60 days improved slightly after the early outreach calls.\n\nI pulled one example for reference: the loan for {{CLIENT_NAME:c_0026}}, tied to {{ACCOUNT_NUMBER:a_00057}}, is current and has never gone past due, so it is not in the report. I'm only mentioning it as a clean comparison file.\n\nWesley, the charge-off schedule is on page 3 in case you need it for the quarterly review. I'm happy to walk through the numbers on Tuesday.\n\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_012",
+    "e_014",
+    "e_013"
+   ],
+   "cc_ids": [
+    "e_003"
+   ],
+   "subject": "Dealer agreement renewal: October status check",
+   "body": "Hi all,\n\nA quick status check on the dealer agreement renewals we kicked off in July. As of today, 11 of 15 agreements are signed and back. The four outstanding dealers are still reviewing the updated compliance addendum.\n\nKathleen and Martin, please call your outstanding dealers this week and get a firm date. If we haven't heard back by Friday 2026-10-30, we will pause new indirect submissions from those dealers until the paperwork is complete. Rita, please be ready to hold their applications in LoanDesk if it comes to that.\n\nPaul, I'm copying you so the Member Services floor knows what to tell members who ask about financing at those dealerships. For anyone with a pending file, such as {{CLIENT_NAME:c_0076}}, we will make sure the member isn't disrupted.\n\nThanks,\nKara",
+   "reply_to_previous": false
+  }
+ ]
+}

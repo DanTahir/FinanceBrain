@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Fee schedule exception request - {{CLIENT_NAME:c_0291}}",
+   "body": "Hi Grace,\n\nI'd like approval for a fee schedule exception on {{CLIENT_NAME:c_0291}} (brokerage account {{ACCOUNT_NUMBER:a_00591}}). The client has been with us since May 2021 and is consolidating a sizable outside position with us this quarter. Our standard schedule would put the advisory fee at 1.00%. I'm proposing 0.80% on the first $2M, stepping down to 0.65% above that, effective September 1.\n\nRationale: the relationship is low risk, low maintenance, and the client has a competing proposal from another custodian. I've attached the margin analysis showing we stay above our 0.55% internal floor for this segment.\n\nMarcus, copying you so Compliance sees the exception and can confirm the disclosure language in the updated fee letter.\n\nCould you let me know by Friday if you're comfortable? Sandra Stone is the RM of record and is aligned.\n\nThanks,\nJamie",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_021",
+    "e_023",
+    "e_024",
+    "e_027"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "Advisor coverage while team is out - Aug 17 to Sep 4",
+   "body": "Team,\n\nWith several of us out over the next few weeks, here is the coverage plan so no client call goes unanswered.\n\nJamie will cover Linda Barnes's book from Aug 17 to Aug 28. Linda will cover Kelly Robinson's clients from Aug 31 to Sep 4. Jonathan, you are the backup for anything urgent on Jamie's accounts, including trade approvals in PortfolioMgr.\n\nPlease do the following by Wednesday Aug 12:\n1. Update client notes in ClientHub with any open items, pending transfers, and rebalancing flags.\n2. Send your covering advisor a short handoff summary.\n3. Set your out-of-office with the covering advisor's name.\n\nSandra, please make sure the covering advisors have delegate access to the shared calendars. If anything time-sensitive comes up, escalate to me directly.\n\nThanks all,\nGrace",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_017",
+    "e_021"
+   ],
+   "cc_ids": [],
+   "subject": "Estate planning referral for {{CLIENT_NAME:c_0026}}",
+   "body": "Hi Grace, Jamie,\n\nI had a review call yesterday with {{CLIENT_NAME:c_0026}}, who holds brokerage account {{ACCOUNT_NUMBER:a_00058}}. The client mentioned a recent change in family circumstances and asked about updating their estate plan, including beneficiary designations and a possible trust structure. This is outside our scope, so I'd like to refer them to one of our approved outside estate attorneys.\n\nCould you point me to the current referral list? I also want to confirm we're following the right process for referrals, specifically that we don't receive any fee and that we document the introduction in ClientHub.\n\nThe client prefers contact by email at {{CLIENT_EMAIL:c_0026}}, and I'd like to send the introduction early next week. I'll also schedule a follow-up in about 30 days to check progress and see whether any portfolio changes are needed.\n\nThanks,\nJonathan",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_018",
+    "e_025",
+    "e_021"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Fee schedule exceptions - August review and new guardrails",
+   "body": "Hi all,\n\nI reviewed the fee exceptions granted in August and want to tighten the process before quarter-end. We approved seven exceptions this month, and three of them dropped below our 0.60% target for the segment. That's more than I'm comfortable with.\n\nGoing forward:\n1. Any exception below 0.70% needs a written business case and my sign-off, plus Martin's review for revenue impact.\n2. Every exception gets a 12-month expiry and a calendar reminder for repricing.\n3. Please log each one in ClientHub with the competing offer, if any.\n\nI'll pull a summary for the Sept 10 leadership meeting. If you have a pending request, send it to me by Wednesday of next week so it falls under the current review cycle.\n\nHappy to talk through any of these.\n\nGrace",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_026",
+   "to_ids": [
+    "e_017",
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_063",
+    "e_019"
+   ],
+   "subject": "Custody platform migration - portfolio team readiness",
+   "body": "Hi Grace, Sam,\n\nAhead of the custody platform migration, here is where the portfolio management team stands.\n\nWe have completed position reconciliation for roughly 60% of managed accounts between the legacy custodian and the new platform. Remaining accounts include some with fractional shares and legacy lots where cost basis does not match. Janet and I are working through those exceptions this week.\n\nOpen items for Technology: PortfolioMgr rebalancing needs to read from PositionStore using the new custodian account mappings before we can run model trades after cutover. Can Sam confirm the test environment will be ready by Sep 14 so we can do a dry run?\n\nOpen item for Operations: Ravi, we need confirmation of the transfer-in-kind timeline so we can freeze trading appropriately and avoid settlement fails.\n\nI recommend we hold a go/no-go meeting the week of Sep 21. Let me know what works.\n\nThanks,\nMichael",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "tickets": [
+  {
+   "title": "Spike in MemberSSO password reset failures for member service reps",
+   "description": "Starting this morning, several Member Services reps report that password reset emails triggered from the MemberCRM admin console are not arriving, or the reset link expires before it can be used. Paul Jensen's team logged about 14 failed attempts since opening. Members can still log in with existing credentials, but anyone locked out is being sent to the phone queue. MemberCRM depends on MemberSSO for identity, so I suspect the token expiry or the outbound mail relay. Need someone to check the MemberSSO reset token TTL and relay logs. No impact on CoreBanking or OnlineBanking sessions so far.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_020",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Found it. The reset token TTL was dropped to 2 minutes during last night's MemberSSO config push, and the mail relay was queuing messages for about 5 minutes. Restored TTL to 30 minutes and flushed the relay queue."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Confirmed with Member Services, resets are landing within a few seconds now. Please add the TTL value to the config change checklist so it does not get overwritten again."
+    },
+    {
+     "author_id": "e_020",
+     "text": "Added to the checklist and set an alert on relay queue depth over 50. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "CoreBanking end-of-day batch running 90 minutes late",
+   "description": "The nightly CoreBanking posting batch finished at roughly 4:40 AM instead of the usual 3:10 AM. Downstream, ShareRecon scripts started late and the GL reconciliation report was not ready when Operations came in. ACHHub inbound files were held until posting completed, and the morning CardProcessor balance feed refreshed late. The vendor status page shows no incident. Need to determine if the delay came from our side (large file loads, ShareRecon lock contention) or from the vendor hosted environment. Please pull job timing logs for each batch step and compare with the last two weeks.",
+   "reporter_id": "e_021",
+   "assignee_id": "e_020",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Step timing shows the interest accrual step took 78 minutes versus a normal 20. Everything else was on baseline. Opening a case with the CoreBanking vendor to ask about index maintenance on their side."
+    },
+    {
+     "author_id": "e_021",
+     "text": "Vendor confirmed they ran a table reindex during our batch window that was not on the maintenance calendar. They moved it to Sunday afternoons going forward. Last night's batch finished at 3:05 AM."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Good. Marking resolved, and we will watch the next five runs before closing."
+    }
+   ]
+  },
+  {
+   "title": "Teller line PC at main branch will not boot after Windows update",
+   "description": "The second teller station PC at the main branch stuck in a repair loop this morning after the overnight Windows update. Maxwell Castro reported it before opening. Teller is working off the drive-up station for now, so the lobby queue is slower. The machine has the standard teller image with the receipt printer and check scanner drivers. No local data of importance should be on it, but please confirm nothing was saved outside the profile redirect. Need a rebuild or rollback, and check whether other teller PCs received the same patch.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_020",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Rolled back the cumulative update through recovery media, and the PC boots. The patch conflicted with the check scanner driver. I paused that update on the teller device group so the other branches do not get hit."
+    },
+    {
+     "author_id": "e_022",
+     "text": "I tested the scanner driver vendor's newer release on a lab machine and it works with the update. I will package it for deployment this week."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Thanks both. Closing; the driver package will be tracked separately."
+    }
+   ]
+  },
+  {
+   "title": "Member Services rep workstation freezing and rebooting at east branch",
+   "description": "Catherine Powell's workstation at the east branch has frozen and rebooted three times in two days, once while she was updating notes in MemberCRM and losing an unsaved entry. Event logs show disk timeout warnings and the SMART status reports reallocated sectors. This looks like a failing SSD. She is currently using a loaner laptop from the spare pool, but it lacks the dual monitor dock. Please schedule a drive replacement or swap the unit, and re-image with the standard Member Services profile.",
+   "reporter_id": "e_020",
+   "assignee_id": "e_020",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Swapped in a new SSD and re-imaged the workstation. Profile redirection restored her desktop and shortcuts. MemberCRM logs in fine through MemberSSO."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Please send the failed drive to the disposal vendor with a wipe certificate, and update the asset record."
+    }
+   ]
+  },
+  {
+   "title": "CoreBanking posting batch stalled at ACH file import step",
+   "description": "Last night's CoreBanking batch stalled at the ACH import step and did not progress until the on-call engineer restarted the job around 1:30 AM. Total delay is currently estimated at about 2 hours, and the batch is still finishing as of this ticket. ShareRecon has not started, so the share to GL reconciliation will be late again this morning. BSAWatch is also waiting on posted transactions, so the morning alert review may be delayed. Compliance should be informed. Need root cause: possible malformed inbound file from ACHHub, a lock held by a prior job, or a vendor side issue.",
+   "reporter_id": "e_021",
+   "assignee_id": "e_022",
+   "status": "in_progress",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_022",
+     "text": "The job log shows a retry loop on one inbound file with a trailer record mismatch. I quarantined it and the import continued. Checking with Operations whether the originator can resend a corrected file."
+    },
+    {
+     "author_id": "e_019",
+     "text": "I let Compliance know BSAWatch will be late this morning. Please add a validation step so a bad trailer record fails fast instead of looping."
+    },
+    {
+     "author_id": "e_020",
+     "text": "I can help on the ShareRecon side. I will kick off the reconciliation manually once posting completes and confirm balances against the GL."
+    }
+   ]
+  }
+ ]
+}

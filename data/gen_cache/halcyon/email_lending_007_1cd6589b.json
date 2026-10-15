@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_033"
+   ],
+   "subject": "Credit Committee agenda - Thursday 8/6",
+   "body": "Team,\n\nHere is the proposed agenda for this afternoon's credit committee at 2:00 PM:\n\n1. Renewal of the {{CLIENT_NAME:c_0189}} loan (a_00393) - Cassandra is requesting a one-year extension; Brandi is finishing the updated cash-flow analysis.\n2. Watchlist review - two commercial credits with DSCR trending under 1.25x.\n3. Exception policy: LTV exceptions above 80% on residential refinance. Tammy has a proposed tightening.\n4. Q3 concentration limits for CRE exposure, with Owen's team weighing in.\n\nPlease send any additional items by noon. Underwriters, please make sure your memos are in the shared folder before the meeting so we can skip the read-through and focus on decisions.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_056",
+    "e_035"
+   ],
+   "cc_ids": [
+    "e_038"
+   ],
+   "subject": "Credit Committee agenda - Monday 8/10",
+   "body": "All,\n\nAgenda for Monday's credit committee, 10:00 AM in the large conference room:\n\n1. Follow-up on the LTV exception policy. Tammy will present the revised draft after last Thursday's discussion, and we need a vote.\n2. Approval request for {{CLIENT_NAME:c_0217}}, loan account {{ACCOUNT_NUMBER:a_00450}}. Jasmine has the file and the risk rating is low, so this should be quick.\n3. Heidi's pipeline update on the three jumbo loans awaiting appraisals.\n4. Risk's view on the updated CreditScoring model thresholds. Owen, can you bring the backtest results?\n\nIf you have a conflict, please send a delegate with authority to vote. We need a quorum to finalize the policy change.\n\nBest,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_035",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_030",
+    "e_034"
+   ],
+   "subject": "Loan pipeline report - week of 9/8",
+   "body": "Hi Brian,\n\nHere is the pipeline snapshot as of this morning out of LoanOrigination:\n\n- Applications in process: 47, up from 41 last week\n- In underwriting: 18 files, about $26.4M total\n- Approved awaiting closing: 9 loans, about $11.8M\n- Expected to close by 9/30: 14 loans, roughly $19M\n\nOne note: three files are stuck at the KYC step because document uploads are not clearing in DocVault. I have pinged Compliance and they are looking at it. Joshua, two of your files are among them.\n\nBrandon, please prioritize the approved loans with rate locks expiring before 9/18. I will send the full spreadsheet by end of day.\n\nThanks,\nHeidi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_033",
+   "to_ids": [
+    "e_029",
+    "e_030",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_058",
+    "e_047"
+   ],
+   "subject": "Covenant breach - commercial loan, DSCR test",
+   "body": "Brian, Joshua,\n\nFlagging a covenant breach on one of our commercial term loans. The borrower's Q2 compliance certificate shows a debt service coverage ratio of 1.08x against a 1.20x minimum. Net operating income came in about 11% below forecast, driven by a lost anchor tenant.\n\nThis is a first breach and the loan is otherwise current. Options I see: a formal waiver with a fee, a temporary step-up in reporting to monthly, or a cure period with an equity cure. I recommend a waiver conditioned on monthly financials and a reserve funded from excess cash flow.\n\nOwen, I am copying Risk so the rating can be reviewed. I would like this on the next credit committee agenda. Draft memo and spreadsheet are in the credit folder.\n\nThanks,\nJasmine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_035",
+    "e_038",
+    "e_031",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "HELOC rate change effective 10/14",
+   "body": "Team,\n\nEffective today, 10/14, the HELOC index-based margin changes after the Fed move and the Treasury's pricing review. The variable rate for new lines drops 25 bps, and existing lines will reset at their next billing cycle.\n\nPlease note:\n- Loan officers should use the updated rate sheet in LoanOrigination for any application submitted from today forward.\n- For clients like {{CLIENT_NAME:c_0189}} who have asked about refinancing, Cassandra can run a comparison before we reach out.\n- Existing borrowers will receive a notice letter within 30 days. Please do not quote the new rate on pending locks without checking with me first.\n\nOwen, Risk has signed off on the revised pricing. Questions to me or Heidi.\n\nBrian",
+   "reply_to_previous": false
+  }
+ ]
+}

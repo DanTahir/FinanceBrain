@@ -1,0 +1,68 @@
+{
+ "emails": [
+  {
+   "from_id": "e_025",
+   "to_ids": [
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_024"
+   ],
+   "subject": "ACH return spike - week of 6/29 and next steps",
+   "body": "Hi Rita,\n\nQuick summary of the ACH return activity from last week. We received 41 returns through ACHHub, up from a typical 25 or so. Most were R01 (insufficient funds) and R03 (no account/unable to locate), with a handful of R10 unauthorized claims that I've flagged separately.\n\nTwo items worth your attention. First, the R10 on {{ACCOUNT_NUMBER:a_00097}} for {{CLIENT_NAME:c_0043}} came in after the return window cutoff was close, so Larry is checking the timeline with the ODFI. Second, a commercial origination from {{CLIENT_NAME:c_0088}} had 6 R03 returns, which suggests a stale payee file. I'd like to have Rita Jimenez's team confirm the file source with them.\n\nBecause ACHHub depends on CoreBanking, I also verified the posting of returns against the GL this morning and everything tied out at $18,420 total.\n\nCan we talk Tuesday about whether to tighten the return-rate threshold alerts?\n\nThanks,\nTimothy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_016",
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_024"
+   ],
+   "subject": "ACH return rates - July update and threshold proposal",
+   "body": "Wesley, Timothy,\n\nFollowing up on the early July spike, here is where we landed. The unauthorized return rate for the period ending 7/14 is 0.4%, well under the NACHA 0.5% threshold, but it is trending the wrong way, so I'd like to set an internal early-warning trigger at 0.3%.\n\nThe R10 items tied to {{CLIENT_NAME:c_0043}} were resolved: two were reversed with the client's signed statement, and one was a valid authorization we are contesting with the originating bank. Larry has the documentation.\n\nWesley, since BSAWatch consumes ACHHub activity, could your team confirm that the return patterns are not generating duplicate alerts? Monica may want to look at the counterparty on {{CP_ACCOUNT:cp_014}}, which accounted for several of the R03s.\n\nTimothy, please draft the proposed trigger language by Friday and I'll bring it to the next ops review.\n\nThanks,\nRita",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_025",
+    "e_019"
+   ],
+   "subject": "August close prep - September 30 month-end checklist",
+   "body": "Hi Rita,\n\nI want to get ahead of the September month-end close. Looking back at last month, the nightly ShareRecon job left 3 unreconciled GL items that took about two hours to clear on the first business day. Those were timing differences between ACH settlement and CoreBanking posting.\n\nProposed plan for 9/30:\n- Freeze manual settlement adjustments at 4:00 PM on 9/29\n- Timothy pulls the ACHHub settlement report before the last file\n- I run the share-to-GL comparison before and after ShareRecon\n- Andre's team confirms no CoreBanking maintenance window overlaps the run\n\nAndre, since ShareRecon is a legacy script set, could you confirm someone from IT is on call that night in case the job fails?\n\nOne open item: the suspense balance sits at $7,310 and I'd like to clear it before the 30th.\n\nThanks,\nLarry",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_001",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_024"
+   ],
+   "subject": "Month-end close results - September",
+   "body": "Gloria, Wesley,\n\nWe completed the September close on Friday. All critical systems stayed up, and the ShareRecon run finished clean on the first attempt, so no manual GL entries were needed. Suspense was cleared down to $0 after Larry traced the remaining $7,310 to a duplicate ACH settlement entry, which was reversed with a proper audit trail.\n\nFor Wesley: the reversal documentation and approvals are saved in the close folder, ready if examiners ask. We also confirmed that the {{ACCOUNT_NUMBER:a_00178}} operating account activity for {{CLIENT_NAME:c_0088}} reconciled without exception.\n\nLooking ahead, I'd like to move the settlement freeze earlier next quarter and add a pre-close check against CoreBanking batch status. I'll bring a short proposal to the October ops review.\n\nThank you to Larry and Timothy for the extra hours.\n\nBest,\nRita",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_025",
+   "to_ids": [
+    "e_023",
+    "e_024"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "Card processor reconciliation - 9 unmatched authorizations",
+   "body": "Rita, Larry,\n\nThis morning's CardProcessor reconciliation against CoreBanking shows 9 authorizations without a matching posted transaction, totaling $2,146. Seven appear to be normal pending holds that expired. Two are more concerning: both are tied to {{CARD_NUMBER:a_00178}} on the {{CLIENT_NAME:c_0088}} account, and the amounts posted twice in the authorization feed but only once in core.\n\nI suspect a duplicate message from the processor feed rather than a real double charge, but I have not confirmed it. I opened a case with the processor and asked for the raw authorization log from the 10/5 batch.\n\nAndre, could you check whether the CoreBanking interface had any retry events that day? That would explain the duplicates.\n\nI'll update everyone by end of day tomorrow. If it is a feed problem, we may need to notify Paul's team so member services is ready for calls.\n\nTimothy",
+   "reply_to_previous": false
+  }
+ ]
+}

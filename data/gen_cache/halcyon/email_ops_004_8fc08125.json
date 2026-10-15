@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_065",
+   "to_ids": [
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_064",
+    "e_029"
+   ],
+   "subject": "Returned ACH items - week of 7/6 summary and open items",
+   "body": "Hi Ravi,\n\nQuick summary of returned ACH items from this week ahead of the weekend. We had 7 returns come back through PaymentsGateway since Monday, up from 3 last week. Breakdown: 4 R01 (insufficient funds), 2 R03 (no account/unable to locate), and 1 R10 (unauthorized). The R10 relates to the loan payment draft on {{ACCOUNT_NUMBER:a_00449}} for {{CLIENT_NAME:c_0217}}. The client has told us by phone they did not authorize the debit, so I have held any re-presentment and flagged it for Compliance.\n\nTasha is confirming the GLCore entries for the reversals so they tie out in the EOD recon, and I copied Brian since two of the R01s are Lending loan drafts. We should probably tell the RMs to contact those borrowers before the next debit cycle.\n\nI will send the full return reason code report Monday morning. Let me know if you want it broken out by originator.\n\nThanks,\nCraig",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_067",
+   "to_ids": [
+    "e_063",
+    "e_068"
+   ],
+   "cc_ids": [
+    "e_072"
+   ],
+   "subject": "SWIFT payment tracking - gaps on outbound MT103s to Green and Sons",
+   "body": "Ravi, Derrick,\n\nWe have a tracking problem on outbound SWIFT payments. Last week an MT103 to Green and Sons (beneficiary IBAN {{CP_IBAN:cp_007}}, BIC {{CP_SWIFT:cp_007}}) was released from WireRoom on Tuesday, but the client's bank still showed nothing as of this morning. We could not confirm the status from our side because the gpi UETR is not being written back to the WireRoom console. Right now we are pulling it manually from the SWIFT portal, which is slow and error-prone.\n\nCan we agree on an interim process? My suggestion: the releasing specialist logs the UETR in the shared tracker at release, and the second pair of eyes verifies it at end of day. Sam, copying you to ask whether Engineering can fix the write-back from PaymentsGateway to WireRoom. Even a nightly batch would help.\n\nThe Green and Sons payment has now been traced and credited, so no loss, but it took 3 hours of effort.\n\nGreg",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_069",
+   "to_ids": [
+    "e_063",
+    "e_065"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Returned ACH items - Aug 14 batch and repeat returns",
+   "body": "Hi all,\n\nFollowing up on the returned ACH items from this morning's file. We received 9 returns, including a repeat R01 on the loan payment tied to {{ACCOUNT_NUMBER:a_00471}} for {{CLIENT_NAME:c_0229}}. This is the second consecutive return, and the client is rated high risk, so I would rather not re-present a third time without Lending weighing in. Cassandra is the loan officer on the file and I will send her the details.\n\nTwo other items:\n- One R02 (account closed) that needs the originator to update the payment instructions.\n- Three R01s from the same originator, which suggests a funding timing issue on their side.\n\nReturn fees for the week total about $450, and I have posted them for Tasha to match against GLCore. Ravi, can you confirm we are okay holding the repeat R01 for manual review?\n\nThanks,\nRonald",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063",
+    "e_064",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Month-end close checklist - July/August cutoff, Operations items",
+   "body": "Team,\n\nHere is the Operations checklist for the month-end close, with the August cutoff this Friday. Owners in brackets:\n\n1. Settlement fails and aged breaks cleared or documented in SettlementEngine [Brian H.]\n2. Nostro and GLCore reconciliations signed off, with breaks over $25K explained [Tasha]\n3. Returned ACH items and fee accruals posted to GLCore [Craig/Ronald]\n4. Wire room suspense items cleared [Greg/Derrick]\n5. ReconLegacy EOD batch run completed with no Oracle job errors [Wayne]\n\nMartin, I copied you because the accrual for returned ACH fees will be slightly higher than last month. Please also note that the ReconLegacy batch has been slow lately, so I will start the final run Thursday evening as a precaution.\n\nPlease reply with exceptions by Wednesday noon so Ravi can escalate before cutoff.\n\nThanks,\nWayne",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_063",
+   "to_ids": [
+    "e_065",
+    "e_069"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_029"
+   ],
+   "subject": "Returned ACH items - R10 handling and re-presentment policy",
+   "body": "Craig, Ronald,\n\nAfter reviewing the last three weeks of returns, I want a firm rule for how we handle them. Marcus and Brian are copied since this touches Compliance and Lending.\n\nProposal:\n- R01: one re-presentment allowed after 3 business days, with the RM notified before the second attempt.\n- Repeat R01 on high-risk loan accounts, such as the one tied to {{ACCOUNT_NUMBER:a_00471}}: no automatic re-presentment. Lending reviews first.\n- R10 and any unauthorized claims: stop the draft immediately and open a case with Compliance. The item on {{ACCOUNT_NUMBER:a_00449}} is the model. Please do not contact the customer on {{CLIENT_PHONE:c_0217}} unless the RM or Compliance asks.\n- R03 and R02: update the instructions and do not retry.\n\nPlease write this up in a one-page procedure by next Wednesday. Marcus, let me know if you want a different escalation path for the R10 cases.\n\nThanks,\nRavi",
+   "reply_to_previous": false
+  }
+ ]
+}

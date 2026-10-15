@@ -1,0 +1,351 @@
+{
+ "tenant": "halcyon",
+ "refs": {
+  "ring_clients": [
+   "c_0060",
+   "c_0100",
+   "c_0112",
+   "c_0118",
+   "c_0218"
+  ],
+  "ring_accounts": [
+   "a_00128",
+   "a_00213",
+   "a_00238",
+   "a_00247",
+   "a_00451"
+  ],
+  "ring_counterparties": {
+   "origin1": "cp_061",
+   "origin2": "cp_062",
+   "exit": "cp_063"
+  },
+  "ring_shared": [
+   {
+    "type": "phone",
+    "clients": [
+     "c_0060",
+     "c_0100",
+     "c_0112"
+    ]
+   },
+   {
+    "type": "address",
+    "clients": [
+     "c_0112",
+     "c_0118",
+     "c_0218"
+    ]
+   },
+   {
+    "type": "device_id",
+    "clients": [
+     "c_0060",
+     "c_0218"
+    ]
+   }
+  ],
+  "ring_wire_1": "t_r016",
+  "ring_wire_2": "t_r025",
+  "cutoff": "2026-10-01",
+  "personas": {
+   "ma_banker": "e_039",
+   "compliance_officer": "e_047",
+   "aml_analyst": "e_048",
+   "engineer": "e_075"
+  },
+  "falcon_deal": "deal_falcon",
+  "falcon_team": [
+   "e_039",
+   "e_040",
+   "e_041",
+   "e_042"
+  ],
+  "falcon_leak_source": "e_040",
+  "falcon_leak_recipient": "e_006",
+  "recon_system": "sys_reconlegacy",
+  "recon_expert": "e_073",
+  "recon_last_day": "2026-10-09",
+  "pricing_system": "sys_pricingsvc",
+  "pricing_blast_radius": [
+   {
+    "system_id": "sys_oms",
+    "hops": 1
+   },
+   {
+    "system_id": "sys_portfoliomgr",
+    "hops": 1
+   },
+   {
+    "system_id": "sys_riskengine",
+    "hops": 1
+   },
+   {
+    "system_id": "sys_tradeblotter",
+    "hops": 1
+   },
+   {
+    "system_id": "sys_settlementengine",
+    "hops": 2
+   },
+   {
+    "system_id": "sys_reportingbi",
+    "hops": 2
+   },
+   {
+    "system_id": "sys_reconlegacy",
+    "hops": 3
+   }
+  ],
+  "kyc_system": "sys_kycpipeline",
+  "kyc_owner_before": {
+   "person": "e_063",
+   "team": "team_ops"
+  },
+  "kyc_owner_after": {
+   "person": "e_049",
+   "team": "team_compliance",
+   "from": "2026-10-06"
+  },
+  "crypto_decision": "dec_crypto_pause",
+  "crypto_reversal": "dec_crypto_resume"
+ },
+ "cast": {
+  "ceo": "e_001",
+  "cfo": "e_002",
+  "coo": "e_003",
+  "head_trading": "e_005",
+  "leaker": "e_006",
+  "head_wealth": "e_017",
+  "head_lending": "e_029",
+  "falcon_lead": "e_039",
+  "falcon_vp": "e_040",
+  "falcon_assoc": "e_041",
+  "cco": "e_047",
+  "aml_analyst": "e_048",
+  "compliance_eng": "e_049",
+  "head_risk": "e_056",
+  "head_ops": "e_063",
+  "recon_analyst": "e_064",
+  "head_it": "e_072",
+  "recon_expert": "e_073",
+  "pricing_owner": "e_074",
+  "junior_eng": "e_075"
+ },
+ "beat_docs": {
+  "fr_onboard_1": "crm-00010",
+  "fr_onboard_4": "crm-00011",
+  "re_runbook": "doc-00003",
+  "fa_policy": "doc-00005",
+  "fr_onboard_5": "crm-00022",
+  "ky_slack_1": "slack-00292",
+  "re_slack_1": "slack-00293",
+  "re_slack_2": "slack-00294",
+  "cr_regulator": "email-00084",
+  "fa_wall_memo": "doc-00014",
+  "cr_ticket": "ticket-00041",
+  "cr_slack_1": "slack-00496",
+  "cr_slack_2": "slack-00506",
+  "cr_slack_3": "slack-00531",
+  "fr_onboard_2": "crm-00056",
+  "ky_ticket": "ticket-00052",
+  "cr_slack_4": "slack-00636",
+  "fr_onboard_3": "crm-00061",
+  "pr_slack_1": "slack-00668",
+  "pr_incident": "ticket-00059",
+  "pr_slack_2": "slack-00669",
+  "pr_slack_3": "slack-00670",
+  "pr_slack_4": "slack-00671",
+  "pr_slack_5": "slack-00672",
+  "re_slack_3": "slack-00673",
+  "re_slack_4": "slack-00674",
+  "fa_slack_1": "slack-00704",
+  "fa_slack_2": "slack-00705",
+  "pr_postmortem": "doc-00019",
+  "cr_board_memo": "doc-00021",
+  "cr_meeting": "meeting-00009",
+  "cr_wealth_email": "email-00177",
+  "re_ticket_1": "ticket-00073",
+  "pr_arch": "doc-00025",
+  "fa_slack_3": "slack-01172",
+  "fa_meeting": "meeting-00012",
+  "ky_plan_email": "email-00273",
+  "re_ticket_2": "ticket-00098",
+  "fa_leak_email": "email-00301",
+  "re_resign": "email-00306",
+  "re_slack_5": "slack-01267",
+  "re_slack_6": "slack-01268",
+  "fr_alert_2291": "ticket-00117",
+  "fr_slack_1": "slack-01298",
+  "fr_slack_2": "slack-01299",
+  "fr_email_review": "email-00332",
+  "re_kt_meeting": "meeting-00017",
+  "fr_alert_2307": "ticket-00134",
+  "ky_announce": "slack-01379",
+  "fa_leak_slack": "slack-01399",
+  "fa_leak_reply": "slack-01400",
+  "ky_jenna": "slack-01401",
+  "cr_resume": "email-00366",
+  "cr_resume_ack": "slack-01419",
+  "re_farewell": "slack-01420"
+ },
+ "storyline_docs": {
+  "fraud_ring": [
+   "crm-00010",
+   "crm-00011",
+   "crm-00022",
+   "crm-00056",
+   "crm-00061",
+   "ticket-00117",
+   "slack-01298",
+   "slack-01299",
+   "email-00332",
+   "ticket-00134"
+  ],
+  "recon": [
+   "doc-00003",
+   "slack-00293",
+   "slack-00294",
+   "slack-00673",
+   "slack-00674",
+   "ticket-00073",
+   "ticket-00098",
+   "email-00306",
+   "slack-01267",
+   "slack-01268",
+   "meeting-00017",
+   "slack-01420"
+  ],
+  "falcon": [
+   "doc-00005",
+   "doc-00014",
+   "slack-00704",
+   "slack-00705",
+   "slack-01172",
+   "meeting-00012",
+   "email-00301",
+   "slack-01399",
+   "slack-01400"
+  ],
+  "kyc": [
+   "slack-00292",
+   "ticket-00052",
+   "email-00273",
+   "slack-01379",
+   "slack-01401"
+  ],
+  "crypto": [
+   "email-00084",
+   "ticket-00041",
+   "slack-00496",
+   "slack-00506",
+   "slack-00531",
+   "slack-00636",
+   "doc-00021",
+   "meeting-00009",
+   "email-00177",
+   "email-00366",
+   "slack-01419"
+  ],
+  "pricing": [
+   "slack-00668",
+   "ticket-00059",
+   "slack-00669",
+   "slack-00670",
+   "slack-00671",
+   "slack-00672",
+   "doc-00019",
+   "doc-00025"
+  ]
+ },
+ "decisions": {
+  "dec_crypto_pause": {
+   "decided_in": [
+    "meeting-00009"
+   ],
+   "documents": [
+    "doc-00021",
+    "meeting-00009"
+   ],
+   "summary": "Pause onboarding of new digital-asset clients",
+   "effective": "2026-08-22",
+   "justified_by": [
+    "email-00084",
+    "ticket-00041",
+    "slack-00506",
+    "slack-00531"
+   ]
+  },
+  "dec_crypto_resume": {
+   "decided_in": [
+    "slack-01419"
+   ],
+   "documents": [
+    "email-00366",
+    "slack-01419"
+   ],
+   "summary": "Resume onboarding of digital-asset clients with EDD",
+   "effective": "2026-10-12",
+   "supersedes": "dec_crypto_pause",
+   "justified_by": [
+    "email-00366"
+   ]
+  }
+ },
+ "mnpi_docs": [
+  "doc-00014",
+  "slack-00543",
+  "slack-00545",
+  "slack-00546",
+  "slack-00548",
+  "slack-00551",
+  "slack-00552",
+  "slack-00554",
+  "slack-00555",
+  "slack-00557",
+  "slack-00558",
+  "slack-00559",
+  "slack-00560",
+  "slack-00561",
+  "slack-00562",
+  "slack-00563",
+  "slack-00704",
+  "slack-00705",
+  "slack-00821",
+  "slack-00822",
+  "slack-00823",
+  "slack-00824",
+  "slack-00825",
+  "slack-00826",
+  "slack-00827",
+  "slack-00828",
+  "slack-00829",
+  "slack-00830",
+  "slack-00831",
+  "slack-00832",
+  "slack-00833",
+  "slack-00834",
+  "slack-00942",
+  "slack-00943",
+  "slack-00944",
+  "slack-00945",
+  "slack-00946",
+  "slack-00947",
+  "slack-00948",
+  "slack-00949",
+  "slack-00950",
+  "slack-00951",
+  "slack-00952",
+  "slack-00953",
+  "slack-00954",
+  "slack-00955",
+  "slack-01172",
+  "meeting-00012",
+  "email-00301",
+  "slack-01399"
+ ],
+ "mnpi_outside_deal_team": [
+  "email-00301",
+  "slack-01399"
+ ]
+}

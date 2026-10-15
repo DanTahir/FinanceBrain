@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: OFAC published an SDN list update this afternoon. SanctionsScreen should have ingested it on the 15:00 sync, but I'm going to verify the list version before we trust overnight screening."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "I see the new version stamp in the SanctionsScreen admin view. Delta shows additions plus a couple of removals. Want me to pull the diff into a sheet?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Yes please. Flag any entries with Russia or Iran program tags first. Then we rescreen the active book against just the delta, not a full rerun."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "For KYC: I have three onboarding cases mid-flight in KYCPipeline. Should I hold them until the delta rescreen finishes, or let them continue and catch any hits after?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Hold anything that hasn't cleared the screening step yet. Cases already past it get picked up by the delta rescreen. Should only be a couple of hours."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "From the Risk side, do we know if any counterparties or lending exposures touch the newly listed names? Happy to run exposure through RiskEngine once you have a hit list."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 26,
+   "reply_to": 2,
+   "text": "Diff is up. 14 additions, 3 removals. Two additions carry entity tags that could fuzzy match business names in our commercial book. Sheet is linked in the pinned message."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 34,
+   "reply_to": 6,
+   "text": "Thanks. Let's run the delta against clients and counterparties now. Anthony, start with commercial. I'll look at the wealth side and cp_056 as well since it came up in last week's review."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Nadia, do we need to tell the business anything or notify the RMs? I don't want surprises if a payment gets held tomorrow morning."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 45,
+   "reply_to": 8,
+   "text": "Not yet, Linda. No confirmed matches. If anything survives first-level review I'll tell you and the RMs directly. Worst case is a short hold on outbound wires pending review."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 78,
+   "reply_to": 7,
+   "text": "Commercial results: one potential name match on {{CLIENT_NAME:c_0279}}, but it's a partial token overlap with a listed entity. Jurisdiction and registered details don't line up. Looks like a false positive, documenting the rationale now."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 92,
+   "reply_to": 10,
+   "text": "Agree after a quick look. Log it as a cleared false positive with the secondary identifiers you compared, and I'll sign off. Wealth side is clean, including {{CLIENT_NAME:c_0291}}."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 115,
+   "reply_to": -1,
+   "text": "Rescreen of the three pending onboarding cases is complete with no hits. Releasing the holds in KYCPipeline now."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 130,
+   "reply_to": -1,
+   "text": "Thanks all. Nothing on the counterparty side that needs a Risk escalation from my end. I'll hold off on the exposure run unless something changes."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 148,
+   "reply_to": -1,
+   "text": "Wrapping up: delta rescreen done, zero confirmed matches, one false positive cleared and documented. I'll post the audit summary in the compliance folder tomorrow morning."
+  }
+ ]
+}

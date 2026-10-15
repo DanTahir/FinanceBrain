@@ -1,0 +1,102 @@
+{
+ "tickets": [
+  {
+   "title": "MarketDataFeed vendor corporate actions file late, start-of-day reference data load delayed",
+   "description": "The overnight corporate actions and reference data file from the primary market data vendor landed at roughly 05:40 instead of the usual 03:15 window. The MarketDataFeed reference load job waited on the file and kicked off late, so TradeBlotter opened with stale prices and yesterday's carried P&L for about 25 minutes after the 07:00 desk start. Traders on the equity desk noticed split-adjusted positions looked off. No orders were mis-priced as far as we can tell, but we need a root cause on the vendor delay and a better alert when the file has not arrived by 04:00.",
+   "reporter_id": "e_077",
+   "assignee_id": "e_080",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_080",
+     "text": "Vendor confirmed they had a delayed upstream cut from the exchange side. Our job did the right thing by waiting, but the polling interval was 15 minutes so we lost extra time. I have dropped it to 2 minutes."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Added a pager alert if the file is not present by 04:00 and a Slack notice to the it-ops channel. Verified in staging with a withheld file. Closing out."
+    }
+   ]
+  },
+  {
+   "title": "ReconLegacy end-of-day batch running past 06:00 after month-end volume",
+   "description": "The ReconLegacy end-of-day reconciliation batch (Perl on Oracle 11g) did not finish until about 07:50 on Monday morning, versus the normal 04:30 completion. Reconciliation breaks were not available to the ops team until after the settlements cut-off review, so Tasha and Wayne had to work the break queue manually against SettlementEngine and GLCore extracts. The slow step appears to be the matching stage that joins settlement activity to GL postings. Month-end volume was about 40% above a typical day. Requesting investigation of the Oracle execution plan and whether stats were stale after last week's purge job.",
+   "reporter_id": "e_064",
+   "assignee_id": "e_074",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_074",
+     "text": "Found it. Table stats on the matching staging table were gathered before the purge, so the optimizer chose a full scan over the index. Regathered stats and reran the matching step in a test window; it finished in 38 minutes."
+    },
+    {
+     "author_id": "e_064",
+     "text": "Thanks Leo. Tonight's run completed at 04:41 and break counts look normal. Can we schedule the stats gather after the purge so this does not recur?"
+    },
+    {
+     "author_id": "e_074",
+     "text": "Done, the stats task now chains off the purge job. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "TradeBlotter P&L grid takes 30+ seconds to load at market open",
+   "description": "Multiple traders reported that the TradeBlotter P&L grid is very slow to render around the open, sometimes 30 to 40 seconds before positions populate, and scrolling stutters afterward. It started Thursday and was worst between 09:30 and 10:00. Order entry through OMS itself is fine; only the blotter view lags. Browser dev tools show the grouped P&L endpoint taking most of the time. Desk heads have asked for this to be fixed before the next volatile session since traders are leaning on the OMS screens instead of seeing live P&L. Please check the query behind the grouped view and any caching of PricingSvc lookups.",
+   "reporter_id": "e_075",
+   "assignee_id": "e_079",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "The grouped endpoint was calling PricingSvc once per position instead of batching, and a recent change added intraday strategy tags that multiplied the row count. Shipped a batched lookup and a short TTL cache."
+    },
+    {
+     "author_id": "e_075",
+     "text": "Load time at the open is now around 3 seconds in prod based on Monday's first hour. Desk confirmed happy. Okay to close."
+    }
+   ]
+  },
+  {
+   "title": "TradeBlotter UI lags and freezes during market data bursts",
+   "description": "During the volatility spike last Friday afternoon, the TradeBlotter UI froze for several seconds at a time and the fills table lagged behind actual executions by up to a minute. Browser CPU on trader workstations pegged while the blotter was open. The pattern lines up with bursts of ticks coming through MarketDataFeed, so the front end may be re-rendering the full grid on every update. It happened again this morning on a smaller scale. We should look at update throttling, virtualized rows, and whether the websocket is sending full snapshots rather than deltas. This is not blocking trading but is a real annoyance on the desk.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_076",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_076",
+     "text": "Reproduced locally by replaying a captured tick burst. The grid re-renders every row per message. I am prototyping batched updates at 250ms intervals with row virtualization. Should have a build for the desk to test next week."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Server side, the websocket is sending full position snapshots on each tick for the active filter. I can look at delta payloads on the gateway once your front end change is in so we do not collide."
+    }
+   ]
+  },
+  {
+   "title": "MarketDataFeed end-of-day snapshot batch delayed, downstream loads behind schedule",
+   "description": "The nightly end-of-day snapshot batch in MarketDataFeed finished at about 02:50 instead of 00:30 after the vendor closing price files arrived in several partial pieces. The delay pushed the closing price load out of its window, so TradeBlotter showed prior-day closing marks on the morning P&L view until a manual rerun at 06:15. Risk and ops teams asked whether other consumers were affected. We believe the cause is the new multi-part delivery format from one vendor that our ingest treats as separate, sequential loads. Need to confirm whether the batch can be made to assemble parts concurrently and add monitoring on batch duration.",
+   "reporter_id": "e_077",
+   "assignee_id": "e_081",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_081",
+     "text": "Confirmed the vendor switched to chunked delivery on Monday. Our loader processes chunks serially with a checkpoint after each. I have a patch that parallelizes the parsing and checkpoints once at the end. Testing against the last three nights of files."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Please make sure the checkpoint change is idempotent in case a chunk is re-sent. Priya has context on the original loader design, so ask her to review before Friday since she is out after that."
+    },
+    {
+     "author_id": "e_077",
+     "text": "I added a duration alert on the snapshot batch at 01:30 so we hear about it before the desk does. Will tune after the patch goes out."
+    }
+   ]
+  }
+ ]
+}

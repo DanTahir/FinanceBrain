@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Lunch poll: I'm sick of the cafeteria salad bar. Anyone have a good spot within a 10 min walk? Need something that isn't a 40 minute wait."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "The Vietnamese place on the corner past the dry cleaner. Banh mi is $11 and they're fast. Line moves."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Seconding anything with a fast line. Also the halal cart by the subway entrance, chicken over rice, can't beat it."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Banh mi sounds good. Do they take orders ahead online? Last time I stood there for 15 min just to order."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 6,
+   "reply_to": 3,
+   "text": "Yeah, they have an app. Order from your desk and walk over, it's usually ready when you get there."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Unrelated but is the ramen spot on the next block still open? I walked by Friday and the lights were off."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 11,
+   "reply_to": 5,
+   "text": "Closed for renovation I think. Sign said back in October. Bummer, their spicy miso was elite."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 13,
+   "reply_to": 5,
+   "text": "Yep, I saw the same sign. There's a new poke place opening in that space after, supposedly."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 15,
+   "reply_to": 7,
+   "text": "Poke is fine but I need something warm. Fall is basically here."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Update: went with the halal cart. Chicken over rice with extra white sauce. No regrets, but I'm going to need a nap at 2."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 20,
+   "reply_to": 9,
+   "text": "Classic. White sauce is the real reason people go back."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 22,
+   "reply_to": 9,
+   "text": "Told you. Did you get the hot sauce too? Be careful, it's no joke."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 24,
+   "reply_to": 11,
+   "text": "Got a little. My forehead disagrees with that decision."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 40,
+   "reply_to": -1,
+   "text": "Anyone want to do a team lunch Thursday? Thinking the Italian place with the lunch special, panini plus soup for $14."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 43,
+   "reply_to": 13,
+   "text": "I'm in. Can we go at 12:30 though? I've got payment batch checks until noon."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 47,
+   "reply_to": 13,
+   "text": "In as well. 12:30 works for me, I'll bring the poke place idea for dessert chat."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 50,
+   "reply_to": 14,
+   "text": "12:30 it is. I'll grab a table for three, the place gets packed after 12:45."
+  }
+ ]
+}

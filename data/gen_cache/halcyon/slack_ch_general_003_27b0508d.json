@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick update on the Q3 phishing simulation we ran Monday. 78% of staff reported or ignored the email, 14% clicked the link, and 6% entered credentials on the fake login page. Better than Q1, but credential entry is still too high. Department breakdowns go out by email this afternoon."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "Honestly the fake login page looked exactly like our SSO screen. Hard to blame anyone for that one."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "That's the point, Steven. Real attackers clone it perfectly. Check the URL every time, and if you land on a login page from an email link, close it and go through the bookmarked portal instead."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "Wire room got a mention in the breakdown? We flag anything odd on payment requests all day, so I hope we scored well."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Operations did well overall, Mike. Report rate was one of the highest in the firm. Thanks to everyone on the wire team who used the Report Phish button."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Does the Report Phish button work in the mobile Outlook app? I tried it on my phone last week and couldn't find it."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 26,
+   "reply_to": 5,
+   "text": "Not yet on mobile, Brendan. Forward the email as an attachment to the phishing mailbox from your phone for now. Jenna's team is looking at adding the button to mobile next quarter."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "If someone clicked and entered creds in the test, do they need to do anything? Or is it just the training module?"
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 44,
+   "reply_to": 7,
+   "text": "Just the 20-minute training module, due Aug 12. In a real incident we'd reset the password and review sessions. Nothing punitive, this is for learning."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 71,
+   "reply_to": -1,
+   "text": "Does it count if I clicked the link but closed the page before typing anything? Asking for a friend."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 78,
+   "reply_to": 9,
+   "text": "Counts as a click, James, but not a credential entry. Still goes on the training list, and it's good you stopped there. Next time, hit Report Phish before closing the tab."
+  }
+ ]
+}

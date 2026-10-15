@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Access request: read-only PositionStore replica for data engineering",
+   "description": "Requesting read-only access to the PositionStore reporting replica for Michael Jones so he can build the nightly holdings snapshot job feeding DataLake. Currently the snapshot is pulled via a manual export that Kevin Zhao runs on request, which is slow and error prone. Access should be scoped to the holdings and lot tables only, no write permissions and no access to client-identifying columns. Needs sign-off from the PositionStore owners in Technology and should be provisioned through AuthSSO group membership rather than a shared service account. Target is before the end of the month so the pipeline can be tested in staging.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_072",
+     "text": "Approved for the holdings and lot tables only. Please use an AuthSSO group, not a shared credential, and set a 90 day review on the membership."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Group created and Michael added. Replica grants applied with column masking on the client reference fields. Verified with a test query from his workstation."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Confirmed, I can query the snapshot views and the masking works as expected. Closing this out, thanks."
+    }
+   ]
+  },
+  {
+   "title": "Nightly PricingSvc curve rebuild job did not fire on scheduler",
+   "description": "The 02:00 ET nightly yield curve and valuation cache rebuild for PricingSvc did not start on 2026-09-02. The scheduler shows the job stuck in a queued state with a lock held by a worker that was recycled during last night's patching window. As a result the morning valuation cache was stale until about 06:40, and a few downstream consumers saw prior day marks at the open. Need the stale lock cleared, the job re-run, and a fix so locks expire when a worker node is terminated. Please also check whether other jobs share the same lock table.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_074",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_074",
+     "text": "Found the orphaned lock row from the worker that was drained at 01:45. Cleared it manually and kicked off the rebuild, it completed in 38 minutes. Working on a TTL for lock rows."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Checked the other jobs on that lock table. Two batch exports use it too, neither missed a run last night, but they carry the same risk until the TTL change ships."
+    },
+    {
+     "author_id": "e_074",
+     "text": "TTL of 15 minutes on lock heartbeat deployed to the scheduler. Tested by killing a worker mid-job and the lock released cleanly. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "PricingSvc API returning 429s to internal batch consumers",
+   "description": "Since Monday morning, internal batch consumers calling the PricingSvc valuation endpoint are getting HTTP 429 responses after roughly 600 requests per minute. The gateway rate limit was tightened last week as part of the hardening change, and the limit appears to be applied per source IP rather than per service identity, so several batch workers behind one NAT share a single bucket. The overnight revaluation run is retrying aggressively, which makes it worse. We need per-client quotas keyed on service identity, plus a higher ceiling for the batch tier with backoff guidance for callers.",
+   "reporter_id": "e_075",
+   "assignee_id": "e_079",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "Confirmed the limiter is keyed on source IP. Temporarily raised the shared bucket to 2000 rpm so the revaluation run can complete while I move to identity-based keys."
+    },
+    {
+     "author_id": "e_075",
+     "text": "Revaluation finished clean with the temporary limit. I will add exponential backoff with jitter on our client side so we stop hammering the endpoint on 429s."
+    },
+    {
+     "author_id": "e_079",
+     "text": "Identity-based quotas are live with a batch tier of 1500 rpm per service. Reverted the temporary bucket. Documented the Retry-After behavior in the API wiki."
+    }
+   ]
+  },
+  {
+   "title": "Intermittent VPN disconnects for remote engineers on split tunnel profile",
+   "description": "Several engineers working remotely have reported the VPN dropping every 15 to 25 minutes since the client profile update pushed on 2026-09-29. Sessions reconnect but in-flight SSH and database sessions to the PositionStore admin hosts are killed, and AuthSSO re-prompts for MFA each time. It looks to be affecting people on the split tunnel profile, mostly on home broadband. Logs on the concentrator show DPD timeouts. Need to determine whether the new keepalive or MTU setting is the cause and roll back or adjust the profile.",
+   "reporter_id": "e_076",
+   "assignee_id": "e_077",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Reproduced on two test laptops. The profile update dropped MTU to 1300 and changed the DPD interval to 10 seconds, which seems too aggressive for lossy home links. Testing 1380 with a 30 second interval."
+    },
+    {
+     "author_id": "e_078",
+     "text": "I'm seeing the same pattern in the concentrator logs, all disconnects are DPD timeouts from the split tunnel group. Full tunnel users look fine. Happy to help with the rollout once the new values are validated."
+    }
+   ]
+  },
+  {
+   "title": "API rate limiting blocking PositionStore sync from reporting service",
+   "description": "Starting this morning, the holdings sync from the reporting service to the PositionStore API is being throttled with 429 responses, causing the intraday positions extract to lag by about 20 minutes. The sync runs every five minutes and pulls paginated holdings, which now count against the stricter per-client quota introduced after the PricingSvc limiter change. Need to check whether the sync client is registered with a service identity and whether a bulk endpoint or higher quota is appropriate. Also review whether pagination size can be increased to reduce call volume.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_079",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "Looking at it now. The sync client is still on the default tier because it was never registered with its own identity. I will register it and propose a quota based on the last two weeks of call volume."
+    },
+    {
+     "author_id": "e_080",
+     "text": "I can bump the page size from 100 to 500 on our side today, which should cut calls by about 80 percent. Will test in staging first."
+    }
+   ]
+  }
+ ]
+}

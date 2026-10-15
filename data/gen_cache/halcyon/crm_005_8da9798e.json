@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0106",
+   "text": "2025-09-25 call with {{CLIENT_NAME:c_0106}} re: liquidity ahead of a home purchase. Client is targeting a closing in roughly 10 weeks and wants to keep the down payment and closing costs liquid in checking {{ACCOUNT_NUMBER:a_00227}}. Discussed estimated cash to close, reserve expectations, and avoiding large unexplained deposits that will draw underwriter questions. Client prefers contact by email at {{CLIENT_EMAIL:c_0106}}; backup phone {{CLIENT_PHONE:c_0106}}. Next step: I will send a document checklist and a pre-approval summary by Friday. Risk profile unchanged, low."
+  },
+  {
+   "client_id": "c_0061",
+   "text": "Spoke with the business owner at {{CLIENT_NAME:c_0061}} on 2026-08-11 about a change of business address. New address to be recorded as {{CLIENT_ADDRESS:c_0061}}. Applies to operating account {{ACCOUNT_NUMBER:a_00129}} and the loan on {{ACCOUNT_NUMBER:a_00130}}. Advised that we need a signed change form plus supporting documentation, and that the loan file and insurance certificate must reflect the new location. Confirmed contact details remain {{CLIENT_PHONE:c_0061}} and {{CLIENT_EMAIL:c_0061}}. I will route the update to Operations and flag the loan covenant file. No other changes. Risk low."
+  },
+  {
+   "client_id": "c_0298",
+   "text": "Met with {{CLIENT_NAME:c_0298}} (2026-07-23). Client is saving for a home purchase within about 12 months and asked how much of the brokerage holdings in {{ACCOUNT_NUMBER:a_00598}} should move to cash. We discussed a staged approach: keep the down payment amount in short-duration, liquid holdings and leave the remainder invested. Client also asked again about crypto exposure; I noted the firm's digital asset policy is still under review and that nothing can be offered now. Will loop in the advisor team and follow up by email at {{CLIENT_EMAIL:c_0298}} next week."
+  },
+  {
+   "client_id": "c_0097",
+   "text": "Call on 2026-10-06 with {{CLIENT_NAME:c_0097}} regarding liquidity for a planned home purchase. Client expects to need about $180K for down payment and closing within 90 days. Reviewed brokerage {{ACCOUNT_NUMBER:a_00207}} and cash management {{ACCOUNT_NUMBER:a_00208}}; proposed raising the cash from the cash management sleeve first and trimming a couple of concentrated positions in the brokerage account, with an eye on tax lots. Client will confirm the closing date. Follow-up via {{CLIENT_PHONE:c_0097}}. Risk tolerance unchanged, low."
+  },
+  {
+   "client_id": "c_0052",
+   "text": "Meeting with {{CLIENT_NAME:c_0052}} on 2026-07-07 about financing a second location and new equipment, roughly $1.2M total. Reviewed current loan {{ACCOUNT_NUMBER:a_00108}} and cash flow through operating account {{ACCOUNT_NUMBER:a_00107}}. Payment history is clean. Client will provide updated financials, a projection for the new site, and a lease draft. Discussed options: term loan with an equipment line versus upsizing the existing facility. I will draft the credit memo once documents arrive. Contact: {{CLIENT_EMAIL:c_0052}}. Risk remains low."
+  },
+  {
+   "client_id": "c_0015",
+   "text": "Annual portfolio review with {{CLIENT_NAME:c_0015}} held 2026-09-22. Walked through performance and allocation across brokerage {{ACCOUNT_NUMBER:a_00031}} and cash management {{ACCOUNT_NUMBER:a_00032}}. Allocation drifted modestly overweight in equities after the summer rally; agreed to rebalance back toward target at next quarter-end. Client's goals and income needs are unchanged and risk tolerance stays low. Client asked about tax-loss harvesting opportunities; I will pull the lot-level report. Updated statements to be sent to {{CLIENT_EMAIL:c_0015}}."
+  },
+  {
+   "client_id": "c_0281",
+   "text": "2026-08-17: Intro conversation with {{CLIENT_NAME:c_0281}} regarding a referral from an existing client of the firm. Client is already with us, with brokerage {{ACCOUNT_NUMBER:a_00576}}, and the referral is for a family member interested in wealth planning. Confirmed we can reach out only once the family member agrees to be contacted. Reminded client of our standard referral process and no-incentive policy. I'll follow up at {{CLIENT_EMAIL:c_0281}} and prepare an intro packet. No change to the client's own risk profile, low."
+  },
+  {
+   "client_id": "c_0178",
+   "text": "Spoke with {{CLIENT_NAME:c_0178}} on 2026-10-06 about updating risk tolerance for the business. Management now wants more conservative treasury positioning given softer receivables and a planned equipment purchase. Reviewed the loan on {{ACCOUNT_NUMBER:a_00368}} and balances in operating {{ACCOUNT_NUMBER:a_00367}}. Client will submit a revised profile form. I will refresh the credit file and note the change for the relationship team. Contact remains {{CLIENT_PHONE:c_0178}}. Overall risk still low; no covenant concerns."
+  },
+  {
+   "client_id": "c_0159",
+   "text": "Received an address change request from {{CLIENT_NAME:c_0159}} on 2026-08-27. New address to be recorded as {{CLIENT_ADDRESS:c_0159}}. Affects checking {{ACCOUNT_NUMBER:a_00332}} and loan {{ACCOUNT_NUMBER:a_00333}}. Because the client is rated medium risk, I asked for proof of residence and a signed change form before updating records, and will notify KYC for a refresh check. Confirmed by phone at {{CLIENT_PHONE:c_0159}}. Loan terms and payment schedule unchanged. Will confirm completion by email to {{CLIENT_EMAIL:c_0159}}."
+  },
+  {
+   "client_id": "c_0204",
+   "text": "Call with {{CLIENT_NAME:c_0204}} on 2026-08-05 to plan required minimum distributions for the year. Estimated the RMD and discussed taking it from the brokerage {{ACCOUNT_NUMBER:a_00424}}, with proceeds moved to cash management {{ACCOUNT_NUMBER:a_00425}}. Client has a high risk profile and a concentrated equity position; we discussed raising the distribution through trims of that position rather than selling bonds. Client wants withholding set up and a year-end check. I'll coordinate with the tax team and confirm the plan at {{CLIENT_EMAIL:c_0204}}."
+  }
+ ]
+}

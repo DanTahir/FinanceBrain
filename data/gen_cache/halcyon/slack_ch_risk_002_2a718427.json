@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quick update on the Q3 stress scenario set: I've added the rates +200bp parallel shock and the credit spread widening scenario to RiskEngine over the weekend. Both are running in the overnight batch now."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Paul. Did you keep the equity -20% leg in the combined scenario, or are we running it standalone only?"
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Both. Standalone plus a combined severe case (equity -20%, rates +200bp, IG spreads +150bp). Combined is the one Martin asked for for the board pack."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Yes, I need headline numbers for the board pack by Thursday. Can someone give me the combined-scenario P&L hit and the capital impact once the batch finishes?"
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "Batch finished at 8:40. Preliminary combined loss is about $41M against the firmwide book, which is roughly 9% of tier 1 capital. I'm still sanity-checking the position snapshot."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 22,
+   "reply_to": 4,
+   "text": "9% feels a bit high vs. last quarter's severe case. What changed? Is that the new spread shock or are we carrying more duration?"
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 29,
+   "reply_to": 5,
+   "text": "Mostly duration. The desk added a chunk of 7-10y corporates in July, so the rates leg bites harder. Spread shock adds maybe $9M on top of that."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "On the credit side, I'm rerunning the loan book migration under the stress case. Assuming a two-notch downgrade across the CRE and leveraged portfolios. Will post expected loss deltas by early afternoon."
+  },
+  {
+   "author_id": "e_060",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "Phillip, I can take the leveraged loans piece if you handle CRE. We should use the same default-rate assumptions as the June run so the comparison is clean."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 44,
+   "reply_to": 8,
+   "text": "Works for me. I'll pull the CRE LTV refresh tonight's data and post the numbers in this thread."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 58,
+   "reply_to": 4,
+   "text": "Update: found a stale position for one swap book in the snapshot. After refreshing PositionStore, the combined loss drops to about $38.5M, so closer to 8.4% of tier 1."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 63,
+   "reply_to": 10,
+   "text": "Good catch, Angelica. That's more in line with what I expected. Please note the snapshot timestamp in the methodology footnote."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 75,
+   "reply_to": 10,
+   "text": "Thanks. Will the credit losses from Phillip and John be layered into that $38.5M, or reported separately in the pack?"
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 82,
+   "reply_to": 12,
+   "text": "Separately for now. Market and credit stress are different engines, so I'd show market P&L, credit EL, and then a simple combined total with a note on no diversification benefit."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 90,
+   "reply_to": 13,
+   "text": "Agree. Martin, we'll give you one summary table. Angelica will also refresh the ReportingBI stress dashboard so you can drill down."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 97,
+   "reply_to": 14,
+   "text": "On it. ReportingBI refresh is scheduled for 1pm, I'll ping here when the new scenario tabs are live."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 105,
+   "reply_to": -1,
+   "text": "Great, appreciate the quick turnaround everyone. I'll review the dashboard this afternoon and come back with questions before Thursday."
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_009"
+   ],
+   "subject": "Q2 best execution report - draft for review",
+   "body": "Hi Daniel,\n\nAttached is the draft Q2 best execution report ahead of the compliance review. Headline numbers: average arrival slippage across the equity desk was 3.1 bps versus 3.6 bps in Q1, and we improved price improvement capture on marketable orders by roughly 8%. Dark venue fill rates held steady, though two venues showed elevated reversion on mid-cap names and I flagged them in section four.\n\nData was pulled from the TradeBlotter and reconciled against OMS child order timestamps. Robert's team re-ran the TCA model after we found a handful of orders with missing parent IDs; those are now corrected and excluded from nothing.\n\nOpen items: we need your sign-off on the venue ranking commentary, and Marcus may want more detail on how we handled routing exceptions during the June volatility spike.\n\nCould you send comments by Tuesday? I'd like to finalize by the 16th.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_006",
+    "e_007",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Broker commission review - Q2 scorecards",
+   "body": "Team,\n\nIt's time for our semiannual broker commission review. Please send me your broker ranking inputs by Friday, July 31. I'm looking at the following:\n\n1. Execution quality: fill rates, slippage versus arrival, and any settlement fails\n2. Research and corporate access value actually used this quarter\n3. Commission spend against our CSA budget\n\nMartin is copied since Finance needs the numbers to true up the accruals. Our total commission spend ran about 6% above plan in Q2, mostly driven by the program trading in May, so I expect we'll trim allocations to a few of the lower-ranked brokers.\n\nIf you feel strongly that a broker deserves more or less flow, include a short note with examples. I'd rather have specifics than gut feel. We'll go through the scorecards in the desk meeting the first week of August.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_010",
+   "to_ids": [
+    "e_005",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_061"
+   ],
+   "subject": "Follow-up: intraday limit breach on Aug 25",
+   "body": "Daniel, Owen,\n\nFollowing up on the single-name concentration limit breach from Tuesday afternoon. To recap, my book went through the 5% of NAV intraday threshold at about 2:40 PM after a block fill landed in a position I already had on. The RiskEngine alert fired within a couple of minutes, but the exposure view lagged because PositionStore was a few minutes behind on the fill.\n\nI reduced the position by 11:00 the next morning and we're now back inside limits at 4.2%. I've also added a pre-trade check in my own workflow to verify the projected post-fill exposure before accepting large crosses.\n\nTwo asks: can Paul confirm whether the position update delay is something Technology should look at, and can we agree on whether this goes in the monthly limit exceptions log as a passive or active breach? I'd like it documented accurately.\n\nHappy to walk through the timeline whenever suits.\n\nRegards,\nErik",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_005",
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_008"
+   ],
+   "subject": "New FIX session to alternative venue - test plan and go-live",
+   "body": "Hi Daniel, Sam,\n\nWe're targeting a go-live on Wednesday September 9 for the new FIX 4.2 connection to the alternative trading venue we approved last month. Certification with the venue's onboarding team is complete, and we've passed their order entry and cancel/replace scripts in the UAT environment.\n\nPlan:\n- Sept 3: Sam's team opens the firewall rules and loads the production session credentials via AuthSSO-managed secrets\n- Sept 4-8: Connectivity tests and a few small live orders routed through OMS with the venue flagged as opt-in only\n- Sept 9: Enable in the smart order router at 10% of eligible flow, scaling up if fill quality looks fine\n\nOne dependency: we still need confirmation on the sequence number reset policy at the venue's end of day. Travis is chasing that.\n\nSam, can you confirm your team has capacity for the Sept 3 change window? Please let me know of any conflicts.\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_007",
+   "to_ids": [
+    "e_005",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Broker commission review - Q3 mid-quarter check",
+   "body": "Hi Daniel,\n\nAhead of the end of quarter, I did a quick mid-quarter check on commissions against the allocations we agreed in July. Overall we're tracking close to the revised budget, with spend down about 4% from the same stretch last quarter.\n\nA few observations:\n- Two of the brokers we reduced in July have improved their algo performance, so I'd suggest we hold their allocations rather than cut further\n- One mid-tier broker is well under its target share because of their slower response on block inquiries. Ronald has been routing more to them lately, so please check his view\n- Research usage tracking is incomplete for September; I'll chase the desk for votes\n\nI'd propose we revisit the final tiering at the start of October after Q3 closes, rather than adjusting mid-quarter. Martin has been copied so Finance can plan the accrual.\n\nLet me know if you want me to put the details in a spreadsheet for Thursday's meeting.\n\nBest,\nJessica",
+   "reply_to_previous": false
+  }
+ ]
+}

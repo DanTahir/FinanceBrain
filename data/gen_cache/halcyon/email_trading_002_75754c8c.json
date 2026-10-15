@@ -1,0 +1,74 @@
+{
+ "emails": [
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_006",
+    "e_007",
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Q2 broker commission review - input needed by Wednesday",
+   "body": "Hi all,\n\nWe are starting the broker commission review for Q2 and I want the desk's view before we sit down with Martin's team. Looking at the commission-per-share data from the TradeBlotter export, blended cost on the cash equity flow is running about 1.8 bps above where we were in Q1, mostly because more volume went through the two bulge-bracket brokers whose research votes we owe.\n\nWhat I need from each of you by end of day Wednesday:\n1. Your honest read on execution quality by broker (fill rates, slippage versus arrival, any reject patterns).\n2. Any broker where you think we are overpaying relative to the service we get.\n3. Where research or CSA balances are stale and could be redirected.\n\nI would like to consolidate the commission tiers and push back on at least two rate cards. Please do not discuss specifics with the brokers until we have aligned internally.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005",
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_011",
+    "e_047"
+   ],
+   "subject": "New FIX session to alternative venue - UAT plan and cutover",
+   "body": "Hi Daniel, Sam,\n\nQuick update on the new FIX 4.4 connection to the alternative ATS we approved last month. The venue sent over their certification pack yesterday and we have the UAT session configured in OMS against their test gateway.\n\nPlan as I see it:\n- Aug 6-7: logon/logoff, heartbeat and sequence-reset testing\n- Aug 10-12: order entry, cancel/replace, and execution report validation, including partial fills and IOC behavior\n- Aug 13: certification sign-off with the venue\n- Production go-live in the week of Aug 17 with a small order-size cap\n\nSam, I need your team to open the firewall rules for the venue's IP range and confirm the session credentials are stored in the secrets vault. Marcus, copying you so Compliance can confirm the venue is on the approved list and the best-ex routing table can be updated.\n\nSteven will shadow the UAT with me and own the runbook.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_005",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_014",
+    "e_012"
+   ],
+   "subject": "Draft Q2 best execution report - TCA summary for review",
+   "body": "Hi Daniel, Marcus,\n\nAttached in the shared folder is the draft of the Q2 best execution quarterly report. Headline numbers from our TCA work:\n\n- Average implementation shortfall on liquid US equities: 6.2 bps, down from 7.1 bps in Q1\n- Price improvement captured on roughly 41% of marketable limit orders\n- Child-order fill rates on the dark venues improved after we adjusted minimum quantity settings\n- Two outliers in small-cap names where the spread widened intraday; we have flagged these for review\n\nJessica Guzman and Sean did the venue-level breakdown and the data comes from OMS execution records joined to the market data snapshots. Please review the methodology section especially, since we changed the benchmark for illiquid names from arrival mid to interval VWAP.\n\nCan I have comments by Wednesday the 19th so we can finalize before the committee meets?\n\nThanks,\nRobert",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_009",
+    "e_014",
+    "e_012"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Best ex report - final items before committee sign-off",
+   "body": "Team,\n\nThanks for the turnaround on the Q2 best execution report. Marcus and I went through it and it is nearly there. Remaining items before it goes to the committee on Friday:\n\n1. Add a short paragraph explaining the benchmark change for illiquid names, with a sensitivity table showing results under both methods.\n2. The two small-cap outliers need a written explanation from the traders involved. Travis and Derek can supply that.\n3. Clarify routing rationale for the venue that lost share this quarter. The committee will ask.\n4. Fix the footnote on the commission-adjusted costs; it still references the old rate card.\n\nRobert, please own the consolidated version and circulate a clean copy by Wednesday noon. Marcus, let us know if you want any additional regulatory language.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_005",
+    "e_008"
+   ],
+   "cc_ids": [
+    "e_072",
+    "e_077"
+   ],
+   "subject": "FIX session to second venue - sequence gap issue during testing",
+   "body": "Hi Daniel, Travis,\n\nFollowing up on the FIX connectivity work. During this morning's UAT for the second venue, we hit a sequence number gap after a forced disconnect. The venue's engine expected a resend request, but our OMS gateway replied with a gap fill, which they rejected as out of policy.\n\nWhat we know so far:\n- Reproduced three times, always after a logout without a clean reset\n- The venue confirmed they require ResetSeqNumFlag on logon after any unscheduled drop\n- Our config currently resets only at the start-of-day window\n\nI have a proposed config change and will test it tomorrow morning. Omar's team has agreed to watch the session logs during the run so we can correlate timestamps.\n\nIf the fix holds, we still target go-live next Monday with the reduced order-size cap. I will confirm by Thursday afternoon. If not, we should hold rather than rush it.\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  }
+ ]
+}

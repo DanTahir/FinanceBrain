@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, the nightly backup job for the reporting warehouse failed again last night. Third time this week. Anyone else seeing the alert?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Yeah I got the email at 5:40am. Does this touch anything Ops relies on? We pull settlement reports off that warehouse for the morning ACH reconciliation."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "Looking now. Pretty sure the ShareRecon backup step is what's choking. The nightly share/GL recon scripts write a big temp dump and the volume is probably filling up before the snapshot kicks off."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 8,
+   "reply_to": 2,
+   "text": "That tracks. The warehouse job log shows a disk space error right after the recon window ends. Is the temp dump supposed to be cleaned up automatically?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "It should be, there's a cleanup at the end of the script. But if the CoreBanking extract runs long the cleanup gets skipped. Vendor was slow pulling data on Monday and Wednesday."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Quick risk question: is last night's recon itself trustworthy, or do we need to rerun before I sign off on the GL tie-out today?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 19,
+   "reply_to": 5,
+   "text": "Recon completed fine, only the backup after it failed. I'll diff the share totals against CoreBanking this afternoon to be safe and post the result here."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 23,
+   "reply_to": -1,
+   "text": "Also, BSAWatch pulls from the same warehouse snapshot for its feeds. If the backup is stale, do we have a gap on the monitoring side? Want to flag it to Compliance if so."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 27,
+   "reply_to": 7,
+   "text": "BSAWatch reads live from CoreBanking and ACHHub, not the warehouse snapshot, so monitoring should be fine. I'll confirm with Monica anyway, but I don't expect a gap."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Hector, honestly this keeps me up a little. Those scripts are only in your head. If you're out sick, who fixes this? Can we get a short runbook written?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 36,
+   "reply_to": 9,
+   "text": "Fair point, and I agree. I'll write up a runbook covering the cleanup logic and failure modes by next Friday. Amy, can you shadow me on the fix so a second person knows the flow?"
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 38,
+   "reply_to": 10,
+   "text": "Happy to. I'll block an hour with you after lunch and take notes as we go. I can also add a disk usage alert so we catch this before the backup fails."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 42,
+   "reply_to": -1,
+   "text": "Great. Plan: expand the temp volume, force the cleanup to run regardless of extract timing, then rerun the backup tonight. I'll update this thread once the rerun succeeds Saturday morning."
+  }
+ ]
+}

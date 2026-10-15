@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0075",
+   "text": "8/26/2026 - Spoke with {{CLIENT_NAME:c_0075}} about required minimum distribution planning. Member is approaching the age where RMDs start and wanted to know how Brightwater handles them. Explained we don't hold the retirement custodian role, so the calculation and any distribution would come from the plan holder. Member can still move the proceeds into share savings {{ACCOUNT_NUMBER:a_00162}} once received. Suggested the member confirm the amount with their tax preparer before the year-end deadline. Confirmed contact info on file is current via {{CLIENT_EMAIL:c_0075}}. Will follow up in October."
+  },
+  {
+   "client_id": "c_0024",
+   "text": "9/21/2026 - {{CLIENT_NAME:c_0024}} came in to update the phone number on file. Verified identity with photo ID and the usual security questions, then replaced the old number with {{CLIENT_PHONE:c_0024}} on the member profile. Applied the change to both share savings {{ACCOUNT_NUMBER:a_00051}} and checking {{ACCOUNT_NUMBER:a_00052}}. Member also uses text alerts, so I re-sent the enrollment confirmation to the new number. Mailing address on file {{CLIENT_ADDRESS:c_0024}} was confirmed unchanged. No other requests. Low-risk, routine visit."
+  },
+  {
+   "client_id": "c_0007",
+   "text": "7/14/2026 - {{CLIENT_NAME:c_0007}} stopped at the teller line to change beneficiary designations on share savings {{ACCOUNT_NUMBER:a_00012}} and checking {{ACCOUNT_NUMBER:a_00013}}. Provided the POD/beneficiary form and walked through primary vs. contingent designations. Member completed it at the desk; I verified ID and signature and routed the paperwork to Member Services for review. Because the profile is flagged high risk, I noted the change for the Compliance file as a courtesy. Confirmation will go to {{CLIENT_EMAIL:c_0007}} once processed."
+  },
+  {
+   "client_id": "c_0076",
+   "text": "10/1/2026 - Call with {{CLIENT_NAME:c_0076}} regarding required minimum distribution planning. Member holds an auto loan relationship with us and is thinking about how upcoming RMD income will affect monthly cash flow and the payment draft from checking {{ACCOUNT_NUMBER:a_00163}}. Reviewed the payment date and offered to shift the due date to line up with when distributions typically land. We do not give tax advice, so I recommended a CPA for the amounts. Will call {{CLIENT_PHONE:c_0076}} next week to confirm the due-date change."
+  },
+  {
+   "client_id": "c_0044",
+   "text": "10/1/2026 - {{CLIENT_NAME:c_0044}} asked to update their risk tolerance profile after a recent life change. Member now prefers a more conservative approach and wants to keep more funds liquid. Reviewed current balances in share savings {{ACCOUNT_NUMBER:a_00098}} and checking {{ACCOUNT_NUMBER:a_00099}}, and mentioned our certificate options without making any recommendation. Updated the profile note and set a reminder to revisit in six months. Contact details unchanged; email on file remains {{CLIENT_EMAIL:c_0044}}."
+  },
+  {
+   "client_id": "c_0083",
+   "text": "9/1/2026 - Beneficiary designation change requested by {{CLIENT_NAME:c_0083}} for checking {{ACCOUNT_NUMBER:a_00173}}. Member called {{CLIENT_PHONE:c_0083}} in and said a family situation had changed, so the prior beneficiary should be replaced. I can't process that from the lending side, so I sent the beneficiary form to {{CLIENT_EMAIL:c_0083}} and handed the request to Member Services for signature verification. Also confirmed the active loan is unaffected by the change. Will check next week that the signed form came back."
+  },
+  {
+   "client_id": "c_0013",
+   "text": "7/17/2026 - Estate planning check-in with {{CLIENT_NAME:c_0013}}. Reviewed how the beneficiary and POD designations are set up on share savings {{ACCOUNT_NUMBER:a_00025}} and checking {{ACCOUNT_NUMBER:a_00026}}. Member isn't sure the designations match their current wishes, and plans to meet with an attorney this fall. Reminded them that POD designations generally override a will for these accounts. Printed a designation summary and mailed it to {{CLIENT_ADDRESS:c_0013}}. Follow up after the attorney meeting."
+  },
+  {
+   "client_id": "c_0031",
+   "text": "9/1/2026 - {{CLIENT_NAME:c_0031}} contacted us to update their risk tolerance profile. Member said they feel more comfortable with lower volatility and prefers keeping savings in insured deposit products. Reviewed balances in share savings {{ACCOUNT_NUMBER:a_00069}} and checking {{ACCOUNT_NUMBER:a_00070}}, and noted interest in a share certificate when rates are discussed next. Updated the profile and logged the conversation. I tried {{CLIENT_PHONE:c_0031}} to confirm, with a follow-up email sent to {{CLIENT_EMAIL:c_0031}}. No issues."
+  },
+  {
+   "client_id": "c_0025",
+   "text": "8/20/2026 - Met with {{CLIENT_NAME:c_0025}} for an estate planning check-in. Member wants to confirm that beneficiaries on share savings {{ACCOUNT_NUMBER:a_00054}} and checking {{ACCOUNT_NUMBER:a_00055}} reflect a recent change in household. We reviewed the current forms and found the contingent beneficiary field blank, so I started an updated designation form for signature. Profile is high risk, so I flagged the update for the usual enhanced review. Sent a copy to {{CLIENT_EMAIL:c_0025}}. Next touchpoint in 30 days to confirm completion."
+  },
+  {
+   "client_id": "c_0081",
+   "text": "7/30/2026 - {{CLIENT_NAME:c_0081}} called {{CLIENT_PHONE:c_0081}} upset about a fee posted to share savings {{ACCOUNT_NUMBER:a_00171}}. Reviewed the history: the fee was a below-minimum-balance charge after the balance dipped for two days last month. Member said they didn't get a notice. I acknowledged the frustration, explained the fee schedule, and submitted a one-time courtesy reversal request to Paul Jensen for approval. Told the member to expect a decision within two business days, and suggested low-balance alerts to avoid a repeat."
+  }
+ ]
+}

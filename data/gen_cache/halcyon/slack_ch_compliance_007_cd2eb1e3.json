@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. Surveillance queue has 11 new alerts overnight, mostly wire velocity rules. Two are tied to c_0092 operating account {{ACCOUNT_NUMBER:a_00196}}. Anyone already looking at those?"
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Not yet. I did the refresh on c_0092 earlier this year, risk rating is low and they've been a client since 2021. Probably seasonal payables but I'll pull the KYC file so you have context."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Thanks. The counterparty on the bigger one is Mcfarland LLC, CY-based. That's what bumped the geography rule, not the amount."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "FYI for anyone tuning dispositions: the rule threshold change for wire velocity went live Wednesday. Expect more volume on commercial accounts until we recalibrate. I'm pulling a 30-day false positive rate now."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "That explains the spike. Can you split the FP rate by segment? Commercial vs wealth would help me justify closing the low-risk ones faster."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 22,
+   "reply_to": 4,
+   "text": "Yep, will post in this thread by early afternoon. Also adding the counterparty country as a column in the alert export so you don't have to open each case."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 41,
+   "reply_to": 2,
+   "text": "Pulled the file. Beneficial ownership docs are current, and the Mcfarland payments match the invoicing pattern on record. Has a prior history with them going back a couple years. I'd lean toward closing with a note. Do you want the recipient details added to the case?"
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 47,
+   "reply_to": 6,
+   "text": "Yes please, add the beneficiary bank info as {{CP_IBAN:cp_020}} and {{CP_SWIFT:cp_020}} in the case notes so it's traceable. I'll document the rationale and close both c_0092 alerts."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Different one: wire_in of $234,191.01 on 8/19 into {{ACCOUNT_NUMBER:a_00273}} for {{CLIENT_NAME:c_0129}}. Fraud score was 0.64, surveillance is re-flagging it as a large inbound for a wealth account. Anyone have context?"
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 82,
+   "reply_to": 8,
+   "text": "0.64 is middling. Does the source of funds on file support a six-figure inbound from Rivas-Bryant? If wealth onboarding noted a property sale or similar, that could cover it."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 90,
+   "reply_to": 9,
+   "text": "Checking. Nothing explicit in the profile, so I'll ask the advisor for supporting docs before I decide. Holding the alert open until then."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 135,
+   "reply_to": 3,
+   "text": "FP numbers: commercial segment is running about 78% false positive since the change, wealth about 52%. I'll propose raising the geography weight cutoff for low-risk commercial clients. Will bring it to Marcus Monday."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 141,
+   "reply_to": 11,
+   "text": "That's helpful, thanks Jenna. I'll attach those figures to my disposition notes on the c_0092 cases."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 150,
+   "reply_to": -1,
+   "text": "Heads up, case notes for c_0092 are updated with the KYC summary. If the client reaches out about the holds, route them to the RM rather than sharing details, per usual."
+  }
+ ]
+}

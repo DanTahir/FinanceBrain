@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Starting to put together the Q4 DR test plan. Proposing we do the failover drill the weekend of Oct 24. Anyone see conflicts with that?"
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Oct 24 should be fine on my side. Priya leaves Oct 9 though, so any runbook knowledge she holds needs to be captured before then."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Good point. I'll ask her to walk through the MarketDataFeed failover steps next week and record it. Last time the secondary vendor connection took forever to come up."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Quick question on scope: are we including DocVault in this round? It's standard tier but compliance leans on it for client records."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "I'd include it. DocVault depends on AuthSSO, so if we fail over SSO we can validate that dependency chain at the same time."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Agreed. I'll add DocVault restore and a read/write smoke test to the plan. RTO target of 4 hours for now, we can revisit."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 19,
+   "reply_to": 5,
+   "text": "Can I own the smoke test scripts? I can write something that uploads, retrieves, and checksums a few test docs, using dummy files only."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 21,
+   "reply_to": 6,
+   "text": "Yes please, that'd be great. Dummy data only, nothing from real client folders."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 27,
+   "reply_to": -1,
+   "text": "For MarketDataFeed, do we want to replay captured exchange data in DR or connect to live vendor feeds? Replay is safer but doesn't prove the vendor cutover."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 31,
+   "reply_to": 8,
+   "text": "I'd like to do both. Replay first to verify ingestion, then a short live window Saturday morning when volume is low. Need to loop in Trading so nobody is surprised."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 36,
+   "reply_to": 9,
+   "text": "PricingSvc sits right downstream, so we should check prices come out sane after cutover. I can add a comparison check against the primary."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 41,
+   "reply_to": 10,
+   "text": "Nice. Let's put that in as a pass/fail gate rather than an eyeball check."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 47,
+   "reply_to": -1,
+   "text": "Draft plan will be in the it-ops wiki by Friday. Please comment directly on the doc by next Wednesday so we can send it to Linda Brandt's team for sign-off."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 49,
+   "reply_to": 12,
+   "text": "Sounds good, will have script outlines in there by Monday."
+  }
+ ]
+}

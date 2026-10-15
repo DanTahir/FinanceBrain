@@ -1,0 +1,68 @@
+{
+ "emails": [
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_017",
+    "e_022"
+   ],
+   "cc_ids": [],
+   "subject": "Prep for {{CLIENT_NAME:c_0009}} annual review - Tuesday 7/14",
+   "body": "Hi Grace and Sandra,\n\nI'm lining up the annual review for {{CLIENT_NAME:c_0009}} next Tuesday, July 14. The client has been with us since April 2025, so this is the first full-year look at the brokerage and cash management accounts.\n\nPlan for the deck: performance vs. the medium-risk benchmark since inception, current allocation drift, and a short section on idle cash in the cash management account ({{ACCOUNT_NUMBER:a_00019}}). I'd like to raise whether to move some of it into short-duration Treasuries. The client mentioned on our last call that a home purchase might come up within 18 months, so liquidity matters.\n\nSandra, could you pull the PortfolioMgr performance report for {{ACCOUNT_NUMBER:a_00018}} and confirm the KYC refresh status in ClientHub by Friday? Grace, would you like to sit in on the first 20 minutes?\n\nThanks,\nJonathan",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_017",
+    "e_020",
+    "e_026"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Model portfolio changes effective 8/10 rebalance",
+   "body": "Hi all,\n\nFollowing the investment committee discussion last week, here are the proposed changes to the wealth model portfolios. We'd run them through PortfolioMgr at the August 10 rebalance.\n\n1. Moderate model: trim US large cap growth by 2 points and add the same to investment-grade corporates (intermediate duration).\n2. Aggressive model: cut the single-sector tech overweight from 7% to 4%, redeploy into international developed value.\n3. Conservative model: extend average duration by roughly 0.5 years given the rate outlook.\n\nOwen, copying you so Risk can review the VaR impact on the aggressive sleeve before we trade. Tricia and Michael, please flag any clients with tax-lot constraints, particularly those with large embedded gains, so advisors can handle them separately.\n\nI'd like comments by Friday end of day.\n\nBest,\nJanet",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_021",
+    "e_028"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "{{CLIENT_NAME:c_0172}} review - materials needed by Wednesday",
+   "body": "Hi Jamie and James,\n\nI'm meeting with {{CLIENT_NAME:c_0172}} on Thursday, August 13 for the semiannual review. This is a high-risk profile client with a long history here (since 2017), so I want the package to be tight.\n\nWhat I need:\n- Brokerage performance summary for {{ACCOUNT_NUMBER:a_00356}}, with attribution by sleeve\n- Concentration report highlighting any position above 8% of the portfolio\n- Cash balance and recent activity for {{ACCOUNT_NUMBER:a_00357}}\n- A one-pager on how the August model changes would affect this client's allocation\n\nJames, can you assemble the first three from PortfolioMgr and PositionStore by Wednesday noon? Jamie, I'd value your read on the talking points, since you've covered the family in the past. The client prefers email follow-up to {{CLIENT_EMAIL:c_0172}}, so we'll send the summary there afterward.\n\nThanks,\nTricia",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_017",
+    "e_024",
+    "e_027"
+   ],
+   "cc_ids": [],
+   "subject": "Coverage plan for September vacations",
+   "body": "Hi team,\n\nHere's the proposed advisor coverage for the weeks of September 14 and 21, while I'm out and Kelly is out the second week.\n\nWeek of 9/14: Kelly Robinson covers my book. Jonathan, please be the backup for any urgent trades, including {{CLIENT_NAME:c_0009}}-type rebalancing requests that come in through ClientHub.\nWeek of 9/21: Jonathan covers Kelly's clients, and I will be back to cover mine.\n\nI've updated the client notes with open items and next scheduled reviews so nothing slips. Any client calls should be logged in ClientHub the same day. Grace, please let me know if you want a different split or if the coverage should also involve a relationship manager for the higher-touch households.\n\nI'll send a short handoff doc by Monday.\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_020",
+    "e_022"
+   ],
+   "cc_ids": [
+    "e_017",
+    "e_047"
+   ],
+   "subject": "Review prep for {{CLIENT_NAME:c_0172}} - follow-up items",
+   "body": "Hi Tricia and Sandra,\n\nAhead of the review with {{CLIENT_NAME:c_0172}} on Wednesday, October 7, a few items to close out.\n\nFirst, the client asked on our last call about moving a portion of the brokerage account ({{ACCOUNT_NUMBER:a_00356}}) into private credit. Given the high risk profile that's within suitability, but we should document the discussion and confirm the concentration limits before we present anything. Marcus, copying you in case Compliance wants to weigh in on the disclosure language.\n\nSecond, Sandra, please confirm the account documents in DocVault are current and the KYC refresh date is still valid. We shouldn't walk into the meeting with an expired item.\n\nThird, Tricia, can you share the updated allocation after the August model changes so we can show the before and after?\n\nI'll draft the agenda tonight and circulate it tomorrow morning.\n\nThanks,\nJamie",
+   "reply_to_previous": false
+  }
+ ]
+}

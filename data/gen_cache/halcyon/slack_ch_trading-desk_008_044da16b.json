@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "10-yr auction tailed like crazy, 1:00 stop-through the other way. Printed 4.2bp wide of WI. Curve is bear steepening, offers getting hit across the belt."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 2,
+   "reply_to": -1,
+   "text": "Steven, are we carrying any net DV01 in the 7-10 bucket right now? Want to know before I answer the CFO's office."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 3,
+   "reply_to": 1,
+   "text": "Short about 180k DV01 in 10s from the Thursday client flow, partially hedged with futures. Net is flat-ish after the TY roll adjustment."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 5,
+   "reply_to": -1,
+   "text": "RiskEngine intraday VaR on rates is up about 12% since 9:45 on vol alone. Still inside limit, haven't pinged anyone yet."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 7,
+   "reply_to": 3,
+   "text": "Thanks Angelica. What's the usage against the rates desk limit now?"
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 9,
+   "reply_to": 4,
+   "text": "71% of the limit. Was 63% at the open. I'll flag if it crosses 80."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Heads up, TradeBlotter P&L on the rates book looks stale. Last refresh 10:08. Anyone else seeing that?"
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 14,
+   "reply_to": 6,
+   "text": "Same here, P&L lag on my side too. Likely PricingSvc catching up on the repricing after the auction. VaR numbers look current though."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 17,
+   "reply_to": -1,
+   "text": "OMS is fine, working a 50mm buy in the 5s as a rebalance. Waiting for the bid-offer to settle before I go heavier."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 20,
+   "reply_to": 8,
+   "text": "Keep the clip size modest while spreads are this wide. Don't chase the tail."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 21,
+   "reply_to": 9,
+   "text": "Agreed. Slicing in 10mm pieces, 5s are cheapening about 1bp every few minutes."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Update: TradeBlotter P&L refreshed, rates book down about 220k on the day. Consistent with the move in the curve."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 38,
+   "reply_to": 11,
+   "text": "OK, nothing to escalate. Angelica, send me a snapshot of the DV01 ladder at noon and again after the close."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 40,
+   "reply_to": 12,
+   "text": "Will do, noon snapshot incoming."
+  }
+ ]
+}

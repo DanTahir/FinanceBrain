@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0194",
+   "text": "Call with {{CLIENT_NAME:c_0194}} on 2026-08-12. Client is planning a home purchase later this year and wants to understand how much liquidity can be freed up without disrupting operating cash flow. Reviewed the balance trend on {{ACCOUNT_NUMBER:a_00402}} and the current paydown schedule on {{ACCOUNT_NUMBER:a_00403}}. Explained that a business loan prepayment or draw from operating funds may need review. Client prefers to keep a 90-day cash buffer. Will send a summary to {{CLIENT_EMAIL:c_0194}} and loop in the underwriting team before any change. Follow-up call next week."
+  },
+  {
+   "client_id": "c_0036",
+   "text": "Spoke with {{CLIENT_NAME:c_0036}} on 2026-07-03. Client reported the debit card tied to {{ACCOUNT_NUMBER:a_00077}} was damaged and requested a replacement. Card reissue submitted, expected delivery in 5-7 business days to {{CLIENT_ADDRESS:c_0036}} (address confirmed on the call). Client also gave a travel notice for an international trip later this month, so I flagged the account for the travel period. Reminded client that the loan payment on {{ACCOUNT_NUMBER:a_00078}} is on autopay and will draft as scheduled. Client was satisfied. No further action pending."
+  },
+  {
+   "client_id": "c_0157",
+   "text": "Meeting with {{CLIENT_NAME:c_0157}} on 2026-09-25 to plan required minimum distributions. Reviewed projected RMD amounts and discussed taking the distribution in cash from {{ACCOUNT_NUMBER:a_00328}} versus an in-kind transfer, with proceeds landing in {{ACCOUNT_NUMBER:a_00329}}. Client is mindful of the tax bracket impact and asked about qualified charitable distributions. Client also raised interest in crypto exposure again; noted this and told client that digital asset policy for wealth clients is still under review by the working group. Will email follow-up materials to {{CLIENT_EMAIL:c_0157}}."
+  },
+  {
+   "client_id": "c_0201",
+   "text": "Call on 2026-08-24 with {{CLIENT_NAME:c_0201}}. The principal asked about required minimum distribution planning for a personal retirement account. Clarified that I am on the lending side and cannot advise on retirement distributions, so I will connect the client with the wealth team for that. Briefly reviewed business activity on {{ACCOUNT_NUMBER:a_00418}} and the loan balance on {{ACCOUNT_NUMBER:a_00419}}; no covenant concerns. Client can be reached at {{CLIENT_PHONE:c_0201}}. Submitted internal referral to Wealth Management and will confirm the handoff by end of week."
+  },
+  {
+   "client_id": "c_0048",
+   "text": "Received request from {{CLIENT_NAME:c_0048}} on 2026-10-05 to change the business mailing address on file. New address provided as {{CLIENT_ADDRESS:c_0048}}. Because this affects {{ACCOUNT_NUMBER:a_00102}}, I told the client we need supporting documentation, such as a recent utility bill or state filing, before the update is applied. Informed KYC that a change is pending. Client will send documents to {{CLIENT_EMAIL:c_0048}} thread reply today. I will update the CRM record once KYC signs off and confirm by phone at {{CLIENT_PHONE:c_0048}}."
+  },
+  {
+   "client_id": "c_0174",
+   "text": "{{CLIENT_NAME:c_0174}} contacted me on 2026-10-08 to update the phone number on file. New number is {{CLIENT_PHONE:c_0174}}. Completed identity verification using the standard security questions and a callback to the prior number before making the change. Updated the contact record for {{ACCOUNT_NUMBER:a_00360}} and ClientHub. Sent a confirmation to {{CLIENT_EMAIL:c_0174}}. Client mentioned no other changes and was comfortable with current portfolio positioning. Next scheduled review is at quarter end."
+  },
+  {
+   "client_id": "c_0123",
+   "text": "Review call with {{CLIENT_NAME:c_0123}} on 2026-07-16. Client wants to update the risk tolerance on file. The business has had softer receivables, and ownership wants a more conservative stance on cash deployment. Walked through current activity on {{ACCOUNT_NUMBER:a_00258}} and the outstanding balance on {{ACCOUNT_NUMBER:a_00259}}. Updated the profile to reflect a more cautious preference; I will note that the internal risk rating remains medium pending the next financials. Requested updated statements be sent to {{CLIENT_EMAIL:c_0123}}. Will revisit in 60 days."
+  },
+  {
+   "client_id": "c_0169",
+   "text": "{{CLIENT_NAME:c_0169}} called on 2026-08-07 to complain about advisory fees on {{ACCOUNT_NUMBER:a_00349}}. Client feels the quarterly fee was higher than expected given modest trading activity. I walked through the fee schedule and how the asset-based fee is calculated, and offered to send an itemized breakdown. Client remained unhappy but agreed to review. I logged the complaint per policy and will escalate to the Head of Wealth Management if unresolved. Sending the breakdown to {{CLIENT_EMAIL:c_0169}} tomorrow and will follow up by phone at {{CLIENT_PHONE:c_0169}}."
+  },
+  {
+   "client_id": "c_0105",
+   "text": "Meeting with {{CLIENT_NAME:c_0105}} on 2026-10-14. Client said they are pleased with performance on {{ACCOUNT_NUMBER:a_00224}} and the cash sweep in {{ACCOUNT_NUMBER:a_00225}}. They offered to refer a business associate who is looking for wealth management services. I explained the onboarding process and that the referral will go through standard KYC and suitability review. Client will make an introduction by email to me directly. Logged as a referral source in ClientHub. Will send a thank-you note to {{CLIENT_EMAIL:c_0105}}."
+  },
+  {
+   "client_id": "c_0012",
+   "text": "Call with {{CLIENT_NAME:c_0012}} on 2026-09-30 regarding a beneficiary designation change. Client wants to update the named beneficiary tied to the business relationship. Explained that I cannot process this over the phone; the signed form must be completed and verified. Reviewed that {{ACCOUNT_NUMBER:a_00027}} and the loan on {{ACCOUNT_NUMBER:a_00028}} are unaffected by the lending terms. Mailed forms to {{CLIENT_ADDRESS:c_0012}} and emailed a copy to {{CLIENT_EMAIL:c_0012}}. Will follow up at {{CLIENT_PHONE:c_0012}} if not returned within two weeks."
+  }
+ ]
+}

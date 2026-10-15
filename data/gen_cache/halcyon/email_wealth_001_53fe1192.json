@@ -1,0 +1,68 @@
+{
+ "emails": [
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_022",
+    "e_028"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Prep for {{CLIENT_NAME:c_0264}} annual review - Thursday 2pm",
+   "body": "Hi Sandra, James,\n\nWe have the annual review with {{CLIENT_NAME:c_0264}} on Thursday at 2:00 pm. Could you pull together the packet by end of day Wednesday? I'd like to see:\n\n- YTD performance for the brokerage account {{ACCOUNT_NUMBER:a_00543}} against the blended benchmark, with attribution by sleeve\n- Current cash balance and sweep activity on {{ACCOUNT_NUMBER:a_00544}}\n- Realized gains summary so we can talk through tax-loss harvesting before Q4\n- The updated IPS draft, since the client mentioned a lower drawdown tolerance last time\n\nPlease run the numbers out of PortfolioMgr after the morning pricing refresh so everything ties to PricingSvc. If anything looks stale, flag it to me before it goes in the deck.\n\nThanks,\nJanet",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_018",
+    "e_017"
+   ],
+   "cc_ids": [],
+   "subject": "Estate planning referral for {{CLIENT_NAME:c_0252}}",
+   "body": "Hi David, Grace,\n\nI had a call yesterday with {{CLIENT_NAME:c_0252}}, who came on board in March. The client is asking about trust structures and beneficiary designations across the brokerage account {{ACCOUNT_NUMBER:a_00518}} and the cash management account {{ACCOUNT_NUMBER:a_00519}}. This goes beyond what I should advise on directly, so I'd like to refer them to one of our external estate planning attorneys.\n\nDavid, you've worked with the two firms on our approved referral list. Which one would you recommend for a client in this segment? Grace, I want to confirm that the usual referral disclosure language is still current before I send anything over.\n\nI'll log the referral in ClientHub once we settle on a firm and will keep the client updated on timing. They'd like to have a first meeting within the next three weeks.\n\nBest,\nJamie",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_019",
+    "e_024"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "Review meeting prep - {{CLIENT_NAME:c_0264}}, week of Aug 10",
+   "body": "Hi Janet, Jonathan,\n\nA quick heads-up for the {{CLIENT_NAME:c_0264}} review next week. I spoke with the client this morning, who plans to ask about moving some idle cash from {{ACCOUNT_NUMBER:a_00544}} into the brokerage account {{ACCOUNT_NUMBER:a_00543}}. They are also curious about our fixed income allocation given the rate moves this summer.\n\nSuggested agenda:\n1. Performance and allocation drift\n2. Cash deployment options and staging over a few weeks\n3. Duration positioning and ladder ideas\n4. Open items from the last review\n\nJanet, can you confirm whether you want to propose a rebalance trade through PortfolioMgr before the meeting or just discuss the approach? Sandra is pulling the statements. Reply with any additions by Monday.\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_018",
+    "e_021",
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Fee schedule exceptions - Q4 review",
+   "body": "Hi all,\n\nAhead of the Q4 fee review, I need each RM to submit a list of any client currently on a non-standard fee schedule. For each exception please include:\n\n- Client id (internal id only, no names in the email)\n- Current fee tier versus the standard schedule\n- Rationale and who approved it\n- Whether the exception has an expiry or review date\n\nFor example, {{CLIENT_NAME:c_0252}} was onboarded in March with a introductory discount that I believe is due to roll off, so Jamie, please confirm the status. I'd also like to know about any grandfathered arrangements tied to the 2020 cohort.\n\nMarcus is copied since compliance wants to make sure the exceptions are documented consistently for disclosure purposes. Please send the lists to me by Friday, October 9.\n\nThanks,\nGrace",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_026",
+   "to_ids": [
+    "e_020",
+    "e_027"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Client review prep - {{CLIENT_NAME:c_0252}}, Oct 15",
+   "body": "Hi Tricia, Kelly,\n\nI'm covering part of the review for {{CLIENT_NAME:c_0252}} on Thursday, October 15, while Jamie is out for part of the week. The client has asked for a six-month look back since onboarding and a discussion of the fee schedule, which ties to the exceptions list Grace collected last week.\n\nCould you help with the following?\n- Kelly: build the performance summary for {{ACCOUNT_NUMBER:a_00518}} and the cash activity on {{ACCOUNT_NUMBER:a_00519}}\n- Tricia: sanity check the risk positioning, since the client is rated low risk and we added some equity exposure in Q3\n\nI'd like drafts by Tuesday evening so we can do a short dry run Wednesday morning. If the client's contact preferences changed, please verify in ClientHub rather than relying on {{CLIENT_EMAIL:c_0252}} in old threads.\n\nThanks,\nMichael",
+   "reply_to_previous": false
+  }
+ ]
+}

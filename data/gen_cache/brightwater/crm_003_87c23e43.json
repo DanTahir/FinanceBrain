@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0045",
+   "text": "2026-07-30 - Met with {{CLIENT_NAME:c_0045}} in branch to update beneficiary designations on share savings {{ACCOUNT_NUMBER:a_00100}} and checking {{ACCOUNT_NUMBER:a_00101}} (POD). Verified ID and signature card, completed the new beneficiary form, and scanned it to the member file. Member confirmed the primary and contingent beneficiaries and asked that confirmation go to {{CLIENT_EMAIL:c_0045}}. No other changes today. Mailing address on file {{CLIENT_ADDRESS:c_0045}} still current. Follow up not needed unless the member asks."
+  },
+  {
+   "client_id": "c_0020",
+   "text": "2026-10-09 - {{CLIENT_NAME:c_0020}} came to the teller line to report the debit card for checking {{ACCOUNT_NUMBER:a_00044}} damaged and unreadable at the chip. Ordered a replacement, standard delivery to {{CLIENT_ADDRESS:c_0020}}. Placed a travel notice for the upcoming international trip so CardProcessor authorizations are not declined. Member also asked about moving funds from share savings {{ACCOUNT_NUMBER:a_00043}}; explained the transfer limits. Risk rating is high, so I flagged the travel details for Compliance awareness. Reached the member at {{CLIENT_PHONE:c_0020}} to confirm contact info."
+  },
+  {
+   "client_id": "c_0052",
+   "text": "2026-07-23 - {{CLIENT_NAME:c_0052}} called to change beneficiaries following a recent life event. Authenticated through MemberSSO verification questions, then walked the member through the beneficiary form for share savings {{ACCOUNT_NUMBER:a_00116}} and checking {{ACCOUNT_NUMBER:a_00117}}. Form will be sent by secure email to {{CLIENT_EMAIL:c_0052}} for e-signature. Will check the return in two business days and update the file once received. Callback number confirmed as {{CLIENT_PHONE:c_0052}}."
+  },
+  {
+   "client_id": "c_0004",
+   "text": "2026-07-28 - {{CLIENT_NAME:c_0004}} stopped by the teller window asking about renewing an existing loan coming due. I am a teller, so I did not quote terms; explained the general renewal process and noted that the share savings {{ACCOUNT_NUMBER:a_00007}} balance can be reviewed as part of the application. Referred the member to Lending for a rate and term discussion. Member is reachable at {{CLIENT_PHONE:c_0004}}. Sent a handoff note to Kara Nwosu's team in #lending."
+  },
+  {
+   "client_id": "c_0059",
+   "text": "2026-09-29 - Spoke with the owner of {{CLIENT_NAME:c_0059}} regarding fees on operating account {{ACCOUNT_NUMBER:a_00132}}. They disputed two monthly maintenance and wire fees assessed in September and felt the pricing was not disclosed when the loan on {{ACCOUNT_NUMBER:a_00133}} was booked. Reviewed the fee schedule and the commercial agreement; the maintenance fee is valid, but the wire fee looks inconsistent with the tier. Will request a review from Rita Solano in Operations and send a written response to {{CLIENT_EMAIL:c_0059}} by Friday. Relationship remains stable, risk medium."
+  },
+  {
+   "client_id": "c_0086",
+   "text": "2026-07-08 - Intro conversation with {{CLIENT_NAME:c_0086}}, referred by an existing member who spoke highly of our service. The member opened share savings {{ACCOUNT_NUMBER:a_00176}} last year and wants to understand checking and loan options. Walked through the products and the member application path. Risk is rated high, so enhanced due diligence stays in place; I reminded the member that we may request additional documentation. Contact via {{CLIENT_PHONE:c_0086}}. Will thank the referring member in a follow-up and send an overview to {{CLIENT_EMAIL:c_0086}}."
+  },
+  {
+   "client_id": "c_0028",
+   "text": "2026-09-24 - Annual review with {{CLIENT_NAME:c_0028}}, a member since 2018. Reviewed share savings {{ACCOUNT_NUMBER:a_00061}} and checking {{ACCOUNT_NUMBER:a_00062}}: balances steady, no overdrafts this year, and direct deposit is active. Discussed moving some savings into a share certificate; the member will think it over. Confirmed the address on file {{CLIENT_ADDRESS:c_0028}} and email {{CLIENT_EMAIL:c_0028}} are correct. Nothing else outstanding. Next check-in in 12 months or earlier if the member calls."
+  },
+  {
+   "client_id": "c_0072",
+   "text": "2026-09-15 - {{CLIENT_NAME:c_0072}} contacted me to update their phone number. Verified identity, then replaced the old number with {{CLIENT_PHONE:c_0072}} in the member record on checking {{ACCOUNT_NUMBER:a_00155}}. Confirmed the change flows to MemberCRM and to text alert enrollment. Also checked that {{CLIENT_EMAIL:c_0072}} remains the preferred email. The member has an open lending relationship, so I added a note for the loan servicing team to use the new number."
+  },
+  {
+   "client_id": "c_0010",
+   "text": "2026-10-07 - Annual portfolio review with {{CLIENT_NAME:c_0010}}. Single share savings account {{ACCOUNT_NUMBER:a_00019}} with steady balance and modest dividends. Member asked whether opening a checking account makes sense; reviewed the free checking options and online banking features. Confirmed contact details, including {{CLIENT_PHONE:c_0010}} and {{CLIENT_ADDRESS:c_0010}}. Member will decide after talking with family. I will follow up by email at {{CLIENT_EMAIL:c_0010}} in two weeks."
+  },
+  {
+   "client_id": "c_0071",
+   "text": "2026-10-01 - {{CLIENT_NAME:c_0071}} called upset about an overdraft fee and a paper statement fee on checking {{ACCOUNT_NUMBER:a_00154}}. Pulled the history: the overdraft followed a pending debit posting after a deposit hold. Because the member has been in good standing since 2019 and savings {{ACCOUNT_NUMBER:a_00153}} is healthy, I refunded the overdraft fee as a one-time courtesy within my authority and moved them to e-statements. Suggested linking savings for overdraft protection. Member was satisfied; I will confirm by email at {{CLIENT_EMAIL:c_0071}}."
+  }
+ ]
+}

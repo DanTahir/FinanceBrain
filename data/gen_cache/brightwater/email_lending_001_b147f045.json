@@ -1,0 +1,68 @@
+{
+ "emails": [
+  {
+   "from_id": "e_014",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Dealer agreement renewals due 9/30 - three dealers need updated paperwork",
+   "body": "Hi Kara,\n\nI went through the indirect dealer roster this morning. Three of our auto dealer agreements expire on September 30, and all three still need signed renewals. Two of them have been steady, with solid performance and low early payment default on the paper they send us. The third had a couple of documentation misses on title and stipulations this spring, so I'd like to add a funding-conditions addendum when we renew.\n\nI'm planning to send the renewal packets by Friday, August 14. Wesley, copying you because the updated template should carry the revised reseller disclosure language and the new adverse action notice references before it goes out.\n\nKara, can you confirm you're fine with the addendum approach for the third dealer? I'd also like your sign-off on keeping the reserve split unchanged for this cycle.\n\nThanks,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_012",
+    "e_013",
+    "e_014",
+    "e_015"
+   ],
+   "cc_ids": [
+    "e_003",
+    "e_023"
+   ],
+   "subject": "Auto loan rate change effective Monday 8/24",
+   "body": "Team,\n\nFollowing this week's ALCO discussion, we're adjusting auto loan pricing effective Monday, August 24. New-vehicle rates for the top two credit tiers come down 25 bps, and used-vehicle rates for terms over 60 months go up 15 bps to protect margin on the longer duration paper.\n\nRita, please update the pricing matrix in LoanDesk by end of day Friday so applications entered on the 24th price correctly. Richard, I need a quick impact estimate on projected yield and pipeline mix before then. Kathleen and Martin, please give your dealer contacts a heads-up so nobody is surprised by the rate sheet.\n\nPaul and Rita S., copying you so Member Services and Operations can answer questions on the floor and adjust any disclosures or payment-processing assumptions. Applications already locked before the 24th keep their existing rate.\n\nPlease ping me with questions.\n\nKara",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_013"
+   ],
+   "subject": "August delinquency report - auto loans trending up",
+   "body": "Hi Kara,\n\nThe August delinquency report is ready. Headline: 30-day delinquency on the consumer and auto portfolio rose to 1.9% from 1.6% in July. Most of the movement is in indirect auto originated in the second half of last year, particularly in the lower middle credit tiers. The 60+ bucket is flat at 0.7%.\n\nOne item worth a look: the loan tied to {{CLIENT_NAME:c_0077}} moved to 30 days past due this month, which is unusual given the low risk profile. Rita, since you are the relationship manager there, you may want to reach out before it rolls further.\n\nI've pulled the vintage curves and roll-rate tables into the shared folder. Data comes from CoreBanking through the nightly extract, so figures are current as of August 31 close.\n\nLet me know if you want a deeper cut by dealer before our Thursday meeting.\n\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_012",
+   "to_ids": [
+    "e_011",
+    "e_014"
+   ],
+   "cc_ids": [],
+   "subject": "Dealer agreement renewals - status update and open items",
+   "body": "Kara, Martin,\n\nQuick status on the dealer renewals ahead of the September 30 expiration. Two of the three packets are back with signatures. The third dealer, the one with the addendum, is still reviewing the funding-conditions language, and their finance director asked for a call this week.\n\nMartin, I can join if you want a second voice, but you know that relationship better. The dealer's main pushback is the 48-hour window for delivering title and stipulation documents. I think we can offer 72 hours for out-of-state transactions and hold the line on in-state.\n\nKara, are you comfortable with that compromise? If so, I'll send the revised addendum tomorrow. Otherwise we risk a lapse on October 1, and I'd rather not pause purchases from an active dealer.\n\nI'll update the tracker once the signed copies are filed.\n\nThanks,\nKathleen",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_014"
+   ],
+   "subject": "September delinquency report and watchlist",
+   "body": "Kara, Wesley,\n\nThe September delinquency report is posted. Overall 30-day delinquency eased to 1.7%, down from 1.9% in August, mainly because several accounts cured after outreach. The 60+ bucket ticked up slightly to 0.8%, concentrated in two dealer sources.\n\nOn the watchlist: the loan for {{CLIENT_NAME:c_0026}} is now 30 days past due, tied to {{ACCOUNT_NUMBER:a_00057}}. The client is low risk and has a long history with us, so Martin may want to call and see whether it's a payment-date or autopay issue.\n\nWesley, I've flagged the two dealer sources in case you want them included in the quarterly third-party review. The detailed tables are in the shared folder.\n\nHappy to walk through the numbers on our next pipeline call.\n\nRichard",
+   "reply_to_previous": false
+  }
+ ]
+}

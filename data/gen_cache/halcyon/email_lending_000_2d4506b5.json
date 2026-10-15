@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_031",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Credit committee agenda - Thursday 7/23",
+   "body": "Hi all,\n\nBelow is the agenda for Thursday's credit committee at 10:00 in the 14th floor conference room.\n\n1. Q3 pipeline review: concentration in commercial real estate bridge loans\n2. Renewal of the {{CLIENT_NAME:c_0260}} facility, linked to loan account {{ACCOUNT_NUMBER:a_00537}}. Joshua will present the updated repayment history and the revised risk rating.\n3. Proposed tightening of DSCR floor from 1.20x to 1.25x for new originations\n4. Open policy exceptions and aging items\n5. CreditScoring model recalibration update from Jasmine's team\n\nPlease send any supporting memos to me by end of day Wednesday so I can circulate the package. Owen, I've copied you because item 3 touches your limits framework and I'd like your view before we vote.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_030",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_037"
+   ],
+   "subject": "Exception request: DSCR waiver on {{CLIENT_NAME:c_0260}} renewal",
+   "body": "Brian,\n\nI'm requesting your approval for an underwriting exception on the renewal tied to {{ACCOUNT_NUMBER:a_00537}}. The calculated DSCR on the trailing twelve months comes in at 1.14x against our 1.20x policy minimum. The shortfall comes from a one-time roof replacement of about $38K that was capitalized late.\n\nMitigants: 14 months of on-time payments, LTV down to 62%, and a deposit relationship through {{ACCOUNT_NUMBER:a_00536}} averaging well above the required balance. Normalizing for the one-time item puts DSCR at 1.23x.\n\nI'd propose a 12-month term with a covenant requiring semiannual financials. Tammy has reviewed the file and agrees with the structure. I need a decision by Wednesday 8/5 so we can hold the rate quote.\n\nThanks,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_033",
+   "to_ids": [
+    "e_029",
+    "e_035"
+   ],
+   "cc_ids": [
+    "e_031",
+    "e_038"
+   ],
+   "subject": "Loan pipeline report - week of 8/24",
+   "body": "Hi Brian and Heidi,\n\nHere's the pipeline snapshot as of this morning.\n\nTotal active applications: 47, up from 41 last week\nIn underwriting: 19 (about $62M committed amount)\nPending conditions: 12\nClear to close this week: 6, totaling roughly $18.4M\n\nTwo items to flag. First, three files are stuck waiting on KYC clearance, which runs through KYCPipeline and gates LoanOrigination. Compliance is working the backlog, but those files will slip if not cleared by Thursday. Second, average time from application to credit decision rose to 9.2 business days from 7.8, mostly because of the CreditScoring data refresh delay last week.\n\nThe full spreadsheet is on the shared drive under Lending/Pipeline. Let me know if you want a breakdown by relationship manager.\n\nBest,\nJasmine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_036",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_037",
+    "e_056"
+   ],
+   "subject": "Underwriting exception request - {{CLIENT_NAME:c_0086}} credit line",
+   "body": "Hi Brian,\n\nI'd like your sign-off on an exception for {{CLIENT_NAME:c_0086}}'s requested increase on the personal credit line. Their deposit relationship is held at {{ACCOUNT_NUMBER:a_00185}}.\n\nThe exception: debt-to-income comes in at 43.5% versus our 40% guideline. Income is stable and verified, and the client has had no delinquencies since onboarding in 2022. Credit score sits in the mid-700s. The elevated DTI is driven by a recent auto loan that pays off in about 7 months.\n\nMitigants: low-risk rating, strong liquidity, and I'd cap the line increase at $25K with a review at the 6-month mark. Tammy has reviewed and is comfortable. Owen is copied for visibility since this goes on the exceptions log.\n\nCould you respond by Tuesday? The client is expecting an answer.\n\nThanks,\nBrandi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_037",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_030",
+    "e_047"
+   ],
+   "subject": "Exception approval needed: expired appraisal on {{CLIENT_NAME:c_0260}} loan modification",
+   "body": "Brian,\n\nWe need an exception on the modification request for the loan at {{ACCOUNT_NUMBER:a_00537}} for {{CLIENT_NAME:c_0260}}. The appraisal on file is 14 months old, and policy requires one less than 12 months old for any modification that changes the amortization schedule.\n\nGiven the proposed change is a 24-month extension with no new money, I recommend we accept a desktop valuation update in lieu of a full appraisal. Current estimates show value holding flat to slightly up, so LTV remains at or below 60%. A full appraisal would cost about $3,200 and add 3 weeks to the timeline.\n\nMarcus is copied because we've refreshed the KYC file and I want him aware of the exception. Joshua is the RM and supports this.\n\nPlease confirm approval by Monday 10/5 so we can finalize documents with Brandon.\n\nThanks,\nTammy",
+   "reply_to_previous": false
+  }
+ ]
+}

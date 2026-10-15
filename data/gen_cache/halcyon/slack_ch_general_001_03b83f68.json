@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Thanks to everyone who stayed for the Q3 town hall. Catherine's point about investing in the advisor tooling this half was the highlight for me. Anyone have the slide deck link?"
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Deck should be going out from Wendy's team later today I think. Martin's slide on the expense outlook was dense, I'd like to reread it."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "From the tech side: Sam confirmed the AuthSSO upgrade is still on track for September. Expect a short maintenance window, we'll post details in #it-ops before it happens."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Good to know. Will the window overlap with market hours? Desk got a bit nervous when OMS login was mentioned."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Planned for a weekend overnight, so no market hours impact. OMS depends on AuthSSO so we're scheduling around the desk specifically."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Lending recap for anyone who missed it: pipeline is healthy, and we're hiring one more underwriter this quarter. Linda mentioned the ops efficiency push, so expect some process review requests from us."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "Happy to help from Risk on the credit side. Send over whatever reviews you need scheduled and I'll get Owen's team looped in."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 30,
+   "reply_to": -1,
+   "text": "Also liked the Q&A on the new hybrid schedule. Seems like Tuesdays and Thursdays stay as the anchor in-office days. Did I get that right?"
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 34,
+   "reply_to": 7,
+   "text": "Yep, that's how I read it too. Teams can flex the other days with manager approval."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "Correct, and Linda said a written guideline is coming in #general this week so we all have the same version."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Great session overall. Thanks to Catherine and the exec team for the candid answers. Feels like we have a clear plan for Q3."
+  }
+ ]
+}

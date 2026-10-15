@@ -1,0 +1,58 @@
+{
+ "messages": [
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick update on the member MFA rollout: MemberSSO enrollment prompts go live for the first 10% of OnlineBanking users next Tuesday. Shannon, are the enrollment screens ready for QA?"
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Mostly. SMS and authenticator app flows are done. Still fixing the fallback path when a member skips enrollment, it currently loops back to the prompt twice. Should have a fix in by tomorrow AM."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "From ops side: will MFA change anything about the nightly batch jobs? I want to be sure nothing touching CoreBanking posting gets delayed if members get locked out and call in a bunch."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 15,
+   "reply_to": 2,
+   "text": "Shouldn't touch batch. MFA only sits in front of OnlineBanking via MemberSSO. CoreBanking posting is independent. Hector, can you confirm ShareRecon doesn't read anything from the SSO side?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 22,
+   "reply_to": 3,
+   "text": "Confirmed, ShareRecon only reads from CoreBanking and writes the GL recon files. No SSO dependency. Though honestly I'm the only one who's ever dug into those scripts, so I'd like to run a dry recon the night before go-live just to be safe."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "Good call, please do. And Hector, we really need to get those scripts documented soon. Let's block time next week so Shannon can shadow you on them."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 31,
+   "reply_to": 5,
+   "text": "Agreed, that's overdue. I'll put together a walkthrough doc and we can do a screen share Thursday. Fair warning, a couple of the cron jobs have comments that just say 'don't touch'."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 38,
+   "reply_to": 6,
+   "text": "Ha, Thursday works for me. Also Rita, help desk will want a short script for lockout calls. I'll draft one and send it your way and to Member Services."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 44,
+   "reply_to": 7,
+   "text": "Perfect, thanks Shannon. Send it by Friday and I'll make sure the floor has it before the pilot starts."
+  }
+ ]
+}

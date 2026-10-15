@@ -1,0 +1,66 @@
+{
+ "emails": [
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_013"
+   ],
+   "subject": "July delinquency report - 30+ day bucket up slightly",
+   "body": "Hi Kara,\n\nAttached is the delinquency report for month-end July. The 30+ day bucket rose to 2.1% of outstanding consumer balances, up from 1.8% in June. Most of the movement is in auto loans originated through LoanDesk in the spring. The 60+ bucket is flat at 0.7%.\n\nTwo items worth a look: the loan tied to {{ACCOUNT_NUMBER:a_00144}} for {{CLIENT_NAME:c_0066}} slipped to 15 days past due, which is unusual given a clean history since 2019. Kathleen has the relationship and I have flagged it for her. Also, the ShareRecon output was late on Tuesday, so I cross-checked the balances manually against CoreBanking before finalizing.\n\nLet me know if you want a vintage breakdown before the Monday pipeline meeting.\n\nThanks,\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_014",
+   "to_ids": [
+    "e_011",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_012"
+   ],
+   "subject": "Dealer agreement renewal - Carolina auto group, due Oct 30",
+   "body": "Hi Kara and Gloria,\n\nThe dealer agreement with one of our larger indirect auto partners expires on October 30, and I want to get the renewal moving this week. They have asked for a reserve split of 75 basis points, up from 50, and faster funding turnaround after contract approval.\n\nMy view: we can offer a modest bump to 60 bps if they agree to a quarterly performance review tied to early payment default rates. Their 90-day EPD rate has been about 1.4%, which is acceptable but not great, so I would like the review language in the agreement.\n\nKathleen, can you pull the last four quarters of volume from LoanDesk so we have numbers for the call? Kara, I will need your sign-off on the pricing range before I send anything to them, and Wesley should look at the revised indemnification section.\n\nCan we huddle Thursday morning?\n\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011",
+    "e_012"
+   ],
+   "cc_ids": [],
+   "subject": "Weekly delinquency report - week ending Oct 9",
+   "body": "Hi Kara and Kathleen,\n\nWeekly delinquency snapshot is attached. Headline numbers: 30+ days at 2.4% of consumer balances, 60+ at 0.9%, and 90+ at 0.4%. That is the third week of increases in the 30+ bucket, so I think we should discuss outreach.\n\nKathleen, {{CLIENT_NAME:c_0066}} is now 45 days past due on the loan under {{ACCOUNT_NUMBER:a_00144}}. The member has been low risk since joining, so this looks like a one-off hardship rather than a pattern. Could you reach out using the contact on file before we move to formal collections notices?\n\nI also noticed a few records where the due date looked off after the CoreBanking batch ran on Wednesday. I will confirm with Andre's team whether that is a display issue or a data issue.\n\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_012",
+   "to_ids": [
+    "e_015"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "Re: Weekly delinquency report - week ending Oct 9",
+   "body": "Hi Richard,\n\nThanks for flagging this. I called {{CLIENT_NAME:c_0066}} this morning at {{CLIENT_PHONE:c_0066}} and left a voicemail, then followed up with a note to {{CLIENT_EMAIL:c_0066}}. I will try again tomorrow afternoon.\n\nIf we do reach the member, I would like to offer a one-time payment deferral or a short-term extension instead of moving straight to formal notices. Kara, are you comfortable with that given the 2018-era policy language on extensions for members in good standing? Please confirm so I know what I can offer.\n\nRichard, please hold the loan out of the collections queue until Wednesday. I will update the MemberCRM notes once I have spoken with the member.\n\nThanks,\nKathleen",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_015",
+    "e_012",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Delinquency report follow-up and due-date display issue",
+   "body": "Team,\n\nTwo things coming out of last week's delinquency report.\n\nFirst, Kathleen, you are approved to offer a one-time deferral to {{CLIENT_NAME:c_0066}} on {{ACCOUNT_NUMBER:a_00144}}. Document the hardship reason in MemberCRM without medical detail, and send me the approval form by Friday. Wesley is copied so he can confirm this fits our extension policy and the fair treatment guidelines.\n\nSecond, Richard noticed odd due dates after the CoreBanking batch last Wednesday. Rita, since ACHHub payment posting may be involved, can your team check whether any ACH loan payments posted late and pushed accounts into the wrong bucket? If so, we may be overstating delinquency.\n\nRichard, please rerun the report once Operations confirms and highlight any records adjusted. I would like a clean version for the Wednesday leadership check-in.\n\nThanks,\nKara",
+   "reply_to_previous": false
+  }
+ ]
+}

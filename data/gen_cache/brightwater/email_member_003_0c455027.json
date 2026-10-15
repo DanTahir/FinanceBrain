@@ -1,0 +1,68 @@
+{
+ "emails": [
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_007",
+    "e_008",
+    "e_005",
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Branch coverage for the week of Aug 17 - lunch rotation and Friday close",
+   "body": "Hi team,\n\nQuick heads up on coverage this week. Jonathan is out Wednesday and Thursday for a family commitment, so we will be one body short on the floor during the lunch window. Here's what I'm proposing:\n\n- Maxwell: teller line 11:00-3:00 Wednesday and Thursday, with Catherine covering the teller line during his break.\n- Joseph: covers the drive-up and the vault count on Friday close. Rita, this lines up with the cash order your team has coming in Thursday.\n- Catherine: take the new-account desk Wednesday afternoon since walk-in volume spikes after 3:00.\n\nPlease reply by end of day Tuesday if any of this creates a conflict. I would rather swap shifts now than scramble Wednesday morning. Also a reminder that we are still seeing 8-10 minute waits around noon, so let's keep greeting members as they walk in even when the line is backed up.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "Follow-up: {{CLIENT_NAME:c_0001}} complaint about online banking login lockouts",
+   "body": "Hi Paul,\n\nFollowing up on the complaint I logged Tuesday from {{CLIENT_NAME:c_0001}}. The member says they were locked out of online and mobile banking three times in one week and had to call in each time to get back in. They were frustrated, especially because a bill payment from checking ({{ACCOUNT_NUMBER:a_00002}}) was delayed as a result.\n\nWhat I've done so far:\n- Confirmed the member's identity on the phone and walked them through a password reset.\n- Waived the late fee on the delayed payment, which falls within my authority.\n- Added a note in MemberCRM so anyone who talks to them sees the history.\n\nI'm copying Andre because the lockouts look like they might be tied to MFA enrollment in MemberSSO rather than anything the member did. Andre, could your team check the MFA logs for this member and tell us whether the lockouts came from a token sync issue? I promised the member a call back by Monday with an answer, and I can reach them at {{CLIENT_PHONE:c_0001}} once we know something.\n\nThanks,\nNichole",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_003",
+    "e_009"
+   ],
+   "cc_ids": [],
+   "subject": "Complaint follow-up: {{CLIENT_NAME:c_0024}} and the duplicate debit card hold",
+   "body": "Paul, Nichole,\n\nI wanted to close the loop on the complaint from {{CLIENT_NAME:c_0024}} that came in last week. The member reported that a pending hold appeared twice on checking ({{ACCOUNT_NUMBER:a_00052}}) after a gas station purchase with their debit card, which tied up about $142 for several days.\n\nWhere things stand:\n- The duplicate authorization dropped off on Tuesday, and the available balance is back to normal.\n- I asked Rita Solano's team to confirm the CardProcessor feed did not double-post anything. She says it was a merchant pre-authorization that never got reversed on their side, not an error on ours.\n- I called the member at {{CLIENT_PHONE:c_0024}} and explained this. They were understanding but asked that we send a written summary.\n\nI'll email the summary to {{CLIENT_EMAIL:c_0024}} today and log it in MemberCRM. Paul, since you're the relationship manager on this member, let me know if you would like to make a courtesy call too. I think it would go a long way.\n\nZachary",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_005",
+    "e_006",
+    "e_007",
+    "e_008",
+    "e_010"
+   ],
+   "cc_ids": [],
+   "subject": "Staffing plan for the week of Sept 21 - month-end prep and training",
+   "body": "Hi everyone,\n\nHere is the plan for this week. We have month-end approaching and I want the floor solid by Wednesday.\n\nCoverage:\n- Monday and Tuesday: normal schedule. Joanna and Catherine are on the member desks.\n- Wednesday: Maxwell and Joseph both on the teller line from open, since we typically see a surge of payroll deposits and cashier's check requests.\n- Thursday morning: Jonathan will be at the compliance refresher with Wesley Tran's team from 9:00 to 10:30, so Catherine will cover his desk.\n- Friday: I'd like two people trained on the drive-up before the weekend, so Joseph will walk Catherine through the drive-up procedure.\n\nPlease submit any PTO or swap requests by end of day tomorrow. After that I will assume the schedule is locked. Also, please remind members who ask about long waits that our online and mobile banking channels are available for routine transfers.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_006",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "Complaint follow-up: {{CLIENT_NAME:c_0001}} and the auto loan payoff delay",
+   "body": "Hi Paul,\n\nI'm following up on a complaint from {{CLIENT_NAME:c_0001}} about a payoff statement for an auto loan that took six business days to arrive instead of the two we usually quote. The member said they were trying to sell the vehicle privately and the buyer nearly walked away.\n\nWhat I found:\n- The payoff request sat in the LoanDesk queue over the weekend because the original request was missing a signed authorization.\n- Nobody called the member to say anything was missing, which is the real failure here.\n- The payoff letter went out yesterday, and the member confirmed receipt when I reached them at {{CLIENT_PHONE:c_0001}}.\n\nKara, I'm copying you because I think we should add an automatic flag in the queue when a payoff request is missing paperwork, so Member Services gets a heads-up the same day. Would your team be open to that? I'll also send the member a short apology note to {{CLIENT_EMAIL:c_0001}} unless you'd like to handle it.\n\nThanks,\nJoanna",
+   "reply_to_previous": false
+  }
+ ]
+}

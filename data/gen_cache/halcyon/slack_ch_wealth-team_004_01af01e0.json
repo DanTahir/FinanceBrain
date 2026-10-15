@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up team: the new alternatives fund (private credit interval fund) is now live on the platform as of this morning. It's visible in PortfolioMgr under the Alts sleeve. Please read the product memo before pitching it to anyone."
+  },
+  {
+   "author_id": "e_024",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Nice. What's the minimum and the liquidity terms? I've got a couple of low-risk clients who keep asking about yield alternatives."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "$25k minimum, quarterly repurchase offers capped at 5% of NAV. So not daily liquidity. That matters a lot for the conservative folks."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "From the PM side, I'd cap it at 5% of any portfolio for low-risk mandates. Rebalancing logic in PortfolioMgr doesn't treat it like a normal sleeve yet, so I'll flag drift manually until the model is updated."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Does that mean it won't show up in the auto-rebalance proposals? I have {{CLIENT_NAME:c_0185}} coming up for review next week and want to know what to tell them."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 19,
+   "reply_to": 4,
+   "text": "Right, it'll hold as a static position for now. Rebalance proposals will just exclude it from trades. Should be fine for the review, just note it in the file."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Do we need updated suitability forms for this? Last time with the real estate fund Compliance bounced a few because the liquidity acknowledgment was missing."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 30,
+   "reply_to": 6,
+   "text": "Yes. New alts suitability form plus the liquidity acknowledgment, signed before any subscription. Upload to DocVault and log the conversation in ClientHub. No exceptions."
+  },
+  {
+   "author_id": "e_024",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Question on {{CLIENT_NAME:c_0161}}: risk profile is low, but they have a lot of idle cash in {{ACCOUNT_NUMBER:a_00336}}. Would this even be appropriate, or should I stay with treasuries and CDs?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 46,
+   "reply_to": 8,
+   "text": "Probably treasuries or CDs first, honestly. If they push, a small allocation could be discussed, but low risk plus quarterly liquidity is a hard sell. Document the reasoning either way."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 52,
+   "reply_to": 8,
+   "text": "Agree. If you do go ahead, fund it from the brokerage side, {{ACCOUNT_NUMBER:a_00335}}, so the cash account stays clean for their operating needs."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Is there a one-pager I can send to clients? I'd rather not paraphrase the fee structure from memory."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 81,
+   "reply_to": 11,
+   "text": "Marketing is finalizing it. Expect it by Wednesday. Until then, nothing goes out to clients in writing, verbal conversations only and stick to the memo."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 88,
+   "reply_to": 12,
+   "text": "Got it. I'll hold off on emails and schedule a team huddle Thursday to go through FAQs if that works for everyone."
+  }
+ ]
+}

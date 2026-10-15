@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Question on fee schedule exceptions: {{CLIENT_NAME:c_0099}} is asking to get the 85 bps tier on the brokerage account instead of the standard 100 bps. Household is around $1.8M with us. Who signs off on that again?"
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Anything below the published breakpoint needs a written exception. Grace approves, but the PM usually adds a note on the rationale first. What's the AUM on {{ACCOUNT_NUMBER:a_00211}} alone vs the whole household?"
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Brokerage is about $1.1M, cash mgmt {{ACCOUNT_NUMBER:a_00212}} holds roughly $400k, and there's a spouse IRA coming over that would be another $300k. So not yet at the 85 bps breakpoint on paper."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Heads up, I had a similar one last quarter. Compliance wanted the exception documented in ClientHub, not just in email, otherwise it fails the fee audit. Worth doing it right up front."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 11,
+   "reply_to": 3,
+   "text": "Good call Tricia. Is there a specific field for it or just a note on the client record?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 14,
+   "reply_to": 4,
+   "text": "There's a fee exception activity type in ClientHub. Attach the request, the household AUM projection, and the expiry date. Then PortfolioMgr billing picks up the override once it's approved."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 18,
+   "reply_to": 2,
+   "text": "If the IRA transfer is committed, I'd frame it as a conditional exception: 85 bps now, reverts to 100 if household AUM isn't over $2M by end of Q1. James is the RM, so loop him in too."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Makes sense. Will tag James Anderson on the ClientHub entry. The client emailed me at {{CLIENT_EMAIL:c_0099}} confirming the IRA paperwork is in progress, so I'll attach that."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 27,
+   "reply_to": -1,
+   "text": "Separate but related: {{CLIENT_NAME:c_0051}} asked about a fee break too. Long-time client, since 2017. I'm thinking we don't need an exception there, they're already on the legacy schedule. Can someone double check?"
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 35,
+   "reply_to": 8,
+   "text": "I can look. Pulling billing for {{ACCOUNT_NUMBER:a_00105}} and {{ACCOUNT_NUMBER:a_00106}} in PortfolioMgr now."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 48,
+   "reply_to": 9,
+   "text": "Confirmed, they're on the grandfathered 80 bps tier already, so nothing to approve. Sandra can just tell them it's already in place. Maybe worth a note in ClientHub so it stops coming up."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 52,
+   "reply_to": 10,
+   "text": "Perfect, thanks Janet. I'll ping Sandra and add the note."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 95,
+   "reply_to": 7,
+   "text": "Exception request is submitted in ClientHub with the conditional language, the 100 bps reversion trigger, and James tagged. Sent to Grace for approval."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 101,
+   "reply_to": 12,
+   "text": "Nice. If Grace asks, tell her I'm fine with the rationale. I'll add my PM note this afternoon."
+  }
+ ]
+}

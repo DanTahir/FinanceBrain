@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Got an irate call from {{CLIENT_NAME:c_0158}} about the July statement. Says the cash management balance on {{ACCOUNT_NUMBER:a_00331}} doesn't match what they see online. Kelly's out today so I picked it up. Anyone seen this?"
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Hmm, I did see two similar tickets last week. Is the statement showing the month-end balance and the portal showing intraday? That's usually the culprit."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Possible, but the client says the difference is about $4,200 and it's been that way since the 31st. Not a timing thing from what I can tell."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "Scott, which system is the client looking at online? If it's the portal feed off PortfolioMgr, there was a rebalance batch that posted late on 7/31. Might have split the sweep entry from the brokerage side."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 13,
+   "reply_to": 3,
+   "text": "Portal, yes. They also mentioned a sweep from the brokerage account {{ACCOUNT_NUMBER:a_00330}} that doesn't appear on the PDF statement at all."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 16,
+   "reply_to": 4,
+   "text": "That fits. The sweep likely posted after the statement cutoff but got stamped with a 7/31 effective date in PortfolioMgr. I can pull the transaction detail for both accounts and compare against the statement run."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 19,
+   "reply_to": -1,
+   "text": "Scott, want me to log this in ClientHub so there's a complaint record? Compliance usually wants anything statement-related documented with the date of first contact."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Yes please, James. First contact was today around 10:40. Tag it as statement discrepancy, and note Kelly is the assigned RM and I'm covering."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 26,
+   "reply_to": 7,
+   "text": "Done. Logged in ClientHub under {{CLIENT_NAME:c_0158}} and flagged for Kelly's follow-up when she's back."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 41,
+   "reply_to": 5,
+   "text": "Confirmed. The sweep of $4,200 posted 8/1 system time with a 7/31 value date, so it's missing from the statement but visible online. Balance is correct, statement is just stale. We should send a corrected statement."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Great catch, thanks Janet. Can ops regenerate it, or do I need to open a ticket? Client wants something in writing today."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 48,
+   "reply_to": 10,
+   "text": "Ticket to Operations, and ask for a reissue with a note on the late-posted sweep. I'd also give the client a heads up call first so they know the money is where it should be."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Will do. I'll call {{CLIENT_PHONE:c_0158}} after lunch with the explanation, then email the corrected statement to {{CLIENT_EMAIL:c_0158}} once ops turns it around. Thanks both."
+  }
+ ]
+}

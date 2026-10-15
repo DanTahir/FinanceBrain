@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: the Northside branch teller line printer is jamming again. That's the third ticket this month. Anyone have eyes on the lease agreement for those units?"
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "I can check. I think the Ricoh units are on a managed print contract, so the vendor should be swapping the fuser, not us."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Last time it was the pickup roller, not the fuser. I put a spare in the supply closet at HQ. Can run it over after lunch if the vendor can't get there today."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Please don't burn your afternoon on it. Let the vendor own it first. I'll open a case and attach the last two tickets so they can't call it a first occurrence."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Separate hardware question: are the new receipt printers at the drive-up lanes on the network allowlist yet? Tellers said the test receipts weren't printing from the teller app."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 17,
+   "reply_to": 4,
+   "text": "Not that I know of. I'd bet it's the VLAN. Those lanes were moved to the branch hardware segment last week and I don't think the print ports got opened."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 21,
+   "reply_to": 5,
+   "text": "Yep, confirmed. Port was blocked on the branch firewall. I'll open it now, should take two minutes."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 33,
+   "reply_to": 6,
+   "text": "Done. Sent a test page to both lanes and they printed. Amy, can you ask the tellers to retry?"
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 38,
+   "reply_to": 7,
+   "text": "Will do, thanks. Also, while you're in there, the PIN pads at the drive-up were rebooting overnight. Does that tie into the CardProcessor feed at all or is it purely hardware?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 45,
+   "reply_to": 8,
+   "text": "Pure hardware, I think. The CardProcessor feed was steady all night. It looks like a flaky power brick on one pad. I'll swap it. And for the record, nothing on the printers touches MemberSSO."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Quick planning note: Hector, I want you to write up how the ShareRecon scripts run, even rough notes. Right now you're the only one who knows them, and I don't love that if you're out sick or on vacation."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 58,
+   "reply_to": 10,
+   "text": "Fair. I'll block two hours next week and dump what I know into the wiki. Honestly it's a mess of cron jobs and some undocumented GL mappings, so Amy, Shannon, it'd help to have you shadow me."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 62,
+   "reply_to": 11,
+   "text": "Happy to shadow. Put me on the invite and I'll turn your notes into a proper runbook with a dependency diagram."
+  }
+ ]
+}

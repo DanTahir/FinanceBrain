@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_057",
+    "e_062"
+   ],
+   "subject": "VaR backtesting exceptions - week ending 8/27",
+   "body": "Hi Owen,\n\nQuick summary of the 99% one-day VaR backtest from RiskEngine. We logged 2 exceptions in the trailing 250-day window this week, bringing the total to 5, which keeps us in the Basel yellow zone. Both new breaches were on the equity derivatives book, on the two sharp intraday reversals earlier in the week, and both were driven by vol skew moves that the historical simulation window under-weights.\n\nAngelica reran the P&L attribution and found that roughly $1.8M of one of the breaches came from stale vol surface inputs flowing through PricingSvc during the open. I have asked Technology to confirm the timestamp on the MarketDataFeed snapshot. If that holds up, we may be able to classify it as a data issue rather than a model failure, but I would rather not argue that to the regulators without evidence.\n\nProposed next steps: finish the root-cause write-up by Tuesday, and consider shortening the lookback for the equity vol factors. I would like your view before we socialize this with Marcus in Compliance.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_056",
+   "to_ids": [
+    "e_061",
+    "e_062"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Stress test scenario update - rates shock and credit spread widening",
+   "body": "Paul, Christopher,\n\nAhead of the September ALCO cycle, I want to refresh the stress scenario library. Three changes I would like to see in a draft by Friday:\n\n1. Replace the parallel +200bp rates shock with a bear-steepener (2s up 150bp, 10s up 250bp), since that better reflects the risks to the trading book we have been discussing.\n2. Add a credit spread widening scenario of +175bp on IG and +450bp on HY, with a liquidity haircut on the corporate bond inventory.\n3. Keep the equity -25% scenario, but add a correlated vol spike (VIX to 45) so we capture the gamma exposure.\n\nChristopher, please pull current exposures from RiskEngine and confirm that the PositionStore snapshots are consistent with end-of-day marks before you run these. Daniel, I am copying you so the desk knows these are coming and can flag any concentrations that would drive the results.\n\nWe will present the results to the executive committee on the 24th.\n\nOwen",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "VaR backtesting exceptions - September close and root cause",
+   "body": "Hi all,\n\nFollowing up on the August exceptions, here is where we stand after the September close. There were 1 new exception this month, taking the trailing 250-day count to 4 after one older breach rolled out of the window. We are back at the green/yellow boundary.\n\nThe root-cause review confirmed that the stale vol surface issue was a timing gap in the MarketDataFeed snapshot feeding PricingSvc. Technology has put in a fix that forces a refresh before the intraday VaR run, and I validated it against five days of re-runs. The new exception was a genuine market move on a rates day and falls within expected model behavior.\n\nI have updated the backtesting dashboard in ReportingBI and added a column for exception classification (data, model, or market). Marcus, copying you since the regulatory reporting pack references this count.\n\nHappy to walk anyone through the re-run results.\n\nBest,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_056",
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_061"
+   ],
+   "subject": "Model validation findings - RiskEngine VaR module",
+   "body": "Hi Owen, Sam,\n\nThe independent validation of the RiskEngine VaR module is complete. Summary of the findings:\n\nHigh: the expected shortfall calculation does not apply the liquidity horizon adjustment consistently for the less liquid credit positions. Estimated understatement is about 6 to 8 percent on that sub-portfolio.\n\nMedium: the proxy mapping for thinly traded instruments is documented but has not been reviewed in 14 months. Several proxies now have correlation below our stated threshold.\n\nMedium: configuration changes to the lookback parameters are not logged with a ticket reference, which weakens the audit trail.\n\nLow: documentation of the Monte Carlo seed handling is incomplete.\n\nSam, the high finding needs an engineering fix and I would like to agree a target date. Could your team review the liquidity horizon logic with Paul this week? Owen, I suggest we report the high finding to the model risk committee on the 15th with a remediation plan attached.\n\nFull report is saved on the risk share.\n\nRegards,\nChristopher",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_005",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_062"
+   ],
+   "subject": "Stress test scenario update - Q4 results and desk impact",
+   "body": "Hi all,\n\nResults from the refreshed Q4 stress library are in. Headline numbers on the combined trading book:\n\n- Bear-steepener rates shock: loss of about $14.2M, down from $17.5M in the prior run, mostly because the desk trimmed duration in September.\n- Credit spread widening with liquidity haircut: loss of $21.6M, the largest of the set, driven by corporate bond inventory.\n- Equity -25% with vol spike: loss of $9.8M.\n\nAll three sit within the board limit of $30M for any single scenario, but the credit scenario uses 72 percent of the limit. Daniel, I would like to discuss whether the inventory in the lower-rated bucket is intended to stay at this size.\n\nCatherine, no action is needed from you at this point, but I wanted you to see this ahead of the committee meeting. Note that these runs use the corrected liquidity horizon logic from the validation findings, so the numbers are slightly more conservative than last quarter.\n\nPaul",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick q on personal trading pre-clearance: a Wealth advisor submitted a request for a position in a name that's on our restricted list as of last Friday. Is the system auto-rejecting those or do we have to catch them manually?"
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Auto-reject only fires on the hard restricted list. The watch list is manual review. Which list is the name on?"
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Watch list. So it came through as pending. I'll hold it and ping Marcus before I touch it."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Reminder for everyone: pre-clearance approvals are good for 2 business days only. I saw one this morning where the trade executed on day 3 with no re-approval. Logging it as a minor exception."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Was that the same employee who had the late holding-period attestation last quarter? If so we might want to note a pattern."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Different person. But I'll cross-check the attestation log anyway. Thanks for flagging."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Does pre-clearance cover trades in a spouse's brokerage account? Someone in KYC asked me and I wasn't 100% sure what the policy says about household accounts."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 25,
+   "reply_to": 6,
+   "text": "Yes, covered if the employee has influence or a beneficial interest. Section 4.2 of the Code of Ethics. Those accounts have to be disclosed at onboarding and on the annual cert."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "Adding: duplicate statements from the outside broker need to be fed to us too. That's the part people forget."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 34,
+   "reply_to": 7,
+   "text": "Perfect, that's what I needed. Will send the person the link to 4.2."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Separate but related: when we review a client-facing employee's personal trades, do we compare against client activity? E.g. an RM trading ahead of {{CLIENT_NAME:c_0237}}'s brokerage account {{ACCOUNT_NUMBER:a_00486}} activity?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 61,
+   "reply_to": 10,
+   "text": "Yes, front-running check. We match personal trade timestamps against client orders in the same security within a 5 day window. Only triggers on a hit, nothing for {{CLIENT_NAME:c_0237}} right now though."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 120,
+   "reply_to": 0,
+   "text": "Update: Marcus confirmed we deny the watch list request while the firm is in the advisory engagement. Notifying the employee now and documenting the rationale in the pre-clearance log."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 126,
+   "reply_to": 12,
+   "text": "Good call. Make sure the denial message doesn't hint at why the name is on the list, just say it's not eligible for clearance at this time."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 131,
+   "reply_to": 13,
+   "text": "Already worded that way. Standard template, no deal details."
+  }
+ ]
+}

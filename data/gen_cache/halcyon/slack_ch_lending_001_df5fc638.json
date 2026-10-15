@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. Pulling pipeline numbers for the Friday credit committee pack. I've got 23 deals in active pipeline, about $41.2M total commitments. Does that match what you're seeing in LoanOrigination?"
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "I'm showing 24 on my side. Difference is probably {{CLIENT_NAME:c_0048}}, the operating line renewal. It's sitting in underwriting review, not marked as pipeline yet in your view."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "That would do it. Adding it back. So 24 deals, roughly $43.5M. Is the renewal still at the $2.3M ask?"
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 11,
+   "reply_to": 2,
+   "text": "Yes, $2.3M requested. Leaning toward recommending $2.0M given the medium risk rating and the AR aging. Not final until the model refresh finishes."
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "From the closing side: 6 loans scheduled to fund by end of month, about $9.8M. Two are waiting on title and one on the final KYC sign-off."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 22,
+   "reply_to": 4,
+   "text": "Which one is waiting on KYC? If it's {{CLIENT_NAME:c_0197}} I can chase the docs today."
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 25,
+   "reply_to": 5,
+   "text": "Yep, that's {{CLIENT_NAME:c_0197}}. Missing updated beneficial ownership certification. Everything else is clean and the docs are in DocVault."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 29,
+   "reply_to": 6,
+   "text": "Got it, I'll call them this morning and ask for the certification by tomorrow noon."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Heads up on {{CLIENT_NAME:c_0016}}: high risk rating, loan on {{ACCOUNT_NUMBER:a_00034}}. I'd keep that out of the committed-to-close number until the exception memo is approved."
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 46,
+   "reply_to": 8,
+   "text": "Agreed. I never had it in my 6. It would've been a seventh if it moved, about $1.1M."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 53,
+   "reply_to": 8,
+   "text": "Makes sense. I'll show it as a separate line, 'pending exception approval', so committee sees it without it inflating the base."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Quick one on {{CLIENT_NAME:c_0251}}: low risk, long-tenured, paying as agreed on {{ACCOUNT_NUMBER:a_00516}}. They asked about a top-up. Should I count it in pipeline at about $150K?"
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 80,
+   "reply_to": 11,
+   "text": "I'd put it in at 50% probability for now. No application yet, just a conversation. I'll flag it as early stage."
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 92,
+   "reply_to": -1,
+   "text": "Updated numbers for the pack: 24 deals, $43.5M in pipeline, $9.8M committed to close this month, $1.1M pending exception. I'll drop the sheet in the shared folder by 10."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 95,
+   "reply_to": 13,
+   "text": "Perfect, thanks Brandon. I'll review once it's up and send comments before lunch."
+  }
+ ]
+}

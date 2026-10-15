@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_005",
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_008"
+   ],
+   "subject": "New FIX session to the dark pool venue - UAT plan and cutover",
+   "body": "Hi Daniel, Sam,\n\nQuick update on the new FIX 4.4 connection to the alternative trading venue we scoped last month. The venue's certification environment is now live and Travis and I ran the first set of test orders through OMS this morning. New order single, cancel/replace and cancel all acked cleanly, and execution reports map correctly into TradeBlotter, including the last-liquidity indicator.\n\nOpen items before we go live:\n1. Sequence number reset behavior on reconnect needs confirming with the venue's support desk.\n2. We need Sam's team to whitelist the venue's gateway addresses on the egress firewall for production.\n3. Min-quantity and IOC handling should be signed off by the desk before we enable smart-order routing to it.\n\nMy proposal is to complete certification this week, run a one-day pilot with capped order sizes on Monday 2026-07-13, and then open it up to routing if fills look clean. Please let me know if that timing works.\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_006"
+   ],
+   "subject": "Trade error write-up - duplicate child orders on 2026-07-16",
+   "body": "Daniel, Marcus,\n\nBelow is the write-up for the trade error that occurred yesterday, Thursday 2026-07-16, on the mid-cap sell program.\n\nWhat happened: Around 14:22 ET a parent order was resubmitted from OMS after a UI timeout. The original was actually accepted, so two sets of child orders worked in the market. The result was an over-sell of roughly 18,000 shares against the intended 60,000 before the duplicate was spotted at 14:31 and cancelled.\n\nImpact: The desk went short for about 40 minutes and bought back the excess at a loss of approximately $9,400. The loss was booked to the error account and is visible in TradeBlotter.\n\nRoot cause: No duplicate-order check on resubmission and I did not confirm the order status before resending.\n\nActions: I will confirm status in the order audit trail before any resend, and I have asked for a client-order-id duplicate warning in OMS. Owen, a note for the risk log is attached to the ticket.\n\nHappy to walk through it on Monday.\n\nRegards,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_007",
+   "to_ids": [
+    "e_005",
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_013"
+   ],
+   "subject": "Broker commission review - Q2 results and proposed tier changes",
+   "body": "Hi Daniel,\n\nI finished the broker commission review for Q2 and wanted to share the main findings before our vendor meeting.\n\nWe paid roughly $1.84M in commissions across eleven brokers. Three brokers account for about 58% of the spend, but their research scores from the desk are middling. Meanwhile two smaller brokers delivered strong algo execution, with implementation shortfall roughly 4 bps better than the pool average, yet received under 6% of flow.\n\nRecommendations:\n1. Shift about 10% of the flow from the bottom-scoring large broker to the two high-performing smaller ones.\n2. Renegotiate the cash equity rate on high-touch from 3.0 cents to 2.5 cents for the top tier given our volume.\n3. Review the soft-dollar allocation, since several research payments look unused.\n\nJonathan has the underlying data cut from TradeBlotter if you want to check the numbers. I would like to finalize by mid-September.\n\nThanks,\nJessica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_010",
+    "e_047"
+   ],
+   "subject": "Follow-up on the sector concentration limit breach from 2026-09-04",
+   "body": "Owen, Paul,\n\nFollowing up on the sector concentration limit breach last Friday. The desk's financials exposure reached 112% of the intraday limit between 11:05 and 13:40 ET, driven by Erik's accumulation ahead of the index rebalance. The pre-trade check in OMS warned but allowed the orders under the override flag.\n\nWhat we have done:\n1. Erik reduced the position back under 90% of limit by close, and I reviewed the blotter fills.\n2. The override flag is now restricted to myself and the desk heads.\n3. We agreed to add a soft alert at 85% so the desk gets earlier notice.\n\nWhat I need from Risk: confirmation that the RiskEngine exposure feed reflected the position correctly during the window, since the numbers I saw in TradeBlotter lagged by a few minutes. Marcus, copying you for the compliance record.\n\nCan we meet Friday to close this out?\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_010",
+   "to_ids": [
+    "e_005",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "Trade error write-up - wrong side on ETF hedge order 2026-10-13",
+   "body": "Daniel, Owen,\n\nWriting up yesterday's error, Tuesday 2026-10-13.\n\nSummary: At about 10:47 ET I entered an ETF hedge order for the energy book as a buy instead of a sell. 25,000 shares were executed at the market before I caught the mistake at 10:52, when the position on TradeBlotter looked wrong. I reversed it immediately and then placed the correct order.\n\nImpact: The cost was roughly $6,200 from the spread and adverse move, charged to the error account. There was no client impact, and no limit was breached.\n\nCause: I was working fast during a volatile open, and the OMS ticket defaulted to the side from my previous order. The confirmation screen did not highlight the side.\n\nFollow-up: I will slow down on hedge entries and read back side and quantity. I also suggest that OMS color-code buy and sell on the confirmation step. Steven has offered to pair on a quick checklist for the desk.\n\nApologies for the noise.\n\nErik",
+   "reply_to_previous": false
+  }
+ ]
+}

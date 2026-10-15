@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Overnight recon run finished, but I'm seeing 14 breaks on the morning report vs 5 yesterday. Most look like settlement timing vs GL postings. Anyone else seeing that?"
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Yeah, I see it. Six of those are mine, T+1 equity trades that settled late yesterday. Looking at them now, probably just cutoff timing."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 7,
+   "reply_to": 0,
+   "text": "Two of the breaks are ACH items from the 4:30 batch. Totals are about $182k off between the payments side and GLCore. Not sure if that's real or a timing thing."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 10,
+   "reply_to": 2,
+   "text": "@Craig Garner can you send me the batch ids? I'll check whether GLCore posted them after the ReconLegacy snapshot was taken."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 13,
+   "reply_to": 3,
+   "text": "Will do, pulling them now."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 21,
+   "reply_to": -1,
+   "text": "Question for @Priya Raman: did the ReconLegacy job start later than usual last night? The report timestamp reads 2:47 AM and I thought it normally kicks off at 1:30."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 35,
+   "reply_to": 5,
+   "text": "Morning. Checked the cron and the Perl wrapper. It kicked off on schedule at 1:30, but the Oracle 11g load step waited on a lock for about 70 minutes. That's why the timestamp is late and the snapshot was cut before the late GL postings."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 39,
+   "reply_to": 6,
+   "text": "That would explain my settlement breaks. Thanks Priya. Will they clear themselves on tonight's run?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 46,
+   "reply_to": 7,
+   "text": "Should, as long as the postings are in GLCore by cutoff. If you want them cleared sooner I can trigger a manual re-run of the match step this morning. It's about 20 min and doesn't touch the other jobs."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 49,
+   "reply_to": 8,
+   "text": "Yes please, a re-run would help. I'd like a clean report before the 10:30 ops sync."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "Starting it now. I'll post here when it finishes."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 58,
+   "reply_to": 3,
+   "text": "Batch ids are in the thread on the break tickets. The two ACH items are both in the 4:30 file, so same cause I'd guess."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 79,
+   "reply_to": 9,
+   "text": "Re-run finished. Break count is down to 3. The remaining ones don't look like timing, so someone should check them manually."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 84,
+   "reply_to": 12,
+   "text": "Great, thanks. I see the 3 now. Two are amount mismatches on the payments side, so @Craig Garner, can you take those? The third is a Wayne item."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 88,
+   "reply_to": 13,
+   "text": "Got it, I'll pick up the third one and update the ticket by 10."
+  }
+ ]
+}

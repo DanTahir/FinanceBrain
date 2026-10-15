@@ -1,0 +1,122 @@
+{
+ "tickets": [
+  {
+   "title": "End-of-day reconciliation batch running hours late",
+   "description": "The ReconLegacy end-of-day batch (Perl on Oracle 11g) had not started its matching step by 9:15 PM and finished well after midnight. Settlement and GL extracts from SettlementEngine and GLCore landed on time, but the load step sat waiting on a session lock. The morning break report was delayed about three hours and the recon team missed the 7:00 AM handoff to Settlements. Need root cause and a way to keep this from recurring, since the batch has no automatic retry. Impact: stale break list for the start of the trading day, manual tie-out of roughly 40 items.",
+   "reporter_id": "e_064",
+   "assignee_id": "e_077",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Found a hung session from the prior night's purge job holding a row lock on the staging table. Killed it and the batch resumed. Checking why the purge overran."
+    },
+    {
+     "author_id": "e_080",
+     "text": "The purge overran because the staging table grew after the volume spike last week. I moved the purge to run before the extracts and added an index on the trade date column. Test run finished 35 minutes faster."
+    },
+    {
+     "author_id": "e_064",
+     "text": "Confirmed tonight's run completed before 11 PM and the break report was ready on time. Fine to resolve from my side."
+    }
+   ]
+  },
+  {
+   "title": "Wealth advisors locked out of ClientHub with SSO error",
+   "description": "Starting around 8:40 AM, several wealth advisors and client associates got an SSO assertion error when opening ClientHub. Users were redirected back to the login page in a loop. Reported by Settlements, who need ClientHub to verify client contact instructions before releasing certain items. Direct access to other apps through AuthSSO seemed fine. About 25 users were affected, and a few staff could log in after clearing cookies, though it kept recurring. Please investigate the AuthSSO to ClientHub integration and restore access as soon as possible.",
+   "reporter_id": "e_066",
+   "assignee_id": "e_078",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "The signing certificate for the ClientHub SAML connection expired overnight. Renewal had been scheduled but the reminder went to a mailbox that is no longer monitored."
+    },
+    {
+     "author_id": "e_074",
+     "text": "I uploaded the new certificate to AuthSSO and ClientHub's metadata was refreshed. Login loop is gone in my testing across three browsers."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Good catch. Please add all SAML and TLS cert expiries to the shared calendar with a 30-day alert to the Technology on-call group, not an individual mailbox."
+    },
+    {
+     "author_id": "e_066",
+     "text": "Users report they can get in now. Closing on our side."
+    }
+   ]
+  },
+  {
+   "title": "ACH origination file rejected by sponsor bank",
+   "description": "The morning ACH origination file produced by PaymentsGateway was rejected by the sponsor bank with a file-level error indicating the batch control total did not match the sum of the entry detail records. No entries were processed, so same-day payroll and vendor payments missed the first window. Payments Specialists confirmed that the file had been regenerated after a late correction was applied to one batch. Need the file fixed and resubmitted before the next cutoff, plus an explanation of how the control total drifted out of sync.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_075",
+   "status": "resolved",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_075",
+     "text": "Reproduced it. When a batch is edited after file build, the entry records are updated but the control record is cached from the first build. I'm patching the generator to recompute totals at export time."
+    },
+    {
+     "author_id": "e_069",
+     "text": "We resubmitted a manually validated file before the second window and the bank accepted it. All items went out same day."
+    },
+    {
+     "author_id": "e_081",
+     "text": "Reviewed the fix. I also added a pre-submission validation step that compares control totals against entry sums and blocks the export if they differ. Deployed to production this afternoon."
+    }
+   ]
+  },
+  {
+   "title": "Wire Room console very slow when releasing outgoing wires",
+   "description": "Wire Room specialists report that the WireRoom console takes 15 to 30 seconds to load the pending release queue and another 10 seconds or more to submit each release. This began mid-morning and is worst when the queue exceeds 50 items. Because outgoing wires are released one at a time, same-day cutoff is at risk on heavy days. Searching and filtering behave normally, only release actions are slow. The slowdown seems to line up with calls from PaymentsGateway to the fraud scoring step. Please investigate and reduce latency.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_079",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "Traces show PaymentsGateway making a synchronous FraudScore call for each item when the queue loads, and FraudScore latency is elevated because its feature lookups against DataLake are slow."
+    },
+    {
+     "author_id": "e_080",
+     "text": "A DataLake compaction job was competing with the lookups. I rescheduled it to run overnight and added a partition filter on the lookup query."
+    },
+    {
+     "author_id": "e_079",
+     "text": "After the change, queue load is under 3 seconds and release is near instant. I also opened a follow-up to batch the scoring calls so the console stops making one call per item."
+    },
+    {
+     "author_id": "e_070",
+     "text": "Console feels normal again on our side. Thanks all."
+    }
+   ]
+  },
+  {
+   "title": "Intermittent login failures across DocVault and ClientHub",
+   "description": "Since late morning, users in Operations and Wealth Management are seeing intermittent login failures when opening DocVault and ClientHub, with an invalid token error. Retrying often works after a minute or two. It appears tied to AuthSSO, as other apps that rely on it are also flaky for some users. The KYC team is feeling it most because onboarding reviews need both systems open. Roughly 15 percent of attempts are failing based on help desk volume. Looking for root cause and a stable fix.",
+   "reporter_id": "e_070",
+   "assignee_id": "e_074",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Error rate on AuthSSO token validation went up right after the identity provider's signing key rotation. Looks like one of the AuthSSO nodes is still serving the old key set."
+    },
+    {
+     "author_id": "e_073",
+     "text": "I think that fits. The key set cache TTL on the validators is long, and the rotation runbook does not include a cache flush. I can share the validator config before I am out of office."
+    },
+    {
+     "author_id": "e_074",
+     "text": "Flushed the cache on the stale nodes and failures dropped, but a few still occur. I am checking the remaining nodes and will shorten the TTL so we do not rely on a manual flush."
+    }
+   ]
+  }
+ ]
+}

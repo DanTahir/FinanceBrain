@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_062"
+   ],
+   "cc_ids": [
+    "e_057"
+   ],
+   "subject": "Stress test scenario update - August cycle",
+   "body": "Hi Owen, Christopher,\n\nI've finished refreshing the scenario set for the August stress cycle. Main changes: the rates-up shock is now +175bp parallel with a steepener overlay (2s10s +40bp), the equity drawdown scenario is calibrated to a 22% peak-to-trough move in the S&P with VIX at 45, and I've added a credit spread widening scenario of +250bp on IG and +600bp on HY.\n\nPreliminary RiskEngine runs show the combined rates and equity scenario producing an estimated $38M hit on the trading book, up from $31M last cycle, mostly driven by the larger convexity exposure on the desk. Please note the runs rely on the current PositionStore snapshot via RiskEngine, so any late-day adjustments won't be reflected.\n\nChristopher, can you validate the shock mapping for the HY buckets by Thursday? Owen, I'd like your sign-off on the new steepener assumption before we send results to ReportingBI for the management pack.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Liquidity coverage report - week ending Aug 14",
+   "body": "Hi Owen, Catherine,\n\nAttached is the liquidity coverage summary for the week ending August 14. Highlights:\n\n- Estimated LCR proxy: 134%, versus our internal floor of 115%\n- High quality liquid assets stood at roughly $412M, with Level 1 assets making up about 81%\n- Projected 30-day net outflows came in at $307M, up modestly from $289M the prior week because of larger committed lending facility draws\n\nThe one item I'd flag is the concentration in two custodians holding most of the HQLA. It isn't a breach, but I'd suggest we talk about diversification at the next ALCO. Numbers were pulled from ReportingBI and cross-checked against the GLCore balances reported by Operations, and there were no unexplained differences above $500K.\n\nHappy to walk through the methodology if useful. I'll refresh the figures on Friday after month-to-date funding moves settle.\n\nBest,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_058",
+   "to_ids": [
+    "e_056",
+    "e_059"
+   ],
+   "cc_ids": [
+    "e_060"
+   ],
+   "subject": "Counterparty limit review - prime broker and repo names",
+   "body": "Owen, Phillip,\n\nKicking off the quarterly counterparty limit review. I've pulled current utilization for the top 15 counterparties. Three are worth discussing:\n\n1. One prime broker is at 91% of its potential future exposure limit after the recent growth in swap notional.\n2. A regional bank repo counterparty has been downgraded one notch by an external agency, so the current unsecured line of $60M may need to be cut to $45M.\n3. Two smaller broker-dealers have had no activity in 6 months and could have limits reduced to free up capacity.\n\nPhillip, can you refresh the internal ratings and send me the updated PD estimates by Monday? John, please check the netting agreement coverage for the repo names. I'll draft the recommendation memo once we have both inputs, aiming for committee on Sept 10.\n\nThanks,\nLance",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_059",
+   "to_ids": [
+    "e_058",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_060"
+   ],
+   "subject": "Re: Counterparty limit review - prime broker and repo names",
+   "body": "Lance, Owen,\n\nHere are the refreshed internal ratings as requested. Summary:\n\n- Prime broker: rating unchanged, outlook stable. Given the 91% utilization I'd recommend a temporary uplift to the PFE limit rather than blocking trades, with a hard review in 60 days.\n- Regional bank repo counterparty: internal rating moves down one notch, one-year PD up from 0.35% to 0.52%. I agree with the cut to $45M.\n- The two inactive broker-dealers: no credit concerns, so reducing limits is purely a capacity decision.\n\nJohn is still confirming netting enforceability on two of the repo agreements, so the exposure figures may move slightly. I'll send the final PD table to the shared folder today so Lance can finish the memo ahead of the Sept 10 committee.\n\nRegards,\nPhillip",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_057",
+    "e_005"
+   ],
+   "subject": "VaR backtesting exceptions - August summary",
+   "body": "Hi Owen, Paul,\n\nQuick summary of the VaR backtesting for the 250-day window ending September 10. The 99% one-day VaR model recorded 4 exceptions, which keeps us in the Basel green zone (0 to 4), but we're at the upper edge.\n\nTwo of the exceptions came on August 19 and August 27, both days with sharp equity gap moves and a spike in implied vol. The model underestimated tail risk in the rates-sensitive books, where RiskEngine's historical window of 500 days didn't capture a comparable regime. A third was linked to a stale price from PricingSvc for a thinly traded instrument, which we've already flagged to Technology.\n\nI'd propose we test a shorter, volatility-weighted lookback and run it in parallel for 30 days. Daniel is copied so the desk knows that a limit recalibration may follow if we adopt it.\n\nPlease let me know if you want the full exception log before the next risk committee.\n\nThanks,\nChristopher",
+   "reply_to_previous": false
+  }
+ ]
+}

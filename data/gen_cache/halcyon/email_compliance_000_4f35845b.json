@@ -1,0 +1,79 @@
+{
+ "emails": [
+  {
+   "from_id": "e_051",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: Personal trading pre-clearance for Q3",
+   "body": "Hi all,\n\nA quick reminder as we start Q3: all covered employees must submit personal trading pre-clearance requests through the compliance portal before placing any trade in a reportable security. Approvals are valid for the trading day on which they are granted, and requests submitted after 3:00 PM ET will roll to the next business day.\n\nA few points we see tripped up most often: (1) trades in names on the restricted list, including those tied to active advisory mandates, will be declined; (2) the 30-day minimum holding period still applies; and (3) accounts held at outside brokers must be disclosed and set up for duplicate statements.\n\nPlease circulate this to your teams and ask anyone with open questions to reach out to me directly. Quarterly holdings attestations are due by July 15.\n\nThanks,\nLinda Jones\nCompliance Associate",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_017",
+    "e_005",
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_052"
+   ],
+   "subject": "Marketing material review: updated wealth brochure and trading desk one-pager",
+   "body": "Hi team,\n\nCompliance has received your drafts for the fall wealth management brochure and the trading desk capabilities one-pager. We are completing the review under our advertising and communications policy and have a few preliminary comments.\n\nThe brochure includes the phrase \"consistently outperforms benchmarks.\" We cannot approve that wording without a fully documented, GIPS-style performance basis and the required disclosures. Please either remove it or send the supporting calculation. The one-pager's claim about \"best-in-class execution\" also needs substantiation or softer language.\n\nBoth documents need the standard past-performance disclaimer and the current regulatory legend in the footer. Please send revised versions by Friday, August 28, so we can finalize before the printer deadline.\n\nHappy to jump on a call if helpful.\n\nBest,\nHeather Carlson\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_017",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_054",
+    "e_047"
+   ],
+   "subject": "Marketing material review: approval status for September client communications",
+   "body": "Hello Grace and Elena,\n\nFollowing up on the review cycle that began last week, here is where things stand on the marketing items in our queue.\n\nApproved: the revised wealth brochure (v3), now with the correct disclosures and the performance claim removed.\n\nStill open: the M&A Advisory credentials deck. The league-table references need a source citation and an as-of date for each ranking, and any mention of a specific transaction must be cleared against client confidentiality terms before it goes out. Please do not reference any live mandates.\n\nReminder that the approval ID must appear in the footer of every external piece, and anything distributed on social media needs separate sign-off from Marcus.\n\nPlease send updates by Tuesday, September 8, and we will turn them around within two business days.\n\nRegards,\nAnthony Ramirez\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_048",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Quarterly AML training: completion status and October 2 deadline",
+   "body": "Hi all,\n\nThe Q3 AML training module is due Friday, October 2. As of this morning, completion across the firm stands at 78%. By team, Operations and Lending are furthest behind, so I would appreciate your help nudging stragglers.\n\nThis quarter's module covers structuring typologies, red flags in third-party wire activity, and updated escalation steps for alerts from AMLMonitor. It takes about 45 minutes and must be completed in one sitting to record a passing score of 80% or higher.\n\nAnyone still outstanding after the deadline will be reported to Marcus and may have access to PaymentsGateway and WireRoom restricted until training is complete. I will send each of you a list of outstanding names on Monday, September 28.\n\nPlease reach out if anyone has a leave conflict, and we will arrange an extension.\n\nThanks,\nNadia Petrov\nSenior AML Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_051",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: Personal trading pre-clearance and Q3 blackout window",
+   "body": "Hi all,\n\nWith quarter-end tomorrow, a reminder that all personal trades in reportable securities still require pre-clearance through the compliance portal before execution. Because many of you will be tempted to rebalance personal accounts around quarter-end, please note the following:\n\n1. Pre-clearance approvals expire at market close on the day granted.\n2. Securities on the restricted and watch lists will not be cleared. This list was refreshed on September 25.\n3. Trades made without approval must be self-reported to me within one business day.\n4. Q3 holdings and transaction attestations are due October 15.\n\nIf you have a new outside brokerage account, please disclose it now so duplicate statements can be arranged. Questions can come to me or Marcus.\n\nThank you,\nLinda Jones\nCompliance Associate",
+   "reply_to_previous": false
+  }
+ ]
+}

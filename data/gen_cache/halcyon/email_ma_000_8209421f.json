@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_040",
+   "to_ids": [
+    "e_039",
+    "e_043"
+   ],
+   "cc_ids": [
+    "e_041"
+   ],
+   "subject": "Project Osprey - draft buyer list for review",
+   "body": "Elena, Hannah,\n\nAttached to this note is the first-pass buyer list for Project Osprey, ready for your review ahead of Monday's team call. I've split it into three tiers: 12 strategic acquirers with direct product overlap, 9 sponsor-backed platforms with relevant add-on activity over the last 24 months, and 6 opportunistic financial buyers we'd only approach if the first two tiers look thin.\n\nA few judgment calls I'd like your view on. First, two of the strategics have overlapping board members with a counterparty we've advised before, so I've flagged them for Marcus Bell's team to clear before any outreach. Second, I've deprioritised the large-cap names given likely antitrust friction and a longer timeline than the sponsor wants. Third, I'm assuming a mid-September teaser launch, which gives Aisha time to finish the CIM.\n\nPlease mark up the tiers directly in the file and I'll consolidate comments by Friday evening.\n\nThanks,\nTom",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_043",
+   "to_ids": [
+    "e_044",
+    "e_041"
+   ],
+   "cc_ids": [
+    "e_039"
+   ],
+   "subject": "Project Kestrel - lender meeting schedule and prep",
+   "body": "Joshua, Aisha,\n\nWe have confirmed the first round of lender meetings for Project Kestrel across the week of September 8. Four meetings are locked in with senior secured lenders and two direct lending funds, with the rest still pending calendar confirmation.\n\nFor prep, Joshua, can you own the lender presentation deck and tie the leverage story to the latest model? The key message is that pro forma net leverage drops under 4.0x within 24 months, so please make sure the sensitivity pages show the downside case clearly. Aisha, please build a one-page term sheet comparison grid covering pricing, call protection, covenant package, and delayed-draw capacity, so we can fill it in live after each meeting.\n\nI'd like a dry run on Wednesday, September 2 with Elena. Please circulate the near-final deck by end of day Tuesday so she has time to read it.\n\nLet me know if the timing is a problem.\n\nBest,\nHannah",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_044",
+   "to_ids": [
+    "e_043",
+    "e_039",
+    "e_041"
+   ],
+   "cc_ids": [
+    "e_029"
+   ],
+   "subject": "Project Kestrel - lender feedback summary after first round",
+   "body": "Hannah, Elena, Aisha,\n\nWrapping up the first round of lender meetings for Project Kestrel, here is a summary of where we landed. Of the six lenders we met, four have indicated they will submit indicative terms by September 25, and two have asked for a deeper dive on working capital seasonality before engaging further.\n\nThemes we heard repeatedly: appetite for the credit is solid, but most want tighter covenant headroom than the sponsor has been assuming, and two flagged concerns about customer concentration. The direct lenders were more flexible on call protection, offering 102/101 versus the 103/102/101 the banks floated.\n\nNext steps: Aisha will update the comparison grid, I will draft responses to the follow-up questions, and I'd suggest a short call with Brian Kowalski, copied here, to sanity check how our own lending team views the structure, since he has relevant color on market pricing.\n\nHappy to walk through the detail whenever convenient.\n\nRegards,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_045",
+   "to_ids": [
+    "e_039",
+    "e_040"
+   ],
+   "cc_ids": [
+    "e_042",
+    "e_046"
+   ],
+   "subject": "Pitch book kickoff - new industrials mandate",
+   "body": "Elena, Tom,\n\nFollowing last week's conversation with the prospective client's CFO, I'd like to kick off the pitch book for the new industrials sell-side mandate. The pitch is currently targeted for Thursday, October 22, so we have roughly two and a half weeks.\n\nProposed structure: market backdrop and sector multiples, our perspective on strategic alternatives (full sale versus carve-out of the controls division), a preliminary valuation range, relevant credentials, and a proposed process timeline. I'd like Susan to own comps and precedent transactions and Erik to build the credentials pages and the first draft of the timeline.\n\nTom, can you take the valuation section and the carve-out analysis? Elena, I'd value your input on the positioning of our team versus the two other banks we believe are pitching.\n\nFirst full draft by Monday, October 12, with a review session that afternoon. Please flag any conflicts concerns early so we can get compliance sign-off.\n\nThanks,\nRobert",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_040",
+   "to_ids": [
+    "e_045"
+   ],
+   "cc_ids": [
+    "e_039",
+    "e_042",
+    "e_046"
+   ],
+   "subject": "Re: Pitch book kickoff - new industrials mandate",
+   "body": "Robert,\n\nThanks for the framework. Here is where we stand on the pitch book as of today.\n\nValuation: I have a preliminary DCF and trading comps range done, and the carve-out analysis is about 70 percent complete. The sum-of-the-parts approach suggests the controls division is valued at a meaningful premium to the group multiple, which supports the carve-out narrative. I still need Susan's final precedent set to triangulate the transaction range.\n\nOpen items: (1) Erik's credentials pages are waiting on legal sign-off for two deal references; (2) the timeline page needs a decision on whether we propose a dual-track process; (3) we haven't yet received Marcus Bell's conflicts clearance.\n\nGiven the October 22 date, I suggest we lock content by Friday, October 16, and reserve the following Monday for formatting and a mock Q&A with Elena. Happy to take the dual-track page if you prefer.\n\nBest,\nTom",
+   "reply_to_previous": true
+  }
+ ]
+}

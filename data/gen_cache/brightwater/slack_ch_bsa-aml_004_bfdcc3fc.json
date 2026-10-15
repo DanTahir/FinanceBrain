@@ -1,0 +1,10 @@
+{
+ "messages": [
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. Two structuring alerts came out of the overnight BSAWatch run. One on {{CLIENT_NAME:c_0042}}: three cash deposits in four days, each just under $10k aggregate-wise. Pulling the CTR history now."
+  }
+ ]
+}

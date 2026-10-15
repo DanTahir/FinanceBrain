@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. KYC queue is at 47 pending onboarding cases as of 9:45, up from 31 on Monday. Oldest is 6 business days. Anyone know why it's piling up?"
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Part of it is SanctionsScreen returning slow on batch hits. I'm seeing a bunch of cases stuck in 'screening in progress' for 40+ min before they clear."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Yeah, same on my side. Also a lot of the commercial entities are bouncing back for missing beneficial ownership docs, so those aren't really stuck on us."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "Reminder that anything with a potential OFAC hit goes to me first before it gets released. Please don't clear those at L1 even if the queue is ugly."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Understood Nadia. I'll tag them 'sanctions-review' so you can filter quickly."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 19,
+   "reply_to": -1,
+   "text": "Taking {{CLIENT_NAME:c_0152}} refresh since it's flagged old. Low risk, client since 2017, but the ownership chart on file is stale. Need the updated {{CLIENT_EIN:c_0152}} cert too."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 23,
+   "reply_to": 5,
+   "text": "Did you check DocVault first? I think an updated filing came in through the RM last month, might not be linked to the case."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 28,
+   "reply_to": 6,
+   "text": "Good call, found it. It was uploaded but never attached to the KYC case. Linking now and rerunning the CDD check."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Pattern I'm noticing: docs land in DocVault but don't auto-associate with the case in KYCPipeline. That's probably 10+ of the pending items. Worth raising with Ravi's team since Ops still owns the pipeline?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 41,
+   "reply_to": 8,
+   "text": "Yes, please send it to Ravi Patel now. Ownership moves to Jenna Cho's group on 10/06, so I'd also loop her so the fix doesn't get lost in the handover."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 46,
+   "reply_to": 9,
+   "text": "Will do. I'll write it up with case examples and ask for a fix or a manual reconciliation script in the meantime."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "FYI for {{CLIENT_NAME:c_0152}}, contact info in ClientHub looks outdated. Phone {{CLIENT_PHONE:c_0152}} goes to voicemail. Anyone have a better channel, or should I ask the RM?"
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 63,
+   "reply_to": 11,
+   "text": "Ask the RM, Joshua Gordon covers them. Email on file is {{CLIENT_EMAIL:c_0152}}, but I'd rather confirm through him before we send doc requests."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 112,
+   "reply_to": -1,
+   "text": "Update: {{CLIENT_NAME:c_0152}} case cleared CDD and sanctions screening after the rerun. Queue is down to 41. Still have the doc-association issue to chase."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 127,
+   "reply_to": 13,
+   "text": "Nice. I sent the write-up to Ravi and Jenna with 12 example cases. I'll post their response here when I get it."
+  }
+ ]
+}

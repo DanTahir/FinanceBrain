@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_001",
+    "e_002",
+    "e_003"
+   ],
+   "cc_ids": [],
+   "subject": "Draft agenda for the July all-hands",
+   "body": "Hi all,\n\nAttached below is the working agenda for the all-hands on Thursday 2026-07-23. I'd like your sign-off by end of day Tuesday so I can lock the room and the dial-in.\n\n1. Welcome and firm update (Catherine, 10 min)\n2. First-half financial summary and Q3 outlook (Martin, 15 min)\n3. Operations and technology roadmap, including the KYC pipeline ownership transition planned for October (Linda, 15 min)\n4. Desk and division spotlights: Trading, Wealth, Lending, M&A (5 min each)\n5. Open Q&A (15 min)\n\nTwo questions: should we leave the compliance reminder to Marcus's team as a standalone slot, or fold it into Linda's section? And Martin, do you want the Q&A questions collected in advance via the anonymous form?\n\nThanks,\nWendy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "Q3 board deck: timeline and section owners",
+   "body": "Catherine, Linda,\n\nThe Q3 board meeting is on 2026-09-17, so I'd like to work back from a first full draft on Friday 2026-08-28. Proposed section owners:\n\n- Financial results and forecast: me, with inputs from each division head by 2026-08-14\n- Risk and capital: Owen Gallagher's team, with VaR and exposure trends from RiskEngine\n- Operations and technology: Linda, including the settlement and reconciliation stability metrics\n- Strategy and pipeline: Catherine, with M&A mandate updates from Elena\n\nI'd like to keep the deck to 25 slides plus appendix this time. The directors flagged last quarter that the appendix had grown unwieldy, so I'll cut anything that isn't decision-relevant.\n\nWendy, could you hold a one-hour review block for the three of us the week of 2026-08-24?\n\nBest,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_001",
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_017",
+    "e_029"
+   ],
+   "subject": "Client experience survey: Q3 results and next steps",
+   "body": "Catherine, Martin,\n\nThe Q3 client experience survey closed last Friday and the topline is in. Overall satisfaction came in at 8.1 out of 10, up from 7.8 in Q2, and the response rate was 34%, our best yet.\n\nWhere we improved: advisor responsiveness and the clarity of quarterly reporting. Where we lag: onboarding time, which clients described as slow and repetitive, and the speed of loan decisions. Both point at the KYC and origination workflows, which is useful context ahead of the October ownership change for KYCPipeline.\n\nGrace and Brian are copied since Wealth and Lending drive most of the verbatim feedback. I'd like each of them to bring two concrete actions to our next leadership meeting. I'll consolidate everything into a one-page summary for the board deck.\n\nHappy to walk through the full data set if useful.\n\nRegards,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_002",
+    "e_017",
+    "e_029"
+   ],
+   "subject": "Follow-up: client experience survey actions",
+   "body": "Linda,\n\nThanks again for the survey readout last month. With the quarter nearly over, I want to check progress on the commitments from Grace and Brian. Specifically:\n\n- Onboarding: has the average time from application to approved account come down since the summer? I'd like a number, not a sense.\n- Lending: are we on track for the faster decision turnaround we discussed?\n\nI plan to share a short note with the full firm on how we're acting on client feedback, and I want it grounded in real results. Please send me a brief status by Friday 2026-10-02 so I can include it in my remarks. Grace and Brian, if you have wins or blockers, send them to Linda directly.\n\nI'd rather admit what isn't working yet than overstate it.\n\nThanks,\nCatherine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "2027 headcount plan: initial framework",
+   "body": "Catherine, Linda,\n\nI'm kicking off the 2027 headcount plan. To keep this disciplined, I propose each division head submits requests against three buckets: backfills, revenue-generating hires, and control or infrastructure roles. Anything outside those buckets needs a written business case.\n\nPlanning notes:\n- We should account for known departures, including the senior engineering exit in Technology this October, and plan the backfill early.\n- Compliance has taken on KYCPipeline ownership as of today, so we should assess whether that team needs added capacity rather than absorbing the work.\n- I'd like to hold total growth to a level consistent with the revenue forecast going to the board.\n\nTimeline: submissions due 2026-10-30, leadership review the week of 2026-11-09, final approval before the December budget lock. Wendy, could you schedule those sessions?\n\nThanks,\nMartin",
+   "reply_to_previous": false
+  }
+ ]
+}

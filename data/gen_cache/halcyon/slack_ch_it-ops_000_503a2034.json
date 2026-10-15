@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, Q3 access recert for AuthSSO groups is due Friday. I'm pulling the entitlement export for the Technology-owned apps now. Anyone know who's covering ReconLegacy service accounts?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "That's mine historically. ReconLegacy has two Oracle service accounts plus the batch OS user. I'll attest to those, but honestly half the humans with DB access there haven't touched it in a year."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 5,
+   "reply_to": -1,
+   "text": "Reminder the recert tool only shows AuthSSO group membership, not the local Oracle grants. For ReconLegacy we need to dump dba_role_privs separately or we're attesting blind."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 8,
+   "reply_to": 2,
+   "text": "Good point. Can you run that dump, Vincent? I'll attach it to the recert ticket so reviewers can compare against the SSO export."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 10,
+   "reply_to": 3,
+   "text": "Yep, will do it after lunch. Read-only query on the replica so no impact on the EOD batch."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 14,
+   "reply_to": 1,
+   "text": "Also worth flagging: I leave Oct 9, so anything I own needs a new attestor before then. I'd rather not have my name on the Q4 cycle for ReconLegacy at all."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 17,
+   "reply_to": 5,
+   "text": "Right, noted. I'll propose Vincent or myself as the new owner contact for the service accounts. Let's settle it before the handoff doc goes out."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 21,
+   "reply_to": 6,
+   "text": "I can take ReconLegacy. I'm already the one who gets paged when the Perl job hangs anyway."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Found three stale entries in the AuthSSO admin group: two contractors whose engagements ended in the spring and one person who moved teams. Should I revoke now or wait for the recert sign-off?"
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 29,
+   "reply_to": 8,
+   "text": "Revoke now, no reason to wait. Just note it on the ticket with the timestamp so the audit trail shows we caught it before the cycle closed."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 31,
+   "reply_to": 9,
+   "text": "Done. Removed all three and logged them in the ticket."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 95,
+   "reply_to": 3,
+   "text": "Dump is attached. Heads up, one shared DBA account still has a password that predates the rotation policy. Needs to go on the exceptions list or get rotated."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 98,
+   "reply_to": 11,
+   "text": "Ugh. Rotating is risky because the batch scripts hardcode it. Let's list it as an exception with a remediation date and I'll open a ticket to move it to the vault."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 101,
+   "reply_to": 12,
+   "text": "Agree. I can help with the Perl side, it's just two config files plus the wrapper script. Should take an afternoon, then we can test in the Oracle 11g staging box."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 104,
+   "reply_to": 13,
+   "text": "Perfect. I'll schedule the staging test for next week so it lands before Priya's last day."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 108,
+   "reply_to": -1,
+   "text": "Great, I'll submit the Technology recert package to Compliance Thursday afternoon with the exceptions noted. Thanks both."
+  }
+ ]
+}

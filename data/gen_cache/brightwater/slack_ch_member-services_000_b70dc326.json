@@ -1,0 +1,52 @@
+{
+ "messages": [
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Anyone seeing card declines this afternoon? I've got {{CLIENT_NAME:c_0009}} on hold, says the debit card got declined at a gas pump twice. Checking account a_00017 shows plenty available."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "{{CLIENT_NAME:c_0009}} is one of mine. Did you check whether the card got flagged for fraud or if there's a travel/usage block on it? Pay-at-pump often triggers a $1 or $100 preauth hold."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "No block showing on the card profile. Preauth could be it though, I'll look at the pending auth list for {{ACCOUNT_NUMBER:a_00017}}."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "FWIW I just ran a card purchase for a walk-in and the auth went through fine, so I don't think it's a processor-wide thing. Probably just this card."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 14,
+   "reply_to": 2,
+   "text": "Found it. Two pending preauths from the pump, $100 each, which took available balance under the amount of the third attempt. Both should drop off, but the member needs to wait. Also confirmed the card ending in {{CARD_NUMBER:a_00017}} is active with no flags."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "Good catch, Nichole. Tell the member holds usually release within 1-3 business days depending on the merchant. If it's urgent, you can transfer from savings to cover it. Please note it in MemberCRM so we have a trail."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "We might want a quick member tip sheet on pay-at-pump holds. That's the third call this month I've heard about. I can draft one if Paul is okay with it."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 25,
+   "reply_to": 6,
+   "text": "Yes please, Catherine. Send me a draft by Friday and I'll run it past Zachary and the other advocates before we post it."
+  }
+ ]
+}

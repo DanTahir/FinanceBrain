@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Corporate action elections - voluntary dividend reinvestment cutoff this week",
+   "body": "Hi Ravi, Brian,\n\nQuick heads-up on the corporate action calendar for this week. We have three voluntary events with elections due by Thursday 5pm ET, including a DRIP election and a tender offer on a position held in the brokerage account for {{CLIENT_NAME:c_0096}} (account {{ACCOUNT_NUMBER:a_00205}}). The wealth team has confirmed the client's instruction, but I want a second set of eyes on the entitlement figures before we submit to the custodian.\n\nBrian, can you pull the record-date holdings from PositionStore and compare them to what SettlementEngine shows as settled as of record date? I spotted a 200-share difference on one lot that looks like a trade still pending settlement at the cutoff. Tasha, please keep the break on your recon list until we clear it, since it will flow into the GLCore dividend receivable accrual.\n\nI'll send the election confirmations to Ravi for sign-off by Wednesday noon.\n\nThanks,\nWayne",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_064",
+   "to_ids": [
+    "e_063",
+    "e_066"
+   ],
+   "cc_ids": [
+    "e_071"
+   ],
+   "subject": "Month-end close checklist - July status and open items",
+   "body": "Hi all,\n\nHere is where we stand on the July month-end close as of end of day.\n\nDone: GLCore sub-ledger cutoff, nostro reconciliations for USD and EUR, and accrual postings for custody fees.\n\nIn progress: ReconLegacy end-of-day batch is still producing 14 unmatched items from the July 29 settlement date. Most look like timing differences against SettlementEngine, but two relate to the dividend receivable we discussed earlier this month. Wayne, could you confirm those two are cleared on the custodian side?\n\nOpen: Suspense account balance is $184,300 and needs to be below the $50,000 threshold before Ravi signs the close certificate. Roughly $90,000 of that is an unapplied wire tied to the operating account {{ACCOUNT_NUMBER:a_00267}} for {{CLIENT_NAME:c_0126}}. Brian, please check whether the remittance detail came through on the payment advice.\n\nI'd like everything cleared by Monday 3pm so Martin's team can start flux analysis.\n\nBest,\nTasha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_067",
+   "to_ids": [
+    "e_063",
+    "e_065"
+   ],
+   "cc_ids": [
+    "e_070"
+   ],
+   "subject": "SWIFT payment tracking - outbound to Shaw-Gonzales still showing pending",
+   "body": "Hi Ravi, Craig,\n\nFlagging an outbound cross-border payment that has not been confirmed by the beneficiary bank. We released the MT103 on Tuesday for $412,000 to our counterparty Shaw-Gonzales (beneficiary account {{CP_IBAN:cp_015}}, bank {{CP_SWIFT:cp_015}}). The SWIFT gpi tracker shows the status as ACSP with no further updates for over 36 hours, which is longer than normal for this corridor.\n\nThe PaymentsGateway log shows the message was accepted and the GLCore posting went through, so on our side it looks clean. I suspect an intermediary is holding it for a sanctions or compliance review.\n\nCraig, can you raise a tracer through the correspondent bank today? Mike, please check the WireRoom console for any returned messages or MT199 queries. If nothing moves by tomorrow midday, I'd like to loop in Marcus Bell's team in case there is an inquiry we need to answer.\n\nThanks,\nGreg",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_068",
+   "to_ids": [
+    "e_063",
+    "e_069"
+   ],
+   "cc_ids": [
+    "e_067"
+   ],
+   "subject": "SWIFT tracking exceptions - September review and gpi stuck items",
+   "body": "Hi Ravi, Ronald,\n\nI've put together the SWIFT payment tracking review for the past three weeks. Of the 212 outbound messages, 205 reached final status within the usual window. Seven were stuck at an intermediary for more than 24 hours.\n\nThree of those seven were routed to the same European correspondent. This looks similar to the delay we saw in August on the Shaw-Gonzales payment, where the beneficiary details ({{CP_SWIFT:cp_015}}) had to be re-validated by the intermediary. I suspect a pattern with how that correspondent handles repair queues.\n\nProposed actions:\n1. Ronald to pull the gpi tracker data into a weekly exception report and share it every Monday.\n2. Greg and I will request a service-level conversation with the correspondent.\n3. We add a flag in WireRoom when a message passes 18 hours without a status change.\n\nRavi, are you comfortable with this plan before I start building the report? I'd like to start next week.\n\nThanks,\nDerrick",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_071",
+   "to_ids": [
+    "e_063",
+    "e_066"
+   ],
+   "cc_ids": [
+    "e_064",
+    "e_005"
+   ],
+   "subject": "Corporate action processing - KYCPipeline ownership change and CA mandatory events",
+   "body": "Hi Ravi, Wayne,\n\nA couple of corporate action items for this week now that October is under way.\n\nFirst, there are two mandatory events with a payable date of October 9: a cash dividend and a 3-for-1 forward split on a position in the brokerage account {{ACCOUNT_NUMBER:a_00205}} for {{CLIENT_NAME:c_0096}}. The split will change the share count in PositionStore and will affect valuations in PricingSvc, so I've asked Sam Okafor's team to confirm the reference data is updated before the open.\n\nSecond, Daniel, since the desk holds some of the affected names, please expect the OMS position to adjust overnight. Open orders on those names should be cancelled and re-entered after the split to avoid price-limit errors.\n\nWayne, I'll take the entitlement calcs for the dividend and you can take the split. Tasha will reconcile the GLCore postings on the pay date.\n\nLet me know if you see any issues.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  }
+ ]
+}

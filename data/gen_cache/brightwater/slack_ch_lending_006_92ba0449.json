@@ -1,0 +1,52 @@
+{
+ "messages": [
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning team. New rate sheet goes live today. Auto rates drop 25 bps across the 60 and 72 month terms, effective 10am. I'll post the PDF in the channel shortly. Please don't quote the old sheet after that."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Thanks Kara. Does the 25 bps drop apply to tier 3 as well, or only tiers 1 and 2? I have a couple of pending quotes in LoanDesk that I need to refresh."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 11,
+   "reply_to": 1,
+   "text": "All tiers, but tier 3 only drops 15 bps on the 72 month term. It's footnoted on page 2. Refresh any quotes still open, LoanDesk should pick up the new pricing after the 10am push."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 19,
+   "reply_to": -1,
+   "text": "Quick question, are we honoring the old rate for anything with a signed application before today? I've got an auto refi in process that was submitted last week."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 24,
+   "reply_to": 3,
+   "text": "Yes, rate lock from application date holds for 30 days. If the new rate is better for the member, we can reprice, but just get Rita to sign off on the exception. Note it in the file."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "FYI I'm calling {{CLIENT_NAME:c_0015}} this afternoon about repricing their loan. The new sheet should save them a good amount monthly. Will confirm the numbers once LoanDesk updates."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 78,
+   "reply_to": -1,
+   "text": "New sheet is showing in LoanDesk now. Reran my refi and it came out about $22 a month lower. Nice. Sending the revised disclosure to the member for review."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 95,
+   "reply_to": 5,
+   "text": "Good call, Kathleen. Same for {{CLIENT_NAME:c_0033}} on my side, I'll check whether their loan qualifies for the lower tier and loop you both in if the math works."
+  }
+ ]
+}

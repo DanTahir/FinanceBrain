@@ -1,0 +1,52 @@
+{
+ "messages": [
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Reminder: open enrollment for 2027 benefits starts Monday 9/21 and closes Friday 10/2. You'll get an email with your personal worksheet tomorrow. Medical, dental, vision, and FSA elections all happen in the benefits portal. Please don't wait until the last day!"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Thanks Michelle! Will there be any changes to the medical plan options this year, or is it basically the same lineup?"
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 14,
+   "reply_to": 1,
+   "text": "Same three medical options. Premiums shift slightly, and the HDHP gets a small bump in the HSA employer contribution. The full comparison chart goes out with the enrollment email."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Quick question for HR: do FSA balances roll over, or is it still use-it-or-lose-it? Trying to figure out how much to set aside for next year."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 31,
+   "reply_to": 3,
+   "text": "Good one, Richard. Health FSA allows a carryover up to the IRS limit; anything above that is forfeited after the plan year ends. Dependent care FSA does not carry over. I'll put the exact numbers in the FAQ."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 47,
+   "reply_to": -1,
+   "text": "IT note: the benefits portal uses SSO, so if your MFA token is acting up, ping me or Hector before Monday and we'll get it sorted. Don't want anyone locked out on enrollment day."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 55,
+   "reply_to": 5,
+   "text": "Appreciate that Andre. Mine needed a reset last year right at deadline, so I'll test my login early this time."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 68,
+   "reply_to": -1,
+   "text": "I'll also hold two drop-in Q&A sessions next week: Tuesday and Thursday at 12:30 in the break room. Bring questions, and lunch if you like. Happy to walk through plan comparisons one on one too."
+  }
+ ]
+}

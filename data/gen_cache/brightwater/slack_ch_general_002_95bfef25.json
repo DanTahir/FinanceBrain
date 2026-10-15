@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all! Reminder that Fraud Awareness Week is in full swing. Today's theme is phishing and smishing. Member Services will have a one-pager at every teller station by 10, so please grab one and read it before you open your first member conversation."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "From IT: we're running a simulated phishing test this week. If you get a weird email about a 'payroll update' or a 'shared document', don't click it, use the Report Phish button in Outlook. Reporting fast is the goal, not catching everyone out."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 14,
+   "reply_to": 1,
+   "text": "Does the Report Phish button work from the mobile Outlook app too? I'm out at a business visit later and mostly on my phone."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 19,
+   "reply_to": 2,
+   "text": "Yep, it's under the three dots menu on mobile. If you don't see it, update the app and ping me in #it. Takes about two minutes to fix."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 33,
+   "reply_to": -1,
+   "text": "Quick tip from the credit side: we've been seeing more synthetic identity patterns on applications lately. Mismatched address history plus a thin file is a classic flag. If something feels off, loop in Underwriting early rather than late."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 41,
+   "reply_to": 4,
+   "text": "Great point Richard. I'll add that to the huddle talking points for the floor tomorrow so reps know when to escalate."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 65,
+   "reply_to": -1,
+   "text": "HR note: the fraud awareness module in the learning portal is due Friday end of day. It's about 20 minutes. Managers, please give your teams the time during the workday, no need to squeeze it in at lunch."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 72,
+   "reply_to": 6,
+   "text": "Thanks Michelle. Is it the same module as last year or did they refresh it?"
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 78,
+   "reply_to": 7,
+   "text": "Refreshed. It now has a section on voice cloning and deepfake calls, plus the usual business email compromise scenarios."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 110,
+   "reply_to": -1,
+   "text": "Friendly PSA: please don't read MFA codes out to anyone who calls claiming to be IT. We will never ask for them. Same goes for members, so if they say 'the credit union asked for my code', that's a scam."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 125,
+   "reply_to": 9,
+   "text": "Yes, we're telling members the same thing. We'll cover it on the call script refresh too. Hector, could you share a short line we can read out for the MFA reminder?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 140,
+   "reply_to": 10,
+   "text": "Sure. Something like: 'Brightwater will never call, text, or email asking for your login code or full password.' I'll drop it in #member-services this afternoon."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 185,
+   "reply_to": -1,
+   "text": "Early results from the phishing simulation: about a third of the reports came in within the first 10 minutes. Nice work, everyone. Full numbers and a debrief at Friday's all-hands."
+  }
+ ]
+}

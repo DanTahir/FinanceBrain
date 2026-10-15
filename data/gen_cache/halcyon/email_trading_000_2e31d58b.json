@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_005",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_012"
+   ],
+   "subject": "Q2 best execution report - draft for review",
+   "body": "Hi Daniel, Marcus,\n\nAttached is the draft Q2 best execution report ahead of the compliance review. Headline numbers from the TradeBlotter and OMS fill data: average implementation shortfall on US cash equities came in at 6.8 bps versus 7.9 bps last quarter, and price improvement on marketable orders routed through the primary dark pools held at 41% of notional. Roughly 3% of parent orders were flagged for slippage above our 25 bps tolerance, and most of those were small-cap names traded during the volatile window in late June.\n\nTwo items I want your eyes on before we finalize: first, the venue toxicity analysis suggests one ATS had elevated reversion on passive fills, so we should discuss whether to lower its routing weight. Second, we had a handful of orders where the OMS timestamp and venue acknowledgement differed by more than 200 ms, which affects the benchmark calculation and needs a footnote.\n\nCould you send comments by Friday? Sean and I can turn revisions around early next week.\n\nThanks,\nRobert",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_010",
+    "e_047"
+   ],
+   "subject": "Follow-up: equity desk gross exposure limit breach on 9/8",
+   "body": "Owen, Paul,\n\nFollowing up on yesterday's intraday breach of the equity desk gross exposure limit. Based on what we've pulled so far, exposure peaked at roughly $212M against a $200M limit between 2:10 and 2:45 pm, driven mainly by a large block position Erik was working in the semiconductor basket. The pre-trade check in OMS issued a soft warning, but it was overridden under the block exception, which I now believe was too broad.\n\nImmediate actions: the position was brought back within limit by 3:05 pm, and I've asked the desk to get my sign-off before using the block exception until we tighten the rules. Erik is documenting the timeline of the trades and the override.\n\nWhat I need from Risk: confirmation that the RiskEngine numbers match our TradeBlotter view, and your recommendation on whether the soft warning should become a hard stop above 105% of limit. I'd like to agree on the remediation plan by Friday.\n\nRegards,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_056",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_010",
+    "e_047",
+    "e_061"
+   ],
+   "subject": "Re: Follow-up: equity desk gross exposure limit breach on 9/8",
+   "body": "Daniel,\n\nThanks for the quick turnaround. Paul reconciled RiskEngine against the TradeBlotter extract, and the numbers match within 0.4%. The small difference is a pricing timing gap, since RiskEngine picked up a PricingSvc refresh a minute after the blotter snapshot. So we are comfortable that the peak was about $212M and the breach lasted 35 minutes.\n\nOn your question, I support moving to a hard stop above 105% of limit, with a documented escalation path to you and me for any temporary increase. I'd also like the block exception to require a pre-approval note in OMS rather than a verbal okay. Paul will draft the proposed rule changes.\n\nTwo more items for Friday: please send Erik's written timeline, and we need to log this as a limit breach incident in the risk register. Marcus is copied since the override may need to be mentioned in the next compliance attestation.\n\nIf Sam's team can scope the OMS change, we can target the end of next month.\n\nOwen",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_005",
+    "e_008"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Broker commission review - Q3 to date",
+   "body": "Hi Daniel, Travis,\n\nI pulled together the broker commission numbers for Q3 so far ahead of next week's review. Total commissions are running at about $1.38M, up 9% on the same period last quarter, mostly because volumes picked up in August. Blended rate on high-touch flow is 2.7 cents per share, and electronic flow is at 0.9 cents.\n\nA few observations. Two of the bulge-bracket brokers sit above our target rate on high-touch given the research value we actually receive, so we should push for a tiered schedule. One regional broker delivers strong fills in small caps but is currently under-allocated relative to its CSA balance, so we may be able to rebalance flow. And the commission-sharing balances for two brokers are close to expiry and need to be used by quarter end.\n\nI'd like to propose we lead with the tiered-rate conversation in the review and use the execution quality scores from Robert's report as supporting evidence. Ronald, since you handle some of the broker relationships, please flag anything you know of that I haven't captured.\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_072",
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_011",
+    "e_063"
+   ],
+   "subject": "New FIX 4.4 session to the new ATS - connectivity testing",
+   "body": "Hi Sam,\n\nWe're onboarding a new alternative trading venue and need Technology's help standing up the FIX 4.4 session from OMS. The venue has provided its certification spec and a UAT endpoint, and they want to start conformance testing on October 21 with go-live targeted for the first week of November.\n\nWhat we need from your team: a new session configuration in the OMS FIX gateway with the venue's SenderCompID and TargetCompID, a firewall rule and cross-connect request for the UAT endpoint, and heartbeat and sequence-reset settings per their spec (30 second heartbeat, nightly reset). We should also confirm that the OMS order router can tag the new venue for smart-order-routing and that fills show up properly in TradeBlotter.\n\nRavi, copying you because Operations will need to update the settlement instructions and the drop-copy feed before we go live.\n\nCould someone from your team join a 30-minute kickoff call this Friday? I'll share the spec beforehand and Steven can cover the certification test cases.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "emails": [
+  {
+   "from_id": "e_030",
+   "to_ids": [
+    "e_018"
+   ],
+   "cc_ids": [],
+   "subject": "placeholder",
+   "body": "placeholder",
+   "reply_to_previous": false
+  }
+ ]
+}

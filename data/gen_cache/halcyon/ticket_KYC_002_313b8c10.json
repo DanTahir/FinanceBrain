@@ -1,0 +1,114 @@
+{
+ "tickets": [
+  {
+   "title": "Periodic KYC review overdue for wealth client with open brokerage and cash management accounts",
+   "description": "The scheduled 36-month periodic review for {{CLIENT_NAME:c_0149}} (low risk, wealth segment, client since 2017) passed its due date last week and the profile is now showing as overdue in KYCPipeline. Both a_00311 ({{ACCOUNT_NUMBER:a_00311}}) and a_00312 ({{ACCOUNT_NUMBER:a_00312}}) are still open. No adverse media or sanctions hits on the last screening run, so this looks like a pure workflow miss. Need a refreshed ID verification, current address confirmation, and an updated source-of-funds attestation uploaded to DocVault. RM Jamie Washington has been asked to reach out to the client for documents.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_050",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Picked this up. Pulled the prior review package from DocVault and the ID on file is still valid. Waiting on the updated source-of-funds attestation via Jamie Washington."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Attestation came in this morning and the address matches what we hold in ClientHub. Re-ran sanctions screening, clean. Marking the review complete and resetting the next due date."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Closing. Review cleared, next cycle set for 2029. Overdue flag in KYCPipeline has dropped off."
+    }
+   ]
+  },
+  {
+   "title": "Low-risk periodic reviews not auto-generated in KYCPipeline after ClientHub sync change",
+   "description": "While working the weekly overdue report, I found 27 low-risk individual profiles whose periodic review tasks were never created, so they are now 5 to 21 days past due. All of them were touched by the ClientHub field-mapping update last month. It appears the review-date field is being read as null, which makes the scheduler skip them. Need a one-time backfill of the missing tasks, and a check that the scheduler picks up the corrected mapping going forward. Until then, I am working the oldest ones by hand. No sanctions hits across the affected population in the latest screening batch.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_049",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_049",
+     "text": "Confirmed the null read on the review-date field. The mapping change renamed the source column, so the scheduler lost it. I'm patching the mapping and will run a backfill script against the affected set."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Ops can absorb the manual work for the backlog if the backfill slips. Let me know how many tasks land in the queue so I can plan coverage."
+    },
+    {
+     "author_id": "e_049",
+     "text": "Backfill done: 27 tasks created and the scheduler picked up the new mapping on the overnight run. Spot-checked five profiles and all look right. Resolving."
+    }
+   ]
+  },
+  {
+   "title": "Beneficial ownership information missing on cash management account after profile migration",
+   "description": "The cash management account a_00312 ({{ACCOUNT_NUMBER:a_00312}}) for {{CLIENT_NAME:c_0149}} is flagged in KYCPipeline with a blank beneficial ownership record. This is an individual account, so the owner should simply be the account holder, but the field did not carry over when the profile was migrated. Because the record is incomplete, the profile will fail the CDD completeness check at the next review. Need to confirm with the client that no third party holds a beneficial interest, and then populate the record and attach the signed certification to DocVault. The brokerage account a_00311 appears unaffected.",
+   "reporter_id": "e_052",
+   "assignee_id": "e_055",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Jamie Washington confirmed with the client that there is no third-party beneficial owner. I sent the certification form for signature."
+    },
+    {
+     "author_id": "e_052",
+     "text": "Thanks. Please log the migration gap in the pipeline defect list too, since other individual profiles may have the same blank record."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Signed certification is in DocVault and the beneficial ownership record is populated as self. Closing this one. I added a note to the defect list."
+    }
+   ]
+  },
+  {
+   "title": "Beneficial ownership certification missing for operating company onboarding with large ownership stake unidentified",
+   "description": "During CDD review for a new operating company client, the ownership chart shows 71% held by a holding entity but no natural-person beneficial owners above the 25% threshold are documented. The certification form was submitted with the control-person section blank. KYCPipeline has the case stuck in manual review, and the account cannot be opened for funding until this is cleared. Need the client to provide the ultimate natural-person owners, supporting formation documents, and an updated certification. The sanctions screen on the entity itself is clean, but owners cannot be screened until they are identified.",
+   "reporter_id": "e_050",
+   "assignee_id": "e_053",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Requested the holding entity's operating agreement and a signed ownership schedule. The client's counsel says they will send them by end of week."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Flagging that the layered structure is worth a closer look once names come in. Please run adverse media on every natural person before we approve."
+    },
+    {
+     "author_id": "e_053",
+     "text": "Understood. Will run full screening and adverse media as soon as the names arrive and note the results on the case."
+    }
+   ]
+  },
+  {
+   "title": "High-risk client periodic review overdue and blocking outbound wire release",
+   "description": "The annual periodic review for a high-risk corporate client lapsed 12 days ago. KYCPipeline has now placed a restriction flag on the profile, and the Wire Room cannot release a pending outbound wire of $480,000. The client's relationship team is asking for a status. The review needs refreshed ownership and control documents, a source-of-wealth update, and an updated screening. Please prioritize it, since the restriction is affecting a time-sensitive payment. Note that KYCPipeline ownership transfers from Operations to Compliance on 2026-10-06, so please capture the status in the case notes in case the case changes hands.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_055",
+   "status": "in_progress",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Started the review. The document refresh request went out yesterday. The prior ownership package in DocVault is stale, so I need new records from the client."
+    },
+    {
+     "author_id": "e_067",
+     "text": "The client's treasury contact is chasing the wire daily. Any estimate on when the restriction might lift?"
+    },
+    {
+     "author_id": "e_047",
+     "text": "The restriction stays in place until the review is approved. Do not release the wire on an exception. Luis, send me a status update by Monday and I will escalate it with the client's RM if the documents are still outstanding."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up all: the core vendor posted their maintenance window for this Saturday, 11pm to 4am ET. CoreBanking will be fully down for part of it. Expect OnlineBanking and CardProcessor to be affected."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Thanks Andre. For CardProcessor, is it stand-in processing during the outage or are we hard-declining? I need to tell the branches and the card vendor which way it goes."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Vendor notice says stand-in on with the usual limits, but CardProcessor depends on CoreBanking so balances won't refresh until it's back. I'll get written confirmation from them today."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 11,
+   "reply_to": 0,
+   "text": "For OnlineBanking I can put up the maintenance banner Friday afternoon and flip the app to read-only messaging at 10:45pm Saturday. MemberSSO should stay up since it doesn't depend on core, so logins work but nothing will load."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 16,
+   "reply_to": -1,
+   "text": "Question on my side: the nightly extracts I pull from core for reporting will fail Saturday. Anyone know whether ShareRecon runs during the window? I don't want it kicking off against a half-up core."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 22,
+   "reply_to": 4,
+   "text": "Good catch Amy. ShareRecon is cron-scheduled for 1:30am and it'll absolutely run against whatever core gives it. I'll disable the job Saturday evening and re-enable it manually after the vendor gives the all-clear."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 26,
+   "reply_to": 5,
+   "text": "Hector, can you write down the disable and re-enable steps somewhere other than your head? You're the only one who really knows those scripts and I don't love that for a maintenance weekend."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 33,
+   "reply_to": 6,
+   "text": "Fair. I'll put a short runbook in the wiki by Thursday: how to pause the job, how to check the GL totals after, and what a bad run looks like. Honestly overdue."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 38,
+   "reply_to": 7,
+   "text": "I'll review it once it's up and try the steps cold, so we know someone besides Hector can follow it. Might also help me document what the output tables look like."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 45,
+   "reply_to": -1,
+   "text": "Ops side: ACHHub also hangs off core, so I'll tell Timothy and Larry to push the Saturday night file windows. Any ACH files that land in the window will queue and post after."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "Right, and BSAWatch is downstream of core and ACHHub too, so Compliance will see a gap in monitoring. I'll give Wesley's team a heads up so they can note it."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 60,
+   "reply_to": 3,
+   "text": "Draft banner copy is ready. Something like: scheduled maintenance Saturday 11pm to 4am, balances and transfers unavailable. Andre, can you eyeball it before I queue it?"
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 66,
+   "reply_to": 11,
+   "text": "Looks good. Add that debit cards will still work with limits, then ship it Friday at 3pm."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 74,
+   "reply_to": -1,
+   "text": "Also plan: I'll be online from 10:30pm Saturday through the post-maintenance checks and will do a ShareRecon dry run Sunday morning before turning the schedule back on."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 80,
+   "reply_to": 13,
+   "text": "Perfect, thanks Hector. I'll check in Sunday around 7am to confirm cards and ACH are posting normally."
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_057",
+    "e_062"
+   ],
+   "subject": "Q3 stress test scenario update - rates and credit spread shocks",
+   "body": "Hi Owen,\n\nQuick update ahead of the Q3 cycle. I propose we refresh the stress scenario set as follows: (1) a parallel +200bp rates shock with a 25bp steepening overlay, (2) a 150bp widening in IG spreads and 400bp in HY, and (3) a combined equity drawdown of 20% with a vol spike to the high 40s. The old 2022-style liquidity squeeze scenario stays in as a legacy reference.\n\nAngelica is rebuilding the shock vectors and Christopher is validating that RiskEngine picks up the new factor mappings, since several tenor buckets changed. I would like to run a dry run through RiskEngine by 07-14 and compare the output against ReportingBI so we catch any mapping breaks before the committee sees numbers.\n\nCan you confirm you are comfortable with the HY calibration? Lending exposure is where the delta will be largest, so I will loop in Brian once we have preliminary results.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_056",
+   "to_ids": [
+    "e_061",
+    "e_057"
+   ],
+   "cc_ids": [
+    "e_062",
+    "e_059"
+   ],
+   "subject": "Stress test scenario update - revised HY calibration and sign-off timeline",
+   "body": "Paul, Angelica,\n\nFollowing the dry run, here is where we landed. The HY widening at 400bp looks light given recent primary market conditions, so let's move it to 550bp and keep IG at 150bp. The combined equity scenario is fine as is.\n\nTwo items. First, the RiskEngine factor mapping fix Christopher flagged is deployed, and the rates scenario now reconciles to within 0.5% against the ReportingBI dashboard. Second, Phillip, please pull the latest concentration data for the lending book so we can show the largest single-name impacts under the HY shock.\n\nTarget is to circulate the final results to the executive committee by 08-05. If anything slips, tell me by Friday rather than the day before.\n\nThanks,\nOwen",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_057"
+   ],
+   "subject": "July liquidity coverage report - draft for review",
+   "body": "Hi Owen, Paul,\n\nAttached is the draft July liquidity coverage report. Headline figures: the LCR-style ratio sits at 148% against our internal floor of 120%, down from 156% last month. The decline is driven mainly by a $42M increase in committed credit line drawdowns in Lending and a reduction in unencumbered Treasury holdings after month-end margin calls.\n\nUnder the 30-day stress run, net outflows peak in week two, mostly from wealth client withdrawals and collateral top-ups. We still clear the floor with roughly $85M of headroom.\n\nOne caveat: the GLCore feed was delayed on 08-25, so two intraday balances are carried from the prior day. Operations has confirmed the final figures will not move materially, but I flagged it in the footnotes.\n\nPlease send comments by end of day Monday so I can finalize before it goes to the CFO's office.\n\nBest,\nChristopher",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_029",
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_057",
+    "e_059"
+   ],
+   "subject": "Stress test scenario update - Q3 results and limit implications",
+   "body": "Hi all,\n\nThe Q3 stress test results are in. Summary of the main scenarios:\n\n- Rates +200bp with steepening: estimated trading book loss of $18.4M, within the $25M limit.\n- HY spreads +550bp: lending book mark-to-model loss of $31M, which breaches the early warning threshold but not the hard limit.\n- Equity -20% with vol spike: $22.7M loss, driven primarily by the equity derivatives positions on the Trading desk.\n\nBrian, the HY result is the one to look at. Phillip can walk your team through the name-level contributors. Daniel, the equity result is close to the limit, so we should discuss whether any hedges need to be added before the October rebalance.\n\nI would like to hold a 30-minute review next week. Owen, please let me know if you want this on the committee agenda.\n\nRegards,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_062"
+   ],
+   "subject": "VaR backtesting exceptions - Q3 summary",
+   "body": "Hi Owen, Paul,\n\nHere is the Q3 VaR backtesting summary for the 99% one-day model. Over the 63 trading days we logged 4 exceptions, which puts us in the yellow zone under the Basel traffic light approach (expected is about 1). The exceptions occurred on 07-18, 08-12, 08-29 and 09-17.\n\nThree of the four were on days of sharp rate moves, which suggests the model is underweighting the recent vol regime. The 08-29 exception looks different: the P&L attribution points to a stale price in PricingSvc for a thinly traded convertible, so part of this may be a data issue rather than a model issue. I have asked Sam's team to confirm the timestamp on that price.\n\nProposed next steps: shorten the EWMA decay window, rerun the backtest, and bring the findings to the model risk meeting in October. Happy to walk through the details whenever suits.\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  }
+ ]
+}

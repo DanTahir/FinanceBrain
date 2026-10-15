@@ -1,0 +1,73 @@
+{
+ "emails": [
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_006",
+    "e_010",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Q2 broker commission review - rates and soft dollar usage",
+   "body": "Hi all,\n\nAhead of our July commission review with Operations, I pulled the Q2 numbers from TradeBlotter and compared them against the rate cards we negotiated in January. Three things stand out. First, our blended cash equity rate crept up by about 0.4 bps, mostly because algo flow got routed to two brokers that sit above the tier threshold. Second, soft dollar usage is running at roughly 62% of the accrued budget, so we are not at risk of losing the research credits, but we should be deliberate about where we spend the remainder. Third, one regional broker is still billing us the high-touch rate on orders that were clearly DMA.\n\nCan each of you review the attached tab for your own flow and flag anything that looks mis-tiered by Friday? Ravi, I would like Operations to confirm the invoice side so we can dispute the DMA misclassification before the next billing cycle.\n\nWe will walk through it together next Wednesday.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_011"
+   ],
+   "subject": "Trade error write-up - duplicate child orders on 7/9 close",
+   "body": "Daniel,\n\nPer your request, here is the write-up on yesterday's trade error.\n\nSummary: During the closing auction, a parent order was resubmitted from OMS after a session reconnect, which created duplicate child orders. The result was an overfill of roughly 18,000 shares against the intended quantity. The excess was identified at 4:07 PM, and the position was flattened in the after-hours session at a net loss of about $6,400 versus the benchmark.\n\nRoot cause: the reconnect handler did not check for in-flight child orders before replaying the parent. I should have caught this on the blotter, but the duplicate rows were collapsed in the default view in TradeBlotter.\n\nActions: I have already opened a ticket with Technology to add an idempotency check on replay. Steven and I will also add a manual check of unexpanded parents at 3:45 PM until the fix ships. Marcus, copying you for the error log and any required follow-up.\n\nHappy to walk through the timeline in detail.\n\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_005",
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_008"
+   ],
+   "subject": "New FIX connection to alternative trading venue - certification plan",
+   "body": "Hi Daniel, Sam,\n\nWe have signed the connectivity agreement with the new ATS and the venue has sent over its FIX 4.4 spec and a certification schedule. Summary of what we need:\n\n- A dedicated session from OMS with its own SenderCompID, routed through the existing order gateway\n- Support for the venue's custom tags for minimum quantity and midpoint peg instructions\n- Drop copy delivered to our post-trade feed so TradeBlotter picks up fills in real time\n\nThe venue offers a UAT window starting July 27, and certification takes about five business days if we pass the standard test script. Sam, could your team confirm who can own the gateway config and the network allowlisting? Since OMS depends on AuthSSO for access, we should also make sure the service account is provisioned correctly before testing.\n\nDaniel, I would suggest we keep it to a small percentage of flow for the first two weeks after go-live.\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_006",
+    "e_007",
+    "e_010",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Broker commission review - August follow-up and tiering changes",
+   "body": "Team,\n\nFollowing up on the July review. Two of the brokers have agreed to revisit their rate cards: the first will move us to a lower tier retroactive to July 1, and the second has corrected the DMA misclassification and will credit about $11,000 on the next statement.\n\nFor the new quarter, I want us to be more deliberate about routing. Based on July data, I would like to shift part of the mid-cap algo flow to the brokers with the best all-in cost after commissions and slippage, not just the lowest headline rate. Robert and Sean have a short analysis on this that I will circulate separately.\n\nOwen, copying you since the shift changes our counterparty concentration slightly, and I want Risk to be comfortable with it.\n\nPlease send me any objections on the routing changes by Friday. Otherwise we will implement them starting August 17.\n\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_014",
+   "to_ids": [
+    "e_005",
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_009",
+    "e_012"
+   ],
+   "subject": "Desk P&L attribution - September results",
+   "body": "Daniel,\n\nHere is the September P&L attribution for the desk, built from TradeBlotter and reconciled to the general ledger totals provided by Operations.\n\nTotal desk P&L came in at about $3.1M. Breaking it down: spread capture and client flow contributed roughly $1.9M, directional positioning added about $0.8M, and the remaining $0.4M came from the new venue's midpoint fills, which look better than expected. Costs were a drag of $0.55M, including the commission changes agreed in August, which saved about $90K versus the old rate cards.\n\nOne caveat: a few late-month marks depend on PricingSvc, which had a brief lag on September 24, so Robert is re-running those numbers and I expect only small changes.\n\nMartin, I am including you so Finance can compare against the monthly close. Let me know if you would like the attribution split by desk book rather than by strategy.\n\nBest,\nJessica",
+   "reply_to_previous": false
+  }
+ ]
+}

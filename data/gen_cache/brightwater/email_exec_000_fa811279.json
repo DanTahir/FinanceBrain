@@ -1,0 +1,74 @@
+{
+ "emails": [
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_019",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Strategic plan update: Q3 initiative owners and checkpoints",
+   "body": "Hi all,\n\nAs we head into the back half of the year, I want to confirm owners and checkpoints for the three priorities in our 2026-2028 strategic plan: growing indirect auto lending, modernizing the member digital experience, and tightening our operational resilience.\n\nKara, you own the auto lending growth target. Please bring me a pipeline view by Aug 14, including LoanDesk turn times. Paul, you are the lead for digital experience adoption; I'd like a short summary of member feedback on OnlineBanking by the same date. Andre, please outline the resilience work, specifically the ShareRecon replacement timeline and any CoreBanking dependency risks. Rita, I need a view of how ACHHub and CardProcessor capacity looks against projected growth.\n\nMichelle is copied because several of these initiatives have staffing implications and she will help us plan for them.\n\nI'd like each of you to keep your update to one page. We'll walk through them together at the leadership meeting on Aug 18.\n\nThank you,\nGloria",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "Re: Strategic plan update: Q3 initiative owners and checkpoints",
+   "body": "Hi Gloria,\n\nThanks for laying this out. I can have the ACHHub and CardProcessor capacity view to you by Aug 14. Both systems sit on CoreBanking, so I'm going to coordinate with Andre on how any core vendor maintenance windows would affect our volume assumptions.\n\nOne question: should the capacity view cover only projected member growth, or should it also include the seasonal peaks we see around payroll cycles and year-end? I'd lean toward including both so the plan isn't surprised in Q4.\n\nI'll also flag that Larry and Timothy will be doing much of the data pull, so I'd like to let them know early.\n\nThanks,\nRita",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_016",
+    "e_023"
+   ],
+   "cc_ids": [],
+   "subject": "Board packet: HR and staffing sections due Aug 7",
+   "body": "Hi everyone,\n\nA quick note on the September board packet. I'm assembling the staffing and HR section, and I need a few inputs by Friday, Aug 7 so Gloria can review before it goes to the board chair.\n\nWesley, please send me your compliance staffing summary, including any open BSA/AML analyst needs and training hours completed year to date. Rita, I need your operations headcount and cross-training status for settlements and payments. Gloria, I'll draft the narrative on turnover and engagement survey results and send it to you by Aug 10.\n\nTo keep formatting consistent, please use the template in the shared board folder and keep each section to one page. If you expect any changes to approved headcount, please flag that clearly so we can tie it back to the strategic plan.\n\nHappy to talk through any of it.\n\nBest,\nMichelle",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_016",
+    "e_019",
+    "e_023",
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "NCUA exam prep: readiness checklist and document requests",
+   "body": "Team,\n\nWith the NCUA examination window approaching, I want us fully ready well ahead of the entrance letter. Wesley is coordinating, and I'd like each of you to treat his requests as a priority.\n\nWesley, please circulate the draft document request list by Sept 24, along with a mock interview schedule. Andre, I'd like confirmation that our IT risk assessment, vendor due diligence on the CoreBanking host, and access review for MemberSSO are current. Kara, please make sure the lending policy exceptions log and underwriting file samples are clean. Rita, I need updated procedures for ACH and card settlement exceptions.\n\nMichelle will confirm that training records and job descriptions are complete.\n\nLet's hold a 30 minute prep check-in each Thursday until the exam starts. If you see a gap, tell me early; I would much rather hear it now than from the examiners.\n\nThank you,\nGloria",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_016",
+    "e_019",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Strategic plan update: Q3 results and Q4 priorities",
+   "body": "Hello all,\n\nThanks for the strong work on the strategic plan this quarter. Here is where we stand and what I'd like us to focus on through year-end.\n\nIndirect auto lending is ahead of the pilot target, and Kara's team has kept turn times steady. Digital adoption is trending up, and Paul's feedback summary gave us useful items for the OnlineBanking roadmap. On resilience, Andre's ShareRecon replacement plan is on track, and Rita's capacity review gave us a clear picture for Q4 peaks.\n\nFor Q4, my priorities are: finish the ShareRecon replacement design, close out any open items from the NCUA exam, and finalize staffing plans for next year's budget. Wesley, please include any exam follow-ups in your next update. Michelle will schedule one-on-one budget conversations with each of you next week.\n\nWe'll review progress at the leadership meeting on Oct 20. Please send me a one-page update by Oct 16.\n\nThank you,\nGloria",
+   "reply_to_previous": false
+  }
+ ]
+}

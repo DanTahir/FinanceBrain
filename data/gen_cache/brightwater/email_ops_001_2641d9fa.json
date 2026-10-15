@@ -1,0 +1,79 @@
+{
+ "emails": [
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "July month-end close: ShareRecon variance and GL tie-out",
+   "body": "Hi Rita,\n\nWanted to flag where we stand on the July close ahead of the Monday cutoff. The nightly ShareRecon run finished clean on Thursday, but I'm still carrying a $1,284.16 variance between the share GL and the CoreBanking subledger. It traces to a returned item posted on the 31st that hit the subledger but not the GL batch. I think it's a timing issue and not a true break.\n\nThe member in question is {{CLIENT_NAME:c_0002}}, whose checking account {{ACCOUNT_NUMBER:a_00004}} shows the posting. I'll confirm with the ACH team that the entry was reversed once.\n\nAndre, I'm copying you in case ShareRecon needs a rerun after I post the correcting entry. Could you hold a slot on Monday morning before the 9 AM cutoff?\n\nI'll send the final tie-out sheet by end of day Monday.\n\nThanks,\nLarry",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_024",
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "August close checklist and settlement cutoffs",
+   "body": "Team,\n\nAugust close is coming up and I want us tighter than last month. Here's the plan:\n\n1. Larry: complete the share and GL tie-out by noon on the 1st business day. Any variance over $500 gets documented with a root cause, not just a plug entry.\n2. Timothy: confirm all ACH batches through ACHHub are settled and that the return file from the ODFI is fully posted before we lock the period.\n3. Both: no manual journal entries after 3 PM on close day without my sign-off.\n\nWesley, I'm copying you because two of the accruals touch the BSAWatch reconciliation, and I'd like your team to know the sequence in advance so alerts don't spike when we post adjustments.\n\nIf CoreBanking has any vendor maintenance windows that week, let me know right away so we can adjust. Please reply with any blockers by Friday.\n\nThanks,\nRita",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_025",
+   "to_ids": [
+    "e_023",
+    "e_024"
+   ],
+   "cc_ids": [],
+   "subject": "ACH return spike: R01 and R03 items from Monday's file",
+   "body": "Rita, Larry,\n\nQuick heads-up on this morning's return file. We received 41 returns overnight, up from our usual 15 to 20. Most are R01 (insufficient funds), but there are four R03 (no account) tied to a single originator batch.\n\nOne of the R01s hit {{CLIENT_NAME:c_0004}}'s share savings account {{ACCOUNT_NUMBER:a_00007}}. Member Services will probably get a call, so I'd like to give Paul's team a short script.\n\nFor the R03 items, the counterparty is Hunt-Murphy, and the account on file ({{CP_ACCOUNT:cp_013}}) looks like it was keyed incorrectly on their end. I'll contact their treasury team today and ask them to verify before they resubmit.\n\nLarry, can you make sure the return postings hit the GL today so they don't roll into the September close? I'll track the NACHA return rate on a spreadsheet and share it tomorrow.\n\nTimothy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_003",
+    "e_016"
+   ],
+   "subject": "Re: ACH return spike: R01 and R03 items from Monday's file",
+   "body": "Timothy,\n\nThanks for catching this early. Please go ahead with the outreach to Hunt-Murphy, and ask them to confirm the corrected account details in writing before any resubmission. I don't want us reprocessing on a verbal.\n\nPaul, I'm adding you so the floor is ready for member calls on the R01 items. The talking points: the return came from the originator's bank, the member's available balance at posting caused it, and any NSF fee review goes through a Member Advocate. Please don't quote the returned amount or share any account details over the phone until identity is verified.\n\nWesley, FYI in case the R03 cluster looks odd in BSAWatch. It appears to be a data entry error, not suspicious activity, but I'd rather you hear it from us.\n\nTimothy, please update us with the return rate by Wednesday.\n\nRita",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_025",
+   "to_ids": [
+    "e_023",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_024"
+   ],
+   "subject": "Q3 ACH return rates and follow-up on Hunt-Murphy",
+   "body": "Rita, Wesley,\n\nHere is the September-end ACH returns summary now that the quarter is closed.\n\nTotal unauthorized returns (R10 and similar) stayed at 0.12%, well under the 0.5% threshold. Administrative returns (R02, R03, R04) were 0.9% of volume, driven mostly by the Hunt-Murphy batch earlier this month. They confirmed the corrected account reference ({{CP_ACCOUNT:cp_013}}) on the 18th, and resubmitted items have since settled with no further R03s.\n\nR01 volume was normal. One member, {{CLIENT_NAME:c_0002}}, had two NSF returns on {{ACCOUNT_NUMBER:a_00004}}, and Member Services has already reached out with overdraft protection options.\n\nLarry is handling the September return postings in the close, so the GL should tie cleanly. I'd suggest we add an originator account-validation step for new business ACH setups. Happy to draft a proposal if you agree.\n\nTimothy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_023",
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "September close: final status and open items",
+   "body": "Rita, Timothy,\n\nSeptember close is complete as of this morning. Highlights:\n\n- Share-to-GL reconciliation tied out with a $0 variance after the correcting entry for the returned item on {{ACCOUNT_NUMBER:a_00004}}.\n- ShareRecon ran clean on both Tuesday and Wednesday nights. Thanks to Andre's team for the extra monitoring after the CoreBanking patch.\n- Settlement accounts with the Federal Reserve agree to our books, and the ACHHub settlement report matches the posted totals.\n\nOpen items: two stale suspense entries under $200 each are still aging. I'll write them up for Rita's review and propose clearance by the 15th.\n\nOne process note: the manual step I run to feed ShareRecon outputs into the GL workbook cost me about 90 minutes. Andre, could Amy's team script that export before the next close? Happy to walk her through it.\n\nLarry",
+   "reply_to_previous": false
+  }
+ ]
+}

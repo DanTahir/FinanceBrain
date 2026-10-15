@@ -1,0 +1,74 @@
+{
+ "emails": [
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_017",
+    "e_026",
+    "e_020"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Model portfolio changes - July rebalance proposal",
+   "body": "Hi all,\n\nAhead of Friday's investment committee, I'd like to propose a few changes to the moderate growth and conservative income models. First, trim the US large-cap growth sleeve by 2% and add the proceeds to short-duration investment-grade credit, given where the curve is sitting. Second, swap the international developed ETF in the moderate model for a lower-cost equivalent, which saves roughly 6 bps without changing tracking meaningfully.\n\nI ran the trade list through PortfolioMgr this morning and the rebalance preview looks clean. Pricing is pulling normally from PricingSvc, so the drift numbers should hold. One flag: accounts like {{ACCOUNT_NUMBER:a_00490}} have a large unrealized gain in the growth sleeve, so we should review tax-aware handling before anything is released.\n\nGrace, could you confirm you're comfortable with the approach so advisors can start preparing client talking points? Happy to walk through the attribution on a quick call.\n\nThanks,\nJanet",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_072",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_018",
+    "e_021"
+   ],
+   "subject": "Custody platform migration - wealth team readiness and cutover dates",
+   "body": "Sam, Ravi,\n\nFollowing up on this week's steering call. The Wealth Management team has completed our first pass of the custody platform migration checklist, and I wanted to put our open items in writing.\n\n1. Position reconciliation: we need a parallel run for at least two full cycles before we accept cutover. PositionStore must match the new custodian's holdings file at the lot level.\n2. Client communications: David and Jamie are drafting the notice letters. We would like final cutover dates by Aug 7 so advisors can brief clients properly.\n3. Cash management accounts, such as {{ACCOUNT_NUMBER:a_00582}}, have sweep settings that must be mapped one for one.\n4. Access: DocVault and ClientHub permissions for the new custodian's portal need to be provisioned through AuthSSO.\n\nPlease let me know which of these are already in your plan and which are gaps. I'd rather surface them now than during the cutover weekend.\n\nRegards,\nGrace",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_026",
+   "to_ids": [
+    "e_017",
+    "e_019",
+    "e_020"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "August model portfolio changes - equity sleeve and risk review",
+   "body": "Team,\n\nSummary of the model changes I'm recommending for the September 1 effective date:\n\n- Moderate growth: reduce the equity overweight from 4% to 2% versus benchmark, rotating into a diversified short-duration bond fund.\n- Conservative income: replace one dividend ETF with a lower-volatility alternative after the recent concentration in financials.\n- Aggressive growth: no change, but I'd like to tighten the single-sector cap to 22%.\n\nOwen, I'm copying you so Risk can check the changes against the intraday exposure view in RiskEngine before we finalize. Specifically, I want confirmation that the tracking error stays inside the approved band.\n\nIf there are no objections by Tuesday, I'll load the trade batch into PortfolioMgr and circulate the advisor FAQ. Please send any edits to the client-facing language before then.\n\nBest,\nMichael",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_017",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_018"
+   ],
+   "subject": "Fee schedule exception request - long-standing wealth client",
+   "body": "Hi Grace, Marcus,\n\nI'm requesting a fee schedule exception for {{CLIENT_NAME:c_0284}}, a client of ours since 2024 whose household has grown to the point where the standard tier no longer reflects the relationship. Current advisory fee on the brokerage account {{ACCOUNT_NUMBER:a_00581}} is at the standard tier. I'd like to propose moving to the next breakpoint, a reduction of 10 bps, effective October 1, in exchange for consolidating the cash management balances at the firm.\n\nRationale: the client has indicated that a competing firm has offered a lower rate, and the incremental assets would add meaningful revenue. Risk profile remains low and nothing has changed from a suitability standpoint.\n\nMarcus, please confirm there are no disclosure concerns with documenting this as a negotiated exception. Grace, I need your approval before I can update the fee schedule in ClientHub.\n\nThank you,\nJonathan",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_018",
+    "e_021",
+    "e_024",
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Fee schedule exceptions - new documentation process from October",
+   "body": "Hi everyone,\n\nOver the last quarter we have approved more fee exceptions than in the previous year combined, and the paper trail has been uneven. Effective immediately, all exception requests must include:\n\n1. The standard fee and the proposed fee in basis points, with the dollar impact over twelve months.\n2. A short business rationale, including any asset consolidation commitments.\n3. A review date, no longer than 12 months out, so each exception is revisited instead of living on forever.\n4. Confirmation from Compliance that disclosure language is acceptable.\n\nFor example, the request for {{CLIENT_NAME:c_0240}} last month was missing the review date, and I've asked James to add it. Please use the shared template and attach it to the ClientHub record rather than emailing spreadsheets around.\n\nMarcus, thanks for helping shape this. I'll go over it at Thursday's team meeting.\n\nGrace",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "tickets": [
+  {
+   "title": "Certificate of incorporation name does not match onboarding form",
+   "description": "During KYC refresh for {{CLIENT_NAME:c_0028}}, the legal entity name on the certificate of incorporation uploaded to DocVault does not match the name on the signed onboarding form and in ClientHub. The certificate shows a suffix variation (Inc. vs. Holdings Inc.). Operating account {{ACCOUNT_NUMBER:a_00062}} is open, and the loan account {{ACCOUNT_NUMBER:a_00063}} is not affected yet. Need to confirm whether there was a legal name change or a data entry error, obtain a certificate of amendment if applicable, and correct the ClientHub record. The EIN on file, {{CLIENT_EIN:c_0028}}, should be re-verified against the IRS letter as part of this. Please hold any new facility changes until cleared.",
+   "reporter_id": "e_050",
+   "assignee_id": "e_055",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Reached out to Lynn Chase on the lending side. The client confirms a name change in 2023. Requested the certificate of amendment and the state filing receipt."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Amendment received and uploaded to DocVault. Updated the legal name in ClientHub and re-ran SanctionsScreen on the new name, no hits. Resolving."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Thanks. Please add a note to the file that the name change predates the 2024 periodic review so the audit trail is clean."
+    }
+   ]
+  },
+  {
+   "title": "Utility bill rejected for business address verification",
+   "description": "Address verification failed in the KYCPipeline for {{CLIENT_NAME:c_0028}}. The proof of address submitted (a utility statement) lists a mailing location that differs from the registered address {{CLIENT_ADDRESS:c_0028}} in ClientHub. The statement is also over 90 days old, which is outside our acceptable window. Pipeline flagged the case as pending manual review and the account profile cannot be marked as refreshed. Need an updated document dated within 90 days, or a lease/registered agent letter explaining the variance. Client is high risk, so this needs to be fully cleared before the next onboarding step for any new product.",
+   "reporter_id": "e_052",
+   "assignee_id": "e_050",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Called the contact on file at {{CLIENT_PHONE:c_0028}} and asked for a current lease or a bank statement showing the registered location. They said the mailing address is a PO box used for billing."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Received a signed lease and a recent utility invoice. Both match the registered location. Uploaded to DocVault and cleared the pipeline flag."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Good. Since this is a high risk client, please note the PO box variance in the CDD file for the next review."
+    }
+   ]
+  },
+  {
+   "title": "Director passport expired and photo does not match ID on file",
+   "description": "As part of the KYCPipeline refresh for {{CLIENT_NAME:c_0028}}, the passport submitted for the authorized signatory on the operating account {{ACCOUNT_NUMBER:a_00062}} is expired, and the photo/name spelling differs from the driver license scanned in 2021. The automated document check returned a mismatch score below threshold. We need a current government ID, a certified copy if received by mail, and a confirmation from the client that the signatory is unchanged. Please do not process wire requests above $50,000 from this signatory until the check is complete.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_050",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Emailed the client at {{CLIENT_EMAIL:c_0028}} requesting a renewed passport. They replied the spelling difference is from a transliteration on the older document."
+    },
+    {
+     "author_id": "e_067",
+     "text": "Wire room has placed a soft hold note on the signatory for wires over $50k until you confirm. Let us know when to lift."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Renewed passport received and verified against the pipeline check. Match is clean now. Lift the wire hold, wire room."
+    }
+   ]
+  },
+  {
+   "title": "Beneficial ownership certification missing for 25%+ owners",
+   "description": "Ownership review on {{CLIENT_NAME:c_0028}} found that the beneficial ownership certification in DocVault only lists two individuals, while the cap table from the loan file on {{ACCOUNT_NUMBER:a_00063}} shows a third holder at approximately 30% through an intermediate holding entity. The CDD rule requires identifying every individual owning 25% or more, plus a control person. Please obtain an updated certification, ownership chart down to the natural persons, and ID documents for the new owner, then run those individuals through SanctionsScreen. Client is rated high risk, so this should go for enhanced due diligence sign-off.",
+   "reporter_id": "e_054",
+   "assignee_id": "e_055",
+   "status": "in_progress",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Sent a request to the client for the full ownership chart and certification form. Asked for a 5 business day turnaround."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Please send me the intermediate entity details when they arrive. I want to check for any adverse media and for overlap with our existing watchlist before EDD sign-off."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Agreed on EDD. Loan side should not close any amendments on the facility until this is done. I will flag Brian Kowalski's team."
+    }
+   ]
+  },
+  {
+   "title": "Periodic KYC review overdue for high risk commercial client",
+   "description": "The annual periodic review for {{CLIENT_NAME:c_0028}} was due on 2026-09-06 and is now overdue by over three weeks. Because the client is rated high risk, our policy is a 12 month cycle. The KYCPipeline shows the review task as stalled, since the refresh questionnaire was never returned and the ownership and address documents are partially stale. Please complete the refresh: send questionnaire, confirm activity against expected profile on {{ACCOUNT_NUMBER:a_00062}}, re-screen in SanctionsScreen, and update the risk score. Escalate to the CCO if the client does not respond by 2026-10-06 so we can consider restrictions.",
+   "reporter_id": "e_051",
+   "assignee_id": "e_050",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Questionnaire re-sent today. I also asked Lynn Chase to nudge the client through the relationship channel."
+    },
+    {
+     "author_id": "e_051",
+     "text": "FYI the pipeline ownership moved to Compliance this week, so I will update the task queue assignment and SLA timers accordingly."
+    }
+   ]
+  }
+ ]
+}

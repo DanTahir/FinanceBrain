@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_074",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Laptop refresh schedule for Technology - wave 1 starting July 20",
+   "body": "Hi Sam,\n\nHere is the proposed plan for the Technology laptop refresh. Wave 1 covers the SRE and data engineering group (Omar, Barbara, Michael) the week of July 20. Wave 2 covers the remaining engineers the week of July 27. I have held Priya's swap for wave 1 so her machine is clean well before her handover work picks up in the fall.\n\nTwo things I want to flag. First, the new image ships with the updated endpoint agent, and it needs to re-enroll with AuthSSO on first login. I have asked the IT vendor to pre-stage that so nobody is locked out mid-swap. Second, local dev databases that mirror PositionStore sample extracts must be wiped, not migrated. Anything needed should be re-pulled from the sanctioned DataLake sandbox.\n\nRavi, copying you since Operations will be handling the physical disposal of the old units and the asset tag reconciliation.\n\nPlease let me know if wave timing conflicts with anything on your calendar and I will adjust.\n\nThanks,\nLeo",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_074",
+    "e_075",
+    "e_076",
+    "e_077",
+    "e_078"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Q3 access recertification - action needed by Aug 28",
+   "body": "Team,\n\nThe quarterly access recertification for Technology opens today and closes Friday, August 28. Compliance will be reviewing completion, so I would like us done a few days early.\n\nEach of you will get a list in the recert tool covering your production access: AuthSSO admin roles, database read/write grants on PositionStore and DataLake, and any break-glass credentials. For each entry, mark keep, reduce, or remove, and add a one-line business justification for anything that is not obviously tied to your current role.\n\nSpecific asks:\n- Leo and Kevin: please review service account ownership on MarketDataFeed ingestion jobs. A few are still tied to people who rotated off.\n- Omar and Barbara: confirm the on-call elevated roles match the current rota.\n- Priya: since you are leaving in October, please flag anything that needs a successor named.\n\nMarcus, copying you so you can see the plan. I will send a status summary on August 24.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_078",
+    "e_056"
+   ],
+   "subject": "Weekend patching window Sept 5-6 - scope and impact",
+   "body": "Hi Sam, Ravi,\n\nThis is the plan for the patching window this weekend, Saturday September 5 from 22:00 to Sunday September 6 at 04:00.\n\nScope: OS and kernel patches on the MarketDataFeed ingestion hosts, plus the quarterly database minor version update on PositionStore. Barbara will run the MarketDataFeed rolling restart; I will handle PositionStore.\n\nImpact: markets are closed, so no trading impact is expected. During the window, PricingSvc will serve the last cached curves, so RiskEngine and PortfolioMgr will show stale intraday figures until we bring feeds back. Operations, please make sure no manual settlement runs or wire cutoffs are scheduled in that period. The PositionStore restart will take around 25 minutes and will briefly interrupt anything reading from it.\n\nRollback: snapshots are taken at 21:30 and we have a go/no-go checkpoint at 01:00. If PositionStore validation fails, we revert and reschedule.\n\nOwen, copying you for visibility on RiskEngine behavior. Please shout by Thursday if there are objections.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_077",
+    "e_078",
+    "e_081"
+   ],
+   "cc_ids": [
+    "e_063",
+    "e_056"
+   ],
+   "subject": "DR test planning - kickoff and proposed dates",
+   "body": "Hi all,\n\nWe need to start planning the fall disaster recovery test. Target is the weekend of October 17, which also gives Priya time to transfer her knowledge of the failover runbooks before she leaves on October 9. Priya, I would like you to own the runbook review in the next two weeks.\n\nProposed scope:\n- Failover of MarketDataFeed and PositionStore to the secondary site\n- Validation that PricingSvc recovers correctly from the replicated feed\n- Confirm AuthSSO is reachable from the DR environment, since OMS and ClientHub depend on it\n\nAngelica, please draft the test script and success criteria. Omar and Barbara, please check that the DR capacity and network paths are in good shape and flag anything we need to procure.\n\nRavi and Owen, I will need Operations and Risk to nominate people to validate downstream behavior on SettlementEngine and RiskEngine. A first planning call is Thursday at 2pm.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_078",
+   "to_ids": [
+    "e_072",
+    "e_077"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Weekend patching window Sept 19-20 - MarketDataFeed vendor cutover",
+   "body": "Hi Sam, Omar,\n\nHere is the plan for the Saturday September 19 patching window, 22:00 to Sunday 03:00.\n\nThis one is lighter than the last, but includes the vendor-driven change to the MarketDataFeed gateway. The upstream provider is retiring an older connection protocol, so we will move our ingestion hosts to the new endpoint and apply the matching library patch. I have tested this in staging and replay of a full session showed no gaps in the tick data.\n\nImpact: markets are closed, but Asia futures open Sunday evening, so we have a hard stop at 03:00 to leave margin. If feeds are not healthy by then, we roll back to the old endpoint, which the vendor is keeping live until the end of the month.\n\nDaniel, copying you so the trading desk knows PricingSvc may serve cached values briefly overnight, and OMS pricing checks should not be relied upon during the window.\n\nOmar, can you take the secondary on-call? I will lead the cutover.\n\nThanks,\nBarbara",
+   "reply_to_previous": false
+  }
+ ]
+}

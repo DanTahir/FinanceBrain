@@ -1,0 +1,112 @@
+{
+ "messages": [
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Credit committee is Thursday at 10. Packages for the four files need to be in my inbox by end of day tomorrow so I can get memos reviewed. Who still has gaps?"
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "I have two going: {{CLIENT_NAME:c_0044}} (refi/modification) and {{CLIENT_NAME:c_0053}} (new draw). 0053 is clean. 0044 is missing updated income docs, chasing today."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "What's the delta on 0044? Risk rating is medium, so I want to see what's driven the change in debt service since the original underwrite."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Payment history on a_00093 is fine, no lates in 18 months. The ask is a rate and term change after the client's income shifted. I'll put a before/after DSCR-style table in the memo."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Spreads for c_0019 are done. FY25 financials plus the YTD interim are loaded. Leverage ticked up slightly but coverage is still comfortably above covenant. Memo draft is in the shared folder."
+  },
+  {
+   "author_id": "e_032",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Thanks Brandi. {{CLIENT_NAME:c_0019}} is asking for a line increase, and I'd like the memo to say clearly that they've been with us since 2019 with no exceptions on the existing loan."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 18,
+   "reply_to": 5,
+   "text": "Will add. Do you want the working capital seasonality chart in there too? It shows why the peak draw hits in Q4."
+  },
+  {
+   "author_id": "e_032",
+   "minutes_after_start": 20,
+   "reply_to": 6,
+   "text": "Yes please, committee always asks about seasonality."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 27,
+   "reply_to": -1,
+   "text": "Heads up, I'm covering a prospect meeting Thursday morning and may have to dial in late. Can someone present the c_0226 renewal if it comes up early on the agenda?"
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 31,
+   "reply_to": 8,
+   "text": "c_0226 is my relationship, so I can present it. Brendan, no need to cover. I just need Brandi's updated spread for the operating account activity on a_00465."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 34,
+   "reply_to": 9,
+   "text": "Brandon, I can have the average balance and deposit trend for {{ACCOUNT_NUMBER:a_00465}} to you by 4 today. Six month view okay, or do you want twelve?"
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 36,
+   "reply_to": 10,
+   "text": "Twelve, please. Committee will want to see the full cycle. {{CLIENT_NAME:c_0226}} had a soft patch in Q1."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 44,
+   "reply_to": -1,
+   "text": "Reminder for everyone: every memo needs the policy exceptions section filled in, even if it says none. Last month two came back to me with that blank and it cost us time in the room."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 47,
+   "reply_to": 12,
+   "text": "Got it. Is the LTV exception language still the template from the June deck?"
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 50,
+   "reply_to": 13,
+   "text": "Yes, same template. If anything is over 80% LTV, include the mitigant and the approver. Don't leave it for the meeting."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 112,
+   "reply_to": 3,
+   "text": "Update: {{CLIENT_NAME:c_0044}} just sent the updated income docs. I'll finish the table tonight and send the full package to Joshua first thing tomorrow."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 118,
+   "reply_to": 15,
+   "text": "Perfect, thanks Heidi. Please flag anything that changes the medium rating before it gets to committee."
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 205,
+   "reply_to": 10,
+   "text": "Got the twelve month balance trend, thanks Brandi. Deposits recovered nicely after Q1. I'll lead with that in the c_0226 summary."
+  }
+ ]
+}

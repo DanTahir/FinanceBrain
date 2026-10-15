@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Client wants to hedge about 12mm EUR receivable coming in end of September. Thinking 3m fwd vs rolling spots. Anyone have a view on carry here?"
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Fwd points are working in their favor if they're selling EUR, so locking in 3m is fine. Rolling spots just adds ticket risk and slippage."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "@Jonathan what's the hedge ratio they asked for? Full notional or partial? Don't want to over-hedge if the invoice timing slips."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 6,
+   "reply_to": 2,
+   "text": "They said 75% now, rest later once the invoice is confirmed. Staged approach."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 7,
+   "reply_to": 3,
+   "text": "Good. 75% fwd now, leave the remainder open. Jessica, can you run a quick sensitivity on the unhedged 25%?"
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 12,
+   "reply_to": 4,
+   "text": "On it. Using 1m implied vol, a 1 sigma move on the unhedged piece is roughly 40k USD P&L swing over the horizon. Will drop the full table in a sec."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Liquidity is decent right now, London still around. I can work the fwd in clips if we want to stay out of the way of the 2pm data."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 17,
+   "reply_to": 6,
+   "text": "Yes, clip it. Keep it under the client's slippage tolerance. Get the order staged in OMS and tag it to the hedge program."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 21,
+   "reply_to": 7,
+   "text": "Staged in OMS, parent order is in. Tagged as client hedge, not prop. Steven, it's yours."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 38,
+   "reply_to": 8,
+   "text": "Got first clip done, 4mm at mid plus 0.8 pips. Working the other 5mm, will update."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 45,
+   "reply_to": -1,
+   "text": "Sensitivity table is up in the shared folder. Also noticed TradeBlotter is showing the fwd points in the wrong sign on the new ticket. Is that display only?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 48,
+   "reply_to": 10,
+   "text": "Display only I think, booking is right in OMS. Jonathan, flag it to Tech after we finish the fill, and double check the confirm before it goes out."
+  }
+ ]
+}

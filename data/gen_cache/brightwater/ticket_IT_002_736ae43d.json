@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Teller station PC will not boot at Main Street branch",
+   "description": "Teller line PC at the Main Street branch failed to boot this morning and shows a black screen after the BIOS splash. The teller had to move to the backup station, which has no cash drawer driver installed, so cash transactions were delayed for about 40 minutes before opening. The machine is roughly five years old and was due for refresh in Q4. Please diagnose, swap the unit if needed, and confirm the teller can reach CoreBanking and the check scanner on the replacement. Member impact is limited to slower lines until it is fixed.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_020",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Drive is throwing SMART errors and the boot sector is corrupt. Not worth reimaging. I'm swapping in a spare from the loaner pool and will rebuild from the standard teller image."
+    },
+    {
+     "author_id": "e_020",
+     "text": "Replacement installed, cash drawer and check scanner drivers confirmed, CoreBanking login tested by the teller. Old unit tagged for disposal after drive wipe."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Thanks Hector. Closing this out. I'll move the Q4 refresh for that branch up so the remaining units of the same vintage get replaced sooner."
+    }
+   ]
+  },
+  {
+   "title": "Lending desk PC freezing and blue screens at Oak Ridge branch",
+   "description": "The PC at the lending desk in the Oak Ridge branch has blue screened three times this week, usually while the loan officer has several LoanDesk windows open. Event logs show memory management stop errors. Loan officers are losing unsaved application notes and having to re-pull data. Need hardware diagnostics, a RAM check, and a replacement if the module is bad. Please schedule work outside appointment hours if possible, since that desk handles most walk-in auto loan requests.",
+   "reporter_id": "e_020",
+   "assignee_id": "e_022",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_022",
+     "text": "Ran extended memory diagnostics overnight and one DIMM failed multiple passes. Ordered a replacement module and swapped it after close yesterday."
+    },
+    {
+     "author_id": "e_020",
+     "text": "Good catch. Please leave the ticket open through the weekend and watch for repeat crashes before closing."
+    },
+    {
+     "author_id": "e_022",
+     "text": "No blue screens in the past five days, and the loan officer confirms LoanDesk is stable. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Member services workstation intermittently losing network at downtown branch",
+   "description": "One member services workstation at the downtown branch drops its network connection every 15 to 20 minutes, which kicks the user out of MemberCRM and forces a fresh MemberSSO login. Other desks on the same switch are fine. Suspect a bad patch cable, a failing NIC, or a faulty switch port. The representative is working from a neighboring desk for now. Please troubleshoot on site, replace parts as needed, and verify the connection holds for a full business day.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_020",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Swapped the patch cable and moved the drop to a different switch port. Link flapping continued, so I replaced the NIC with a USB gigabit adapter as a stopgap."
+    },
+    {
+     "author_id": "e_020",
+     "text": "Found the wall jack punch-down was loose. Re-terminated it, removed the adapter, and the link has been solid for three days. Good to close."
+    }
+   ]
+  },
+  {
+   "title": "Spike in member password reset requests after MFA enrollment change",
+   "description": "Member Services reports a jump in password reset calls since Tuesday, with many members saying the reset link from OnlineBanking never arrives or expires immediately. Resets depend on MemberSSO, so please check the outbound email queue, link expiry settings, and whether the MFA enrollment change released last week altered the token lifetime. Collect counts of failed resets per day so we can quantify member impact. Member Services is handling callers manually in the meantime with identity verification.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_021",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_021",
+     "text": "Pulled MemberSSO logs. Failed resets went from about 12 a day to roughly 90 starting the day after the release. Token lifetime was reduced to 2 minutes by mistake in the config."
+    },
+    {
+     "author_id": "e_022",
+     "text": "I corrected the lifetime back to 30 minutes and redeployed. Tested resets from both web and mobile, and the links work."
+    },
+    {
+     "author_id": "e_021",
+     "text": "Daily failures are back to baseline. I'll add a config check to the release checklist so this value is validated next time."
+    }
+   ]
+  },
+  {
+   "title": "Staff password reset lockouts after quarterly rotation",
+   "description": "After the quarterly password rotation, several staff in Member Services and Operations are locked out of their workstations and can't use CoreBanking, ACHHub, or CardProcessor consoles. The lockouts appear to be caused by cached old credentials on mapped drives and scheduled tasks retrying with stale passwords. We need to identify which service accounts and mapped connections are involved, clear the lockouts, and give users guidance to avoid recurrence. Operations is concerned about ACH settlement tasks being delayed if lockouts continue.",
+   "reporter_id": "e_020",
+   "assignee_id": "e_022",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_022",
+     "text": "Traced the repeated lockouts to a scheduled report task on a shared Operations workstation still using the old credentials. I've updated the task and unlocked the affected users."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Please also scan for any other scheduled tasks or mapped drives with stored credentials before the next rotation. Let me know if you need Operations to confirm the ACHHub jobs ran normally."
+    }
+   ]
+  }
+ ]
+}

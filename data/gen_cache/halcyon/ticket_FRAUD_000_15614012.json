@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "FraudScore velocity alert on corporate ACH payroll batch",
+   "description": "FraudScore raised a velocity alert on a burst of outbound ACH credits from a commercial lending client's operating account. The batch contained roughly 140 small credits released within a few minutes, and the alert scored above the manual review threshold. Please review the activity against the client's history and confirm whether the pattern is suspicious or expected. The alert was routed to the Compliance queue at open of business and no payments have been held. Reviewer should check the payment file origin, the beneficiary mix, and whether the same pattern appears in prior months.",
+   "reporter_id": "e_054",
+   "assignee_id": "e_052",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_052",
+     "text": "Pulled the last six months of activity. The same batch shape (about 140 credits, same two-day cycle) shows up on the 7th and 22nd of every month. Beneficiaries are all repeat payees and the file came from the client's usual payroll provider. Looks like semi-monthly payroll."
+    },
+    {
+     "author_id": "e_054",
+     "text": "Agreed, nothing new on the beneficiary side. Marking this as a false positive. Can we ask Jenna whether payroll-shaped batches can be down-weighted on the velocity rule?"
+    },
+    {
+     "author_id": "e_052",
+     "text": "Resolving as legitimate payroll activity. I'll log the rule feedback separately with Engineering."
+    }
+   ]
+  },
+  {
+   "title": "First-time beneficiary wire flagged by FraudScore, callback confirmed",
+   "description": "FraudScore flagged an outbound wire request from a wealth management client to a beneficiary not seen before on the account, with a large amount relative to the 90-day average. The score was driven mainly by the new-beneficiary feature and the size of the transfer. Wire Room has the release on hold pending Compliance sign-off. Please perform the standard review: confirm the instruction is authentic, check the beneficiary bank against sanctions screening results, and decide whether the wire can be released. The client's advisor has been notified that the wire is on hold.",
+   "reporter_id": "e_051",
+   "assignee_id": "e_053",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Completed a callback to the client's number on file (not the one in the wire instruction) and they confirmed the transfer is a deposit toward a real estate purchase. Signed purchase agreement is in DocVault. SanctionsScreen returned no hits on the beneficiary or bank."
+    },
+    {
+     "author_id": "e_051",
+     "text": "Thanks Daniel. Notified the Wire Room that the hold can be lifted. Closing as a false positive, new beneficiary with documented purpose."
+    }
+   ]
+  },
+  {
+   "title": "Geo and device mismatch alert on wealth client portal login with transfer",
+   "description": "FraudScore generated a high-risk alert for a wealth client's portal session followed by a transfer request between the client's own linked accounts. Drivers were an IP geolocation outside the client's usual region, an unrecognized browser fingerprint, and a transfer initiated within minutes of login. No external payee was added. Please review the session details, check for any recent password reset or credential change events from AuthSSO, and verify with the advisor whether the client mentioned traveling. Transfer is currently pending and has not settled.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_048",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_048",
+     "text": "No password reset or MFA changes in the last 30 days, and MFA was passed on this session with the registered authenticator. The advisor confirmed the client is traveling abroad this month and had flagged it in ClientHub notes."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Good. The transfer only moved funds between the client's own linked accounts, so no external exposure. I'll note the travel in the case file."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Resolved as false positive. Travel plus a new laptop explains both the geo and device signals."
+    }
+   ]
+  },
+  {
+   "title": "FraudScore 0.73 on inbound wire to lending client account, loan funding source verified",
+   "description": "FraudScore flagged inbound wire t_003564 for $259,426.88, received on 2026-09-16 into {{ACCOUNT_NUMBER:a_00428}} for {{CLIENT_NAME:c_0205}}, sending organization Franklin, Owen and Christian. The score was 0.73, driven by the large amount, an originator not previously seen on the account, and the timing relative to a recent loan application. The alert sat in the queue over the weekend and was escalated by Lending for review since the funds relate to a pending credit facility. Please confirm the source and purpose of funds and decide whether any further action or a SAR referral is warranted.",
+   "reporter_id": "e_050",
+   "assignee_id": "e_053",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Reviewed the loan file. The wire matches the equity contribution listed in the term sheet for {{CLIENT_NAME:c_0205}}, and the originator is the named co-investor in the borrower's documents. Remitter name and amount match the funding schedule."
+    },
+    {
+     "author_id": "e_050",
+     "text": "KYC refresh on the client is current and the originator passed SanctionsScreen with no hits. I see nothing inconsistent with expected activity."
+    },
+    {
+     "author_id": "e_053",
+     "text": "Closing as a false positive. No SAR referral. Added a note on the account so future wires from this originator are cross-referenced to the funding schedule."
+    }
+   ]
+  },
+  {
+   "title": "Round-amount rule firing on routine vendor ACH payments after DataLake feed lag",
+   "description": "Over the last two days FraudScore has produced a cluster of medium-risk alerts on outbound ACH payments that are round-dollar amounts to established vendors. The alerts began after a delayed DataLake refresh, which appears to have left the vendor history features stale, so known payees look new to the model. Several accounts across lending and wealth clients are affected. I reviewed a sample and they look routine, but we need a systematic check before bulk-clearing. Please validate the sample against payee history in the payment records and confirm whether the alerts are a data lag artifact.",
+   "reporter_id": "e_052",
+   "assignee_id": "e_054",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_054",
+     "text": "Checked 18 of the 31 alerts so far. Every payee had at least three prior payments of the same type in the last year, so these look like false positives caused by stale features. Continuing through the rest."
+    },
+    {
+     "author_id": "e_049",
+     "text": "Confirmed the DataLake refresh ran about 20 hours late on Thursday. The features have since caught up, so new scores should be normal. I'll rescore the open alerts tonight and share the results."
+    }
+   ]
+  }
+ ]
+}

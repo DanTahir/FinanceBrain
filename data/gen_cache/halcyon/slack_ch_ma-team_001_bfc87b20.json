@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Afternoon all. Quick sync on Osprey buyer outreach. Where are we on the strategic list vs. the sponsor list? Want to get first-wave calls scheduled before Friday."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Strategic list is at 14 names after the last round of edits. Sponsor list is 22, but I think we can trim to ~15 once we screen for fund vintage and dry powder. Tracker is updated in the deal folder."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "I'm finishing the dry powder screen now. Should have the trimmed sponsor list to you by 3pm. A few funds are deep into their investment periods so I'm flagging those as lower priority."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Teaser and NDA template are both with legal for a final look. Expect them back tomorrow morning. Once cleared we can start sending to first-wave strategics."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "Good. Can we make sure the teaser language on EBITDA adjustments matches the latest management case? I saw a slightly different bridge in the draft CIM."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 22,
+   "reply_to": 4,
+   "text": "Yes, I'll reconcile the teaser against the CIM bridge today. I think the draft teaser still has the old run-rate add-back. Will fix and send a redline."
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 29,
+   "reply_to": -1,
+   "text": "One thing on sequencing: I'd like to hold two of the largest strategics for a second wave, so we don't create a bidding dynamic too early. Thoughts?"
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 33,
+   "reply_to": 6,
+   "text": "Agree in principle. Let's pull the top two off wave one and bring them in after we've gauged sponsor appetite. Robert, can you draft the wave plan?"
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 36,
+   "reply_to": 7,
+   "text": "Will do. I'll have a one-pager by end of day with wave timing and who owns each call."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Trimmed sponsor list is posted in the folder. 16 names, with notes on fund size and sector focus. Four are marked as likely pass based on recent portfolio overlap."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 58,
+   "reply_to": 9,
+   "text": "Nice, thanks Susan. A couple of those overlap with names we're approaching on Kestrel, so let's coordinate to avoid hitting the same people with two processes in one week."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 63,
+   "reply_to": 10,
+   "text": "Good catch. I'll check the Kestrel outreach calendar and flag any conflicts. We may want to stagger by a few days for the shared contacts."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 97,
+   "reply_to": 5,
+   "text": "Redline on the teaser is up. Swapped in the current adjusted EBITDA figure and updated the footnote on add-backs. Tom, can you check it ties to your model?"
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 110,
+   "reply_to": 12,
+   "text": "Looks tied out on my end. One small nit on the footnote wording but I'll leave a comment in the doc."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 125,
+   "reply_to": -1,
+   "text": "Great progress, everyone. Plan: legal clears documents tomorrow, Robert's wave plan tonight, Tom confirms Kestrel overlaps. Let's regroup Thursday at 10 to lock the first-wave call list."
+  }
+ ]
+}

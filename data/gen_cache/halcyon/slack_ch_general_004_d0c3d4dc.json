@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Hi all, quick announcement: we're moving off the old spreadsheet-and-email expense process. Starting Monday 2026-07-06 all expense reports go through the new tool. You'll get an invite to your firm email this afternoon. Login is through SSO, so no new password."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Nice, finally. Does it handle receipt photos from your phone or do we still have to scan everything?"
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Phone photos work fine. There's a mobile app and you can also forward receipts to a dedicated inbox, it'll match them to the line items automatically."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "Question on cutover: what happens to reports I've already started in the old template for June? Do I resubmit them in the new tool or finish them the old way?"
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Good one. Anything for June expenses, submit through the old process by Friday 2026-07-10. Anything incurred July 1 or later goes in the new tool only. Please don't double submit."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 17,
+   "reply_to": 4,
+   "text": "Got it, thanks. I'll clear my June stuff this week then."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 24,
+   "reply_to": -1,
+   "text": "Will there be a training session? Some of us on the client side travel a lot and I'd rather not figure out per diem rules by trial and error."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 29,
+   "reply_to": 6,
+   "text": "Yes, two 30 minute walkthroughs, Thursday 2026-07-02 at 11:00 and Friday at 15:00. Recordings will be posted afterward. Per diem and mileage rules are baked in, so it'll flag anything out of policy."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Does anyone know if the approval routing follows the old chain? My manager approves, then finance?"
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 46,
+   "reply_to": 8,
+   "text": "Same chain: direct manager first, then finance review. Anything over $2,500 gets a second sign-off from the department head. The tool routes it automatically."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Is the corporate card feed connected? Last tool we had, I spent half my time matching transactions by hand."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 63,
+   "reply_to": 10,
+   "text": "Yes, card transactions will import daily and show up as drafts for you to attach receipts to. Reimbursements for out-of-pocket spend should land in about 5 business days after approval."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 75,
+   "reply_to": 7,
+   "text": "Perfect, I'll book the Thursday one. Thanks Martin."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 92,
+   "reply_to": -1,
+   "text": "Heads up, my invite just landed. Login worked first try with SSO, the dashboard looks pretty clean."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 118,
+   "reply_to": 13,
+   "text": "Same here. Only gripe is the category list is long, took me a minute to find client entertainment vs. meals."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 140,
+   "reply_to": 14,
+   "text": "Fair point, I'll pass that along to the vendor. There's a favorites option so you can pin the categories you use most. Please drop other questions here and I'll keep a running FAQ."
+  }
+ ]
+}

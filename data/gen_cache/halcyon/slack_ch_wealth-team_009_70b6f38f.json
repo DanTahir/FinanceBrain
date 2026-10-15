@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up all, I'm out Jul 27 through Aug 7. Need someone to cover my book. James Anderson is the RM of record on a couple of the accounts I'd normally flag, so want to make sure the handoff is clean."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "I can take primary coverage for the first week. I'm out Aug 3 though, so we need a second name for the back half."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "I'll take the back half. I'm in the office the whole stretch. David, can you put coverage notes in ClientHub so we're not chasing you by text?"
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Yep, will log everything in ClientHub under each client's notes tab by Friday. Also tagging the open items so they show up in your task queue."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Quick question on {{CLIENT_NAME:c_0185}}. Low risk profile, brokerage only. Any scheduled rebalance or cash needs while David is away?"
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "Nothing scheduled on {{ACCOUNT_NUMBER:a_00383}}. Client likes a quarterly check-in call, last one was in June so should be quiet. If they call, preferred contact is phone: {{CLIENT_PHONE:c_0185}}"
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 25,
+   "reply_to": -1,
+   "text": "Does anyone know if PortfolioMgr is still set to auto-flag drift over 5% or did that get changed after the spring update? Want to be sure we catch things while people are out."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "I believe it's still 5% for low and medium risk, 3% for the conservative income models. I'll double check the config screen and confirm."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 40,
+   "reply_to": -1,
+   "text": "{{CLIENT_NAME:c_0073}} is the one I'm more careful about. Medium risk, and has both {{ACCOUNT_NUMBER:a_00155}} brokerage and {{ACCOUNT_NUMBER:a_00156}} cash management. They sometimes move money between the two on short notice."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 44,
+   "reply_to": 8,
+   "text": "Got it. Any pending transfers or outstanding requests I should know about before you go?"
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "One possible. They mentioned wanting to pull some cash for a home project in August, nothing confirmed. If it comes up, verify identity per the callback procedure before anything moves out of the cash account."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 60,
+   "reply_to": 10,
+   "text": "Of course, standard callback to the number on file, no instructions accepted by email alone. I'll make sure Janet has that in the notes too."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 95,
+   "reply_to": 7,
+   "text": "Confirmed, drift threshold is still 5% for those models. Conservative income is 3%. No changes from the spring update."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 102,
+   "reply_to": -1,
+   "text": "Should we send a coverage heads-up to clients, or only if they reach out? Last time some got confused when the voicemail greeting changed."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 110,
+   "reply_to": 13,
+   "text": "I'd email the two of them a short note with Jamie and your names as backup. For {{CLIENT_NAME:c_0073}} I can use the address in ClientHub: {{CLIENT_EMAIL:c_0073}}. Will send tomorrow morning."
+  },
+  {
+   "author_id": "e_019",
+   "minutes_after_start": 118,
+   "reply_to": 14,
+   "text": "Sounds good. Please cc James Anderson as well so the client associate side has visibility. Same note for {{CLIENT_NAME:c_0185}} at {{CLIENT_EMAIL:c_0185}}."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 124,
+   "reply_to": 15,
+   "text": "Will do. I'll drop a coverage summary in here Friday once the ClientHub notes are in. Thanks both, appreciate it."
+  }
+ ]
+}

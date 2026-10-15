@@ -1,0 +1,52 @@
+{
+ "messages": [
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Already had three members call in locked out of online banking since 7:45. All getting the \"verify your identity\" loop on MFA. Anyone else seeing this?"
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Yep, two here. One said the text code never arrives. I'm guessing this is MemberSSO since OnlineBanking relies on it for MFA. Core looks fine, I can pull up shares without issue."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Teller line has a member at my window who can't log in on mobile. Wants to move money between savings and checking. I can do it in branch, but should I also tell him to wait on resetting anything?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 14,
+   "reply_to": 2,
+   "text": "Joseph, yes please hold off on resets for now. Repeated resets can trigger more lockouts. Do the transfer at the window and note it in MemberCRM. I'm pinging IT in #it now."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 22,
+   "reply_to": 0,
+   "text": "Got {{CLIENT_NAME:c_0051}} on the phone, same issue. Verified by hand using the callback on file, and they're fine to wait. Logging it so we can count the tickets for IT."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Update: {{CLIENT_NAME:c_0001}} called back, said the code finally arrived at {{CLIENT_PHONE:c_0001}} but about 12 minutes late. So looks like delay rather than outright failure."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 52,
+   "reply_to": 5,
+   "text": "Thanks, that matches what Hector is seeing. SMS provider queue backed up on the MFA side. He says it's clearing. Keep tallying calls with a lockout tag and I'll send the count to IT by noon."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 65,
+   "reply_to": 6,
+   "text": "Will do. Count so far on my side is 6. I'll tell members to wait 5 minutes between code requests instead of hammering resend."
+  }
+ ]
+}

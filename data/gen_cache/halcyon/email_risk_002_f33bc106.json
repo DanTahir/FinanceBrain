@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_061"
+   ],
+   "subject": "RiskEngine VaR model validation - findings from July backtest review",
+   "body": "Hi Owen,\n\nI've finished the first pass of the annual validation on the RiskEngine intraday VaR model. Summary of what I found:\n\n1. Backtesting: 99% one-day VaR showed 4 exceptions over the trailing 250 days, which keeps us in the green zone but two of them cluster in the week of the June rates move. The model seems slow to pick up volatility regime changes.\n2. Decay factor: the EWMA lambda is still hardcoded at 0.94 with no documented rationale since the last recalibration.\n3. Data lineage: a few equity proxies for thinly traded names are not flagged in the PricingSvc inputs, so we can't easily trace them back.\n\nI'd rate findings 1 and 2 as medium and finding 3 as low. Paul has context on the proxy mapping and I've copied him.\n\nCan we go through this Thursday before I draft the formal write-up? I'd like to agree on remediation owners and target dates before it goes to Marcus for the model governance file.\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_056",
+   "to_ids": [
+    "e_057"
+   ],
+   "cc_ids": [
+    "e_061",
+    "e_072"
+   ],
+   "subject": "Re: RiskEngine VaR model validation - findings from July backtest review",
+   "body": "Angelica,\n\nThanks for the thorough work. Following Thursday's discussion, here is where I've landed:\n\n- Finding 1 (volatility lag): Paul will test a faster decay and a stressed-period overlay and bring comparison results by 2026-09-04. Please document the exception clustering in the write-up with dates.\n- Finding 2 (hardcoded lambda): move it to a config parameter with a change log. Sam, can someone on your team make this change in RiskEngine without touching the calculation path? A ticket reference would help for audit.\n- Finding 3 (proxy flags): Paul to deliver the proxy mapping list; Angelica to add a lineage note to the validation file.\n\nI'd like the formal report to the model governance committee by the end of August. Keep severity ratings as proposed, but add a short section on residual risk while remediation is open.\n\nThanks,\nOwen",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_057",
+    "e_062"
+   ],
+   "cc_ids": [],
+   "subject": "Stress test scenarios - proposed Q3 refresh for rates and credit spreads",
+   "body": "Team,\n\nAhead of the Q3 stress cycle, here is my proposed scenario refresh for review:\n\n1. Rates: replace the parallel +200bp shock with a bear steepener (2s up 100bp, 10s up 175bp) alongside the existing parallel case. Our book is more exposed to the curve shape than to level.\n2. Credit: widen IG spreads by 120bp and HY by 450bp over ten days, with a liquidity haircut on secondary bid-ask for lower-rated paper.\n3. Equity: keep the 25% drawdown but add a sector rotation scenario that hits financials harder, given exposure on the trading desk.\n4. Correlation breakdown: add a scenario where equity-rates correlation flips sign, which is something the historical set doesn't capture.\n\nChristopher, could you check that RiskEngine can run the steepener without a code change? Angelica, please review whether ReportingBI needs new scenario labels for the dashboard.\n\nI'd like comments by Friday so we can lock the set before the run on 2026-09-28.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_056",
+   "to_ids": [
+    "e_001",
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_061",
+    "e_005"
+   ],
+   "subject": "Q3 stress test results and scenario changes ahead of tomorrow's discussion",
+   "body": "Catherine, Martin,\n\nA brief update ahead of tomorrow's discussion. The Q3 stress run completed last week with the revised scenario set Paul's team built, including the bear steepener and the equity-rates correlation flip.\n\nHeadlines:\n- Under the steepener, the trading book loses roughly $14M on a mark-to-market basis, about 30% more than our old parallel shock suggested.\n- The credit spread widening scenario produces a moderate loss, mostly in the lending-related securities held in inventory.\n- The correlation flip is the most severe combined scenario, and it breaches our internal early-warning threshold, though not the hard limit.\n\nDaniel has seen the desk-level numbers and is looking at where to trim curve exposure. I'd recommend we adopt the new scenarios permanently in the quarterly cycle and report them in ReportingBI going forward.\n\nI'll bring the full pack tomorrow, including the assumptions behind each shock.\n\nBest,\nOwen",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_059",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_058",
+    "e_060",
+    "e_029"
+   ],
+   "subject": "Counterparty limit review - prime broker and bank exposures",
+   "body": "Hi Owen,\n\nWe've completed the quarterly counterparty limit review for the credit risk team. Key points:\n\n1. Two of our clearing bank counterparties are above 85% of their approved exposure limits after last month's repo growth. Neither is in breach, but headroom is thin.\n2. One mid-tier broker-dealer was downgraded by an external agency last week. We propose cutting its unsecured limit by 40% pending a fresh review of its financials.\n3. Lance and John found that two netting agreements haven't been refreshed with legal in over two years, so the exposure currently counted net may need to be treated gross.\n\nProposed actions: approve the broker-dealer reduction now, request updated netting opinions this month, and have Brian's team confirm that lending-related hedges aren't relying on the downgraded counterparty.\n\nCan you sign off on the reduction by Friday? I'll then circulate the revised limits table.\n\nThanks,\nPhillip",
+   "reply_to_previous": false
+  }
+ ]
+}

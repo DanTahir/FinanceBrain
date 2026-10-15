@@ -1,0 +1,118 @@
+{
+ "tickets": [
+  {
+   "title": "KYC exception: expired corporate resolution on commercial onboarding file",
+   "description": "During periodic review of the onboarding file for {{CLIENT_NAME:c_0082}}, the board resolution on file in DocVault lists a signatory who has since been replaced. Per the CDD procedure, beneficial ownership and authorized-signer documents must be current before the operating account {{ACCOUNT_NUMBER:a_00174}} can be moved off its watch flag. The loan account {{ACCOUNT_NUMBER:a_00175}} is also tied to this file through LoanOrigination. Need an updated resolution and signer ID verification, then the exception cleared in KYCPipeline. Please coordinate with the RM, Cassandra Hampton, for the document request. Target is 10 business days.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_050",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Requested the updated resolution and signer ID through Cassandra Hampton. Client acknowledged and says the new corporate secretary will send it this week."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Received the signed resolution and verified signer ID. Uploaded to DocVault, rescreened through SanctionsScreen with no hits. Exception cleared in KYCPipeline."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Reviewed the file, looks complete. Closing out."
+    }
+   ]
+  },
+  {
+   "title": "Surveillance alert review: repeated wire-in/wire-out pattern on cash management account",
+   "description": "AMLMonitor generated an alert for {{CLIENT_NAME:c_0074}} on cash management account {{ACCOUNT_NUMBER:a_00159}}: four inbound wires totaling about $186,000 over six days, each followed within 24 hours by an outbound wire of nearly the same amount to a Cyprus-based counterparty, Mcfarland LLC. Client risk rating is medium and the stated profile is salaried wealth client with brokerage holdings. Need review of source of funds, purpose of the payments, and a decision on whether to escalate to SAR consideration. Counterparty details on file: {{CP_IBAN:cp_020}} / {{CP_SWIFT:cp_020}}.",
+   "reporter_id": "e_053",
+   "assignee_id": "e_048",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_048",
+     "text": "Pulled the wire history from the last 90 days. The pass-through pattern is new for this client and does not match the profile. Asking the RM for context on the counterparty relationship."
+    },
+    {
+     "author_id": "e_053",
+     "text": "Counterparty cp_020 is a Cyprus business entity and has no prior history with the firm. Adding it to the enhanced review list pending explanation."
+    },
+    {
+     "author_id": "e_048",
+     "text": "RM says the client claims a real estate bridge arrangement, but no supporting documents were provided. Escalating to Marcus for SAR decision."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Agreed on escalation. Open a SAR case in SARFiling and attach the alert narrative. Client risk rating moves to high pending outcome."
+    }
+   ]
+  },
+  {
+   "title": "Complaint log review: Q3 client complaints on delayed KYC onboarding",
+   "description": "Quarterly complaint log review for July to August. Five complaints cite delays in account opening tied to KYC, and two of them mention repeated document requests from different team members. Need to review each entry for correct categorization, response timing against the internal 15-day standard, and whether any involve potential regulatory complaint reporting. Also check whether {{CLIENT_NAME:c_0082}} complaint about duplicate requests, logged 2026-08-12, was resolved and documented. Produce a summary with root cause themes for the CCO ahead of the September compliance committee.",
+   "reporter_id": "e_047",
+   "assignee_id": "e_051",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_051",
+     "text": "Reviewed all five. Four were answered within standard, one went 19 days. Two had duplicate document requests because the checklist in KYCPipeline was not synced with ClientHub notes."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Good catch on the sync issue. Please log it as a process improvement item and loop in Jenna on whether a tooling fix is feasible."
+    },
+    {
+     "author_id": "e_049",
+     "text": "We can add a pre-request check against DocVault contents. I will scope it and share an estimate next week."
+    }
+   ]
+  },
+  {
+   "title": "Surveillance alert review: pre-announcement trading in advisory-related name by wealth client",
+   "description": "A surveillance alert flagged purchases by {{CLIENT_NAME:c_0074}} in brokerage account {{ACCOUNT_NUMBER:a_00158}}: a concentrated buy of call options on a mid-cap issuer two business days before a public takeover announcement. The issuer appears on the restricted list history from earlier this year. Need to confirm whether the firm held any inside information tied to the name, check wall-crossing records, review the client's trade rationale from the RM, and document findings. If there is no connection, record a no-action disposition with supporting evidence.",
+   "reporter_id": "e_052",
+   "assignee_id": "e_054",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_054",
+     "text": "Checked the wall-crossing log and restricted list. The issuer was removed from the list in March and the client was never wall-crossed. No M&A team involvement in the window."
+    },
+    {
+     "author_id": "e_052",
+     "text": "Janet Brown confirmed the client had been building the position since June based on a published analyst report. Order tickets support that timeline."
+    },
+    {
+     "author_id": "e_054",
+     "text": "Proposing no-action disposition. Evidence attached: order history, research report reference, and wall-cross log extract. Awaiting CCO sign-off."
+    }
+   ]
+  },
+  {
+   "title": "Surveillance alert review: structuring indicators on operating account cash deposits",
+   "description": "AMLMonitor raised a structuring alert for {{CLIENT_NAME:c_0082}} on operating account {{ACCOUNT_NUMBER:a_00174}}: seven cash deposits between $8,400 and $9,700 across three branches in nine days, totaling roughly $63,000. The business profile is commercial with low risk and expected deposits are mainly electronic. Need to review deposit history, compare to the declared business activity, and contact the RM for a business explanation. Decide whether to close, request more information, or escalate. Also confirm the alert threshold logic did not fire on stale data from DataLake.",
+   "reporter_id": "e_048",
+   "assignee_id": "e_053",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Started the review. Deposits cluster just under the $10,000 reporting threshold, which is a red flag. Requested the last 12 months of deposit history for comparison."
+    },
+    {
+     "author_id": "e_049",
+     "text": "Checked the data side. The DataLake feed into AMLMonitor was current for this alert, so no stale-data issue. Rule version was the standard cash structuring rule."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Please contact Cassandra Hampton today about the business reason for cash intake. If no credible explanation, we prepare a SAR recommendation."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Access request: read-only DocVault admin console for audit support",
+   "description": "Requesting read-only access to the DocVault admin console so I can pull retention policy settings and folder permission exports for the upcoming internal audit walkthrough. I only need to view bucket-level retention rules and access group membership, not document contents. Access needed through the end of September. My manager has approved this verbally and I can forward written approval if needed. Please grant via the standard AuthSSO group rather than a local account so it expires cleanly.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P4",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Added you to the docvault-admin-ro group in AuthSSO with an expiry of 2026-09-30. Please confirm you can see the retention tab after a fresh login. No document content is exposed with this role."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Confirmed, I can see retention rules and group membership. Exported what I need. Thanks for the quick turnaround."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Approval noted on my side. Closing this out; the expiry will handle revocation."
+    }
+   ]
+  },
+  {
+   "title": "Nightly PositionStore snapshot job missed its cron window",
+   "description": "The nightly PositionStore snapshot job did not start at its scheduled 01:30 ET slot last night. The scheduler shows the run as skipped with a lock held by a previous execution that was already marked completed. Downstream, the snapshot feeds the DataLake load, so this morning's analytics extracts were stale until about 08:15. No data loss observed in PositionStore itself. Need to clear the stale lock, confirm why the lock was not released, and rerun the snapshot manually before the next window. Please also check if other jobs share the same lock table.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_074",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_074",
+     "text": "Found a stale row in the scheduler lock table left over from a worker that was restarted during last week's patching. Cleared it and reran the snapshot; it completed in 22 minutes and row counts match the prior day."
+    },
+    {
+     "author_id": "e_078",
+     "text": "DataLake load picked up the fresh snapshot. Can we add a lock TTL so this self-heals?"
+    },
+    {
+     "author_id": "e_074",
+     "text": "Yes, added a 2 hour TTL on job locks in config. Will watch the next three runs before closing."
+    }
+   ]
+  },
+  {
+   "title": "Quarterly index rebuild on PositionStore holdings tables",
+   "description": "Scheduled maintenance request for rebuilding fragmented indexes on the PositionStore holdings and lot-level tables. Fragmentation is above 40% on the main composite index, and query times for the end-of-day position pulls have crept up by roughly 30% over the last quarter. Plan is an online rebuild during the Saturday low-traffic window, followed by a statistics refresh. Need an SRE on standby in case the rebuild causes lock contention with the weekend batch loads. Rollback is to keep the old index until the new one validates.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_079",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "Rebuilt the composite and two secondary indexes online on Saturday. Fragmentation is now under 5% and the EOD position pull dropped from about 11 minutes to 7. Stats refreshed."
+    },
+    {
+     "author_id": "e_077",
+     "text": "I was on standby, saw no lock waits above a few seconds and no alerts. Nothing further from the SRE side."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Verified query plans are using the new index. Closing."
+    }
+   ]
+  },
+  {
+   "title": "VPN drops every 20 minutes for remote engineers on home broadband",
+   "description": "Several engineers working remotely report the VPN tunnel dropping roughly every 20 minutes and requiring a full reconnect, which also kills SSH sessions to bastion hosts. It started after Thursday's gateway firmware update. Reports so far are from three people on different ISPs, all using the split-tunnel profile. Full-tunnel users appear unaffected. Logs on the client show rekey failures around the 20 minute mark. Need someone to check the gateway rekey and DPD timer settings and compare them to the pre-update config.",
+   "reporter_id": "e_075",
+   "assignee_id": "e_077",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Confirmed the firmware update reset the IKE rekey lifetime to 1200 seconds, which doesn't match the client profile. Preparing a config change to restore the previous value during the evening window."
+    },
+    {
+     "author_id": "e_076",
+     "text": "I'm seeing the same thing from home. As a workaround I switched to the full-tunnel profile and it has been stable for two hours."
+    }
+   ]
+  },
+  {
+   "title": "Reconciliation extract scheduler job stuck in running state",
+   "description": "The morning DataLake reconciliation extract job has been showing as running for over six hours when it normally finishes in about 25 minutes. The worker process appears hung on a connection to the source database and is not responding to the scheduler heartbeat. Because of this, ReportingBI dashboards that read from DataLake are showing yesterday's figures. I have not killed the job yet in case we need the thread dump. Need someone to capture diagnostics, terminate the job safely, and rerun. Also please check whether the connection pool timeout was changed recently.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_081",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_081",
+     "text": "Picking this up. I'll grab a thread dump from the worker first, then kill and rerun. Will report back on the pool timeout settings."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Please post findings here once done. If it's the pool config I want a follow-up to add a hard job timeout across the scheduler."
+    }
+   ]
+  }
+ ]
+}

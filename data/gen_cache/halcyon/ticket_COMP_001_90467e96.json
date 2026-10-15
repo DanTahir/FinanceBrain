@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "KYC exception: expired government ID on file for commercial onboarding refresh",
+   "description": "During the periodic KYC refresh for {{CLIENT_NAME:c_0222}} (commercial segment, low risk), the beneficial owner ID image stored in DocVault shows as expired. KYCPipeline flagged the case as an exception and held the refresh step. The client has an operating account {{ACCOUNT_NUMBER:a_00458}} and a loan {{ACCOUNT_NUMBER:a_00459}} that depends on a clean CDD status for the upcoming covenant review. Need the RM to request updated ID and a refreshed ownership certification. Please do not restrict the account unless the 30-day cure window lapses. Contact on file is {{CLIENT_EMAIL:c_0222}}.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_050",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Reached out to Brendan Alvarez, who is collecting the renewed ID and the updated ownership certification from the client. Cure window runs through early August, so no restriction needed yet."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Updated ID uploaded to DocVault and the ownership cert matches the prior filing. Re-ran screening through SanctionsScreen, no new hits."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Exception cleared in KYCPipeline, CDD status back to current. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Surveillance alert review: repeated structured cash-equivalent deposits on brokerage account",
+   "description": "AMLMonitor generated a rule alert on {{ACCOUNT_NUMBER:a_00173}} (client {{CLIENT_NAME:c_0081}}, wealth segment, risk rating low) for a pattern of incoming transfers just under internal review thresholds over a 9-day window totaling roughly $46,000. Activity is out of line with the client's historical profile since 2020. Need an analyst to review source of funds, compare with the expected activity profile in ClientHub, and decide whether to escalate to a SAR investigation or close as explained. FraudScore did not independently flag any of the transfers.",
+   "reporter_id": "e_048",
+   "assignee_id": "e_053",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Pulled 12 months of history. The transfers trace to the sale of a private property, and the closing statement was supplied through David Montes. Pattern looks like staged transfers from the escrow release, not structuring."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Agree on the explanation, but please document the escrow evidence in DocVault and update the expected activity profile so we don't alert again on the next tranche."
+    },
+    {
+     "author_id": "e_053",
+     "text": "Documents attached and profile updated. Closing as explained, no SAR. I'll tag the case for a 90-day look-back."
+    }
+   ]
+  },
+  {
+   "title": "KYC exception: beneficial ownership mismatch between ClientHub and uploaded documents",
+   "description": "KYCPipeline put the refresh for {{CLIENT_NAME:c_0222}} in exception status because the ownership percentages in ClientHub do not match the latest operating agreement in DocVault. ClientHub lists two 50% owners; the agreement shows a third member holding 20%, which crosses the 25% aggregated threshold under one control prong review. Account {{ACCOUNT_NUMBER:a_00458}} is open and a loan is outstanding on {{ACCOUNT_NUMBER:a_00459}}. Needs corrected ownership record, screening of the new individual against SanctionsScreen, and a refreshed certification of beneficial owners before the exception can clear.",
+   "reporter_id": "e_054",
+   "assignee_id": "e_055",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Confirmed with Brendan Alvarez that the third member was admitted in July. Requested the amended operating agreement and a new beneficial ownership certification."
+    },
+    {
+     "author_id": "e_054",
+     "text": "Sanctions and PEP screening on the new member came back clean. Waiting on the signed certification before we update ClientHub."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Signed certification received and ClientHub ownership corrected. Exception cleared, leaving resolved until the next QA sample confirms."
+    }
+   ]
+  },
+  {
+   "title": "KYC exception: sanctions screening timeout leaves onboarding stuck for individual wealth client",
+   "description": "A periodic review for {{CLIENT_NAME:c_0081}} stalled in KYCPipeline at the SanctionsScreen step. The pipeline logged repeated timeouts and moved the case to exception status rather than failing open, which is correct, but it has now sat for two days. KYCPipeline ownership moved to Compliance on 2026-10-06, so we need to confirm whether this is a data problem on the client record or a SanctionsScreen latency issue. Client contact details in ClientHub are {{CLIENT_PHONE:c_0081}} and {{CLIENT_EMAIL:c_0081}}, though no outreach should be needed. Brokerage account {{ACCOUNT_NUMBER:a_00173}} remains open and unrestricted.",
+   "reporter_id": "e_050",
+   "assignee_id": "e_049",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_049",
+     "text": "Looks like a latency issue, not bad data. SanctionsScreen is timing out on records with long alias lists, and this one has several. I'm raising the client timeout and adding a retry with backoff."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Thanks. I'll leave the case parked until the fix is out rather than overriding the screening manually. Let me know when to re-run."
+    }
+   ]
+  },
+  {
+   "title": "Adverse media hit on counterparty during payment review",
+   "description": "An adverse media screen returned a hit tied to counterparty Rojas, Rodriguez and Davis (cp_025) after a routine payment review linked to client {{CLIENT_NAME:c_0222}}. The article alleges regulatory scrutiny over invoicing practices at the counterparty. Recent outgoing payments from {{ACCOUNT_NUMBER:a_00458}} went to {{CP_ACCOUNT:cp_025}}. We need to confirm the article refers to the same entity, assess relevance to the client relationship, review prior payments with the counterparty, and decide whether to apply enhanced due diligence or update the client risk rating from low.",
+   "reporter_id": "e_052",
+   "assignee_id": "e_048",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_048",
+     "text": "Taking this. First step is entity matching: jurisdiction and registered address on the article versus our counterparty record. I'll also pull 12 months of payments to cp_025."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Please keep me posted. If the match is confirmed, loop in Brendan Alvarez and the credit team since there is a loan on {{ACCOUNT_NUMBER:a_00459}}. No client contact until we've decided on EDD."
+    }
+   ]
+  }
+ ]
+}

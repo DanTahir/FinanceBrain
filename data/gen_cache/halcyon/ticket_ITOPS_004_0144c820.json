@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "DataLake ingestion API returning 429s for nightly export consumers",
+   "description": "Starting around 02:15 this morning, several downstream consumers of the DataLake query API began receiving HTTP 429 responses during the nightly export window. The current limit is 100 requests per minute per service token, which worked when we had four consumers, but we now have nine. The BI refresh and the credit model retraining job are both hitting the ceiling at the same time. Exports are finishing late and a few partial files were written. We need to either raise per-token quotas, stagger the schedules, or introduce a burst allowance. Please review the gateway config and propose a change before the next nightly run.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Confirmed from gateway logs: 429s cluster between 02:10 and 02:40 UTC-5. Two tokens account for about 70% of the traffic. I'll bump the burst bucket to 300 with a sustained rate of 150/min for the export tokens only."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Thanks. I'll also shift the credit retraining job to start at 03:00 so it doesn't overlap with the BI refresh. Will watch tonight's run."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Change deployed Monday. Three clean nightly runs with zero 429s on export tokens. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "Remote staff intermittently dropped from VPN after AuthSSO token refresh",
+   "description": "Multiple people working remotely report that the VPN client disconnects roughly every 55-60 minutes and prompts for re-authentication. It appears to line up with the AuthSSO access token refresh interval. Reconnecting works but kills long-running SSH sessions and database tunnels. Reported by at least six engineers and two people on the trading desk this week. Affects the Mac client version 5.2 and Windows 5.1 alike. Suspect the SAML assertion lifetime on the VPN concentrator is shorter than the session lifetime configured in the identity provider. Need to align the two settings and verify with a test group.",
+   "reporter_id": "e_075",
+   "assignee_id": "e_078",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Found it. The concentrator was set to a 3600s assertion validity with no clock skew tolerance, while AuthSSO rotates signing context at 3300s for some groups. I'm adding a 5 minute skew allowance and extending validity to 8h."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Please roll it out to the pilot group first and get confirmation from the desk before pushing to everyone."
+    },
+    {
+     "author_id": "e_075",
+     "text": "Pilot group of five has been stable for two full days, no drops. Looks good to me."
+    }
+   ]
+  },
+  {
+   "title": "VPN split-tunnel routes missing for DataLake subnet after concentrator upgrade",
+   "description": "After last night's firmware upgrade on the VPN concentrator, users connecting from home can no longer reach the DataLake query endpoints, although internal web apps still load fine. Traceroute shows traffic going out the local ISP instead of through the tunnel, so the split-tunnel route list probably lost the DataLake subnet during the upgrade. Data engineering notebooks and scheduled pulls from laptops are failing with connection timeouts. Workaround is to use the office network. Please restore the route entries and diff the full config against the pre-upgrade backup so nothing else is missing.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Diffed against backup. Two route entries were dropped, the DataLake subnet and the secondary analytics VLAN. Re-adding both now and pushing the profile."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Notebooks connect again from my home setup. Thanks for the quick turnaround."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Added a config backup check to the upgrade runbook so we validate routes post-upgrade. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Partner reporting API throttling too aggressively after gateway policy change",
+   "description": "Since the gateway policy rollout yesterday afternoon, our internal reporting service is being throttled with 429s when it calls the DataLake read API in parallel. The new policy applies a global limit of 60 requests per minute per client, regardless of token tier. Dashboards are timing out and the retry logic is making things worse by hammering the endpoint with backoff that is too short. Need to review the policy scope, confirm the tier overrides are applied, and tune the client retry with jitter and exponential backoff. Currently affecting the morning dashboard refresh.",
+   "reporter_id": "e_081",
+   "assignee_id": "e_079",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "The tier override map did not get included in the policy bundle, so everyone fell into the default bucket. I have a fix ready in staging and will promote after a quick smoke test."
+    },
+    {
+     "author_id": "e_081",
+     "text": "I'll update the client to use exponential backoff with full jitter and cap retries at five. PR should be up this afternoon."
+    }
+   ]
+  },
+  {
+   "title": "Nightly job scheduler skipped DataLake compaction and downstream refresh jobs",
+   "description": "The job scheduler did not trigger the 01:00 DataLake compaction job or the dependent feature table refresh this morning. No errors were logged in the scheduler UI, jobs just show as not scheduled. Checking the controller node, the leader election seems to have flapped around 00:52 and the standby did not pick up the cron definitions. As a result, analytics tables are stale by a day and the morning dashboards show yesterday's data. Please check controller health, rerun the missed jobs manually, and find out why the standby did not load the schedule.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_078",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Rerunning compaction manually now. The standby node's config sync is failing on a permissions error against the shared schedule store. Digging into when that started."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Keep me posted. If the sync has been broken for a while we need to add monitoring on the standby so we find out before an actual failover."
+    }
+   ]
+  }
+ ]
+}

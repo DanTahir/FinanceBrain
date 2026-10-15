@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_056"
+   ],
+   "subject": "Trade error write-up: duplicate child orders on tech basket, 7/20 open",
+   "body": "Daniel,\n\nHere is the write-up on this morning's duplicate child order issue. At 9:34 ET I released a 40-name tech basket through OMS using the VWAP algo. A browser session timeout during submission caused me to resubmit, and OMS accepted both parent orders. Roughly 18,000 extra shares across six names went to market before I spotted the doubled working quantity on TradeBlotter at 9:41.\n\nI cancelled the duplicate parent immediately. Net over-buy was about $412K notional. We unwound it by 10:05 at a realized cost of roughly $3,800 versus arrival price. No client allocation was affected because the duplicate fills sat in the desk error account.\n\nRoot cause: no duplicate-parent warning in OMS when the same basket ID is submitted twice within a short window. Proposed actions: (1) I will confirm basket status on TradeBlotter before any resubmit, (2) ask Sam's team whether OMS can add a duplicate check, (3) log this in the error register.\n\nMarcus and Owen are copied for the register and limit review.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_061"
+   ],
+   "subject": "Follow-up: intraday gross exposure limit breach on 7/22",
+   "body": "Owen,\n\nFollowing up on the gross exposure limit breach on the equity desk yesterday. Our desk-level intraday limit is $150M, and RiskEngine showed us peaking at $163M around 2:20 PM ET. That was driven by the index rebalance facilitation flow that came in late, combined with positions we had not yet netted down.\n\nThe breach lasted about 40 minutes. I approved the temporary overage verbally before sending written notice, which is not how we should do it, and I own that. Derek and Erik trimmed to $141M by 3:00 PM.\n\nActions on our side: any facilitation above $20M notional needs pre-approval in writing from me or my delegate. We will also add a pre-trade exposure check in OMS alerting at 90% of limit. I would like to review with Paul whether the VaR snapshot lagged PositionStore updates, since our blotter showed lower numbers for part of the window.\n\nCan we meet Monday to agree the remediation note for Marcus?\n\nBest,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_012",
+   "to_ids": [
+    "e_005",
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_009"
+   ],
+   "subject": "August desk P&L attribution through 8/21",
+   "body": "Daniel, Erik,\n\nAttached summary of month-to-date desk P&L attribution through Friday 8/21. TradeBlotter shows +$2.84M gross; here is how I split it.\n\nSpread capture on agency flow: +$1.31M. Slightly ahead of July pace on higher volumes.\nDirectional positions: +$1.09M, mostly from the energy long that we held through the earnings window.\nHedging cost and basis: -$0.34M, driven by wider index futures basis.\nCommissions and fees net: +$0.31M.\nResidual/unexplained: +$0.47M, which is higher than I would like.\n\nThe residual is mostly timing differences between OMS fill prices and PricingSvc end-of-day marks on a handful of illiquid names. Robert and I are going to reconcile those marks by Wednesday and push the cleaned numbers back to the blotter.\n\nIf you want a by-trader cut before the month-end review, let me know and I will prepare it.\n\nRegards,\nSean",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_063",
+    "e_047"
+   ],
+   "subject": "Trade error write-up: wrong side on ETF order, 9/15",
+   "body": "Daniel,\n\nWriting up the error from this morning. At 10:12 ET I entered a 25,000 share ETF order for a wealth management rebalance as a buy when the instruction was a sell. The order was a market-on-open style entry staged the prior evening and I did not re-verify the side after a quick edit to the limit price in OMS.\n\nSix thousand shares filled before Jonathan on the desk flagged the mismatch against the instruction ticket at 10:17. I cancelled the remainder and reversed the filled portion. Realized loss was about $1,900 after spread and a small adverse move. The loss is booked to the desk error account.\n\nOperations has been told so settlements can handle the reversal cleanly. Ravi is copied for that reason.\n\nCorrective steps: I will use the side-confirmation checklist on every staged order edit, and I suggest we ask Technology to make OMS show side in colour on the edit screen.\n\nHappy to walk through the timeline.\n\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_006",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_047"
+   ],
+   "subject": "Trade error write-up: stale limit price on block, 9/29",
+   "body": "Daniel,\n\nPlease find the write-up of the stale price error on the block trade this morning.\n\nAt 9:48 ET I worked a 60,000 share sell block for a long-only account. The limit price I entered was based on a quote from PricingSvc that was cached on my screen. The stock had gapped lower after a downgrade, so my limit was well above market and the order sat unfilled for 22 minutes. By the time I noticed, the shares had dropped about 1.8%, an opportunity cost of roughly $54K versus the intended execution level.\n\nThe delay is a best-execution matter, so Marcus is copied. The client has been informed by sales that execution was delayed.\n\nRoot cause: I did not refresh the quote and the blotter did not flag price staleness. Actions: (1) I will confirm live price before every limit change, (2) ask Technology whether OMS can warn when a limit is more than 1% from market, (3) document the case in the register.\n\nThanks,\nDerek",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_005",
+    "e_010",
+    "e_007",
+    "e_008"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Branch staffing coverage for the week of Aug 3",
+   "body": "Hi team,\n\nQuick heads up on coverage for this week. Joanna is out through Wednesday, and Zachary is covering the Thursday evening shift at the drive-up, so the Member Advocate desk will be thin Monday through Wednesday.\n\nCatherine, can you take the first pass at walk-in disputes and card replacement requests during those days? Jonathan, please stay on the phones from 10 to 2 when call volume spikes after the lunch rush. Maxwell and Joseph, I need one of you on the vault and cash-ordering duties each morning, so please swap between yourselves and tell me by end of day who has which day.\n\nRita, copying you because we may lean on Operations for a few extra hours of ACH exception work if the lobby gets busy.\n\nIf anyone has a conflict, reply to me directly today so we can fix it before the schedule posts.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Follow-up on {{CLIENT_NAME:c_0043}} complaint from last week",
+   "body": "Hi Paul,\n\nI wanted to close the loop on the complaint from {{CLIENT_NAME:c_0043}} that came in on Aug 7. The member was upset about a hold placed on a deposit into checking account {{ACCOUNT_NUMBER:a_00097}} and said nobody explained why it took three business days to clear.\n\nI called back at {{CLIENT_PHONE:c_0043}} on Tuesday and walked through our funds availability policy. The member accepted the explanation but still wants a written summary, so I will send that to {{CLIENT_EMAIL:c_0043}} once you sign off on the wording.\n\nBecause this member is flagged high risk, I am copying Wesley so Compliance is aware of the complaint and can confirm the response is consistent with our complaint log requirements. I have already logged it in MemberCRM.\n\nCould you review my draft by Friday? I would like to get it out before the member calls us again.\n\nThanks,\nNichole",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_019",
+    "e_023"
+   ],
+   "subject": "Dispute backlog update as of Sept 1",
+   "body": "Hi Paul,\n\nThe dispute queue is at 47 open items this morning, up from 31 two weeks ago. About 18 of those are debit card disputes waiting on provisional credit decisions, and we are getting close to the Reg E timelines on six of them.\n\nTwo things are driving this. First, the CardProcessor feed has been delivering delayed authorization detail since the weekend, so we cannot always match the merchant record to the member's claim. Second, with Joanna out part of last month, we fell behind on first-touch reviews.\n\nAndre, can IT confirm whether the delay is on our side or the vendor's? Rita, can Operations help with the chargeback paperwork for the oldest cases?\n\nI will send a prioritized list of the six at-risk cases by noon so we can decide who owns each one.\n\nThanks,\nZachary",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_005",
+    "e_006",
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Branch staffing for Sept 9 through Sept 16",
+   "body": "Hi all,\n\nWith the dispute backlog still heavy, I am adjusting the branch schedule for next week. Starting today, Catherine and Joanna will split the afternoon dispute review block, 1 to 4, and will not be on the teller line during that time.\n\nJonathan, you are on the member phones and the lobby greeter role during those hours. If a member needs a card replacement for something like the debit card tied to {{CARD_NUMBER:a_00052}}, please handle it on the spot and do not hand it to the advocates unless a dispute is involved.\n\nRita, I would appreciate it if Operations could lend someone for Friday's busy period, since payroll deposits usually bring a rush.\n\nPlease reply with any scheduling conflicts by tomorrow morning. I would rather sort out swaps now than on the day.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_006",
+   "to_ids": [
+    "e_003",
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Dispute backlog status, Sept 11",
+   "body": "Hi Paul and Zachary,\n\nHere is where we landed at end of day. The dispute queue is down to 29 open items from 47 on Sept 1. All six of the cases that were close to their Reg E deadlines have been resolved or have provisional credit issued.\n\nOne case is worth a closer look. {{CLIENT_NAME:c_0024}} disputed three transactions on checking account {{ACCOUNT_NUMBER:a_00052}}, and two look like a repeat merchant billing pattern. I have asked the member to confirm by phone at {{CLIENT_PHONE:c_0024}} whether they authorized any of them.\n\nWesley, copying you in case any of these need to be assessed for fraud reporting.\n\nRemaining work: about 12 items are waiting on merchant responses, and I expect those to move next week. I can keep the afternoon review block going through Wednesday if you want to keep the pace.\n\nThanks,\nJoanna",
+   "reply_to_previous": false
+  }
+ ]
+}

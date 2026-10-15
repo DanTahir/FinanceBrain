@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_077",
+    "e_078",
+    "e_079"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Q3 access recertification - Technology entitlements due Aug 21",
+   "body": "Hi all,\n\nThe Q3 access recertification campaign opens today. For Technology, I need each of you to review the entitlements tied to your systems and confirm or revoke by Friday, August 21. Please focus on admin roles in AuthSSO, privileged service accounts, and anything with write access to MarketDataFeed ingestion configs.\n\nA few specifics: Omar and Barbara, please cover the on-call break-glass group and the SRE jump hosts. Vincent, you own the AuthSSO admin roles review. Ravi is copied because several Operations users hold read access to our deployment dashboards and he will need to sign off on those.\n\nAnything you cannot justify with a ticket reference should be removed rather than carried forward. Last quarter we had four stale contractor accounts and I would like zero this time.\n\nI will send a status summary to Marcus Bell's team on August 24.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_078"
+   ],
+   "cc_ids": [
+    "e_081"
+   ],
+   "subject": "DR test planning - proposed scope and dates for Q4 failover exercise",
+   "body": "Sam, Barbara,\n\nI have a first draft of the Q4 disaster recovery test plan and want your input before we circulate it more widely.\n\nProposed scope: full failover of MarketDataFeed and AuthSSO to the secondary region, with PricingSvc validated downstream against replayed vendor data. Because AuthSSO sits under OMS and several other critical systems, I would like to run it first as a standalone exercise in a quiet window, then repeat it as part of the combined test.\n\nProposed dates: dry run the weekend of October 17, live test the weekend of November 7. Target RTO is 30 minutes for AuthSSO and 15 minutes for MarketDataFeed, with RPO of effectively zero for both.\n\nOpen questions: who from Trading needs to be on the bridge, and do we need a vendor contact from the market data provider standing by? Angelica, could you confirm the replication lag numbers from the last quarter?\n\nPlease send comments by Friday, September 4.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_076",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_074",
+    "e_075"
+   ],
+   "subject": "Laptop refresh - Technology batch schedule and loaner needs",
+   "body": "Hi Sam,\n\nQuick update on the laptop refresh. IT procurement confirmed our batch of 9 new developer laptops arrives the week of September 28. I have put together a rollout order so that engineers on active release work are done last.\n\nProposed order: Kevin and I go first the week of September 28 to validate the image, including the VPN client, the AuthSSO desktop agent, and our standard container tooling. Then Leo and the SRE group, and finally the senior engineers during the week of October 5.\n\nTwo concerns. First, the new image still has a known issue with the smartcard reader that some of us use for production access. Second, we need two loaner machines for anyone whose data migration runs long.\n\nCan you approve the loaners and the sequence? I will post the schedule in #it-ops once you confirm.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_079",
+   "to_ids": [
+    "e_072",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_081"
+   ],
+   "subject": "Q3 access recertification - Technology status and remaining exceptions",
+   "body": "Hi Sam, Marcus,\n\nHere is where Technology stands on the Q3 access recertification as of today.\n\nCompleted: AuthSSO admin role review, with 3 roles revoked and 2 reduced to read-only. The SRE break-glass group has been reviewed and confirmed. Service accounts for MarketDataFeed ingestion have been rotated and re-attested.\n\nRemaining: 5 entitlements held by users who have changed teams in the last six months. I am waiting on their new managers to confirm business need. Also, Priya Raman holds several elevated roles and she leaves the firm on October 9, so I plan to schedule her removal for that date and document it as a pending exception in the meantime.\n\nMarcus, if your team needs evidence exports for the audit file, I can provide them by Wednesday.\n\nI expect the remaining items to close by next Friday.\n\nRegards,\nVincent",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_080",
+   "to_ids": [
+    "e_072",
+    "e_077"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Cloud cost review - September spend and DataLake optimization options",
+   "body": "Hi Sam, Omar,\n\nI went through the September cloud bill ahead of today's cost review. Total spend came in at roughly $412K, about 9% over budget, and DataLake is the main driver.\n\nWhat I found: storage in the raw landing zone grew 18% month over month because we are keeping duplicate vendor snapshots. Compute for nightly transformation jobs is also oversized; most clusters sit under 40% utilization. ReportingBI and the fraud and AML pipelines depend on DataLake, so I want to be careful about changes there.\n\nProposals: move snapshots older than 90 days to a colder storage tier, estimated savings of $22K a month; right-size the transformation clusters, saving about $15K; and add lifecycle rules for temp datasets.\n\nOwen is copied since ReportingBI is his team's dashboard layer and he should know about any job schedule shifts. Can we discuss tomorrow?\n\nThanks,\nMichael",
+   "reply_to_previous": false
+  }
+ ]
+}

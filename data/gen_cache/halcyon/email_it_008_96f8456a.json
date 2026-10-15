@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_074"
+   ],
+   "cc_ids": [
+    "e_077"
+   ],
+   "subject": "AuthSSO migration: cutover sequencing and owners",
+   "body": "Hi Priya, Leo,\n\nFollowing up on yesterday's discussion, I want to lock the sequencing for the AuthSSO migration to the new identity provider tenant. Because OMS, ClientHub and DocVault all authenticate through AuthSSO, we can't treat this as a single big-bang change.\n\nProposal: Priya owns the token and session configuration, including the SAML and OIDC client mappings. Leo owns the service-account and API-key inventory so we know what breaks when issuer URLs change. Omar will build the rollback runbook and a synthetic login check we can run against each dependent system.\n\nI'd like a first-pass list of every downstream consumer by Tuesday, with ClientHub and OMS flagged first since the desk and wealth teams are most exposed. Please note anything still using legacy session cookies.\n\nIf either of you sees a reason to change the order, tell me before Friday so I can take it to the ops leads.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_080",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_078"
+   ],
+   "subject": "Cloud cost review: DataLake storage and compute findings",
+   "body": "Hi Sam,\n\nI finished the first pass of the monthly cloud cost review, and DataLake is where most of the avoidable spend sits.\n\nThree findings. First, roughly a third of our raw landing-zone storage hasn't been read in over 180 days and can move to a cold tier without affecting any dashboard in ReportingBI. Second, the nightly transformation clusters are sized for month-end volume but run at that size every night; autoscaling should cut compute meaningfully. Third, a few abandoned scratch datasets from old CreditScoring experiments are still being retained.\n\nMy rough estimate is a 15 to 20 percent reduction in the DataLake line item with no change in SLAs. Barbara is checking whether any of the cold-tier candidates feed FraudScore or AMLMonitor before we touch them, since Compliance will care about retention there.\n\nCan we review this Thursday? I'll bring the detailed sheet.\n\nThanks,\nMichael",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_073",
+   "to_ids": [
+    "e_072",
+    "e_074"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "AuthSSO migration: status after staging dry run",
+   "body": "Hi all,\n\nQuick status after this morning's staging dry run of the AuthSSO migration.\n\nWhat worked: ClientHub and DocVault both authenticated cleanly against the new tenant, and token refresh behaved as expected. Session lifetimes matched the current production policy.\n\nWhat didn't: OMS failed on a certificate chain mismatch when it validated the new issuer, so the desk would have been locked out in a real cutover. Separately, two batch jobs using long-lived service credentials still point at the old endpoint. Leo's inventory caught both, which is the reason we ran this in staging.\n\nI'm fixing the OMS trust store configuration today and will rerun the dry run tomorrow. Ravi, I'm copying you because the settlement team's service accounts are on Leo's list, and I'd like Operations to confirm a safe change window.\n\nUntil the OMS rerun passes, I wouldn't commit to a production date.\n\nPriya",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_056"
+   ],
+   "subject": "DR test planning: proposed scope and dates",
+   "body": "Hi Sam, Ravi,\n\nI've drafted the scope for the next disaster recovery test and want your input before I circulate it more widely.\n\nProposed scope: fail over MarketDataFeed, PricingSvc and PositionStore to the secondary site, then bring up RiskEngine and OMS on top of them and confirm intraday VaR still calculates. We would also validate that AuthSSO has a working standby, since nothing else logs in without it.\n\nOne timing note: KYCPipeline moves to Compliance ownership tomorrow, so Marcus's team should be listed as the responsible owner for its recovery steps. Owen, I'm copying you since RiskEngine recovery time is one of the pass criteria.\n\nI'd suggest a Saturday window next month, with the desk and Operations signing off by end of next week. The target recovery time is two hours for critical systems.\n\nPlease reply with objections or missing systems.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_078",
+   "to_ids": [
+    "e_063",
+    "e_005",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_072"
+   ],
+   "subject": "Weekend patching window: this Saturday night",
+   "body": "Hi Ravi, Daniel, Owen,\n\nThis is the plan for the weekend patching window, starting Saturday at 10 PM and ending no later than 4 AM Sunday.\n\nIn scope: OS and database patches on the PositionStore hosts, plus the quarterly security update for the Oracle 11g instance behind ReconLegacy. PositionStore will be read-only for about 40 minutes while we fail over between nodes, so RiskEngine and PortfolioMgr may show stale holdings during that period. ReconLegacy's end-of-day batch will be held until we confirm the patch, so Operations should expect the Saturday reconciliation to run late.\n\nPriya's last day is tomorrow, so Leo will be the escalation contact for any PositionStore issues over the weekend. I'll be on point for the patching itself.\n\nIf Trading or Risk has a reason to avoid this window, please tell me by noon tomorrow and I'll look at pushing it a week.\n\nThanks,\nBarbara",
+   "reply_to_previous": false
+  }
+ ]
+}

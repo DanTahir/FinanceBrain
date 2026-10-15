@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_058",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_029",
+    "e_061"
+   ],
+   "subject": "Q3 counterparty limit review - proposed changes ahead of Friday",
+   "body": "Hi Owen,\n\nAhead of Friday's credit committee, I've finished the counterparty limit review for the quarter. Summary of where I landed:\n\n- Two prime brokerage counterparties are running at over 85% of their approved PFE limits, driven mostly by the growth in the equity swap book. I recommend a temporary uplift of 10% for one, with a 30-day sunset, and holding the other flat pending updated financials.\n- One regional bank counterparty was downgraded by an external agency last week. I'd like to cut its unsecured overnight limit by 25% and require collateral on any new term exposure.\n- Three dormant limits have had no utilization in 12 months and can be closed out.\n\nExposure figures are pulled from RiskEngine as of Tuesday's close. Brian, I've copied you because the lending side has some overlap on the regional bank facility. Please flag if that changes your view on the cut.\n\nThe full workbook is on the risk shared drive under Q3 limits. Happy to walk through any of it before Friday.\n\nThanks,\nLance",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_057"
+   ],
+   "subject": "Model validation findings - VaR backtesting exceptions in RiskEngine",
+   "body": "Hi Owen, Paul,\n\nI've wrapped up the first pass of the annual validation on the RiskEngine intraday VaR model. Headline findings:\n\n1. Backtesting: 99% VaR showed 6 exceptions over the trailing 250 days, which puts us in the yellow zone under the Basel traffic-light approach. Four of the six cluster around the March rates volatility.\n2. Proxy mapping: roughly 40 thinly traded credit instruments are mapped to proxies with weak correlation. This likely understates tail risk in the credit book.\n3. Data lineage: some stale prices from PricingSvc were not flagged in the VaR run on two dates, so the model consumed them silently.\n\nI rate findings 1 and 2 as medium severity and finding 3 as high, since it touches data integrity. I'd suggest we agree remediation owners this week and set a target of end of September for the proxy re-mapping.\n\nThe draft report is in the validation folder. Angelica is reviewing the statistical appendix.\n\nBest,\nChris",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_062"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_057",
+    "e_072"
+   ],
+   "subject": "Re: Model validation findings - VaR backtesting exceptions in RiskEngine",
+   "body": "Chris,\n\nThanks for the thorough write-up. A few thoughts from the market risk side.\n\nOn finding 3, I agree with the high rating. I've looped in Sam since the stale price flagging has to be fixed upstream in PricingSvc and the MarketDataFeed handoff, not only in the VaR run. Sam, could your team tell us whether a staleness flag can be passed through with each price record? We would then reject or haircut stale inputs in RiskEngine.\n\nOn finding 1, the March cluster looks like a volatility regime issue. I'd like to test a filtered historical simulation with a shorter decay factor before we decide whether recalibration is needed. I can have comparison results by 9/4.\n\nOn finding 2, I'll pull together the list of instruments where we have better proxies available.\n\nOwen, are you comfortable taking the yellow zone classification to the risk committee in September?\n\nThanks,\nPaul",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Liquidity coverage report - August month-end",
+   "body": "Hi Owen, Catherine,\n\nAttached is the August liquidity coverage report, pulled via ReportingBI. Key points:\n\n- LCR stands at 142% against our internal floor of 120%, down from 151% in July. The decline is mainly from higher projected outflows on committed lending facilities.\n- High quality liquid assets are $1.18B, of which about 82% is Level 1.\n- 30-day stressed net outflows increased by roughly $85M, with wealth management deposit runoff assumptions the second largest driver.\n- No breaches of the early warning indicators, though the intraday liquidity buffer was tight on two settlement days.\n\nMarcus, copying you because the regulatory reporting template changed this month and I'd value a check that our run-off assumptions are consistent with the latest guidance.\n\nI'd recommend we revisit the committed facility drawdown assumption at the next ALCO. Glad to prepare scenarios at 10% and 20% higher drawdown.\n\nRegards,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_057",
+    "e_072"
+   ],
+   "subject": "Model validation findings - re-test results and closure status",
+   "body": "Hi Owen, Paul,\n\nUpdate following the re-test of the RiskEngine VaR model remediation items.\n\nStatus:\n- Finding 3 (stale price handling): Sam's team deployed the staleness flag from PricingSvc and RiskEngine now haircuts flagged inputs. I re-ran the two affected dates and the VaR numbers moved by about 3%. I consider this closed.\n- Finding 1 (backtesting exceptions): Paul's filtered historical simulation reduced exceptions to 3 on the same window. I recommend adopting it, but it needs a parallel run for 60 days before go-live.\n- Finding 2 (proxy mapping): 28 of the 40 instruments have been re-mapped. The remaining 12 are waiting on vendor data and will slip beyond the end of September target.\n\nI'll update the validation report and the issue log today. Owen, could you confirm you are happy to accept the residual risk on the 12 instruments with a revised date of end of October?\n\nThanks,\nChris",
+   "reply_to_previous": false
+  }
+ ]
+}

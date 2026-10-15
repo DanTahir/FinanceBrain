@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: AuthSSO migration to the new IdP tenant is still on for the Saturday window. I'm building the cutover checklist now. Need each service owner to confirm their OIDC client config by Wednesday."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Omar. DocVault is on the list since it depends on AuthSSO for token validation. I'll check whether it's pinned to the old issuer URL or reads it from config."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Quick question for anyone who knows: does ReconLegacy authenticate through AuthSSO at all? I can't find any SAML or OIDC references in the repo, just Oracle service accounts."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 14,
+   "reply_to": 2,
+   "text": "It doesn't, as far as I know. It's a Perl batch connecting to Oracle 11g with local DB creds. The only SSO touchpoint is the ops people who view the output, and they go through the dashboards. I'd still do a smoke test after cutover."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 17,
+   "reply_to": 3,
+   "text": "Good, that matches what I saw. I'll add a post-cutover smoke test for the EOD batch anyway so we catch any surprises."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 31,
+   "reply_to": 1,
+   "text": "Checked: DocVault hardcodes the old issuer in the JWT validation filter. It's not in config, so it needs a code change and redeploy. Small PR, but it has to merge before Saturday."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 35,
+   "reply_to": 5,
+   "text": "I can take that PR. I'll make the issuer and JWKS URL configurable via env vars so we can flip back fast if the cutover goes badly. Draft up by tomorrow midday."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 40,
+   "reply_to": 6,
+   "text": "Perfect, Kevin. Please keep a rollback path for the old issuer too. I want both JWKS endpoints accepted for the first 24 hours after cutover if that's feasible."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Also a reminder: ClientHub and OMS both sit behind AuthSSO. A bad cutover there hits the trading desk Monday morning, so we need a clean go/no-go call Saturday night."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 58,
+   "reply_to": 8,
+   "text": "Agreed. Go/no-go is Saturday 9pm ET, with a rollback decision point at 1am. I'll put it on the checklist and invite Trading and Ops leads."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 75,
+   "reply_to": 7,
+   "text": "Dual-issuer acceptance is doable with a short allowlist. I'll note a 48-hour sunset so we don't leave it open indefinitely."
+  }
+ ]
+}

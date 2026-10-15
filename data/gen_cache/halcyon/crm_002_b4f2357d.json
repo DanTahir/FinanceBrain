@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0299",
+   "text": "7/21 - Spoke with {{CLIENT_NAME:c_0299}} about renewing the existing loan, which comes due next quarter. Client wants to keep the current term length and asked whether a rate reduction is realistic given the clean payment history since 2017. Confirmed payments are still auto-drafting from checking {{ACCOUNT_NUMBER:a_00599}}. Client's contact details are unchanged; best reached at {{CLIENT_PHONE:c_0299}}. Next steps: pull an updated income verification, ask Credit to refresh the file, and send renewal terms to {{CLIENT_EMAIL:c_0299}} by end of next week. Risk remains low, no concerns."
+  },
+  {
+   "client_id": "c_0173",
+   "text": "7/20 - Call with {{CLIENT_NAME:c_0173}}, who mentioned a friend and fellow Halcyon Ridge client has been recommending us for a while and has a colleague interested in wealth management. Client is happy with the brokerage account {{ACCOUNT_NUMBER:a_00358}} and the sweep activity in {{ACCOUNT_NUMBER:a_00359}}. Offered to set up an intro meeting once the referred party reaches out. Will send a short thank-you note to {{CLIENT_EMAIL:c_0173}} and log the referral in the CRM so it's tracked. Profile still medium risk; no changes requested today."
+  },
+  {
+   "client_id": "c_0295",
+   "text": "9/25 - {{CLIENT_NAME:c_0295}} contacted us to request a change of business address following an office move. New location to be recorded as {{CLIENT_ADDRESS:c_0295}}. Told the client we need a signed change form and supporting documentation before updating the operating account {{ACCOUNT_NUMBER:a_00595}} and the CRM record. I will route the request to KYC so the file stays current. Confirmation to go to {{CLIENT_EMAIL:c_0295}} once complete; I'll follow up at {{CLIENT_PHONE:c_0295}} if documents are not received within a week."
+  },
+  {
+   "client_id": "c_0291",
+   "text": "7/24 - {{CLIENT_NAME:c_0291}} reached out about financing a business expansion and wondered whether the brokerage holdings in {{ACCOUNT_NUMBER:a_00591}} could be used as collateral. Explained that a securities-backed line is one option, but a standard commercial loan may also fit. I am not licensed to advise on credit, so I'll hand this to Lending for a conversation. Client prefers email contact at {{CLIENT_EMAIL:c_0291}}. Let Sandra's team lead know. Follow up Friday to confirm the Lending introduction happened. Risk profile unchanged at low."
+  },
+  {
+   "client_id": "c_0248",
+   "text": "9/10 - Check-in with {{CLIENT_NAME:c_0248}}, who unexpectedly asked about alternative investments such as private credit and real assets. Client currently has checking {{ACCOUNT_NUMBER:a_00509}} and a loan on {{ACCOUNT_NUMBER:a_00510}} with us, no investment account. Explained that we would need to review suitability and liquidity needs given the outstanding loan, and that alternatives carry eligibility limits. Suggested an introduction to Wealth Management; client agreed. I'll send the intro to {{CLIENT_EMAIL:c_0248}} this week. Risk rating is medium; flag for the advisor to reassess."
+  },
+  {
+   "client_id": "c_0029",
+   "text": "8/12 - Annual review with {{CLIENT_NAME:c_0029}}. Client is approaching retirement and wants to move the brokerage account {{ACCOUNT_NUMBER:a_00064}} toward a more conservative posture, less equity concentration and more short-duration fixed income. Current profile is low risk, so this fits. Updated risk questionnaire to be sent to {{CLIENT_EMAIL:c_0029}} for signature. Once returned, I'll ask the portfolio manager to prepare a proposed reallocation. Client can be reached at {{CLIENT_PHONE:c_0029}} for questions."
+  },
+  {
+   "client_id": "c_0149",
+   "text": "7/8 - {{CLIENT_NAME:c_0149}} called to change the beneficiary designations on the brokerage account {{ACCOUNT_NUMBER:a_00311}} and the cash management account {{ACCOUNT_NUMBER:a_00312}}, following a recent family change. Walked through our beneficiary form and reminded the client that a wet or verified e-signature is required. Forms will go to {{CLIENT_EMAIL:c_0149}}. I'll verify identity per procedure before processing and confirm both accounts are updated. Client asked that a copy of the confirmation be mailed to {{CLIENT_ADDRESS:c_0149}}. Risk remains low."
+  },
+  {
+   "client_id": "c_0158",
+   "text": "8/12 - Reviewed risk tolerance with {{CLIENT_NAME:c_0158}}. After recent market volatility, client is a bit more uneasy about drawdowns and asked to dial back equity exposure in brokerage {{ACCOUNT_NUMBER:a_00330}}, while keeping a healthy cash buffer in {{ACCOUNT_NUMBER:a_00331}}. Profile stays at low risk, though the questionnaire answers are more cautious than in 2023. Will send the updated form to {{CLIENT_EMAIL:c_0158}} and ask the portfolio manager to model a lower-volatility allocation. Follow-up call planned for next week at {{CLIENT_PHONE:c_0158}}."
+  },
+  {
+   "client_id": "c_0103",
+   "text": "8/6 - {{CLIENT_NAME:c_0103}} phoned to update beneficiaries on brokerage {{ACCOUNT_NUMBER:a_00219}} and cash management {{ACCOUNT_NUMBER:a_00220}}. Client wants to add a new primary beneficiary and adjust percentages. I emailed the beneficiary change forms to {{CLIENT_EMAIL:c_0103}} and explained the signature requirement. Need to loop in Kelly or the senior advisor to review before submission since this is a medium-risk profile with larger balances. Will confirm the mailing address on file, {{CLIENT_ADDRESS:c_0103}}, is current. Next: follow up if forms are not back within five business days."
+  },
+  {
+   "client_id": "c_0207",
+   "text": "7/8 - {{CLIENT_NAME:c_0207}} called to discuss financing for a business expansion. Client already has checking {{ACCOUNT_NUMBER:a_00431}} and an active loan on {{ACCOUNT_NUMBER:a_00432}} with us, and asked whether the new funding could be added or structured separately. As Loan Closer I can't discuss pricing or approval, so I'll pass the request to the relationship manager and underwriting. Client prefers contact at {{CLIENT_PHONE:c_0207}}. I also suggested gathering recent financial statements and a project budget. Risk rating remains low."
+  }
+ ]
+}

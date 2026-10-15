@@ -1,0 +1,78 @@
+{
+ "emails": [
+  {
+   "from_id": "e_051",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: personal trading pre-clearance before Q3 blackout window",
+   "body": "Hi all,\n\nA quick reminder ahead of the Q3 earnings season. Under the Code of Ethics, any personal trade in a covered security needs pre-clearance through the compliance portal before you place the order. Approvals are valid for the trading day on which they are issued only, so a request submitted after the close will not carry over.\n\nA few things we keep seeing:\n- Trades in names on the restricted list, including anything tied to active M&A mandates, will be declined without explanation.\n- Holdings acquired in the last 30 days cannot be sold, so please check your lots first.\n- Accounts held at outside brokers must be reported, and duplicate statements need to be on file with us.\n\nPlease pass this along to your teams. Desk heads, we will pull a sample of pre-clearance requests against the blotter at month end, so it is worth a quick conversation with your people.\n\nQuestions can come to me or Marcus.\n\nThanks,\nLinda Jones\nCompliance Associate",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_001",
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039",
+    "e_056",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_051"
+   ],
+   "subject": "Second reminder: personal trading pre-clearance and attestation due Friday",
+   "body": "Team,\n\nFollowing up on Linda's note from July 30. Our monthly surveillance review found 6 personal trades in July that were executed without a pre-clearance record on file. Each is being reviewed individually and the employees involved have been contacted directly. I am not naming anyone here, but this is a higher count than we saw in Q2, and I would like it back down.\n\nWhat I need from you:\n1. Remind your teams that pre-clearance must be approved before the order is placed, not on the same day afterward.\n2. Make sure the quarterly holdings attestation in the compliance portal is completed by this Friday, August 28.\n3. Flag any outside brokerage accounts that have not yet been disclosed.\n\nRepeat or knowing violations will be escalated to HR and, where appropriate, to the CEO. Compliance is happy to walk through the process with anyone who is unsure. Just ask.\n\nRegards,\nMarcus Bell\nChief Compliance Officer",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_050",
+   "to_ids": [
+    "e_047",
+    "e_055"
+   ],
+   "cc_ids": [
+    "e_029",
+    "e_063"
+   ],
+   "subject": "KYC periodic refresh backlog - status as of Aug 27",
+   "body": "Marcus, Luis,\n\nHere is where the periodic KYC refresh queue stands as of this morning. We have 142 refreshes past their due date, up from 118 two weeks ago. Of those, 37 are high-risk clients, and the oldest high-risk file is 41 days overdue. The main drivers are outstanding client documents sitting in DocVault review and slower sanctions rescreening turnaround since the KYCPipeline ownership handover prep started.\n\nExample: the file for {{CLIENT_NAME:c_0122}} (low risk, lending) is in the queue only because the proof-of-address document expired, so it should be quick once the client responds.\n\nProposal:\n- Luis and I take the high-risk files first and aim to clear them by September 11.\n- Brian, could Lending relationship managers chase the clients on their books who have not returned documents? Cassandra Hampton has a few on her list.\n- Ravi, I would like to understand which Operations analysts will still be available through the KYCPipeline transition.\n\nI will send an updated count each Friday.\n\nThanks,\nJohn Smith\nKYC Specialist",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_047",
+    "e_017",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_054"
+   ],
+   "subject": "Marketing material review - Q3 wealth and advisory pitch decks",
+   "body": "Hi Marcus, Grace, Elena,\n\nHeather and I have finished the first pass on the Q3 marketing materials submitted last week: the wealth management brochure update and the M&A advisory credentials deck. Both need changes before they can go to external distribution.\n\nWealth brochure:\n- The 'consistently outperforms' language needs a supporting performance disclosure and must be removed or qualified.\n- Any performance figures must show net-of-fee returns and be dated.\n- The testimonial on page 4 requires a client consent record and a disclosure on compensation.\n\nAdvisory deck:\n- Several slides reference specific transactions. We need confirmation that each is public and that the client has approved its use.\n- League table claims must cite the data source and period.\n\nGrace and Elena, please send revised drafts by Tuesday, September 15 so we can complete second review before the month-end events. Please do not circulate current versions externally in the meantime.\n\nThanks,\nAnthony Ramirez\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_055",
+   "to_ids": [
+    "e_047",
+    "e_050"
+   ],
+   "cc_ids": [
+    "e_029"
+   ],
+   "subject": "KYC refresh backlog update - Sept 14",
+   "body": "Marcus, John,\n\nUpdate on the refresh backlog as of this morning. Overdue refreshes are down to 109 from 142 on August 27. High-risk overdue files are down from 37 to 14, and the oldest is now 12 days past due. John and I are on track to clear the remaining high-risk files by the end of this week.\n\nWhat helped: Lending relationship managers chased outstanding documents, and about 30 clients returned updated proof of address and beneficial ownership forms. For individual clients like {{CLIENT_NAME:c_0122}}, refreshes closed within a day of receiving documents.\n\nWhat is still slow: sanctions rescreening batches are queuing behind onboarding volume, and 22 corporate files are waiting on ownership documentation from clients.\n\nNext steps:\n- Brian, please ask your team for another push on the 22 corporate files.\n- I will draft a weekly summary for the compliance committee, with John reviewing before it goes out.\n\nI will keep the numbers moving and flag anything that slips.\n\nBest,\nLuis Bowen\nKYC Specialist",
+   "reply_to_previous": false
+  }
+ ]
+}

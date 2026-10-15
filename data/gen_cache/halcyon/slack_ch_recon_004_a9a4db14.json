@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all, well, afternoon. Seeing 14 unmatched settlement items in the EOD recon from last night, totaling about $2.3M. Mostly stuck on the GLCore side with no matching SettlementEngine leg. Anyone else seeing this?"
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Thanks Tasha. Are they all from the same value date or spread across a few days?"
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Mostly 9/23 value date, but three are aged from 9/21. Those three are the ones I'm more worried about."
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "FWIW payments side had a late ACH batch yesterday, cutoff slipped about 40 min. Could explain some of the 9/23 ones if the postings landed after the recon snapshot."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "That would fit. 9 of the 14 have posting timestamps after 18:30. Ronald, can you send me the batch ref list so I can cross-check?"
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Sure, pulling it now. Will drop it in a thread here."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Wire room angle: we had two outbound wires released manually yesterday after the console hiccup. Might not have flowed through the normal feed. Checking whether those are in your 14."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Question for whoever knows: does ReconLegacy re-run the match automatically for late postings, or do we need to trigger a rerun? I don't want to guess."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 29,
+   "reply_to": 7,
+   "text": "I only ever see the output report. Don't know what's under the hood. @Priya Raman can you weigh in?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "It doesn't re-run automatically. The match job is a single Perl batch kicked off from cron at 19:00 ET and it only reads the snapshot of GLCore postings at that moment. Late items fall into next night's run as carry-forward."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Got it. So the 9/23 late ones should self-clear tonight if they're just timing?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 49,
+   "reply_to": 10,
+   "text": "Should, yes, as long as the carry-forward window holds. It's 2 days on the Oracle 11g side. Anything older gets flagged as aged and won't re-match on its own, which is probably why the 9/21 ones are still sitting there."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 53,
+   "reply_to": 11,
+   "text": "That explains it. So the three 9/21 items need a manual intervention. Priya, is there a safe way to force a re-match for those, or should I just book manual adjustments?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 60,
+   "reply_to": 12,
+   "text": "Don't book adjustments yet. I can run the single-item rematch script on the ReconLegacy host for those three. Send me the item IDs and I'll do it after the 19:00 run finishes so we don't collide with the batch."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 75,
+   "reply_to": 6,
+   "text": "Checked: both manual wires are in the list, so 2 of your 14. Both are confirmed sent on our side, I'll attach the release confirmations to the ticket."
+  },
+  {
+   "author_id": "e_064",
+   "minutes_after_start": 82,
+   "reply_to": 14,
+   "text": "Perfect, that leaves 3 aged plus maybe 0-2 unexplained once Ronald's batch refs are in. Sending Priya the three item IDs now."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 90,
+   "reply_to": -1,
+   "text": "Nice work, everyone. Tasha, please post a summary here tomorrow morning with whatever is still open after tonight's run, and I'll take any remaining breaks to the ops standup."
+  }
+ ]
+}

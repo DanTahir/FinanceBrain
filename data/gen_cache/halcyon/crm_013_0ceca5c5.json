@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0111",
+   "text": "Call with {{CLIENT_NAME:c_0111}} on 2026-08-13 re: beneficiary designation change on brokerage a_00237 ({{ACCOUNT_NUMBER:a_00237}}). Client wants to remove the current primary and split proceeds between two new beneficiaries following a family change. Walked through the form and reminded them that a signature guarantee may be required, with the updated form uploaded to DocVault. Given high risk rating, I flagged the change to KYC for a refresh check. Client will confirm by email at {{CLIENT_EMAIL:c_0111}}. Follow-up call booked for next week to confirm receipt. No trading instructions discussed."
+  },
+  {
+   "client_id": "c_0179",
+   "text": "Met with {{CLIENT_NAME:c_0179}} on 2026-07-08. Client is planning to expand their side business, adding a second location, and is looking at roughly $400K in financing. Discussed a securities-backed line against brokerage a_00370 ({{ACCOUNT_NUMBER:a_00370}}) versus a traditional term loan through Lending. Cash flow runs through cash management a_00371 ({{ACCOUNT_NUMBER:a_00371}}). Low risk profile and conservative; they prefer not to liquidate positions. Next step: I will introduce them to Lending for a preliminary view and request three years of business financials. Reach at {{CLIENT_PHONE:c_0179}}."
+  },
+  {
+   "client_id": "c_0269",
+   "text": "{{CLIENT_NAME:c_0269}} called on 2026-08-24 to say they referred a colleague who is interested in a personal loan and home-equity options. Thanked client for the referral and explained our process; the prospect will have to go through full onboarding and KYC on their own. Reviewed the client's own standing: checking a_00553 ({{ACCOUNT_NUMBER:a_00553}}) and loan a_00554 ({{ACCOUNT_NUMBER:a_00554}}) are current with no late payments. Will follow up by email to {{CLIENT_EMAIL:c_0269}} with a short intro and our referral guidelines. Low risk, relationship in good standing."
+  },
+  {
+   "client_id": "c_0153",
+   "text": "{{CLIENT_NAME:c_0153}} phoned on 2026-09-08 to dispute fees on loan a_00318 ({{ACCOUNT_NUMBER:a_00318}}), specifically a late fee and a wire fee posted from checking a_00317 ({{ACCOUNT_NUMBER:a_00317}}). Client was frustrated but stayed civil. I pulled the statement: the late fee looks valid by a day, but the wire fee seems to have been duplicated. Will request a reversal of the duplicate and ask my manager whether a one-time courtesy waiver on the late fee is appropriate. Promised a written response within two business days to {{CLIENT_EMAIL:c_0153}}. Escalation risk is moderate if unresolved."
+  },
+  {
+   "client_id": "c_0200",
+   "text": "Spoke with {{CLIENT_NAME:c_0200}} on 2026-10-02 about required minimum distribution planning for the coming year. Client wants to know how the RMD interacts with the loan a_00416 ({{ACCOUNT_NUMBER:a_00416}}) payments and whether to route distributions into checking a_00415 ({{ACCOUNT_NUMBER:a_00415}}). I'm not a tax advisor, so I suggested they confirm the calculation with their CPA and offered to connect them with our Wealth team for distribution timing. Medium risk, long-standing client since 2017. Will send a summary to {{CLIENT_EMAIL:c_0200}} and check in again in November."
+  },
+  {
+   "client_id": "c_0059",
+   "text": "Renewal discussion with {{CLIENT_NAME:c_0059}} on 2026-09-23 for loan a_00127 ({{ACCOUNT_NUMBER:a_00127}}), maturing in the fourth quarter. Client asked for a 24-month extension at a similar rate. Given the high risk rating, I told them we will need refreshed income documents and updated statements for checking a_00126 ({{ACCOUNT_NUMBER:a_00126}}). Mentioned that pricing may move depending on the re-underwrite. Client was receptive and will send documents this week. I will brief the underwriting team and loop in Credit Risk before issuing any term sheet. Contact: {{CLIENT_PHONE:c_0059}}."
+  },
+  {
+   "client_id": "c_0182",
+   "text": "Call with {{CLIENT_NAME:c_0182}} on 2026-08-24 regarding financing for a business expansion, roughly $250K for equipment and inventory. Client banks with us through checking a_00377 ({{ACCOUNT_NUMBER:a_00377}}) only, so there is no existing credit history here beyond the deposit relationship. I ran through the standard application checklist: two years of returns, a business plan, and a debt schedule. Medium risk. I will build a preliminary credit memo once documents arrive at {{CLIENT_EMAIL:c_0182}}. Flagged to the Relationship Manager team that this could become a larger lending relationship."
+  },
+  {
+   "client_id": "c_0110",
+   "text": "Meeting with {{CLIENT_NAME:c_0110}} on 2026-08-19. Business has excess cash building in operating account a_00234 ({{ACCOUNT_NUMBER:a_00234}}) and the owner asked about alternative investments such as private credit and real assets. I explained that this goes through Wealth Management and that suitability and accreditation checks apply. We also noted the loan a_00235 ({{ACCOUNT_NUMBER:a_00235}}) has no prepayment concerns. Low risk, strong cash position. Will introduce the owner to a Wealth advisor and send options to {{CLIENT_EMAIL:c_0110}}. No recommendations made yet."
+  },
+  {
+   "client_id": "c_0109",
+   "text": "Check-in with {{CLIENT_NAME:c_0109}} on 2026-09-09 about estate planning for the business owner. The conversation covered succession of the company, and how the loan a_00233 ({{ACCOUNT_NUMBER:a_00233}}) would be handled if ownership transferred. Operating account a_00232 ({{ACCOUNT_NUMBER:a_00232}}) is in good order. I recommended they work with their attorney on buy-sell provisions and offered a referral to our Wealth team for trust planning. Medium risk. Follow-up scheduled for early Q4; I will send notes to {{CLIENT_EMAIL:c_0109}} and note any change-of-control covenants for the credit file."
+  },
+  {
+   "client_id": "c_0247",
+   "text": "{{CLIENT_NAME:c_0247}} contacted us on 2026-07-20 to update their mailing address to {{CLIENT_ADDRESS:c_0247}}. Applies to brokerage a_00507 ({{ACCOUNT_NUMBER:a_00507}}) and cash management a_00508 ({{ACCOUNT_NUMBER:a_00508}}). Verified identity by callback to {{CLIENT_PHONE:c_0247}} and asked for a signed change form plus proof of address, which KYC will review before we update ClientHub. Told client statements will go to the old address until the change is processed. Low risk, no other requests. Confirmation sent to {{CLIENT_EMAIL:c_0247}}."
+  }
+ ]
+}

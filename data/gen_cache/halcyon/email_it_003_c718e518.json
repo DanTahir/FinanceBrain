@@ -1,0 +1,73 @@
+{
+ "emails": [
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_077",
+    "e_078",
+    "e_073"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Q3 DR test planning: MarketDataFeed and PositionStore failover",
+   "body": "Hi all,\n\nI'd like to lock in scope for the Q3 disaster recovery exercise. Proposed window is the weekend of September 12, with a hard stop at 14:00 Sunday so Operations has margin before the Monday open.\n\nProposed scope: (1) full failover of MarketDataFeed to the secondary site, including vendor connection re-establishment, and (2) PositionStore restore from last night's snapshot into the DR environment, with row-count and checksum validation. Because PricingSvc, RiskEngine and PortfolioMgr all sit downstream of these two, we should also confirm they come up cleanly against the DR instances.\n\nOmar and Barbara, please draft the runbook and a rollback plan by July 24. Priya, can you take the PositionStore validation scripts? Last year's restore took about 3.5 hours and I'd like to see that under 2.\n\nRavi is copied since Operations needs to sign off on the settlement-adjacent checks. Please reply with blockers or conflicts by Friday.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_080",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_077",
+    "e_081"
+   ],
+   "subject": "July cloud cost review: DataLake spend up 18%",
+   "body": "Hi Sam,\n\nI went through the July cloud bill ahead of today's review. Total spend came in around $212K, roughly 18% above June, and most of the increase is DataLake.\n\nThree drivers: (1) the nightly compaction jobs are running on on-demand instances rather than reserved capacity, (2) we're retaining raw MarketDataFeed tick captures for 90 days when downstream consumers only read the last 30, and (3) a handful of orphaned test clusters from the June backfill were never torn down.\n\nMy proposal: move compaction to reserved/spot, move tick data older than 30 days to cold storage, and delete the orphaned clusters. I estimate this saves about $26K a month. Cold storage retrieval will be slower, so I want to confirm with Risk that no regulatory report needs the older ticks on short notice.\n\nOmar and Angelica, copying you for the instance sizing and tagging pieces. Happy to walk through the breakdown whenever suits.\n\nBest,\nMichael",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_079",
+    "e_078"
+   ],
+   "subject": "Vulnerability scan results: August 18 external and internal",
+   "body": "Hi Sam, Marcus,\n\nThe monthly authenticated scan finished overnight. Summary: 0 critical, 7 high, 31 medium across about 420 hosts. Compared with July, highs are down from 12.\n\nOf the seven highs, four are an outdated TLS library on internal batch hosts, two are an unpatched Java runtime on reporting servers, and one is a misconfigured admin interface on a legacy host that supports the end-of-day reconciliation batch. Nothing is internet-facing. The legacy item is the awkward one because the Oracle 11g stack limits what we can upgrade, so I recommend network isolation plus tighter ACLs as a compensating control.\n\nVincent has volunteered to handle the Java patches this week. Barbara and I will take the TLS updates and aim to close everything by September 1, inside our 14-day high-severity SLA exception window.\n\nMarcus, I'll send the full report and remediation tracker for your audit file. Let me know if you want a walkthrough.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_079",
+   "to_ids": [
+    "e_072",
+    "e_074",
+    "e_075",
+    "e_076"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Access recertification: please attest by September 11",
+   "body": "Hi team,\n\nThe quarterly access recertification for Technology opened this morning. Each of you has a list of entitlements to review in the access governance tool, covering production databases, the AuthSSO admin console, DocVault admin roles, and CI/CD deploy rights.\n\nPlease attest to each item as keep or revoke. In particular, flag anything left over from past projects or team moves, standing production write access that should be break-glass only, and shared service accounts without a named owner. Last quarter we found 11 stale entitlements, and Compliance would like that number lower.\n\nSam, as Director you also need to approve the privileged-access list for the team. Marcus is copied since Compliance will use the results for the audit file.\n\nDeadline is Friday, September 11. Anything unattested after that will be revoked automatically, which is a pain to restore, so please don't leave it to the last day. Ping me if the tool shows something you don't recognize.\n\nThanks,\nVincent",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_081",
+   "to_ids": [
+    "e_072",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_073"
+   ],
+   "subject": "Laptop refresh: schedule and Priya's departure on Oct 9",
+   "body": "Hi Sam, Ravi,\n\nThe laptop refresh for Technology and Operations kicks off today. The first batch of 24 devices arrived, and I'm scheduling swaps in two-hour slots through October 23. Each swap covers data migration, disk encryption, endpoint agent enrollment and an AuthSSO login check.\n\nTwo notes. First, Priya leaves on October 9, so I won't issue her a new machine. I'll collect her current laptop on her last day and wipe it per the offboarding checklist after confirming all repos and local work are pushed. Priya, please let me know if anything lives only on your machine.\n\nSecond, Ravi, the Wire Room and Settlements machines have specialized console software, so I'd like to do those swaps outside the end-of-day settlement window. Could you suggest a slot that works for your team, say after 17:30?\n\nOnce the schedule is final I'll send individual calendar invites.\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  }
+ ]
+}

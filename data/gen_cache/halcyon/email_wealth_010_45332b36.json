@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_018",
+    "e_021",
+    "e_023",
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_063",
+    "e_072"
+   ],
+   "subject": "Custody platform migration - wealth team timeline and client comms",
+   "body": "Hi all,\n\nFollowing last week's steering call with Ravi and Sam, here is where we landed on the custody platform migration for Wealth Management. Account data will move in three waves, with the first wave of cash management accounts scheduled for the weekend of 2026-08-22. Brokerage accounts follow in September, and the final wave is the model portfolio accounts that sit in PortfolioMgr.\n\nWhat I need from each of you by Friday 2026-08-07: a list of your clients with open corporate actions, pending ACATS transfers or standing wire instructions, since those need special handling during cutover. Please flag anyone who is sensitive about downtime, e.g. clients like {{CLIENT_NAME:c_0005}} who rely on the cash management sweep for monthly bill pay.\n\nWe will not send external notices until Compliance has signed off on the language. Please hold any client conversations about the move until the draft letter is final.\n\nThanks,\nGrace",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_018",
+    "e_063"
+   ],
+   "subject": "Re: Custody platform migration - wealth team timeline and client comms",
+   "body": "Hi Grace,\n\nThanks for the timeline. I have gone through my book and have a first pass on the exceptions list. Two items need your input before the 2026-08-07 deadline.\n\nFirst, {{CLIENT_NAME:c_0005}} has a recurring wire template tied to {{ACCOUNT_NUMBER:a_00010}} that I would like Ravi's team to confirm will carry over to the new custody platform. If templates need to be re-keyed, we should schedule that outside month-end.\n\nSecond, I have three clients with pending transfers that may straddle the first wave. Should we ask the receiving firms to pause until after cutover, or let them run and reconcile afterward?\n\nHappy to take a first stab at a client FAQ if that helps Compliance with the draft letter.\n\nBest,\nLinda",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_017",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_018"
+   ],
+   "subject": "Fee schedule exceptions - Q3 review list",
+   "body": "Hi Grace and Marcus,\n\nAhead of the quarterly fee review, I have compiled the exceptions on my portfolio management accounts that sit below the standard tier. Most are legacy arrangements from before the 2022 fee schedule refresh.\n\nThe one I want to highlight is {{CLIENT_NAME:c_0179}}, whose brokerage account {{ACCOUNT_NUMBER:a_00370}} is billed at a 15 bps discount to the published schedule. The original approval was verbal, and I can only find a short note in ClientHub. Given the household has grown its assets with us since 2021, I think the discount is defensible, but we need a written approval on file.\n\nMarcus, can you confirm what documentation Compliance expects for discretionary fee waivers? Grace, I would like your sign-off to formalize this one by 2026-09-30 so it is clean before the audit sampling begins.\n\nI can send the full exceptions spreadsheet separately.\n\nThanks,\nTricia",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_022",
+   "to_ids": [
+    "e_021",
+    "e_024"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Prep for next week's client review meetings",
+   "body": "Hi Jamie and Jonathan,\n\nHere is the prep pack status for the client review meetings next week. Performance reports for all of your scheduled households are pulled from PortfolioMgr as of the 2026-09-24 close, and the allocation drift summaries are attached to each client folder.\n\nA few things to note. For {{CLIENT_NAME:c_0005}}, the review is set for Tuesday and the cash management balance in {{ACCOUNT_NUMBER:a_00010}} is above the target range, so you may want to talk about deploying some of it. Please confirm which of you is leading that meeting so I can finalize the agenda.\n\nI still need your talking points on the fee summary page by end of day Monday. Grace asked that all decks go through one last formatting check before they go to clients.\n\nLet me know if you want any extra market commentary pages added.\n\nThanks,\nSandra",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_027",
+   "to_ids": [
+    "e_017",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_020"
+   ],
+   "subject": "Estate planning referral - introduction request",
+   "body": "Hi Grace and Elena,\n\nI wanted to raise an estate planning referral that came out of a recent review. {{CLIENT_NAME:c_0005}} has mentioned wanting to update the family trust structure and review beneficiary designations across {{ACCOUNT_NUMBER:a_00009}} and {{ACCOUNT_NUMBER:a_00010}}. The client has indicated that a business interest may be sold in the next few years, which is why I am copying Elena in case M&A Advisory has a relevant contact.\n\nOur approved estate attorney list has two outside firms. I plan to introduce the client to one of them and stay involved on the investment side. Before I do, can you confirm the referral process hasn't changed, and that no referral fee arrangement needs to be disclosed beyond what is in our standard policy?\n\nI would like to make the introduction by 2026-10-09.\n\nThanks,\nKelly",
+   "reply_to_previous": false
+  }
+ ]
+}

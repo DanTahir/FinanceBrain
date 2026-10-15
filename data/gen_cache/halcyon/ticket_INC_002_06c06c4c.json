@@ -1,0 +1,110 @@
+{
+ "tickets": [
+  {
+   "title": "ACH origination file rejected by bank on formatting error",
+   "description": "The morning ACH origination file from PaymentsGateway was rejected by the originating bank at 9:42 AM with a batch header error. About 140 payroll-related credits did not go out ahead of the same-day window. The file was generated after last night's GLCore posting completed, and the only change in the past week was a library upgrade on the file builder. Payments Specialists are holding the queue and have not resubmitted. We need the root cause found and a corrected file produced before the afternoon cutoff. Impact is delayed credits to downstream beneficiaries if we miss the second window.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_074",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_074",
+     "text": "Found it. The upgraded file builder is emitting the company entry description field with trailing whitespace, which makes the batch header record 95 characters instead of 94. Patching the padding and regenerating the file now."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Corrected file accepted by the bank at 1:15 PM, in time for the second window. All credits confirmed settled. Thanks Leo."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Closing. Follow-up: add a record-length validation step to the pre-submission checks so this gets caught before it reaches the bank."
+    }
+   ]
+  },
+  {
+   "title": "ReconLegacy end-of-day batch running three hours late",
+   "description": "The ReconLegacy end-of-day reconciliation batch, a Perl job on Oracle 11g, did not finish until 4:50 AM instead of its usual 1:45 AM completion. Reconciliation Analysts could not start break review until well after the start of the business day, and the #recon channel showed a large backlog of unmatched settlement items. The job waits on the SettlementEngine and GLCore extracts, and both were delivered on time. Logs show the Oracle tablespace cleanup stalling for a long time during the matching step. Please investigate the slowdown and confirm whether tonight's run is at risk.",
+   "reporter_id": "e_064",
+   "assignee_id": "e_077",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "The temp tablespace on the Oracle 11g host was nearly full, causing heavy disk sorts during the matching step. I reclaimed space and gathered fresh optimizer statistics on the recon tables."
+    },
+    {
+     "author_id": "e_064",
+     "text": "Tonight's run finished at 1:52 AM and breaks were ready by 7 AM. Looks normal again."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Good. Let's put a disk space alert on that tablespace at 80 percent and raise the long-term replacement plan for ReconLegacy at the next planning review."
+    }
+   ]
+  },
+  {
+   "title": "Wire payment file rejected by PaymentsGateway validation",
+   "description": "A batch of 23 outgoing wires staged in the WireRoom console was rejected by PaymentsGateway with a schema validation error on the beneficiary block. The wires were entered by the Wire Room team this afternoon and include {{CLIENT_NAME:c_0042}}-related transfers flagged as time-sensitive. The error message references an unexpected null in the intermediary bank field. The same templates worked yesterday. The wires have not been released, and the Wire Room is manually checking each one against the instruction forms while engineering reviews the validation change that shipped this morning.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_076",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_076",
+     "text": "This morning's release made the intermediary bank field strictly required in the schema even when no intermediary is used. That was an unintended regression. Rolling back the validation change now."
+    },
+    {
+     "author_id": "e_067",
+     "text": "Rollback confirmed. Resubmitted all 23 wires and they passed validation. Released before the cutoff."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Closing. Adding a contract test for optional fields to the release pipeline so the schema can't tighten without a flag."
+    }
+   ]
+  },
+  {
+   "title": "ReconLegacy batch delayed after Oracle archive log space issue",
+   "description": "The ReconLegacy end-of-day batch stalled at 12:20 AM and did not resume until 5:30 AM. The Oracle 11g instance hit its archive log destination limit, which paused all writes until the DBA-on-call cleared space. SettlementEngine and GLCore extracts were already loaded, so the delay is entirely in the reconciliation step. Settlements Specialists and Reconciliation Analysts lost most of the early morning for break review, and two aged breaks from last week are still unresolved. This is the second batch delay in five weeks, so we need a durable fix and not just another cleanup.",
+   "reporter_id": "e_071",
+   "assignee_id": "e_077",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Cleared the archive logs and confirmed the batch finished. Backup retention was not purging archive logs after last week's schedule change. I am fixing the RMAN job and adding a space alert."
+    },
+    {
+     "author_id": "e_064",
+     "text": "Today's output looks complete. I am working through the two aged breaks and will note any that were caused by the delay."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Given this is the second incident, Priya please scope options for moving the matching step off Oracle 11g. Not for this ticket, but I want it on the roadmap."
+    }
+   ]
+  },
+  {
+   "title": "Users intermittently failing SSO login across internal apps",
+   "description": "Starting around 8:15 AM, several users report intermittent login failures through AuthSSO, with a token validation timeout error. Affected downstream applications include OMS, ClientHub, and DocVault, since all of them depend on AuthSSO. Roughly one in four sign-in attempts fails and succeeds on retry. Operations staff in the Wire Room and Settlements teams are also seeing session drops. There are no recent identity provider releases, but monitoring shows elevated latency on one of the directory lookup nodes. Please treat as high priority since the trading desk and onboarding teams are affected.",
+   "reporter_id": "e_063",
+   "assignee_id": "e_078",
+   "status": "open",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Confirmed. One of the three directory replicas is responding slowly and the load balancer is still sending it traffic. I have pulled it out of rotation and failure rate is dropping."
+    },
+    {
+     "author_id": "e_079",
+     "text": "Checking the slow replica now. Replication lag looks high, and I suspect a stuck index rebuild. Keeping the ticket open until it is repaired and back in rotation."
+    }
+   ]
+  }
+ ]
+}

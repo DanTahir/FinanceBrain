@@ -1,0 +1,73 @@
+{
+ "emails": [
+  {
+   "from_id": "e_033",
+   "to_ids": [
+    "e_029",
+    "e_037"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Covenant breach flag - DSCR test on commercial term loan",
+   "body": "Hi Brian, Tammy,\n\nDuring this morning's quarterly covenant review I found that the borrower on the commercial term loan tied to {{CLIENT_NAME:c_0217}}'s guarantor relationship came in at a 1.08x DSCR on the trailing twelve months, against a 1.20x minimum in the credit agreement. The compliance certificate arrived Friday and the numbers reconcile to the financials we hold in DocVault.\n\nThe main driver is a $1.4M increase in operating lease expense plus a softer Q2. The leverage covenant is still inside the 3.5x limit, so this is a single-test breach for now.\n\nI have not contacted the borrower. Can we agree on next steps before anyone reaches out? Options are a reservation of rights letter, a waiver request with a fee, or a short cure period. I have copied Owen so Risk can look at the rating impact.\n\nI can have the covenant calc and a draft memo ready by Wednesday.\n\nThanks,\nJasmine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_035",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_030",
+    "e_031",
+    "e_038"
+   ],
+   "subject": "Weekly loan pipeline report - week ending 7/16",
+   "body": "Hi Brian,\n\nHere is the pipeline snapshot out of LoanOrigination as of this morning.\n\nTotal active pipeline: 47 files, about $186M in requested commitments.\n- In application / document collection: 19 files, $62M\n- In underwriting: 15 files, $71M\n- Approved, pending closing: 9 files, $38M\n- Stalled over 30 days: 4 files, $15M\n\nHighlights: three CRE refinancings are expected to close by July 31. Two files, both owner-occupied properties, are waiting on appraisals, and I will flag that separately if the delays continue. One approved deal still has an open KYC item in KYCPipeline, which Brandon is chasing with the client.\n\nCompared with last week, pipeline is up $9M but conversion from underwriting to approved slowed. I would like to spend ten minutes on the stalled files at Monday's huddle.\n\nFull spreadsheet is attached to the pipeline folder; let me know if you want a different cut by relationship manager.\n\nBest,\nHeidi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_037",
+   "to_ids": [
+    "e_029",
+    "e_033"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_047"
+   ],
+   "subject": "Update: second covenant breach, interest coverage, same borrower group",
+   "body": "Brian, Jasmine,\n\nFollowing up on the DSCR issue from two weeks ago. The borrower's quarter-end package landed yesterday and shows the interest coverage covenant is now also tripped, at 1.9x against a 2.25x floor. So we have two financial covenant defaults, not one.\n\nThe borrower's CFO has asked for a call and is proposing a waiver through year end in exchange for a 25 bps amendment fee and monthly reporting. My view is we should not agree without tightening reporting, adding a cash dominion trigger, and getting a refreshed collateral valuation.\n\nOwen, this likely means a downgrade to watch list. Marcus, copying you in case the amendment triggers any regulatory reporting steps on our side.\n\nProposed plan: reservation of rights letter goes out Friday, internal call Monday to settle our counter, and the item goes onto the next credit committee agenda.\n\nTammy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_034",
+   "to_ids": [
+    "e_029",
+    "e_038"
+   ],
+   "cc_ids": [
+    "e_035"
+   ],
+   "subject": "Appraisal delays holding up three closings",
+   "body": "Hi Brian, Cassandra,\n\nI want to raise a growing problem with third-party appraisals. Three files targeted to close in the next two weeks are still missing final reports, and the appraisal management company is now quoting 4 to 5 weeks, up from about 3 weeks in June.\n\nAffected files:\n- A multifamily refinance, $12.5M, report promised Aug 11\n- An owner-occupied retail purchase, $4.2M, inspection not yet scheduled\n- A construction-to-perm conversion, $7.8M, waiting on the as-completed value\n\nRate locks on two of these expire before the reports are likely to arrive, so we may need extensions. I suggest we escalate to the AMC's account lead and ask the borrowers whether an alternate appraiser from our approved panel is acceptable. For {{CLIENT_NAME:c_0014}}'s file, I will also confirm the engagement letter is signed so nothing else slows it down.\n\nCan we discuss at tomorrow's check-in?\n\nThanks,\nBrandon",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_036",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Credit committee agenda - Tuesday 9/22 (items due Thursday)",
+   "body": "Team,\n\nHere is the draft agenda for next Tuesday's credit committee. Please send me your memos by end of day Thursday so I can circulate the pack on Friday.\n\n1. Watch list review: the commercial borrower with the DSCR and interest coverage breaches. Tammy to present the amendment terms and collateral refresh.\n2. New approvals over $10M: two CRE refinancings and one construction facility. Joshua to present underwriting.\n3. Concentration update: CRE exposure is at 31% of the book against a 35% internal limit. Brandi to prepare the chart; Owen, please add Risk's view.\n4. Appraisal turnaround: summary of the AMC delays and proposed panel changes.\n5. Policy: proposed change to the covenant waiver approval matrix.\n\nMarcus, I have copied you since item 5 touches compliance sign-off requirements. If anyone wants an item added, tell me by Wednesday.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  }
+ ]
+}

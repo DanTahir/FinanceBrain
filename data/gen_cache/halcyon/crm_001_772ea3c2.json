@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0229",
+   "text": "2026-09-01: {{CLIENT_NAME:c_0229}} called to request a change of mailing address to {{CLIENT_ADDRESS:c_0229}}, effective immediately. Because the profile is rated high risk, I did not process it on the call. I verified identity through callback to the number on file, {{CLIENT_PHONE:c_0229}}, and asked for a recent utility bill or lease as supporting proof. Update applies to checking {{ACCOUNT_NUMBER:a_00470}} and loan {{ACCOUNT_NUMBER:a_00471}}. Client mentioned loan statements should go to the new address. Next step: send the secure upload link to {{CLIENT_EMAIL:c_0229}}, route to KYC for review once documents arrive, and flag the change on the loan file."
+  },
+  {
+   "client_id": "c_0087",
+   "text": "2026-07-10: Spoke with {{CLIENT_NAME:c_0087}} about a referral from one of our existing commercial clients, a supplier of theirs looking for a working capital line. Our client was happy with how the operating account {{ACCOUNT_NUMBER:a_00186}} has run since 2023 and offered to make the introduction. I explained we need the referred company to go through standard KYC and credit review, and that the referral gives no pricing preference. Will follow up by email at {{CLIENT_EMAIL:c_0087}} with a thank-you and our intake checklist. Calendar a call with the referred company next week once they reach out."
+  },
+  {
+   "client_id": "c_0136",
+   "text": "2026-08-11: Check-in with {{CLIENT_NAME:c_0136}}, onboarded in April. They have been building surplus cash in operating account {{ACCOUNT_NUMBER:a_00286}} and asked about alternative investments, specifically private credit and real asset funds. I explained that I sit on the lending side and that any investment discussion has to go through Wealth Management; also noted that these products carry suitability and accredited investor requirements. Client is comfortable with that. Next step: warm introduction to Grace Lin's team, and I will send a summary to {{CLIENT_EMAIL:c_0136}}. Low risk profile, no concerns on the credit side."
+  },
+  {
+   "client_id": "c_0001",
+   "text": "2026-07-21: {{CLIENT_NAME:c_0001}} reached out to update the phone number on file. New number is {{CLIENT_PHONE:c_0001}}, replacing the previous one across the relationship. I confirmed identity with security questions and a verification code to the email on file, {{CLIENT_EMAIL:c_0001}}. Update applied to the profile covering brokerage {{ACCOUNT_NUMBER:a_00001}} and cash management {{ACCOUNT_NUMBER:a_00002}}, including the two-factor contact for trade confirmations. Client also asked whether the mailing address, {{CLIENT_ADDRESS:c_0001}}, is still correct; confirmed no change. Confirmation sent by email. No other follow-up needed."
+  },
+  {
+   "client_id": "c_0274",
+   "text": "2026-08-13: {{CLIENT_NAME:c_0274}} called to report the debit card tied to cash management {{ACCOUNT_NUMBER:a_00563}} was misplaced. I blocked the card and ordered a replacement to {{CLIENT_ADDRESS:c_0274}}, expected within 5 to 7 business days. Client is traveling abroad in early September, so I added a travel notice for the trip dates and told them to use the expedited option if the card hasn't arrived by the end of the month. Brokerage {{ACCOUNT_NUMBER:a_00562}} unaffected. Confirmation sent to {{CLIENT_EMAIL:c_0274}}. I will check delivery status in a week."
+  },
+  {
+   "client_id": "c_0108",
+   "text": "2026-10-13: Call with {{CLIENT_NAME:c_0108}}, who plans to refer a business partner interested in an equipment loan. The client has been with us since 2024 and is pleased with both the operating account {{ACCOUNT_NUMBER:a_00229}} and the loan {{ACCOUNT_NUMBER:a_00230}}. I thanked them and explained the referred party will go through normal underwriting and KYC. I asked that the contact reach out directly or that the client share their details with consent. Sending a follow-up to {{CLIENT_EMAIL:c_0108}} with our commercial lending overview. Will log the referral in the pipeline once the prospect makes contact. Low risk, relationship in good standing."
+  },
+  {
+   "client_id": "c_0241",
+   "text": "2026-10-13: {{CLIENT_NAME:c_0241}} asked about required minimum distribution planning for the year. I explained that RMD calculations and retirement account guidance sit with our Wealth Management team, and that my role covers the checking {{ACCOUNT_NUMBER:a_00491}} and loan {{ACCOUNT_NUMBER:a_00492}} only. Client wants to understand how distributions may affect cash flow and loan repayment capacity. I recommended they speak with a wealth advisor and offered to arrange the introduction. I will send a note to {{CLIENT_EMAIL:c_0241}} summarizing next steps and set a reminder to confirm the referral happened before year end."
+  },
+  {
+   "client_id": "c_0165",
+   "text": "2026-07-24: Spoke with {{CLIENT_NAME:c_0165}} regarding required minimum distribution planning for the owner's retirement accounts held elsewhere. They want to plan cash needs in operating account {{ACCOUNT_NUMBER:a_00342}} so that distributions and tax payments don't strain working capital. I explained I can't give tax or retirement advice, but can review liquidity and any credit line needs. Recommended they coordinate with their tax advisor and offered an introduction to our Wealth team. Follow-up email to {{CLIENT_EMAIL:c_0165}} to follow. Low risk, no changes to the credit profile."
+  },
+  {
+   "client_id": "c_0208",
+   "text": "2026-07-03: Call with {{CLIENT_NAME:c_0208}} about required minimum distribution planning. The principal turns 73 soon and wants to understand how annual distributions will affect cash flow for the business. We reviewed activity in operating account {{ACCOUNT_NUMBER:a_00434}} and the payment schedule on loan {{ACCOUNT_NUMBER:a_00435}}. I flagged that RMD and tax questions belong with their advisor and our Wealth Management group, and offered to set up an introduction. No change to the credit structure at this time. Will send a recap to {{CLIENT_EMAIL:c_0208}} and revisit at the next annual review. Risk rating remains medium."
+  },
+  {
+   "client_id": "c_0166",
+   "text": "2026-09-02: {{CLIENT_NAME:c_0166}} told me a friend and fellow investor is interested in our portfolio management services and would like an introduction. Client has held brokerage {{ACCOUNT_NUMBER:a_00343}} and cash management {{ACCOUNT_NUMBER:a_00344}} with us since 2021 and is happy with performance and communication. I thanked them, explained that the prospect would need an initial discovery meeting and standard onboarding checks, and asked the client to have the friend contact us directly. Will follow up at {{CLIENT_EMAIL:c_0166}} with a thank-you and log the referral in ClientHub for tracking."
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Need an underwriting exception look on {{CLIENT_NAME:c_0008}}'s auto refi. DTI comes in at 47% against our 45% policy cap. Strong payment history on a_00015 though. Rita, can you eyeball it?"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Pulling it up in LoanDesk now. What's driving the DTI, the new revolving balance or the income calc?"
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 10,
+   "reply_to": 1,
+   "text": "Mostly a card balance that jumped about $3,200 on the latest pull. The client says it's a one-time medical-free home repair and is paying it down this month."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Rita, I ran the cash flow on c_0008. Excluding that card paydown, DTI drops to roughly 43.5%. Residual income is solid. Happy to attach my worksheet to the exception request."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 22,
+   "reply_to": 3,
+   "text": "Thanks Richard, please do. I'd want a payoff letter or a statement showing the paydown before I sign off. Compensating factors: 6 years of on-time history, LTV at 78%, and stable employment verified."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Heads up, exceptions over 2 points on DTI need my signoff per policy. Martin, document it in the exception log with the compensating factors. I'm fine in principle if the paydown is verified."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 41,
+   "reply_to": 5,
+   "text": "Will do, Kara. I'll ask {{CLIENT_NAME:c_0008}} to send the statement through the secure upload, not email. Should have it by tomorrow morning."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Separate question: Kara, is {{CLIENT_NAME:c_0019}} on your list for an exception too? I saw a note on a_00041 about a payment-to-income override."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 65,
+   "reply_to": 7,
+   "text": "Different situation, Kathleen. c_0019 is low risk and the loan is already booked, so no new exception. That note was just a documentation update. I'll close it out."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 120,
+   "reply_to": 0,
+   "text": "Martin, once the statement is in I'll approve with conditions: paydown verified, card balance under $1,000 at funding, and the 2-point DTI exception logged. Fair?"
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 127,
+   "reply_to": 9,
+   "text": "Fair. I'll relay the conditions to the client today and update the pipeline status to pending conditions."
+  }
+ ]
+}

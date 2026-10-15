@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_017",
+    "e_018"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "Exam document request - first-round items due 7/31",
+   "body": "Hi Monica and Chris,\n\nThe examiner's first-round document request landed this morning. The items touching our team are the BSA/AML risk assessment, the last two quarters of BSAWatch alert and SAR decision logs, the 2026 training plan, and the independent testing report. Please pull what you own into the shared exam folder by Friday 7/31 so I have time to review before it goes out.\n\nMonica, you have the alert logs and the risk assessment. Chris, please take the SAR decision memos and the case file index. Keep client identifiers masked in anything that goes in the folder; where a sample needs a reference, use the internal client id only.\n\nAndre, I'm copying you because we'll need a BSAWatch configuration export and the user access listing. Since BSAWatch depends on CoreBanking and ACHHub feeds, please also include the data feed validation notes if you have them.\n\nLet me know by Wednesday if anything looks like it will slip.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_003",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Reg E dispute timelines - reminder on 10/45 day clocks",
+   "body": "Hi Paul and Rita,\n\nQuick reminder ahead of next week's file review. For Reg E error claims, we have 10 business days to complete the investigation, or we must provisionally credit the member and extend to 45 calendar days. The clock starts when the member first notifies us, whether by phone, in branch, or through secure message, not when the paper form arrives.\n\nIn my last sample I found two claims where the intake date in the case notes was the form date rather than the call date. One example was an account like {{ACCOUNT_NUMBER:a_00154}} where the card transaction dispute sat untouched for three days after the call. Please make sure the floor logs the first-contact date at intake.\n\nRita, I'd also like to confirm that CardProcessor reversals post the same day as the provisional credit so the member's balance matches our notices.\n\nMonica will pull a full list of open claims with day counts on Monday.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_016",
+    "e_003",
+    "e_023"
+   ],
+   "cc_ids": [],
+   "subject": "Open Reg E claims - day-count report",
+   "body": "Hi all,\n\nAs promised, here is the day-count summary on open Reg E claims as of this morning. There are 14 open claims. Nine are inside the 10 business day window, four have been provisionally credited and are running on the 45-day clock, and one is flagged because the provisional credit went out on day 11.\n\nThe late credit is the claim tied to {{CLIENT_NAME:c_0071}}. Intake was logged on the date the form was scanned, but the member first called three days earlier, so the clock should have started then. I've noted this in the exception log and corrected the start date in the case record. The member has the credit now, and I don't see any fee or interest impact on {{ACCOUNT_NUMBER:a_00154}}.\n\nPaul, can you remind the floor to enter the first-contact date? Rita, please confirm the credit posting time with the card team.\n\nFull spreadsheet is in the compliance shared folder.\n\nMonica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_018",
+   "to_ids": [
+    "e_016",
+    "e_017",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "BSA refresher training - schedule and required attendees",
+   "body": "Hi everyone,\n\nThe annual BSA/AML refresher is set for Thursday 9/10 at 10:00 in the main conference room, with a recorded session for anyone on the teller line who can't leave the floor. The agenda covers structuring red flags, unusual ACH activity, SAR confidentiality, and what to escalate to us versus handle at the branch.\n\nI'll include two short case studies drawn from recent BSAWatch alerts with identifying details removed. Wesley, please confirm whether you want to open with the exam readiness update.\n\nPaul and Kara, I need attendee lists from Member Services and Lending by Friday 8/28 so I can track completion. Anyone who misses both sessions will need to take the online module by 9/25. Completion records go in the exam folder.\n\nMonica, can you pull the latest alert statistics for the slides?\n\nThanks,\nChris",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_003",
+    "e_023",
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "Reg E dispute timelines - results of follow-up file review",
+   "body": "Hi team,\n\nI finished the follow-up review of Reg E claims opened since the 8/21 reminder. Of 22 claims sampled, 21 had the first-contact date recorded correctly and met the 10 business day or provisional credit requirement. That's a real improvement from the earlier sample.\n\nOne claim for {{CLIENT_NAME:c_0071}} still used the form date, though it was caught by Monica's report before any deadline was missed. I'd like to add a required first-contact date field to the intake checklist so it can't be skipped.\n\nPaul, please take that to your reps and have the revised checklist in use by 9/14. Rita, please confirm the card reversal timing is now consistent. Gloria, this is for awareness; I'll include the results in the next compliance committee report.\n\nThank you all for the quick turnaround.\n\nWesley",
+   "reply_to_previous": false
+  }
+ ]
+}

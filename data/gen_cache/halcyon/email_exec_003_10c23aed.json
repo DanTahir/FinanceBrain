@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_002",
+    "e_003",
+    "e_005",
+    "e_017",
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "All-hands agenda draft for Thursday - please send your items by EOD",
+   "body": "Hi all,\n\nCatherine has asked me to pull together the agenda for the August all-hands. Here is the current draft:\n\n1. Welcome and firm update (Catherine, 10 min)\n2. Q2 results and H2 outlook (Martin, 15 min)\n3. Operating priorities and the systems resilience roadmap (Linda, 15 min)\n4. Business line spotlights: Trading, Wealth, Lending (5 min each)\n5. Open Q&A (15 min)\n\nDaniel, Grace and Brian, please send me two or three bullets and any slides you want shown by end of day Wednesday so I can consolidate into one deck. Martin and Linda, please confirm your time slots work. If the Q&A runs long we can trim the spotlights.\n\nThe session will be hybrid, and I will circulate the dial-in details separately once the room is confirmed.\n\nThanks,\nWendy Dyer\nExecutive Assistant, Executive Office",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_001",
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_004",
+    "e_017",
+    "e_029"
+   ],
+   "subject": "Client experience survey results - headline findings and proposed actions",
+   "body": "Catherine, Martin,\n\nThe Q2 client experience survey results are in. Headlines:\n\n- Overall satisfaction improved to 8.1 out of 10, up from 7.8 last year.\n- Onboarding remains our weakest area, with respondents citing turnaround time and repeated document requests.\n- Wealth clients rated advisor responsiveness highly, though reporting clarity scored lower than we would like.\n- Lending clients want faster status visibility during underwriting.\n\nProposed actions: set a target to cut average onboarding time by 20% by year end, work with Grace on a refreshed quarterly statement format, and ask Brian to introduce milestone notifications in the loan pipeline. I would like to review owners and timelines at next week's executive meeting.\n\nGrace and Brian, copying you so you can see the detail before we meet. The full deck is attached to the calendar invite. Wendy, please add this as an agenda item.\n\nBest,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003",
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Q3 board deck preparation - timeline and section owners",
+   "body": "Hi team,\n\nThe Q3 board meeting is three weeks out, so here is the proposed preparation timeline for the deck.\n\n- Sept 16: section drafts due to me\n- Sept 21: first consolidated draft to Catherine\n- Sept 25: comments back, then final numbers lock\n- Sept 29: pre-read goes to the board\n\nSection owners: financial results and outlook (me), operations and technology update (Linda), strategy and client franchise (Catherine), risk dashboard and limits review (Owen).\n\nOwen, I would like the VaR trend and the concentration exposure summary to tie to the figures we use in the financial section, so let's align on definitions before drafts are due. Wendy, please hold 90 minutes on Sept 22 for a dry run.\n\nLet me know if any of these dates are a problem.\n\nThanks,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "2027 headcount plan - first pass and open questions",
+   "body": "Catherine, Linda,\n\nI have a first pass of the 2027 headcount plan ready for discussion. At a high level, the base case assumes net growth of about 6% in total headcount, weighted toward Compliance, Risk and Technology, with Trading and Lending close to flat. Backfills for expected attrition are modeled separately from new roles.\n\nOpen questions I would like your views on:\n\n1. Do we fund the additional compliance engineering roles in the first half or phase them across the year?\n2. How should we budget for knowledge transfer ahead of known senior departures in Technology?\n3. Are we comfortable with the contractor-to-employee conversion assumptions?\n\nI would like to review with department heads in early October before we lock the budget envelope. Can we find 45 minutes next week to go through the model?\n\nThanks,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_001",
+    "e_004",
+    "e_072"
+   ],
+   "subject": "Re: 2027 headcount plan - first pass and open questions",
+   "body": "Martin,\n\nThanks for the first pass. My thoughts on your questions:\n\n1. I would phase the compliance engineering hires, with one role in Q1 and a second in Q3 once the KYCPipeline ownership move to Compliance has settled and we see the real workload.\n2. For Technology, I would add a short overlap budget. Priya leaves on Oct 9, so we are already living with the gap and should plan a successor early in 2027 with a proper handover window. I have copied Sam so he can size that.\n3. The conversion assumptions look reasonable to me.\n\nSam, please send Martin your view on Staff Engineer coverage and any SRE needs by next Wednesday.\n\nWendy, can we put 45 minutes on the calendar for Martin's model review?\n\nThanks,\nLinda",
+   "reply_to_previous": true
+  }
+ ]
+}

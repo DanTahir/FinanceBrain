@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_051",
+    "e_052"
+   ],
+   "cc_ids": [
+    "e_049"
+   ],
+   "subject": "Regulatory exam document request - response tracker and owners",
+   "body": "Hi Linda and Anthony,\n\nWe received the examiner's initial document request this morning. The first production is due in 10 business days, so I want owners locked in today.\n\nLinda, please build the response tracker and own the intake log. Anthony, you take the AML program items: the 2025 independent test report, the suspicious activity escalation procedures, and the sample of alert dispositions. Jenna, please pull system evidence for SanctionsScreen and AMLMonitor, including the list update logs and the threshold change history.\n\nFor the client file sample, the examiners asked for the full onboarding record for {{CLIENT_NAME:c_0287}}, so please assemble the KYC file, the CDD review, and the account opening documents for {{ACCOUNT_NUMBER:a_00587}}. Do not send anything outside the tracker folder, and do not send it to anyone outside this group until I have reviewed it.\n\nLet's do a 15 minute check-in tomorrow at 9:30 to confirm gaps.\n\nThanks,\nMarcus",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_053",
+   "to_ids": [
+    "e_048"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Trade surveillance alert review - 14 alerts need second-level sign-off",
+   "body": "Hi Nadia,\n\nI finished first-level review of this week's trade surveillance queue. Of 31 alerts, I closed 17 as false positives (mostly wash-trade pattern hits tied to the market making desk's hedging activity). That leaves 14 I'd like you to second-level before Friday.\n\nThe ones I'm least comfortable with are three layering-pattern alerts on a single equity trader's order flow in the last two sessions. The cancel-to-fill ratio was above our 85% threshold each time, and the cancellations clustered within seconds of fills on the opposite side. It may be benign, but I'd rather have a second set of eyes before we ask Daniel Reyes for an explanation.\n\nI also noticed that two alerts reference payments related to {{CLIENT_NAME:c_0287}}, which looks like a coincidental name match, but I've noted it in the case file in case you disagree.\n\nMarcus is copied since we are close to the escalation threshold on the layering cases. Case notes are in the shared surveillance folder.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_050",
+   "to_ids": [
+    "e_047",
+    "e_055"
+   ],
+   "cc_ids": [
+    "e_029"
+   ],
+   "subject": "KYC refresh backlog - 212 files past due, request for temporary support",
+   "body": "Hi Marcus, Luis,\n\nAn update on the periodic KYC refresh backlog as of this morning. We have 212 files past their review date, up from 168 at the end of July. 41 of those are high-risk and are now more than 60 days overdue, which is outside our policy tolerance.\n\nThe drivers are the volume of onboarding in commercial lending and the fact that document requests to clients are taking an average of 19 days to come back. A number of files also stall in DocVault because of permission errors that are being sorted out with Technology.\n\nProposal: Luis and I prioritize all high-risk files first, aiming to clear them by 2026-09-25. We then batch the low-risk files, such as {{CLIENT_NAME:c_0287}}, for a lighter-touch refresh using existing documentation. I would also like to borrow one compliance associate for outreach for three weeks.\n\nBrian is copied because several overdue files affect loans in the pipeline. Happy to walk through the list.\n\nThanks,\nJohn",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_047",
+    "e_048",
+    "e_050"
+   ],
+   "cc_ids": [
+    "e_051"
+   ],
+   "subject": "Q3 AML training - completion status and reminder for stragglers",
+   "body": "Hi all,\n\nQuick status on quarterly AML training ahead of the 2026-09-30 deadline. As of this afternoon, 88% of the firm has completed the module, which is below our 95% target at this point.\n\nBy team:\n- Trading: 79% (a dozen outstanding)\n- Operations: 91%\n- Lending: 93%\n- Wealth Management: 86%\n- Technology: 90%\n\nThis quarter's module covers structuring, third-party payment red flags, and the updated sanctions evasion typologies, so completion matters beyond the box-checking. Linda and I will send individual reminders on Monday and a second note on Wednesday that includes the department heads. Anyone still incomplete on 2026-09-30 will be escalated to Marcus and reported in the quarterly compliance committee pack.\n\nNadia, could you confirm whether the investigators' completion is tracked separately? I want to make sure we are not double counting them.\n\nThanks,\nHeather",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: personal trading pre-clearance requirements",
+   "body": "Hi all,\n\nA reminder ahead of quarter-end that all covered employees must obtain pre-clearance through the compliance portal before placing any personal trade in a single security, ETF with a concentrated sector focus, or private placement. Approval is valid for one business day only, and any position must be held for at least 30 days.\n\nWe saw several items in the last review that fell short:\n- Trades placed before approval was granted\n- Approvals used on a later day\n- Holdings in restricted names, including those on the M&A watch list, which are blocked entirely\n\nPlease make sure your teams understand that restricted list names cannot be pre-cleared, and that anyone who is wall-crossed on a live deal must not trade in the related issuer or its affiliates. Quarterly holdings attestations are due 2026-10-16.\n\nIf you are unsure whether something needs approval, ask us first. A quick question costs far less than a policy breach. Please share this note with your teams.\n\nThanks,\nAnthony",
+   "reply_to_previous": false
+  }
+ ]
+}

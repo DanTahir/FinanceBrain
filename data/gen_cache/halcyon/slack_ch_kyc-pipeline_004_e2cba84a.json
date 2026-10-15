@@ -1,0 +1,112 @@
+{
+ "messages": [
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. KYC docs for {{CLIENT_NAME:c_0244}} keep failing on DocVault upload. The pipeline shows the doc step stuck in retry for about 40 min now. Anyone else seeing this?"
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Looking now. DocVault itself looks healthy from our side. Do you have the error text from the KYCPipeline task log?"
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "It says 'upload timeout, attempt 5 of 5' and then requeues. Doc is the entity formation PDF, around 18 MB, plus the signed beneficial ownership form."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "FWIW wire room had an onboarding hold on a_00500 this morning for the same client, probably waiting on this KYC refresh. Is that why? {{ACCOUNT_NUMBER:a_00500}}"
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 13,
+   "reply_to": 3,
+   "text": "Yep, likely the same refresh. Low risk client, but the periodic review lapses if we can't attach the docs. Not urgent for wires, Greg, nothing to release yet."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 22,
+   "reply_to": 2,
+   "text": "Found something. The pipeline retries with no backoff, so 5 attempts fire within seconds and all hit DocVault's per-token throttle. AuthSSO token refresh is also racing with it. Large files make it worse."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 25,
+   "reply_to": 5,
+   "text": "That explains why smaller docs go through fine. Can we just resubmit manually in the meantime?"
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "Yes. Wait a couple of minutes between attempts and upload one doc at a time. I'm also bumping the per-token limit for the service account temporarily."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 48,
+   "reply_to": 7,
+   "text": "Tried the formation PDF alone, it went through on the first try. Uploading the BO form now."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 55,
+   "reply_to": 8,
+   "text": "Both docs are in DocVault and attached to the case. Pipeline moved on to SanctionsScreen. Thanks Sam."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 70,
+   "reply_to": -1,
+   "text": "Quick question for whoever knows: do the retried uploads create duplicate docs in DocVault? Seeing two entries on a case we handle for a_00501 loan paperwork. {{ACCOUNT_NUMBER:a_00501}}"
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 78,
+   "reply_to": 10,
+   "text": "Possible, yes. A timed out upload can still land server-side, then the retry writes a second copy. We don't dedupe on checksum today. I'll check the case."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 95,
+   "reply_to": 11,
+   "text": "Confirmed, two identical copies from this morning's retries. I'll mark the extras as superseded rather than delete them, since DocVault retention rules apply to client records."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 101,
+   "reply_to": 12,
+   "text": "Good call. Please leave a note on the case so audit sees why there are duplicates. I'll cross-check {{CLIENT_NAME:c_0244}} file once you're done."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 130,
+   "reply_to": -1,
+   "text": "Plan for the fix: exponential backoff with jitter on KYCPipeline doc uploads, checksum-based dedupe, and chunked upload for files over 10 MB. I'll open a ticket and tag the pipeline owner for review."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 138,
+   "reply_to": 14,
+   "text": "Sounds good. Can we also get an alert when a doc sits in retry more than 15 minutes? Today we only noticed because I was watching the queue."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 145,
+   "reply_to": 15,
+   "text": "Yes, adding that to the ticket. I'll alert into this channel so you don't have to watch it manually."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 160,
+   "reply_to": -1,
+   "text": "Thanks both. I'll hold off chasing this one from the wire room side since the docs are attached now."
+  }
+ ]
+}

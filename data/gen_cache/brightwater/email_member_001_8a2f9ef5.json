@@ -1,0 +1,67 @@
+{
+ "emails": [
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Dispute backlog - where we stand heading into the holiday weekend",
+   "body": "Hi Paul,\n\nQuick update on the debit card dispute queue before the long weekend. We have 38 open disputes, and 11 of them are past the 10-business-day provisional credit window. Most of the aging items are waiting on merchant documentation through CardProcessor, and a few are stalled because the original authorization data was not attached to the case.\n\nOne example is the case for {{CLIENT_NAME:c_0051}}, tied to {{ACCOUNT_NUMBER:a_00115}}. It has been waiting on a chargeback response for 9 days and the member has called twice. I would like to prioritize it Monday.\n\nProposal: Joanna and I take the 11 aged cases first, and Nichole handles new intake so the queue stops growing. Rita, could Operations pull the authorization detail for the aged items so we are not chasing it case by case?\n\nLet me know if you want a different split.\n\nThanks,\nZachary",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_003",
+    "e_004"
+   ],
+   "cc_ids": [],
+   "subject": "Follow-up on {{CLIENT_NAME:c_0046}} fee complaint",
+   "body": "Hi Paul and Zachary,\n\nI wanted to loop you in on the complaint from {{CLIENT_NAME:c_0046}}, who contacted us last week about an overdraft-related fee posted to the share savings account, {{ACCOUNT_NUMBER:a_00103}}. I reviewed the history and the transfer from savings did not run on the date the member had scheduled it, which looks like a timing problem on our side rather than a member error.\n\nI called the member at {{CLIENT_PHONE:c_0046}} yesterday, apologized, and explained we are reviewing the fee. I promised a written answer by Friday. The member was calm but made clear that a repeat would prompt a move to another institution after more than seven years with us.\n\nPaul, can you approve a fee reversal as a goodwill exception? I will document it in MemberCRM and send the confirmation letter once approved.\n\nThanks,\nNichole",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_009"
+   ],
+   "cc_ids": [
+    "e_004",
+    "e_016"
+   ],
+   "subject": "Re: Follow-up on {{CLIENT_NAME:c_0046}} fee complaint",
+   "body": "Nichole,\n\nThanks for the thorough write-up. Approved: please reverse the fee and send the confirmation letter. I am copying Wesley so Compliance has the complaint on file with the resolution, since this one touches fee disclosure and a scheduled transfer that did not execute.\n\nTwo follow-ups. First, Zachary, please check whether other scheduled transfers failed the same way in the past two weeks. If so, we should raise it with IT rather than treat this as a one-off. Second, Nichole, add a 30-day check-in note in MemberCRM so we confirm the member is satisfied and nothing repeated.\n\nThis was handled quickly and kindly, so well done.\n\nPaul",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_001",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_005",
+    "e_010"
+   ],
+   "subject": "Branch staffing for October - request to approve two part-time tellers",
+   "body": "Hi Gloria and Rita,\n\nI want to flag a staffing gap before October. With Maxwell on approved leave for two weeks and Joseph covering the Saturday shift, we are down to a single teller on Friday afternoons, which is our heaviest day for payroll deposits and ACH-related questions. Wait times last Friday averaged about 14 minutes, against our 6 minute target.\n\nI would like approval to post two part-time teller positions at 20 hours a week each, focused on Thursday through Saturday. In the short term, Catherine and Jonathan have agreed to rotate onto the teller line on Fridays from 1 to 5 pm, though that pulls them from member calls.\n\nGloria, I can bring a one-page cost estimate Monday. Rita, can you confirm how Operations would handle cash-drawer training for new hires?\n\nThank you,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_001",
+    "e_007"
+   ],
+   "subject": "Re: Branch staffing update - part-time tellers",
+   "body": "Hi Paul,\n\nFollowing up on the staffing request from earlier this month. Operations can run cash-drawer and vault training in a single two-day session, so new hires could be on the line within one week of starting. We would need Maxwell to shadow, since he knows the dual-control procedures best.\n\nOne caution: we should start the new hires before quarter-end, when settlement volume spikes and my team has less time to train. If the posting goes live this week, a mid-October start is realistic.\n\nGloria, if you approve the two positions, I will draft the training schedule and share it with Paul by Friday. In the meantime, I recommend Catherine and Jonathan keep the Friday rotation going, since it has held wait times near target.\n\nThanks,\nRita",
+   "reply_to_previous": false
+  }
+ ]
+}

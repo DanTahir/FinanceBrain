@@ -1,0 +1,22 @@
+{
+ "messages": [
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. FraudScore queue is noisy again. I've got a batch of wire_in alerts this week that look like false positives, scores in the 0.7s on pretty ordinary inbound wires. Anyone else seeing it?"
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Yes, a few came across my desk. Do you have an example? I want to see which features are driving the score before I touch any thresholds."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "t_000194. $6,762.17 wire_in on 2026-07-03 into {{ACCOUNT_NUMBER:a_00356}} ({{CLIENT_NAME:c_0172}}), from Giles, Johnson and Adams. Scored 0.77. Counterparty is a known US business, and the sender account {{CP_ACCOUNT:cp_040}} has paid in before with no issues."
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_020",
+    "e_022"
+   ],
+   "cc_ids": [
+    "e_003"
+   ],
+   "subject": "MFA rollout plan for OnlineBanking - phase 1 kickoff",
+   "body": "Hi Hector, Shannon,\n\nPer our planning session, phase 1 of the MFA rollout starts today. We are enabling step-up MFA in MemberSSO for the staff pilot group first, then moving to members logging into OnlineBanking in later phases.\n\nHector, please confirm the MemberSSO policy change is staged in the test tenant and that the rollback toggle works. Shannon, I need the OnlineBanking login flow updated so the enrollment prompt does not block anyone who has not yet registered a device. Remember OnlineBanking depends on both CoreBanking and MemberSSO, so any SSO hiccup will show up on the member side immediately.\n\nPaul, I am copying you so Member Services can prepare talking points for the floor. I will send a short FAQ by Friday.\n\nLet's aim to have test results back by July 8.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_019",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "MFA rollout status - enrollment numbers and open issues",
+   "body": "Hi Andre, Paul,\n\nQuick status on the MFA rollout as of August 18. Enrollment in MemberSSO is sitting at roughly 61% of active OnlineBanking users, ahead of the 55% target we set for this stage.\n\nOpen items:\n1. A cluster of lockouts tied to members who changed phones and lost their authenticator app. Recovery currently needs a Member Services call, which is driving handle time up.\n2. SMS fallback delivery is lagging at peak hours with the carrier gateway. I opened a ticket with the vendor.\n3. MemberCRM notes do not yet flag who has completed enrollment, which makes outreach harder.\n\nPaul, can your team log MFA recovery calls with a consistent tag so I can size the problem? Andre, I would like to hold the next enforcement wave until the recovery flow is improved.\n\nThanks,\nHector",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_001",
+    "e_016",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_020",
+    "e_021"
+   ],
+   "subject": "CoreBanking upgrade - September weekend window and impact on ShareRecon",
+   "body": "Hello Gloria, Wesley, Rita,\n\nThe CoreBanking vendor has confirmed the upgrade window for the weekend of September 26-27. CoreBanking will be unavailable for roughly six hours Saturday night, which will affect OnlineBanking, CardProcessor, ACHHub, BSAWatch, LoanDesk, and ShareRecon since they all depend on it.\n\nWhat we need from you:\n- Rita: confirm ACH and card stand-in processing plans with Operations, and that settlement cutoffs are adjusted.\n- Wesley: confirm Compliance is comfortable with a gap in BSAWatch monitoring and a catch-up run afterward.\n- Gloria: approval to notify members by September 15.\n\nAmy is validating that the ShareRecon scripts still work against the new schema. They are legacy and fragile, so we will run them manually on Sunday and compare against the GL before the normal schedule resumes.\n\nPlease reply with concerns by Friday.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_022",
+   "to_ids": [
+    "e_020",
+    "e_019"
+   ],
+   "cc_ids": [],
+   "subject": "MFA rollout - final enforcement wave readiness",
+   "body": "Hi Hector, Andre,\n\nFollowing up on the MFA rollout before we enforce for all members. The new recovery flow went to production last Thursday, and in the first four days the number of recovery calls to Member Services dropped by about a third based on what Paul's team reported.\n\nFrom the OnlineBanking side, I have fixed the enrollment prompt on older Android versions and added a clearer error message when a one-time code expires. I would still like one more regression pass on the mobile app before we flip enforcement on.\n\nHector, can you confirm the SMS fallback vendor ticket is resolved? If not, I suggest we keep the authenticator app as the default option and delay enforcement to September 28. That also keeps us clear of the CoreBanking upgrade weekend.\n\nThanks,\nShannon",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_016",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_021"
+   ],
+   "subject": "Vendor security questionnaire - CoreBanking hosting provider response",
+   "body": "Hi Wesley, Gloria,\n\nThe annual security questionnaire from our CoreBanking hosting vendor arrived this week, and responses are due September 30. It covers access controls, MFA coverage, incident response, and subcontractor oversight.\n\nI have drafted most technical answers. Two areas need your input:\n- Wesley: the sections on regulatory exam findings and our incident notification timelines.\n- Gloria: executive attestation on the final page.\n\nOn MFA, we can now state that MemberSSO enforces MFA for staff and that member enrollment is nearly complete, with enforcement planned for late September. Amy is pulling evidence for the access review and log retention questions.\n\nCould we review the draft together on Tuesday, September 22? I will circulate it on Monday.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0090",
+   "text": "7/17/26 - Spoke with {{CLIENT_NAME:c_0090}} at the branch about liquidity ahead of a planned home purchase. Member is keeping funds in share savings {{ACCOUNT_NUMBER:a_00180}} and wants to confirm nothing is tied up or restricted before closing. Reviewed withdrawal options and the timing for a cashier's check versus wire. Member asked about earnest money and the down payment, so we talked through how much to keep accessible. Confirmed contact details on file: {{CLIENT_PHONE:c_0090}} and {{CLIENT_EMAIL:c_0090}}. Will refer to Lending for mortgage prequal questions and follow up next week. Risk rating remains high, so flagged for standard review."
+  },
+  {
+   "client_id": "c_0069",
+   "text": "8/10/26 - Annual portfolio review with {{CLIENT_NAME:c_0069}}. Reviewed share savings {{ACCOUNT_NUMBER:a_00148}} and checking {{ACCOUNT_NUMBER:a_00149}}. Balances are steady and activity is consistent with prior year; no overdrafts or unusual transactions noted. Member is satisfied with service and asked about current share certificate rates for extra savings. Verified mailing address {{CLIENT_ADDRESS:c_0069}}, phone {{CLIENT_PHONE:c_0069}}, and email {{CLIENT_EMAIL:c_0069}} are all current. Low risk profile, no changes needed. Will send certificate rate info and check back at next review."
+  }
+ ]
+}

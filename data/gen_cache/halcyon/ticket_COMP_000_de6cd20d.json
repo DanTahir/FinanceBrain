@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Review of AMLMonitor structuring alert on lending client checking account",
+   "description": "AMLMonitor raised a structuring-pattern alert on {{CLIENT_NAME:c_0199}} checking account {{ACCOUNT_NUMBER:a_00413}} after four cash deposits just under the $10,000 reporting threshold across five business days, followed by a same-week payment toward the loan account {{ACCOUNT_NUMBER:a_00414}}. Need a full alert review: pull 90 days of transaction history, compare to the stated source of funds in the CDD file, and check whether the pattern is consistent with the client's historical behavior. Decide whether to close as false positive or escalate to SAR consideration. Alert data comes from the DataLake-fed scenario, so please also note if the scenario threshold looks miscalibrated for lending-segment clients.",
+   "reporter_id": "e_048",
+   "assignee_id": "e_053",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Pulled 90 days of activity. Deposits line up with the client's seasonal self-employment income documented in the CDD file, and similar cash patterns appear in prior years. Nothing in the loan payment suggests third-party funding. Leaning false positive."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Agree, but please document the source-of-funds reasoning in the alert narrative and attach the prior-year comparison. I'd also like a note on whether the scenario tuning needs a lending-segment adjustment."
+    },
+    {
+     "author_id": "e_053",
+     "text": "Narrative and comparison attached. Closed as false positive with no SAR referral. Tuning note passed to Jenna for the next scenario review."
+    }
+   ]
+  },
+  {
+   "title": "Quarterly complaint log review for payments and onboarding delays",
+   "description": "Quarterly review of the client complaint log for Q2 into early Q3. Three complaints concern delayed account opening tied to KYC document requests, and two concern a returned ACH payment on {{CLIENT_NAME:c_0124}} loan account {{ACCOUNT_NUMBER:a_00262}}. Need to confirm each complaint was logged within the required one business day, acknowledged within five days, and resolved or escalated with a documented outcome. Also flag any complaint that suggests a potential regulatory issue, such as fee disclosure or fair treatment, and summarize themes for the compliance committee pack due at month end.",
+   "reporter_id": "e_047",
+   "assignee_id": "e_051",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_051",
+     "text": "All five complaints were logged on time. One onboarding complaint missed the five-day acknowledgment by a day. I've recorded the gap and added a reminder to the intake template."
+    },
+    {
+     "author_id": "e_047",
+     "text": "Fine. Include the missed acknowledgment in the committee pack as a minor process finding, with the remediation noted. No regulatory escalation needed from what I see."
+    },
+    {
+     "author_id": "e_051",
+     "text": "Added to the pack under process findings. Themes: onboarding document requests were unclear and the returned ACH was caused by a stale mandate. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "KYC exception: expired identity document on active lending relationship",
+   "description": "KYCPipeline flagged an exception on {{CLIENT_NAME:c_0199}}: the primary identity document on file expired last month and the periodic refresh request went unanswered. The client has an open loan {{ACCOUNT_NUMBER:a_00414}} and checking {{ACCOUNT_NUMBER:a_00413}}, with medium risk rating. Please contact the relationship manager, request a valid replacement via the DocVault upload link, and re-run screening through SanctionsScreen once received. If no document arrives within 30 days, escalate to the CCO for a decision on restrictions to new credit draws. Log all outreach attempts in the case file.",
+   "reporter_id": "e_050",
+   "assignee_id": "e_055",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Spoke with the RM, who reached the client. Replacement document uploaded to DocVault this morning. Verified against the original record and details match."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Re-ran SanctionsScreen with the refreshed identity data and got no hits. CDD record updated and next refresh date set. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Review of repeated wire-velocity surveillance alerts tied to a UAE counterparty",
+   "description": "AMLMonitor generated three velocity alerts in ten days involving outbound wires to counterparty Diaz-Roberts, using beneficiary IBAN {{CP_IBAN:cp_002}} and SWIFT {{CP_SWIFT:cp_002}}. Originator is the business-related account of {{CLIENT_NAME:c_0199}}, whose checking account {{ACCOUNT_NUMBER:a_00413}} funded the transfers. Review invoice support, confirm the counterparty has been screened against SanctionsScreen, and check whether the wire amounts and timing fit the stated business purpose. Also confirm FraudScore did not independently flag any of the payments. Recommend close, enhanced monitoring, or SAR escalation by end of week.",
+   "reporter_id": "e_048",
+   "assignee_id": "e_053",
+   "status": "in_progress",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_053",
+     "text": "Counterparty screening is clean as of this morning, and FraudScore did not flag any of the three wires. Still waiting on invoice support for the second and third transfers. The amounts are round and rising, which I don't love."
+    },
+    {
+     "author_id": "e_048",
+     "text": "Request the invoices from the RM today and give them until Wednesday. If support is thin, draft the escalation memo to Marcus so we're ready for a SAR decision."
+    },
+    {
+     "author_id": "e_053",
+     "text": "RM confirmed invoices are on the way. I've started the escalation memo as a precaution and will finalize once the documents arrive."
+    }
+   ]
+  },
+  {
+   "title": "KYC exception: beneficial ownership mismatch and missing proof of address on new loan applicant",
+   "description": "During onboarding of {{CLIENT_NAME:c_0124}}, KYCPipeline raised two exceptions: the address on the submitted utility statement does not match the address in ClientHub, and the screening step returned a possible name variant match that needs manual disposition. The client was opened in July 2025 and now has a pending increase on loan account {{ACCOUNT_NUMBER:a_00262}}, so LoanOrigination is blocked until both are cleared. Contact the client through {{CLIENT_EMAIL:c_0124}} for updated proof of address, disposition the screening match with documented rationale, and update the CDD record. Target clearance within three business days so lending can proceed.",
+   "reporter_id": "e_050",
+   "assignee_id": "e_055",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Sent the request for updated proof of address using the standard template. I'll start the name variant review today by comparing the secondary identifiers on file."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Good. Please keep Jasmine posted on timing since LoanOrigination is blocked. If the match can't be ruled out by Monday, escalate it to Nadia for a second look."
+    }
+   ]
+  }
+ ]
+}

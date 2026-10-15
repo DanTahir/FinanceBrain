@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Scenario request: 200bp parallel rate shock on RiskEngine for Q3 board pack",
+   "description": "Requesting a new scenario in RiskEngine for the Q3 board risk pack: a 200bp instantaneous parallel upward shift in the USD curve combined with a 15% widening in IG credit spreads. We need the results broken out by desk and by asset class, with stressed VaR and the change in net exposure versus the base run. Please also confirm whether the scenario can be run against the end-of-day snapshot from 2026-07-31 so the numbers line up with the month-end GL close. Results needed in ReportingBI by 2026-08-14 so the board deck can be finalized.",
+   "reporter_id": "e_056",
+   "assignee_id": "e_061",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_061",
+     "text": "Scenario defined and loaded in the RiskEngine scenario library. Running against the 7/31 EOD snapshot tonight. I'll push desk-level output to ReportingBI once it validates."
+    },
+    {
+     "author_id": "e_061",
+     "text": "Run complete. Stressed VaR up roughly 38% vs base, with most of the move coming from the rates book. Dashboard tab added in ReportingBI. Closing unless you want extra cuts."
+    },
+    {
+     "author_id": "e_056",
+     "text": "Looks good, thanks Paul. Used in the board pack. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Stale equity vol surface inputs driving VaR understatement in RiskEngine",
+   "description": "During the morning model check on 2026-09-02, the equity implied vol surface feeding the RiskEngine VaR run looked unchanged from the prior session for about 40 index and single-name underlyings. Intraday VaR for the equity derivatives book came in about 9% below the trailing 5-day average despite elevated realized moves. Suspect the vol inputs from PricingSvc were not refreshed after the overnight vendor load. Need to confirm whether the stale values were used in the official 9am run and whether any limit usage reports sent to desk heads were affected.",
+   "reporter_id": "e_062",
+   "assignee_id": "e_057",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_057",
+     "text": "Confirmed. The vendor vol file landed late and the loader skipped it without raising an alert. The 9am run used the prior day's surface. Reran at 10:40 with the correct inputs and VaR is back in line."
+    },
+    {
+     "author_id": "e_061",
+     "text": "Limit usage emails from the 9am run were sent. Utilization was understated by about 6% on the equity derivs desk, no breaches either way. I'll send a correction note to the desk heads."
+    },
+    {
+     "author_id": "e_057",
+     "text": "Added a freshness check on the vol surface timestamp so the run fails loudly if inputs are older than one session. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Duplicate positions inflating exposure in RiskEngine counterparty report",
+   "description": "Counterparty exposure in the RiskEngine output for 2026-09-04 shows two prime broker counterparties with exposure roughly double the prior day. Looks like a set of repo positions was loaded twice from PositionStore after a retried batch job. Gross exposure for the affected counterparties exceeds internal limits on paper, and the ReportingBI credit exposure dashboard is flagging red. Need to dedupe the source data, rerun exposure, and confirm no limit breach notifications went to the business. Please also check whether earlier days this week were impacted.",
+   "reporter_id": "e_058",
+   "assignee_id": "e_062",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_062",
+     "text": "Found 212 duplicated repo lines in the 9/4 load, keyed identically except for the batch id. Removed the duplicates and reran exposure. Earlier days this week look clean."
+    },
+    {
+     "author_id": "e_058",
+     "text": "Post-rerun exposure is back within limits and the ReportingBI dashboard has cleared. Thanks, closing out after Owen signs off on the note."
+    },
+    {
+     "author_id": "e_056",
+     "text": "Approved. Please make the load idempotent so a retry cannot double-book positions."
+    }
+   ]
+  },
+  {
+   "title": "Missing FX rates for emerging market currencies in overnight VaR run",
+   "description": "The overnight RiskEngine VaR run for 2026-10-05 completed with warnings about missing spot and forward FX rates for several emerging market currencies. Positions in those currencies were converted using a fallback rate, which appears to be a week old. This affects the EM local debt book and a handful of wealth portfolios with unhedged FX exposure. The firmwide VaR figure published to ReportingBI this morning may therefore be misstated. Need root cause for the gap in the rate feed, a rerun with correct rates, and a view on how much the published number moved.",
+   "reporter_id": "e_061",
+   "assignee_id": "e_060",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_060",
+     "text": "Traced it to a vendor symbol change for three currency pairs. The mapping table still points at the retired symbols. I've patched the mapping and am rerunning the 10/5 batch now."
+    },
+    {
+     "author_id": "e_061",
+     "text": "Thanks. Please hold the ReportingBI refresh until the rerun finishes so the regulatory dashboard doesn't show the old figure for another day."
+    }
+   ]
+  },
+  {
+   "title": "Scenario request: counterparty default stress for top 10 derivative counterparties",
+   "description": "Requesting a new RiskEngine scenario for the Q4 stress testing cycle: simultaneous default of any one of our top 10 derivative counterparties with a 40% recovery rate assumption and a 5-day close-out period, plus a 25% gap move in the underlying markets over the close-out window. Output should show the post-collateral loss for each counterparty and the aggregate worst case, with comparison against last quarter's results. Please publish results to ReportingBI by 2026-10-30 for the risk committee meeting. Open to discussing whether to include wrong-way risk overlays for the energy names.",
+   "reporter_id": "e_059",
+   "assignee_id": "e_061",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_061",
+     "text": "Happy to build it. The close-out window parameter is not yet configurable per counterparty in RiskEngine, so I'll start with a flat 5 days. Will talk to Lance about the energy wrong-way overlay."
+    },
+    {
+     "author_id": "e_058",
+     "text": "For wrong-way risk I'd suggest a simple correlation uplift on the energy names rather than a full model. I can send over the parameters we used last year as a starting point."
+    }
+   ]
+  }
+ ]
+}

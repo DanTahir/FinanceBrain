@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. SanctionsScreen threw another batch of false positives overnight. 11 hits in the KYC queue, 9 of them look like name-only matches with no DOB or address overlap."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Saw those. Same pattern as last week, the fuzzy match threshold seems to be catching common surnames against the SDN list. I'll start clearing the obvious ones."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Thanks. One I want a second set of eyes on: {{CLIENT_NAME:c_0036}} popped on a partial name match during the periodic refresh. Existing lending client, risk low, since 2020."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 12,
+   "reply_to": 2,
+   "text": "Did you compare the DOB? Pull {{CLIENT_DOB:c_0036}} from the file in DocVault and check against the listed entry's DOB and place of birth."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 19,
+   "reply_to": 3,
+   "text": "Done. DOB doesn't match the listed entry, and the address {{CLIENT_ADDRESS:c_0036}} is nowhere near any listed location. Score was 82 on name alone. I'm calling it a false positive."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Heather, Anthony: how many false positives are we seeing per day now versus a month ago? If the rate is climbing I want numbers before I take it to Ravi's team."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 33,
+   "reply_to": 5,
+   "text": "Rough count from my dispositions: about 6 a day in July, 10-12 a day this week. Haven't pulled a clean report yet, will do that this morning."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 38,
+   "reply_to": 5,
+   "text": "Agree with Anthony. I think the threshold change from the vendor list update on the 17th is the trigger. Alert volume jumped right after."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 45,
+   "reply_to": 7,
+   "text": "That's plausible. Please put the before/after counts in a ticket. Since KYCPipeline still sits with Ops until October, Ravi has to approve any tuning change, but I want our recommendation documented."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 52,
+   "reply_to": 2,
+   "text": "Closing the {{CLIENT_NAME:c_0036}} alert as false positive. Attached DOB and address comparison to the case. Anthony, can you do the QC review?"
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 71,
+   "reply_to": 9,
+   "text": "QC'd, looks good. I noted the DOB mismatch and the second identifier check. Approved, and the lending RM doesn't need to be looped in since there's no hold on a45 the account."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 76,
+   "reply_to": 10,
+   "text": "Small catch: the alert did briefly put a hold flag on the loan account {{ACCOUNT_NUMBER:a_00078}} in KYCPipeline. Can you confirm it's released? I don't want it blocking a payment."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 84,
+   "reply_to": 11,
+   "text": "Checked, the flag cleared when I approved. Checking account {{ACCOUNT_NUMBER:a_00077}} was never restricted. All good."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 130,
+   "reply_to": -1,
+   "text": "Report is in: 47 alerts since the 17th, 41 closed as false positives, so about 87%. Before that it was closer to 60%. Attaching it to the tuning ticket now."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 142,
+   "reply_to": 13,
+   "text": "That's the evidence I needed. I'll raise it with Ravi today and ask for a threshold review with the vendor. Keep clearing alerts manually with the two-identifier check in the meantime. No shortcuts."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 150,
+   "reply_to": 14,
+   "text": "Will do. I'll also log any true-hit candidates separately so we can show the tuning doesn't suppress real matches."
+  }
+ ]
+}

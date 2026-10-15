@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Month-end recon sign-off is due at 3. ReconLegacy EOD output is showing 3 wire breaks vs GLCore. Anyone know if last night's batch finished clean?"
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Priya Raman is the only one who can speak to the batch internals. I'll ping her. Kevin, can you check the GLCore side?"
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 9,
+   "reply_to": 0,
+   "text": "GLCore close posted fine around 10:40, no errors on the ledger side. The Perl side I honestly can't speak to, that's Priya's."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Two of the breaks look like timing. Wires released after yesterday's cutoff seem to be landing in today's GL batch. Roughly $412K combined."
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 22,
+   "reply_to": 3,
+   "text": "Same pattern on the ACH side, one item for $18,250. Is it the cutoff, or is the job skipping records?"
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "Can't answer that one. Cron schedule and the Oracle details live with Priya. I've DM'd her and asked her to reply in this channel."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Does anyone know when the ReconLegacy batch kicks off? Wondering if we can do a manual re-run before sign-off."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 44,
+   "reply_to": 6,
+   "text": "Not me, I've never touched those jobs. Please don't re-run anything until Priya says it's safe."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 47,
+   "reply_to": 6,
+   "text": "Agree with Kevin. No manual re-runs. That Oracle 11g box is fragile and nobody else knows the job dependencies. Waiting on Priya."
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 55,
+   "reply_to": 1,
+   "text": "Thanks Sam. Should we hold sign-off until she weighs in?"
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 58,
+   "reply_to": 9,
+   "text": "Yes, hold wire and ACH sign-off until Priya confirms the cause. Other recon lines can proceed. I'll post an update by 1."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 63,
+   "reply_to": 10,
+   "text": "Sounds good. I'll list the three breaks with timestamps in this thread so she has everything when she picks it up."
+  }
+ ]
+}

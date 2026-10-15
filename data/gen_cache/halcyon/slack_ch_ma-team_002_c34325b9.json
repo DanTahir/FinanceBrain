@@ -1,0 +1,118 @@
+{
+ "messages": [
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Kestrel pitch book goes to the client Monday so I want formatting locked by Friday EOD. Can we agree on one template before more people start touching it?"
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Morning! Right now I have three versions floating around, the Osprey master and two Kestrel drafts with different footers. Happy to consolidate if someone tells me which is the source of truth."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 7,
+   "reply_to": 2,
+   "text": "Use the Osprey master as the base. It has the updated disclaimer page and the new slide master with the 16:9 layout. Kestrel drafts should be rebuilt on top of it."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "Formatting nits I keep fixing by hand: inconsistent decimal places on multiples (some 8.0x, some 8x), and footnote numbering resets on every section. Can we standardize on one decimal for all multiples?"
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "+1 on one decimal. Also negative numbers in parentheses everywhere, not minus signs. The comps table on p.14 mixes both."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "Got it. I'll run a pass on every table: one decimal for multiples, parentheses for negatives, $ in millions with the unit in the column header only."
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 24,
+   "reply_to": -1,
+   "text": "Fonts too. Arial 10 for body, 8 for footnotes and sources. I saw Calibri sneak into the valuation summary. Whoever pasted from the model, please paste as values with destination formatting."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 27,
+   "reply_to": 6,
+   "text": "Guilty, that was me pasting linked charts from the model. I'll break the links and re-paste as pictures so nothing refreshes unexpectedly when someone opens it."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 33,
+   "reply_to": 7,
+   "text": "Better to use the think-cell charts if the template has them. Breaking links on the football field will make it painful to update if the ranges move after the next model turn."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 36,
+   "reply_to": 8,
+   "text": "Fair point. I'll keep the football field live in think-cell and only flatten the static charts. Will flag in the file name when it's the final flattened copy."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 42,
+   "reply_to": -1,
+   "text": "Naming convention proposal: Kestrel_PitchBook_vYYYYMMDD_initials. Last week we had 'final_FINAL2' in the folder and I nearly sent the wrong one up to Robert."
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 45,
+   "reply_to": 10,
+   "text": "Ha, that was close. Agreed, adopt it today. Susan, can you move old versions into an Archive subfolder so only the current one is visible?"
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 47,
+   "reply_to": 11,
+   "text": "Will do after the table cleanup. I'll post in here when the archive is done so nobody saves over the wrong file."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 71,
+   "reply_to": -1,
+   "text": "Page numbers and the table of contents: TOC is still pointing to old page numbers after we dropped the precedent transactions appendix. Needs a manual refresh before anything goes to print."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 75,
+   "reply_to": 13,
+   "text": "I can take the TOC and cross-references. Will also check that section dividers use the same accent color, the Osprey one is slightly teal versus navy in the other drafts."
+  },
+  {
+   "author_id": "e_045",
+   "minutes_after_start": 98,
+   "reply_to": -1,
+   "text": "Last thing: sources line under every chart and table, same wording, same position. Compliance flagged missing source notes on a prior book and I don't want a repeat."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 103,
+   "reply_to": 15,
+   "text": "I'll draft the standard source language and drop it in the template notes. Then everyone just copies it instead of retyping."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 151,
+   "reply_to": 12,
+   "text": "Archive is done and the table pass is finished through p.22. Remaining pages have a few custom layouts, I'll finish those after lunch."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 158,
+   "reply_to": 17,
+   "text": "Nice work, Susan. Ping me when the full pass is done and I'll do a final read-through for alignment and widows before it goes to Robert for sign-off Friday."
+  }
+ ]
+}

@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, the LCR number on the ReportingBI liquidity dashboard shows 128% this morning vs 134% in yesterday's close pack. Anyone know if there was a methodology change or is this just data timing?"
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "I saw that too. My guess is the HQLA haircuts refreshed overnight. I'll pull the RiskEngine exposure snapshot and compare against what ReportingBI is reading."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Thanks. Also worth checking whether the 30-day outflow assumptions for the committed credit lines got updated. That alone could move it a few points."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Joining late. I need a firm LCR figure before the 4pm treasury sync. Which number should I be quoting, 128 or 134?"
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "Don't quote either yet, Martin. We're reconciling the two now and I'd rather give you one number we can defend. Should have an answer within the hour."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 20,
+   "reply_to": 4,
+   "text": "Fine, but flag me the moment you know. If it's really 128 I want to talk through the buffer before the sync."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 41,
+   "reply_to": 1,
+   "text": "Found part of it. RiskEngine intraday position snapshot picked up about $62M of additional Level 2A securities that weren't in the prior pack, so that's a point in the numerator. Not the whole gap though."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 46,
+   "reply_to": 6,
+   "text": "Okay, that's the opposite direction, it should push LCR up. So the denominator must have gone up more. Checking outflow tabs now."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 63,
+   "reply_to": -1,
+   "text": "Update: the denominator shift is from the undrawn facility run-off rate. Someone changed the corporate revolver bucket from 10% to 15% in the ReportingBI config on Tuesday. Looks like it was a deliberate change with a ticket attached."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 69,
+   "reply_to": 8,
+   "text": "That was me, actually. Treasury asked for a more conservative run-off assumption after the audit comments. I should have told you both. Does that fully explain 128?"
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 75,
+   "reply_to": 9,
+   "text": "Mostly. With the 15% run-off plus the extra Level 2A securities, I get 129.4% on my side. Remaining 1.4 points looks like a rounding and cutoff time mismatch in the dashboard."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 82,
+   "reply_to": 10,
+   "text": "Agreed. The dashboard is pulling positions at 11:30 while my RiskEngine run is at 12:45. I'll rerun the dashboard refresh and confirm they line up."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 104,
+   "reply_to": -1,
+   "text": "Refreshed ReportingBI after the 12:45 snapshot landed. Dashboard now reads 129.3%, within a tenth of our manual calc. We're good."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 109,
+   "reply_to": -1,
+   "text": "Great, I'll use 129% for the 4pm sync and note the run-off change as the driver versus yesterday's 134%. Thanks both, and I'll loop you in on config changes going forward."
+  }
+ ]
+}

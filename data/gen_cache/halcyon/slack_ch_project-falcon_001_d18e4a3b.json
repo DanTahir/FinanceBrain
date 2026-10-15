@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. Legal DD memo from outside counsel landed overnight on Northwind. I've skimmed it. Three items worth flagging: change-of-control provisions in two major customer contracts, a pending environmental claim at the Newark terminal, and an open wage-and-hour class action."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Thanks Susan. Which two customer contracts have the CoC language? Are they consent rights or termination rights?"
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 11,
+   "reply_to": 1,
+   "text": "Both are termination rights on 60 days' notice post-closing. Together they're roughly 18% of Northwind LTM revenue per the data room schedule. Counsel suggests we seek pre-signing consents or a closing condition."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 15,
+   "reply_to": 2,
+   "text": "That's material for Meridian's model. Let's put a sensitivity in the revenue build with both contracts lost vs. retained. Can you do that by EOD?"
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 17,
+   "reply_to": 3,
+   "text": "Yep, will do. I'll add a toggle on the summary tab so we can flex it live."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 32,
+   "reply_to": -1,
+   "text": "On the environmental claim, what's the reserve Northwind has booked and what's counsel's read on exposure? I want to know if this is an indemnity item or a price item."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 41,
+   "reply_to": 5,
+   "text": "They've reserved $4.5M. Counsel thinks the range is $3M to $11M, with remediation cost the big swing factor. Recommends a special indemnity with escrow rather than a price cut, since the Phase II work isn't finished."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Quick compliance note for the channel: this DD memo is privileged and wall-crossed only. Please don't forward it outside this channel or paste excerpts into email threads. Anything that needs to go to Meridian goes through counsel's secure room."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 63,
+   "reply_to": 7,
+   "text": "Understood, Marcus. We're keeping it all here. Susan, please make sure the sensitivity file lives in the Falcon folder only."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 65,
+   "reply_to": 8,
+   "text": "Already saved there. Access list is deal team only."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 92,
+   "reply_to": -1,
+   "text": "Also, has anyone outside the wall-crossed list asked about Falcon this week? Want to log any inquiries before the restricted list update goes out."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 104,
+   "reply_to": 10,
+   "text": "Nothing from me. Trading did ask a generic question on Monday about whether we had any logistics names on the watch list, but I didn't confirm anything."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 109,
+   "reply_to": 11,
+   "text": "Good. Send me a short note on who asked and when, and I'll file it. We'll add Northwind to the restricted list today either way."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 187,
+   "reply_to": 3,
+   "text": "Sensitivity is done. Losing both contracts takes about $140M off the implied EV at Meridian's multiple. Retaining one cuts it to roughly $70M. Tab is called CoC_Flex if you want to look before the call."
+  }
+ ]
+}

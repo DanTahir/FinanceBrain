@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Got a 400k share sell block to work in a mid-cap industrial, client wants it done by the close. ADV is about 1.8M so we're ~22% of volume if we're not careful. Thinking POV 12% to start."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "12% is fine for now. Spreads are 3c wide, book looks thin on the bid side. I'd hold off on the lit venues until we sniff out dark liquidity first."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "What's the limit? And is the client sensitive to impact or just the benchmark? Don't want to leak this and watch it gap down on us."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 6,
+   "reply_to": 2,
+   "text": "Limit is 41.20, benchmark is arrival with a soft VWAP check. They're fine with a bit of slippage but not a gap. Parent order is staged in OMS now."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 8,
+   "reply_to": -1,
+   "text": "Parent order showing in OMS, but TradeBlotter hasn't picked up the child slices yet. Refreshing."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 9,
+   "reply_to": 4,
+   "text": "Normal lag on the blotter, it catches up after the first fill. Sending the first 20k into the dark pools now, IOC pings."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 12,
+   "reply_to": 0,
+   "text": "Ran the impact model. At 12% POV you're looking at roughly 14bps of expected slippage vs arrival. Pushing to 18% takes it to ~22bps. Volume curve is back-loaded today so the last hour carries most of it."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 14,
+   "reply_to": 6,
+   "text": "Stay at 12 through 2:30, then reassess. Robert, can you refresh the curve at 2:15 with the real volume?"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 15,
+   "reply_to": 7,
+   "text": "Will do, 2:15."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "First 20k filled in dark, avg 41.31. Got another 35k from a block crossing network at the mid. Total done 55k, 14% of parent."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 25,
+   "reply_to": -1,
+   "text": "Risk here. Heads up that this name is going to push the desk's single-name concentration close to the limit once the residual position clears. Derek, what's the net exposure after the sale?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 27,
+   "reply_to": 10,
+   "text": "It's a reduction, Owen. This block takes us from long 520k to long 120k, so exposure drops. Intraday VaR should come down as we fill."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 29,
+   "reply_to": 11,
+   "text": "Good, that works for me. I'll keep an eye on it as the fills come in. Ping me if you go above 20% POV."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Blotter finally synced. P&L on the slices so far is about flat vs arrival, tiny positive from the dark crosses."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 60,
+   "reply_to": -1,
+   "text": "2pm update: 148k done, avg 41.26, bid is stepping down a penny or two. Seeing a sizable seller on the lit side that isn't us. Might be a coincidence."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 62,
+   "reply_to": 14,
+   "text": "Back off to 8% for 15 minutes and let it breathe. If someone else is selling we don't want to be piling in behind them."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 64,
+   "reply_to": 15,
+   "text": "Agreed, throttling to 8% and leaning more on the crossing networks. Will push harder into the closing auction if the curve holds."
+  }
+ ]
+}

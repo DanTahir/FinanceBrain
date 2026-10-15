@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Afternoon all. Quick pipeline check on auto: we have 14 apps in LoanDesk right now, 5 waiting on conditions. Can everyone update their notes before the 4pm huddle?"
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Will do. I have {{CLIENT_NAME:c_0068}}'s used-vehicle refi in there. Credit pull is back, DTI looks clean at 31%. Just waiting on the payoff letter from the current lender."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Nice. If the payoff letter shows a per diem, make sure it's in the file so I can confirm the LTV. Bureau score is solid so I don't expect issues."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Yep, per diem is on there. Uploading now. Also the applicant wants funds to land in checking {{ACCOUNT_NUMBER:a_00147}}, so I'll flag that for disbursement."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Heads up: {{CLIENT_NAME:c_0066}} is asking about a rate on a new auto loan while the existing loan on {{ACCOUNT_NUMBER:a_00144}} is still open. Is a second loan okay without a payoff, or do we need to bundle them?"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 19,
+   "reply_to": 4,
+   "text": "Second loan is fine as long as total debt service stays in policy. Member's been with us since 2019 with no lates, so I'd price it with the relationship discount. Send me the full app and I'll look today."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "Great, will send it over in the next hour. They're also considering autopay from checking {{ACCOUNT_NUMBER:a_00143}}, so I'll add the 0.25% autopay discount to the quote."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 27,
+   "reply_to": 6,
+   "text": "Good. Kathleen, confirm the dealer's invoice matches the buyer's order before you submit. We had a mismatch last week that cost us two days."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Anyone else seeing LoanDesk lag when pulling credit? Mine took almost 90 seconds on the last one."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 38,
+   "reply_to": 8,
+   "text": "Mine was slow earlier too, around 1:30. Seems like it's the CreditPull integration, not LoanDesk itself. Core was fine for me."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 42,
+   "reply_to": 9,
+   "text": "Thanks. I'll ask Andre in #it to look at the CreditPull connection. Martin, if it keeps happening, grab a screenshot with the timestamp."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 47,
+   "reply_to": 10,
+   "text": "Will do. For my pipeline: three apps are stuck on proof of insurance, one on a title issue. I'll call the members this afternoon."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 90,
+   "reply_to": 3,
+   "text": "Reviewed the refi file. Payoff and LTV check out at 92%. I'm clearing it to approve. Richard, you can send the approval notice and schedule closing."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 93,
+   "reply_to": 12,
+   "text": "Awesome, thanks Rita. I'll email {{CLIENT_EMAIL:c_0068}} the approval and try to reach them by phone at {{CLIENT_PHONE:c_0068}} too."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 125,
+   "reply_to": 7,
+   "text": "Invoice and buyer's order match. Submitted the application for {{CLIENT_NAME:c_0066}} to Rita. Reached out to the member to say we'd have a decision by tomorrow morning."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 130,
+   "reply_to": -1,
+   "text": "Nice work today, team. Pipeline is down to 11 open apps. Let's aim to clear the insurance and title holds by Thursday."
+  }
+ ]
+}

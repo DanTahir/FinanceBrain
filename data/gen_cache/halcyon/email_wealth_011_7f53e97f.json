@@ -1,0 +1,67 @@
+{
+ "emails": [
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Estate planning referral - {{CLIENT_NAME:c_0169}}",
+   "body": "Hi Grace,\n\nI wanted to flag a client who would benefit from an outside estate planning referral. {{CLIENT_NAME:c_0169}} (low risk, brokerage account {{ACCOUNT_NUMBER:a_00349}}) mentioned in our last call that a recent change in family circumstances means the existing will and beneficiary designations are out of date. The client has been with us since 2023 and is asking for a trusted attorney introduction rather than a generic list.\n\nCould you confirm which of our approved estate counsel firms we can currently refer to? I want to be sure we document the referral properly and that there is no fee arrangement that would need disclosure. I can reach the client at {{CLIENT_PHONE:c_0169}} once I have a name.\n\nLinda is copied since she covers the household's secondary planning questions.\n\nThanks,\nJamie",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_021"
+   ],
+   "cc_ids": [
+    "e_023",
+    "e_047"
+   ],
+   "subject": "Re: Estate planning referral - {{CLIENT_NAME:c_0169}}",
+   "body": "Jamie,\n\nThanks for raising this. We have two approved estate counsel firms on the referral list, both with no fee sharing arrangement. I'd suggest offering the client both so we stay neutral, and noting in ClientHub that the introduction was made at the client's request.\n\nI've copied Marcus so Compliance can confirm the referral language in the intro note. Please hold off on sending anything until he signs off. Once cleared, send the introduction from {{CLIENT_EMAIL:c_0169}}'s preferred channel as recorded in the file.\n\nLet's circle back the week of August 3 to see whether the client has connected with either firm.\n\nGrace",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_028"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Custody platform migration - cutover checklist for wealth accounts",
+   "body": "Hi James,\n\nAhead of the custody platform migration, I need your help pulling together the client-facing cutover checklist for the wealth book. The main items are:\n\n1. Confirm positions in PositionStore tie to the custodian statements for every brokerage account on the migration list, including {{ACCOUNT_NUMBER:a_00588}} for {{CLIENT_NAME:c_0288}}.\n2. Flag any accounts with open corporate actions or pending transfers, since those should not move mid-cycle.\n3. Draft the notification letter so clients know their statements may look different for one cycle.\n4. Check that PortfolioMgr rebalancing is paused for the cutover window so we don't trade against stale holdings.\n\nPlease send me a first pass by Friday so I can review before it goes to Grace. If Technology needs anything from us on data validation, Sam Okafor's team has offered to help.\n\nThanks,\nJonathan",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_027",
+   "to_ids": [
+    "e_018",
+    "e_022"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Prep for review meeting with {{CLIENT_NAME:c_0288}}",
+   "body": "Hi David and Sandra,\n\nI have the annual review with {{CLIENT_NAME:c_0288}} scheduled for next week, and I'd like us to get the materials ready ahead of time. This client is medium risk and has been with us since 2021, so we should show a clear picture of performance and any drift in allocation.\n\nSandra, could you pull the performance report and the activity summary for {{ACCOUNT_NUMBER:a_00588}} covering the trailing twelve months? David, I'd appreciate your thoughts on talking points, particularly around the client's recent questions on fixed income exposure and the upcoming liquidity needs they mentioned.\n\nI'd like to circulate a one-page agenda by Monday. If either of you has seen recent notes from the client, please add them to ClientHub so we're working from the same information. The meeting confirmation will go out through {{CLIENT_EMAIL:c_0288}} once the agenda is final.\n\nThanks,\nKelly",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_025",
+    "e_021"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Advisor coverage while I'm out - October",
+   "body": "Hi Scott and Jamie,\n\nI'll be out of the office on vacation for the next two weeks starting October 12 and would like to confirm coverage for my clients. Scott, you're listed as backup for relationship questions, and Jamie, I'd like you to handle any trade or rebalancing requests that come in.\n\nA few things to be aware of:\n\n1. Two households have required minimum distributions due before year end, and I've noted the status in ClientHub.\n2. One client is expecting a call about a transfer request. I've left the context in the file so you can respond without needing to reach me.\n3. For anything urgent that requires my input, please go through Grace.\n\nI'll send a short handover note on October 8 with the full list. Please let me know if either of you has conflicts during that window so we can adjust.\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  }
+ ]
+}

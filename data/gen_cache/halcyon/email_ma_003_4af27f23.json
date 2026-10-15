@@ -1,0 +1,73 @@
+{
+ "emails": [
+  {
+   "from_id": "e_041",
+   "to_ids": [
+    "e_040",
+    "e_043"
+   ],
+   "cc_ids": [
+    "e_042"
+   ],
+   "subject": "Q3 league table submission - data pull and deal tagging",
+   "body": "Hi Tom, Hannah,\n\nKicking off the quarterly league table submission process. The vendor portal window opens Friday and we have until 2026-08-14 to lock our deal list. I have pulled the mandates that closed or were announced year to date and tagged each by sector, deal type (sell-side, buy-side, fairness opinion) and whether the transaction is announced or completed.\n\nTwo items I need your steer on: first, whether we claim credit on the two cross-border carve-outs where we shared the lead role with another advisor, and second, how we treat the fairness opinion assignments, since the vendor counts those inconsistently. Susan is reconciling deal values against the signed agreements so our enterprise value figures tie to the public filings.\n\nCould you review the attached tracker by Monday and flag anything that looks off? I'd like to get a clean draft to Elena before we submit.\n\nThanks,\nAisha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_043",
+   "to_ids": [
+    "e_039",
+    "e_041"
+   ],
+   "cc_ids": [
+    "e_040",
+    "e_046"
+   ],
+   "subject": "League table submission - final sign-off needed before Tuesday",
+   "body": "Elena, Aisha,\n\nFollowing up on the August submission. Here is where we stand ahead of the deadline on Tuesday 2026-09-01.\n\nThe tracker now has 14 deals. Erik has confirmed enterprise values on 12 of them against the announcement press releases. The remaining two are pending final purchase price adjustments, so I propose we submit them at the announced headline value and footnote the adjustment rather than hold them back.\n\nOn the shared-lead carve-outs, I recommend we claim full credit only where our engagement letter names us as lead financial advisor. Where we were co-lead, we should submit as joint, consistent with how we did it last quarter. That keeps us defensible if the data provider queries it.\n\nElena, can you confirm the approach and give final sign-off by end of day Monday? Compliance has asked to see the final list before it goes out as well, so I will forward it to Marcus's team once you approve.\n\nBest,\nHannah",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_039",
+   "to_ids": [
+    "e_043",
+    "e_041",
+    "e_040"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "League table submission - confirmed and sent",
+   "body": "Team,\n\nThe quarterly league table submission went in this morning ahead of the vendor cutoff. Thank you all for the quick turnaround, particularly Aisha and Erik on the data tie-out.\n\nFinal count was 14 deals, with the two pending price adjustments submitted at headline value and footnoted. Co-lead mandates are shown as joint credit, and we claimed sole lead only where the engagement letter supports it. Marcus, copying you so Compliance has the final version for the file; the submitted list and supporting backup are saved in the M&A shared drive.\n\nWe should expect the vendor to send validation queries over the next week or so. Aisha, please be first point of contact and route anything on methodology to Hannah and me. Tom, can you capture a short lessons-learned note on how we handled the fairness opinions so we apply the same convention next quarter?\n\nNice work everyone.\n\nElena",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_044",
+   "to_ids": [
+    "e_039",
+    "e_040"
+   ],
+   "cc_ids": [
+    "e_029",
+    "e_056"
+   ],
+   "subject": "Project Kestrel - lender meeting schedule and prep",
+   "body": "Elena, Tom,\n\nHere is the proposed schedule for the Project Kestrel lender meetings next week. We have six financing sources lined up, with meetings running Monday through Thursday, mostly 45 minutes each, and two in person at the bank offices in midtown. The rest will be video calls.\n\nFor prep, I am finalizing the lender presentation and the updated financing model, which now reflects the revised leverage case at roughly 4.5x senior debt to EBITDA. Susan is building a one-page term comparison grid so we can compare pricing, covenants and flex provisions across the lenders as they come in.\n\nBrian and Owen are copied since Lending and Risk have offered to give us their view on market appetite and structure ahead of the meetings. Brian, if you have any color on current leveraged loan pricing, that would help us set expectations with the client. Owen, a quick view on how a covenant-lite package would be perceived would be useful too.\n\nElena, could you join the first two meetings? I will circulate dial-ins once the calendar holds are confirmed.\n\nThanks,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_045",
+   "to_ids": [
+    "e_039",
+    "e_043",
+    "e_044"
+   ],
+   "cc_ids": [
+    "e_042"
+   ],
+   "subject": "Project Osprey - draft buyer list for review",
+   "body": "Elena, Hannah, Joshua,\n\nAttached is the first draft of the Project Osprey buyer list for discussion. I have split it into three tiers: 12 strategic buyers with clear operational overlap, 10 financial sponsors with relevant platform investments, and 6 opportunistic parties who could surprise us on price.\n\nFor each name I have noted the rationale, recent acquisition activity, estimated capacity based on public balance sheets, and any potential conflict or relationship sensitivity with the firm. Susan helped compile the capacity analysis. A few strategics may raise antitrust questions, so I have flagged those separately so we can plan the sequencing of outreach.\n\nI would like to finalize the list by end of this week so we can begin drafting teasers and the NDA package. Please mark up anything you want added or removed, and let me know if you think the first wave should be limited to the top tier.\n\nI will also run the final list past Compliance for the conflicts check before any outreach begins.\n\nRegards,\nRobert",
+   "reply_to_previous": false
+  }
+ ]
+}

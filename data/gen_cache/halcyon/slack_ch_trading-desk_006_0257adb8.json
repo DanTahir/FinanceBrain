@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "OMS is crawling again. Order acks taking 2-3 sec on anything over 5k shares. Anyone else seeing it?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 1,
+   "reply_to": 0,
+   "text": "Yeah, same. Sent a limit on a mid cap and the ack came back after the tape had already moved. Started around 14:40 for me."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 3,
+   "reply_to": -1,
+   "text": "Heard you both. Need timestamps and order ids for the slow ones so Tech can pull logs. Don't just tell me it feels slow."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 5,
+   "reply_to": 2,
+   "text": "Will dump a few. Also TradeBlotter P&L is lagging behind fills by like 10 sec, so it may be downstream of the same thing."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 8,
+   "reply_to": -1,
+   "text": "Fwiw I'm seeing PricingSvc quote refresh times spike in my latency monitor since about 14:35. OMS pulls prices from it, so that could be the root cause."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 10,
+   "reply_to": 4,
+   "text": "Agree with Sean. p99 on the pricing calls went from ~80ms to over 1.2s. OMS is probably queuing behind it. Blotter inherits it from both."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 12,
+   "reply_to": 4,
+   "text": "Good, that's useful. Sean, can you post the chart in #it-ops and tag Tech? I'll push on it from our side."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Risk here: if the pricing lag is real, RiskEngine intraday VaR is running on stale marks too. Desk, please be careful sizing into the close until we confirm it's clear."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 17,
+   "reply_to": 7,
+   "text": "Understood. Keeping clips small and working orders manually where I can until acks normalize."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Posted in #it-ops with the p99 chart and the window. Tagged the on-call SRE."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 35,
+   "reply_to": 3,
+   "text": "Ack times are back under 300ms as of 15:35, blotter caught up too. Will keep logging in case it comes back before the close."
+  }
+ ]
+}

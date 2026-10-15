@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick one: a member just asked to withdraw $9,500 cash from checking. Our drawer limit is $5,000 per teller before we need vault approval, right? Don't want to get this wrong."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Yep, $5,000 at the window without a supervisor override. Anything above that needs the vault cash order form and a manager sign-off. Also give the member a heads-up that it may take a few minutes."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "And anything over $10,000 triggers the CTR, so $9,500 is under, but be careful if they've already taken cash out today. Check the day's aggregate in CoreBanking before you hand it over."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 6,
+   "reply_to": 2,
+   "text": "Good call, Nichole. Looked at the aggregate and there was nothing earlier today on {{ACCOUNT_NUMBER:a_00099}}. Member says it's for a car purchase from a private seller."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 9,
+   "reply_to": 3,
+   "text": "Fair. Just do the usual conversation about why they're carrying that much cash and note it in MemberCRM. A cashier's check might be safer for them anyway. Offer it if they're open to it."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 12,
+   "reply_to": 4,
+   "text": "Offered. They're fine with a cashier's check for most of it and $1,500 cash. Thanks both, that saves a trip to the vault."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Heads up for the floor: my drawer was over the $15,000 max after the morning deposits. I'm doing a cash-out to the vault at 1:45 if anyone needs me to hold off on large withdrawals until then."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 38,
+   "reply_to": 6,
+   "text": "Thanks Jonathan. Remember the buy-back needs two people for the count and both initials on the slip. Auditors flagged a missing initial last quarter."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "Got it. Catherine, can you be my second count at 1:45?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 43,
+   "reply_to": 8,
+   "text": "Sure, I'll be there. Just finishing with {{CLIENT_NAME:c_0044}} first."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Reminder: {{CLIENT_NAME:c_0036}} called asking if we can raise their daily cash withdrawal limit for next week. I told them limits are set by Compliance and Paul, so I'll send the request there. Please don't promise anything at the window."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 125,
+   "reply_to": 10,
+   "text": "Agreed. {{CLIENT_NAME:c_0036}} is in my book, so loop me in and I'll follow up with them once Paul and Wesley respond."
+  }
+ ]
+}

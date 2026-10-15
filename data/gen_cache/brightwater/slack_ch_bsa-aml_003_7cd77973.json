@@ -1,0 +1,52 @@
+{
+ "messages": [
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, I'm working the CTR queue for the week. Two cash deposits crossed the $10k line today and both are in draft. One is the commercial operating account for {{CLIENT_NAME:c_0059}}, the other is a member share savings deposit."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Monica. Reminder we have 15 calendar days from the transaction date to file with FinCEN, so no real pressure, but let's not let drafts sit. Did you check for aggregation across the business day?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Yes. For {{CLIENT_NAME:c_0059}} I rolled up the branch deposit plus the ATM envelope deposit into {{ACCOUNT_NUMBER:a_00132}} and it totals $14,200 in cash in. Aggregated it as a single CTR."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 17,
+   "reply_to": -1,
+   "text": "Question on the member one: {{CLIENT_NAME:c_0028}} made a $9,800 deposit Tuesday and a $3,500 one today into {{ACCOUNT_NUMBER:a_00061}}. Separate business days, so no CTR trigger, but I'm wondering if we should eyeball it for structuring."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 23,
+   "reply_to": 3,
+   "text": "Good catch. Pull the 30-day cash history and check against the member's stated income and prior pattern. If it looks consistent, document it and close. If not, open a case for a SAR look."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 38,
+   "reply_to": 4,
+   "text": "Done. The member has deposited similar cash amounts monthly since January, mostly from a seasonal side business per the CRM note. Low risk, no structuring indicators. Documenting and closing."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Quick check from me, are we on track with CTR timeliness this quarter? The board risk committee will ask next week."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 61,
+   "reply_to": 6,
+   "text": "Yes Gloria, every CTR this quarter has been filed within 5 days on average, zero late filings. Monica will send me a one-page summary tomorrow morning that I'll forward to you."
+  }
+ ]
+}

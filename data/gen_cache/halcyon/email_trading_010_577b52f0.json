@@ -1,0 +1,74 @@
+{
+ "emails": [
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_009"
+   ],
+   "subject": "Q2 Best Execution Report - draft for review",
+   "body": "Hi Daniel,\n\nAttached is the draft of the Q2 best execution report for your review ahead of the compliance committee on the 16th. Headline numbers: average implementation shortfall on US cash equity parent orders came in at 6.8 bps versus 7.9 bps in Q1, and the share of flow routed to dark venues held steady at about 22%. Price improvement versus NBBO on marketable child orders averaged 0.31 cents per share.\n\nTwo things I want you to look at. First, the mid-cap slippage in the algo bucket is still above benchmark, mostly on days with wide spreads in the first 30 minutes. Robert has the TCA cut by time of day and I think it supports moving the opening-auction participation cap. Second, I found roughly 40 OMS orders where the venue tag was missing, so they fell out of the routing analysis. I backfilled them from the execution reports, but Marcus's team should know before they sign off.\n\nIf you can send comments by Monday I will turn a final version Tuesday.\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_006",
+    "e_007",
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Broker commission review - Q3 prep, input needed by Aug 19",
+   "body": "Team,\n\nIt's time for the semiannual broker commission review. Ravi's group has pulled the first-half commission wallet by broker, and I want us to go into the meeting with a view on where the research and execution value actually is, rather than where habit has us sending flow.\n\nPlease send me by next Wednesday, the 19th:\n\n1. Your top three brokers by value delivered this year, with specifics (idea quality, block liquidity, access to corporates, clean settlement).\n2. Any broker you think is overpaid relative to what you used. Be candid, this stays on the desk.\n3. Any new relationships worth a trial allocation.\n\nI am also asking Robert to line up the commission-per-share and TCA numbers by broker so we can compare the vote against the data. Our target is to keep total commission spend flat while shifting about 10% of the wallet toward the best performers. Jessica, please include a note on what clients are asking about for research unbundling.\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_072",
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_008",
+    "e_063"
+   ],
+   "subject": "New FIX 4.4 session to the new ATS venue - cert window and checklist",
+   "body": "Hi Sam,\n\nWe have signed the connectivity agreement with the new alternative trading venue and they have offered a certification window starting Tuesday the 15th. We need to stand up a FIX 4.4 session from OMS to their UAT gateway before then.\n\nWhat I need from your team:\n\n- Firewall rule and a dedicated session through the existing order gateway, with sequence numbers persisted across restarts.\n- Test credentials stored properly. Please do not let these end up in a config file in the repo.\n- Drop copy of the UAT execution reports into the blotter feed so TradeBlotter shows the test fills in a separate book.\n\nOn the trading side, Travis and I will script the cert cases: new order, cancel/replace, IOC, minimum quantity, and the reject paths. We also need to agree on the tag 100 and tag 76 handling for ExDestination mapping so smart order router rules are ready, but they stay disabled in production until Daniel signs off.\n\nCould someone from your team join a 30-minute kickoff Thursday?\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_014",
+   "to_ids": [
+    "e_005",
+    "e_013"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "August desk P&L attribution - what drove the month",
+   "body": "Daniel, Jonathan,\n\nI have finished the August attribution on the desk book, built from the TradeBlotter P&L extract and reconciled to the ledger numbers Martin's team sent over. Summary:\n\nTotal desk P&L was up about $3.1M for the month. Roughly $1.9M came from spread capture and client flow, $0.9M from the short-term mean reversion book, and $0.6M from event-driven positions. Offsetting that, financing and borrow costs were about $0.3M, a bit higher than July given the hard-to-borrow names we carried.\n\nA few items to be aware of. About $180K of the client flow number sits in two large blocks late in the month, so the run-rate is lower than the headline. Also, the intraday hedging slippage is not cleanly separated in the blotter, so I allocated it using a volume-weighted approach. Jonathan, can you confirm the booking time stamps on the three trades that were amended after close? They move roughly $40K between days.\n\nI can walk through the factor breakdown on Monday if useful.\n\nBest,\nJessica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_006",
+    "e_007",
+    "e_010",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_063"
+   ],
+   "subject": "Broker commission review - outcomes and Q4 allocation changes",
+   "body": "Team,\n\nThanks for the candid input last quarter and for the follow-up submissions last week. Here is where we landed after the review with Ravi and Marcus.\n\nWe are moving about 12% of the commission wallet starting October 12. Two of the research-heavy brokers will see their share trimmed because the usage data showed very little desk engagement. The two brokers who consistently provided block liquidity and clean settlement will each get a larger allocation. We are also opening a trial allocation to one regional broker for small-cap access, to be reassessed in January.\n\nCommission-per-share targets stay in place, and Robert's TCA will be reviewed monthly rather than quarterly so we can catch drift early. Please keep logging your broker selection reason in OMS at order entry. Compliance will sample those notes for the best execution file.\n\nIf you get pushback from a broker, route it to me instead of promising anything. Questions are welcome at the desk meeting Thursday.\n\nDaniel",
+   "reply_to_previous": false
+  }
+ ]
+}

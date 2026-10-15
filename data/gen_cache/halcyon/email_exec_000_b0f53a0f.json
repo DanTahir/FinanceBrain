@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_001",
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "Office lease renewal - decision needed by mid-August",
+   "body": "Catherine, Martin,\n\nThe landlord sent over the renewal proposal for our Midtown floors this morning. Headline terms: a 7-year extension, a 3% annual escalator, and a tenant improvement allowance of $65 per square foot. They are also offering to let us give back roughly 8,000 square feet of the 14th floor at the end of Q1 2027, which lines up with our hybrid attendance numbers.\n\nMartin, I'd like your view on the cash impact versus the current lease, plus whether the give-back changes how we model occupancy cost per head. I'll ask Ravi for a badge-swipe utilization summary for the last two quarters so we are not negotiating on gut feel.\n\nThe landlord wants a response by August 14. I'd suggest we counter on the escalator and push for a longer free-rent period. Wendy, could you hold 45 minutes on all three of our calendars this week?\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Draft agenda - September all-hands (for your edits)",
+   "body": "Hi Catherine and Linda,\n\nAhead of the all-hands on Tuesday, September 15, here is a first-pass agenda for your comments. Total runtime is 60 minutes, with 15 minutes held for Q&A.\n\n1. Welcome and Q3 firm performance snapshot (Catherine, 10 min)\n2. Financial update: revenue by business line, expense trends (Martin, 10 min)\n3. Operating priorities for Q4, including the office lease decision and technology roadmap (Linda, 10 min)\n4. Business line spotlights: Trading, Wealth, Lending, and M&A, 3 minutes each (department heads)\n5. Recognition and new joiners (Catherine, 5 min)\n6. Open Q&A\n\nI have not yet confirmed the department heads for the spotlights. Please tell me if you would like someone else to present or if any item should be cut. I will also book the large conference room and the video bridge for remote staff.\n\nI'd like to circulate the final agenda by September 8.\n\nBest,\nWendy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_003",
+    "e_002"
+   ],
+   "subject": "Re: Draft agenda - September all-hands (for your edits)",
+   "body": "Wendy,\n\nThanks, this is a good start. A few changes:\n\n- Move the recognition segment to the front, right after my welcome. I want the tone to start on a positive note.\n- Cut the spotlights to 2 minutes each and ask the heads to give one win and one challenge, nothing more. Last time they ran long.\n- Add 5 minutes for Marcus to cover the annual compliance attestation and the new training deadlines. People ignore the emails, so I want it said live.\n- Keep the Q&A at 15 minutes, and please collect anonymous questions in advance through the form so we are not relying on people to speak up.\n\nLinda, can you confirm that the lease item is ready to mention publicly? If we are not signed by then, I would rather keep it to a one-line comment.\n\nPlease circulate the revised version Tuesday morning.\n\nThanks,\nCatherine",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004",
+    "e_056"
+   ],
+   "subject": "Q3 board deck - outline and section owners",
+   "body": "Catherine, Linda,\n\nThe board meets on October 14, and the pre-read goes out October 7. To hit that date I'd like to lock the outline now. Proposed structure:\n\n1. Executive summary and strategic priorities (Catherine)\n2. Q3 financial results versus budget and prior year (Martin)\n3. Business line performance: Trading, Wealth, Lending, M&A pipeline (heads of business)\n4. Risk and liquidity update, including VaR trends and credit exposure (Owen)\n5. Compliance and regulatory update (Marcus)\n6. Operations and technology, including the KYC pipeline ownership transition (Linda)\n7. Appendix: capital ratios, headcount, expense detail\n\nI need draft slides from section owners by September 30, with my consolidated numbers locked by October 2. Owen, please send me the VaR and exposure charts in the same format as the Q2 deck so the board can compare periods easily.\n\nLet me know if you want any section added or reordered.\n\nRegards,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_001",
+    "e_004",
+    "e_063",
+    "e_047"
+   ],
+   "subject": "Re: Q3 board deck - outline and section owners",
+   "body": "Martin,\n\nThe outline works for me. Two requests ahead of the September 30 deadline.\n\nFirst, for section 6 I'll have Ravi and Marcus jointly cover the KYC pipeline move from Operations to Compliance, which took effect October 6. Since the board meeting is after that date, I'd like to frame it as a completed transition, with a one-slide summary of the handoff milestones and any open items. Ravi and Marcus, please send me bullets by September 29.\n\nSecond, can we add a short slide on the lease decision under the operating section? I'll draft that once we finalize terms with the landlord.\n\nWendy, please add the October 7 pre-read distribution and the September 30 draft deadline to everyone's calendars as reminders.\n\nThanks,\nLinda",
+   "reply_to_previous": true
+  }
+ ]
+}

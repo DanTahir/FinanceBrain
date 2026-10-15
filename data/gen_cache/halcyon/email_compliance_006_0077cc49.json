@@ -1,0 +1,74 @@
+{
+ "emails": [
+  {
+   "from_id": "e_051",
+   "to_ids": [
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Marketing material review - Q3 wealth outreach deck for your sign-off",
+   "body": "Hi Marcus,\n\nGrace's team submitted the Q3 wealth outreach deck and the accompanying email template for our review ahead of the planned mid-July distribution. I completed a first pass against our communications policy and the advertising rules for retail and high-net-worth audiences.\n\nThree items need attention. First, slide 6 shows a 12-month model portfolio return without the required net-of-fees disclosure and benchmark comparison. Second, the phrase \"consistently outperforms\" on slide 9 isn't supportable from the performance data provided, so I recommend removing it. Third, the testimonial from an existing client on slide 11 needs a disclosure about whether compensation was provided. Grace has been looped in so her team can start on edits.\n\nEverything else looks fine, including the risk language and the contact footer. I've saved my markup in the compliance review folder under the Q3 outreach item.\n\nCould you confirm whether you want to see the revised version before it goes out, or whether I can clear it on my own once the three fixes are made?\n\nThanks,\nLinda Jones\nCompliance Associate",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_048",
+   "to_ids": [
+    "e_017",
+    "e_005",
+    "e_029",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_051"
+   ],
+   "subject": "Reminder: Q3 AML training - 14 employees in your groups still outstanding",
+   "body": "Hello all,\n\nWith the Q3 AML training deadline set for Friday July 31, I'm sending the current completion status for your groups. Overall completion firm-wide is at 91%, but the following groups remain behind:\n\nWealth Management: 5 outstanding\nTrading: 4 outstanding\nLending: 3 outstanding\nOperations: 2 outstanding\n\nThe module takes about 45 minutes and covers structuring, red flags in wire activity, and the updated sanctions escalation procedure. The quiz requires 80% to pass. Please ask your team members to finish by end of day Wednesday July 29 so we have time to reconcile the records before the deadline.\n\nI will send each of you a name-level list separately. Anyone who misses the deadline will be reported to Marcus and may see their access to payments and client onboarding tools restricted until they complete it, consistent with last quarter.\n\nPlease let me know if anyone is on leave or needs an extension and I'll note it in the tracker.\n\nThank you,\nNadia Petrov\nSenior AML Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_048",
+   "to_ids": [
+    "e_017",
+    "e_005",
+    "e_029",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Q3 AML training - final call, due Friday",
+   "body": "Hello all,\n\nFollowing up on my note from last Friday. As of this morning, firm-wide completion is 96%. Remaining outstanding employees are down to 6: 2 in Wealth Management, 2 in Trading, 1 in Lending, and 1 in Operations. I've sent each of you the names directly.\n\nThe deadline is this Friday, July 31, at 5pm. Because the system logs completion automatically, there is no need to email me a certificate. Please just make sure the person finishes the quiz with a passing score, since partially completed modules don't count.\n\nA reminder that two of the outstanding people are in client-facing roles with high-risk accounts, and any gaps here will be noted in our quarterly report to the board. If anyone is on extended leave, send me the dates today and I will log an approved exception.\n\nI'll send Marcus the final status on Monday August 3.\n\nThanks for your help getting this over the line.\n\nNadia Petrov\nSenior AML Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_052",
+    "e_054",
+    "e_049"
+   ],
+   "cc_ids": [
+    "e_051"
+   ],
+   "subject": "Regulator exam request - document collection assignments",
+   "body": "Team,\n\nWe received the examiner's document request this morning for the upcoming review window. The response is due in 15 business days, so I want to assign owners today and start collecting this week.\n\nAnthony: you own the AML program documentation, including the written procedures, the latest independent test results, and the Q1 and Q2 training records. Please pull a sample of SAR decision files as well.\n\nHeather: you own the customer due diligence materials, covering onboarding procedures, high-risk client review cycles, and a sample set of enhanced due diligence files. The file for {{CLIENT_NAME:c_0294}} is likely to be requested given the risk rating, so please check that it is complete and current, including the source of funds documentation.\n\nJenna: please prepare system evidence from SanctionsScreen, AMLMonitor, and FraudScore, including alert volumes, tuning change logs, and access reports. Data exports should be validated before they go to anyone outside the team.\n\nLinda will maintain the master tracker. Please send me status updates every Monday and Thursday, and flag any gaps immediately rather than trying to fix them quietly.\n\nMarcus",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_051",
+    "e_049"
+   ],
+   "subject": "Exam follow-up - supplemental request items and client file status",
+   "body": "Hi Marcus,\n\nThe examiners sent a supplemental list this morning, and a few items touch the work I own from the original request. Here is where things stand.\n\nThe EDD file for {{CLIENT_NAME:c_0294}} is now complete. I added the refreshed source of funds memo and the annual review sign-off, which had been missing a second approver. The account {{ACCOUNT_NUMBER:a_00594}} activity summary is attached for the last 24 months. The examiners also asked for our correspondence with the relationship manager about the periodic review, and I have located those emails.\n\nStill open: they want the policy exceptions log for high-risk onboarding since January, and I'm waiting on Operations for the pre-October ownership records of the KYC pipeline, since it moved to Compliance on October 6. Jenna may need to help with the change history.\n\nMy target is to have everything to you by Thursday for your review, which leaves a day before the submission deadline.\n\nPlease let me know if you'd like to walk through the client file before it goes out.\n\nBest,\nHeather Carlson\nCompliance Analyst",
+   "reply_to_previous": false
+  }
+ ]
+}

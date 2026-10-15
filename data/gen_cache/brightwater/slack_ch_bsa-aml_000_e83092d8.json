@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Two new structuring alerts out of BSAWatch this morning. First is {{CLIENT_NAME:c_0071}}: four cash deposits into {{ACCOUNT_NUMBER:a_00154}} in six days, each between $8,200 and $9,400. Second is {{CLIENT_NAME:c_0080}}, operating account. Pulling detail on both now."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Thanks Monica. Is the c_0071 pattern new, or does it match their history? Risk rating is low, so I want to know if this is a real departure from baseline."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Real departure. The prior 12 months were mostly payroll direct deposit through ACHHub, with maybe one small cash deposit a quarter. Now it's about $34,700 in cash in six days, spread across two branches."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 12,
+   "reply_to": 2,
+   "text": "Two branches is the part I don't love. Check the teller notes in MemberCRM for any explanation given at the window, like source of funds or a sale."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 20,
+   "reply_to": -1,
+   "text": "On {{CLIENT_NAME:c_0080}}: five cash deposits into {{ACCOUNT_NUMBER:a_00170}} over eight business days, every one just under $10k, about $46,000 total. Commercial client since 2022, low risk. Could be retail cash intake, but the amounts are oddly uniform."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 27,
+   "reply_to": -1,
+   "text": "Quick question from me: are these two alerts connected in any way? I don't want us overreacting on a long-standing business, but I also don't want an exam finding."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 33,
+   "reply_to": 5,
+   "text": "No link so far, Gloria. Different branches, different profiles. We're reviewing each on its own merits. Cash intake isn't unusual for a business, but we'll test it against expected activity from onboarding."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 41,
+   "reply_to": 4,
+   "text": "Checked the onboarding profile: expected monthly cash was around $15k. This is roughly 3x that in under two weeks, and the deposits sit just under the CTR threshold every single time."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 48,
+   "reply_to": 7,
+   "text": "That supports opening a full case. Request branch and teller notes, and ask Rita Jimenez for context on the business before anyone goes near the client."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 55,
+   "reply_to": 8,
+   "text": "On it. Reaching out to Rita now. Reminder to everyone in here: no conversations with either client about these alerts. No tipping off."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 70,
+   "reply_to": 9,
+   "text": "Understood. Keep me posted on whether a SAR looks likely. I'll stay out of any client conversations."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 140,
+   "reply_to": -1,
+   "text": "Update: Jonathan says {{CLIENT_NAME:c_0071}} told him the cash came from selling equipment, but there's no documentation yet. I'm requesting it through the standard review process and logging everything in the case file."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 150,
+   "reply_to": 11,
+   "text": "Good. If the docs don't corroborate by Friday, we move toward a SAR decision ahead of the 30-day mark. Document the timeline carefully either way."
+  }
+ ]
+}

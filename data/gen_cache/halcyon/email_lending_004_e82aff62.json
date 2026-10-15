@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_031",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Credit committee agenda - Tuesday 7/7",
+   "body": "Team,\n\nBelow is the draft agenda for Tuesday's credit committee. Please send me any additions by end of day Monday so I can circulate the final version.\n\n1. Q2 portfolio review: delinquency trends and watchlist movements\n2. Renewal of the CRE bridge facility for an existing borrower, Tammy to present underwriting recommendation\n3. Policy exception request on DSCR floor for a owner-occupied commercial credit, Joshua to present\n4. Individual consumer loan for {{CLIENT_NAME:c_0146}}, linked to loan account {{ACCOUNT_NUMBER:a_00305}}, a pricing exception review\n5. Appraisal turnaround and third-party vendor performance\n6. Open items and action log\n\nOwen, I have copied you since items 2 and 3 touch concentration limits. Credit memos need to be uploaded to LoanOrigination by noon Monday, and please make sure the covenant packages are attached.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_035",
+   "to_ids": [
+    "e_029",
+    "e_030"
+   ],
+   "cc_ids": [
+    "e_031",
+    "e_038"
+   ],
+   "subject": "Appraisal delays - pipeline impact",
+   "body": "Hi Brian and Joshua,\n\nWanted to flag that appraisal turnaround has slipped again. Our primary AMC is now quoting 18 to 22 business days on commercial properties, up from roughly 12 in May. Right now I have six files in LoanOrigination sitting in conditions status solely waiting on appraisals, totaling about $14.2M in pending commitments.\n\nTwo of these have rate locks expiring before the end of August. Brendan and Cassandra both have borrowers asking for updates, and one of them, {{CLIENT_NAME:c_0114}}, has already asked whether we can switch vendors.\n\nProposals:\n1. Escalate to the AMC account manager and request rush priority on the two lock-sensitive files.\n2. Approve a secondary vendor for residential files under $1M.\n3. Extend the locks by 15 days where borrower credit is clean.\n\nCan we discuss at Wednesday's pipeline huddle? Happy to put together the file-by-file list beforehand.\n\nThanks,\nHeidi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_033",
+   "to_ids": [
+    "e_029",
+    "e_030",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_032"
+   ],
+   "subject": "Covenant breach - leverage test on commercial term loan",
+   "body": "Brian, Joshua, Owen,\n\nDuring the Q2 compliance certificate review, I found that one of our commercial term loan borrowers has tripped its senior leverage covenant. Reported total debt to EBITDA came in at 4.6x against a maximum of 4.0x. The cause is a trailing EBITDA decline of about 11% combined with a revolver draw in June to fund inventory.\n\nThe loan is currently rated pass-watch. Outstanding exposure is $8.4M, secured by a first lien on all business assets. The borrower's fixed charge coverage is still at 1.25x, which is above the 1.20x minimum, so this is the only breach.\n\nLynn is the relationship manager and has not yet spoken with the borrower. I recommend we send a reservation of rights letter before any waiver discussion, and request a revised 12-month forecast.\n\nI have attached my spreadsheet to the credit file. Please let me know how you want to proceed.\n\nRegards,\nJasmine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_033",
+    "e_030",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_047"
+   ],
+   "subject": "Covenant breach - update and decision on waiver",
+   "body": "Team,\n\nFollowing up on last week's leverage covenant breach on the commercial term loan. Lynn met with the borrower's CFO on Tuesday. They have submitted a revised forecast showing leverage back to 3.8x by Q1 after the inventory unwinds, plus a commitment to repay $1.5M on the revolver by year end.\n\nMy proposal for the credit committee:\n1. Grant a one-time waiver for the Q2 test, conditioned on a 25 bps fee and a waiver letter.\n2. Add a monthly borrowing base certificate and a quarterly reporting requirement.\n3. Tighten the leverage covenant to 4.25x for the next two quarters, stepping back to 4.0x afterward.\n4. Keep the risk rating at pass-watch.\n\nJasmine, please update the credit memo and rerun the downside case with a further 5% EBITDA decline. Joshua, please review the documentation draft with legal. Owen and Marcus are copied for their views on the rating and any regulatory reporting implications.\n\nPlease respond by Monday.\n\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_036",
+   "to_ids": [
+    "e_029",
+    "e_037",
+    "e_038"
+   ],
+   "cc_ids": [
+    "e_035"
+   ],
+   "subject": "Loan pipeline report - week of 9/14",
+   "body": "Hi all,\n\nHere is the pipeline summary as of this morning from LoanOrigination.\n\nTotal active pipeline: 41 files, $96.3M\n- Application / intake: 12 files, $18.1M\n- In underwriting: 15 files, $38.7M\n- Approved, in documentation: 9 files, $26.4M\n- Clearing to close: 5 files, $13.1M\n\nHighlights:\n- Two files, $6.2M combined, are stalled in KYCPipeline waiting on beneficial ownership documents. Cassandra, please chase these.\n- The individual consumer loan tied to {{CLIENT_NAME:c_0146}} is moving into documentation this week.\n- Appraisal delays remain the biggest bottleneck, with an average of 17 days outstanding.\n- Expected closings this month: 7 files, roughly $19.5M.\n\nCredit scoring model outputs were refreshed Friday, so recent scores may differ slightly from older memos. Brian, I can walk through aging buckets in Thursday's meeting if useful.\n\nThanks,\nBrandi",
+   "reply_to_previous": false
+  }
+ ]
+}

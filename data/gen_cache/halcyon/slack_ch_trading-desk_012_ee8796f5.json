@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Fed held, statement a touch more hawkish on the dots. 2s backed up like 6 bps, equities giving back the morning bid. Watch the tape into the close."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "SPX lost 25 handles in about 90 seconds. Bids thin out in the futures. Financials holding up better than tech though."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "Phones are lighting up. Real money wants to sell into the bounce, a few hedge funds asking for color on vol. Anyone seeing size in VIX calls?"
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 6,
+   "reply_to": 2,
+   "text": "Yeah, saw a decent 30 delta VIX call buyer print about two minutes after the statement. Looks like hedging, not a punt."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Heads up, spreads are wide on the small caps. I'm slicing the VWAP orders thinner until it settles. OMS is showing a couple of child orders sitting unfilled."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 11,
+   "reply_to": 4,
+   "text": "Fine, don't chase. Use limits, participation cap at 8% until the presser starts."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Powell's tone in the presser is softer than the statement. Reversing the tech weakness, QQQ off the lows. Whipsaw city."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 15,
+   "reply_to": 6,
+   "text": "Told you. Now the same accounts that wanted to sell are asking to buy back. Love it."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 18,
+   "reply_to": 7,
+   "text": "Can you send me the axes on the bank names? Two clients want to lean into the rally."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 20,
+   "reply_to": 8,
+   "text": "Sending now. Regionals are the cleanest, we're axed long in a few of them."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "TradeBlotter P&L looks stale for me, last refresh 14:21. Anyone else seeing that or just my screen?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 28,
+   "reply_to": 10,
+   "text": "Mine updated a minute ago. Hard refresh and re-pull the layout. If it's still stuck, ping IT in #it-ops."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 30,
+   "reply_to": 11,
+   "text": "Refresh fixed it. Thanks. Back to the MOC imbalances, looks like a sell skew into the close."
+  }
+ ]
+}

@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. AML annual training completion is at 87% firm-wide as of this morning. Deadline is Aug 14, so I'll start sending reminders to the stragglers today. Dashboard export is in the usual folder."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Linda. Who's the biggest chunk of the remaining 13%? Last year it was mostly Trading and a handful of wealth advisors."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Same pattern. Trading is at 71%, Wealth at 84%, Lending at 90%. Ops and M&A are above 95%. Trading has 4 people who haven't even opened the module."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Catching up on this. Marcus mentioned the regulator asks for training attestation in the next exam cycle. Are we on track to be at 100% by the deadline? I can push the desk heads if needed."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 19,
+   "reply_to": 3,
+   "text": "Yes please, Linda. Trading and Wealth are where it would help most. I'll send you the named list of incomplete folks by noon so you can forward it to the desk heads."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Question on the module itself: the typologies section still references the old structuring thresholds from the 2024 version. Is that content getting refreshed or are people supposed to just know the current guidance?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 33,
+   "reply_to": 5,
+   "text": "Good catch Anthony. The vendor content refresh was supposed to land in July. I'll chase them. In the meantime I'll add a one-page addendum covering the updated typologies, including the trade-based laundering red flags."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Eng side: the LMS completion feed into our compliance dashboard has been lagging about a day. I found a bad cron schedule on the sync job. Fixing it now so the numbers Linda pulls are current."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 46,
+   "reply_to": 7,
+   "text": "Perfect timing, Jenna. That may explain why two people showed up as incomplete when they told me they finished Monday."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 71,
+   "reply_to": 8,
+   "text": "Sync is fixed and I backfilled. Completion should now read 89%. Send me any names that still look wrong and I'll check the raw LMS records."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 95,
+   "reply_to": -1,
+   "text": "Should we use a real case in the case-study portion of the refresher? Something like a wire flagged by FraudScore on a commercial account, anonymized. For example, {{CLIENT_NAME:c_0071}}'s incoming wire into {{ACCOUNT_NUMBER:a_00150}} at a 0.64 score would be a decent example of a medium flag."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 104,
+   "reply_to": 10,
+   "text": "Please don't put client identifiers or account numbers in training materials, even internal ones. Use a generic scenario: a mid-size commercial wire at a moderate fraud score with an unfamiliar originator. Same teaching point, no exposure."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 108,
+   "reply_to": 11,
+   "text": "Fair point, I'll scrub it and rewrite it generically. Will post the draft here for your review."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 150,
+   "reply_to": -1,
+   "text": "Got the list, Linda. I've sent it to Daniel Reyes and Grace Lin with a note that incompletes need to be done by Aug 12, and I asked them to confirm back to me."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 157,
+   "reply_to": 13,
+   "text": "Thank you! I'll send a second reminder Monday and a final one Wednesday. Anyone still open after the 12th gets escalated to Marcus."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 240,
+   "reply_to": -1,
+   "text": "Addendum is drafted and in the shared folder. Anthony, once your case study is ready, I'll review both together and we can ask the vendor to bundle them into the module next cycle."
+  }
+ ]
+}

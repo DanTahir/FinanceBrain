@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Anyone seen the SettlementEngine end-of-day file land yet? Recon still shows nothing for today and it's already past 3."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Nothing here either. ACH breaks are piling up because the GLCore postings aren't matching to anything."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 5,
+   "reply_to": -1,
+   "text": "Wire room sees 6 unmatched wires on the recon view, all value date today. Is that the late file or something separate?"
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 7,
+   "reply_to": 2,
+   "text": "Likely the file. The morning wires all matched fine, so it's just the afternoon batch that's hanging."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 10,
+   "reply_to": 0,
+   "text": "@Kevin Zhao can you tell if the ReconLegacy job even kicked off? Wondering if cron is stuck."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 14,
+   "reply_to": 4,
+   "text": "SettlementEngine shows the file published at 14:52, so upstream is done. But I don't know ReconLegacy internals, the Perl jobs, Oracle 11g and cron are all Priya Raman. Pinging her now."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 18,
+   "reply_to": 5,
+   "text": "Thanks Kevin. Is there any chance GLCore is the holdup instead? I can't tell from the console."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 24,
+   "reply_to": 6,
+   "text": "GLCore looks healthy from my side. Priya says the pickup job was waiting on a stale lock on the Oracle side. She's clearing it and rerunning, ETA about 20 min."
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 27,
+   "reply_to": -1,
+   "text": "Heads up, ops: hold off on manual break tickets until the rerun finishes, otherwise we'll just create duplicates."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Rerun finished and the 6 wires have cleared. Two small ACH items are still open, Craig, are those yours?"
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 56,
+   "reply_to": 9,
+   "text": "Yep, those are mine. Both are timing differences, I'll confirm they roll off in tomorrow's run and note it here."
+  }
+ ]
+}

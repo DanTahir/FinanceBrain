@@ -1,0 +1,102 @@
+{
+ "tickets": [
+  {
+   "title": "Reindex fragmented tables in DataLake metadata catalog",
+   "description": "Query latency on the DataLake metadata catalog has crept up over the last two weeks. Index fragmentation on the partition registry and lineage tables is above 40% per the weekly health check, and catalog lookups from analytics jobs are taking 3-4x longer than baseline. Requesting a maintenance window this weekend to rebuild the fragmented indexes online, refresh optimizer statistics, and confirm there is no blocking on the nightly ingest. Downstream consumers include the credit decisioning models and ReportingBI refresh jobs, so I would like a heads-up sent to those owners before we start.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_080",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Window approved for Sat 02:00-04:00 ET. Please run the rebuild with ONLINE option and stop if ingest lag goes over 5 minutes."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Rebuild complete in 52 minutes. Fragmentation down to under 3%, stats refreshed. Catalog lookups back to baseline, p95 down from 1.9s to 0.5s. No ingest lag observed."
+    }
+   ]
+  },
+  {
+   "title": "Nightly DataLake compaction job did not trigger",
+   "description": "The scheduled compaction job for the DataLake raw zone did not fire last night. The scheduler UI shows the job as 'misfire' with a lock on the trigger row from a node that was restarted during patching earlier in the evening. As a result, small-file counts in the raw zone are climbing and this morning's downstream aggregation jobs ran slower than usual. Need to clear the stale trigger lock, rerun compaction manually, and confirm the scheduler cluster failover behaves correctly after node restarts so this does not repeat.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_074",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_074",
+     "text": "Found the stale lock in the scheduler's trigger table. The node that held it was restarted without a graceful shutdown. Cleared it and kicked off compaction manually, it is running now."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Compaction finished and file counts look normal. Can we add a lock timeout so a dead node does not hold triggers indefinitely?"
+    },
+    {
+     "author_id": "e_074",
+     "text": "Yes, set the cluster check-in interval and lock expiry to 90 seconds in config. Tested by killing a node in staging and the trigger was picked up by the peer. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Access request: AuthSSO admin console read-only for new SRE rotation",
+   "description": "Requesting read-only access to the AuthSSO admin console for Travis Dean, who is joining the on-call rotation for identity-related incidents starting next week. He needs to view session logs, IdP configuration, and application connector health, but should not be able to change policies or modify connectors. Please grant the audit-viewer role only and set an expiry review for 90 days. Manager approval is attached to the request in the access system. Priority is moderate since the rotation starts Monday.",
+   "reporter_id": "e_077",
+   "assignee_id": "e_081",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_081",
+     "text": "Audit-viewer role looks right. I need Sam to confirm the approval since the console grants are tracked as privileged access. Pinging him."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Approved. Please make sure the 90-day expiry is set and that MFA is enforced on the account before the role is applied."
+    }
+   ]
+  },
+  {
+   "title": "Renew expiring TLS certificate for AuthSSO login endpoint",
+   "description": "The TLS certificate on the AuthSSO login endpoint expires in 12 days, per the weekly certificate expiry report. Because AuthSSO sits upstream of the OMS, ClientHub, and DocVault, an expired certificate would block sign-in across the firm. Need to generate a CSR, get the new cert issued by the internal CA chain, install it on both load balancer pairs, and verify SAML and OIDC clients still trust the chain. Schedule during a low-traffic window and keep the old cert available for rollback.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_077",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "CSR submitted and the new cert was issued this morning. Installing on the standby load balancer first to test OIDC and SAML flows before cutover."
+    },
+    {
+     "author_id": "e_073",
+     "text": "Reminder that a couple of legacy service connectors pin the intermediate cert. Check those in staging before the primary cutover."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Good catch, two connectors do pin it. I will update their trust stores ahead of the swap and plan cutover for tomorrow evening."
+    }
+   ]
+  },
+  {
+   "title": "Rebuild indexes on DataLake query audit tables ahead of quarter-end",
+   "description": "Ahead of quarter-end reporting, the audit and query history tables in DataLake have grown large and queries against them are slow. Index bloat is evident and a few unused indexes are adding write overhead on ingest. Proposal is to drop the three unused indexes identified from usage stats, rebuild the remaining ones, and update statistics. Need to coordinate with the Risk team owning ReportingBI so their dashboard refresh is not disrupted. Target a weekend window within the next ten days.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_079",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "I can take this. Can you share the index usage stats export so I can confirm the three candidates for dropping have had no reads in 90 days?"
+    },
+    {
+     "author_id": "e_080",
+     "text": "Attached the usage export to the ticket. All three show zero reads over the last 120 days. I would still script a rollback to recreate them if needed."
+    }
+   ]
+  }
+ ]
+}

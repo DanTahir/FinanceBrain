@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: RiskEngine logged 3 VaR backtesting exceptions on the 99% 1-day book over the trailing 250 days after Friday's close. That puts us at the edge of the green zone. Want to walk through the drivers before the weekly pack goes out."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Which desks? Credit-sensitive positions are in the rates/credit overlay, so I'd like to rule that out first."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Friday's breach was mostly equity vol plus a spread widening on the IG index hedge. The other two were back in the spring, already documented."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Paul, what does the regulator-facing view look like if we pick up a fourth? I need to know whether it changes the capital multiplier conversation before the board pack goes out Thursday."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Martin, 4 exceptions is still green. The multiplier add-on starts at 5. We're not there, but I'd rather not burn the cushion on something data-related."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Quick question: are we backtesting against clean P&L or hypothetical? If Friday's number includes the intraday fee accrual, that could be inflating the loss and making it look like an exception."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 26,
+   "reply_to": 5,
+   "text": "Good catch, Phillip. ReportingBI is pulling actual P&L, not hypothetical. I'll ask for the hypothetical series to be rerun excluding fees and new trades."
+  },
+  {
+   "author_id": "e_060",
+   "minutes_after_start": 34,
+   "reply_to": -1,
+   "text": "Also noticed the PricingSvc curve snapshot for the IG index used a stale 3:45pm mark on Friday. That could shift the VaR number the exception was measured against. I'll pull the timestamps."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "John, if the mark was stale the exception may be a data artifact rather than a model miss. Please attach the snapshot times to the ticket so we can document it either way."
+  },
+  {
+   "author_id": "e_060",
+   "minutes_after_start": 55,
+   "reply_to": 8,
+   "text": "Will do. Rough check: using the 4:00pm mark, Friday's loss is about $1.1M against a VaR of $1.3M, so it might not breach at all. Confirming against the full series now."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 63,
+   "reply_to": 9,
+   "text": "That would be a much better story. Please don't adjust anything silently though. If we restate, I want the methodology note and Marcus Bell in the loop."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 70,
+   "reply_to": 10,
+   "text": "Agreed. Nothing gets overwritten; we log the original exception and the reclassification with sign-off. I'll draft the note and loop in Compliance once John's numbers are confirmed."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 78,
+   "reply_to": -1,
+   "text": "I'll rerun the hypothetical backtest this afternoon and post the comparison table here by 4pm."
+  }
+ ]
+}

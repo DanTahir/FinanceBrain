@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Grant DocVault read access to data engineering for client records audit export",
+   "description": "Michael Jones needs read-only access to the DocVault client records collections for the Q3 data retention audit. The scope is limited to metadata and retention tags, not the document bodies where possible. Access should be provisioned through AuthSSO group membership rather than a direct DocVault role so it is revocable. Business justification: the audit export feeds the retention report due to Compliance at the end of August. Requesting 60 day expiry on the grant. Manager approval from Sam Okafor is attached in the request thread.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Created the AuthSSO group docvault-retention-audit-ro and mapped it to the metadata-only DocVault role. Added Michael with a 60 day expiry. Please verify you can list collections."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Confirmed, I can list collections and read retention tags. The export job ran clean. Thanks!"
+    },
+    {
+     "author_id": "e_072",
+     "text": "Approval confirmed on my side. Closing once the expiry reminder is on the calendar."
+    }
+   ]
+  },
+  {
+   "title": "Renew expiring TLS certificate on AuthSSO identity provider endpoints",
+   "description": "The TLS certificate fronting the AuthSSO login and SAML metadata endpoints expires on 2026-10-02. Monitoring flagged it at the 14 day threshold. Renewal needs to be issued from the internal CA, deployed to both load balancer pools, and the SAML signing metadata checked so downstream relying parties such as ClientHub and DocVault do not see trust errors. Plan a rolling deploy outside market hours. Also confirm the automated renewal job, which failed silently last cycle, is fixed before this one lands.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_077",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Root cause of the failed auto-renew: the ACME-style job was using an expired service credential. Rotated it and a dry run now passes."
+    },
+    {
+     "author_id": "e_078",
+     "text": "New cert is issued. I will stage it on pool B first tonight and then pool A after verifying SAML metadata with ClientHub."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Both pools are serving the new cert, valid through next September. No relying party errors in the logs. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Temporary production read access to PositionStore replicas for incident follow-up",
+   "description": "Kevin Zhao needs short-lived read access to the production PositionStore read replicas to validate the fix for the stale holdings counts seen last week. Access should be granted through AuthSSO with break-glass logging enabled and expire after 5 business days. No write permissions are requested. Approval from the owning lead is needed because the replicas hold client holdings data. Query activity should be captured in the audit log for review by Sam Okafor.",
+   "reporter_id": "e_075",
+   "assignee_id": "e_078",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Picking this up. I am creating a time-boxed role with query logging enabled and will wire it into AuthSSO group sync."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Approved. Please keep the scope to the two read replicas only and make sure the session recording is on."
+    }
+   ]
+  },
+  {
+   "title": "Add rate limiting to internal pricing API to stop runaway batch clients",
+   "description": "On Friday a batch job in the analytics stack issued roughly 40k requests per minute against the PricingSvc quote endpoint and pushed p99 latency from 90ms to over 1.4s. MarketDataFeed was fine, but OMS quote refreshes slowed during the spike. We need per-client rate limiting at the API gateway, with token bucket limits by service identity, a 429 response with Retry-After, and a higher tier for OMS and RiskEngine. Please also add dashboards and alerts on throttled request counts.",
+   "reporter_id": "e_076",
+   "assignee_id": "e_079",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "Drafted gateway config with default 600 rps per identity and 3000 rps for OMS and RiskEngine. Testing in staging today."
+    },
+    {
+     "author_id": "e_074",
+     "text": "Be careful with the burst size. TradeBlotter refreshes tend to spike at the open, so a small bucket could throttle legitimate traffic. Suggest 2x burst for the first week in log-only mode."
+    },
+    {
+     "author_id": "e_079",
+     "text": "Good call. Rolling out in log-only mode first, then enforce after a week of data."
+    }
+   ]
+  },
+  {
+   "title": "Rebuild fragmented indexes on DataLake metadata database ahead of month-end",
+   "description": "Query times on the DataLake catalog metadata database have crept up, with the lineage and partition lookup queries now taking 8 to 12 seconds. Index fragmentation on the partitions and table_stats tables is above 60 percent, and statistics are stale. Schedule an online index rebuild and statistics refresh during the Saturday maintenance window. Downstream consumers include ReportingBI, FraudScore, and CreditScoring, so we should notify those owners and take a snapshot beforehand. Estimated duration is about 90 minutes.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_081",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_081",
+     "text": "I can take this for Saturday. I will take a snapshot first and run the rebuild with online option on the two largest tables, then refresh statistics."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Thanks. I will send a heads up to the Risk and Compliance channels so nobody schedules heavy backfills in that window."
+    }
+   ]
+  }
+ ]
+}

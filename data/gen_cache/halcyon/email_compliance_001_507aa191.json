@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_050",
+   "to_ids": [
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_055",
+    "e_017"
+   ],
+   "subject": "KYC periodic refresh backlog - status as of Aug 12",
+   "body": "Hi Marcus,\n\nQuick status on the periodic KYC refresh queue ahead of Friday's committee. We have 143 refreshes past their review date, up from 118 at the end of July. About 60 of those are wealth segment, mostly low-risk individuals who haven't responded to the first outreach letter. Luis and I are clearing roughly 12 a day, but the intake is outpacing us.\n\nOne example: {{CLIENT_NAME:c_0216}} (low risk, wealth segment, client since 2021) is due for refresh. Outreach for the brokerage account {{ACCOUNT_NUMBER:a_00447}} went out two weeks ago with no reply. David Montes has been asked to follow up by phone.\n\nI'd like to propose we pause the high-risk reviews from the 30-day rule so they don't get buried, and ask Grace's advisors to chase unresponsive clients directly. I'm copying Grace for visibility.\n\nHappy to walk through the numbers before Friday.\n\nThanks,\nJohn",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_051",
+    "e_054"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Marketing material review - wealth webinar deck needs sign-off by Sept 4",
+   "body": "Hi Linda and Heather,\n\nWealth Management submitted the fall webinar deck and a one-page client brochure for compliance review. I did a first pass today and have a few flags:\n\n1. Slide 7 says the model portfolios are \"consistently outperforming\" with no benchmark or time period. That needs a 1-, 3- and 5-year comparison and the standard past performance disclaimer.\n2. The testimonial on slide 11 needs the required disclosure about whether the person is a client and whether they were compensated.\n3. The brochure uses the phrase \"guaranteed income\" next to the structured note product. That has to come out.\n\nCould one of you take the brochure and Heather the deck for a second review? Marketing wants the final by Friday, Sept 4 so they can send invitations. Marcus, cc'ing you in case you want to weigh in on the testimonial language.\n\nI'll log everything in the review tracker.\n\nBest,\nAnthony",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_055",
+   "to_ids": [
+    "e_047",
+    "e_050"
+   ],
+   "cc_ids": [
+    "e_049"
+   ],
+   "subject": "KYC refresh backlog - update after August clean-up",
+   "body": "Marcus, John,\n\nFollowing up on the August backlog. As of this morning we're at 96 overdue refreshes, down from 143. The outreach reminders and the weekend push did most of the work.\n\nWhat's left breaks down roughly as follows: 38 awaiting client documents, 31 pending enhanced due diligence, and 27 that are simply in the queue. A recurring issue is that some refresh packets are stalling in DocVault because file uploads time out. Jenna, could your team look at whether the upload limit can be raised? It's slowing us down more than I expected.\n\nFor {{CLIENT_NAME:c_0216}}, we finally received updated ID and proof of address, and I've matched them to the file. The risk rating stays low, so I expect to close it this week.\n\nIf we hold this pace we should be at zero past-due by mid-October, ahead of the KYCPipeline ownership handover to Compliance on Oct 6.\n\nThanks,\nLuis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_001",
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: personal trading pre-clearance requirements for Q4",
+   "body": "Hello all,\n\nWith the fourth quarter starting, this is a reminder of the personal trading policy for covered persons.\n\n- Pre-clearance is required before any purchase or sale of individual securities, including options and ETFs that are not on the exempt list. Approvals are valid for one business day only.\n- Securities on the restricted list, including any names tied to active advisory mandates, will be denied. Please do not ask us to confirm the reason.\n- New positions are subject to a 30-day holding period.\n- Quarterly holdings attestations are due by October 16.\n\nWe've noticed several trades this past quarter placed before approval was granted. These are being tracked and repeat cases will be escalated to Marcus. Please remind your teams, especially those who work on deals where restrictions can change quickly.\n\nRequests go through the compliance portal, and I'm available for questions at any time.\n\nThanks,\nHeather Carlson\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_048",
+   "to_ids": [
+    "e_001",
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_053"
+   ],
+   "subject": "Quarterly AML training - completion status and Oct 16 deadline",
+   "body": "Hi all,\n\nAs of today, completion of the Q3 AML training is 87% firm-wide. The deadline is Friday, October 16. By department:\n\n- Wealth Management: 91%\n- Lending: 89%\n- Trading: 78%\n- Operations: 84%\n\nTrading and Operations are the furthest behind. Please ask your teams to finish the 45-minute module this week. This quarter's content covers structuring red flags, wire transfer typologies and a refreshed section on sanctions evasion. Daniel Sanchez has added two case studies drawn from recent internal alerts, with all client details removed.\n\nIndividuals who miss the deadline will be reported to Marcus, and system access for repeat non-completers may be suspended under the policy. I'll send each of you a list of outstanding names on Monday.\n\nThanks for your help,\nNadia Petrov\nSenior AML Analyst",
+   "reply_to_previous": false
+  }
+ ]
+}

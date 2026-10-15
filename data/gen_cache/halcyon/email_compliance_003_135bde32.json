@@ -1,0 +1,77 @@
+{
+ "emails": [
+  {
+   "from_id": "e_048",
+   "to_ids": [
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_053",
+    "e_005"
+   ],
+   "subject": "Trade surveillance alert review - week of 7/27 open items",
+   "body": "Hi Marcus,\n\nI finished the weekly pass on the trade surveillance queue. Of 14 alerts, 11 are closed as false positives (mostly wash-trade pattern hits tied to the desk's intraday hedging). Three remain open and need your eyes before I disposition them:\n\n1. Layering-pattern alert on a block of equity orders routed through OMS on 7/27. Cancel-to-fill ratio was well above our 8:1 threshold. Daniel Sanchez is pulling order-level timestamps.\n2. Repeated small-lot prints ahead of the close in a single name, flagged twice in 30 days.\n3. A cross-product flag involving counterparty cp_008 (Harrison-Arnold), where the settlement instructions referenced {{CP_ACCOUNT:cp_008}} and differed from what is on file.\n\nDaniel Reyes, I'm copying you so the desk can send written rationale for items 1 and 2 by Friday. I'd like to finalize the file notes by next Wednesday so nothing ages past our 10-business-day review standard.\n\nThanks,\nNadia",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: personal trading pre-clearance - Q3 attestation approaching",
+   "body": "Hello all,\n\nA quick reminder from Compliance ahead of the quarter-end attestation window.\n\nAll covered persons must obtain pre-clearance through the compliance portal before any personal trade in individual equities, ETFs on the restricted list, or options. Approvals are valid for the same trading day only. Please keep in mind:\n\n- Securities on the watch or restricted list, including names tied to active M&A work, will be denied. M&A team members should check with us before submitting.\n- Holding period for non-exempt positions is 30 calendar days.\n- Brokerage statements for any outside account must be uploaded by September 15.\n\nWe found three late pre-clearance submissions last quarter, so we will be spot-checking more closely this time. Please pass this along to your teams. If you are unsure whether a trade requires approval, ask before you trade, not after.\n\nQuestions can come to me or Marcus.\n\nBest regards,\nAnthony Ramirez\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_063",
+    "e_072",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_049",
+    "e_051"
+   ],
+   "subject": "Regulatory exam document request - response due 9/11",
+   "body": "Hi all,\n\nWe received the examination staff's initial document request this morning. The exam covers our AML program, the KYC onboarding process, and the payments controls around wires. Responses are due September 11, so we need to work backwards.\n\nWhat I need from each of you by Friday, September 4:\n\nRavi: wire room procedures, callback verification logs for the last two quarters, and PaymentsGateway exception reports.\n\nSam: access review evidence for AuthSSO and DocVault, plus change management records for any SanctionsScreen releases.\n\nOwen: the latest model validation summary for FraudScore thresholds and risk committee minutes touching AML.\n\nLinda Jones will run the tracker and assign each request a reference number. Jenna Cho will help with system extracts. Please do not send anything directly to the examiners; everything routes through Compliance so we have one consistent record. For sample files, redact client identifiers or use the placeholder tokens, for example {{CLIENT_NAME:c_0275}} in working drafts.\n\nThank you,\nMarcus",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_052"
+   ],
+   "subject": "Personal trading pre-clearance - reminder and Q3 deadline",
+   "body": "Hi team,\n\nFollowing up on Anthony's note from August, this is a reminder that the Q3 personal trading attestation opens September 28. Before then, please make sure:\n\n- Every personal trade has a matching pre-clearance approval in the portal. We found several trades last month with approvals dated after execution.\n- Outside brokerage accounts are disclosed and duplicate statement feeds are active.\n- Any trade in a name on the restricted list is escalated to us right away.\n\nM&A and Trading folks: given current deal activity, the restricted list changed twice this month. Please re-check it on the day you intend to trade rather than relying on an earlier look.\n\nIf you already have a late submission, tell us proactively. Self-reporting is treated very differently from us finding it.\n\nThanks,\nHeather Carlson\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_050",
+   "to_ids": [
+    "e_047",
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_055",
+    "e_017"
+   ],
+   "subject": "KYC refresh backlog - status as of 10/13",
+   "body": "Hi Marcus and Brian,\n\nHere is where the periodic KYC refresh queue stands now that KYCPipeline sits with Compliance (it moved over on October 6).\n\nCurrent backlog: 212 refreshes overdue, of which 38 are high-risk clients past their 12-month cycle. Medium-risk accounts make up most of the rest. Luis Bowen and I are clearing about 15 files a day, which is not enough to close the gap before year end.\n\nMain blockers:\n- Missing updated beneficial ownership forms.\n- Stale documents in DocVault that fail the validity check.\n- Lending files, such as {{CLIENT_NAME:c_0275}}, where the loan account {{ACCOUNT_NUMBER:a_00565}} cannot be renewed until the refresh is complete.\n\nRequests: Brian, can your relationship managers chase outstanding documents on the lending side? Grace, same for wealth clients. Marcus, I'd like approval to prioritize high-risk files first and borrow a temporary resource from the AML team.\n\nI'll send a refreshed count on Friday.\n\nJohn",
+   "reply_to_previous": false
+  }
+ ]
+}

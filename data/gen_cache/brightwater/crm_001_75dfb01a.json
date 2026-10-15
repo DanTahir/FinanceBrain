@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0077",
+   "text": "7/13 - Spoke with {{CLIENT_NAME:c_0077}} about renewing the loan on {{ACCOUNT_NUMBER:a_00165}}. Payment history is clean, no lates since origination, and the client is still direct depositing into {{ACCOUNT_NUMBER:a_00164}}. Client asked about a lower rate and a slightly longer term to reduce the monthly payment. Explained we need updated income verification and a fresh credit pull through CreditPull before I can quote. Confirmed contact preference is email at {{CLIENT_EMAIL:c_0077}}. Will send the document checklist today and follow up by phone at {{CLIENT_PHONE:c_0077}} once paperwork is back."
+  },
+  {
+   "client_id": "c_0056",
+   "text": "7/22 - Met with {{CLIENT_NAME:c_0056}} to talk through required minimum distribution planning. The client is turning RMD age this year and wanted to know how to move funds from an outside IRA custodian into {{ACCOUNT_NUMBER:a_00126}} and whether the credit union can withhold taxes. Explained that we do not act as custodian for tax advice and recommended speaking with a tax professional about the amount and withholding. Reviewed how incoming transfers would post to {{ACCOUNT_NUMBER:a_00127}}. Mailed our transfer guide to {{CLIENT_ADDRESS:c_0056}}. Client will call me at the branch once the custodian confirms the distribution date."
+  },
+  {
+   "client_id": "c_0074",
+   "text": "8/19 - {{CLIENT_NAME:c_0074}} came in to request an address change after a recent move. Verified identity with photo ID and the security questions in MemberSSO profile checks. Updated the mailing address in the system to {{CLIENT_ADDRESS:c_0074}} for both {{ACCOUNT_NUMBER:a_00159}} and {{ACCOUNT_NUMBER:a_00160}}. Reminded the client that a new debit card and checks will go to the updated address, and that a confirmation notice goes to the old address as a standard fraud control. Client also confirmed phone {{CLIENT_PHONE:c_0074}} is still current. No other issues."
+  },
+  {
+   "client_id": "c_0079",
+   "text": "8/19 - {{CLIENT_NAME:c_0079}} called asking about renewing an existing loan. I am a member services rep, so I did not quote terms. Confirmed the client's share savings balance in {{ACCOUNT_NUMBER:a_00169}} and noted the interest in renewal. Collected best contact info, {{CLIENT_PHONE:c_0079}} or {{CLIENT_EMAIL:c_0079}}, and let the client know someone from Lending will reach out within two business days. Warm handoff sent to the Lending team in the queue. Client was friendly but wants a decision soon because the current payment is due next month."
+  },
+  {
+   "client_id": "c_0021",
+   "text": "9/23 - {{CLIENT_NAME:c_0021}} stopped by the teller line and asked about alternative investments such as crypto and private real estate funds. Explained that Brightwater does not offer or recommend those products and cannot give investment advice at the window. Pointed out the share certificate options and the rates on {{ACCOUNT_NUMBER:a_00045}} as a safe place for funds. Client keeps day to day money in {{ACCOUNT_NUMBER:a_00046}}. Suggested speaking with an independent financial adviser. Offered to email the current certificate rate sheet to {{CLIENT_EMAIL:c_0021}}; client agreed. No follow-up needed unless the client asks."
+  },
+  {
+   "client_id": "c_0040",
+   "text": "10/6 - {{CLIENT_NAME:c_0040}} called upset about a late fee on the loan {{ACCOUNT_NUMBER:a_00090}}. Payment was made from {{ACCOUNT_NUMBER:a_00089}} but posted one day after the grace period because it was submitted after the ACH cutoff on the last day. I reviewed the history. This is the first late fee since opening the loan last year and the relationship is in good standing. I approved a one-time courtesy reversal per policy and explained the cutoff time. Also suggested autopay. Will confirm by email to {{CLIENT_EMAIL:c_0040}} once the credit posts. Client was appreciative."
+  },
+  {
+   "client_id": "c_0038",
+   "text": "8/6 - Spoke with {{CLIENT_NAME:c_0038}} at the teller window about renewing an upcoming loan maturity. I cannot discuss pricing, so I captured the request and confirmed the client's share savings {{ACCOUNT_NUMBER:a_00085}} and checking {{ACCOUNT_NUMBER:a_00086}} are in good order. Client prefers a call at {{CLIENT_PHONE:c_0038}} in the afternoon. Sent a referral to the Lending team and flagged that the maturity is coming up within a few weeks. Told the client to expect contact by end of week."
+  },
+  {
+   "client_id": "c_0088",
+   "text": "8/24 - The business owner for {{CLIENT_NAME:c_0088}} asked to update the company's address on file following an office relocation. Because this is a commercial relationship, I requested a signed change form on company letterhead and a recent utility bill or lease as proof. Once received, I will update the record to {{CLIENT_ADDRESS:c_0088}} for operating account {{ACCOUNT_NUMBER:a_00178}}. Also noted that the beneficial ownership certification should be refreshed with Compliance. Client will send documents to {{CLIENT_EMAIL:c_0088}} reply thread this week. Low risk, no concerns."
+  },
+  {
+   "client_id": "c_0022",
+   "text": "8/12 - {{CLIENT_NAME:c_0022}} asked to update the phone number on file after changing carriers. Verified identity through the standard callback and security questions. Updated the primary contact to {{CLIENT_PHONE:c_0022}} on the profile tied to {{ACCOUNT_NUMBER:a_00047}} and {{ACCOUNT_NUMBER:a_00048}}. Because the number is used for MFA, I reminded the client to re-enroll the new number in online banking, and sent a confirmation to {{CLIENT_EMAIL:c_0022}}. Risk rating is medium so I added a note for the next periodic review. Client understood and had no other requests."
+  },
+  {
+   "client_id": "c_0008",
+   "text": "9/8 - {{CLIENT_NAME:c_0008}} reported a damaged debit card and is leaving on international travel soon. Ordered a replacement card for {{ACCOUNT_NUMBER:a_00014}} with expedited shipping to {{CLIENT_ADDRESS:c_0008}}, and placed a travel notice with Operations covering the trip dates given. Reminded the client that the card authorization feed depends on CoreBanking being available, so a backup payment method is wise. Loan {{ACCOUNT_NUMBER:a_00015}} payment is on autopay and will continue while traveling. Will follow up at {{CLIENT_PHONE:c_0008}} if the card is delayed."
+  }
+ ]
+}

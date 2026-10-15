@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_022",
+   "to_ids": [
+    "e_017",
+    "e_021"
+   ],
+   "cc_ids": [
+    "e_028"
+   ],
+   "subject": "Prep for {{CLIENT_NAME:c_0007}} review - Tuesday 2pm",
+   "body": "Hi Grace and Jamie,\n\nAhead of Tuesday's review with {{CLIENT_NAME:c_0007}}, I've pulled together the prep pack. Highlights: the client is rated high risk, and the brokerage account ({{ACCOUNT_NUMBER:a_00014}}) is running about 4% over the equity target after the June rally. The cash management sleeve ({{ACCOUNT_NUMBER:a_00015}}) holds roughly $380K, which is more idle cash than the IPS suggests.\n\nOpen items I'd like to cover: (1) rebalancing options with Janet's team, (2) the client's question about concentrated tech exposure, and (3) refreshing the risk questionnaire since it's been a year.\n\nI've saved the draft deck and performance attribution in the client folder. Could you each review by end of day Monday and send me edits? James, please check that the latest statements are included.\n\nThanks,\nSandra",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_017",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "Estate planning referral - {{CLIENT_NAME:c_0030}}",
+   "body": "Hi Grace and Marcus,\n\nDuring a catch-up this week, {{CLIENT_NAME:c_0030}} told us they are looking to put together an estate plan and a revocable trust, and asked for a referral to an outside estate attorney. I want to make sure we handle this correctly.\n\nMy plan is to share a short list of three independent firms from our approved referral list, with no fee arrangement or endorsement from us. Marcus, can you confirm the referral disclosure language is still current? I'd also like to document the conversation in ClientHub.\n\nIf the client moves ahead with a trust, we'll need to talk about retitling the brokerage account ({{ACCOUNT_NUMBER:a_00065}}), which may trigger new KYC documentation. Grace, are you okay with me taking the lead on this?\n\nI'm aiming to get back to the client by next Wednesday.\n\nBest,\nJamie",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_028",
+   "to_ids": [
+    "e_017",
+    "e_019"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "Client review prep - {{CLIENT_NAME:c_0030}} meeting next Thursday",
+   "body": "Hi Grace and Janet,\n\nI'm preparing for next Thursday's annual review with {{CLIENT_NAME:c_0030}}, a medium-risk client who joined us in mid-2023. Brokerage account {{ACCOUNT_NUMBER:a_00065}} is up about 7.8% year to date against a 7.1% benchmark, though most of the outperformance came from the large-cap growth holdings.\n\nTopics I'd propose: the estate planning referral Jamie began last week, a possible shift toward more fixed income given the client's stated time horizon, and a fee schedule review. Janet, could you send me your updated allocation recommendation by Tuesday so I can slot it into the deck?\n\nThe client prefers a call to email, so I'll confirm timing using the contact details on file ({{CLIENT_PHONE:c_0030}}). Grace, please let me know if you'd like to join.\n\nThanks,\nJames",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_072",
+    "e_063",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_018",
+    "e_025"
+   ],
+   "subject": "Custody platform migration - Wealth Management readiness",
+   "body": "Hi Sam, Ravi, and Marcus,\n\nFollowing up on the custody platform migration timeline. From the Wealth side, I want to flag a few readiness items before we agree on cutover:\n\n1. PortfolioMgr relies on PositionStore and PricingSvc, so we need confirmation that position feeds will be reconciled before and after the cutover, ideally with a parallel run of at least two cycles.\n2. Client statements for brokerage and cash management accounts, such as {{ACCOUNT_NUMBER:a_00014}} and {{ACCOUNT_NUMBER:a_00015}}, must carry over without formatting or cost-basis changes.\n3. David and Scott will need a client communication draft at least two weeks before the move, reviewed by Compliance.\n\nRavi, can Operations share the settlement impact assessment? Sam, please send the technical cutover plan and rollback criteria. I'd like to review everything at Monday's sync.\n\nThanks,\nGrace",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_027",
+   "to_ids": [
+    "e_023",
+    "e_024"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Advisor coverage for vacation - Aug 24 to Sept 4",
+   "body": "Hi Linda and Jonathan,\n\nI'll be out from August 24 through September 4, and I'd like to line up coverage for my book. Linda, would you be the primary contact for my clients, and Jonathan the backup for anything involving trading or rebalancing requests?\n\nI'll put together a coverage sheet by Friday with each client's key preferences, pending items, and anything scheduled. Two matters need attention: a pending beneficiary update that should be completed in the first week, and a cash raise request that Michael's team may need to act on.\n\nI'll make sure the clients know to expect a call from one of you. Grace, copying you for visibility and approval. Let me know if either of you has conflicts that week and I'll adjust.\n\nThanks so much,\nKelly",
+   "reply_to_previous": false
+  }
+ ]
+}

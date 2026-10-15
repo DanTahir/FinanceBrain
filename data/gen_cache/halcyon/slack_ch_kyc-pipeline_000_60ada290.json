@@ -1,0 +1,118 @@
+{
+ "messages": [
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Kicking off the periodic KYC refresh batch for wealth segment low-risk clients. 3-year cycle hits for anyone onboarded in 2023, so that includes {{CLIENT_NAME:c_0187}} (client since Dec 2023). Pipeline queue shows 42 refreshes pending."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Luis. Reminder KYCPipeline is still under Ops until Oct 6, so flag anything stuck to me. After that it moves to Jenna Cho's team in Compliance Eng."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 7,
+   "reply_to": -1,
+   "text": "Quick question: for low-risk individuals, do we need a fresh ID document on refresh or just attestation that nothing's changed?"
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 10,
+   "reply_to": 2,
+   "text": "Per the CDD policy, attestation is fine for low risk unless the ID on file has expired or there's an address change. Then we need new docs in DocVault."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Got it. {{CLIENT_NAME:c_0187}}'s ID on file is good through 2028 so attestation only. I'll send the outreach through Jamie Washington since he's the RM."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Heads up, the refresh run re-triggers SanctionsScreen for every client in the batch. Saw some latency on the first 10, roughly 40 sec each vs the usual 5."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "Is that SanctionsScreen itself or the pipeline queueing? Compliance owns SanctionsScreen so I'd want Jenna's team to look if it's the screening side."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 27,
+   "reply_to": 6,
+   "text": "Looks like the screening side to me. The pipeline hands off instantly and then waits on the response. I'll drop a note in #compliance."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Update: {{CLIENT_NAME:c_0187}} refresh flagged because the contact record in ClientHub shows a different {{CLIENT_ADDRESS:c_0187}} than what's in the brokerage account profile. Mismatch between a_00387 and a_00388 records?"
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 40,
+   "reply_to": 8,
+   "text": "Checked. Brokerage ({{ACCOUNT_NUMBER:a_00387}}) has the older address, cash management ({{ACCOUNT_NUMBER:a_00388}}) has the new one. So address change is real and we need proof of address."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Then it's not attestation-only after all. Request a utility bill or bank statement dated within 90 days, upload to DocVault."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 49,
+   "reply_to": 10,
+   "text": "Will do. I'll ask Jamie to reach out by phone at {{CLIENT_PHONE:c_0187}} since email didn't get a response last cycle."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Can someone give me a status count by end of day? Linda Brandt asked how many refreshes we'll complete before the Oct 6 ownership transition."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 61,
+   "reply_to": 12,
+   "text": "Current: 42 in batch, 11 complete, 6 awaiting docs, 25 not started. At this pace we finish the batch by mid-September."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 68,
+   "reply_to": 13,
+   "text": "I'd say we'll beat that if SanctionsScreen latency gets fixed. Right now it's the bottleneck."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Update on {{CLIENT_NAME:c_0187}}: Jamie reached the client, proof of address coming by email to {{CLIENT_EMAIL:c_0187}} reply thread tomorrow morning. Marking the case as pending docs."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 125,
+   "reply_to": 15,
+   "text": "Great. Please also update the address on a_00387 once verified so the records match. I'll keep the refresh open until then."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 190,
+   "reply_to": 6,
+   "text": "Compliance Eng confirmed the SanctionsScreen slowdown was a list reload at 13:30. Latency is back to normal, around 6 sec now."
+  },
+  {
+   "author_id": "e_063",
+   "minutes_after_start": 196,
+   "reply_to": 17,
+   "text": "Good. Luis, rerun the stalled items and I'll update Linda with the count tonight."
+  }
+ ]
+}

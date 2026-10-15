@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: the independent validation team sent over the draft findings on the RiskEngine VaR model this morning. Three items rated medium, one high. Worth a read before Friday's model risk committee."
+  },
+  {
+   "author_id": "e_062",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Just skimmed it. Is the high one the backtesting exceptions? I remember we had a cluster of them in the August vol spike."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Yep. 6 exceptions at 99% over the trailing 250 days, which puts us in the yellow zone. They want a documented root cause, not just 'market was weird'."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "Question on the medium findings: do we know if the proxy mapping issue is about the illiquid credit positions or the equity options? The wording in section 4 is vague."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Credit side, I think. They flagged that some thinly traded bonds get mapped to a sector index with stale spreads. I can pull the list of affected positions if that helps."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 16,
+   "reply_to": 4,
+   "text": "That would help a lot, thanks Lance. I'll cross-check against what PositionStore shows as of last close."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Also noticed they want evidence that the lookback window parameter change in July went through formal change approval. I only see the ticket, no sign-off attached."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 27,
+   "reply_to": 6,
+   "text": "Good catch Phillip. I approved it verbally in the weekly but you're right, nothing in writing. I'll add a retroactive approval note and flag it as a process gap rather than hide it."
+  },
+  {
+   "author_id": "e_062",
+   "minutes_after_start": 35,
+   "reply_to": 2,
+   "text": "For the root cause, I ran a quick comparison. Most exceptions line up with days where the intraday price snapshot was taken before the open auction settled. So it's partly a timing issue in how PricingSvc feeds the engine."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 41,
+   "reply_to": 8,
+   "text": "Interesting, that's a stronger story than model misspecification. Can you write it up with the specific dates and the P&L deltas? Validators will want to reproduce it."
+  },
+  {
+   "author_id": "e_062",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Will do. Should have a draft by end of day tomorrow."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Separate point: ReportingBI still shows the old VaR methodology label on the regulatory dashboard. If validation sees that, it'll look like we're running two versions."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 63,
+   "reply_to": 11,
+   "text": "Ugh, yes. That's a label only, the numbers come from the current engine output. I'll ask Technology to update the dashboard text and confirm."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 70,
+   "reply_to": 12,
+   "text": "Please do, and screenshot before and after so we have an audit trail."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 95,
+   "reply_to": 4,
+   "text": "List is ready: 14 bonds mapped to the stale sector index, about $38M notional combined. I put it in the shared validation folder."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 101,
+   "reply_to": 14,
+   "text": "Got it. 11 of the 14 match PositionStore, and I'll chase down the other 3, probably matured or rolled."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Nice progress, everyone. Let's sync at 10 tomorrow to agree on management responses so we can submit them ahead of the committee."
+  }
+ ]
+}

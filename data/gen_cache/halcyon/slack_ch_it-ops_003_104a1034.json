@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: laptop refresh batch 2 starts this week. Engineering is up next, so expect the new M-series boxes to show up at your desks by Thursday. Please back up local dotfiles and any scratch work before you hand yours in."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Do we get to keep the old one for a few days after migrating? Last time I discovered a stray SSH config two days after wipe."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Yes, 5 business days overlap. After that they go to the imaging queue and get wiped. Don't count on it being around longer than that."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Quick question: are the new laptops enrolled in AuthSSO automatically or do we need to re-register our hardware keys? I'd rather not get locked out mid-deploy."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "You need to re-register. Provisioning sets up the device cert, but the hardware key has to be re-bound in AuthSSO manually. Do it while the old laptop is still logged in so you have a fallback."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 20,
+   "reply_to": 4,
+   "text": "Perfect, thanks Priya. I'll do it first thing when mine arrives."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "I have a few local Postgres dumps pulled from PositionStore snapshots for a backfill test. Is it ok to just copy those to the new machine, or should they go through DocVault or somewhere approved?"
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 36,
+   "reply_to": 6,
+   "text": "Don't copy them over directly. Delete the local dumps if you can, and re-pull a masked snapshot on the new box. Anything unmasked shouldn't sit on a laptop anyway, so this is a good chance to clean up."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 40,
+   "reply_to": 7,
+   "text": "Fair enough. They're masked mostly, but I'll just regenerate. Wiping now."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Also, are we still on the 32GB config for engineering? My local integration test suite chokes at 16GB."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 61,
+   "reply_to": 9,
+   "text": "Yes, 32GB for all of us in Technology. I'm out of here October 9 so mine goes to whoever picks up my queue, just FYI for the asset tracker, Barbara."
+  }
+ ]
+}

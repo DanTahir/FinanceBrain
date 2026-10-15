@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Fee schedule exception request - {{CLIENT_NAME:c_0223}} advisory fee reduction",
+   "body": "Hi Grace,\n\nI'd like to request a fee schedule exception for {{CLIENT_NAME:c_0223}}, a client of Tricia's since 2020. The client is asking us to move the advisory fee on the brokerage account {{ACCOUNT_NUMBER:a_00460}} from 85 bps to 65 bps, citing a competing offer from an outside custodian. Combined with the cash management balances in {{ACCOUNT_NUMBER:a_00461}}, the household is just over our $5M breakpoint for the next tier.\n\nI've attached the 12-month revenue history and a draft exception form. Risk profile is low and there have been no service issues. Marcus, copying you so Compliance can confirm the disclosure language in the amended fee schedule before we send anything to the client.\n\nCould I get your decision by Friday? The client is expecting a response early next week.\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_020",
+    "e_047"
+   ],
+   "subject": "Re: Fee schedule exception request - {{CLIENT_NAME:c_0223}} advisory fee reduction",
+   "body": "Linda,\n\nThanks for the detail. I can support a reduction to 70 bps on {{ACCOUNT_NUMBER:a_00460}}, with a 12-month review tied to the household staying above $5M in combined assets. I'm not comfortable going to 65 bps given where peers sit on similar relationships.\n\nTricia, since you're the RM of record, please join the call with the client and confirm that the cash management account stays outside the advisory fee calculation. Please make sure the exception form is logged in the register with the sunset date.\n\nMarcus, please let us know if the amended schedule needs any additional disclosure wording.\n\nGrace",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_017",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "Fee exception register - Q3 update and outstanding items",
+   "body": "Hi Grace and Linda,\n\nQuick update ahead of the quarter-end review. The 70 bps exception for {{CLIENT_NAME:c_0223}} was accepted by the client on the call last week, and the amended schedule has gone out for signature. That brings the number of active fee exceptions in the Wealth Management book to 11.\n\nTwo things I'd like us to settle before the review:\n\n1. Three exceptions on the register have no sunset date recorded. I'd like each owner to add one by end of next week.\n2. We have no consistent rule on whether exceptions are measured against household or account-level assets. This drives the breakpoint question in several cases.\n\nCatherine, copying you as you asked for visibility on revenue leakage. The estimated annual impact of the current register is roughly $410K against list pricing.\n\nHappy to draft a one-page policy proposal if useful.\n\nTricia",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_017",
+    "e_020",
+    "e_026"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Model portfolio changes - September rebalance proposal",
+   "body": "Team,\n\nFollowing the investment committee meeting, here is the proposed change to the model portfolios effective the September rebalance:\n\n- Moderate Growth: reduce US large-cap core by 2 points, add 2 points to short-duration investment grade credit\n- Conservative Income: swap the broad aggregate bond fund for a 60/40 blend of Treasuries and short-duration IG\n- All models: trim the emerging markets sleeve by 1 point, moving it into developed ex-US\n\nThe PortfolioMgr rebalancing run will use the new target weights, so the trade lists should be reviewed before release. Some accounts have a negotiated fee exception, and I want to confirm the lower fee tier doesn't conflict with the new fund expense ratios.\n\nOwen, could Risk review the tracking error impact before we publish? I'll send the full allocation table once it's through.\n\nThanks,\nJanet",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_017",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_021"
+   ],
+   "subject": "Fee exception for {{CLIENT_NAME:c_0026}} - renewal ahead of anniversary",
+   "body": "Hi Grace,\n\nI need a renewal decision on the fee exception for {{CLIENT_NAME:c_0026}}, who has been with us since March 2024. The exception on {{ACCOUNT_NUMBER:a_00058}} reduced the advisory fee by 10 bps for the first two years, and the sunset review is due this month.\n\nThe client's assets have grown to about $2.8M, still under the standard breakpoint for the lower tier. The client has asked to retain the reduced rate, and has mentioned possibly consolidating outside holdings with us if it stays in place. I'd recommend extending for 12 months, conditional on the consolidation. The client prefers to be reached through {{CLIENT_EMAIL:c_0026}} for the paperwork.\n\nMarcus, please let me know if anything in the fee disclosure needs to be refreshed given the extension.\n\nJamie is copied as backup on the relationship.\n\nBest,\nJonathan",
+   "reply_to_previous": false
+  }
+ ]
+}

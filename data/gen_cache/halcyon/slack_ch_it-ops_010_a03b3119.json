@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Starting to sketch the Q3 DR test plan. Proposed window is the weekend of Aug 15, failover to the secondary site. Can everyone sanity check scope for their systems this week?"
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Aug 15 works for me. Do we include AuthSSO in scope this time? Last year we skipped it and it bit us when DocVault restore needed tokens."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Yes, AuthSSO goes first in the runbook ordering. Everything that depends on it (DocVault, ClientHub, OMS) comes after."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Question on DocVault: are we validating restore from the replicated bucket or just checking replication lag? I'd like us to actually open a sample of docs after failover, not just count objects."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 16,
+   "reply_to": 3,
+   "text": "+1. Checksum comparison on a random sample plus a few real retrievals through the app layer. Last time we only checked object counts and missed a permissions mismatch."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 21,
+   "reply_to": 3,
+   "text": "Agree. Also make sure the sample doesn't pull real client records into a test workstation. Use the synthetic test folder we set up in the DR bucket if possible."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 27,
+   "reply_to": -1,
+   "text": "For DataLake, full restore of the warehouse is about 14 hours from snapshot at current size. That blows past a normal weekend window if we also want to rerun the ingestion jobs. Thoughts on restoring only the curated layer?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 33,
+   "reply_to": 6,
+   "text": "Curated layer only is fine for this round, but we need to prove raw can be rebuilt eventually. FraudScore and AMLMonitor both read from DataLake, so Compliance will ask about it."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 38,
+   "reply_to": 7,
+   "text": "Makes sense. I'll do curated + one raw partition as a timed sample and extrapolate. Will put the numbers in the plan doc."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 45,
+   "reply_to": -1,
+   "text": "RTO/RPO targets: want to confirm with Sam before I put them in the doc. Current draft is 4h RTO for critical systems, 15 min RPO. Anyone know if DataLake is supposed to be under the critical tier? It's standard in the inventory."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 51,
+   "reply_to": 8,
+   "text": "Standard tier, so a looser target. But since fraud and AML pipelines hang off it, I'd argue for treating it as critical-adjacent for the test. Let's flag it to Sam."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "I can own the monitoring and alerting cutover check. Need someone to confirm DNS TTLs got lowered ahead of time, that was the long pole last year."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 64,
+   "reply_to": 10,
+   "text": "I'll take the DNS TTL pre-check and put a reminder on the Aug 12 checklist."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 72,
+   "reply_to": -1,
+   "text": "Heads up, I leave on Oct 9, so I'd like the doc to be self-contained enough that someone else can run the post-test review in the fall. Barbara, mind adding a handoff section?"
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 76,
+   "reply_to": 12,
+   "text": "Will do. I'll draft the plan doc tonight and share the link here for comments by Wednesday."
+  }
+ ]
+}

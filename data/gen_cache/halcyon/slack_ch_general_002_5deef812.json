@@ -1,0 +1,112 @@
+{
+ "messages": [
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Good morning all. Quick welcome to the new joiners who started today across Operations, Wealth and Compliance. Your onboarding schedules are in your inboxes. Please say hi and help them find the coffee machine on 14."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Welcome aboard everyone! If you're joining Wealth, grab me or anyone on the PM side if you want a walkthrough of how PortfolioMgr rebalancing works. Happy to do a 20 min tour this week."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "Welcome to the Ops folks too! Settlements is on the 12th floor, we do a short stand-up at 9:15 every morning. Feel free to sit in tomorrow and see how SettlementEngine breaks get triaged."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 9,
+   "reply_to": 0,
+   "text": "Welcome! I'm on the Client Associate side of Wealth. Ping me if ClientHub access gives you any trouble, I've been through the AuthSSO request flow a few times and know the quirks."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Thanks James. Reminder to all new joiners: complete your compliance training modules within your first two weeks. Code of conduct and info barrier modules come first. Reach out to me directly with questions."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Also, lunch for the Wealth team welcome is Wednesday at noon in the 15th floor conference room. New joiners from other teams are welcome to drop by, there will be plenty of food."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 22,
+   "reply_to": 2,
+   "text": "Tip for the Ops newbies: ask for read access to #recon early. You'll see the daily breaks discussion and it's the fastest way to learn how our books tie out."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 27,
+   "reply_to": 5,
+   "text": "Count me in for Wednesday. I'll bring a seating chart so people can find the right desks afterward 😄"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 31,
+   "reply_to": 7,
+   "text": "Ha, perfect James. That will save me from getting lost on my own floor again."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 45,
+   "reply_to": -1,
+   "text": "One more housekeeping note: badge photos are being taken at the front desk until 3pm today. Please go over once you've met with your managers."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "Thanks Marcus. I'll walk our Ops joiners down after their 1pm session."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Does anyone know if laptops for the new Wealth hires are already imaged? Just want to make sure they're set up before their afternoon sessions."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 80,
+   "reply_to": 11,
+   "text": "I saw a couple of them at their desks with machines already running, so I think IT got there early. Worth a quick check with the help desk though."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 96,
+   "reply_to": 11,
+   "text": "Ops ones are all set on my side. Technology dropped them off Friday afternoon."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 101,
+   "reply_to": 13,
+   "text": "Great, thanks both. I'll just do a quick floor walk to confirm for Wealth."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 140,
+   "reply_to": -1,
+   "text": "Reminder that the firm-wide new hire welcome session is tomorrow at 10am in the main training room. Linda Brandt will open, and each team lead will say a few words."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 146,
+   "reply_to": 15,
+   "text": "Will be there. Looking forward to meeting everyone properly."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 170,
+   "reply_to": 15,
+   "text": "Same here. Welcome again to all the new faces, glad to have you with us!"
+  }
+ ]
+}

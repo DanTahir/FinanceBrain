@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick question for the floor: I've got a member asking why a mobile deposit from this morning is still on hold. It's {{CLIENT_NAME:c_0012}}, checking {{ACCOUNT_NUMBER:a_00024}}. Anyone seen the hold reason codes behave oddly today?"
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "What's the hold reason showing on the item? If it says new-deposit or exception hold, that's usually the standard Reg CC next-day schedule. If it's a manual review flag, that's different."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "It says exception hold, $2,400 check. Member has been with us since 2021 so I don't think it's a new-account thing. Risk rating is medium, if that matters."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "FYI I had two mobile deposit holds this morning too, both over $2,000. Starting to wonder if the threshold for auto-hold got tightened. Anyone know?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "I don't think the threshold changed. Reg CC says large deposits over $5,525 can get an exception hold, but we also do our own review on mobile items when the image quality score is low. Could be blurry endorsements."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 18,
+   "reply_to": 2,
+   "text": "Nichole, check whether the check image has a restrictive endorsement or missing 'for mobile deposit only' line. That trips the exception hold more than anything lately."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 24,
+   "reply_to": 5,
+   "text": "Good call Catherine. The endorsement is there but the image is a little dark. So probably a quality flag, not a risk thing. Should I release it or send it to review?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 29,
+   "reply_to": 6,
+   "text": "Don't release it yourself. Send it to the deposit review queue and note it in MemberCRM. If the check is clean, ops will clear it today. Tell the member to expect a decision by end of day."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 33,
+   "reply_to": 7,
+   "text": "Will do, thanks Paul. I'll call {{CLIENT_NAME:c_0012}} at {{CLIENT_PHONE:c_0012}} once it's in the queue and explain the delay so they aren't surprised."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 41,
+   "reply_to": 3,
+   "text": "Update on mine: both were low image quality flags, same as Nichole's. Looks like a few members are snapping photos in poor light. Might be worth a quick tip in the next member newsletter."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 47,
+   "reply_to": 9,
+   "text": "Good idea Zachary. Joanna, can you draft two lines on mobile deposit photo tips, flat surface, good light, all four corners visible? We'll get it to marketing this week."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 52,
+   "reply_to": 10,
+   "text": "On it. I'll have a draft in this thread by Wednesday."
+  }
+ ]
+}

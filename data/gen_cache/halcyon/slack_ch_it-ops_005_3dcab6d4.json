@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Pulled the July cloud bill ahead of the review. Compute is up about 14% month over month, mostly the always-on Oracle instances behind ReconLegacy and the oversized PositionStore replicas."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "14% is a lot. Is that the reserved instance coverage lapsing or actual usage growth?"
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Mix of both. Two RI commitments expired on the 15th and those boxes rolled to on-demand pricing. Usage itself is roughly flat."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "For the review: PositionStore read replicas are provisioned for quarter-end peak but run at ~20% CPU the rest of the month. We could autoscale down to two replicas outside close windows."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Would scale-down cause replica lag when we scale back up? I remember the warmup taking a while last time we resized."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 19,
+   "reply_to": 4,
+   "text": "Yes, cold cache is the catch. Warmup was ~25 min in staging. I'd schedule the scale-up the evening before close, not reactive on load."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 24,
+   "reply_to": -1,
+   "text": "Separate item: ReconLegacy runs the Oracle 11g box 24/7 for a batch that finishes in about 90 minutes. Can we stop it between runs?"
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 29,
+   "reply_to": 6,
+   "text": "Licensing makes me nervous, and the Perl jobs assume the DB is always up. A stop/start wrapper is doable but I'd want Ravi's team to sign off since recon breaks land on them."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 35,
+   "reply_to": 6,
+   "text": "I can prototype the wrapper in dev this week. Start the instance 30 min before the batch, health check the listener, then shut down after the final recon export lands."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 41,
+   "reply_to": 8,
+   "text": "Please add a failure path too. If the batch hangs, the instance shouldn't auto-stop mid-run. Alert and leave it up."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 48,
+   "reply_to": -1,
+   "text": "Rough savings estimate: renewing the two RIs (1yr, no upfront) ~ $9k/month, PositionStore autoscaling ~ $5k/month, ReconLegacy scheduling ~ $3k/month. Total near $17k/month."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 53,
+   "reply_to": 10,
+   "text": "Renew the RIs first, that's the no-brainer. I'll file the purchase request today and tag Martin's team for approval."
+  },
+  {
+   "author_id": "e_081",
+   "minutes_after_start": 58,
+   "reply_to": 11,
+   "text": "Great. I'll put the other two as tickets with owners: Priya on PositionStore autoscaling, Travis on the ReconLegacy wrapper. Revisit at next week's review."
+  }
+ ]
+}

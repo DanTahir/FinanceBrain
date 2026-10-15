@@ -1,0 +1,118 @@
+{
+ "tickets": [
+  {
+   "title": "Read access to DataLake curated pricing schemas for backtest work",
+   "description": "Requesting read-only access to the curated pricing and curve-history schemas in DataLake for the next sprint. I am building a replay harness to compare PricingSvc outputs against historical snapshots and currently only have access to the sandbox schemas, which are about six weeks stale. I do not need write privileges or access to the raw vendor landing zone. Access should be provisioned through the standard SSO group mapping, and my manager Leo Martinez can approve. Needed by Friday so the harness can run over the weekend batch window.",
+   "reporter_id": "e_075",
+   "assignee_id": "e_077",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Checked the request against the access matrix. Curated schemas are fine for read-only, but the raw landing zone is excluded as you said. I need explicit approval from Leo before adding you to the group."
+    },
+    {
+     "author_id": "e_074",
+     "text": "Approved. Kevin needs this for the pricing replay work and the scope is read-only on curated schemas. Please set a 90-day expiry so we re-certify it."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Done. Added to the curated read group with a 90-day expiry and verified a test query succeeds. Closing this out. Open a new ticket if you need the raw zone later."
+    }
+   ]
+  },
+  {
+   "title": "PricingSvc returning 429s to internal batch consumers after rate limit change",
+   "description": "Since the gateway rate limit policy rollout yesterday, several internal batch consumers calling the PricingSvc valuation endpoint are getting HTTP 429 responses during the overnight revaluation run. The new default is a per-client cap that is far lower than the burst pattern those jobs use, which fan out thousands of small requests in the first few minutes. Retries with backoff are masking some failures but the run is finishing roughly 40 minutes late. We need either a tuned limit for the batch client class or a bulk valuation endpoint so the jobs stop hammering single-instrument calls.",
+   "reporter_id": "e_074",
+   "assignee_id": "e_076",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_076",
+     "text": "Confirmed in gateway logs: the batch client identities are all on the default tier. I am creating a separate tier with a higher sustained rate and a larger burst bucket, scoped only to the batch service accounts."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Heads up on the SRE side, I added a dashboard panel for 429 counts per client so we can watch this after the change. Latency on PricingSvc stayed flat during the earlier spikes, so capacity is not the issue."
+    },
+    {
+     "author_id": "e_076",
+     "text": "New tier deployed this afternoon. Last night's run finished on schedule with zero 429s. Follow-up item filed to move the batch consumers to the bulk valuation call so we can tighten the limit again later."
+    }
+   ]
+  },
+  {
+   "title": "Nightly DataLake ingestion jobs not triggering after scheduler upgrade",
+   "description": "The nightly DataLake ingestion DAGs did not start last night. The scheduler was upgraded Thursday evening and the scheduler process is up and healthy according to its health check, but no runs were created after the upgrade for any DAG with a cron timetable. Morning dashboards that depend on DataLake loads show stale data, and downstream consumers noticed missing position snapshots. Manual triggers work fine. Suspect a timezone or timetable config incompatibility introduced by the new version. Need the schedule restored and the missed loads backfilled before the Monday morning reporting cycle.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_078",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Found it. The upgrade changed how the default timezone setting is read and our config used a deprecated key, so every cron timetable silently resolved to no next run. Fixing the config and restarting the scheduler."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Schedules are showing next-run times again. I kicked off a backfill for the three missed nights and will validate row counts against the source extracts."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Backfill completed and row counts match. I added a config lint check to the deploy pipeline so deprecated keys fail the build, and an alert if any DAG goes more than one interval without a run. Closing."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Thanks both. Please include this in the upgrade runbook as a known gotcha before we touch the scheduler again."
+    }
+   ]
+  },
+  {
+   "title": "Renew expiring TLS certificate on PricingSvc internal endpoints",
+   "description": "The TLS certificate fronting the PricingSvc internal API endpoints expires in 14 days. Auto-renewal failed on the last two attempts because the ACME challenge path is blocked by a recent change to the internal load balancer rules. Several downstream services pin to the issuing chain, so we need to confirm that clients trust the renewed intermediate before cutover. Please renew manually if needed, fix the challenge routing so renewal is automatic again, and schedule the rollover in a low-volume window outside market hours.",
+   "reporter_id": "e_077",
+   "assignee_id": "e_073",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_073",
+     "text": "Reproduced the renewal failure. The load balancer rule change dropped the challenge path from the allow list. I have a fix ready and will request a new certificate once it is deployed."
+    },
+    {
+     "author_id": "e_079",
+     "text": "For the pinning concern: the risk engine client and the trade blotter feed both pin to the intermediate. The new cert uses the same issuing chain, so I do not expect trust issues, but I will run a handshake test from each in staging."
+    },
+    {
+     "author_id": "e_073",
+     "text": "Renewed cert rolled out Saturday morning with no connection errors. Auto-renewal tested successfully against the fixed challenge route. New expiry is a year out. Resolving."
+    }
+   ]
+  },
+  {
+   "title": "Index bloat and slow queries on PricingSvc reference data database",
+   "description": "Query latency on the PricingSvc reference data database has crept up over the past month. Instrument lookup queries that used to return in a few milliseconds now regularly take 80 to 150 ms at p95, and the autovacuum logs show the main instrument and curve tables carrying significant index bloat after the bulk corporate action loads. We need a maintenance plan to rebuild the worst indexes online, review unused indexes, and tune autovacuum thresholds for the heavy-write tables. Rebuilds should be scheduled outside trading hours with a rollback plan.",
+   "reporter_id": "e_079",
+   "assignee_id": "e_081",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_081",
+     "text": "Pulled bloat estimates. Four indexes account for most of the waste, and two others have had no scans in 60 days. I will rebuild concurrently this weekend and propose dropping the unused pair after review."
+    },
+    {
+     "author_id": "e_077",
+     "text": "I can watch replication lag and disk headroom during the rebuilds. Concurrent builds need extra space temporarily, so I will confirm we have room before the window starts."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Fine to proceed Saturday night. Please post before and after p95 numbers here and hold the index drops until Priya's pricing-side query review is picked up by someone else on the team."
+    }
+   ]
+  }
+ ]
+}

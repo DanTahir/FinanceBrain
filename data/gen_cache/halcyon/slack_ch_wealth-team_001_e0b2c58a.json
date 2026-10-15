@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_024",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up all: I'm out Jul 20 through Jul 31. Need someone to cover my book. Most of it is quiet but {{CLIENT_NAME:c_0267}} tends to call when markets get choppy."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Jonathan. Please log the coverage request in ClientHub so it's visible and put a coverage note on each household that's flagged high-touch. David, can you take primary?"
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Yep, I can be primary for those two weeks. I'm out Jul 27 though, so I'll need a backup for that last week. Tricia, any chance?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "I can do Jul 27 to Jul 31 as backup. Just send me the briefing note ahead of time, especially anything with rebalancing pending in PortfolioMgr."
+  },
+  {
+   "author_id": "e_024",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Will do. For {{CLIENT_NAME:c_0267}}: low risk, brokerage account {{ACCOUNT_NUMBER:a_00551}}, been with us since 2018. Prefers phone over email. Contact details are in ClientHub, don't copy them into chat."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "Makes sense. Is there anything scheduled for that account while you're away? Any distributions or rebalances I should expect?"
+  },
+  {
+   "author_id": "e_024",
+   "minutes_after_start": 33,
+   "reply_to": 5,
+   "text": "Nothing hard scheduled. There's a quarterly rebalance flagged in PortfolioMgr but I'll run it before I leave on Jul 17 so you don't inherit it."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Reminder for everyone: coverage handoffs need a written note in ClientHub before your last day in. Verbal handoffs don't count when compliance asks for the audit trail."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Separate question: Janet is also out soon, right? Her client {{CLIENT_NAME:c_0198}} has both a brokerage and cash management account, {{ACCOUNT_NUMBER:a_00411}} and {{ACCOUNT_NUMBER:a_00412}}. Who's covering?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 63,
+   "reply_to": 8,
+   "text": "Good catch Tricia. Janet's away the week of Jul 13. I'll have you cover the portfolio side and David the relationship side. I'll confirm with her tomorrow."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 70,
+   "reply_to": 9,
+   "text": "Works for me. I'll check the ClientHub notes on that household first so I'm not caught flat-footed if they call."
+  },
+  {
+   "author_id": "e_024",
+   "minutes_after_start": 88,
+   "reply_to": -1,
+   "text": "Coverage note for my book is going into ClientHub tonight. I'll tag David and Tricia so you both get notified. Shout if anything's missing."
+  }
+ ]
+}

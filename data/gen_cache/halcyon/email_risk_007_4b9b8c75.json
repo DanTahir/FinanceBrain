@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_061",
+   "to_ids": [
+    "e_056",
+    "e_057"
+   ],
+   "cc_ids": [
+    "e_062"
+   ],
+   "subject": "Stress test scenario update - rates +200bp and credit spread widening",
+   "body": "Hi Owen, Angelica,\n\nI've finished refreshing the Q3 stress scenarios in RiskEngine. Two changes to flag before the next committee pack goes out.\n\nFirst, the parallel rates shock is now +200bp with a steepening overlay at the 2s10s point, replacing the flat +150bp we ran in Q2. Second, I added a credit spread widening scenario calibrated to the 2022 high-yield episode, with IG spreads +85bp and HY +320bp. Under the combined scenario, the trading book's stressed loss moves from roughly $14.2M to $18.7M, mostly from the rates desk's duration exposure.\n\nOpen items: Angelica, can you confirm the liquidity haircuts on the corporate bond inventory still match the latest desk marks? Christopher is rerunning the equity vol shock so the numbers feed correctly into ReportingBI.\n\nI'd like to lock the scenario set by Tuesday so we can circulate to Daniel's desk and Marcus ahead of the review.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_061",
+    "e_057"
+   ],
+   "subject": "VaR model validation findings - three items need remediation",
+   "body": "Owen,\n\nI've wrapped up the annual validation of the intraday VaR model in RiskEngine. Summary of findings below.\n\n1. Backtesting: 3 exceptions at 99% over the trailing 250 days, which is within the green zone, but two clustered in the same week of March and relate to stale pricing inputs from PricingSvc. I rate this medium.\n\n2. Proxy mapping: roughly 40 thinly traded instruments are mapped to proxies without documented rationale. Rated high because the documentation gap would draw a regulator's attention.\n\n3. Dashboard reconciliation: VaR figures in ReportingBI differ from RiskEngine output by up to 0.4% due to rounding and timing of the snapshot. Low severity, but we should align cutoff times.\n\nI've drafted remediation owners and target dates in the validation tracker. Could we go through the proxy mapping item Monday? I'd like your view on whether Paul's team or mine owns the documentation.\n\nBest,\nChristopher",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_057",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Revised stress scenarios - commodity shock and funding squeeze added",
+   "body": "Hi all,\n\nFollowing the committee's feedback last week, I've added two scenarios to the stress library and reran the full set through RiskEngine.\n\nThe commodity shock assumes a 35% drop in crude over ten days with correlated energy equity declines. The funding squeeze scenario assumes a 60bp widening in short-term funding costs and a 15% reduction in available repo capacity. Combined stressed loss across the firm comes to about $21.3M, up from $18.7M in the July set, with the funding squeeze driving most of the increase.\n\nDaniel, I'd appreciate it if your desk could sanity check the repo capacity assumption, since it comes from your inventory financing estimates. Paul, I've kept the rates shock unchanged so results remain comparable.\n\nOutputs will be published to ReportingBI by end of day Thursday. Let me know if you see anything that looks off before then.\n\nRegards,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_062",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_057"
+   ],
+   "subject": "Model validation findings - follow-up on proxy mapping remediation",
+   "body": "Owen, Paul,\n\nQuick update on the July validation items. The proxy mapping documentation is now complete for 34 of the 40 instruments, and the remaining six are waiting on desk input for illiquid positions.\n\nThe ReportingBI cutoff alignment is done: both RiskEngine and the dashboard now use the 4:30pm snapshot, and the variance is under 0.05%. I'll close that finding.\n\nA new observation from this month's rerun: the backtesting exceptions are still at 3, but the PricingSvc stale-input issue has recurred twice in August. I recommend we ask Sam Okafor's team to add a staleness alert on the feed. I'll raise it with Sam unless you object.\n\nIf both of you agree, I'll mark the proxy item as substantially remediated and set a final close-out date for mid-September.\n\nThanks,\nChristopher",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_058",
+   "to_ids": [
+    "e_056",
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_059",
+    "e_060"
+   ],
+   "subject": "Counterparty limit review - Q3 recommendations",
+   "body": "Hi Owen, Brian,\n\nWe've completed the quarterly counterparty limit review. Highlights:\n\nThree counterparties are above 80% utilization of their approved exposure limits. Two are prime brokerage relationships, and one is a regional bank on the lending side. Phillip's updated credit assessments show a stable outlook for the two prime brokers, so we recommend maintaining limits. For the regional bank, John's analysis shows deteriorating asset quality, so we propose a reduction from $45M to $35M and a downgrade of the internal rating by one notch.\n\nWe also recommend raising one custodian limit by $10M given increased settlement volumes, subject to Owen's approval.\n\nBrian, as this affects some of your lending-side exposure, could you review the regional bank proposal and flag any pipeline deals that would be affected? I'd like to take the recommendations to the credit committee later this week.\n\nThanks,\nLance",
+   "reply_to_previous": false
+  }
+ ]
+}

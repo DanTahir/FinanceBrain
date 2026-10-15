@@ -1,0 +1,84 @@
+{
+ "emails": [
+  {
+   "from_id": "e_051",
+   "to_ids": [
+    "e_001",
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: personal trading pre-clearance ahead of Q3 close",
+   "body": "Hi all,\n\nAs we head into the final stretch of Q3, a quick reminder that all covered persons must obtain pre-clearance through the compliance portal before placing any personal trade in a reportable security. Approvals are valid for the business day on which they are issued, so please do not submit a request on Friday and execute on Monday.\n\nA few points we have seen come up in recent reviews:\n- Trading desk and M&A staff: restricted list checks are run automatically, but please confirm that you are not on a Project Falcon wall-crossed list before requesting.\n- Holding periods: the 30 day minimum applies to all non-exempt positions, including those held at outside brokers.\n- Quarterly holdings attestations are due 2026-07-31, and we will chase anything still open after that date.\n\nIf you are unsure whether a product is reportable, ask us before you trade. Please share this with your teams.\n\nThanks,\nLinda Jones\nCompliance Associate",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_063",
+    "e_072",
+    "e_056",
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_052"
+   ],
+   "subject": "Regulatory exam document request - first tranche due 2026-08-31",
+   "body": "Team,\n\nWe have received the document request list ahead of the upcoming regulatory examination. The examiners have asked for the first tranche by end of day Monday 2026-08-31, so I need your input quickly.\n\nBy area:\n- Operations (Ravi): wire and ACH procedures, exception logs for PaymentsGateway, and the last four quarters of reconciliation break reports.\n- Technology (Sam): access review evidence for AuthSSO, DocVault retention settings, and change tickets for FraudScore and AMLMonitor.\n- Risk (Owen): the current model validation summaries and limit breach history.\n- Lending (Brian): sample KYC files for a selection of loans, including the file for {{CLIENT_NAME:c_0091}}, which the examiners flagged as part of their sampling.\n\nAnthony Ramirez will coordinate the tracker. Please send items to him in PDF form and flag anything you think cannot be produced as requested so we can negotiate scope early rather than late.\n\nThank you,\nMarcus Bell\nChief Compliance Officer",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_048",
+   "to_ids": [
+    "e_001",
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_051"
+   ],
+   "subject": "Q3 AML training - completion status as of 2026-09-18",
+   "body": "Hello,\n\nThe quarterly AML training window closes Friday 2026-09-25. As of this morning, firm-wide completion is at 78%. Breakdown by area:\n- Wealth Management: 91%\n- Operations: 84%\n- Lending: 73%\n- Trading: 62%\n\nThis quarter's module covers structuring red flags, third-party wire patterns, and escalation of unusual activity, using the new typologies from our recent AMLMonitor tuning. It takes about 40 minutes.\n\nCould you please nudge the people in your teams who are still outstanding? Linda Jones will send you individual lists this afternoon. Anyone not complete by the deadline will be reported to the CCO and may have system access reviewed under the policy.\n\nHappy to answer any questions about the content.\n\nRegards,\nNadia Petrov\nSenior AML Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_072",
+    "e_063",
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_049"
+   ],
+   "subject": "Exam request - second tranche and outstanding items from first",
+   "body": "Hi all,\n\nThank you for the first tranche, which went to the examiners on 2026-08-31. They have now sent follow-up questions, and the second tranche is due Friday 2026-10-09.\n\nStill outstanding from the first round:\n- Technology: DocVault retention evidence and the AuthSSO quarterly access recertification sign-off.\n- Operations: wire callback logs for the sampled period, including the counterparty file for Brown and Sons with {{CP_ACCOUNT:cp_005}} masked as the policy requires.\n- Lending: the signed credit approval memo for the loan associated with {{CLIENT_NAME:c_0091}}.\n\nNew requests: KYCPipeline ownership transition documentation, since ownership moves to Compliance on 2026-10-06, plus SanctionsScreen list update logs for the last two quarters. Jenna can help with the system extracts.\n\nPlease send everything by Wednesday 2026-10-07 so we have time to review before submitting.\n\nThanks,\nAnthony Ramirez\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_048",
+    "e_047"
+   ],
+   "subject": "Final notice: Q3 AML training overdue - action needed by Wednesday",
+   "body": "Hi,\n\nThe Q3 AML training deadline of 2026-09-25 has passed, and we still have employees who have not completed it. Current firm-wide completion is 94%. The remaining incomplete assignments sit mainly in Trading and Lending.\n\nWe are giving a final grace period through end of day Wednesday 2026-10-07. After that, Marcus will receive the list of non-compliant staff, and the matter will be handled under the policy, including possible HR escalation. This is also something the examiners may ask about, so we would like to show a clean record.\n\nPlease review the attached list for your area and ask the people named to finish the module this week. If someone is on leave, tell me and I will record the exception with the dates.\n\nThank you for your help.\n\nHeather Carlson\nCompliance Analyst",
+   "reply_to_previous": false
+  }
+ ]
+}

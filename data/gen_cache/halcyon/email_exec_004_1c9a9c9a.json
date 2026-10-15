@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "2027 headcount plan - initial framing ahead of department submissions",
+   "body": "Hi Catherine, Linda,\n\nAhead of the September budget cycle I wanted to align on guardrails before I ask department heads for their 2027 headcount requests. My starting assumption is a net headcount growth of no more than 4% firm-wide, with the bulk of any adds going to Compliance Engineering, Technology (SRE coverage) and Lending underwriting. Trading and M&A would be treated as self-funding against revenue targets.\n\nI'd also like to hold a contingency pool of roughly 6 FTEs that sits centrally rather than with any one department. Linda, can you pressure-test the Operations and Technology backfill assumptions, especially given expected attrition in the second half?\n\nIf you're comfortable, I'll send the template to department heads by Aug 14 and ask for submissions by Sept 4. Happy to walk through the model on a call this week.\n\nBest,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_001",
+    "e_002",
+    "e_003"
+   ],
+   "cc_ids": [],
+   "subject": "Draft agenda - September all-hands",
+   "body": "Hi all,\n\nAttached below is the working agenda for the September all-hands. Please send edits by end of day Wednesday so I can finalize the deck and room booking.\n\n1. Welcome and firm update (Catherine) - 10 minutes\n2. Q3 financial highlights and outlook (Martin) - 15 minutes\n3. Operations and technology roadmap, including the KYC pipeline ownership transition (Linda) - 15 minutes\n4. Compliance and risk reminders (Marcus and Owen) - 10 minutes\n5. Recognition and new joiners - 5 minutes\n6. Open Q&A - 15 minutes\n\nTotal runtime is about 70 minutes. I've pencilled in the main conference floor with a dial-in for the remote teams. Let me know if you'd like a department head to open with a short desk update instead.\n\nThanks,\nWendy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_001",
+    "e_002"
+   ],
+   "subject": "Re: Draft agenda - September all-hands",
+   "body": "Hi Wendy,\n\nThanks for pulling this together. A couple of changes from my side:\n\nFor item 3, please retitle it to \"Operations, Technology and KYC ownership handover\" since the KYCPipeline moves from Operations to Compliance on Oct 6, and people will have questions about who to contact. I'll ask Ravi and Marcus to join me for that segment, so give it 20 minutes rather than 15.\n\nTo make room, could we trim the recognition item to 5 minutes and shorten Q&A to 10? I would rather keep the remaining time for the handover discussion.\n\nAlso, please add Sam Okafor to the invite list for a short note on AuthSSO maintenance windows planned for Q4.\n\nCatherine, Martin, let me know if you disagree and I'll adjust.\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "Q3 board deck preparation - timeline and section owners",
+   "body": "Hi all,\n\nBoard materials for the Q3 meeting are due to directors one week ahead, so we need a firm timeline. Proposed schedule:\n\n- Oct 9: section drafts due to me\n- Oct 13: consolidated draft circulated to Catherine and Linda\n- Oct 16: final numbers locked after GL close\n- Oct 19: deck to Wendy for formatting and distribution\n\nSection owners: financial results and capital (me), operational update and the KYC ownership transition (Linda), enterprise risk and VaR commentary (Owen), strategy and headcount (Catherine).\n\nOwen, please include the intraday exposure trends from RiskEngine and flag any limit breaches during the quarter. Please keep each section to two pages plus appendix, and call out anything you expect the directors to challenge.\n\nThanks,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_002",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "2027 headcount plan - proposed decisions for Thursday's session",
+   "body": "Martin, Linda,\n\nI've reviewed the department submissions you consolidated. Overall the asks total about 11% growth against the 4% guardrail, so we need to make tradeoffs. My view going into Thursday:\n\n1. Fund Compliance Engineering and SRE adds in full. These are control and resilience investments the board will expect to see.\n2. Lending underwriting gets half of its request, with the rest tied to pipeline milestones in the first half of 2027.\n3. Wealth Management and Operations requests are deferred to the contingency pool unless a clear productivity case is made.\n4. We plan for a backfill in Technology for the Staff Engineer departure this month rather than treat it as a new role.\n\nMartin, please bring a version of the model showing the cost impact under both a 4% and 6% scenario. Linda, bring your view on timing of hires so we don't front-load cost. Wendy, please hold 90 minutes.\n\nThanks,\nCatherine",
+   "reply_to_previous": false
+  }
+ ]
+}

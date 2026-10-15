@@ -1,0 +1,102 @@
+{
+ "tickets": [
+  {
+   "title": "Outbound wire repair - beneficiary account format rejected by intermediary bank",
+   "description": "Outbound USD wire released from WireRoom this morning for the cash_management account {{ACCOUNT_NUMBER:a_00489}} was returned to PaymentsGateway as a repair item. The intermediary flagged the beneficiary account format as invalid and held the $184,500 payment. Client {{CLIENT_NAME:c_0239}} is expecting funds to land today for a time-sensitive closing. Need the wire room to confirm the beneficiary details against the signed instruction on file, call back to verify through the number on record, and resubmit with the corrected format. Please do not amend any beneficiary details without a documented callback. Cutoff for same-day Fedwire is 6:00 pm ET.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_068",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_068",
+     "text": "Pulled the signed instruction from DocVault. Account field had a transposed segment from the original template. Completed callback to the client on the number of record at {{CLIENT_PHONE:c_0239}} and they confirmed the corrected details."
+    },
+    {
+     "author_id": "e_067",
+     "text": "Resubmitted at 2:40 pm, intermediary accepted. Fed reference acknowledged and funds confirmed credited by end of day."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Closing. Please add the template fix to the wire room checklist so we catch segment ordering before release."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair: counterparty wire stuck after FraudScore hold, name mismatch on beneficiary",
+   "description": "Outgoing wire of $1.27M to Rojas, Rodriguez and Davis (account {{CP_ACCOUNT:cp_025}}) is sitting in repair status in WireRoom. PaymentsGateway shows a FraudScore soft hold triggered by a beneficiary name mismatch between our counterparty static data and the instruction text. The settlement team needs this to land by Wednesday morning to avoid a fail on the related trade. Need the wire room to reconcile the legal entity name against static data, get a second-approver sign-off, and release once FraudScore clears the hold. Compliance has not asked for escalation yet but we should keep them in the loop.",
+   "reporter_id": "e_066",
+   "assignee_id": "e_070",
+   "status": "resolved",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_070",
+     "text": "The instruction had the abbreviated entity name while static data carries the full legal name. Updated the instruction text to match and requested FraudScore re-evaluation."
+    },
+    {
+     "author_id": "e_066",
+     "text": "Thanks Mike. Trade is still showing pending settlement, so we are waiting on the wire to go out."
+    },
+    {
+     "author_id": "e_070",
+     "text": "Hold cleared after rescore, second approval from Ravi obtained, wire released at 10:15 am. Awaiting beneficiary bank confirmation before I close this out."
+    }
+   ]
+  },
+  {
+   "title": "Returned ACH credit - account closed return code on loan disbursement",
+   "description": "An ACH credit for the loan disbursement tied to {{ACCOUNT_NUMBER:a_00184}} came back overnight with an account-closed return code from the receiving bank. Funds of $42,300 are now sitting in the GLCore suspense account. The borrower, {{CLIENT_NAME:c_0085}}, has an open checking account {{ACCOUNT_NUMBER:a_00183}} with us, and lending suspects the external account on the original instruction was an old one. Need Payments to confirm the return details in PaymentsGateway, keep the funds in suspense, and coordinate with the loan officer on a corrected disbursement instruction. No reissue until the new instruction is verified by callback.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_069",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_069",
+     "text": "Confirmed return code and posted the return entry to suspense. Reaching out to the lending team for a verified replacement instruction. Contact on file is {{CLIENT_EMAIL:c_0085}} if written confirmation is needed."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Lending confirmed the borrower wants funds sent to the internal checking account instead. Please wait for the signed change form before reissuing."
+    },
+    {
+     "author_id": "e_069",
+     "text": "Signed form received and verified. Disbursement reissued as an internal transfer and the suspense entry cleared. Recon will see the offset in the next EOD run."
+    }
+   ]
+  },
+  {
+   "title": "Inbound wire repair - missing originator information on credit to brokerage account",
+   "description": "An inbound international wire for $96,000 destined for brokerage account {{ACCOUNT_NUMBER:a_00488}} landed in the repair queue because the originator address and reference fields were incomplete. The wire room cannot apply it to the client without the full originator details required under the travel rule. Please request the missing information from the sending bank through the standard repair message, confirm with the client {{CLIENT_NAME:c_0239}} what the expected source of funds is, and loop in Compliance if the sender does not match what the client described. Funds must not be credited until the originator data is complete.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_068",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_068",
+     "text": "Sent the repair request to the sending bank this morning. No reply yet. Also emailed the RM to confirm expected source of funds with the client."
+    },
+    {
+     "author_id": "e_063",
+     "text": "If we have nothing back by Monday, send a second request and flag it to Compliance for visibility. We do not want this sitting past the five-day mark."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair - duplicate payment reference blocking release in WireRoom",
+   "description": "A $310,000 outbound wire to Rojas, Rodriguez and Davis ({{CP_ACCOUNT:cp_025}}) is stuck in WireRoom with a duplicate payment reference error from PaymentsGateway. It looks like a prior wire from last week used the same reference string and the duplicate check is blocking release. Need the wire room to confirm this is a genuinely separate payment rather than a resubmission, verify against the approved instruction, assign a unique reference, and release. Please attach evidence to this ticket that no earlier wire was sent for the same obligation so we avoid paying twice.",
+   "reporter_id": "e_070",
+   "assignee_id": "e_067",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_067",
+     "text": "Picking this up. Reviewing last week's wire log to compare amounts and value dates before I assign a new reference."
+    }
+   ]
+  }
+ ]
+}

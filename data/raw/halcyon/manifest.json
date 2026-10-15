@@ -1,0 +1,59 @@
+{
+ "tenant": "halcyon",
+ "synthetic": true,
+ "note": "All people, organizations, clients, identifiers, and events are fictional.",
+ "counts": {
+  "crm": 150,
+  "doc": 34,
+  "email": 396,
+  "meeting": 18,
+  "slack": 1469,
+  "ticket": 152
+ },
+ "live_feed_counts": {
+  "crm": 24,
+  "doc": 0,
+  "email": 63,
+  "meeting": 4,
+  "slack": 105,
+  "ticket": 26
+ },
+ "pii_spans_by_type": {
+  "ACCOUNT_NUMBER": 506,
+  "CLIENT_NAME": 479,
+  "EMAIL": 155,
+  "PHONE": 103,
+  "ADDRESS": 53,
+  "SWIFT": 14,
+  "IBAN": 13,
+  "DEVICE_ID": 5,
+  "DOB": 5,
+  "EIN": 4,
+  "CARD_NUMBER": 3,
+  "MEDICAL": 2,
+  "SSN": 2,
+  "SALARY": 1
+ },
+ "stats": {
+  "dropped_bg_mnpi_mention": 3,
+  "unresolved_placeholders": 0
+ },
+ "failed_jobs": [],
+ "llm_cost": {
+  "calls": 277,
+  "total_usd": 6.673,
+  "by_model": {
+   "anthropic/claude-opus-5.5": 0.9877,
+   "anthropic/claude-sonnet-5.5": 5.6854
+  },
+  "by_purpose": {
+   "datagen_beats": 0.9877,
+   "datagen_slack": 1.5125,
+   "datagen_email": 1.8543,
+   "datagen_ticket": 0.8281,
+   "datagen_doc": 0.6376,
+   "datagen_meeting": 0.4053,
+   "datagen_crm": 0.4475
+  }
+ }
+}

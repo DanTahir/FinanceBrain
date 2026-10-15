@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Equity desk VaR limit breach flagged by RiskEngine on tech basket",
+   "description": "RiskEngine intraday VaR for the equity trading desk reached 104% of the approved $12.5M 1-day 99% limit at roughly 14:20 on 2026-07-08 and stayed above limit for about 35 minutes. The driver was a concentrated long position in a large-cap technology basket added after the afternoon block trades. The breach was not escalated automatically because the alert routing rule pointed to a distribution list that was retired in June. Need a root cause review, confirmation that the desk head was notified, and a fix to the alert routing so soft and hard limit breaches reach Market Risk in real time.",
+   "reporter_id": "e_061",
+   "assignee_id": "e_062",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_062",
+     "text": "Confirmed the alert rule was still targeting the retired risk-alerts-legacy list. Repointed it to the Market Risk on-call group and sent a test alert at both 90% and 100% thresholds. Both landed within a minute."
+    },
+    {
+     "author_id": "e_061",
+     "text": "Desk head acknowledged the breach after the fact and reduced the basket exposure by end of day. I have logged the breach in the limit exception register. Closing once the routing change is documented."
+    },
+    {
+     "author_id": "e_056",
+     "text": "Approved. Please add a quarterly check of all alert routing targets against the active directory groups so this does not recur."
+    }
+   ]
+  },
+  {
+   "title": "Stale vendor curve feeding RiskEngine rate sensitivities",
+   "description": "While reviewing the morning exposure pack on 2026-07-16, Credit Risk noticed that the USD swap curve used for DV01 and counterparty exposure in RiskEngine had not updated since the prior close. Rates sensitivities on the lending hedge book looked unchanged despite a visible move in Treasuries. The upstream pricing inputs appear to be carrying forward a cached vendor curve when the intraday snapshot fails validation. Please identify why the snapshot was rejected, confirm which reports consumed the stale curve, including ReportingBI dashboards, and agree on a staleness check that flags the data on screen.",
+   "reporter_id": "e_058",
+   "assignee_id": "e_057",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_057",
+     "text": "The vendor snapshot failed a schema check after they added a new tenor column. The fallback silently reused the prior day curve. Technology has patched the parser and I reran the morning exposure numbers; DV01 moved by about 6% on the hedge book."
+    },
+    {
+     "author_id": "e_058",
+     "text": "Thanks. The ReportingBI credit exposure dashboard also used the stale numbers between 07:00 and 10:30. Can we add a visible as-of timestamp there?"
+    },
+    {
+     "author_id": "e_057",
+     "text": "Yes, I will add an as-of banner and a red flag if the curve is older than 30 minutes. Will close after the next two market days pass cleanly."
+    }
+   ]
+  },
+  {
+   "title": "Single-name concentration limit exceeded in credit book",
+   "description": "Credit exposure to a single large corporate obligor reached 11.8% of the lending book's Tier 1 capital-based limit of 10% on 2026-07-23, following a drawdown on an existing revolving facility. The drawdown was larger than the forecast used when the limit headroom was last calculated. Lending was not aware of the utilization because the exposure report refreshes only overnight. Need Credit Risk to confirm the actual exposure, determine whether a temporary exception is required, and agree with Lending on a plan to bring the position back within limit, such as a participation sale or reduced undrawn commitment.",
+   "reporter_id": "e_059",
+   "assignee_id": "e_060",
+   "status": "closed",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_060",
+     "text": "Exposure verified at 11.8% on a committed basis, 10.9% drawn only. I have drafted a temporary exception request for the Head of Risk with a 30 day cure period."
+    },
+    {
+     "author_id": "e_056",
+     "text": "Exception approved through 2026-08-28 with weekly reporting. Lending to pursue a sell-down of a portion of the facility."
+    },
+    {
+     "author_id": "e_059",
+     "text": "Sell-down completed on 2026-08-20 and exposure is now at 9.4%. Closing the ticket and keeping the intraday utilization alert request open separately."
+    }
+   ]
+  },
+  {
+   "title": "Position feed gaps causing bad exposure data in overnight RiskEngine run",
+   "description": "The overnight RiskEngine run on 2026-09-30 produced exposure figures for the fixed income book that were roughly $48M lower than the desk blotter. Investigation suggests that positions from two sub-accounts were missing from the load because the extract timed out and the job still reported success. ReportingBI then published the understated numbers to the morning management dashboard. Please reconcile the positions against the source, rerun the exposure calculation, notify consumers of the corrected figures, and add a completeness control, such as a row count comparison, before the run is marked complete.",
+   "reporter_id": "e_062",
+   "assignee_id": "e_057",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_057",
+     "text": "Reran the exposure calculation with a manual position load. Fixed income exposure now ties to the blotter within $0.3M. Corrected numbers sent to the desk heads. Still working on the completeness check design."
+    },
+    {
+     "author_id": "e_061",
+     "text": "Please also confirm whether the regulatory daily report used the understated figures. If so we may need to document the correction for Compliance."
+    }
+   ]
+  },
+  {
+   "title": "Counterparty exposure limit breach on repo facility",
+   "description": "On 2026-10-02 close, aggregate potential future exposure to a single repo counterparty reached $86M against a limit of $75M. The increase came from a combination of larger collateral haircuts and a market move that widened the mark-to-market on open trades. RiskEngine flagged the breach in the end of day report, but the intraday alert did not fire because the limit was configured in the system with the previous value. Need confirmation of the correct approved limit, a decision on temporary relief or a position reduction, and a correction to the limit setup so intraday monitoring works.",
+   "reporter_id": "e_060",
+   "assignee_id": "e_058",
+   "status": "open",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_058",
+     "text": "Pulled the limit approval memo. The approved limit is $75M and the system value was never updated after the last review. I have asked Technology for a corrected limit load and will prepare the breach summary."
+    },
+    {
+     "author_id": "e_056",
+     "text": "Treasury should reduce open trades with this counterparty by Wednesday. I do not want to grant a temporary exception unless that is not feasible."
+    }
+   ]
+  }
+ ]
+}

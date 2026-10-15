@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_025",
+   "to_ids": [
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Fee schedule exception request - {{CLIENT_NAME:c_0062}} advisory fee step-down",
+   "body": "Hi Grace,\n\nI'd like to request a fee schedule exception for {{CLIENT_NAME:c_0062}} (brokerage {{ACCOUNT_NUMBER:a_00132}} and cash management {{ACCOUNT_NUMBER:a_00133}}). The client has been with us since 2017 and is consolidating roughly $3.2M of outside assets into the brokerage account over the next 60 days. They are asking us to hold the advisory fee at 0.65% rather than the standard 0.85% tier that would apply on the combined balance.\n\nThe competing proposal from another custodian is at 0.60%, so I think 0.65% is a reasonable counter. Estimated annual revenue impact versus the standard schedule is about $6,400, though we'd gain meaningful AUM. Risk profile is low and no changes to the mandate are planned.\n\nI've cc'd Marcus so Compliance can confirm there are no disclosure issues with the Form ADV fee language. Could you approve or send back questions by next Wednesday? The client is hoping to fund in early August.\n\nThanks,\nScott",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_017",
+    "e_020",
+    "e_026"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Model portfolio changes - conservative and balanced sleeves, effective Aug 20",
+   "body": "Team,\n\nFollowing Tuesday's investment committee, here are the model changes we're implementing in PortfolioMgr with the rebalance run on Thursday, August 20.\n\nConservative model: trim intermediate IG corporates from 22% to 18%, add 4% to short-duration Treasuries. Duration moves from 4.8 to 4.3 years.\n\nBalanced model: reduce US large-cap growth by 3% and rotate into value and dividend growth. Add a 2% allocation to TIPS funded from cash.\n\nAll other sleeves are unchanged. Drift tolerance stays at 3%. For taxable accounts, please review tax-lot impact before we release; I'll pull a wash-sale and realized gain report from PortfolioMgr by Monday.\n\nOwen, flagging for you since the duration shift will move the VaR profile slightly in RiskEngine. Please let me know if you want to see the pre-trade numbers.\n\nAdvisors, please hold client conversations until the final model memo goes out next week.\n\nBest,\nJanet",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_026",
+   "to_ids": [
+    "e_017",
+    "e_019",
+    "e_020",
+    "e_021"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Model portfolio changes - growth model equity sleeve and international overweight",
+   "body": "Hi all,\n\nAhead of the September rebalance, I'm proposing the following changes to the growth model for committee sign-off this Thursday.\n\n1. Raise international developed equities from 15% to 18%, funded from US small-cap, which has lagged and carries higher tracking error.\n2. Replace the existing emerging markets fund with a lower-fee ETF, saving roughly 22 bps on that sleeve.\n3. Add a 2% satellite position in infrastructure.\n\nThe backtest through August shows modestly lower volatility with similar expected return. Pricing and holdings feeds in PortfolioMgr are looking clean, so I expect no data issues for the rebalance run.\n\nMarcus, copying you for the suitability review since the fund swap changes the product shelf documentation.\n\nI'll circulate the full proposal deck tomorrow. Comments welcome before Thursday.\n\nThanks,\nMichael",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_028"
+   ],
+   "subject": "Fee schedule exception - renewal for {{CLIENT_NAME:c_0242}}",
+   "body": "Hi Grace,\n\nI'm writing about {{CLIENT_NAME:c_0242}}, whose fee exception is up for annual renewal on October 1. The current arrangement waives the cash management account fee on {{ACCOUNT_NUMBER:a_00495}} and applies a 0.70% advisory rate on brokerage {{ACCOUNT_NUMBER:a_00494}}, versus the standard 0.85%.\n\nThe client's balances have grown about 11% since last year, and the relationship has been very stable. I'd recommend renewing as is for another 12 months. If we move them to the standard schedule, I estimate about $4,100 more in annual fees, but I think we'd risk the relationship given how long they have been with us since 2021.\n\nJames has pulled the billing history and the original approval memo, which are attached to the ticket in ClientHub. Can you confirm by September 28 so we can notify the client before the renewal date?\n\nThank you,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_023",
+    "e_024",
+    "e_027"
+   ],
+   "cc_ids": [
+    "e_017",
+    "e_028"
+   ],
+   "subject": "Advisor coverage while I'm out Oct 5 - Oct 16",
+   "body": "Hi team,\n\nI'll be on vacation from Monday, October 5 through Friday, October 16. Here is the coverage plan for my book.\n\nLinda Barnes will be the primary backup for my households with brokerage rebalancing activity. Jonathan Chandler will cover the planning and estate-related requests. Kelly will take any new-client intro meetings already on my calendar; I'll forward those invites today.\n\nJames, please keep the coverage tracker in ClientHub updated and route incoming service requests and wire instructions to the covering advisor. Anything involving trade approvals should still go through the portfolio managers.\n\nI'll have limited email access but will check once a day for anything urgent. Please escalate to Grace if you can't reach the covering advisor. I'll send a short handoff note for each household by Friday.\n\nThanks for covering,\nJamie",
+   "reply_to_previous": false
+  }
+ ]
+}

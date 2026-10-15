@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063",
+    "e_064"
+   ],
+   "cc_ids": [
+    "e_071"
+   ],
+   "subject": "Corporate action processing - Q3 mandatory events and election deadlines",
+   "body": "Hi Ravi, Tasha,\n\nHeads up on the corporate action calendar for the next two weeks. We have three mandatory events (two stock splits and one cash merger) with record dates falling between 7/10 and 7/17, plus a voluntary tender offer where the election deadline is 7/14 at 5:00 PM ET. Brian and I have already pulled the affected positions from PositionStore and confirmed the entitlement quantities against custodian notices.\n\nOne item to flag: the cash merger proceeds will post through GLCore, and the SettlementEngine feed for the split ratio adjustments hasn't been tested since the last release. Tasha, can you build an expected-vs-actual check into the ReconLegacy run for the first post-event batch so we catch any quantity breaks early?\n\nFor the tender offer, I'm holding client election instructions until the wealth team confirms the position held for {{CLIENT_NAME:c_0021}}. I'll circulate a tracker by Thursday.\n\nThanks,\nWayne",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_071",
+   "to_ids": [
+    "e_066",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Failed settlement follow-up - Taylor Group equity trades from 8/3",
+   "body": "Wayne, Ravi,\n\nFollowing up on the two failed settlements from Monday's trade date involving Taylor Group. Both fails are for delivery of shares versus payment, with a combined value of roughly $1.8M. The counterparty's settlement instructions on file under {{CP_ACCOUNT:cp_059}} appear to have changed, which is why our matching was rejected by the depository.\n\nI called their operations desk this morning and they confirmed updated SSIs would be sent today. Until we receive and independently verify them through a callback, I don't want to resubmit. Fail aging is at 2 business days, and we're accruing potential penalty charges if this goes past Friday.\n\nDaniel, copying you since this affects the desk's inventory and the funding position on the equity book. I'll send an update by 3 PM once the revised instructions are validated and the trades are re-sent through SettlementEngine.\n\nRegards,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_067",
+   "to_ids": [
+    "e_065",
+    "e_068"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "SWIFT payment tracking - outbound wires pending confirmation (9/4)",
+   "body": "Craig, Derrick,\n\nWe have four outbound international wires from yesterday that still show as 'in progress' in WireRoom without a final MT199 or gpi confirmation. Total value is about $3.2M. Two of them relate to a client payment for {{CLIENT_NAME:c_0210}} drawn from operating account {{ACCOUNT_NUMBER:a_00437}}, and the beneficiary has called twice asking for status.\n\nPlease run a gpi tracker query on each reference and note the last intermediary bank that touched the payment. If any are stuck at an intermediary awaiting compliance review, we need to find out right away and loop in Marcus' team if more documentation is needed. Craig, since PaymentsGateway depends on FraudScore, please also check that none were held by a fraud score threshold on our side.\n\nI'll compile findings in a shared tracker by end of day and update Ravi.\n\nThanks,\nGreg",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_064",
+   "to_ids": [
+    "e_066",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_063",
+    "e_056"
+   ],
+   "subject": "Corporate action processing - September dividend and spin-off reconciliation breaks",
+   "body": "Wayne, Brian,\n\nThe overnight recon for 9/15 flagged six breaks tied to corporate actions: four cash dividend accruals that don't match the custodian's paid amounts, and two share quantity differences from a spin-off event. The cash differences total about $42K and appear to be withholding tax rate mismatches on foreign-domiciled holdings. The spin-off breaks look like a fractional share rounding treatment issue between PositionStore and the custodian.\n\nCould one of you confirm which rounding convention the custodian applied (cash in lieu versus round down)? That determines whether we adjust our side or request a correction. I also need the tax-rate table you used when posting accruals so I can tie it out to what hit GLCore.\n\nOwen, copying you because the spin-off position differences feed into RiskEngine exposure until corrected. I'd like all six cleared before Friday's month-end cut.\n\nThanks,\nTasha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063",
+    "e_071",
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Failed settlement follow-up - recurring fails traced to OMS allocation timing",
+   "body": "Ravi,\n\nAfter reviewing the last three weeks of fails, I found that 11 of 14 trace back to late allocation messages from OMS arriving after the 4:30 PM cutoff for same-day affirmation. The remaining three were counterparty-driven, including one for {{CLIENT_NAME:c_0021}} where the brokerage account {{ACCOUNT_NUMBER:a_00047}} was short cash at settlement.\n\nBecause SettlementEngine depends on OMS, a delayed allocation pushes everything downstream. Brian and I can tighten our manual follow-up, but the real fix is on the system side. Sam, could Engineering look at the allocation message queue latency between 4:00 and 5:00 PM? I can share timestamps from the last ten fail cases.\n\nProposal: a 15-minute meeting this week to agree on an owner and a target to cut fails by half before quarter-end. Tasha, your recon data on aging would help.\n\nThanks,\nWayne",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_019",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "MemberSSO MFA rollout - phase 1 plan and pilot group",
+   "body": "Hi Andre and Paul,\n\nHere is where we stand on the MemberSSO MFA rollout ahead of next week's kickoff. Phase 1 will cover internal staff logins to MemberCRM, since it depends on MemberSSO for authentication. We have configured the push-based authenticator and a one-time-code fallback, and both passed testing in the staging tenant yesterday.\n\nFor the pilot, I'd like to enroll the Member Services floor first, roughly 8 people, beginning Monday July 13. Paul, could you nominate two or three people who can give us candid feedback on the enrollment flow and any lockout issues? We will keep a help desk window open from 8:00 to 10:00 each morning during the pilot.\n\nShannon is updating the enrollment page copy so it matches what the tellers will actually see on screen.\n\nPlease let me know by Friday if the pilot dates conflict with anything on the branch calendar.\n\nThanks,\nHector",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_001",
+    "e_016",
+    "e_003",
+    "e_011",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_020"
+   ],
+   "subject": "MFA rollout status - pilot results and phase 2 timing",
+   "body": "Hello all,\n\nQuick update on the MemberSSO MFA rollout. The Member Services pilot wrapped up last week with 100% enrollment and only four help desk tickets, mostly forgotten phone passcodes. We tuned the lockout threshold from 3 to 5 attempts as a result.\n\nPhase 2 begins Monday August 3 and covers Lending, Operations, and Compliance. Each manager will receive a roster of their team's enrollment status every Friday. Kara and Rita, please plan on a 15-minute huddle with your teams before go-live so people know to have their phones handy.\n\nWesley, we have documented the MFA policy settings and session timeouts so you can reference them for the next exam binder.\n\nMember-facing MFA is a separate phase and is not changing yet. Hector is the point of contact for questions.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_001",
+    "e_023",
+    "e_016",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_020",
+    "e_021"
+   ],
+   "subject": "CoreBanking upgrade - weekend maintenance window and dependencies",
+   "body": "Hi everyone,\n\nThe vendor has confirmed the CoreBanking upgrade window for Saturday August 22, from 10:00 PM until about 6:00 AM Sunday. Because CoreBanking is vendor hosted, we will not be doing the install ourselves, but a lot of our systems sit downstream of it and will be affected.\n\nExpect OnlineBanking, CardProcessor, ACHHub, LoanDesk, BSAWatch, and ShareRecon to be unavailable or degraded during the window. Rita, please confirm with Timothy that the final ACH file is submitted before the cutoff on Friday. Paul, we will need member notices posted on the website and in branches by August 15. Wesley, BSAWatch will have a gap in monitoring, so please let us know how you want that documented.\n\nHector will run the post-upgrade smoke tests, and Amy will validate that ShareRecon balances tie out Sunday morning.\n\nI will send a go/no-go note on Thursday August 20.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_022",
+   "to_ids": [
+    "e_016",
+    "e_019"
+   ],
+   "cc_ids": [
+    "e_021"
+   ],
+   "subject": "Vendor security questionnaire - items needing your input",
+   "body": "Hi Wesley,\n\nOne of our vendors sent over their annual security questionnaire, and it is due back September 18. I have drafted answers for the technical sections, but a few items need your review before we submit.\n\nSections that need compliance input:\n- Data retention and disposal policy references\n- Incident response notification timelines\n- Third-party risk and subcontractor oversight\n\nFor the identity section, I referenced that MemberSSO enforces MFA for staff, with member-facing MFA still in planning. Andre, please confirm that wording is accurate given the current rollout status. Amy is pulling the encryption-at-rest details for the data warehouse.\n\nI saved the draft in the shared IT folder. If you can send comments by Friday September 11, I can incorporate them and route the final version for sign-off.\n\nThanks,\nShannon",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_019",
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "MemberSSO MFA - member-facing rollout readiness",
+   "body": "Hi all,\n\nWith staff MFA stable for two months, I want to share readiness numbers for the member-facing MemberSSO rollout, which would reach OnlineBanking users.\n\nStaff results: 98% of accounts enrolled, fewer than 2 tickets per week since September, and no authentication outages. Shannon has finished the mobile app changes for the enrollment prompts, and they are in final regression testing.\n\nOpen items before we can set a date: updated scripts for the Member Services team to handle lost-device calls, a decision on whether SMS stays as a fallback, and extra capacity on the help desk line for the first two weeks. Paul, your team's input on the scripts would be especially helpful.\n\nMy recommendation is a staged launch starting with 10% of members in early November. Andre, I'd like your sign-off to take this plan to Gloria.\n\nThanks,\nHector",
+   "reply_to_previous": false
+  }
+ ]
+}

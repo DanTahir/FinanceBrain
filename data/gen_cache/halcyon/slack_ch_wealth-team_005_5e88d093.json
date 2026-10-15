@@ -1,0 +1,112 @@
+{
+ "messages": [
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Afternoon all. Prepping the review packs for Thursday. I have {{CLIENT_NAME:c_0068}} at 10am and {{CLIENT_NAME:c_0239}} at 2pm. Tricia, are you pulling the performance attribution out of PortfolioMgr for both?"
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Yep, I'll run attribution for both this afternoon. For {{CLIENT_NAME:c_0068}} it's a quiet story, low risk, tracking the benchmark closely. {{CLIENT_NAME:c_0239}} is the one with more to talk about."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Right, high risk profile and the concentration in tech has grown since the last review. Michael is the RM on that one, should he join the prep?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "Jumping in. For any high risk client review I want the suitability refresh done before the meeting, not during it. Has the risk questionnaire on c_0239 been updated in ClientHub recently?"
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Checking ClientHub now. Last questionnaire was filed in the spring, so it's within 12 months but I'd flag it for a refresh anyway given the allocation drift."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 16,
+   "reply_to": 4,
+   "text": "Agreed. Please add a note on the contact record and have Michael confirm with the client whether anything changed in their situation or objectives."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 21,
+   "reply_to": -1,
+   "text": "Quick question on the cash side: should I include the cash_management account {{ACCOUNT_NUMBER:a_00489}} in the {{CLIENT_NAME:c_0239}} deck, or keep it to brokerage {{ACCOUNT_NUMBER:a_00488}} only?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 25,
+   "reply_to": 6,
+   "text": "Include both. Clients like seeing the full liquidity picture, and it matters for the conversation about how much dry powder they want to hold."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "I'll add a liquidity slide then. Cash balance trend plus any pending transfers over the last quarter."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "Rebalance preview for {{ACCOUNT_NUMBER:a_00488}} is ready in PortfolioMgr. Trimming the overweight tech sleeve would take it back inside the policy band, but there's a tax lot consideration I want to run past the group."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Don't execute anything before the meeting. Present it as a proposal with the estimated realized gains, and let the client decide. Put the lot-level detail in an appendix."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 47,
+   "reply_to": 10,
+   "text": "Makes sense, proposal only. I'll have the appendix drafted by end of day tomorrow."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 62,
+   "reply_to": -1,
+   "text": "For {{CLIENT_NAME:c_0068}} I'm confirming the meeting by email to {{CLIENT_EMAIL:c_0068}} and will also try {{CLIENT_PHONE:c_0068}} if I don't hear back by tomorrow noon."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 70,
+   "reply_to": 12,
+   "text": "Good. Also ask whether they want to discuss anything beyond the standard agenda. Long-standing client since 2021, so I'd like us to ask about any upcoming life changes."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 75,
+   "reply_to": 13,
+   "text": "Will do. I'll add a line in the confirmation email and update ClientHub with the response either way."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Attribution for {{ACCOUNT_NUMBER:a_00144}} and {{ACCOUNT_NUMBER:a_00145}} is done and uploaded to the shared folder. Low risk portfolio is within a few bps of benchmark, nothing unusual."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 131,
+   "reply_to": 15,
+   "text": "Thanks Tricia, pulling it into the deck now. I'll send a draft of both packs to you and Grace tomorrow morning."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 140,
+   "reply_to": 16,
+   "text": "Perfect. Let's do a 20 minute dry run Wednesday at 3pm with Michael on the line for the {{CLIENT_NAME:c_0239}} one. I'll send the invite."
+  }
+ ]
+}

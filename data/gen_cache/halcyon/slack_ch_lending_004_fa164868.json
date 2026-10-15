@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: HELOC pricing sheet got updated this morning. Variable margin is up 25 bps on the 80-85% CLTV tier effective for applications taken starting today. Anything already locked is grandfathered."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Thanks Tammy. Do we know if that applies to pipeline files that haven't hit a rate lock yet? I've got {{CLIENT_NAME:c_0209}} sitting in processing with a HELOC request."
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "If there's no lock in LoanOrigination as of 9am today, it reprices. Check the lock status field on the file rather than going from memory of the quote."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 10,
+   "reply_to": 2,
+   "text": "Checked, no lock on that one. So I need to re-disclose and call them. Ugh, they were quoted last week at the old margin."
+  },
+  {
+   "author_id": "e_038",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Does the change touch the 70% CLTV and below tier at all? Have two apps in that band and want to know whether I need to call anyone."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "Looking at the sheet now, the lower tiers are unchanged. Only 80-85% moved up, plus the floor went from 4.50% to 4.75%."
+  },
+  {
+   "author_id": "e_038",
+   "minutes_after_start": 21,
+   "reply_to": 5,
+   "text": "Perfect, that's a relief. Nothing to do on mine then."
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Question for underwriting: with the higher margin, DTI on a few of my higher-CLTV files gets tighter. Are we rerunning the debt service calc in CreditScoring or is the stated payment fine?"
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "Rerun it. Qualifying payment should use the new fully-indexed rate, not the old quote. Stale numbers in the file will get flagged at QC."
+  },
+  {
+   "author_id": "e_033",
+   "minutes_after_start": 44,
+   "reply_to": 8,
+   "text": "Got it. I'll rerun everything in the 80-85% band this morning and note it in the file."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "For {{CLIENT_NAME:c_0194}}'s HELOC renewal, the new margin doesn't apply since it's a modification of an existing line, right? Want to confirm before I update the credit memo."
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 65,
+   "reply_to": 10,
+   "text": "Correct, renewals on existing lines follow the original agreement terms. Just don't let the memo imply a repricing. Note the existing line on {{ACCOUNT_NUMBER:a_00403}} stays as is."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 68,
+   "reply_to": 11,
+   "text": "Will do, thanks."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 120,
+   "reply_to": 3,
+   "text": "Update: reached {{CLIENT_NAME:c_0209}}, they're fine with the new pricing but asked about locking today. Sending the revised disclosure and lock request now."
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 126,
+   "reply_to": 13,
+   "text": "Good. Get the lock in before end of day and make sure the disclosure timestamp matches. Ping me if the system rejects the old margin code."
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Reminder: league table submission to the data provider is due EOD Wednesday. I need every closed and announced deal from Q2 and YTD confirmed on the tracker by tomorrow noon. Please check deal values, role credit, and completion dates."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "On it. I'm reconciling the tracker against the signed engagement letters now. A couple of rows still show pre-announcement values, so I'll flag those."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "Quick question: for Osprey, are we submitting as sole financial advisor or joint? Last version of the tracker had it as joint, but I thought the other bank dropped off."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 17,
+   "reply_to": 2,
+   "text": "Checking the file. The engagement letter amendment from June lists us as sole advisor on the sell-side. I'll update the tracker and note the source in the comments column."
+  },
+  {
+   "author_id": "e_044",
+   "minutes_after_start": 19,
+   "reply_to": 3,
+   "text": "Perfect, thanks Aisha. That moves us up a couple of spots in the mid-market advisory ranking, I think."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 28,
+   "reply_to": -1,
+   "text": "Kestrel: do we count it as announced or completed? Regulatory approval is still pending, so I'd say announced only, with no completed credit until closing."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 33,
+   "reply_to": 5,
+   "text": "Agreed, announced only. Make sure the enterprise value includes assumed debt the way the provider's methodology requires. Erik, can you pull the footnote on that?"
+  },
+  {
+   "author_id": "e_046",
+   "minutes_after_start": 41,
+   "reply_to": 6,
+   "text": "Yes, pulling it now. Their methodology says to include net debt assumed and exclude contingent earnouts unless they're fixed at signing. I'll paste the exact wording in the thread shortly."
+  },
+  {
+   "author_id": "e_046",
+   "minutes_after_start": 52,
+   "reply_to": 7,
+   "text": "Pasted into the tracker's methodology tab. Kestrel has an earnout that is contingent, so we exclude it. That trims the headline value a bit."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 97,
+   "reply_to": -1,
+   "text": "Tracker reconciled. Two deals had stale values and one had the wrong completion date. All fixed and highlighted in yellow. Ready for review."
+  },
+  {
+   "author_id": "e_043",
+   "minutes_after_start": 131,
+   "reply_to": 9,
+   "text": "Thanks Susan. Joshua and Tom, please do a final review pass tomorrow morning. I'll sign off and send the file Wednesday midday, ahead of the cutoff."
+  }
+ ]
+}

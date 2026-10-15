@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick question on address changes. {{CLIENT_NAME:c_0041}} just called asking to update their mailing address. They passed MFA, but do we still need anything in writing, or is the verbal OK for a low-risk member?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Verbal is fine if they pass full verification and it's a standard mailing address change. Log it in MemberCRM with the verification method you used. Send the confirmation notice to the OLD address too, that's the fraud control."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Got it. Does the notice to the old address go out automatically from CoreBanking or do I have to trigger it?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 8,
+   "reply_to": 3,
+   "text": "It's automatic once you save in CoreBanking, but check that the 'address change letter' box is ticked. It defaults off on the quick-edit screen. Got burned on that last month."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 10,
+   "reply_to": 3,
+   "text": "Ah, it was unticked. Good catch, Catherine. Fixed and re-saved."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Different one: a member walked in wanting to change address on their checking and also asked us to update the card shipping address. Is the card address separate from the member record?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 26,
+   "reply_to": 5,
+   "text": "Separate in CardProcessor. Member record update doesn't always flow to the plastic reissue address. Open a ticket for Ops to confirm the card file got the new one before any reissue ships."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 28,
+   "reply_to": 6,
+   "text": "Will do. Member has a replacement for {{CARD_NUMBER:a_00092}} pending so timing matters. I'll flag it urgent."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 45,
+   "reply_to": -1,
+   "text": "Heads up, teller line: someone asked to change the address for {{CLIENT_NAME:c_0043}} by email only, no call or visit. Looks like it came from {{CLIENT_EMAIL:c_0043}}. I haven't touched anything."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 48,
+   "reply_to": 8,
+   "text": "Good call, Joseph. Don't process it. That member is flagged high risk and email alone isn't sufficient verification. Route it to Nichole, since she's their advocate, and she'll do a callback to the number on file."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 50,
+   "reply_to": 9,
+   "text": "Forwarding to Nichole now. Should I reply to the sender at all?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 53,
+   "reply_to": 10,
+   "text": "Just a generic note saying we need to verify by phone or in branch. Don't confirm anything about their accounts, including {{ACCOUNT_NUMBER:a_00097}}."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Reminder for everyone: if the member is changing phone AND address in the same session, treat it as elevated. Get a second verification factor and note it. We've seen account takeovers start that way."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 78,
+   "reply_to": 12,
+   "text": "Agreed. I'd add that if they changed the contact number to something like {{CLIENT_PHONE:c_0041}}, make sure the callback goes to the previous number on file, not the new one."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 82,
+   "reply_to": 13,
+   "text": "Exactly right. I'll pin both points in the channel and update the checklist by Friday."
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "tickets": [
+  {
+   "title": "Returned ACH debit on loan payment for {{CLIENT_NAME:c_0205}} - R01 insufficient funds",
+   "description": "Overnight ACH return file contained an R01 (insufficient funds) return for the monthly loan payment debit pulled against {{ACCOUNT_NUMBER:a_00427}} to pay down {{ACCOUNT_NUMBER:a_00428}}. Original amount was $2,184.50, settled Friday and returned this morning. PaymentsGateway posted the return to GLCore but the loan payment is still showing as applied in the servicing view. Need the payment reversed, the late-fee hold reviewed with Lending, and the RM, Heidi Davis, notified before the client is contacted. Please do not re-present the item without written client authorization.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_069",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_069",
+     "text": "Confirmed R01 in the return file. Reversed the payment application and flagged the account for Heidi Davis so Lending can decide on the late fee. No re-presentment queued."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Thanks. I checked GLCore and the return entry posted correctly to the suspense clearing account, so no ledger fix is needed on our side."
+    },
+    {
+     "author_id": "e_069",
+     "text": "Heidi spoke with the client and they are sending a replacement payment by wire tomorrow. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "Failed settlement on corporate bond buy - missing SSI match at custodian",
+   "description": "A corporate bond purchase of $4.8M face value, trade date 2026-07-16, failed to settle on 2026-07-20 at the custodian. The counterparty's instructions did not match ours, and SettlementEngine shows the trade in a pending-match status with a fail code for the settlement instruction mismatch. The desk is exposed to fail charges daily. Needs confirmation of the correct standing settlement instructions with Cole-Wiley, an update to the SSI record, and a re-submission of the instruction before the cutoff today. Please keep Trading's execution desk posted on the expected new settle date.",
+   "reporter_id": "e_066",
+   "assignee_id": "e_071",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_071",
+     "text": "Called Cole-Wiley ops. Their custodian had rotated an agent account and our SSI was stale. They sent updated instructions via the secure portal and I have submitted a corrected instruction in SettlementEngine."
+    },
+    {
+     "author_id": "e_066",
+     "text": "Reviewed the corrected instruction. Please also update the SSI in the static data table so this does not repeat on the next trade."
+    },
+    {
+     "author_id": "e_071",
+     "text": "Static data updated with a four-eyes sign-off. The trade settled on 2026-07-22 and fail charges were about $310. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Outgoing wire held - beneficiary bank details do not match counterparty record",
+   "description": "Wire Room hold on an outgoing USD wire of $312,000 to Cole-Wiley. The beneficiary IBAN on the wire request, {{CP_IBAN:cp_001}}, does not match the IBAN on file in the counterparty record, and the BIC on the request differs from {{CP_SWIFT:cp_001}}. The request came from an email instruction, so we suspect either a keying error or a possible payment diversion attempt. Wire has been held before release. Need callback verification using a known number from the vendor master, a review by Compliance if the details cannot be confirmed, and a corrected request raised only after approval from Head of Operations.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_063",
+   "status": "closed",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_070",
+     "text": "Did the callback to the number in the counterparty master. Cole-Wiley confirmed the details on file are correct and said they had not sent a change notice."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Treating the emailed instruction as suspicious. I have forwarded it to Compliance and Security. Wire cancelled and funds never left. Raise a new request using the on-file details only."
+    },
+    {
+     "author_id": "e_067",
+     "text": "New wire released with on-file details and dual approval. Cole-Wiley confirmed receipt this afternoon."
+    }
+   ]
+  },
+  {
+   "title": "Returned ACH credit to wealth client - account closed return code R02",
+   "description": "An ACH credit of $15,000 sent to move funds from {{ACCOUNT_NUMBER:a_00254}} for {{CLIENT_NAME:c_0121}} came back with return code R02 (account closed) at the receiving bank. The client's relationship manager, James Anderson, says the client had mentioned switching external banks recently. Funds returned to the cash management sweep this morning and need to be confirmed against the ledger. Please verify the return posted correctly, hold further transfers to this external account, and ask Wealth to get updated external account details from the client through the proper verified channel.",
+   "reporter_id": "e_069",
+   "assignee_id": "e_065",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_065",
+     "text": "Return posted and ties to GLCore. The external account link is now flagged as inactive so no further transfers can go to it."
+    },
+    {
+     "author_id": "e_069",
+     "text": "I let James Anderson know. He will ask the client to add the new external account with micro-deposit verification."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Funds are back in {{ACCOUNT_NUMBER:a_00254}} and reconciled. Resolving."
+    }
+   ]
+  },
+  {
+   "title": "Recurring returned ACH on loan autopay - R10 unauthorized claim from {{CLIENT_NAME:c_0205}}",
+   "description": "The autopay debit of $2,184.50 against {{ACCOUNT_NUMBER:a_00427}} came back as R10 (customer advises not authorized). This is the second return on this autopay in the past three months. The client contacted us at {{CLIENT_PHONE:c_0205}} stating she did not recall approving the debit. The written authorization on file is dated at origination in 2025. Need the authorization retrieved from DocVault, a check on whether the client revoked the autopay in the app, and confirmation of the NACHA return timeframe. Autopay is suspended pending review. Loan officer Heidi Davis is aware.",
+   "reporter_id": "e_064",
+   "assignee_id": "e_069",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_069",
+     "text": "Pulled the original authorization from DocVault. It is signed and still in force, but I can see no revocation request in the portal logs. Drafting a summary for Lending."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Do not re-present. Until Lending confirms new written authorization, keep autopay suspended. Also send the R10 timeline to Compliance in case this turns into a dispute."
+    }
+   ]
+  }
+ ]
+}

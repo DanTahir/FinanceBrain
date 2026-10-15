@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: seeing SanctionsScreen p99 latency spike, calls timing out at the 5s client limit since ~14:52. Error rate around 18% and climbing. Opening this as SEV3 for now."
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Confirming from my side. Two outbound payment holds on my queue are stuck waiting on a screening response. Nothing is failing hard yet, just sitting there."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "Is this related? KYCPipeline onboarding batch shows 9 cases stuck in 'screening pending' since mid afternoon. Nothing from settlements is blocked, just flagging."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 5,
+   "reply_to": 2,
+   "text": "Yes, same root. KYCPipeline calls SanctionsScreen synchronously, so those will retry once we recover. Bumping to SEV2 since onboarding and payment holds are both affected."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 8,
+   "reply_to": -1,
+   "text": "Joining. Looking at the SanctionsScreen pods now. Connection pool to the list-match index looks saturated, active connections pinned at the max of 50."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 11,
+   "reply_to": 4,
+   "text": "Possibly my deploy. I pushed the watchlist refresh job at 14:45 and it does a full reindex instead of incremental. It could be hogging the pool."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 13,
+   "reply_to": 5,
+   "text": "That lines up with the timing. Travis, can you pause the refresh job? Don't roll back the deploy yet, we want the list data to stay current."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 15,
+   "reply_to": 6,
+   "text": "Paused. The reindex was at about 60% so it will need to restart later. Lookups should free up connections now."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 19,
+   "reply_to": -1,
+   "text": "p99 coming down, now 2.1s and error rate is down to 4%. Still watching, the retry backlog from callers is probably inflating things."
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 22,
+   "reply_to": 1,
+   "text": "Both held payments just cleared screening and released. Thanks. No wires missed their cutoff."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 25,
+   "reply_to": 2,
+   "text": "KYC stuck cases are draining too, 6 of 9 done. Will check the remaining 3 when the batch finishes."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Error rate at 0%, p99 back to about 400ms. Dropping to SEV3 monitoring. Total impact window was roughly 40 minutes, 14:52 to 15:32."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "Root cause: the refresh job's full reindex competed with live lookups for the same connection pool. Fix plan is incremental updates only, plus a separate pool for batch jobs."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 44,
+   "reply_to": 12,
+   "text": "I'll put up the PR tonight with the incremental logic and the dedicated pool config. I will also add a guard so the job can't run during business hours without sign-off."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 52,
+   "reply_to": 10,
+   "text": "All 9 KYC cases are through now. Nothing left in the pending state, so I'm good on my end."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 60,
+   "reply_to": -1,
+   "text": "Resolving this incident. I'll add an alert on pool utilization above 80% for SanctionsScreen, and a follow-up ticket for the post-incident review is linked in the channel topic."
+  }
+ ]
+}

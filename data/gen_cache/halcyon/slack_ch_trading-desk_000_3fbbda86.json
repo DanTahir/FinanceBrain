@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, got a client looking to sell 400k of a mid-cap industrial. ADV is like 1.8M so this is not small. Need a plan before I give them any color."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "That's over 20% of ADV. I'd not touch it in the open book all at once. Is there a natural on the other side or are we working it?"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 4,
+   "reply_to": 1,
+   "text": "No natural yet. Client is price sensitive, wants to be done by close but says they'll stretch to Monday if the footprint is ugly."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 7,
+   "reply_to": -1,
+   "text": "Pulled the intraday volume curve for the name. Roughly 55% of the day's volume still ahead of us. At 15% participation we'd finish around 230k by the close, so not the full size today."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 9,
+   "reply_to": 3,
+   "text": "Agree. I'd run a VWAP-ish schedule with a hard limit and put 100k into the dark pools first. Sean, what's the expected impact at 15%?"
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 13,
+   "reply_to": 4,
+   "text": "Model says about 22 bps on the slice at 15%, closer to 35 bps if we push to 25%. Spread is wide too, so the slippage estimate is probably light."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "I can shop it to a couple of buy-side axes I know. Two of them were long-biased in that sector last week. Want me to go out with IOIs?"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 17,
+   "reply_to": 6,
+   "text": "Yes please, Jess, but keep it vague. No size, no side on anything that prints. Just see who has interest."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 19,
+   "reply_to": 7,
+   "text": "Agree, info leakage is the biggest risk here. One slip and the whole street front-runs us."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "I'll stage the parent order in OMS now. Limit 41.10, 15% POV, dark-first routing. Travis, do you want to own the child orders or leave it on algo?"
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 24,
+   "reply_to": 9,
+   "text": "I'll take it manually for the first hour, then flip to algo if prints look clean. Tag it to me."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 27,
+   "reply_to": 10,
+   "text": "Done. Parent is live in OMS, should show on TradeBlotter in a minute. Let me know if the fill average looks off."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Quick check: TradeBlotter is showing 38k filled at 41.14, but OMS says 41k. Looks like a lag on the blotter side."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 43,
+   "reply_to": 12,
+   "text": "Yeah, I see it. OMS is right, I have the 41k on my screen. Blotter refresh is probably just slow. Ignore it for now."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "One axis came back. They'd take 60k at 41.05 if we can print it as a cross. Not great, but it's real size. Thoughts?"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 60,
+   "reply_to": 14,
+   "text": "Take it. 60k off the market is worth a few cents. Travis, pause the algo until the cross prints so we don't overlap."
+  }
+ ]
+}

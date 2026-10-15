@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Anyone else seeing DocVault uploads crawling this morning? Trying to attach a signed wire authorization and it's been spinning for over 2 min. Normally instant."
+  },
+  {
+   "author_id": "e_069",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Yep, same here. Uploaded a PDF under 1MB and it took about 90 seconds. Downloads seem fine though, just uploads."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 5,
+   "reply_to": -1,
+   "text": "Looking now. Seeing elevated p95 on the DocVault upload endpoint, about 40s vs a normal 1-2s. Treating this as SEV3 for now, will bump if it spreads. Opening a ticket, INC-4417."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 8,
+   "reply_to": 2,
+   "text": "Impact on our side: wire release packages are stalling because we can't attach the supporting docs. We have a few time-sensitive ones queued for the noon cutoff."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Understood. Workaround for now: hold the docs locally and attach once uploads recover, or have the approver sign off on the wire console with a note referencing INC-4417. I'll ping when it's safe."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Heads up from Risk: our onboarding doc review queue is backing up too. Is this DocVault only, or is anything upstream like AuthSSO involved?"
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 24,
+   "reply_to": 5,
+   "text": "AuthSSO looks clean, token validation is normal. Narrowing it to the DocVault storage write path. Thread pool is saturated and there's a big backlog of writes."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "Might be me. A DataLake backfill job kicked off at 7:30 and it's bulk-copying archived records into DocVault storage for the analytics team. It's hammering the same write path. I should've scheduled it off-hours."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 35,
+   "reply_to": 7,
+   "text": "That lines up with the saturation start time. Michael, can you pause the backfill? Don't kill it, just suspend so it can resume from the checkpoint."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 38,
+   "reply_to": 8,
+   "text": "Paused. Checkpoint saved. I'll rerun it tonight with throttling at 10 concurrent writers and add a note to the job runbook. CreditScoring's nightly pull is unaffected as far as I can tell."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Update: write queue drained, upload p95 back to about 1.5s. Resolved, downgrading INC-4417 to monitoring. Wire room and Risk, please retry your uploads and shout if anything still hangs."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 57,
+   "reply_to": 10,
+   "text": "Confirmed, uploads are instant again and the queued wire packages are attached. Thanks all."
+  }
+ ]
+}

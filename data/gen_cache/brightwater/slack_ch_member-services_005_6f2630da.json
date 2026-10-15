@@ -1,0 +1,52 @@
+{
+ "messages": [
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick question on drawer limits. I've got {{CLIENT_NAME:c_0034}} at my window asking for a $9,500 cash withdrawal from checking and my drawer is only holding about $7,200 after the morning rush. Do I need to go to the vault or is there a different process?"
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Don't short the member. Ask them to give you a few minutes, then get a vault order in. Anything over your drawer max needs a second person to verify the count anyway."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Ok, makes sense. Is the max still $10k per teller or did that change? Pretty sure the policy got updated before the holiday."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Reminder for everyone on the floor: teller drawer limit is $7,500 effective this week, down from $10k. Anything above that goes to the vault by end of day, and ask for a dual-control count on large pulls. It's in the updated cash handling procedure."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 11,
+   "reply_to": 3,
+   "text": "Got it, thanks Rita. So with 3 days of holiday weekend traffic, should I plan to request extra cash proactively before the afternoon?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 14,
+   "reply_to": 4,
+   "text": "Yes, send the request to me by 1:00 and I'll have the vault prep it. Also, Maxwell, if the withdrawal is $10k or more, remember the CTR is triggered, so make sure the ID check is documented in the system."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 17,
+   "reply_to": -1,
+   "text": "Side note: {{CLIENT_NAME:c_0009}} called asking about the new limits on debit card ATM withdrawals tied to {{ACCOUNT_NUMBER:a_00017}}. I'll point them to the branch for anything large. Anyone know the daily ATM cap off the top of your head?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "ATM cap hasn't changed, it's still $500 per day for standard debit. Anything higher they can do in branch with ID, and we'll just plan the cash for them."
+  }
+ ]
+}

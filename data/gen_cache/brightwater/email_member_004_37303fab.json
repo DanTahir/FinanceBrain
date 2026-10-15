@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Dispute backlog - 41 open card disputes past 10 business days",
+   "body": "Hi Paul,\n\nHeads up on where the debit card dispute queue stands as of this morning. We have 41 open disputes, and 14 of them are past the 10 business day mark for provisional credit review. Most of the aging ones are waiting on merchant documentation or on a sync from CardProcessor that keeps lagging after the CoreBanking posting window.\n\nOne example is {{CLIENT_NAME:c_0042}}, whose dispute on checking account {{ACCOUNT_NUMBER:a_00095}} has been sitting since the first week of July with no provisional credit decision. I'd like to get that one resolved this week.\n\nI'm copying Rita since Operations owns the CardProcessor feed and may be able to tell us whether the lag is on their side. Could we also agree on who triages new disputes each morning? Right now it's whoever gets to it first and things are slipping.\n\nThanks,\nNichole",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_004",
+    "e_005",
+    "e_006",
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "New account promotions starting September 1 - talking points",
+   "body": "Team,\n\nQuick rundown ahead of the fall promotions that launch September 1. We're running a $150 checking bonus for new members who set up direct deposit and make 10 debit purchases in the first 60 days, plus a 4.25% APY promotional rate on a 12-month share certificate.\n\nPlease keep these points in mind:\n- Confirm direct deposit eligibility before you quote the bonus. Existing members who closed checking in the last 12 months don't qualify.\n- Don't promise the bonus date. Payout happens after the 60-day window closes.\n- Log every promo conversation in MemberCRM so we can track conversion.\n\nI'll share a one-page cheat sheet by next Friday. If you've heard member questions that the draft doesn't cover, send them my way and I'll add them.\n\nGloria, copying you since you asked to see the final messaging.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_016",
+    "e_023"
+   ],
+   "subject": "Dispute backlog update - Reg E timeline risk",
+   "body": "Hi Paul,\n\nFollowing up on the dispute backlog. We've cleared some of the July items, but the queue grew again after the Labor Day weekend and we now have 33 open disputes. Six of them are approaching the Reg E 45-day investigation limit, and I want to flag that early rather than later.\n\nA few are tied to ACH debits that members say were unauthorized, and ACHHub return handling is slower than we'd like. One example is {{CLIENT_NAME:c_0034}}, whose savings account {{ACCOUNT_NUMBER:a_00076}} was affected by an ACH item that still has no return confirmation.\n\nWesley, copying you so Compliance is aware of the timeline exposure. Rita, can your team tell us where returns are stuck? I'd like to set up a 15-minute standup twice a week until we're back under 20 open items.\n\nThanks,\nZachary",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_003",
+    "e_016"
+   ],
+   "subject": "Re: Dispute backlog update - Reg E timeline risk",
+   "body": "Zachary,\n\nThanks for flagging this. I checked with Timothy and Larry. Most of the delayed ACH returns are waiting on the originating bank's response, not on our ACHHub processing. That said, we did find a handful of return files that were not matched to the right case because the trace references didn't line up. We've corrected those this morning, and you should see the status update in your queue by tomorrow.\n\nI'm happy to join the twice-weekly standup. Timothy can come as well so he can answer return questions directly. Please send me the list of the six items nearest the Reg E deadline so we can prioritize them first.\n\nOne ask: when you open a case tied to ACH, please include the trace reference in the case notes. It saves us a lot of back and forth.\n\nBest,\nRita",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_010",
+   "to_ids": [
+    "e_003",
+    "e_009"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "Dispute backlog - where we landed after the standups",
+   "body": "Hi Paul and Nichole,\n\nA short status note on the dispute backlog. After four weeks of twice-weekly standups, we're down to 17 open disputes from a peak of 41, and none are past the Reg E limit. The biggest help was the morning triage rotation and getting ACH trace references into case notes.\n\nOne member case worth watching is {{CLIENT_NAME:c_0042}}. The member called back on {{CLIENT_PHONE:c_0042}} asking about a pending provisional credit and a related loan payment that bounced. I'm copying Kara in case the late payment needs a fee waiver from Lending.\n\nRemaining issues: three disputes are waiting on merchant chargeback responses, and two need a signed affidavit from the member. I'd suggest we keep the standups weekly instead of dropping them completely, at least through the end of the quarter.\n\nThanks,\nJonathan",
+   "reply_to_previous": false
+  }
+ ]
+}

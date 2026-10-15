@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0216",
+   "text": "Call with {{CLIENT_NAME:c_0216}} today. Client raised interest in alternative investments, mainly private credit and a possible real asset fund, to diversify beyond the brokerage holdings in {{ACCOUNT_NUMBER:a_00447}}. Also mentioned crypto again. I explained our digital asset client policy is still under working group review and we can't facilitate anything yet. Risk profile remains low, so I flagged that alts carry liquidity lockups and accreditation checks. Plan: send overview of approved alternatives menu, loop in the portfolio manager, and confirm cash needs in {{ACCOUNT_NUMBER:a_00448}} before any commitment. Follow up by email to {{CLIENT_EMAIL:c_0216}} next week."
+  },
+  {
+   "client_id": "c_0063",
+   "text": "{{CLIENT_NAME:c_0063}} requested a change of business address effective immediately. New address provided by phone and confirmed in writing: {{CLIENT_ADDRESS:c_0063}}. Needs to be updated on the operating account {{ACCOUNT_NUMBER:a_00134}} and the loan {{ACCOUNT_NUMBER:a_00135}}, including loan documents and notice provisions. Requested a signed address change form plus supporting proof of address per policy. Will pass the update to KYC for refresh and to the loan closer for file updates. Confirmed contact remains {{CLIENT_PHONE:c_0063}}. No change in risk rating or covenant status expected."
+  },
+  {
+   "client_id": "c_0171",
+   "text": "Spoke with {{CLIENT_NAME:c_0171}}, who mentioned referring a friend and colleague interested in opening a wealth relationship. Client was happy with service on the brokerage account {{ACCOUNT_NUMBER:a_00353}} and with how cash sweeps work in {{ACCOUNT_NUMBER:a_00354}}. I thanked them and explained we will reach out to the referral directly only after receiving their consent. Passed the lead to Grace Lin's team for intake. Reminder: no client information about {{CLIENT_NAME:c_0171}} is to be shared with the prospect. Will send a follow-up note to {{CLIENT_EMAIL:c_0171}} with a thank you and next steps."
+  },
+  {
+   "client_id": "c_0164",
+   "text": "{{CLIENT_NAME:c_0164}} called to update the contact phone number on file. New number is {{CLIENT_PHONE:c_0164}}. Completed identity verification using security questions and confirmed the email on record, {{CLIENT_EMAIL:c_0164}}, is unchanged. Updated the profile and applied the change to both checking {{ACCOUNT_NUMBER:a_00340}} and the loan {{ACCOUNT_NUMBER:a_00341}}. Client's payments are current and no other changes were requested. Sent a confirmation notice to the address on file. Nothing further needed unless the client reports an issue with autopay."
+  },
+  {
+   "client_id": "c_0139",
+   "text": "Met with {{CLIENT_NAME:c_0139}} about changing beneficiary designations on the brokerage account {{ACCOUNT_NUMBER:a_00290}} and the cash management account {{ACCOUNT_NUMBER:a_00291}}. Reason given was a recent family change. Provided the beneficiary change forms and explained that signatures need to be wet-ink or e-sign via the portal. Client also asked again about crypto exposure; I reiterated that the firm's policy is still being finalized and nothing is available now. Will review forms for completeness once returned, then route to operations. Follow up at {{CLIENT_EMAIL:c_0139}} if forms are not received within a week."
+  },
+  {
+   "client_id": "c_0209",
+   "text": "Loan renewal conversation with {{CLIENT_NAME:c_0209}} today. The existing term is coming up for maturity this quarter and client would like to renew with a similar structure, possibly a slightly lower rate. Payment history on checking {{ACCOUNT_NUMBER:a_00436}} has been clean. Risk rating is medium, so I'll need updated income documentation and a refreshed credit pull. Client says employment is stable. Next steps: collect pay stubs and tax returns, submit renewal package to underwriting, and discuss pricing with Brian Kowalski. Will call {{CLIENT_PHONE:c_0209}} when we have an indicative offer."
+  },
+  {
+   "client_id": "c_0131",
+   "text": "Reviewed risk tolerance with {{CLIENT_NAME:c_0131}} during a scheduled check-in. Client described a more conservative stance given upcoming major expenses and would like us to keep the low risk classification. No change in borrowing needs. Checking account {{ACCOUNT_NUMBER:a_00278}} shows steady inflows and healthy balances. Updated the profile notes and confirmed the client is comfortable with current terms. No action required from underwriting. I will send a summary of the update to {{CLIENT_EMAIL:c_0131}} and revisit at the next annual review."
+  },
+  {
+   "client_id": "c_0287",
+   "text": "{{CLIENT_NAME:c_0287}} contacted us to update the main business phone number. New number is {{CLIENT_PHONE:c_0287}}. Verified the caller as an authorized signer on the operating account {{ACCOUNT_NUMBER:a_00587}} using callback procedure to the prior number on file plus email confirmation to {{CLIENT_EMAIL:c_0287}}. Updated the CRM record and flagged the change for the payments team so wire verification contacts are refreshed. Business is performing as expected and no credit concerns noted. Will confirm the change in writing to the registered address {{CLIENT_ADDRESS:c_0287}}."
+  },
+  {
+   "client_id": "c_0089",
+   "text": "Check-in with {{CLIENT_NAME:c_0089}}. Client mentioned they have a friend who is looking for a portfolio manager and would like to make an introduction, citing satisfaction with performance in the brokerage account {{ACCOUNT_NUMBER:a_00189}}. I thanked them and explained our referral process. The prospect will contact us first, and we will not discuss the client's holdings. Also reviewed cash balance in {{ACCOUNT_NUMBER:a_00190}} and the client is comfortable with the current allocation, medium risk. Logging referral source for the new lead and will follow up via {{CLIENT_EMAIL:c_0089}}."
+  },
+  {
+   "client_id": "c_0009",
+   "text": "{{CLIENT_NAME:c_0009}} asked to update beneficiary designations for brokerage {{ACCOUNT_NUMBER:a_00018}} and cash management {{ACCOUNT_NUMBER:a_00019}}. Reviewed current designations and explained the difference between primary and contingent beneficiaries and per stirpes elections. Sent the change forms for signature and asked the client to return originals or e-sign. Verified identity via the usual call-back to {{CLIENT_PHONE:c_0009}}. Once forms arrive I'll review for completeness, have a second advisor check, and submit to operations. No changes to investment objectives or risk profile today."
+  }
+ ]
+}

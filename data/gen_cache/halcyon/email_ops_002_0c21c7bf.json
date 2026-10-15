@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Corporate action processing - upcoming mandatory events and open elections",
+   "body": "Hi Ravi, Brian,\n\nWanted to flag where we stand on corporate actions heading into August. We have two mandatory cash dividends and one stock split on the calendar for next week, and the entitlement files from the custodian came through this morning. I've loaded them into SettlementEngine and the position snapshots from PositionStore tie out on all but one holding, which looks like a late trade date adjustment.\n\nThere is also one voluntary tender offer where the election deadline is Tuesday. I still need confirmation from the desk and from Wealth on whether any of their holdings want to participate, so Brian, could you chase those two groups for written elections by Monday noon? Without them we default to no action.\n\nTasha is cc'd because the dividend accruals will hit GLCore on payable date and she'll want to watch for breaks in the recon.\n\nI'll send a status summary Friday afternoon.\n\nThanks,\nWayne",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_071",
+   "to_ids": [
+    "e_066",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Failed settlement follow-up - counterparty cp_046 delivery",
+   "body": "Hi Wayne, Ravi,\n\nFollowing up on the failed settlement from Friday involving Cook, Williamson and Rivera. The delivery versus payment leg failed at the custodian because our instruction was matched against a stale settlement instruction on their side. They have confirmed the correct details are on file now, and the SSI reference we hold for them uses {{CP_SWIFT:cp_046}} for the receiving agent.\n\nWhat I've done so far:\n1. Cancelled and re-sent the instruction in SettlementEngine this morning.\n2. Asked the counterparty ops team to confirm the match status before the cutoff.\n3. Logged the fail for the aged fails report, currently at two business days.\n\nRisk of a buy-in notice is low but I'd like to avoid any penalty charges, which we would otherwise accrue to GLCore. Tasha, please keep this item on the recon watchlist until it clears.\n\nI'll update everyone as soon as we get the matched status.\n\nRegards,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_069",
+   "to_ids": [
+    "e_065",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_029"
+   ],
+   "subject": "Returned ACH items - two commercial client debits to review",
+   "body": "Hi Craig, Ravi,\n\nThe overnight ACH return file came in with two items we need to handle today. One is a returned debit against the operating account for {{CLIENT_NAME:c_0201}}, ending on {{ACCOUNT_NUMBER:a_00418}}, flagged as insufficient funds. The other relates to {{CLIENT_NAME:c_0285}} on {{ACCOUNT_NUMBER:a_00583}}, returned as an authorization issue, which looks like a stale mandate.\n\nThe PaymentsGateway posted the reversals to GLCore correctly, so the ledger is fine, but we still need to notify the relationship managers and decide on re-presentment. Brian, since these tie to loan payments in some cases, could your team confirm whether the loan accounts show any knock-on late status?\n\nCraig, can you pull the return reason codes and check the FraudScore output for either item, just to be safe? I'll draft the client outreach once we agree on wording.\n\nThanks,\nRonald",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_064",
+   "to_ids": [
+    "e_063",
+    "e_066",
+    "e_065"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Month-end close checklist - September",
+   "body": "Hi all,\n\nCirculating the September month-end close checklist so we can lock owners and timing before Wednesday.\n\nCutoffs and tasks:\n- Settlements: all trade date and settle date fails to be aged and documented by Tuesday 5pm (Wayne, Brian).\n- Payments: unapplied ACH returns and outstanding wire items cleared or accrued (Craig, Ronald).\n- Recon: ReconLegacy end-of-day batch must run clean for both Tuesday and Wednesday. The Oracle 11g job has been slow, so I'll monitor it overnight and alert Technology if it runs past the window.\n- GLCore: final subledger tie-outs and suspense account review by Thursday morning.\n- Sign-off: Ravi reviews the break summary, then Martin receives the package.\n\nOpen items right now are about eleven reconciliation breaks, mostly small timing differences, plus the one aged fail I know is still pending. Please reply with any objections to these owners today and I'll finalize the checklist.\n\nThanks,\nTasha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_067",
+   "to_ids": [
+    "e_063",
+    "e_070"
+   ],
+   "cc_ids": [
+    "e_068"
+   ],
+   "subject": "SWIFT payment tracking - outbound wire to cp_046 not yet confirmed",
+   "body": "Hi Ravi, Mike,\n\nI'm tracking an outbound SWIFT payment released this morning to Cook, Williamson and Rivera and it has not yet shown a confirmation status. The beneficiary details we used were the account {{CP_IBAN:cp_046}} with bank identifier {{CP_SWIFT:cp_046}}, both verified against the callback record from last week.\n\nCurrent status in WireRoom shows it accepted by PaymentsGateway and sent to the correspondent, but we have no acknowledgement of credit. Since it's quarter end and the amount is time sensitive, I've opened a tracer request with the correspondent bank and will chase again at 2pm.\n\nMike, can you take the afternoon follow-up if I'm tied up with the cutoff batch? Derrick, please double check that the message fields on the outbound copy match what we have in the file.\n\nIf it isn't confirmed by tomorrow morning, I'll escalate to Ravi so we can inform the business.\n\nThanks,\nGreg",
+   "reply_to_previous": false
+  }
+ ]
+}

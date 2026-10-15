@@ -1,0 +1,65 @@
+{
+ "emails": [
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_013"
+   ],
+   "subject": "Weekly delinquency report - week ending 7/24",
+   "body": "Hi Kara,\n\nAttached is the delinquency report for the week ending 7/24. Headline numbers: 30+ day delinquency on the indirect auto book is 1.42%, up from 1.31% last week. Direct consumer is flat at 0.88%. Most of the movement comes from a handful of auto loans that rolled from 29 to 31 days after the month-end ACH cycle.\n\nOne item to flag: {{CLIENT_NAME:c_0019}} has the loan on {{ACCOUNT_NUMBER:a_00041}} showing 32 days past due, which is out of character given the low risk rating and the clean history since 2023. It looks like the autopay draft from checking {{ACCOUNT_NUMBER:a_00040}} did not post. Since you are the relationship manager, could you reach out before collections touches it?\n\nRita, I'd like your view on whether the recent tightening of DTI caps should be reflected in the vintage analysis.\n\nThanks,\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_014",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_015"
+   ],
+   "subject": "Dealer agreement renewal - three dealers expiring 8/31",
+   "body": "Hi Kara,\n\nThree of our indirect dealer agreements come up for renewal at the end of August. I've pulled the last twelve months of performance for each. Two are in good shape: approval-to-funding ratios above 38% and early payment default under 1%. The third, the larger franchise group, has had two repurchase requests this year tied to missing title paperwork, so I'd like to add a documentation SLA to their renewal.\n\nI'd propose we keep the current reserve split on the first two and ask the third to agree to a 5 business day funding-package turnaround. Compliance should take a look at the updated indemnification language before we send anything out.\n\nCan we spend 20 minutes on Friday to align? Richard, please send me the dealer-level delinquency cuts when you get a chance.\n\nThanks,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011",
+    "e_012"
+   ],
+   "cc_ids": [],
+   "subject": "Delinquency report - mid-week update 7/30",
+   "body": "Kara, Kathleen,\n\nQuick mid-week update on delinquency since Monday's report. The indirect auto 30+ bucket is now 1.47%. Two accounts cured after outreach, but four new ones slipped past 30 days. Three of those four trace to the same dealer, which lines up with Martin's renewal discussion, so that may be useful context for him.\n\nOn {{CLIENT_NAME:c_0019}}: the payment on {{ACCOUNT_NUMBER:a_00041}} posted yesterday after Kara's call, so that one is cured and off the watch list.\n\nI'm also looking at {{CLIENT_NAME:c_0083}}, who has no loan with us currently but shows a rising overdraft pattern on {{ACCOUNT_NUMBER:a_00173}}. Not a delinquency issue yet, but worth knowing in case a loan application comes in.\n\nFull numbers will be in next week's report.\n\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_015",
+    "e_013"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Re: Delinquency report - mid-week update 7/30",
+   "body": "Richard,\n\nThanks for the heads up. Two requests ahead of next Wednesday's 8/5 report:\n\n1. Break out the 30+ bucket by dealer and by credit tier so we can see whether the slippage is concentrated or broad.\n2. Add a column showing whether each delinquent loan was on autopay, since the {{CLIENT_NAME:c_0019}} miss looks like a draft failure rather than a credit problem.\n\nRita, please sanity check whether any of the new delinquent loans were approved as exceptions to policy.\n\nWesley, I'm copying you because if the dealer concentration holds up, we may need to talk about the repurchase terms in the renewals and any member contact rules around collections.\n\nThanks,\nKara",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_012",
+    "e_014"
+   ],
+   "subject": "Dealer agreement renewals - status and recommendation",
+   "body": "Hi Gloria,\n\nAn update on the indirect dealer renewals. All three agreements that expired at the end of August have now been handled. Two were renewed on current terms. The third, the larger franchise group, signed last week with a new 5 business day funding-package turnaround and a repurchase clause covering missing title paperwork. Compliance reviewed the revised indemnification language.\n\nSince renewal, delinquency from that dealer has stabilized: no new 30+ day loans in the last three weeks, compared with three in late July. Martin and Kathleen will check in with each dealer monthly through year-end.\n\nNext step is putting the remaining dealer agreements on a staggered calendar so they don't all expire at once. I'd like to bring that proposal to you in October.\n\nThanks,\nKara",
+   "reply_to_previous": false
+  }
+ ]
+}

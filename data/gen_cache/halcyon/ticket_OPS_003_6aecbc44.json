@@ -1,0 +1,110 @@
+{
+ "tickets": [
+  {
+   "title": "Wire to Baker-Wilson held: beneficiary details do not match invoice",
+   "description": "Outgoing EUR wire requested by the client {{CLIENT_NAME:c_0019}} for the Baker-Wilson supplier invoice was held in the WireRoom queue this morning. The beneficiary IBAN on the instruction ({{CP_IBAN:cp_028}}) does not match the details on the PDF invoice attached in DocVault, and the SWIFT code on file ({{CP_SWIFT:cp_028}}) appears to be from an older bank record. Debit account is {{ACCOUNT_NUMBER:a_00041}}. Payment has not been released through PaymentsGateway. Need to confirm correct details with the client through a callback to the number on file before anything is amended, and update the counterparty record once verified.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_068",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_068",
+     "text": "Called the client back on the number of record ({{CLIENT_PHONE:c_0019}}). They confirmed the invoice is correct and our stored counterparty record is stale. Asking them to send the bank confirmation letter via secure DocVault upload."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Good. Do not amend the counterparty record until the signed letter is in DocVault and a second wire room person has reviewed it. Dual control applies even though the client is low risk."
+    },
+    {
+     "author_id": "e_068",
+     "text": "Letter received, Greg verified it as second reviewer. Counterparty record updated, wire released through PaymentsGateway before the cutoff. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Returned ACH debit on operating account, R01 insufficient funds",
+   "description": "An ACH debit originated against {{ACCOUNT_NUMBER:a_00475}} for the monthly loan payment on {{ACCOUNT_NUMBER:a_00476}} came back overnight with return code R01 (insufficient funds). The client {{CLIENT_NAME:c_0232}} is in the lending segment and this is the first return this year. GLCore shows the loan payment posted provisionally and needs to be reversed. Please reverse the provisional posting, flag the loan account for the lending team so late fees are not auto-assessed incorrectly, and notify the relationship manager. Client contact should go through the RM rather than directly from Ops.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_069",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_069",
+     "text": "Reversed the provisional posting in GLCore and tagged the return in PaymentsGateway. Sent a note to Brandi Palmer so she can contact {{CLIENT_NAME:c_0232}} about re-presenting the payment."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Thanks. Please confirm the late fee hold is on the loan account before you resolve this, otherwise LoanOrigination will auto-assess it tonight."
+    },
+    {
+     "author_id": "e_069",
+     "text": "Fee hold confirmed on the loan account. Client re-submitted funds and payment was re-presented successfully. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair: outbound USD wire rejected by intermediary for missing field",
+   "description": "Outbound USD wire to Baker-Wilson, initiated from {{ACCOUNT_NUMBER:a_00041}}, was returned by the intermediary bank with a repair request. The message was rejected because the beneficiary address line was incomplete and the SWIFT field used {{CP_SWIFT:cp_028}} without the branch suffix. Funds are sitting in the suspense account. We need to repair the MT103 data, confirm the beneficiary details against the verified counterparty record ({{CP_IBAN:cp_028}}), and resubmit through PaymentsGateway today. The client {{CLIENT_NAME:c_0019}} has a supplier payment deadline this week.",
+   "reporter_id": "e_070",
+   "assignee_id": "e_067",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_067",
+     "text": "Added the branch suffix and full beneficiary address from the verified record. Resubmitted at 11:40 and it passed pre-validation in WireRoom."
+    },
+    {
+     "author_id": "e_070",
+     "text": "Confirmed the intermediary acknowledged the repaired message. Suspense balance cleared in GLCore. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair: duplicate reference blocking release of payment to Baker-Wilson",
+   "description": "A repeat wire to Baker-Wilson was stopped in WireRoom because the payment reference duplicates one released on 2026-08-12. The client {{CLIENT_NAME:c_0019}} states this is a second, separate invoice. We need to verify that it is not a true duplicate before release. Check invoice references and amount, confirm with the client using the contact on file ({{CLIENT_EMAIL:c_0019}}), and have the wire repaired with a unique reference. Debit account is {{ACCOUNT_NUMBER:a_00041}}. Do not release until the second reviewer signs off.",
+   "reporter_id": "e_068",
+   "assignee_id": "e_070",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_070",
+     "text": "Client emailed the second invoice. Amounts and invoice numbers differ from the earlier payment, so it is not a duplicate. I updated the reference with the new invoice id."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Approved as second reviewer. Release it and note the check in the ticket for audit."
+    },
+    {
+     "author_id": "e_070",
+     "text": "Released and confirmed by the receiving bank. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Failed settlement on equity trade, counterparty fail on delivery",
+   "description": "SettlementEngine flagged a failed settlement this morning on an equity trade booked through OMS. The counterparty did not deliver securities by the settlement cutoff, leaving us short against the client side. This creates a cash and GLCore timing break that will show up in the ReconLegacy end-of-day batch. Please contact the counterparty's ops desk, confirm a new settlement date, check whether a buy-in is required under market rules, and make sure the break is documented for #recon. Risk should be told if the fail ages beyond two days.",
+   "reporter_id": "e_064",
+   "assignee_id": "e_071",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_071",
+     "text": "Counterparty ops says the delivery was held up by a custodian issue and they expect to deliver tomorrow morning. I asked for that in writing and will re-check SettlementEngine at open."
+    },
+    {
+     "author_id": "e_066",
+     "text": "I can pick this up if you need cover. I will also add a note to the open breaks list for the recon run tonight so Tasha does not chase it as a new item."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Keep me posted. If it is not settled by Friday, escalate to Owen Gallagher in Risk and start the buy-in assessment."
+    }
+   ]
+  }
+ ]
+}

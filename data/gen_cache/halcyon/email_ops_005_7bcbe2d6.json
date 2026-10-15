@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_063",
+   "to_ids": [
+    "e_064",
+    "e_065",
+    "e_066",
+    "e_067"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "July month-end close checklist and owners",
+   "body": "Hi all,\n\nJuly close starts Friday, so here is the checklist with owners. Please confirm by end of day Wednesday if you cannot cover your item.\n\n1. Tasha: clear all aged breaks in ReconLegacy and post the final end-of-day recon to GLCore by Thursday noon. Anything over 5 business days old needs a written explanation.\n2. Wayne: confirm all T+1 settlements are matched in SettlementEngine and flag any fails with a counterparty ahead of the GL cut.\n3. Craig: reconcile the ACH clearing account and confirm no unposted returns are sitting in PaymentsGateway.\n4. Greg: provide the wire log totals by day, including any repairs or recalls.\n\nI will pull the accruals review together on Friday morning and send the package to Martin by 3pm. Please keep notes in the shared close folder so we do not repeat the August scramble.\n\nThanks,\nRavi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_067",
+   "to_ids": [
+    "e_063",
+    "e_068",
+    "e_070",
+    "e_065"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_072"
+   ],
+   "subject": "Wire cutoff time change effective Monday 8/3",
+   "body": "Team,\n\nFollowing the confirmation from our correspondent bank, the outgoing domestic wire cutoff moves from 4:30pm ET to 4:00pm ET, effective Monday 8/3. International wires stay at 2:00pm ET.\n\nWhat this means for us:\n- Releases for same-day value need to be approved in WireRoom by 3:45pm so the second-level check is not rushed.\n- Anything arriving after the cutoff rolls to next business day. Please tell the requester right away, not at 4:05pm.\n- Callbacks for high-value wires should start earlier in the afternoon.\n\nMarcus, FYI since the change affects the callback and sanctions screening window. Sam, could you update the banner text in the WireRoom console so users see the new time?\n\nI will post a short notice in #general on Monday morning. Shout if you see a conflict with any standing client instructions, such as the recurring payments for {{CLIENT_NAME:c_0138}}.\n\nGreg",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_069",
+   "to_ids": [
+    "e_063",
+    "e_065"
+   ],
+   "cc_ids": [
+    "e_029"
+   ],
+   "subject": "Returned ACH items from Friday batch - action needed",
+   "body": "Hi Ravi, Craig,\n\nThe Friday ACH return file came in this morning with 14 items. Most are routine (R01 insufficient funds, R03 no account), but two need attention:\n\n- The debit tied to {{ACCOUNT_NUMBER:a_00416}} for {{CLIENT_NAME:c_0200}} came back R01. This is a loan payment, so Lending should know before late fees post.\n- One credit to {{CP_ACCOUNT:cp_035}} was returned for an account mismatch. I have not re-sent it.\n\nI have booked the returns against the clearing account in GLCore and the remaining items should net to zero once Craig confirms the two reversals. Total returned value is about $38,400.\n\nBrian, I am copying you because the loan item will probably need an RM call to the client. Please let me know if you want us to hold the next scheduled debit.\n\nThanks,\nRonald",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_064",
+   "to_ids": [
+    "e_063",
+    "e_066",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "August month-end close checklist - recon status",
+   "body": "Ravi, Wayne, Brian,\n\nSharing where things stand ahead of the August close, since July left us with a few open items.\n\nOpen at the moment:\n- 9 breaks in ReconLegacy, 6 of which are timing differences on settlements that should clear by Friday.\n- 3 unmatched GLCore entries on the ACH clearing account, linked to last week's returned items.\n- One suspense item of roughly $12,750 that I cannot trace to a source yet.\n\nRequests:\n- Wayne and Brian: please send final settlement confirmations by Thursday so I can close out SettlementEngine against the ledger.\n- Ravi: can we agree a hard cutoff for late journal entries? Owen's team needs stable numbers for ReportingBI before the risk pack goes out.\n\nThe legacy Oracle batch ran 40 minutes long last night, so I will keep an eye on it. I will post a daily update in #recon.\n\nTasha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063",
+    "e_071",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Corporate action processing - quarter-end elections and deadlines",
+   "body": "Hi Ravi,\n\nWith quarter-end today, here is where corporate action processing stands.\n\n- Two voluntary elections (a tender offer and a rights issue) have custodian deadlines tomorrow at 12:00 ET. Brian and I have collected instructions from the desks and wealth advisors; nothing is outstanding on our side.\n- Three mandatory events, one stock split and two cash dividends, are set to post on payable date. I validated the entitlement counts against PositionStore snapshots and they tie.\n- One dividend shows a withholding rate difference versus the vendor feed. I am raising it with the custodian before we post to GLCore.\n\nElena, copying you because one tender election touches a name that Advisory is tracking, so please let me know if there are any restrictions we should check before we submit.\n\nTasha, please expect the cash entries in tomorrow's recon.\n\nThanks,\nWayne",
+   "reply_to_previous": false
+  }
+ ]
+}

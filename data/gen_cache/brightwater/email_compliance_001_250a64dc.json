@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "Annual BSA/AML training - sessions scheduled for August",
+   "body": "Hi Paul, Kara, and Rita,\n\nAs part of our annual BSA/AML program requirements, all frontline, lending, and operations staff need to complete this year's training by September 15. Monica and Chris will run two live sessions in the main conference room: August 13 at 10:00 AM and August 18 at 2:00 PM. Each runs about 90 minutes.\n\nTopics this year: structuring and cash-transaction red flags, ACH and wire monitoring through BSAWatch, SAR confidentiality (no tipping off), and a refresher on CIP and beneficial ownership for business members.\n\nPlease send me your team rosters with a session preference by Friday, August 7, so I can plan coverage at the branch counters. Anyone who cannot attend live can take the recorded module, but it needs a signed attestation.\n\nI will track completion for the board report. Let me know if you have staff on leave who need an alternate plan.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_019",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Examiner document request - items needed by August 11",
+   "body": "Hi Andre and Rita,\n\nThe examiners sent their pre-exam document request list this morning, and several items sit with your teams. Our response is due to them August 14, so I need your pieces by Tuesday, August 11.\n\nFrom IT (Andre):\n- Access review for BSAWatch and CoreBanking for the last two quarters\n- Most recent disaster recovery test results for CoreBanking and OnlineBanking\n- Change log for any BSAWatch rule or threshold changes since January\n\nFrom Operations (Rita):\n- ACH origination exception reports from ACHHub for Q2\n- Procedures for OFAC screening of incoming ACH files\n- Evidence of daily ShareRecon sign-off\n\nMonica is assembling the master index, so please send files to her and use the naming convention from the request list. If something does not exist or is incomplete, tell me now rather than later so we can address it directly with the examiners.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_019",
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Follow-up: outstanding exam items (second request)",
+   "body": "Hi Andre and Kara,\n\nQuick status check on the examiner request. Most of the binder is in, but these are still open and the examiners asked for a supplemental set by August 27:\n\n- Andre: the BSAWatch change log and the CoreBanking DR test summary. Hector mentioned the DR report is final but needs your sign-off.\n- Kara: sample of 15 closed consumer loan files from LoanDesk showing CIP verification evidence, plus the adverse action notice template currently in use.\n\nFor the loan sample, please redact nothing from the internal copies, since I will handle redaction. If any file references a member's identity details, just leave the standard placeholder fields as they appear in the file, for example {{CLIENT_SSN:c_0004}} style fields, and I will take care of it.\n\nCould you each confirm by Tuesday, August 25? Wesley is meeting the lead examiner that week and would like the package complete.\n\nThanks,\nMonica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_003",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_018"
+   ],
+   "subject": "Reg E dispute timelines - reminder after recent file review",
+   "body": "Hi Paul and Rita,\n\nDuring our quarterly file review we looked at electronic fund transfer disputes, and I want to reinforce the Reg E clocks:\n\n- Acknowledge and begin investigating once the member notifies us, whether by phone, in branch, or in writing\n- Complete the investigation within 10 business days, or provisionally credit the account and extend to 45 days\n- Provisional credit must be posted within those 10 business days, and the member notified within 2 business days of the final result\n\nOne case this month involved {{CLIENT_NAME:c_0004}}, where a debit card dispute was logged two days after the verbal report. The logged date should be the date the member first told us, not the date the ticket was created. The notice went out on time, but the clock was misstated.\n\nPaul, please remind the floor to document first-contact date and time. Rita, can Operations add a first-notice field to the CardProcessor dispute queue report?\n\nChris and I are glad to walk the teams through it.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_018",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_023",
+    "e_019"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "BSA training - Q4 refresher and new SAR escalation steps",
+   "body": "Hi all,\n\nWesley asked me to share the Q4 BSA refresher plan. We will hold a 45-minute session on October 21 at 9:30 AM, with a virtual option, focused on what changed this year:\n\n- Updated internal escalation path: unusual activity referrals now go through the #bsa-aml referral form rather than direct messages, so the 30-day SAR clock starts from a clear date\n- Recent patterns involving business counterparties such as Miranda LLC, using anonymized examples\n- Reminder not to discuss any SAR or referral outcome with members or colleagues outside the need-to-know group\n\nWe also need IT to confirm the training roster pulls correctly from MemberSSO-linked staff accounts. Andre, could someone check that before October 14?\n\nPlease have managers send me any staff who joined since the summer so they are included. Attendance will be recorded for the board report.\n\nThanks,\nChris",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+{
+ "messages": [
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Hey all, Wealth sent over a draft client brochure for the Q3 managed-accounts push. Needs a compliance read before Monday. Anyone have bandwidth today? I can take the first pass on disclosures."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "I can take performance claims. Does it include any net vs gross returns? Last time they showed gross only with the fee note buried in the footer."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Yeah there's a 3-yr annualized composite chart. Looks gross to me, no fee line next to it. Flagging that first."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Reminder that anything with testimonials needs the Marketing Rule disclosures too. Does the brochure have a client quote section? I vaguely remember one in the earlier draft."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "There's one quote on page 4, attributed to \"a long-time client.\" No name, but no disclosure of whether they were compensated or are a current client either."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 19,
+   "reply_to": 4,
+   "text": "Then it needs the compensation/affiliation disclosure and a note on whether it's representative. I'd also ask Wealth for written confirmation of consent from whoever gave it."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Side question for the group: someone in Wealth asked if they can use a real client case study in the deck. Jamie Washington's client is willing. Is that a no-go without sign-off from us?"
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 30,
+   "reply_to": 6,
+   "text": "Not a no-go, but it needs written consent, and it can't be cherry-picked. Also anything identifying must be scrubbed unless they approve it. We shouldn't even drop {{CLIENT_NAME:c_0247}} into a draft in the shared folder before consent is on file."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 33,
+   "reply_to": 7,
+   "text": "Agreed. I'll tell Jamie to send the consent form and keep it anonymized as \"an individual wealth client\" for now."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Jump in from the eng side: the doc review tracker in DocVault is showing marketing drafts with no approver field filled in. Can you all make sure you tag your name when you sign off? I'm adding a required field this week."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Nice, that'll help. Right now I can't tell which version was approved for the last email blast."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 48,
+   "reply_to": 10,
+   "text": "Exactly the gap I'm fixing. I'll add version hash plus approver and date. Should be live by Tuesday."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 75,
+   "reply_to": 2,
+   "text": "Confirmed gross-only. I'm asking for net-of-fees numbers alongside, same prominence, and the 1/5/10 yr periods if they show 3-yr. Also hypothetical language on the model portfolio slide needs rework."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 92,
+   "reply_to": -1,
+   "text": "Separate one: the Lending team's small-business flyer says \"fast approvals, no surprises.\" Feels like a UDAAP-ish promise to me. Anyone else see it?"
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 97,
+   "reply_to": 12,
+   "text": "Yeah, \"no surprises\" is risky. I'd push for \"subject to credit approval\" near the headline, and drop the guarantee-sounding language entirely."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "FYI for the review log: I confirmed the brochure doesn't reference any account details or contact info. Just checked for stray {{CLIENT_PHONE:c_0247}}-type placeholders in the template and found none."
+  },
+  {
+   "author_id": "e_054",
+   "minutes_after_start": 165,
+   "reply_to": -1,
+   "text": "Sent my performance comments to Wealth. They agreed to add net returns and move the fee disclosure to the same page. Waiting on the revised draft."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 210,
+   "reply_to": 15,
+   "text": "Great. Once the revision lands I'll do the final disclosure check and log approval in the tracker. Aiming to close this out by end of day tomorrow."
+  }
+ ]
+}

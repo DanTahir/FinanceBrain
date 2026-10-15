@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up all: we've got two new hires starting Monday. One joins Lending as a loan processor, the other is a new teller at the main branch. Michelle is sending the full welcome email later today."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Nice, we've needed another teller on Saturdays. Who's going to be training them? I can take some shifts if Paul wants."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "I think Paul is pairing them with you for the first week, Joseph. Check with him before you leave today so you're not surprised Monday."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 12,
+   "reply_to": 2,
+   "text": "Will do, thanks. I'll make sure the drawer is set up and the cash handling checklist is ready."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 20,
+   "reply_to": -1,
+   "text": "IT side: laptops are imaged and badges are queued. I still need to confirm MemberSSO and CoreBanking access requests are approved for both. Can managers make sure the access forms are signed off by 4pm?"
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "Hector, is the loan processor getting LoanDesk and CreditPull access on day one? Kara said she wanted them shadowing files right away."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 33,
+   "reply_to": 5,
+   "text": "LoanDesk yes, it's on the ticket. CreditPull needs Kara's approval plus the permissible purpose training sign-off, so that one may slip to Tuesday if the paperwork isn't in."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 38,
+   "reply_to": 6,
+   "text": "Got it. I'll ping Kara now and get the training module assigned so it's not the bottleneck."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Also, let's do a quick team lunch Tuesday to welcome them. I'll grab a headcount in the thread if people are in."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 61,
+   "reply_to": 8,
+   "text": "I'm in for Tuesday. Please count me for the sandwich platter."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 75,
+   "reply_to": 8,
+   "text": "In as well. I'll drop their login sheets off at their desks before lunch so they can get set up."
+  }
+ ]
+}

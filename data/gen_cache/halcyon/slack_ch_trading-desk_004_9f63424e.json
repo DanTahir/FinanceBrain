@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning. IG spreads gapping wider out of the gate, CDX IG up 3 bps already and HY looks heavier. Watch your inventory, bids are thin."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Seeing it. Three accounts already calling for bid lists on cash bonds. Dealers are quoting 5-10 wide of Friday on anything over 7yr."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "OMS is lagging a bit on corp bond fills, anyone else? Two of my tickets took ~20 sec to ack."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 5,
+   "reply_to": 2,
+   "text": "Yeah noticed it too. Probably just the volume spike. If it's still slow in 15 min I'll ping Tech in #it-ops."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 9,
+   "reply_to": 0,
+   "text": "Client wants to sell $15mm of a BBB industrial, 10yr. Last print was +142, I'm hearing +155 now. Is that where we're showing it?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 11,
+   "reply_to": 4,
+   "text": "Show +158 to start, we're not stepping up to size in this tape. Work it in clips, no more than $5mm at a time."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 14,
+   "reply_to": 5,
+   "text": "Got it. I'll work the first $5mm clip now and leave the rest resting. Will flag fills as they come."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "First clip done at +157. Second looking for a bid, nothing inside +162 so far."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 25,
+   "reply_to": 7,
+   "text": "Client is okay holding the rest till afternoon if we can't get +160 or better. Don't chase."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "TradeBlotter P&L on the credit book is -$180k mark to market from the widening. Within limits but let's not add duration until this settles."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 34,
+   "reply_to": 3,
+   "text": "OMS acks are back to normal, so it was just the open crush."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 37,
+   "reply_to": 10,
+   "text": "Good, no need to escalate then. Keep an eye on the index into the 2pm window and ping me if CDX breaks 60."
+  }
+ ]
+}

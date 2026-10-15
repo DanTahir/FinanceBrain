@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Please tell me someone has already reported the espresso machine on 14. It's flashing some angry red light and just gurgling at me."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Same on 12. It was making a grinding noise yesterday afternoon too. I think it's finally given up."
+  },
+  {
+   "author_id": "e_062",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "Day one of no espresso. Risk team is officially operating at reduced VaR (Vibes at Risk)."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 6,
+   "reply_to": 2,
+   "text": "Christopher, that's going in the next risk committee deck. Also, has facilities been pinged? I'll email them if not."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 9,
+   "reply_to": 0,
+   "text": "Red light plus gurgling usually means it needs descaling or the pump is clogged. I've seen this on the same model. Did anyone try the descale cycle?"
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 12,
+   "reply_to": 4,
+   "text": "Vincent, I held the button combo from the sticker on the side and it just beeped three times and went back to red."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 15,
+   "reply_to": 5,
+   "text": "Three beeps is probably the water tank sensor. Pull the tank out and reseat it firmly. Sometimes the float gets stuck."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Tried it. Light went from red to blinking amber. Progress? Or a different kind of bad?"
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 25,
+   "reply_to": 7,
+   "text": "Amber blinking is warming up, I think. Give it ten minutes before you judge it."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Morning all. Facilities has a technician scheduled for this afternoon, just in case. Please leave the machine alone until then so we don't void anything. Thanks for flagging it."
+  },
+  {
+   "author_id": "e_062",
+   "minutes_after_start": 44,
+   "reply_to": 9,
+   "text": "Thanks Linda. Appreciate the fast response. Coffee crisis averted, or at least scheduled."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Update: the amber light turned green and I just got a drinkable shot out of it. Vincent, you're a hero."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 63,
+   "reply_to": 11,
+   "text": "Happy to help. Still let the technician look at it though, the grinding is probably a separate issue."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 70,
+   "reply_to": -1,
+   "text": "Calling it now: the machine deserves a pension and a gold watch. Cappuccinos on me if it survives till Friday."
+  }
+ ]
+}

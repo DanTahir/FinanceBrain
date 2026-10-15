@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Model validation finished the annual review of the RiskEngine VaR model late yesterday. Findings memo is in the shared folder. Three items rated medium, one high. Can we go through them today?"
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Which one is the high? Hoping it's not the backtesting exceptions again."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Sort of. They flagged that we had 6 exceptions in the trailing 250 days at 99% and the override log doesn't document why we kept the 500-day lookback. Validation wants a written justification or a recalibration plan."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 10,
+   "reply_to": 2,
+   "text": "I have the exception breakdown. Four of the six cluster around the March vol spike, so it's mostly a regime issue rather than a coding problem. I can draft the justification with the stressed-period overlay."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Good. I'd also test a shorter 250-day window with exponential weighting so we can show the tradeoff. Validation will ask for the comparison anyway."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Separate question: one of the medium findings is on the PD scorecard inputs feeding our credit exposure views. Says the data lineage from DataLake to the ReportingBI credit dashboard isn't documented. Anyone own that?"
+  },
+  {
+   "author_id": "e_060",
+   "minutes_after_start": 25,
+   "reply_to": 5,
+   "text": "I think we do on the dashboard side, Technology owns the DataLake pipelines. I can map the lineage this week, there are only about 4 hops."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 29,
+   "reply_to": 6,
+   "text": "I can help, I did the original dashboard build notes last year. Some of the transforms changed after the Q2 refresh though, so we should verify against current jobs, not the old doc."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 35,
+   "reply_to": 6,
+   "text": "Thanks both. John leads, Phillip supports. Please ask Technology for the job config rather than inferring from the dashboard SQL. Target is end of next week."
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 48,
+   "reply_to": -1,
+   "text": "Quick heads up, the third medium finding is about the stale-price fallback in RiskEngine. If PricingSvc is late we silently reuse the prior close and there's no flag on the report. Validation wants a visible indicator."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "Agree that's a fair catch. I've seen it hide a bad position for a few hours. A stale flag column in the exposure output would be an easy fix on our side."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 60,
+   "reply_to": 10,
+   "text": "Would we need to carry the flag through to ReportingBI too? Otherwise people reading the dashboard won't see it."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 64,
+   "reply_to": 11,
+   "text": "Yes, add it as a footnote tag on the VaR tiles. Angelica, can you put together a ticket covering both pieces?"
+  },
+  {
+   "author_id": "e_057",
+   "minutes_after_start": 67,
+   "reply_to": 12,
+   "text": "On it. I'll file it today and link it in the findings tracker."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Last item, the low-rated documentation gaps. I'll handle those myself. Let's sync at 3pm to agree remediation dates before I reply to validation."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 124,
+   "reply_to": 14,
+   "text": "3pm works for me. I'll bring the lineage questions list so we can get Technology's input lined up."
+  }
+ ]
+}

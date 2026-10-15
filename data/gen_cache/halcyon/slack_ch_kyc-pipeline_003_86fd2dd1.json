@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quick one on beneficial ownership forms: I've got {{CLIENT_NAME:c_0106}} in the queue and the CDD checklist is asking for a BO certification even though this is an individual. Is that expected for lending-segment individuals?"
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Not normally. The BO cert is for legal entity customers. For an individual it's usually just the attestation that they're acting on their own behalf. Might be the checklist template picking the wrong branch."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 7,
+   "reply_to": 0,
+   "text": "I saw that last week on another individual. The form got attached automatically when the segment was lending. I think it's a rule in the KYCPipeline intake step."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 11,
+   "reply_to": 2,
+   "text": "Ok so it's a pipeline thing, not a client thing. Good. Should I just mark it N/A or leave it open until someone confirms?"
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "Jumping in. Yes, I know about the template branch. The rule keys off segment instead of customer type. Ticket is open on my side, I'll check the mapping today and post here once it's fixed."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 22,
+   "reply_to": 4,
+   "text": "Thanks Jenna. Do we want a note in the meantime on how to document the N/A so audit doesn't ask later?"
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 27,
+   "reply_to": 5,
+   "text": "Yes. Mark it N/A - individual customer, and put the reason in the comment field. Don't just skip it, we want a trail."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "Done on {{CLIENT_NAME:c_0106}}. Comment added. Also, the ID check is complete, I verified the {{CLIENT_DOB:c_0106}} on the license matches what's in ClientHub."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "Separate question: when the BO form does apply, e.g. LLCs, do we still require the 25% ownership threshold plus one control person? Or has that changed?"
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 44,
+   "reply_to": 8,
+   "text": "Same as before. Each 25%+ owner, plus one control person. If no one hits 25% you still need the control person. It's in the CDD procedure under section titles on entity customers."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 49,
+   "reply_to": 9,
+   "text": "Got it. And where do we store the signed form? I've been uploading to DocVault but folder names seem inconsistent."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 56,
+   "reply_to": 10,
+   "text": "DocVault, client folder, then the KYC subfolder. Please use the BO_Cert prefix in the file name. I'll look at forcing that naming in the upload step, since SanctionsScreen reads from there too."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 71,
+   "reply_to": -1,
+   "text": "Update: SanctionsScreen came back clean on {{CLIENT_NAME:c_0106}}. I'll move the case to review once the BO N/A comment is acknowledged."
+  },
+  {
+   "author_id": "e_051",
+   "minutes_after_start": 78,
+   "reply_to": 12,
+   "text": "Looks good from my side. I reviewed the comment and the ID evidence. Approving it now. The address in the file, {{CLIENT_ADDRESS:c_0106}}, also matches the proof of address."
+  },
+  {
+   "author_id": "e_049",
+   "minutes_after_start": 125,
+   "reply_to": -1,
+   "text": "Fix is in test: the BO form now triggers only for entity customer types. I'll deploy this afternoon and ping here. Please flag any individual that still gets the form after 4pm."
+  }
+ ]
+}

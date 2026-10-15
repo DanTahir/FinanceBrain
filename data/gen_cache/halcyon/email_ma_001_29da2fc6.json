@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_043",
+   "to_ids": [
+    "e_039",
+    "e_040"
+   ],
+   "cc_ids": [
+    "e_041"
+   ],
+   "subject": "Q2 league table submission - data check before Friday",
+   "body": "Elena, Tom,\n\nI've pulled together the draft Q2 league table submission for the data providers and wanted to flag a few items before we send it out tomorrow. We have 11 announced and completed advisory mandates in the period, and I've cross-checked deal values against the signed engagement letters and the public filings. Two mandates still need a decision on whether we credit them as sell-side or dual-track, since that changes how they rank in the mid-market category.\n\nAisha is reconciling the fee and enterprise value figures against the deal tracker, and she'll circulate a clean version by end of day. Tom, could you confirm the closing dates on the two carve-outs? The providers only count deals that closed on or before June 30, and I'd rather not overstate our count.\n\nElena, I'd appreciate your sign-off on the final cut by noon tomorrow so we can submit before the deadline. Compliance has reviewed the public-announcement language, so we're clear on that front.\n\nThanks,\nHannah",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_040",
+   "to_ids": [
+    "e_041",
+    "e_042",
+    "e_046"
+   ],
+   "cc_ids": [
+    "e_039"
+   ],
+   "subject": "Pitch book for new industrials sell-side mandate - workplan",
+   "body": "Team,\n\nWe've been invited to pitch for a sell-side mandate with a mid-sized industrial components business, and the management meeting is set for next Wednesday. Elena would like a full draft of the pitch book by Friday so she has the weekend to mark it up.\n\nProposed split:\n- Aisha: situation overview, positioning, and the proposed process timeline\n- Susan: comparable company and precedent transaction analysis, with a view on where EBITDA multiples have landed over the last 18 months\n- Erik: buyer universe page, strategic versus sponsor, and the credentials section\n\nPlease use the latest firm template and pull credentials from the approved deal list only. I'll handle the executive summary and fee proposal. Let's aim for around 25 pages plus appendix.\n\nIf you hit data gaps on the comps, flag them to me early rather than filling in with estimates. We can talk through anything open at the 4pm check-in tomorrow.\n\nThanks,\nTom",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_044",
+   "to_ids": [
+    "e_039",
+    "e_043"
+   ],
+   "cc_ids": [
+    "e_040",
+    "e_042"
+   ],
+   "subject": "Project Kestrel - lender meeting schedule and prep",
+   "body": "Elena, Hannah,\n\nHere is where we stand on the Project Kestrel lender meetings. We've confirmed sessions with five lending groups over the next two weeks, starting Monday with the two bank syndicate leads. The direct lenders are scheduled for later in the week once they've had time to review the teaser and the lender presentation.\n\nFor prep, Susan is updating the financial model with the latest management case and a downside sensitivity so we can speak to leverage capacity and covenant headroom. I'm finalizing the lender presentation and a one-page term sheet summary covering target leverage, pricing expectations, and the proposed amortization structure.\n\nTwo things I need from you. First, Hannah, can you confirm the company's CFO is available for the Wednesday session? Second, Elena, are you comfortable presenting the strategic rationale, with me taking the financing structure?\n\nAll attendees will be logged on the wall-cross list before materials go out. I'll circulate the final agenda on Friday.\n\nBest,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_045",
+   "to_ids": [
+    "e_041",
+    "e_046"
+   ],
+   "cc_ids": [
+    "e_043"
+   ],
+   "subject": "Pitch book for new healthcare services mandate - first draft needed",
+   "body": "Aisha, Erik,\n\nWe've got a pitch coming up for a buy-side advisory mandate in the healthcare services space, with the presentation to the board scheduled for October 14. I'd like a first draft of the pitch book by Thursday so we have time for two rounds of review with Hannah and Elena.\n\nAisha, please own the strategic rationale and the target screening section. We want to show a clear view of the most attractive acquisition candidates and why now is the right moment given sector consolidation. Erik, please build the valuation page with trading comps, precedent transactions, and an illustrative accretion and dilution analysis under a few financing assumptions.\n\nPlease reuse the formatting from the September deck, and double-check that all credentials are cleared by Compliance before they go in. Keep the tone confident but not overly promotional.\n\nLet me know by tomorrow afternoon if either of you sees a blocker or needs extra support from the analyst pool.\n\nThanks,\nRobert",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_039",
+   "to_ids": [
+    "e_040",
+    "e_042",
+    "e_046"
+   ],
+   "cc_ids": [
+    "e_043"
+   ],
+   "subject": "Project Osprey - buyer list for review",
+   "body": "Team,\n\nBefore we go to the seller on Thursday, I want to tighten the Project Osprey buyer list. The current draft has 38 names, which is too long for a controlled process. My target is roughly 20 for the first wave, split between strategic buyers with a clear fit and a handful of well-capitalized sponsors with relevant platform investments.\n\nTom, please rank the strategics by synergy potential and ability to pay, and note any antitrust sensitivities. Susan, please add a column showing recent M&A activity and balance sheet capacity for each. Erik, flag any buyers where we have an existing relationship or a conflict that needs review, and send that list to Compliance for clearance before we make any outreach.\n\nHannah and I will go through the revised list on Wednesday morning and decide on the tiers. Please keep the file in the Osprey deal folder and do not email it outside the wall-crossed group.\n\nThanks,\nElena",
+   "reply_to_previous": false
+  }
+ ]
+}

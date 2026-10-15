@@ -1,0 +1,73 @@
+{
+ "emails": [
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072",
+    "e_078"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Q3 DR test planning - proposed scope and windows",
+   "body": "Hi Sam, Barbara,\n\nI've put together a first pass at the Q3 disaster recovery test. Proposal is to run the failover exercise on Saturday 2026-07-25 between 06:00 and 12:00 ET, with a backup window the following Saturday.\n\nScope I'd suggest: MarketDataFeed and PricingSvc failover to the secondary region, plus a restore test of DocVault from the latest snapshot. PricingSvc is the key piece since RiskEngine, OMS and PortfolioMgr all sit downstream of it, so we should confirm cache warm-up times and that quote latency stays inside our tolerance after cutover.\n\nOpen items:\n- Barbara, can you confirm the replica lag thresholds we want to see before we declare the secondary healthy?\n- Ravi, we'd like someone from Operations on the call to validate that SettlementEngine and GLCore are not affected by any network changes.\n- Sam, I need your sign-off on the window before I send notice to the desk heads.\n\nI'll draft the runbook by 2026-07-10 and circulate for review. Let me know if you'd like additional systems included.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_074",
+    "e_079",
+    "e_081"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Access recertification due 2026-07-31 - action needed",
+   "body": "Team,\n\nThe quarterly access recertification kicks off today and Compliance needs our attestations back by Friday 2026-07-31. Marcus's team will audit a sample, so please be thorough rather than quick.\n\nWhat I need from each of you:\n- Review the entitlements you own in AuthSSO groups, DocVault folders and the DataLake roles for your services.\n- Revoke anything tied to people who have changed teams or left the project.\n- Flag any service accounts with no named owner. We had a few last quarter and I'd like that number at zero.\n- Confirm that production admin rights are still limited to people who are on call.\n\nPriya, since your handover work is already underway ahead of your departure in October, please make sure your elevated access and any ownership entries are reassigned to a named successor in the recert sheet rather than left until the end.\n\nLeo and Vincent, please split review of the DataLake roles between you. Angelica, you have DocVault.\n\nQuestions come to me. I'd like first drafts by 2026-07-27 so there is time for corrections.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_078",
+   "to_ids": [
+    "e_072",
+    "e_077"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Vulnerability scan results - August cycle summary",
+   "body": "Hi all,\n\nThe August authenticated scan finished overnight. Summary for the production estate:\n\n- 3 critical findings, 14 high, 41 medium.\n- Both of the criticals on the app tier trace to an outdated TLS library on two PricingSvc hosts. Patch is available and I've staged it in the pre-prod environment.\n- The third critical is on the legacy Oracle 11g host that backs ReconLegacy. It's end-of-support, so there's no vendor patch. I recommend we tighten network access and add compensating monitoring until it is retired.\n- Highs are mostly container base image drift and a handful of missing OS updates.\n\nProposed plan: patch PricingSvc hosts during next Tuesday's maintenance window, with Omar leading and me on rollback readiness. Owen, since PricingSvc feeds RiskEngine, I'm flagging it for awareness in case you see brief refresh delays on intraday VaR.\n\nFull report is in the security share. Sam, I'd like approval to schedule the window.\n\nThanks,\nBarbara",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_075",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_076",
+    "e_080"
+   ],
+   "subject": "Laptop refresh - schedule and what to back up",
+   "body": "Hi Sam,\n\nHere is the plan for the laptop refresh that starts next week. Engineering is in the second wave, running from 2026-09-14 through 2026-09-25.\n\nHow it will work:\n- IT will pre-image each new machine with our standard build, including the VPN client, SSO enrollment and the endpoint security agent.\n- Each person gets a 30-minute slot to swap devices. We'll keep old laptops for five business days in case something is missing, then wipe them.\n- Local dev databases and unpushed branches are not backed up automatically. Please push everything to the repo before your slot.\n\nTravis and Michael, you both run local data tooling against sample sets, so please verify those datasets can be re-pulled from DataLake after the swap. I'm also checking that hardware-bound tokens re-enroll cleanly with AuthSSO.\n\nCould you approve the schedule so I can send the calendar invites by Monday? I'm also happy to cover the on-call people first so nobody is without a machine during a rotation.\n\nThanks,\nKevin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_079",
+   "to_ids": [
+    "e_072",
+    "e_081",
+    "e_074"
+   ],
+   "cc_ids": [
+    "e_005",
+    "e_063"
+   ],
+   "subject": "AuthSSO migration - cutover plan and dependencies",
+   "body": "Hi all,\n\nAn update on the AuthSSO migration to the new identity provider tenant. Pilot users have been on it for two weeks with no significant issues, so I'd like to lock in the production cutover plan.\n\nProposed sequence:\n- 2026-09-19 (Saturday): migrate non-critical consumers first, DocVault and ClientHub.\n- 2026-09-26 (Saturday): migrate OMS login, followed by a validation sweep with the trading desk before Monday's open.\n\nWhy this order: OMS depends on AuthSSO and is critical, so I want a clean rehearsal on lower-risk services before touching it. KYCPipeline also depends on ClientHub and DocVault indirectly, so its owners should be told ahead of time.\n\nDaniel, could your desk nominate two traders to test order entry and session timeouts on the 26th? Ravi, please have someone from Operations confirm that the WireRoom approval flows still work after re-authentication.\n\nRollback is a DNS and config revert and should take under 20 minutes. Angelica and Leo, I'd like you both on the bridge. Please send concerns by Friday.\n\nThanks,\nVincent",
+   "reply_to_previous": false
+  }
+ ]
+}

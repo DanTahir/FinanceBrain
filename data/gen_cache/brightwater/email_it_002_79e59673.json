@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_020",
+    "e_022"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Vendor security questionnaire - CoreBanking hosting provider, due Aug 7",
+   "body": "Hi Hector and Shannon,\n\nThe CoreBanking hosting vendor sent over their annual security questionnaire this morning. It's 140 questions covering access control, encryption at rest, incident response, and subcontractor oversight. Our response is due Friday, August 7.\n\nProposed split: Hector takes infrastructure, network segmentation, and backup/DR sections. Shannon takes secure development, API access, and the MemberSSO integration questions. I'll handle governance, policy, and the attestation pages. Wesley is copied since a few items touch our vendor management policy and he'll want to review the final answers before they go back.\n\nPlease pull evidence from the shared drive where you can, such as the last pen test summary and the quarterly access review. Flag anything where our answer is 'partially' so we can decide whether to add a remediation note instead of rounding up.\n\nLet's do a quick sync on Tuesday to compare progress.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_019"
+   ],
+   "cc_ids": [
+    "e_022",
+    "e_016"
+   ],
+   "subject": "Re: Vendor security questionnaire - CoreBanking hosting provider, due Aug 7",
+   "body": "Andre,\n\nI've finished a first pass on the infrastructure section, 52 questions. Most are straightforward, but three need a decision from you:\n\n1. Q31 asks whether privileged access to production is reviewed quarterly. We do it, but the Q2 review wasn't signed off until early July. I'd answer yes and attach the sign-off with its date rather than gloss over it.\n2. Q38 asks about backup restore testing frequency. We test semi-annually for ShareRecon data, but the CoreBanking restores are done by the vendor. I'd answer that honestly and reference their SOC 2 report.\n3. Q44 on log retention: we keep 12 months online, and the questionnaire wants 13. I'll check whether the archive tier covers it.\n\nI'll have everything in the shared folder by Thursday.\n\nHector",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_001",
+    "e_003",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_020",
+    "e_021"
+   ],
+   "subject": "MFA rollout schedule for MemberSSO - member-facing changes start Aug 10",
+   "body": "Hello Gloria, Paul, and Rita,\n\nA heads-up on the next phase of the MFA rollout through MemberSSO. Starting Monday, August 10, OnlineBanking members will be prompted to enroll in app-based authentication at login, with SMS remaining as a fallback for now. We'll phase it by member cohort over three weeks to keep call volume manageable.\n\nWhat we need from you:\n- Paul: please brief the floor and the member advocates before August 10. Amy is putting together a one-page FAQ on enrollment problems and lockouts.\n- Rita: card and ACH operations aren't affected directly, but OnlineBanking is the entry point for members checking transfers, so expect a few more questions.\n- Gloria: a short note in the member newsletter would help adoption.\n\nOur rollback plan is to disable enforcement in MemberSSO, which takes about ten minutes. We'll watch enrollment failure rates daily and report weekly.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_022",
+   "to_ids": [
+    "e_019",
+    "e_020"
+   ],
+   "cc_ids": [],
+   "subject": "Questionnaire follow-up: vendor wants a second round of evidence",
+   "body": "Andre, Hector,\n\nThe CoreBanking vendor's security team came back with follow-up questions on our submission. Three items need more evidence:\n\n- Our answer on API token rotation. They want proof of the 90-day rotation, not just the policy. I can export the rotation log from the MemberSSO service accounts.\n- Session timeout settings for OnlineBanking admin consoles. I'll pull a configuration screenshot.\n- The date of our last tabletop incident exercise. Andre, I believe that was in the spring, can you confirm?\n\nThey asked for a response by Friday, August 21. Since this is the second round, I'd like us to send one consolidated package instead of piecemeal replies. I'll draft the cover note and route it to Wesley for a compliance read before it goes out.\n\nShannon",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_001",
+    "e_016",
+    "e_023",
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_020",
+    "e_021"
+   ],
+   "subject": "CoreBanking upgrade - weekend window and readiness checklist",
+   "body": "Hello all,\n\nThe CoreBanking vendor has confirmed the version upgrade window for the weekend of Saturday, October 3, from 10 PM Saturday to roughly 6 AM Sunday. Since CoreBanking is vendor hosted, they run the cutover and we validate.\n\nBecause OnlineBanking, CardProcessor, ACHHub, LoanDesk, BSAWatch, and ShareRecon all depend on CoreBanking, each will be unavailable or degraded during the window. Here is what I need from you by Friday, September 18:\n\n- Rita: confirm ACH and card settlement cutoffs and any stand-in processing arrangements.\n- Kara: pause plan for LoanDesk and any closings scheduled that weekend.\n- Wesley: confirm BSAWatch alert backlog handling afterward.\n\nHector and Amy will run the test plan in the vendor's staging environment the week of September 21, including ShareRecon reconciliation scripts, which are the most likely to break on schema changes.\n\nI'll send a go/no-go summary on Monday, September 28.\n\nAndre",
+   "reply_to_previous": false
+  }
+ ]
+}

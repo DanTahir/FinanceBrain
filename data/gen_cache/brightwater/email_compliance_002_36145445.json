@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_017",
+    "e_018"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "Exam document request list - BSA/AML program review",
+   "body": "Hi Monica and Chris,\n\nWe received the examiner's document request list this morning for the fall BSA/AML review. The first batch is due back to me by Friday 2026-07-17 so I can package it before the portal upload.\n\nMonica, please pull the current BSA/AML risk assessment, the last two quarters of BSAWatch alert tuning notes, and the CTR filing log. Chris, I need the SAR decision memos for the last 12 months (redacted per our standard template), plus the 314(a) search confirmations.\n\nOne item to flag: the request asks for a sample file on a medium-risk member account, and I plan to use the {{CLIENT_NAME:c_0075}} share savings file, account {{ACCOUNT_NUMBER:a_00162}}, as an example of our periodic review. Please make sure the KYC refresh documentation is complete before it goes in.\n\nI'll also ask Andre for the BSAWatch system access reports. Let me know by Wednesday if anything on the list looks like a gap.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_003",
+    "e_023"
+   ],
+   "subject": "Annual BSA training - schedule and completion targets",
+   "body": "Hi Wesley,\n\nHere is the draft plan for this year's BSA/AML training. Since the examiners will likely ask for evidence, I'd like to get everyone through the core module before the end of the third quarter.\n\nProposed sessions:\n- Frontline (tellers, member services reps, advocates): 45 minutes, covering structuring, CTR triggers, and recognizing unusual cash activity\n- Operations: 30 minutes on ACH and wire red flags, since ACHHub activity feeds BSAWatch\n- Lending: a short add-on on third-party payments and loan proceeds\n\nPaul and Rita, could you each suggest two time slots the week of 2026-07-20 that won't collide with peak teller hours or the ACH settlement window? I'll track attendance and quiz scores in a spreadsheet so we have clean records for the exam file.\n\nAlso, if you know of staff who are new since last year, please send me their names so I can assign them the onboarding version.\n\nThanks,\nMonica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_018",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Reminder: BSA refresher due by 2026-09-30",
+   "body": "Hello Paul, Kara, and Rita,\n\nA quick reminder that the annual BSA/AML refresher is due for all staff by Wednesday 2026-09-30. As of this morning, completion is at roughly 70% across your teams, with Member Services and Operations holding most of the open assignments.\n\nThis round includes new case studies from our own alerts, such as rapid movement of funds through a share savings account and payments to a business counterparty that didn't match the member's stated activity. These came directly from recent investigations, with details removed.\n\nPlease encourage your people to finish it during a quiet part of their shift. It takes about 40 minutes. I'll send each of you a list of outstanding names on Friday so you can follow up personally.\n\nIf anyone has trouble logging in, they can ask Andre's team to check their access.\n\nThanks,\nChris",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_019",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Exam follow-up: system evidence needed by 2026-09-24",
+   "body": "Hi Andre and Rita,\n\nThe examiners sent a follow-up request after reviewing our first submission. Items that touch your areas:\n\n1. Andre: user access listing for BSAWatch and CoreBanking, including role changes in the last 12 months, and the most recent change-management records for the BSAWatch integration with CoreBanking.\n2. Andre: evidence of the nightly ShareRecon job results for the last quarter-end.\n3. Rita: ACHHub exception reports and your review sign-offs for the same period, since they feed BSAWatch monitoring.\n\nThey also asked how we handle alerts on payments to external counterparties such as {{CP_ACCOUNT:cp_018}}. Monica is drafting that narrative, and I'd like Rita to confirm the ACH-side description is accurate.\n\nPlease send everything to me by Thursday 2026-09-24 so I have a few days to review before the portal deadline. If something can't be produced, tell me early and we'll explain the gap rather than scramble.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_018"
+   ],
+   "subject": "Final exam document request - status and open items",
+   "body": "Hi Wesley,\n\nHere is where we stand on the final exam request, due Friday 2026-10-09.\n\nComplete and in the shared folder:\n- Updated risk assessment with the new product mix\n- BSAWatch tuning log and threshold change approvals\n- Training completion report (now at 100% after the 2026-09-30 deadline)\n\nStill open:\n- Chris is finishing the redacted SAR memo sample. He expects it by Monday.\n- The sample member file for {{CLIENT_NAME:c_0075}} still needs the identity verification record. The scan is attached to the file but the date of birth field isn't legible, so I've asked Nichole to confirm {{CLIENT_DOB:c_0075}} against the original and re-upload.\n- Andre's access review evidence arrived, but I want to double check the role change dates.\n\nI can do a full read-through on Tuesday if you're available. Otherwise I'll send you the index by end of day Monday.\n\nThanks,\nMonica",
+   "reply_to_previous": false
+  }
+ ]
+}

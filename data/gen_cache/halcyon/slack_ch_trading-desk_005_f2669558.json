@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "morning. blotter P&L for the desk is showing -$412k realized but OMS fills look like we're closer to -$290k. anyone else seeing that?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "yeah mine's off too. my book shows -$87k on blotter, I'd have said flat-ish after yesterday's closeout"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "looking. is it realized only or total? unrealized marks could be stale if PricingSvc lagged on open"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 5,
+   "reply_to": 2,
+   "text": "realized. unrealized is separate column and that one ties out fine"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 9,
+   "reply_to": 3,
+   "text": "ok then not a marks issue. pulling the fill-level diff between OMS and blotter now"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "fwiw I did a bust/rebook on a partial in the last 20 min yesterday. ticket was an odd lot cross"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "that could be it. seeing 14 fills where blotter has the original and the rebook both. looks like the bust never netted out"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 24,
+   "reply_to": 6,
+   "text": "double count on the rebook? that would explain a chunk of it but not all $120k"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 31,
+   "reply_to": 7,
+   "text": "right, dupes account for about $95k. remaining ~$25k is something else, checking fee/commission treatment"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 33,
+   "reply_to": -1,
+   "text": "don't size off the blotter number until this is sorted. use OMS fills for now"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 35,
+   "reply_to": 9,
+   "text": "agreed, pinging the rest of the desk"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 52,
+   "reply_to": 8,
+   "text": "found the rest. blotter is applying the old commission rate to the rebooked fills, OMS has the updated one. $24.6k delta"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 55,
+   "reply_to": 11,
+   "text": "lol of course. so two separate bugs, bust netting and comm schedule"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 58,
+   "reply_to": 12,
+   "text": "should I open a ticket for Tech with the fill ids?"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 60,
+   "reply_to": 13,
+   "text": "yes please, attach my diff sheet. mark it P&L-impacting so it gets triaged today"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 75,
+   "reply_to": 14,
+   "text": "ticket filed, linked the diff. Tech says they'll push a manual correction to blotter before 11"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 78,
+   "reply_to": 15,
+   "text": "great. I'll recheck my book after the correction and shout if it still doesn't tie"
+  }
+ ]
+}

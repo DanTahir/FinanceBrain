@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Updated rate sheet is going live today at noon. Auto new/used terms dropped 25 bps across the 60 and 72 month tiers, and we're adding a 0.25% relationship discount for members with direct deposit. PDF is pinned."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 3,
+   "reply_to": -1,
+   "text": "Thanks Kara. Does the direct deposit discount stack with the autopay discount or is it one or the other?"
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "They stack, but the total discount is capped at 0.50%. It's on page 2, footnote 3."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Quick one: I have a pending refinance for {{CLIENT_NAME:c_0026}} that's already in underwriting. Does the new pricing apply, or is it locked at the old rate?"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "If no rate lock has been issued, it reprices to the new sheet. I'd check LoanDesk for a lock date on {{ACCOUNT_NUMBER:a_00057}} before you promise anything."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Checked. No lock on file. So the member gets the better rate, I'll call them this afternoon with the update."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Heads up from the credit side: the tier 3 floor on the sheet moved from 660 to 650 for used auto, but the matrix in our underwriting worksheet still shows 660. Which one governs?"
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 26,
+   "reply_to": 6,
+   "text": "Good catch, the sheet governs. Rita, can you update the worksheet matrix before noon so nobody gets a wrong decline recommendation?"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 29,
+   "reply_to": 7,
+   "text": "On it. I'll push the revised matrix to the shared drive by 11:30 and ping the channel."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Also, are we still showing the old APRs on the website calculator? Marketing usually lags on this."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 45,
+   "reply_to": 9,
+   "text": "IT has the web update queued for noon too, same push. I'll confirm once it's live and test the calculator myself."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 88,
+   "reply_to": -1,
+   "text": "Matrix updated and saved to the shared drive, file name has today's date. Tier 3 floor now reads 650 for used auto."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Reached {{CLIENT_NAME:c_0026}}, who was thrilled about the lower rate. I'll send the revised disclosure to {{CLIENT_EMAIL:c_0026}} for e-sign once the sheet is live."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 125,
+   "reply_to": -1,
+   "text": "Does {{CLIENT_NAME:c_0015}} qualify for the direct deposit discount? Their checking {{ACCOUNT_NUMBER:a_00030}} has payroll coming in, I believe."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 131,
+   "reply_to": 13,
+   "text": "{{CLIENT_NAME:c_0015}} is in my book. Payroll deposits have hit the last three cycles, so yes, they qualify. I'll apply the discount on the next pricing run."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 150,
+   "reply_to": -1,
+   "text": "Rate sheet and web calculator are both live. Calculator matches the PDF at all the tiers I tested. Shout if you see anything off."
+  }
+ ]
+}

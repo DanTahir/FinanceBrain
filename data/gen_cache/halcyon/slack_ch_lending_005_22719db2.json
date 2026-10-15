@@ -1,0 +1,94 @@
+{
+ "messages": [
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Draw request #3 just came in on the construction loan for {{CLIENT_NAME:c_0181}}, $412K against the framing and MEP milestones. Who's got capacity to review today? Funding window is Thursday."
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "That's my relationship so I can take it, but I'd rather someone else underwrite the draw review for a second set of eyes. Joshua, you free?"
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Yep, I can pick it up after my 10:30. Brendan, did the inspector's report come with the package or is that still outstanding?"
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 13,
+   "reply_to": 2,
+   "text": "Report is attached, third-party inspector signed off on 68% complete. Lien waivers from the GC and the electrical sub are in. Plumbing sub waiver still missing."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 17,
+   "reply_to": 3,
+   "text": "68% complete vs. what the schedule of values says? If we're advancing about 71% cumulative we have a retainage problem."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 24,
+   "reply_to": 4,
+   "text": "Good catch, cumulative disbursed including this draw would be 70.4% of the commitment. So slightly ahead of physical completion. I'll ask the borrower to trim line 7 or explain the stored materials."
+  },
+  {
+   "author_id": "e_038",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Unrelated but heads up: {{CLIENT_NAME:c_0189}} called asking about a draw on their renovation loan too. Told them we need the updated budget first. Same checklist applies, right?"
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 38,
+   "reply_to": 6,
+   "text": "Yes, same checklist. Inspection, lien waivers, title date-down, updated budget. Don't promise a timeline until the title update clears."
+  },
+  {
+   "author_id": "e_038",
+   "minutes_after_start": 42,
+   "reply_to": 7,
+   "text": "Understood, I'll send the document request this morning. Thanks Heidi."
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 55,
+   "reply_to": 0,
+   "text": "For the {{CLIENT_NAME:c_0181}} file: the interest reserve balance should be checked too. Last I looked it was getting thin after draw #2."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 97,
+   "reply_to": 9,
+   "text": "Pulled it. Interest reserve has about $38K left, monthly carry is roughly $14K, so we're covered through November but not through projected completion. Flagging for the credit memo."
+  },
+  {
+   "author_id": "e_031",
+   "minutes_after_start": 104,
+   "reply_to": 10,
+   "text": "I'll raise it with the borrower. They may need to top up the reserve or we modify the budget. Tammy, any appetite for a reallocation from contingency?"
+  },
+  {
+   "author_id": "e_037",
+   "minutes_after_start": 112,
+   "reply_to": 11,
+   "text": "Contingency is only 4% remaining and they've already used a chunk. I'd rather see a cash top-up. Reallocation would need Brian's sign-off anyway."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 130,
+   "reply_to": -1,
+   "text": "Does anyone know if the title company has the date-down for the {{CLIENT_NAME:c_0181}} property ordered? Checking before I chase them."
+  },
+  {
+   "author_id": "e_034_placeholder",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "placeholder"
+  }
+ ]
+}

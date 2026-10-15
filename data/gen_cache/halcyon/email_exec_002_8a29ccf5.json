@@ -1,0 +1,75 @@
+{
+ "emails": [
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_003"
+   ],
+   "subject": "July all-hands agenda: topic submissions due Tuesday",
+   "body": "Hi all,\n\nWe're building the agenda for the July all-hands, scheduled for Thursday 2026-07-23 at 4:00 PM in the 14th floor town hall, with dial-in for the remote folks. Catherine will open with a mid-year firm update, followed by Martin on first-half financial results and Linda on the operations roadmap.\n\nIf you'd like a slot for your team, please send me a one-line topic and the time you need (5 minutes max) by end of day Tuesday 2026-07-07. We're particularly looking for short updates on desk performance, the wealth pipeline, lending volume, and anything coming out of M&A that can be shared firm-wide without crossing any information barriers.\n\nCompliance has asked that all slides go through Marcus's team by Friday 2026-07-17.\n\nThanks very much,\nWendy Dyer\nExecutive Assistant, Executive Office",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_001",
+    "e_002",
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Final agenda for today's all-hands (4:00 PM)",
+   "body": "Team,\n\nQuick pre-read on the all-hands today. Running order as it stands:\n\n1. Catherine, mid-year firm update (10 min)\n2. Martin, first-half financials and full-year outlook (12 min)\n3. Linda, operations roadmap, including the KYC pipeline ownership move to Compliance planned for early October (8 min)\n4. Desk heads, two-minute lightning updates (Trading, Wealth, Lending)\n5. Open Q&A (15 min)\n\nWendy, please confirm the AV check is done and the dial-in link is in the calendar invite. Ravi, can your team have the overflow room ready on 12 in case we run over capacity?\n\nMartin, I'd like your slides to the group by 2:00 PM so we can catch any wording that needs a compliance review.\n\nThanks,\nLinda",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "Office lease renewal: options and decision timeline",
+   "body": "Catherine, Linda,\n\nI've had a first round with the landlord's broker on the headquarters lease, which expires in 2027. Three options are on the table:\n\n1. Renew the full footprint for a 7-year term with a modest rent step-up and a larger tenant improvement allowance.\n2. Renew with a reduction of roughly one floor, given the hybrid attendance patterns we've seen this year.\n3. Relocate. I don't think this is attractive given moving costs and the trading floor's connectivity needs, but I'd like us to have a benchmark.\n\nMy recommendation is to pursue option 2 and use the sublease flexibility as leverage. I'd like to review the numbers with you both next week, and then take a recommendation to the board at the September meeting.\n\nLinda, could you pull current desk utilization figures from Ravi's team? Wendy, please find 45 minutes for the three of us on Tuesday or Wednesday.\n\nBest,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039",
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "October all-hands agenda: submissions due Wednesday",
+   "body": "Hello everyone,\n\nThe next all-hands is Tuesday 2026-10-13 at 4:00 PM. Draft agenda so far:\n\n- CEO update and third-quarter highlights (Catherine)\n- Q3 financial results and budget planning calendar (Martin)\n- Operations and technology update, including the KYC pipeline handover to Compliance, which completes on 2026-10-06 (Linda)\n- Compliance refresher: annual attestation reminders (Marcus)\n- Department spotlights\n- Open Q&A\n\nHeads of Trading, Wealth, Lending and M&A, please send your spotlight topics to me by end of day Wednesday 2026-09-30. Marcus, please confirm the length you need for the attestation segment.\n\nSlides are due to me by Friday 2026-10-09 so the executive team can review them before the session.\n\nThank you,\nWendy Dyer\nExecutive Assistant, Executive Office",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_004",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Re: Today's all-hands: a few changes to the run of show",
+   "body": "Wendy, Linda,\n\nA few changes for this afternoon's all-hands. I'd like to open with a short thank-you to the teams who worked through the quarter-end close and the KYC pipeline transition, since it was a heavy lift for Operations and Compliance. Please move my update ahead of Martin's so the financial context lands after that.\n\nI also want to extend the Q&A to 20 minutes, even if it means trimming the department spotlights to three minutes each. Questions have been piling up in the feedback form and I'd rather answer them live.\n\nLinda, please let Priya's colleagues in Technology know we'll acknowledge the upcoming engineering transitions briefly, with Sam to follow up directly with his team.\n\nThanks,\nCatherine",
+   "reply_to_previous": false
+  }
+ ]
+}

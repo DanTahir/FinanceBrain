@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quick question on mobile deposit holds: I have {{CLIENT_NAME:c_0069}} on the line, check deposited via the app yesterday afternoon and it's showing a hold on {{ACCOUNT_NUMBER:a_00149}}. What's our standard hold window for new-ish mobile deposits again?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Standard is next business day for the first $225, then the rest on the second business day, unless an exception hold applies. Check the hold reason code in CoreBanking, it should tell you which one fired."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Reason code says 'large deposit' threshold. Amount was $4,800. Account has been open since 2023 and no returns that I can see."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Over $5k aggregate in a day usually triggers it, but if there were two deposits yesterday that could stack. Check the deposit history for the day, not just the one item."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Yep, there was a second smaller one that morning. That pushes it over. Makes sense now."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Reminder for everyone: if you're releasing a mobile deposit hold early, it needs a documented reason in the note and a second look from a Member Advocate or me if it's over $2,500. Auditors flagged this last quarter."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 19,
+   "reply_to": 5,
+   "text": "Thanks Paul. Is the second look required before release or can we document and have it reviewed same day?"
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Before release, Joanna. Same-day review is only for the under $2,500 range. Ping the channel and one of us will grab it fast."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "So for {{CLIENT_NAME:c_0069}}, I'm going to leave the hold and explain the timing. Funds should be fully available tomorrow. Member seems okay with it, just wanted the explanation."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 35,
+   "reply_to": -1,
+   "text": "Heads up, I have {{CLIENT_NAME:c_0014}} calling about a mobile deposit hold too. This is one of my members and the account is flagged high risk, so I'm not releasing anything without checking with Compliance first."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 38,
+   "reply_to": 9,
+   "text": "Good call. Does the hold on {{ACCOUNT_NUMBER:a_00028}} show an exception code or just the standard one?"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 42,
+   "reply_to": 10,
+   "text": "Exception code, repeated deposits plus the risk rating. I'll tell the member it's under routine review and we'll follow up, without getting into specifics."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 46,
+   "reply_to": 11,
+   "text": "Right, no need to say more than that. If they ask for a callback number, confirm the one on file {{CLIENT_PHONE:c_0014}} rather than taking a new one over the phone."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 50,
+   "reply_to": 12,
+   "text": "Agreed, verified already. I'll send the note over to Compliance and log the call in MemberCRM."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "Can someone add a short mobile deposit hold cheat sheet to the floor wiki? Standard windows, the large deposit rule, and who to ping for early release approvals. I'd like it up by Friday."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 63,
+   "reply_to": 14,
+   "text": "I'll draft it this afternoon and tag Nichole and Joanna to review before it goes live."
+  }
+ ]
+}

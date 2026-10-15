@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Need a second set of eyes on an exception request. {{CLIENT_NAME:c_0076}} auto loan, DTI comes in at 47% against our 43% policy cap. Credit is strong though, mid-700s, no lates. Kara, this is one of yours."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Thanks Richard. Is the 47% using the stated income or verified? Client's only been with us since February so I don't have a long deposit history on the checking."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Verified. Two most recent paystubs plus the employer VOE came back clean. Income is stable, same employer for 6 years. The DTI bump is mostly from a new revolving balance on the bureau pull from CreditPull yesterday."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 11,
+   "reply_to": -1,
+   "text": "Jumping in as underwriter on this. Exceptions over 3 points on DTI need a documented compensating factor per policy. Richard, can you note LTV and residual income in the file?"
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Will do. LTV is 82%, residual income after obligations is about $3,900 a month. Also a $2,500 down payment coming from the checking account, already verified."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Unrelated but same pipeline: {{CLIENT_NAME:c_0077}} is asking if we can refi the existing loan {{ACCOUNT_NUMBER:a_00165}} and roll in a small add-on. Rita, you're RM, right? Does that touch exceptions too?"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 27,
+   "reply_to": 5,
+   "text": "Yes that's mine. Probably not an exception, the payment history is spotless. I'll pull numbers after lunch and let you know Kathleen."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 35,
+   "reply_to": 0,
+   "text": "Back on {{CLIENT_NAME:c_0076}}. I'm okay supporting the exception if we cap the term at 60 months and require autopay from the Brightwater checking. Rita, does that work for you as the approver?"
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "60 months plus autopay works for me. Residual income and the 6 years at the employer are solid compensating factors. I'd also want rate priced at the tier below, no relationship discount stacking."
+  },
+  {
+   "author_id": "e_014",
+   "minutes_after_start": 48,
+   "reply_to": -1,
+   "text": "FYI for the exception log, anything approved today goes in the October tab. Wesley's team asked us to include the compensating factors column this quarter, not just the approver."
+  },
+  {
+   "author_id": "e_015",
+   "minutes_after_start": 55,
+   "reply_to": 8,
+   "text": "Got it, no discount stacking. I'll update the memo with the term cap, autopay condition, and pricing tier, then route it to Rita for sign-off."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 92,
+   "reply_to": 10,
+   "text": "Memo looks good. Approved with conditions. Richard, please send the conditional commitment through LoanDesk and copy Kara."
+  },
+  {
+   "author_id": "e_011",
+   "minutes_after_start": 97,
+   "reply_to": -1,
+   "text": "Great teamwork everyone. I'll call {{CLIENT_NAME:c_0076}} this afternoon with the decision and walk through the autopay requirement. Martin, thanks for the log reminder, Richard will add the entry."
+  }
+ ]
+}

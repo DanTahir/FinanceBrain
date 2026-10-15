@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quick question on disputes: {{CLIENT_NAME:c_0044}} just called about a debit card charge they don't recognize on checking. Do I file the dispute myself or hand it to an Advocate?"
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "You can start it, Jonathan. Confirm the card is still active, and if they don't recognize it, block and reissue first. Then open the dispute form in CoreBanking with the transaction date and amount."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 5,
+   "reply_to": 1,
+   "text": "Got it. Card ending is on file as {{CARD_NUMBER:a_00099}}, so I'll block that now. Do I need a signed affidavit before the provisional credit?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 8,
+   "reply_to": 2,
+   "text": "Affidavit is required for unauthorized claims, yes. Email it through secure message, not regular email. The 10 business day clock for provisional credit starts when you log the claim, so log it today."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 10,
+   "reply_to": 3,
+   "text": "Perfect, thanks Catherine. Logging it now."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "Reminder for the floor: when you write dispute notes in MemberCRM, don't paste full card or account numbers. Use last four only or the placeholder reference. Audit flagged a couple last month."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 26,
+   "reply_to": 5,
+   "text": "Oops, guilty. I'll clean up my notes on {{ACCOUNT_NUMBER:a_00098}} this morning. Is there a way to edit them or do I need to ask someone?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 29,
+   "reply_to": 6,
+   "text": "You can edit your own notes within 30 days. After that, send me the link and I'll redact it."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 45,
+   "reply_to": -1,
+   "text": "Ops heads up: the CardProcessor chargeback batch goes out at 3 PM today. Any disputes that need to be in this cycle must be fully logged with documentation by 2:30."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 48,
+   "reply_to": 8,
+   "text": "Thanks Rita. Does that include the one Jonathan just opened? The affidavit won't be back by then probably."
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "No, it can slip to tomorrow's batch. We only need the claim logged for the provisional credit timing. Chargeback submission can wait for the signed form."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Another one: {{CLIENT_NAME:c_0086}} is asking about a transfer out of their savings that they say they didn't authorize. That's not a card dispute, right? Who owns that?"
+  },
+  {
+   "author_id": "e_023",
+   "minutes_after_start": 124,
+   "reply_to": 11,
+   "text": "Right, that's an ACH or transfer claim, different process. Don't promise any credit. Loop in the Advocate, Zachary is their RM, and flag it to Compliance since the account is high risk."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 127,
+   "reply_to": 12,
+   "text": "Understood. I'll note the call on {{ACCOUNT_NUMBER:a_00176}} and pass it to Zachary and Compliance now. Appreciate it."
+  }
+ ]
+}

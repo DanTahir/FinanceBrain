@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Quick one: does anyone have a go-to estate planning attorney we've referred to before? One of Janet's clients, {{CLIENT_NAME:c_0276}}, is asking after a recent life change and wants trust/will work done."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "We've used the same two outside firms for years. Check the referral list in ClientHub under Vendors > Legal. Last I looked the trusts & estates firm was still accepting new wealth clients."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 5,
+   "reply_to": 0,
+   "text": "I can pull the list and send it over. Michael, do you want both firms or just the T&E one?"
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 8,
+   "reply_to": 2,
+   "text": "Both please, Sandra. Client likes options. Also should I loop Janet in since she's the RM? I'm just covering the portfolio side on this one."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Reminder on estate referrals: we introduce, we don't recommend. Give two or three names, document it in ClientHub, and no fee arrangements with the firms. Compliance was firm on this at the last review."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Yes, and log the note as a referral, not advice. I had a note bounced last quarter because I wrote 'recommended' instead of 'introduced'."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "Definitely loop Janet. Her notes show the client prefers email over calls. Contact is {{CLIENT_EMAIL:c_0276}} per ClientHub if you need it."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 22,
+   "reply_to": 6,
+   "text": "Thanks James. I'll ping Janet now and send the list through her so the relationship stays with her."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 30,
+   "reply_to": -1,
+   "text": "Related: Jamie's client {{CLIENT_NAME:c_0247}} asked something similar last month. Does anyone know if we ever got feedback from the T&E firm on turnaround? Want to set expectations."
+  },
+  {
+   "author_id": "e_027",
+   "minutes_after_start": 34,
+   "reply_to": 8,
+   "text": "Last two I referred heard back within a week and had an initial consult in about two. Full documents took 6-8 weeks, depending on how complex the trust structure was."
+  },
+  {
+   "author_id": "e_022",
+   "minutes_after_start": 41,
+   "reply_to": 3,
+   "text": "Sent you both firm contacts in a DM, Michael. I also attached the one-page referral disclosure template so it goes out with the intro."
+  },
+  {
+   "author_id": "e_026",
+   "minutes_after_start": 44,
+   "reply_to": 10,
+   "text": "Got it, thank you. Janet confirmed she'll send the intro today and I'll add the portfolio context in PortfolioMgr once beneficiary info is updated."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Once the attorney is engaged, we'll probably need to retitle some holdings. Please flag that early to ops. Brokerage {{ACCOUNT_NUMBER:a_00567}} will be the one affected for Michael's client."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 58,
+   "reply_to": 12,
+   "text": "I can prep the retitling checklist so it's ready when the trust docs arrive. Should I include the cash management account {{ACCOUNT_NUMBER:a_00568}} too?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 63,
+   "reply_to": 13,
+   "text": "Yes, include both. Better to have the full picture before the attorney asks for it."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 70,
+   "reply_to": 9,
+   "text": "That's helpful, Kelly. I'll tell Jamie to set client expectations at 6-8 weeks, and I'll add a follow-up task for {{CLIENT_NAME:c_0247}} in ClientHub for next week."
+  }
+ ]
+}

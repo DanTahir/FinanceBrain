@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "Branch teller PC won't boot after overnight Windows update",
+   "description": "Teller workstation at the Main Street branch failed to boot this morning after the overnight patch cycle. It sits on a blue screen with an inaccessible boot device error and loops through automatic repair. The teller moved to the backup workstation at the next window, so member lines are moving, but we are down one cash drawer station and the receipt printer is attached to the dead PC. Please check whether the patch is the cause and whether other branch machines on the same patch ring are at risk before the next push. Reimage or swap hardware as needed.",
+   "reporter_id": "e_020",
+   "assignee_id": "e_020",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Pulled the machine. The SSD is throwing SMART errors, so the update was just the trigger. Swapped in a spare from the depot and reimaged with the standard teller build. Printer driver re-mapped and the drawer is working."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Thanks. Please put the failed drive in the RMA batch and check warranty status. Also confirm the other machines in that patch ring show healthy disks before the next cycle."
+    },
+    {
+     "author_id": "e_020",
+     "text": "Disk health check ran across the ring. All the others are clean. RMA submitted for the drive. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "Core banking nightly batch finished two hours late, ShareRecon waiting",
+   "description": "The CoreBanking end of day batch from last night ran about two hours past its normal window, finishing close to 4:10 AM. ShareRecon is scheduled to start after the batch posts, so the nightly share and GL reconciliation started late and its exception report was not ready by the 7:00 AM operations review. The vendor status page showed no incident. We need to find out which job step stretched, whether the delay was on the vendor hosting side or our own inbound files, and whether the ShareRecon start trigger should be made more tolerant of late completions.",
+   "reporter_id": "e_021",
+   "assignee_id": "e_019",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_021",
+     "text": "Job logs show the dividend accrual step took 2h 10m instead of the usual 25 minutes. Row counts look normal, so it appears to be slowness and not volume."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Opened a case with the core vendor. They acknowledged a storage maintenance task running on the hosting cluster overlapping our window. They say it is rescheduled and will not overlap again."
+    },
+    {
+     "author_id": "e_022",
+     "text": "I changed the ShareRecon trigger to poll for the batch-complete flag instead of firing at a fixed time. Tested in the sandbox, and the reconciliation now waits correctly if the batch runs long."
+    }
+   ]
+  },
+  {
+   "title": "Intermittent core batch slowdown during ACH settlement posting",
+   "description": "For the third time this month the CoreBanking nightly batch has run long, this time about 70 minutes over. The slowest portion appears to be the ACH settlement posting step, where files received through ACHHub are applied to share accounts. Operations flagged that the morning ACH posting reports were late. ShareRecon also started late as a result. I want to see whether the pattern lines up with larger inbound ACH files, the Monday volume bump, or something on the vendor side. Please pull timing for the last six weeks and compare.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_021",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_021",
+     "text": "Pulled six weeks of step timings. Overrun correlates with Mondays and the days after a holiday, when inbound ACH file counts are 40 to 60 percent above normal. Posting time scales roughly linearly with item count."
+    },
+    {
+     "author_id": "e_019",
+     "text": "That fits what the vendor hinted at. I'll ask them about running ACH posting in parallel threads and whether they can bump our batch priority on heavy days."
+    },
+    {
+     "author_id": "e_021",
+     "text": "I added an alert on the posting step that fires if it passes the 45 minute mark, so Operations gets a heads-up before the morning review."
+    },
+    {
+     "author_id": "e_019",
+     "text": "Vendor enabled the parallel posting option. Monday's run came in under the normal window. Resolving, and we'll keep watching for a few weeks."
+    }
+   ]
+  },
+  {
+   "title": "Core batch delay again: ShareRecon out-of-balance flags after late finish",
+   "description": "Last night's CoreBanking batch completed late, around 3:40 AM, and ShareRecon then produced an out-of-balance flag between the share subledger and the GL that cleared itself on a rerun. It looks like the reconciliation read a partially posted state because one of its legacy scripts does not check the batch-complete flag the way the newer trigger does. Operations spent time chasing a variance that was not real. We need to find the script that still uses the old fixed start time, fix it, and confirm the batch delay itself has a separate cause.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_022",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_022",
+     "text": "Found it. The secondary GL tie-out script still starts from a cron entry at a fixed time rather than the polling trigger. I'm updating it to wait on the batch-complete flag and will test against last night's data."
+    },
+    {
+     "author_id": "e_020",
+     "text": "On the delay itself, I see heavy disk wait on the file transfer host that feeds the batch inputs. I'll check whether the staging volume is near capacity."
+    }
+   ]
+  },
+  {
+   "title": "Lobby workstation randomly freezing and rebooting at the Oak Ridge branch",
+   "description": "The member services workstation in the Oak Ridge branch has frozen and restarted unexpectedly four times since Monday, once in the middle of a member transaction in CoreBanking, which forced the rep to re-enter the work. No blue screen is shown, it just locks up and power cycles. Event logs point to a kernel power fault. The machine is about five years old. Please test the power supply and memory, and check whether the unit should be replaced under the current hardware refresh plan. The branch has a spare laptop in the meantime.",
+   "reporter_id": "e_019",
+   "assignee_id": "e_020",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_020",
+     "text": "Ran a memory test remotely and it passed. Suspect the power supply or a failing board. I'll bring a replacement unit from stock when I visit the branch tomorrow."
+    }
+   ]
+  }
+ ]
+}

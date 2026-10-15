@@ -1,0 +1,67 @@
+{
+ "emails": [
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_024",
+    "e_025"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "June month-end close checklist and ShareRecon timing",
+   "body": "Hi Larry and Timothy,\n\nJune month-end is today, so here is the plan. Larry, please run the share and GL tie-out as soon as ShareRecon finishes its nightly pass; I expect it to complete around 2 AM and want any variance over $500 flagged to me before 8 AM. Timothy, please confirm the final ACH settlement files from ACHHub are posted and that the same-day batch is zeroed out before we cut off.\n\nOne open item: the unposted suspense entry tied to {{ACCOUNT_NUMBER:a_00160}} is still sitting from last week. Larry, please clear it or document why it stays open.\n\nAndre, copying you in case ShareRecon hiccups, since it depends on CoreBanking being fully quiesced. Please ping me if the vendor schedules any maintenance window tonight.\n\nI will send the sign-off package to Gloria by noon Thursday.\n\nThanks,\nRita",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_025",
+   "to_ids": [
+    "e_023",
+    "e_024"
+   ],
+   "cc_ids": [],
+   "subject": "Card processor reconciliation: 7/13 settlement variance",
+   "body": "Rita, Larry,\n\nDuring this morning's CardProcessor reconciliation I found a $1,842.60 variance between the network settlement report and our posted card activity for 7/13. Most of it looks like a batch of authorizations that cleared after the cutoff and landed in the next day's file. About $212 is still unexplained.\n\nOne item I could trace is a disputed debit transaction on the card ending under {{CARD_NUMBER:a_00160}}, which {{CLIENT_NAME:c_0074}} reported through Member Services. The reversal posted on our side but not yet in the processor file.\n\nLarry, can you pull the interchange detail for that day so we can match the remaining items? I will open a ticket with the processor if we cannot explain the difference by end of day Wednesday.\n\nThanks,\nTimothy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_025",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "Card processor reconciliation: July aging items",
+   "body": "Timothy, Rita,\n\nFollowing up on last month's CardProcessor work. As of today we have four aging reconciling items over 10 days old, totaling $3,317.45. Two are chargebacks waiting on the network's response. One is a duplicate presentment tied to {{CARD_NUMBER:a_00074}} that we have already flagged for reversal. The last is a settlement timing difference I believe will self-clear.\n\nThe July 14 variance Timothy found is now fully explained: the late-cutoff batch plus the pending reversal. The unexplained $212 turned out to be a fee adjustment from the processor.\n\nAndre, could you confirm whether the feed from CoreBanking to CardProcessor had any delayed windows on 7/13? It would help me close the timing item.\n\nI will update the reconciliation tracker tomorrow morning.\n\nLarry",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_023",
+   "to_ids": [
+    "e_001",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_024"
+   ],
+   "subject": "July month-end close summary",
+   "body": "Hi Gloria and Wesley,\n\nHere is the summary for the July close, completed on schedule on August 4. The share and GL reconciliation tied out with no unresolved variances over our $500 threshold. ACHHub settlements balanced and the card settlement reconciliation is down to two open chargeback items, both within the network's response window.\n\nOne process note: we are moving the ShareRecon review earlier in the day so any breaks are visible before the ACH cutoff. Wesley, I would like to walk you through the new control documentation before our next exam prep meeting.\n\nSeparately, the courtesy credit we issued to {{CLIENT_NAME:c_0033}} was recorded properly and is supported by the approval from Kara's team.\n\nI plan to circulate the August close calendar by Friday. Please let me know if either of you wants additional reporting included.\n\nBest,\nRita",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_024",
+   "to_ids": [
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_025",
+    "e_019"
+   ],
+   "subject": "September month-end close: open items and prep",
+   "body": "Rita,\n\nBefore the September close on Wednesday, here is where things stand. The GL clearing accounts are within tolerance except for one wire-related item for counterparty Weaver-Nelson, where the beneficiary account {{CP_ACCOUNT:cp_011}} was returned and needs a re-send or a reversal. Timothy is confirming the instructions with the originating team.\n\nI have also scheduled the ShareRecon run for 1:30 AM and asked Andre to hold any CoreBanking patching until after the close. The quarter-end accrual entries are drafted and ready for your review. Interest accruals on share products total roughly $41,200, and I want a second set of eyes before posting.\n\nCould you review the accruals by end of day Tuesday? If you have time, I would also like to agree on who covers the close if I am out.\n\nThanks,\nLarry",
+   "reply_to_previous": false
+  }
+ ]
+}

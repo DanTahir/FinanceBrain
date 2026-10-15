@@ -1,0 +1,34 @@
+{
+ "items": [
+  {
+   "beat_id": "pr_slack_1",
+   "title": "",
+   "text": "Declaring SEV1: PricingSvc has been serving stale prices since 09:31. MarketDataFeed's primary vendor connection is down and PricingSvc has been quietly serving its last-good cache. OMS, RiskEngine, TradeBlotter and PortfolioMgr are all reading those prices. I'm IC, tracking in INC-0814; please keep updates in this thread."
+  },
+  {
+   "beat_id": "pr_incident",
+   "title": "SEV1: PricingSvc serving stale prices (MarketDataFeed outage)",
+   "text": "Severity: SEV1\nStatus: Resolved\nIncident Commander: Leo Martinez\nSystems: MarketDataFeed (root), PricingSvc, RiskEngine, OMS, TradeBlotter, PortfolioMgr, SettlementEngine, ReconLegacy, ReportingBI\n\nSummary\nAt 09:31 ET on 2026-08-14, MarketDataFeed lost its primary vendor connection. The TLS certificate on that connection had expired, so the handshake failed. PricingSvc did not alert because staleness flagging is suppressed while it serves from last-good cache. It kept returning prices frozen as of 09:31. At 13:31 the 4h hard TTL on that cache expired. From about 13:35, downstream consumers began failing or rejecting outright. Service was restored at 17:15 after the vendor renewed the certificate. Customer-facing impact window: 3h40m (13:35 to 17:15). Prices were stale from 09:31.\n\nImpact\n- RiskEngine: intraday VaR and exposure calculations were computed on stale prices. Risk could not monitor limits for the duration.\n- OMS: pre-trade price-tolerance checks rejected orders once PricingSvc marked prices invalid. The desk could not reliably route.\n- TradeBlotter: P&L was frozen at 09:31 marks.\n- PortfolioMgr: scheduled wealth rebalancing runs were halted. No rebalance orders were generated.\n- SettlementEngine (Sat 2026-08-15 morning): the batch was delayed while backfilled prices were validated.\n- ReconLegacy (Sat 2026-08-15 morning): the EOD run produced valuation breaks on positions marked with stale prices. Operations cleared them after the rerun.\n- ReportingBI: management risk dashboards showed incorrect exposures. They pulled RiskEngine output computed on stale prices between 09:31 and the backfill.\n\nRoot Cause\nThe client TLS certificate used on the MarketDataFeed connection to the primary market data vendor expired at 09:31 ET. The certificate was vendor-issued and outside our cert-manager inventory, so there was no renewal alert. MarketDataFeed retried the handshake in a loop without escalating. PricingSvc cache fallback masked the failure for four hours.\n\nFollow-ups\n- Add all vendor-issued certs to the cert inventory, with 30/14/7-day expiry alerts. Owner: Technology.\n- Stop suppressing PricingSvc staleness flags in cache-fallback mode. Page when any instrument class is older than 5 minutes during market hours.\n- Alert MarketDataFeed when handshake failures persist beyond 2 minutes.\n- Add a staleness banner to ReportingBI when RiskEngine inputs are flagged stale.\n- Postmortem review scheduled for week of 2026-08-17.\n\n--- Comment by Leo Martinez ---\nTimeline (all ET, 2026-08-14):\n09:31 Vendor TLS cert expires. MarketDataFeed handshake starts failing and retrying silently. PricingSvc switches to last-good cache.\n13:31 PricingSvc cache hard TTL hits. Prices are marked invalid.\n13:35 OMS begins rejecting orders on price checks. TradeBlotter P&L shows frozen marks.\n13:47 SEV1 declared in #incidents.\n13:52 INC-0814 opened. Bridge started with Omar Brown and Barbara Beard (SRE).\n\n--- Comment by Leo Martinez ---\n14:05 Omar found TLS handshake errors (certificate expired) in the MarketDataFeed connector logs for the primary vendor session.\n14:12 Vendor support ticket opened, requesting emergency cert reissue. Their ETA is 2-3 hours because a manual signing step is needed on their side.\n14:20 Ops (Ravi Patel) flagged risk to the SettlementEngine batch and the next ReconLegacy run if prices are not backfilled.\n14:40 Evaluated failing over to the secondary vendor. Rejected because it covers only part of the equity universe and none of the fixed income, so OMS would still reject most flow. Desk switched to manual voice/broker execution under Daniel Reyes.\n\n--- Comment by Leo Martinez ---\n16:58 Vendor delivered the renewed certificate. Installed on the MarketDataFeed connector after Barbara verified the chain.\n17:06 Handshake succeeded and live ticks are flowing. PricingSvc cache invalidated and repopulated.\n17:15 PricingSvc fresh across all instrument classes. OMS price checks passing, TradeBlotter P&L live again, RiskEngine VaR recomputing. Incident mitigated. Kicked off the price backfill from 09:31 using vendor historical snapshots.\n\n--- Comment by Leo Martinez ---\nSat 2026-08-15 update: backfill finished at 02:40. SettlementEngine batch started about 90 minutes late while Ops validated backfilled marks. The ReconLegacy EOD run flagged valuation breaks on positions marked during the stale window. Tasha Greene confirmed these cleared on rerun against corrected prices. ReportingBI exposure dashboards were wrong until RiskEngine reprocessed Friday intraday. They are correct as of 09:10 Saturday, and Owen Gallagher's team has signed off.\n\n--- Comment by Leo Martinez ---\nResolving. Total impact window 3h40m (13:35-17:15), with stale pricing from 09:31. Follow-ups tracked separately, and the postmortem doc will be linked here."
+  },
+  {
+   "beat_id": "pr_slack_2",
+   "title": "",
+   "text": "OMS is rejecting basically everything on price checks. The desk is flying blind and TradeBlotter P&L is frozen at the open. We're moving what we can to voice, but I need an ETA ASAP."
+  },
+  {
+   "beat_id": "pr_slack_3",
+   "title": "",
+   "text": "RiskEngine VaR is stale too, so we have no way to monitor limits right now. Everything after 09:31 is computed on frozen prices. Leo, what's the ETA? I need to tell Catherine whether to restrict risk-taking for the rest of the day."
+  },
+  {
+   "beat_id": "pr_slack_4",
+   "title": "",
+   "text": "Heads up from Ops: if prices from 09:31 onward aren't backfilled tonight, SettlementEngine will be working off bad marks. Tomorrow's ReconLegacy run will also throw a pile of valuation breaks. Please make the backfill part of the fix, not a follow-up."
+  },
+  {
+   "beat_id": "pr_slack_5",
+   "title": "",
+   "text": "Resolved as of 17:15. The vendor renewed the expired TLS cert on the MarketDataFeed connection, and PricingSvc is serving live prices again, with OMS checks passing and VaR recomputing. The backfill from 09:31 is running now, and Ravi, I'll ping you when it's done ahead of the settlement batch. Postmortem to follow next week; details are in INC-0814."
+  }
+ ]
+}

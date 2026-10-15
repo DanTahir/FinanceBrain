@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0032",
+   "text": "8/18 call with {{CLIENT_NAME:c_0032}}. Debit card on the cash management account {{ACCOUNT_NUMBER:a_00070}} was damaged, so I ordered a replacement and confirmed it will ship to the address on file, {{CLIENT_ADDRESS:c_0032}}. Client is travelling abroad for about two weeks in September; I logged a travel notice so the card isn't flagged by fraud scoring. Client again asked about crypto exposure. Reminded them that our digital asset policy is still under review and that nothing can be added to brokerage {{ACCOUNT_NUMBER:a_00069}} for now. Will send a summary to {{CLIENT_EMAIL:c_0032}} and follow up if the card hasn't arrived by 8/25."
+  },
+  {
+   "client_id": "c_0185",
+   "text": "10/8 conversation with {{CLIENT_NAME:c_0185}} on alternative investments. Client has read about private credit and real assets and wants to understand how they might fit alongside the current brokerage holdings in {{ACCOUNT_NUMBER:a_00383}}. Given the low risk profile and the liquidity constraints of these products, I explained lockups, minimums and accreditation requirements at a high level and made no recommendations. Next step: loop in the portfolio manager on the team for a view on allocation limits, then send an overview to {{CLIENT_EMAIL:c_0185}}. Client prefers a call at {{CLIENT_PHONE:c_0185}} over email for follow-ups."
+  },
+  {
+   "client_id": "c_0081",
+   "text": "7/15 phone call. {{CLIENT_NAME:c_0081}} reported a new mobile number, now {{CLIENT_PHONE:c_0081}}, replacing the previous one on file. Completed identity verification via callback procedures and updated the contact record in ClientHub. Also confirmed the mailing address remains {{CLIENT_ADDRESS:c_0081}} and that statements for brokerage account {{ACCOUNT_NUMBER:a_00173}} should keep going to {{CLIENT_EMAIL:c_0081}}. Sent a confirmation email noting the change. No other requests. Reminded the client to tell us right away if they notice unexpected activity."
+  },
+  {
+   "client_id": "c_0079",
+   "text": "7/15 meeting with {{CLIENT_NAME:c_0079}}. Owner raised required minimum distribution planning for their retirement plan and how timing might affect cash flow in the business operating account {{ACCOUNT_NUMBER:a_00169}}. I'm not a tax advisor, so I explained that we can model liquidity around the distribution schedule but they should confirm amounts with their CPA. Client expects a distribution in Q4 and wants to avoid drawing down working capital. Action: pull 90-day cash balance trends, share a short summary at {{CLIENT_EMAIL:c_0079}}, and schedule a follow-up with the wealth team on retirement account options."
+  },
+  {
+   "client_id": "c_0004",
+   "text": "9/16 review with {{CLIENT_NAME:c_0004}} on risk tolerance. Management said the business is more cautious after a slower quarter and wants less exposure to floating-rate swings on the loan in {{ACCOUNT_NUMBER:a_00007}}. Discussed a partial rate hedge and keeping a larger buffer in operating account {{ACCOUNT_NUMBER:a_00006}}. Risk rating stays low, but I'll update the profile notes to reflect a conservative stance. Next steps: request hedging indications from the desk, send summary to {{CLIENT_EMAIL:c_0004}}, and set a check-in for early October. Contact via {{CLIENT_PHONE:c_0004}}."
+  },
+  {
+   "client_id": "c_0138",
+   "text": "7/10 call, fee complaint. {{CLIENT_NAME:c_0138}} called about monthly maintenance and wire fees posted to operating account {{ACCOUNT_NUMBER:a_00289}}, saying the total was higher than expected given the balances they keep. Reviewed the fee schedule with the client and found two wire fees that look like they should have been waived under the commercial package. I've opened a request to review and refund if confirmed. Client was frustrated but appreciated the quick response. I'll update them at {{CLIENT_PHONE:c_0138}} within three business days and confirm in writing to {{CLIENT_EMAIL:c_0138}}."
+  },
+  {
+   "client_id": "c_0006",
+   "text": "8/28 call with {{CLIENT_NAME:c_0006}} regarding fees. Client disputes a late-payment charge and an annual servicing fee on loan {{ACCOUNT_NUMBER:a_00012}}, noting that a payment was delayed because of a wire hold, not their own error. Also asked why operating account {{ACCOUNT_NUMBER:a_00011}} was charged an analysis fee. I'll pull the payment timeline from Operations and ask for a waiver review. Given the medium risk rating and the relationship value, I'd support a goodwill reversal on the late charge. Will call back at {{CLIENT_PHONE:c_0006}} by Friday and send written follow-up to {{CLIENT_EMAIL:c_0006}}."
+  },
+  {
+   "client_id": "c_0084",
+   "text": "7/28 call with {{CLIENT_NAME:c_0084}} about liquidity for a home purchase. Client is under contract on a new home and wants to know how much can be moved from checking {{ACCOUNT_NUMBER:a_00180}} for the down payment without hurting their position on the existing loan {{ACCOUNT_NUMBER:a_00181}}. We went through expected closing costs and timing, and discussed keeping a reserve of a few months of expenses. I'll check whether any prepayment terms apply and send the options to {{CLIENT_EMAIL:c_0084}}. Closing is in about six weeks. Current property address on file is {{CLIENT_ADDRESS:c_0084}}; client will give the new one at closing."
+  },
+  {
+   "client_id": "c_0183",
+   "text": "8/25 review with {{CLIENT_NAME:c_0183}}. Client is approaching retirement and asked to lower risk tolerance, wanting less equity volatility in brokerage account {{ACCOUNT_NUMBER:a_00378}}. Agreed to move the profile to a more conservative setting, though the formal rating stays low. Discussed raising the cash share in {{ACCOUNT_NUMBER:a_00379}} to cover about 18 months of spending. I'll route a rebalancing proposal to the portfolio manager for review. Updated suitability questionnaire to be sent to {{CLIENT_EMAIL:c_0183}} for signature. Follow-up call at {{CLIENT_PHONE:c_0183}} next week."
+  },
+  {
+   "client_id": "c_0082",
+   "text": "7/6 check-in with {{CLIENT_NAME:c_0082}} on estate planning. The owner is thinking about succession for the business and asked how the loan on {{ACCOUNT_NUMBER:a_00175}} would be treated if ownership shifts to a trust or family members. Explained that any transfer would need lender consent and updated KYC on the new owners. Operating account {{ACCOUNT_NUMBER:a_00174}} activity is normal. Recommended they involve their attorney and keep us informed before changing anything. I'll send a checklist to {{CLIENT_EMAIL:c_0082}} and flag the file for a review. Client's preferred number is {{CLIENT_PHONE:c_0082}}."
+  }
+ ]
+}

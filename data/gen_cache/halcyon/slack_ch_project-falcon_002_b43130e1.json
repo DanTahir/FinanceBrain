@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Pushed v14 of the Falcon merger model to the deal folder. Main changes: updated Northwind LTM EBITDA with the July close, and rolled the synergy schedule to phase in over 36 months instead of 24."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Thanks Aisha. Does the 36-month phasing flow through to the accretion/dilution tab or just the synergy summary? Want to make sure year-1 EPS isn't still showing the old run-rate."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 11,
+   "reply_to": 1,
+   "text": "Both. I relinked the accretion tab, year-1 is now roughly 40% of run-rate synergies vs. 60% before. Accretion drops a bit but still positive by year 2."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Comps update: I refreshed the trading multiples for the freight and logistics set. Median EV/EBITDA moved from 9.8x to 9.4x after the sector sell-off this week. Sheet is tab 'Comps_0821'."
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 23,
+   "reply_to": 3,
+   "text": "Good. Let's not chase the multiple down in the football field though. Keep the range anchored on the precedent transactions and show comps as a cross-check. Susan, can you add the control premium bridge?"
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "Will do, should have it in the model by end of day."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Financing question for the model: are we still assuming 5.0x total leverage at close? Lender feedback this morning was that the term loan B pricing might widen 25bps."
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 48,
+   "reply_to": 6,
+   "text": "Keep 5.0x as base, but add a sensitivity at 5.5x and +50bps on pricing. The client will want to see the interest coverage impact before the board session."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 52,
+   "reply_to": 7,
+   "text": "On it. I'll add a two-way table: leverage vs. spread, showing coverage and pro forma net debt/EBITDA."
+  },
+  {
+   "author_id": "e_047",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Compliance reminder for the team: please keep all model versions inside the restricted deal folder only. No attachments in email or personal drives. Also, file names should use the project code name, no target references."
+  },
+  {
+   "author_id": "e_040",
+   "minutes_after_start": 79,
+   "reply_to": 9,
+   "text": "Understood Marcus. v14 is already in the restricted folder, and I'll check the older versions for naming this afternoon."
+  },
+  {
+   "author_id": "e_042",
+   "minutes_after_start": 112,
+   "reply_to": -1,
+   "text": "Quick flag: found a circularity in the interest calc on the debt schedule after Aisha's relink. Turned on iterative calc as a stopgap, but we should switch to average-balance with a circ breaker toggle."
+  },
+  {
+   "author_id": "e_041",
+   "minutes_after_start": 118,
+   "reply_to": 11,
+   "text": "My bad, that's from the revolver sweep. I'll add the circ breaker and push v15 tonight with the leverage sensitivities too."
+  },
+  {
+   "author_id": "e_039",
+   "minutes_after_start": 131,
+   "reply_to": -1,
+   "text": "Great work, all. Let's lock v15 by Monday 10am so I can review before the client call. Tom, please send the change log to the channel once it's up."
+  }
+ ]
+}

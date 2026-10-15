@@ -1,0 +1,106 @@
+{
+ "tickets": [
+  {
+   "title": "ACH return R01 on payroll credit batch from Goodwin, Davis and Hill",
+   "description": "ACHHub flagged an unauthorized-return-to-originator exception on the Monday morning receipt file. A payroll credit batch from Goodwin, Davis and Hill came back with an R01 return code tied to {{CP_ACCOUNT:cp_017}}. The return posted against a member share savings account and left the GL clearing line out by $1,842.50. Need to confirm whether the original credit was reversed correctly in CoreBanking, notify the originator's ODFI through the standard return process, and make sure the member is not shown a negative available balance. Also check that the nightly ShareRecon run picks up the offset.",
+   "reporter_id": "e_025",
+   "assignee_id": "e_024",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_024",
+     "text": "Pulled the return detail from ACHHub. The R01 is valid, the originator reversed the batch on their side. I posted the offset to the clearing GL and the $1,842.50 variance is gone."
+    },
+    {
+     "author_id": "e_025",
+     "text": "Thanks Larry. I confirmed the member balance in CoreBanking is correct and no overdraft fee was triggered. Notice letter went out per procedure."
+    },
+    {
+     "author_id": "e_023",
+     "text": "Good. Closing this. Please add a note to the ACH exceptions log so we can spot a repeat from this originator."
+    }
+   ]
+  },
+  {
+   "title": "Debit card dispute for duplicate merchant charge, member requests provisional credit",
+   "description": "{{CLIENT_NAME:c_0062}} contacted Member Services about two identical $86.40 debit card authorizations from the same merchant on the same afternoon. Only one purchase was made. The member's share savings account {{ACCOUNT_NUMBER:a_00136}} shows both items as posted. We need to open a Reg E dispute with the card network, log the claim date, and decide on provisional credit within the required timeline. Please pull the authorization records from the CardProcessor feed and confirm whether the second item is a duplicate presentment. Member can be reached at {{CLIENT_PHONE:c_0062}}.",
+   "reporter_id": "e_023",
+   "assignee_id": "e_025",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_025",
+     "text": "Reviewed the CardProcessor authorization log. The two items have different auth codes but the same merchant reference, which points to a duplicate presentment. Filed the chargeback."
+    },
+    {
+     "author_id": "e_023",
+     "text": "Approve the provisional credit. Make sure the 10 business day clock is documented in the dispute file."
+    },
+    {
+     "author_id": "e_025",
+     "text": "Provisional credit posted and the member was notified. Merchant accepted the chargeback, so the credit is now final. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Card dispute: recurring subscription charged after cancellation",
+   "description": "{{CLIENT_NAME:c_0089}} disputes a $34.99 monthly subscription charge on the debit card that continued after a cancellation request. The member says cancellation was confirmed by email to {{CLIENT_EMAIL:c_0089}} in June. Two charges have posted since then to {{ACCOUNT_NUMBER:a_00179}}. Because this client is rated high risk, please check for any open alerts in BSAWatch before extending provisional credit, and coordinate with Compliance if needed. Collect the cancellation proof from the member and file under the recurring billing reason code with the network.",
+   "reporter_id": "e_025",
+   "assignee_id": "e_024",
+   "status": "resolved",
+   "priority": "P4",
+   "comments": [
+    {
+     "author_id": "e_024",
+     "text": "No open BSAWatch alerts on this account, so I am clear to proceed. Waiting on the cancellation confirmation from the member."
+    },
+    {
+     "author_id": "e_025",
+     "text": "Member sent the confirmation and I attached it to the file. Chargeback submitted under the cancelled recurring reason code for both charges."
+    },
+    {
+     "author_id": "e_024",
+     "text": "Merchant did not respond within the network window and both items were credited back. Marking resolved, will close after the statement cycle."
+    }
+   ]
+  },
+  {
+   "title": "Suspected card-not-present fraud dispute with several out-of-state authorizations",
+   "description": "{{CLIENT_NAME:c_0062}} reported four card-not-present authorizations totaling $612.18 from online merchants the member does not recognize. The card was blocked and a replacement ordered. We need to file fraud disputes for each item through CardProcessor, review the authorization pattern for a possible compromised merchant, and send the affidavit packet to the member. Share savings account {{ACCOUNT_NUMBER:a_00136}} was credited provisionally. Please confirm that the replacement card ships to the address on file and that the member is told to call {{CLIENT_PHONE:c_0062}} only if they did not request it.",
+   "reporter_id": "e_024",
+   "assignee_id": "e_025",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_025",
+     "text": "Filed three of the four disputes. The fourth is a pending authorization that has not settled, so I will wait for it to post before filing."
+    },
+    {
+     "author_id": "e_023",
+     "text": "Fine. Also check whether other members had the same merchants this week. If there is a pattern we should escalate to the card network as a possible compromise."
+    }
+   ]
+  },
+  {
+   "title": "Outgoing wire repair: beneficiary details rejected by correspondent bank",
+   "description": "An outgoing domestic wire of $24,300.00 to Goodwin, Davis and Hill was rejected by the correspondent bank as a beneficiary account mismatch. The wire was initiated for a member and the funds are being held in the wire suspense GL. The beneficiary account on file, {{CP_ACCOUNT:cp_017}}, needs verification with the counterparty by callback to a known contact before we resend. Do not retransmit until verified. Also confirm the member was informed of the delay and that no wire fee was charged twice. Settlement cutoff today is 4:00 PM ET.",
+   "reporter_id": "e_024",
+   "assignee_id": "e_025",
+   "status": "open",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_023",
+     "text": "Please do the callback using the number from the vendor file, not the one in the rejection message. Document who you spoke with."
+    },
+    {
+     "author_id": "e_025",
+     "text": "Callback is scheduled for this morning. I will update the instructions in the wire template once confirmed and resubmit before cutoff if possible."
+    }
+   ]
+  }
+ ]
+}

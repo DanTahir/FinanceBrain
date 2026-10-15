@@ -1,0 +1,102 @@
+{
+ "tickets": [
+  {
+   "title": "Structuring alert: split cash deposits on share savings",
+   "description": "BSAWatch generated a structuring alert on {{ACCOUNT_NUMBER:a_00007}} belonging to {{CLIENT_NAME:c_0004}}. The rule flagged two cash deposits of $9,200 and $9,400 made on consecutive days at different branches, which together total $18,600 and sit just under the $10,000 CTR threshold. The client is a low-risk individual member who has been with us since 2018, and the account has had no prior alerts. Please review teller notes and the deposit history, and decide whether this needs a SAR referral or can be closed as a false positive.",
+   "reporter_id": "e_017",
+   "assignee_id": "e_018",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_018",
+     "text": "Pulled the 12-month history for {{ACCOUNT_NUMBER:a_00007}}. Cash activity is normally light, so the two deposits stand out. Checking teller notes and calling the client through the number in MemberCRM, {{CLIENT_PHONE:c_0004}}."
+    },
+    {
+     "author_id": "e_018",
+     "text": "Spoke with the client. The cash came from the private sale of a used vehicle, and they split the deposits only because they were in different parts of the county on those two days. They had a signed bill of sale, and the teller note confirms they showed it. No attempt to avoid reporting, and the amounts are consistent with the sale price. Closing as a false positive."
+    },
+    {
+     "author_id": "e_016",
+     "text": "Agreed. Please attach the bill of sale reference to the case file and add a note to the alert tuning log. We may want to widen the lookback before this rule fires on low-risk members."
+    }
+   ]
+  },
+  {
+   "title": "Structuring alert on outbound transfers following large inbound wire",
+   "description": "BSAWatch raised a structuring alert on {{ACCOUNT_NUMBER:a_00026}} ({{CLIENT_NAME:c_0013}}) on 2026-08-12. The trigger was transaction t_000554, an inbound wire of $165,395.98 received on 2026-08-10 from Robertson, Weaver and Williams, followed by several outbound transfers each under $10,000. The wire also carried a fraud score of 0.63 from the payments feed. Please triage whether the outbound pattern is deliberate threshold avoidance or ordinary payment activity, and review the origin of the wire and the stated purpose.",
+   "reporter_id": "e_016",
+   "assignee_id": "e_017",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_017",
+     "text": "Reviewed wire t_000554 and the follow-on transfers. The remitter is a known counterparty and the incoming wire instructions match prior activity on {{ACCOUNT_NUMBER:a_00026}}. The fraud score of 0.63 came from a new-device flag on the sender side, not from anything on our end."
+    },
+    {
+     "author_id": "e_017",
+     "text": "The outbound transfers are payments to separate vendors, each tied to its own invoice, and none were routed to the same beneficiary in a way that suggests avoidance. They fit the stated business purpose. Treating this as a false positive and resolving. I'll recommend we exclude wire-funded vendor payments from this rule."
+    },
+    {
+     "author_id": "e_016",
+     "text": "Fine with resolution. Make sure the invoice evidence is saved to the case before closing out the tuning request."
+    }
+   ]
+  },
+  {
+   "title": "Structuring alert: repeated just-under-threshold deposits on checking",
+   "description": "Alert on checking account {{ACCOUNT_NUMBER:a_00058}} for {{CLIENT_NAME:c_0027}}, a low-risk lending-segment client served by Kathleen Smith. The rule fired after three cash deposits of $8,500 each over a 10-day window. The client also holds a loan, {{ACCOUNT_NUMBER:a_00059}}, so we need to see whether the deposits relate to loan payoff activity. Please triage, review the transaction detail, and contact the relationship manager if you need context on the client's income sources.",
+   "reporter_id": "e_017",
+   "assignee_id": "e_018",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_018",
+     "text": "Asked Kathleen Smith for context. She says the client is a seasonal business operator who has made deposits like this at the same time of year in the past, and the pattern matches prior years on {{ACCOUNT_NUMBER:a_00058}}."
+    },
+    {
+     "author_id": "e_018",
+     "text": "Confirmed against last year's history: similar deposits of about $8,000 to $9,000 appeared in the same season, and the loan payments on {{ACCOUNT_NUMBER:a_00059}} were made from other funds. Deposit sizes are driven by the cash drawer, not by an effort to stay under reporting limits. Resolving as a false positive."
+    }
+   ]
+  },
+  {
+   "title": "CTR review: aggregated cash deposits at two branches",
+   "description": "Monthly CTR quality review flagged a possible missed aggregation for {{CLIENT_NAME:c_0004}}. Cash deposits to {{ACCOUNT_NUMBER:a_00007}} totaled $11,400 across two branches on the same business day ($6,100 and $5,300), and the system generated only one CTR draft. We need to confirm that the aggregation is correct, that the CTR was filed on time, and that the details match core records. Also check whether the pattern should raise a structuring concern.",
+   "reporter_id": "e_016",
+   "assignee_id": "e_017",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_017",
+     "text": "The single CTR draft already covers both deposits, so aggregation worked as intended. The filing was submitted within the 15-day window. Client details on the form match core."
+    },
+    {
+     "author_id": "e_017",
+     "text": "No structuring concern. The client confirmed, by email at {{CLIENT_EMAIL:c_0004}}, that the cash was proceeds from a family yard sale and community event, and they made the second deposit because the first branch was closing. They had no knowledge of the reporting threshold. Closing as a false positive."
+    }
+   ]
+  },
+  {
+   "title": "CTR review: possible duplicate filing on loan payoff cash",
+   "description": "During CTR review, a cash transaction connected to {{CLIENT_NAME:c_0027}} was flagged as a possible duplicate filing. The client brought in $10,800 in cash to be applied to {{ACCOUNT_NUMBER:a_00059}}, with a smaller cash deposit of $1,200 to {{ACCOUNT_NUMBER:a_00058}} on the same day. Two CTR drafts exist in the queue. Please confirm whether the two drafts should be combined into one filing, verify the amounts, and make sure nothing was filed twice. Also confirm that the transaction purpose is documented.",
+   "reporter_id": "e_018",
+   "assignee_id": "e_017",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_017",
+     "text": "Both drafts are for the same person and the same business day, so they should be a single CTR with the two transactions aggregated at $12,000. I'm merging them now and checking that nothing has been submitted to FinCEN yet."
+    },
+    {
+     "author_id": "e_018",
+     "text": "Thanks. The teller notes say the cash was the client's savings, brought in to pay down the loan early. That matches Kathleen Smith's notes, so I don't see any red flags. Will close once the merged CTR is confirmed."
+    }
+   ]
+  }
+ ]
+}

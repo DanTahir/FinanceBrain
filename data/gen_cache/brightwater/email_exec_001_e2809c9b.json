@@ -1,0 +1,77 @@
+{
+ "emails": [
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_016",
+    "e_019",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Strategic plan update: July checkpoint and what I need from each of you",
+   "body": "Hi all,\n\nAs we close out July, I want to share where we stand on the 2026-2028 strategic plan and ask for a few inputs before the next cycle.\n\nThree of our five initiatives are on track: the member digital experience refresh, the indirect auto lending expansion, and the branch staffing model. The core conversion readiness work is slightly behind because of vendor scheduling on CoreBanking, and the ShareRecon retirement plan has not yet been scoped.\n\nWhat I need by Friday 2026-08-14:\n- Paul: a one-page view of member service capacity against the digital refresh timeline.\n- Kara: updated LoanDesk pipeline targets for Q3 and Q4.\n- Wesley: any regulatory items that could shift our sequencing.\n- Andre: a realistic date for the ShareRecon retirement scoping.\n- Rita: operations dependencies for ACHHub and CardProcessor changes.\n\nMichelle is copied because several initiatives carry staffing and training implications. I will fold everything into the board packet draft.\n\nThanks for the steady progress.\n\nGloria",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Board packet: HR and staffing sections ready for your review",
+   "body": "Hi Gloria,\n\nI have finished the HR section for the August board packet and attached it for your review. It includes the quarterly headcount summary, open requisitions in Lending and Information Technology, turnover trends for the first half of the year, and the training completion status on annual compliance modules.\n\nTwo items I would like your guidance on. First, whether you want the succession planning summary included in the open session or held for executive session. Second, how much detail to give on the proposed adjustment to the branch staffing model, since it ties directly to the strategic plan.\n\nWesley, I have copied you so you can confirm the training completion figures match your records before the packet goes out. The compliance modules are the ones the board will ask about most.\n\nIf I can have your comments by Thursday, I can finalize and send everything to the board secretary by the deadline.\n\nThanks,\nMichelle",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_016",
+    "e_019",
+    "e_023",
+    "e_003",
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "NCUA exam prep: document requests and readiness walkthroughs",
+   "body": "Team,\n\nWith the NCUA exam window approaching this fall, I want us fully prepared well ahead of the entrance letter. Wesley is coordinating and will be your main point of contact.\n\nPlease plan on the following:\n- Each manager should confirm your policies and procedures were reviewed within the last 12 months, and flag anything overdue.\n- Andre, please prepare evidence of access reviews, backup testing, and the current incident response plan, including dependencies for CoreBanking and MemberSSO.\n- Rita, please gather ACHHub and CardProcessor reconciliation and exception reports for the last two quarters.\n- Kara, please make sure underwriting exceptions and LoanDesk approval documentation are organized.\n- Paul, please confirm complaint logs and resolution timelines are current.\n\nWesley will hold 30-minute readiness walkthroughs the week of 2026-08-31. Michelle will help with training records and job descriptions.\n\nLet me know early if you see a gap. I would much rather hear it now.\n\nGloria",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_001",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_016",
+    "e_019",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Strategic plan update: September status and revised timeline",
+   "body": "Hi everyone,\n\nThank you for the inputs last month. I have consolidated them and want to share where we landed before the next board cycle.\n\nKey changes to the plan:\n- The digital experience refresh moves its pilot to mid-October so OnlineBanking and MemberSSO testing does not collide with exam preparation.\n- The indirect auto expansion stays on schedule, with Kara's revised Q4 targets adopted.\n- ShareRecon retirement scoping is now due by the end of October, based on Andre's estimate.\n- The branch staffing model proposal goes to the board with Michelle's supporting data.\n\nI know the NCUA exam work is stacking up alongside these initiatives, so please tell me if a milestone is unrealistic rather than quietly slipping. We can resequence, but I need to know early.\n\nI will review progress with each of you individually over the next two weeks. A short calendar invite will follow.\n\nThank you,\nGloria",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_002",
+   "to_ids": [
+    "e_001",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Board packet: September final checklist and open items",
+   "body": "Hi Gloria and Wesley,\n\nHere is where the September board packet stands as of today.\n\nComplete: the CEO report, the strategic plan status summary, the financial dashboard, and the HR and staffing section, including the branch staffing proposal.\n\nStill open:\n- Wesley, the compliance and NCUA exam readiness summary. The board will want to know about the readiness walkthrough results and any remediation items.\n- Rita, I have asked for the operations metrics page covering ACHHub and CardProcessor exceptions. I have copied her here so she can see the timeline.\n- Gloria, your final sign-off on the executive session agenda.\n\nMy plan is to assemble the full packet Monday and send it to the board secretary on Tuesday for distribution. If any section will be late, please tell me by end of day Monday so I can adjust.\n\nThank you both,\nMichelle",
+   "reply_to_previous": false
+  }
+ ]
+}

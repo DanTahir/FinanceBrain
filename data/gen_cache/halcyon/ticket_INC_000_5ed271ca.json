@@ -1,0 +1,114 @@
+{
+ "tickets": [
+  {
+   "title": "PortfolioMgr rebalance preview grid takes 40+ seconds to render",
+   "description": "Wealth Management advisors have been telling the service desk that the rebalance preview screen in PortfolioMgr hangs for 40 to 60 seconds when a household has more than about 25 sub-accounts. Before the 6/29 release the same view loaded in under 5 seconds. Browser traces show the grid firing one pricing lookup per lot instead of one batched call to PricingSvc. Intermittent, but it reproduces consistently on large households around the market open. Advisors are working around it by rebalancing one sleeve at a time, which is slowing the Monday review cycle. Need a fix or rollback before the next model-portfolio drift run.",
+   "reporter_id": "e_075",
+   "assignee_id": "e_074",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_074",
+     "text": "Confirmed. The 6/29 refactor dropped the batching wrapper around the PricingSvc client, so each lot makes its own round trip. I'm restoring the batch call and adding a cache for intraday prices keyed by instrument."
+    },
+    {
+     "author_id": "e_077",
+     "text": "PricingSvc latency itself looks normal on our side. p95 stayed flat during the slow windows, so this is purely call volume from PortfolioMgr. No infra change needed."
+    },
+    {
+     "author_id": "e_074",
+     "text": "Fix deployed to prod this afternoon. Large-household preview now renders in about 3 seconds in my testing. Asking the wealth team to confirm tomorrow morning before we close this."
+    }
+   ]
+  },
+  {
+   "title": "SettlementEngine exceptions queue screen freezes when filtering by counterparty",
+   "description": "Settlements staff report that the exceptions queue in SettlementEngine becomes unresponsive for roughly a minute whenever they apply the counterparty filter, especially on days with more than 800 open breaks. Scrolling is fine until a filter is applied, then the browser tab goes grey. This started after month-end and is hurting our ability to clear fails before the cutoff with the clearing agency. Suspect a missing index on the exceptions table or an unbounded query behind the filter dropdown. Several users have been exporting to a spreadsheet and filtering locally as a workaround, which is not ideal from a controls standpoint.",
+   "reporter_id": "e_071",
+   "assignee_id": "e_081",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_081",
+     "text": "Pulled the slow query log. The counterparty filter does a full scan on the exceptions table plus a join to the trade table without a supporting index. Adding a composite index in the lower environment first to check the plan."
+    },
+    {
+     "author_id": "e_066",
+     "text": "Seeing this too from the settlements side. Last Friday we had a fail we nearly missed because the filter locked up twice. Please prioritize before month-end rolls around again."
+    },
+    {
+     "author_id": "e_081",
+     "text": "Index is live in prod and the filter now returns in under a second on the full queue. Also capped the dropdown to active counterparties only. Closing after Brian confirmed on his end."
+    }
+   ]
+  },
+  {
+   "title": "ACH origination file rejected by sponsor bank for malformed batch header",
+   "description": "The morning ACH origination file produced by PaymentsGateway was rejected by the sponsor bank with a format error pointing at the batch header record. Roughly 140 payments for the same-day window did not go out, including vendor and client disbursements. The file generated the previous day was accepted without issue. The only recent change on our side was the GLCore chart refresh over the weekend, which may have altered the company descriptive field length. Payments needs the file regenerated and resubmitted before the next same-day cutoff, and Engineering needs to confirm the root cause so it does not repeat tomorrow.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_079",
+   "status": "resolved",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "Found it. The company entry description field was being populated from a new GLCore attribute and came through at 12 characters instead of the 10 the format allows. The header was shifted and everything after it was misaligned."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Regenerated file went through validation with the bank's test tool and was accepted for the afternoon window. Same-day items landed, only a couple of hours late."
+    },
+    {
+     "author_id": "e_079",
+     "text": "Added a hard truncation and a pre-submission field-length check in the gateway. Will also add a unit test covering the header layout so a GLCore change can't break it silently."
+    }
+   ]
+  },
+  {
+   "title": "Wire batch file rejected as duplicate file sequence by correspondent bank",
+   "description": "An outbound wire batch from PaymentsGateway, sent to the correspondent bank through WireRoom, was rejected with a duplicate file sequence error. The wire room had re-released the batch after a console timeout, and the gateway appears to have reused the same sequence identifier instead of incrementing it. Nine wires were delayed, three of them time sensitive for settlement of an M&A closing. The bank has asked us to confirm none of the earlier submission was processed before they will accept a resend. We need to understand whether the console timeout path bypasses the sequence counter and how to avoid duplicate release risk.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_076",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_070",
+     "text": "Bank ops confirmed by phone that nothing from the first attempt was processed. They are ready to accept a resubmission with a new sequence. I've held the batch until Engineering confirms the counter is fixed."
+    },
+    {
+     "author_id": "e_076",
+     "text": "Root cause: the retry path rebuilds the file from the cached payload and skips the sequence increment. I've patched it so every release, including retries, pulls a fresh sequence from the counter table. Tested in staging."
+    },
+    {
+     "author_id": "e_067",
+     "text": "Resent after the patch went to prod and the bank acknowledged all nine wires. The time sensitive ones cleared before the end-of-day cutoff. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "ACH file rejected for effective entry date on bank holiday",
+   "description": "The payroll-adjacent ACH file from PaymentsGateway was rejected by the sponsor bank because the effective entry date on several batches fell on a non-banking day. The gateway computed the date using a stale holiday calendar that does not include a recent Federal Reserve schedule update. Around 60 payments are held and Operations has had to notify internal requesters of the delay. We need the calendar table corrected, the file regenerated with a valid business day, and a check added so the gateway fails fast instead of producing a file the bank will refuse. Please also review whether other scheduled files use the same calendar source.",
+   "reporter_id": "e_069",
+   "assignee_id": "e_078",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Reproduced in staging. The holiday calendar table was last loaded in January and is missing the updated entries. I'm loading the current schedule and checking which jobs read from this table."
+    },
+    {
+     "author_id": "e_069",
+     "text": "I regenerated the held batches manually with the next business day as the effective date and the bank accepted them. Still need the permanent fix so tomorrow's scheduled file isn't affected."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Barbara, please also set up an annual calendar refresh as a scheduled job with an alert if the table goes stale. Let's not rely on someone remembering to reload it."
+    }
+   ]
+  }
+ ]
+}

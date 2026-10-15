@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_067",
+   "to_ids": [
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_068",
+    "e_070"
+   ],
+   "subject": "SWIFT payment tracking - Stokes PLC outbound wire pending confirmation",
+   "body": "Hi Ravi,\n\nFlagging an outbound SWIFT payment to Stokes PLC (cp_003) that is still showing as pending in the WireRoom console. We released it from PaymentsGateway yesterday afternoon, but we have not yet received the MT103 acknowledgment or a gpi status update from the correspondent bank.\n\nBeneficiary details on the instruction match what we hold on file: IBAN {{CP_IBAN:cp_003}} and BIC {{CP_SWIFT:cp_003}}. I re-verified both against the callback record, so I don't think this is a data entry problem.\n\nNext steps on our side: Derrick will open a tracer with the correspondent this morning, and I will check the gpi tracker again at the 2pm cutoff. If it is still stuck by end of day, I'd like to loop in Compliance in case there is a sanctions hold on the intermediary side.\n\nWill update you as soon as we have anything.\n\nThanks,\nGreg",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_065",
+   "to_ids": [
+    "e_063",
+    "e_064"
+   ],
+   "cc_ids": [
+    "e_069"
+   ],
+   "subject": "Returned ACH items - weekly summary for July 6-10",
+   "body": "Hi Ravi, Tasha,\n\nHere is the returned ACH summary for this week. We received 14 returns total, up from 9 last week. The breakdown by return reason code: 7 were R01 (insufficient funds), 4 were R02 (account closed), 2 were R03 (no account on file), and 1 was R10 (unauthorized).\n\nOne item worth highlighting is a debit tied to {{CLIENT_NAME:c_0273}}'s operating account {{ACCOUNT_NUMBER:a_00560}}, which came back R01 for $48,200. Because that client is high risk and also has an open loan on {{ACCOUNT_NUMBER:a_00561}}, I've notified the relationship manager so Lending can decide whether to act on the payment.\n\nTasha, the returns have been posted to GLCore but the offsetting entries for three of them are not yet visible in ReconLegacy, so please check them on tonight's batch. Ronald is handling the originator notifications.\n\nLet me know if you want a different cut of the data.\n\nBest,\nCraig",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_069",
+   "to_ids": [
+    "e_063",
+    "e_065"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Returned ACH items - repeat R01 on wealth cash management account",
+   "body": "Hi Ravi, Craig,\n\nFollowing up on the returned ACH trend from earlier this month. This week we got a second R01 return in three weeks on the cash management account {{ACCOUNT_NUMBER:a_00324}} belonging to {{CLIENT_NAME:c_0155}}. The amount was $12,750, an inbound debit pull from an external funding source.\n\nGiven the repeat pattern, I'd suggest we:\n1. Ask the RM, Linda Barnes, to contact the client and confirm the funding source and balance.\n2. Hold further pulls against this account until the client confirms.\n3. Check the return rate against our NACHA threshold for the month. We are at about 0.6% for unauthorized plus administrative returns, which is well below the limit, but I'd like to keep an eye on it.\n\nI have not contacted the client directly. Tasha, can you confirm the posting for the return has cleared reconciliation? Ravi, let me know if you'd like me to draft the note to Wealth Management.\n\nThanks,\nRonald",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_064",
+   "to_ids": [
+    "e_063",
+    "e_066",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "Month-end close checklist - September (ops items due by Sep 30)",
+   "body": "Hi all,\n\nWith the September close approaching, here is the Operations checklist. Please confirm your items by Friday.\n\n1. Reconciliation: clear all open breaks older than 5 business days in #recon. Target is fewer than 10 open items by Sep 28. I'll own cash and nostro recs.\n2. Settlements (Wayne, Brian): confirm all failed or pending trades in SettlementEngine are either settled or have documented accruals. Provide the aging report to me by Sep 29.\n3. GLCore: no manual journal entries after the cutoff without Ravi's sign-off. Martin's team needs the final trial balance on the first business day of October.\n4. ReconLegacy: the end-of-day batch has been slow on quarter-adjacent runs, so please do not queue ad hoc jobs during the Sep 30 window.\n5. Payments: reconcile returned ACH items and suspense balances.\n\nI'll circulate a status tracker tomorrow morning. Flag any blockers early.\n\nThanks,\nTasha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_064",
+    "e_005"
+   ],
+   "subject": "Failed settlement follow-up - equity trade fails from Oct 1",
+   "body": "Hi Ravi, Brian,\n\nFollowing up on the failed settlements from Oct 1. Of the 6 original fails in SettlementEngine, 4 have now settled after the counterparty delivered the shares late Monday. Two remain open, totaling about $1.9M in notional.\n\nRoot cause on the open items: one is a delivery shortfall at the counterparty custodian, and the other is a mismatch on settlement instructions that we corrected after the trade. Brian has re-sent the amended instructions and is chasing confirmation.\n\nImpact: we expect minor buy-in risk and potential penalty charges, estimated at under $6,000 combined. I have asked Tasha to accrue this in GLCore so it doesn't surprise anyone at month-end.\n\nDaniel, copying you so the desk is aware. Please hold off on any further trades with the same counterparty in these names until we clear the fails.\n\nI'll send another update tomorrow by noon.\n\nRegards,\nWayne",
+   "reply_to_previous": false
+  }
+ ]
+}

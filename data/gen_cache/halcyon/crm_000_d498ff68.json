@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0263",
+   "text": "10/1/2026 - Call with {{CLIENT_NAME:c_0263}} re: risk tolerance update. Client is approaching a planned retirement date and wants to keep the brokerage account ({{ACCOUNT_NUMBER:a_00542}}) conservative. Confirmed risk profile stays Low; client asked to trim equity exposure slightly and favor investment-grade fixed income. Will send a revised IPS draft to {{CLIENT_EMAIL:c_0263}} for e-signature. Follow-up call via {{CLIENT_PHONE:c_0263}} after the quarter-end statement posts. Flagged for portfolio manager review of the allocation shift."
+  },
+  {
+   "client_id": "c_0198",
+   "text": "10/13/2026 - Met with {{CLIENT_NAME:c_0198}} to revisit risk tolerance. Client reports more comfort with volatility after a salary increase and a larger emergency cushion in cash management ({{ACCOUNT_NUMBER:a_00412}}). Discussed moving a portion of brokerage ({{ACCOUNT_NUMBER:a_00411}}) toward growth equities while keeping the profile at Medium for now. Updated suitability questionnaire completed. Next step: I'll model a 60/40 vs 70/30 mix and email options to {{CLIENT_EMAIL:c_0198}} by end of next week. Phone check-in at {{CLIENT_PHONE:c_0198}} to confirm."
+  },
+  {
+   "client_id": "c_0033",
+   "text": "7/3/2026 - Spoke with {{CLIENT_NAME:c_0033}} about renewal of the term loan ({{ACCOUNT_NUMBER:a_00072}}). Business is performing steadily; operating account ({{ACCOUNT_NUMBER:a_00071}}) balances have trended up over the last two quarters. Client would like to keep the current structure and asked about a modest rate reduction given a clean payment history. I'll pull updated financials and the latest tax returns, then run the renewal through underwriting. Sent request list to {{CLIENT_EMAIL:c_0033}}. Target renewal package ready within two weeks."
+  },
+  {
+   "client_id": "c_0104",
+   "text": "9/22/2026 - Call with {{CLIENT_NAME:c_0104}} on risk tolerance update. Client mentioned a recent market pullback made them uneasy and asked whether the current brokerage mix ({{ACCOUNT_NUMBER:a_00222}}) is still appropriate. Reviewed the questionnaire together; answers still support a Medium profile, but client wants a little more cash held in {{ACCOUNT_NUMBER:a_00223}}. Escalating to the advisor team for a rebalancing recommendation. I'll confirm the updated form was received at {{CLIENT_EMAIL:c_0104}} and follow up by phone at {{CLIENT_PHONE:c_0104}}."
+  },
+  {
+   "client_id": "c_0085",
+   "text": "10/13/2026 - {{CLIENT_NAME:c_0085}} called to say they referred a colleague who is looking for a personal loan and a checking account. Thanked the client for the introduction. Client's own loan ({{ACCOUNT_NUMBER:a_00184}}) is current and checking ({{ACCOUNT_NUMBER:a_00183}}) is in good standing. Gave the referral our intake line and will reach out to the prospect once they consent. No pricing promised. Updated contact preferences: email to {{CLIENT_EMAIL:c_0085}} is best, phone {{CLIENT_PHONE:c_0085}} only for urgent items. Logged referral source in the CRM."
+  },
+  {
+   "client_id": "c_0091",
+   "text": "9/28/2026 - {{CLIENT_NAME:c_0091}} asked about alternative investments such as private credit and real assets after reading an article. Client is a lending relationship only (checking {{ACCOUNT_NUMBER:a_00193}}, loan {{ACCOUNT_NUMBER:a_00194}}) with a Low risk profile, so I explained these products carry illiquidity and typically require accreditation and suitability review. Offered an introduction to the wealth team for an educational conversation. Client agreed. Will send a note to {{CLIENT_EMAIL:c_0091}} with next steps and loop in wealth management. No product recommendations were made."
+  },
+  {
+   "client_id": "c_0067",
+   "text": "7/10/2026 - Annual review with {{CLIENT_NAME:c_0067}}. Reviewed operating account ({{ACCOUNT_NUMBER:a_00141}}) activity and the loan ({{ACCOUNT_NUMBER:a_00142}}) payment history; no delinquencies, and revenue is up modestly year over year. Client mentioned possible equipment purchases in Q4 and may want a line extension. Risk profile remains Medium. Action items: refresh financial statements, confirm covenant compliance, and update the business address on file ({{CLIENT_ADDRESS:c_0067}}) if the planned office move happens. Will follow up at {{CLIENT_PHONE:c_0067}} next month."
+  },
+  {
+   "client_id": "c_0101",
+   "text": "9/24/2026 - Spoke with {{CLIENT_NAME:c_0101}} about financing to expand their business. Client is a wealth client with brokerage ({{ACCOUNT_NUMBER:a_00214}}) and cash management ({{ACCOUNT_NUMBER:a_00215}}) and is considering a loan of roughly $750K for a second location. Discussed securities-based lending versus a commercial facility; I'll coordinate with the lending team on options and collateral implications for the portfolio. Client wants to avoid selling core holdings. Will email a summary to {{CLIENT_EMAIL:c_0101}} and schedule a joint call with Lending early next week."
+  },
+  {
+   "client_id": "c_0049",
+   "text": "9/18/2026 - Touched base with {{CLIENT_NAME:c_0049}} regarding a risk tolerance update. Client is a newer lending customer with only a checking account ({{ACCOUNT_NUMBER:a_00103}}) and said they remain very cautious with money, especially while building savings. Confirmed risk profile stays Low. No investment interest at this time, though I mentioned the wealth team can help once they are ready. Verified contact details on file, including {{CLIENT_ADDRESS:c_0049}} and {{CLIENT_EMAIL:c_0049}}. Next review in six months or sooner if circumstances change."
+  },
+  {
+   "client_id": "c_0246",
+   "text": "8/24/2026 - Annual portfolio review with {{CLIENT_NAME:c_0246}}. Loan ({{ACCOUNT_NUMBER:a_00506}}) is performing as agreed and operating account ({{ACCOUNT_NUMBER:a_00505}}) shows healthy average balances and stable deposits. Debt service coverage remains comfortable and risk rating stays Low. Client noted a major customer contract renewed through 2028, which supports cash flow. Open items: collect FY financials and insurance certificates, and confirm the mailing address ({{CLIENT_ADDRESS:c_0246}}) is current. I'll send the document checklist to {{CLIENT_EMAIL:c_0246}} this week."
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "tenant": "brightwater",
+ "synthetic": true,
+ "note": "All people, organizations, clients, identifiers, and events are fictional.",
+ "counts": {
+  "crm": 45,
+  "doc": 8,
+  "email": 124,
+  "meeting": 5,
+  "slack": 437,
+  "ticket": 47
+ },
+ "live_feed_counts": {
+  "crm": 7,
+  "doc": 0,
+  "email": 17,
+  "meeting": 2,
+  "slack": 62,
+  "ticket": 9
+ },
+ "pii_spans_by_type": {
+  "CLIENT_NAME": 210,
+  "ACCOUNT_NUMBER": 187,
+  "PHONE": 59,
+  "EMAIL": 46,
+  "ADDRESS": 20,
+  "CARD_NUMBER": 11,
+  "DEVICE_ID": 3,
+  "IBAN": 2,
+  "SSN": 2,
+  "DOB": 2,
+  "MEDICAL": 2,
+  "SWIFT": 1,
+  "SALARY": 1
+ },
+ "stats": {
+  "unresolved_placeholders": 0
+ },
+ "failed_jobs": [],
+ "llm_cost": {
+  "calls": 2,
+  "total_usd": 0.0461,
+  "by_model": {
+   "anthropic/claude-sonnet-5.5": 0.0461
+  },
+  "by_purpose": {
+   "datagen_crm": 0.0461
+  }
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "emails": [
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_005"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_056"
+   ],
+   "subject": "Q2 best execution report - draft for review",
+   "body": "Hi Daniel,\n\nAttached is the draft Q2 best execution report covering April through June. Headline numbers: average implementation shortfall on the cash equity flow came in at 6.8 bps versus arrival, down from 8.1 bps in Q1. Price improvement versus NBBO held at roughly 41% of marketable child orders. Dark pool fill rates were flat, but we saw higher reversion on two of the midpoint venues, which I flagged in section 4.\n\nData was pulled from OMS execution records and reconciled against the TradeBlotter P&L view. There were about 140 orders where timestamps were missing from the venue acknowledgements, so I excluded them and noted the exclusion in the methodology appendix.\n\nMarcus and Owen, copying you since the compliance attestation and the venue review committee both draw from this. Please send any comments by Wednesday so we can finalize before the committee meets.\n\nDaniel, let me know if you want the routing breakdown by algo family expanded.\n\nThanks,\nRobert",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_008",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_005",
+    "e_011"
+   ],
+   "subject": "New FIX session to alternative venue - cert window",
+   "body": "Hi Sam,\n\nWe are onboarding a new FIX 4.2 session to an alternative trading venue for midpoint liquidity. The venue has sent us their cert specs and is offering a UAT window next Wednesday and Thursday.\n\nWhat we need from Technology: a new session entry on the OMS FIX gateway with the venue's sender and target comp IDs, a firewall rule for the cross-connect, and a test route in the UAT OMS environment. Steven and I will run the standard cert script: new order, cancel, replace, partial fills, rejects, and sequence reset handling.\n\nOne thing to confirm is that the venue wants heartbeat intervals at 30 seconds, which is shorter than our default. Please check the gateway config supports a per-session override.\n\nDaniel has approved the business case, so no further sign-off is needed on our side. Can you tell me who on your team can own this and whether Monday is realistic for the config?\n\nThanks,\nTravis",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_056",
+    "e_061"
+   ],
+   "cc_ids": [
+    "e_006",
+    "e_047"
+   ],
+   "subject": "Follow-up: intraday limit breach on the equity desk",
+   "body": "Owen, Paul,\n\nFollowing up on Wednesday's intraday position limit breach on the equity book. Derek's sector concentration in financials hit 112% of the approved limit for about 40 minutes after the afternoon rally, before he trimmed it. The pre-trade check in OMS warned but allowed the order because the warning threshold was configured as soft.\n\nActions on our side: Derek has written up the timeline, and I have asked that the financials limit be switched to a hard block in OMS. We will also add a 90% alert to the TradeBlotter so traders see utilization alongside P&L.\n\nI would like Risk to confirm whether the stale exposure number during the rally came from a lag in the intraday calculations, since that may have contributed. Marcus, copying you for the breach log.\n\nCan we meet Tuesday to agree remediation and close this out?\n\nThanks,\nDaniel",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_072",
+    "e_008"
+   ],
+   "cc_ids": [
+    "e_005"
+   ],
+   "subject": "Second venue FIX connection - production go-live plan",
+   "body": "Hi Sam,\n\nWe are ready to add a second new venue, a European-hours crossing network, to the OMS FIX gateway. This is a separate session from the one we certified in July. The venue has completed cert with Travis and me, and we have a target go-live of Monday 7 September, ahead of the quarter-end volume.\n\nRequests for Technology:\n1. Production session config and credentials load by Thursday.\n2. A firewall change request filed for the production cross-connect.\n3. Monitoring on session heartbeats and sequence gaps routed to the trading support alerts.\n\nWe plan a limited go-live with a $5M daily notional cap for the first week, then raise it if fill quality holds. Travis will own the smart order router rule changes.\n\nPlease confirm the config can be done under the normal change process and tell me if a freeze window affects that week.\n\nThanks,\nSteven",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_005",
+    "e_002"
+   ],
+   "cc_ids": [
+    "e_012",
+    "e_063"
+   ],
+   "subject": "Broker commission review - Q3 rates and soft dollar balances",
+   "body": "Hi Daniel,\n\nAs we close out Q3, I pulled together the broker commission review. We paid out about $2.1M across 14 brokers this quarter. Three brokers fall below the research score threshold we set in April, yet still account for 18% of commission volume. Sean's analysis suggests we can move that flow to two higher-rated brokers without hurting execution quality.\n\nProposals:\n1. Cut the rate with two mid-tier brokers from 2.0 to 1.5 cents per share.\n2. Reallocate roughly half of the underperforming brokers' flow, subject to best execution checks.\n3. Reconcile soft dollar balances before year-end, since two brokers show unused credits.\n\nRavi, copying you because Operations will need the updated rates loaded for commission reconciliation. Martin, it affects the Q4 expense forecast.\n\nCan we discuss at Monday's desk meeting before I contact the brokers?\n\nThanks,\nRonald",
+   "reply_to_previous": false
+  }
+ ]
+}

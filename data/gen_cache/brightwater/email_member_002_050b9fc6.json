@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_009"
+   ],
+   "subject": "Complaint follow-up: unexplained overdraft fees for {{CLIENT_NAME:c_0012}}",
+   "body": "Hi Paul,\n\nI'm following up on the complaint we received Wednesday from {{CLIENT_NAME:c_0012}} about two overdraft fees posted to checking account {{ACCOUNT_NUMBER:a_00024}} on June 29. The member says a debit card purchase was authorized while the balance was positive, then posted after an ACH debit cleared in the nightly batch. I pulled the transaction history and the sequence matches what the member described. Posting order is the likely culprit.\n\nI'd like your approval to refund both fees as a one-time courtesy, a total of $58. I also want to walk the member through how pending card holds and ACH postings interact, since that was the root of the confusion. The member asked for a call back at {{CLIENT_PHONE:c_0012}} before end of day Monday.\n\nNichole is copied because she took the original call and can add her notes. Let me know if you want to review anything before I reach out.\n\nThanks,\nZachary",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_003",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_004"
+   ],
+   "subject": "Follow-up: repeat complaint from {{CLIENT_NAME:c_0021}} on delayed ACH credit",
+   "body": "Hi Paul and Rita,\n\nThis is the second time in three weeks that {{CLIENT_NAME:c_0021}} has contacted us about an incoming ACH credit that did not show as available in checking account {{ACCOUNT_NUMBER:a_00046}} until the afternoon of the settlement day. The member relies on that deposit for a mortgage-related payment and is understandably frustrated.\n\nRita, could your team confirm when the file from the ACHHub was received and loaded on Friday, August 7? If the credit was received early and just posted late, I'd like to understand why. If it was timing on the originator's side, I can tell the member that plainly.\n\nI left a voicemail at {{CLIENT_PHONE:c_0021}} this morning to acknowledge the complaint. I'll write up the findings and send a written response by Friday, August 14.\n\nThanks,\nNichole",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_010",
+   "to_ids": [
+    "e_003",
+    "e_005",
+    "e_006"
+   ],
+   "cc_ids": [],
+   "subject": "New member checking promo starting September 1: talking points",
+   "body": "Hi team,\n\nMarketing confirmed the fall promotion for new checking accounts. Here is what I have so far:\n\n- $150 bonus for new members who open a checking account and set up direct deposit of at least $500 per month within 60 days\n- Bonus is paid to the checking account in the month after the second qualifying deposit\n- Existing members who closed an account in the last 12 months are not eligible\n- Share savings opened at the same time earns a 0.25% rate boost for the first six months\n\nPlease avoid promising the bonus to anyone who has not yet enrolled in online banking. We want to make sure the MFA enrollment through MemberSSO is complete at account opening, so the member can see the deposits.\n\nPaul, can you approve the one-page handout before we print it? I'll draft it this weekend.\n\nThanks,\nJonathan",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_005",
+    "e_007",
+    "e_008",
+    "e_010"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "Reminder: checking promo cross-sell with auto loans and the {{CLIENT_NAME:c_0012}} question",
+   "body": "Hi all,\n\nA few notes after Monday's huddle on the promotion. First, Kara is copied because we agreed to refer interested promo members to Lending when they mention a car purchase. Please log those referrals in MemberCRM so Kara's team can follow up within one business day.\n\nSecond, a question came up from {{CLIENT_NAME:c_0012}}, an existing member who asked whether the $150 bonus applies to a second checking account. It does not. The offer is for new members only, and I'd like everyone to give that same answer so we stay consistent. The member's current accounts, including share savings {{ACCOUNT_NUMBER:a_00023}}, are not affected.\n\nThird, tellers, please do not quote bonus payout dates at the window. Refer questions to a Member Advocate.\n\nNumbers so far: 14 new checking accounts opened since September 1 launch prep began, with 9 setting up direct deposit.\n\nThanks,\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_006",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_004",
+    "e_016"
+   ],
+   "subject": "Complaint follow-up: debit card dispute and promo bonus for {{CLIENT_NAME:c_0021}}",
+   "body": "Hi Paul,\n\nI wanted to close the loop on a complaint that has been open since early September. {{CLIENT_NAME:c_0021}} reported that a $212 debit card transaction on {{CARD_NUMBER:a_00046}} was not recognized, and also that the promotion bonus was not credited to checking account {{ACCOUNT_NUMBER:a_00046}}.\n\nStatus: the card was reissued on September 11 and the dispute was filed the same day. Provisional credit was posted on September 14. On the bonus, the member did not meet the direct deposit minimum in the first 60 days, so it was correctly withheld. I explained this on a call at {{CLIENT_PHONE:c_0021}} on Friday. The member accepted the dispute outcome but is still unhappy about the bonus terms.\n\nWesley, I'm copying you since the complaint mentions the disclosure language. I'd value your read on whether it was clear enough. I'll file the final note in MemberCRM once the dispute result arrives.\n\nThanks,\nJoanna",
+   "reply_to_previous": false
+  }
+ ]
+}

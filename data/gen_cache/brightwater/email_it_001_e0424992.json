@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_003",
+    "e_011",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_020"
+   ],
+   "subject": "MFA rollout: Phase 1 kickoff and what your teams need to do",
+   "body": "Hi Paul, Kara, and Rita,\n\nWe are starting Phase 1 of the MemberSSO MFA rollout next week, and I want to be sure your teams hear it from us first. Phase 1 covers staff who touch OnlineBanking admin tools, which means Member Services supervisors, Lending relationship managers, and Operations settlement staff.\n\nWhat to expect: each person will get an enrollment email from Hector on Monday, and enrollment takes about five minutes with the authenticator app. We will hold walk-up help sessions on Tuesday and Wednesday from 9 to 11 in the IT area. Please ask folks to enroll by Friday, August 14.\n\nNote that MemberSSO is a critical dependency for OnlineBanking and MemberCRM, so we are staging this carefully and will not enforce MFA until after the enrollment window closes.\n\nIf anyone has a shared workstation or a teller line device that could cause trouble, please tell Hector by Friday so we can plan around it.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_020",
+   "to_ids": [
+    "e_019",
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_022"
+   ],
+   "subject": "Vendor security questionnaire: draft answers for review",
+   "body": "Hi Andre and Wesley,\n\nThe card processing vendor sent over their annual security questionnaire this week, and the response is due Friday, September 11. I have drafted answers for the infrastructure and access control sections and attached them for review.\n\nA few items need your input:\n\n1. Section 4 asks whether MFA is enforced for all privileged and remote access. I answered \"in progress\" with a target date based on the current MemberSSO rollout schedule. Andre, please confirm the date.\n2. Section 7 asks about our incident response testing. Wesley, can you confirm the date of our last tabletop exercise and who signed off?\n3. Section 9 covers third-party hosting. For CoreBanking I referenced the vendor's latest SOC 2 report rather than restating their controls.\n\nShannon is checking the application security answers on the OnlineBanking side, including our code review and dependency scanning practice.\n\nPlease send comments by Tuesday so I have time to finalize and route it for signature.\n\nThanks,\nHector",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_019",
+   "to_ids": [
+    "e_001",
+    "e_003",
+    "e_011",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_020",
+    "e_021"
+   ],
+   "subject": "CoreBanking upgrade: weekend maintenance window and member impact",
+   "body": "Hello all,\n\nThe CoreBanking vendor has scheduled the upgrade for the weekend of October 3 and 4. Because CoreBanking is vendor hosted, they will run the cutover, but several of our systems depend on it, so here is what to plan for.\n\nExpected impact: the core will be unavailable from roughly 10 PM Saturday until early Sunday morning. During that time OnlineBanking, CardProcessor, ACHHub, and LoanDesk will be limited or down. BSAWatch and ShareRecon will pick up again once the core is back.\n\nWhat we need from you:\n- Paul: a short member notice and branch talking points by September 28.\n- Rita: confirmation that ACH and card settlement schedules are adjusted for the window.\n- Kara: a hold on loan funding that Saturday evening.\n\nAmy will validate the nightly reconciliation output on Sunday morning, and Hector is leading our test plan this week in the vendor sandbox.\n\nI will send a go/no-go update on Thursday, October 1.\n\nThanks,\nAndre",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_021",
+   "to_ids": [
+    "e_019",
+    "e_020"
+   ],
+   "cc_ids": [],
+   "subject": "MFA rollout: enrollment numbers and a reporting gap",
+   "body": "Hi Andre and Hector,\n\nI pulled the MemberSSO enrollment numbers for this week's status update. As of this morning, 17 of 25 staff have completed MFA enrollment in Phase 1, which is about 68 percent. Member Services and Lending are nearly complete. Operations is lagging, with a few people still pending.\n\nThere is one gap I want to flag. The enrollment report only shows enrolled or not enrolled, and it does not capture failed or abandoned attempts. That makes it hard to tell whether the stragglers are just busy or hitting a problem. I can build a small query against the SSO event logs to show failed enrollments by day, and I should have it ready by Friday.\n\nIf you are fine with that, I will add it to the Monday dashboard so Andre can use it in leadership updates.\n\nAlso, should we send reminders directly from the dashboard list, or through the managers?\n\nThanks,\nAmy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_022",
+   "to_ids": [
+    "e_019",
+    "e_023",
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_020"
+   ],
+   "subject": "MFA rollout wrap-up: enforcement date and remaining exceptions",
+   "body": "Hi Andre, Rita, and Paul,\n\nWith Phase 2 nearly finished, here is where we stand on enforcement for MemberSSO MFA. Enrollment is at 24 of 25 staff. The remaining person is on extended leave and will be enrolled on return, so we have documented that as a temporary exception.\n\nProposed plan:\n- Enforcement turns on Monday, October 12 at 7 AM for all staff-facing OnlineBanking admin tools and MemberCRM.\n- Hector and I will be on call that morning, with a rollback option through the SSO policy if we see lockouts.\n- Teller line devices that share logins will move to individual accounts by October 9. I tested the new login flow on two teller stations and it works well.\n\nRita and Paul, please remind your teams to keep their authenticator apps handy Monday morning. Andre, can you confirm you are comfortable with the date so I can announce it in #it and #general this afternoon?\n\nThanks,\nShannon",
+   "reply_to_previous": false
+  }
+ ]
+}

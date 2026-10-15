@@ -1,0 +1,102 @@
+{
+ "tickets": [
+  {
+   "title": "Missing title document on auto loan collateral file",
+   "description": "During the post-closing QC review of the auto loan tied to {{ACCOUNT_NUMBER:a_00165}}, we found the lien perfection package has no copy of the title or the state lien filing confirmation. The loan funded through LoanDesk last week and the file is currently flagged as incomplete. {{CLIENT_NAME:c_0077}} was told the title would arrive within 30 days from the dealer. Please contact the dealer, confirm whether the title application was submitted with Brightwater listed as first lienholder, and upload proof to the collateral file. Hold any exception reporting until we know the status.",
+   "reporter_id": "e_015",
+   "assignee_id": "e_012",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_012",
+     "text": "Called the dealer's title clerk. They submitted the application to the state and had not mailed us the confirmation. They will email a copy of the lien filing today."
+    },
+    {
+     "author_id": "e_013",
+     "text": "Received the lien filing confirmation and uploaded it. The title itself should follow by mail. I will leave the ticket open until the original comes in."
+    },
+    {
+     "author_id": "e_012",
+     "text": "Original title arrived and was scanned to the collateral file. Lien shows Brightwater as first lienholder. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "Payoff quote for auto loan after refinance elsewhere",
+   "description": "{{CLIENT_NAME:c_0077}} called to say they are refinancing the auto loan on {{ACCOUNT_NUMBER:a_00165}} with another lender and needs a written payoff quote good through the end of next week. The new lender asked for per diem interest and wire or check instructions. The client also wants confirmation that no prepayment penalty applies. Please generate the payoff letter from CoreBanking, verify the per diem, and send it to the client at {{CLIENT_EMAIL:c_0077}} and directly to the new lender once we receive their written authorization.",
+   "reporter_id": "e_013",
+   "assignee_id": "e_014",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_014",
+     "text": "Generated the payoff letter good through 8/7 with the per diem shown. Confirmed with the note that there is no prepayment penalty on this loan."
+    },
+    {
+     "author_id": "e_013",
+     "text": "Thanks Martin. The client confirmed the letter arrived and the new lender sent their authorization form. Please release the quote to them."
+    },
+    {
+     "author_id": "e_014",
+     "text": "Sent to the new lender. Payoff was received on 8/4 and the loan has been closed with the lien release mailed out."
+    }
+   ]
+  },
+  {
+   "title": "Payoff request and lien release timing question",
+   "description": "The client {{CLIENT_NAME:c_0077}} plans to pay off the loan on {{ACCOUNT_NUMBER:a_00165}} in full using funds from the checking account {{ACCOUNT_NUMBER:a_00164}} and is asking for an exact payoff figure as of 8/24, plus how quickly the lien release will be sent after payoff posts. Please confirm the payoff amount including accrued interest, check for any outstanding late fees, and give the client a written timeline for the release of lien. Call the client at {{CLIENT_PHONE:c_0077}} if anything looks off.",
+   "reporter_id": "e_011",
+   "assignee_id": "e_015",
+   "status": "resolved",
+   "priority": "P4",
+   "comments": [
+    {
+     "author_id": "e_015",
+     "text": "Payoff as of 8/24 confirmed with no late fees outstanding. Sent the figure by secure email and noted that the lien release goes out within 10 business days of payoff posting."
+    },
+    {
+     "author_id": "e_011",
+     "text": "Good. Please watch the posting on 8/24 and make sure the transfer from checking clears before releasing the lien."
+    }
+   ]
+  },
+  {
+   "title": "Missing title document on vehicle loan refinance",
+   "description": "Quarterly collateral audit flagged that the vehicle loan on {{ACCOUNT_NUMBER:a_00165}} has no title copy on file after the refinance in the spring. The prior lien release was recorded but we never got a new title showing Brightwater as lienholder. Auditors need this resolved before the quarter-end exception report goes to Compliance. Please request a duplicate title from the state if necessary, confirm with {{CLIENT_NAME:c_0077}} whether they hold the original, and update the file. The client's mailing address on record is {{CLIENT_ADDRESS:c_0077}}; verify it matches before any mail goes out.",
+   "reporter_id": "e_015",
+   "assignee_id": "e_013",
+   "status": "in_progress",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_013",
+     "text": "Spoke with the client. They never received a title, so the state likely mailed it to an old address. I am filing for a duplicate title with Brightwater as lienholder."
+    },
+    {
+     "author_id": "e_011",
+     "text": "Rita, please note the exception in the audit tracker with an expected resolution date so Compliance sees it is being worked before 9/30."
+    },
+    {
+     "author_id": "e_013",
+     "text": "Updated the tracker. The state says the duplicate takes about three weeks. I will check back on the status in two weeks."
+    }
+   ]
+  },
+  {
+   "title": "Payoff request with third-party payoff letter needed",
+   "description": "{{CLIENT_NAME:c_0077}} is selling the financed vehicle to a private buyer, and the buyer's credit union needs a payoff letter showing the exact payoff amount, per diem, and our lien release procedure. The sale is scheduled for next Tuesday. Please prepare the letter for {{ACCOUNT_NUMBER:a_00165}}, confirm the payoff good through 10/23, and let the client know whether the title will be mailed to the buyer's lender or to the client after payoff. Reach the client at {{CLIENT_PHONE:c_0077}} with questions.",
+   "reporter_id": "e_012",
+   "assignee_id": "e_014",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_014",
+     "text": "Picking this up. I will pull the payoff from CoreBanking this afternoon and draft the letter. Will ask the buyer's lender for their overnight delivery address for the title."
+    }
+   ]
+  }
+ ]
+}

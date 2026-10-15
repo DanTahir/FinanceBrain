@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up: the examiners' document request list landed this morning. Item 7 is a sample of KYC files for lending-segment clients onboarded since Jan 2024, plus the CDD refresh evidence. Due back in 10 business days."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Do they want the full file or just the CDD summary? Last exam they wanted the full DocVault folder including ID images, which was a pain to pull."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Full file for the sample. They'll pick the sample from our onboarding log, so we should assume anyone onboarded in that window could be selected. Let's pre-stage the lending ones."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "Quick question: are we sending docs through the exam portal or via secure email? The request letter says portal but I don't see credentials anywhere."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Portal. Marcus got the login info this morning, I'd wait for him to share it. Please don't attach anything to email in the meantime."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "For the AML side, item 12 asks for alert dispositions on AMLMonitor for Q1 and Q2 with the investigator notes. I can export from the case system, but some notes reference clients by name. Do we redact before upload?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 27,
+   "reply_to": 5,
+   "text": "Don't redact. Examiners are entitled to unredacted records. Just make sure the export is logged and goes only via the portal. I'll confirm with Marcus."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 30,
+   "reply_to": 6,
+   "text": "Got it. I'll build the export and keep a log of what was pulled and when."
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 41,
+   "reply_to": -1,
+   "text": "Pulled a test case to see what a lending file looks like: {{CLIENT_NAME:c_0095}}, onboarded 2024-01-01, checking {{ACCOUNT_NUMBER:a_00203}} plus the loan. CDD is there, but the last periodic review date looks blank in KYCPipeline."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 45,
+   "reply_to": 8,
+   "text": "Risk rating is low, so the refresh cycle would be 36 months. That means it isn't due until 2027, so blank may be fine. Worth noting in the cover memo though so nobody reads it as a miss."
+  },
+  {
+   "author_id": "e_052",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "Agree. I'll draft a short explainer on refresh cadence by risk tier so we can attach it to the KYC section."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 65,
+   "reply_to": -1,
+   "text": "Also item 15: the exam team wants our high-risk and medium-risk business client list with last review date. {{CLIENT_NAME:c_0002}} is in the medium bucket, for example. Can someone verify that list matches ClientHub?"
+  },
+  {
+   "author_id": "e_055",
+   "minutes_after_start": 71,
+   "reply_to": 11,
+   "text": "I'll take it. ClientHub and KYCPipeline have drifted on a couple of risk ratings before, so I'll reconcile both and flag differences."
+  },
+  {
+   "author_id": "e_053",
+   "minutes_after_start": 96,
+   "reply_to": -1,
+   "text": "Export for Q1 and Q2 alert dispositions is done: about 340 alerts. 12 are missing a closing rationale. Should I go back to the original analysts before it goes out?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 101,
+   "reply_to": 13,
+   "text": "Yes, ask them to add rationale today, with dated addenda only. Do not edit the original notes. We want an audit trail showing what changed."
+  },
+  {
+   "author_id": "e_050",
+   "minutes_after_start": 140,
+   "reply_to": -1,
+   "text": "Started a tracker for the request list with owner and status per item. Link is pinned. Please put your initials next to the items you took."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 155,
+   "reply_to": 15,
+   "text": "Thanks John. Let's do a 15-minute check-in tomorrow at 10 to review gaps before we start loading things into the portal."
+  }
+ ]
+}

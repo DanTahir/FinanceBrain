@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0067",
+   "text": "08/10/2026 - Referral intake. {{CLIENT_NAME:c_0067}} stopped by and mentioned a coworker is interested in opening a share savings and checking account. Thanked them for the referral and walked through our current member referral bonus terms. Confirmed their own share savings {{ACCOUNT_NUMBER:a_00145}} and checking {{ACCOUNT_NUMBER:a_00146}} are in good standing. Verified the best contact is {{CLIENT_PHONE:c_0067}}, with {{CLIENT_EMAIL:c_0067}} as backup. I'll send the referral card and follow up once the new prospect reaches out. No concerns noted."
+  },
+  {
+   "client_id": "c_0080",
+   "text": "08/21/2026 - Call with {{CLIENT_NAME:c_0080}} about renewing their operating line. Business has held steady and they expect to keep the same limit. Reviewed the renewal timeline: updated financials, last year's tax return, and a refreshed debt schedule needed before I take it to committee. Primary deposits remain in operating {{ACCOUNT_NUMBER:a_00170}}. Confirmed we will send the document checklist to {{CLIENT_EMAIL:c_0080}}. Pricing to be discussed after I review the package. Target is to have everything in by mid September. Risk remains low, no covenant issues so far."
+  },
+  {
+   "client_id": "c_0026",
+   "text": "08/25/2026 - {{CLIENT_NAME:c_0026}} asked about alternative investments such as private funds and real estate crowdfunding. Explained that Brightwater does not offer or advise on those products and that we can't recommend specific ones. Suggested they speak with an independent licensed advisor and offered our referral list. Reminded them their loan {{ACCOUNT_NUMBER:a_00057}} payments continue from checking {{ACCOUNT_NUMBER:a_00056}}, and that extra principal payments are an option if they want a low-risk use of cash. Will follow up by phone at {{CLIENT_PHONE:c_0026}} next month."
+  },
+  {
+   "client_id": "c_0058",
+   "text": "08/14/2026 - {{CLIENT_NAME:c_0058}} came in upset about a fee posted to share savings {{ACCOUNT_NUMBER:a_00131}}. Reviewed the history: it was an excess withdrawal fee triggered after transfers over the monthly limit. Member said they weren't aware of the limit. Explained the fee schedule and where the limit is disclosed. As a goodwill gesture, and given their long standing with us, I approved a one time reversal per our policy. Set up balance alerts and mailed a copy of the fee schedule to {{CLIENT_ADDRESS:c_0058}}. Member was satisfied by the end of the visit."
+  },
+  {
+   "client_id": "c_0019",
+   "text": "07/24/2026 - Met with {{CLIENT_NAME:c_0019}} regarding cash needs for an upcoming home purchase. They want to keep enough liquidity for the down payment and closing costs without draining reserves. Reviewed balances in checking {{ACCOUNT_NUMBER:a_00040}} and discussed how the existing loan {{ACCOUNT_NUMBER:a_00041}} affects debt to income for a mortgage. Suggested holding off on new borrowing until after closing. Will pull together a short cash planning outline and send it to {{CLIENT_EMAIL:c_0019}}. Plan to check in again in two weeks."
+  },
+  {
+   "client_id": "c_0003",
+   "text": "09/18/2026 - Spoke with {{CLIENT_NAME:c_0003}} to update their risk profile. The owner said they are now more cautious given slower receivables and want to avoid taking on new debt for the next two quarters. Reviewed cash flow in operating {{ACCOUNT_NUMBER:a_00006}}, which still looks healthy. Noted the change in the file and will recheck our internal rating after the next set of financials. No adverse items. Follow up planned by phone at {{CLIENT_PHONE:c_0003}} in October."
+  },
+  {
+   "client_id": "c_0082",
+   "text": "09/16/2026 - Annual review with {{CLIENT_NAME:c_0082}}. Went over share savings {{ACCOUNT_NUMBER:a_00172}}, current dividend rate, and certificate options. Member is comfortable with a moderate approach and wants to move part of the balance into a 12 month certificate. Reviewed beneficiary designations and asked them to confirm contact info, including {{CLIENT_ADDRESS:c_0082}}, is current. Risk rating stays at medium pending the updated income documentation. I'll email the certificate disclosures to {{CLIENT_EMAIL:c_0082}} and follow up next week."
+  },
+  {
+   "client_id": "c_0042",
+   "text": "07/17/2026 - {{CLIENT_NAME:c_0042}} asked about financing to expand their side business, mainly equipment and some inventory, roughly $40,000. Explained that business lending is handled through Lending, so I'll set up an intro with the team. Pulled a quick view of deposits in share savings {{ACCOUNT_NUMBER:a_00094}} and checking {{ACCOUNT_NUMBER:a_00095}} to show a typical cash pattern. Advised them to gather business plan basics, recent tax returns, and income documentation. I'll call {{CLIENT_PHONE:c_0042}} to schedule the meeting."
+  },
+  {
+   "client_id": "c_0060",
+   "text": "10/07/2026 - {{CLIENT_NAME:c_0060}} came in to discuss financing a planned business expansion. They are considering a second location and want to know what loan types might fit. I explained our general process and that Lending will review financials, projections, and collateral. Noted their share savings {{ACCOUNT_NUMBER:a_00134}} has a solid balance history. Collected preferred contact details, {{CLIENT_EMAIL:c_0060}}. I'll refer the file to the lending team and send a document checklist. Member risk remains low."
+  },
+  {
+   "client_id": "c_0033",
+   "text": "08/11/2026 - Follow-up with {{CLIENT_NAME:c_0033}} on liquidity ahead of a home purchase. They are trying to balance a larger down payment against keeping a cash cushion. Looked at checking {{ACCOUNT_NUMBER:a_00074}} activity and the current loan {{ACCOUNT_NUMBER:a_00075}} payment. Discussed options including a smaller down payment with a reserve held back, and avoiding any large transfers that complicate source of funds documentation. Will send a worksheet to {{CLIENT_EMAIL:c_0033}} and call {{CLIENT_PHONE:c_0033}} after they review it. Risk rating remains medium."
+  }
+ ]
+}

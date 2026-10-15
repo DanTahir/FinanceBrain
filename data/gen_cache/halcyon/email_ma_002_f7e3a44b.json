@@ -1,0 +1,69 @@
+{
+ "emails": [
+  {
+   "from_id": "e_043",
+   "to_ids": [
+    "e_040",
+    "e_041"
+   ],
+   "cc_ids": [
+    "e_039"
+   ],
+   "subject": "Pitch book for new industrials sell-side mandate - draft timeline",
+   "body": "Hi Tom, Aisha,\n\nWe have a meeting with the board of a mid-market industrial components company next Thursday, so I would like a first full draft of the pitch book by end of day Monday 9/14.\n\nProposed split: Tom owns the situation overview and process timeline. Aisha, please take the valuation section: trading comps, precedent transactions, and a simple LBO floor analysis. I want the comps set limited to roughly 10-12 names with EBITDA margins in a comparable band, and please flag any outliers rather than quietly dropping them. Susan and Erik can help with the credentials pages and the buyer universe appendix.\n\nElena has asked that we lead with our recent sector credentials and keep the strategic vs. sponsor discussion tight, no more than two pages. Please use the latest template and run the final numbers past me before anything goes to Elena.\n\nLet me know by tomorrow noon if any of this conflicts with your other workstreams.\n\nThanks,\nHannah",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_044",
+   "to_ids": [
+    "e_039",
+    "e_043",
+    "e_040"
+   ],
+   "cc_ids": [
+    "e_042"
+   ],
+   "subject": "Project Osprey - draft buyer list for review",
+   "body": "Hi all,\n\nAttached for your review is the first cut of the Project Osprey buyer list. It is organized in three tiers:\n\nTier 1 (8 names): strategic acquirers with clear product adjacency and balance sheet capacity to do a deal of this size, roughly $650-800M enterprise value.\nTier 2 (10 names): strategics with partial overlap, plus the larger sponsors with existing platform investments in the space.\nTier 3 (12 names): financial sponsors with relevant fund vintages and dry powder, who would need a platform build.\n\nSusan pulled the ownership and recent acquisition history for each. Two items I would like your views on: first, whether we should approach the two largest international strategics in the first wave, given likely antitrust review timelines; second, whether to include the sponsor-backed competitor in Tier 2 given confidentiality concerns.\n\nI would like to lock the list by Friday so teasers can go out the following Monday. Please send comments by Thursday evening.\n\nBest,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_041",
+   "to_ids": [
+    "e_040",
+    "e_045"
+   ],
+   "cc_ids": [],
+   "subject": "Q3 league table submission - deal list for sign-off",
+   "body": "Hi Tom, Robert,\n\nI am preparing our Q3 league table submission, which is due to the data providers by Wednesday 10/7. I have compiled the list of 14 announced and completed transactions for the quarter, with advisory role, deal value, and announcement/close dates.\n\nA few items need your confirmation before I submit:\n\n1. Two deals where our role was joint financial advisor. I want to confirm whether we credit the full deal value or split it, per the provider's methodology.\n2. One transaction that closed on 9/30 but where the final press release is still pending. I am treating it as completed in Q3.\n3. Whether the carve-out transaction should be submitted as a divestiture, with value net of assumed debt.\n\nI have also cross-checked all values against the signed engagement letters and public filings. The summary sheet is saved in the shared M&A drive under League Tables / Q3.\n\nCould you reply with sign-off or corrections by Monday midday?\n\nThanks,\nAisha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_040",
+   "to_ids": [
+    "e_039",
+    "e_029",
+    "e_056"
+   ],
+   "cc_ids": [
+    "e_044"
+   ],
+   "subject": "Project Kestrel - lender meeting schedule and prep",
+   "body": "Hi Elena, Brian, Owen,\n\nAhead of the Project Kestrel financing process, we have lined up lender meetings for next week with six prospective debt providers: three banks, two direct lenders, and one credit fund. The sessions are 60 minutes each, running Tuesday through Thursday.\n\nBrian, since the financing may touch our own lending appetite, it would help to have you or one of your senior underwriters join the first two sessions so we can pressure-test leverage assumptions. Owen, we would value your view on how to frame the downside case and covenant headroom; we are showing total leverage of about 4.5x at close with a step-down schedule.\n\nJoshua is finalizing the lender presentation and the model, and we will circulate both on Friday. All lender communications go through the data room, with NDAs already confirmed on our side.\n\nPlease let me know your availability for the early sessions by Thursday.\n\nThanks,\nTom",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_045",
+   "to_ids": [
+    "e_041",
+    "e_040"
+   ],
+   "cc_ids": [
+    "e_043"
+   ],
+   "subject": "Re: Q3 league table submission - deal list for sign-off",
+   "body": "Aisha, Tom,\n\nFollowing up on the league table submission. I have reviewed the list and have a few notes:\n\n1. Joint advisor deals: please split the value equally, consistent with how we have submitted in prior quarters. I double-checked the provider's current methodology and it matches.\n2. The 9/30 closing is fine to include as completed in Q3 as long as we have the signed closing confirmation on file. Aisha, please attach it to the backup folder.\n3. The carve-out should go in as a divestiture, value net of assumed debt.\n\nOne additional item: the submission deadline for the second data provider is actually next Wednesday, not the same date as the first one. Please make sure both go out with consistent figures.\n\nIf these changes are made, you have my sign-off. Please send me the final version before it goes out.\n\nRegards,\nRobert",
+   "reply_to_previous": false
+  }
+ ]
+}

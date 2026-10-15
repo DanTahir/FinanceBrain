@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Seeing 11 FX breaks on the overnight recon, mostly GBP/USD and EUR/USD spot trades from yesterday afternoon. Anyone else seeing the same?"
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Yep, same here. Looks like the cash legs are in GLCore but the trade-side amounts are off by small deltas. Mostly under $500 each."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Wire room has 2 of those tied to outgoing wires. Should I hold them or let them go while we investigate?"
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Let them go if the wire amounts match the confirms. The delta looks like a rate rounding issue, not a cash problem."
+  },
+  {
+   "author_id": "e_065",
+   "minutes_after_start": 14,
+   "reply_to": -1,
+   "text": "Does anyone know if ReconLegacy picks up the FX rate snapshot at 4pm or at end of day? The deltas smell like a stale rate to me."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "I don't know the ReconLegacy internals at all, honestly. @Priya Raman is the one who knows the Perl jobs and the cron schedule."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 27,
+   "reply_to": 4,
+   "text": "Just got in. Rate snapshot is pulled by the Perl job on the Oracle 11g side, cron fires at 21:30 ET nightly. It takes the last stored rate, not a 4pm fix. So anything booked after the last rate load uses the earlier value."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "That would explain it. The GBP trades were booked around 4:45pm. Is the rate load a separate job?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 38,
+   "reply_to": 7,
+   "text": "Yes, separate job, runs at 17:00 ET. Anything booked after that gets the 17:00 rate. Checking last night's logs now to confirm it didn't fail."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 42,
+   "reply_to": -1,
+   "text": "FYI for the channel: please route any ReconLegacy questions through a ticket and tag Priya, so we have a trail. Thanks Priya for jumping on this."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 65,
+   "reply_to": 8,
+   "text": "Confirmed. The 17:00 rate load ran fine, but the source table was missing the late London fixing rows. So it's a data gap, not a job failure. I can backfill the rates and rerun the recon step for FX only."
+  },
+  {
+   "author_id": "e_066",
+   "minutes_after_start": 68,
+   "reply_to": 10,
+   "text": "Please do. Will the rerun overwrite the manual adjustments Craig already posted in GLCore?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 74,
+   "reply_to": 11,
+   "text": "No, the rerun only rewrites the recon match tables, it doesn't touch GLCore postings. I'll start it around 11:00 ET and post here when it finishes."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 80,
+   "reply_to": -1,
+   "text": "I'll open a ticket for the missing London fixing rows upstream so it doesn't repeat. Will link it here once it's filed."
+  }
+ ]
+}

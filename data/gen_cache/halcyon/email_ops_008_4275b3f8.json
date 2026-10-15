@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_066",
+   "to_ids": [
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_064",
+    "e_071"
+   ],
+   "subject": "Failed settlement follow-up: Lopez-Harrington break from 7/30",
+   "body": "Hi Ravi,\n\nFollowing up on the failed settlement from yesterday's cycle. The delivery leg against Lopez-Harrington did not match in SettlementEngine because the counterparty instructions on file pointed to a stale settlement account. Their ops desk has confirmed the corrected instructions, and I have the updated reference ({{CP_ACCOUNT:cp_033}}) staged for your approval before I amend the SSI record.\n\nCurrent status: the trade is roughly $2.4M notional, now one day past contractual settlement date. Fail charges are accruing at a modest rate, and I estimate under $1,800 if we get it re-matched for Monday's cycle. Brian is calling the custodian this afternoon to confirm cutoff times. Tasha will flag the open item on the GLCore recon so it does not age into next week's breaks.\n\nCan you sign off on the SSI change by 3pm today? If it slips, we miss the weekend instruction window.\n\nThanks,\nWayne",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_063",
+   "to_ids": [
+    "e_066"
+   ],
+   "cc_ids": [
+    "e_005",
+    "e_064"
+   ],
+   "subject": "Re: Failed settlement follow-up: Lopez-Harrington break from 7/30",
+   "body": "Wayne,\n\nThanks for the update on the Lopez-Harrington fail. Checking in on where this landed after the weekend, since the re-match was meant to go through in Monday's cycle.\n\nPlease confirm three things by end of day today: (1) whether the amended SSI went through and the trade actually settled, (2) the final fail charge amount so we can book it correctly, and (3) whether the root cause was only the stale instructions or if we have a broader static data issue with other counterparties. If it is the latter, I want a sweep of all SSIs last updated more than 12 months ago.\n\nDaniel, copying you since the desk will want to know whether a claim against the counterparty is worth pursuing. My view is that the error was on our side, so I would not push for compensation.\n\nTasha, please keep the GLCore recon item open until we see the cash land.\n\nRavi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_064",
+   "to_ids": [
+    "e_063",
+    "e_066",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Month-end close checklist: September status and open items",
+   "body": "Team,\n\nHere is the September close checklist status as of this morning. Close runs Wednesday, September 30, with the soft close on Friday the 25th.\n\nDone: PaymentsGateway cut-off times confirmed with the banks, and the intercompany sweep schedule agreed.\n\nIn progress: Settlements aging report (Wayne and Brian, due Tuesday), unmatched cash items older than 5 business days in the GLCore sub-ledger (me, 14 items remain), and the ReconLegacy end-of-day batch variance review. The Oracle 11g job has been slow, so I am running it early to avoid surprises.\n\nNot started: accruals for fail charges, wire room suspense clear-down, and sign-off pack for Marcus's team covering the reconciliation attestations.\n\nRisks: any late-dated corporate action entries could push our numbers. Please post new breaks in #recon rather than email so everyone sees them.\n\nI will update the tracker again Friday morning.\n\nThanks,\nTasha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_071",
+   "to_ids": [
+    "e_066",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_064"
+   ],
+   "subject": "Corporate action processing: 9/15 elections and dividend payables",
+   "body": "Hi Wayne, Ravi,\n\nA quick rundown on corporate actions this week. Two voluntary elections are due: a tender offer closing Thursday at the depositary and a rights exchange with a Friday noon deadline. I have confirmed positions in PositionStore with the custodian records and found no discrepancies on the tender. The rights exchange shows a 1,200 share difference we are still chasing with the custodian.\n\nOn the mandatory side, cash dividends will hit the books Wednesday. I have prepared the GLCore entries for dividend receivable and the withholding tax accrual. Tasha, could you review the withholding rate on the foreign names before I post?\n\nWayne, please make sure that no settlement instruction on the rights-affected positions goes out until the break is resolved, since SettlementEngine will otherwise treat those as normal trades.\n\nI will update the shared tracker by 4pm.\n\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_063",
+   "to_ids": [
+    "e_064",
+    "e_065",
+    "e_066",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_002"
+   ],
+   "subject": "October month-end close checklist: assignments for 9/30 close and Q3 lessons",
+   "body": "Team,\n\nThe Q3 close is behind us, so I want to lock in the process for the October close. A few observations first. The wire room suspense clear-down ran two days late, and we again found unmatched items in the {{ACCOUNT_NUMBER:a_00337}} operating account that traced back to a payments timing issue. That cannot repeat.\n\nAssignments for October:\n- Tasha: GLCore sub-ledger recon, ReconLegacy variance review, final attestation pack\n- Wayne and Brian: settlements aging, fail charge accruals, corporate action true-ups\n- Craig: PaymentsGateway cut-off confirmations and ACH return reconciliation\n\nDeadlines: soft close checklist complete by the 26th, final sign-off by the 30th. Also note that KYCPipeline ownership moved to Compliance on October 6, so any onboarding-related fee reconciliations need to go through Marcus's team for review going forward.\n\nMartin, copying you so you know the dates.\n\nRavi",
+   "reply_to_previous": false
+  }
+ ]
+}

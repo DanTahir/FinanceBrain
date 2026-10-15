@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, the DataLake nightly ingest finished late again. Landed around 9:40 instead of the usual 6:15. Anyone else seeing stale tables in the analytics layer?"
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Yeah, ReportingBI dashboards were showing yesterday's numbers when I looked at 8:30. Risk team pinged me about it too."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 5,
+   "reply_to": -1,
+   "text": "Thanks for flagging. Who's got eyes on this? Need to know if it's a one-off or a trend before I tell Owen's team anything."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "I'll take a look. Third late run in the last 5 days, so I'd lean toward trend. Checking the Spark job durations now."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 14,
+   "reply_to": 0,
+   "text": "The PositionStore snapshot extract looks like the slow stage. It took 2h10m last night vs about 40m last week."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "That tracks. We added the new holdings columns to PositionStore two weeks ago and the extract is doing a full table scan now. The index didn't get updated."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 21,
+   "reply_to": 5,
+   "text": "Ugh, that's on us. I thought the migration included the index. Can we add it online or does it need a window?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 26,
+   "reply_to": 6,
+   "text": "Should be online on the replica. I'd build it there first, verify the plan, then promote. Probably 30-40 min of build time."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 30,
+   "reply_to": 7,
+   "text": "Do it. Priya, you're leaving soon so please write up the steps in the ticket so someone else can repeat it. Vincent, keep tracking the Spark side."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 33,
+   "reply_to": 8,
+   "text": "Will do. Documenting as I go, and I'll add a note to the migration checklist about index review."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Update: besides the extract, there's skew on the join with the reference data. One executor is doing most of the work. I'll try salting the key and rerun on a sample."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 70,
+   "reply_to": -1,
+   "text": "Side question: ReconLegacy reads from DataLake too, right? If tonight's run slips again, will the Oracle batch miss its cutoff?"
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 74,
+   "reply_to": 11,
+   "text": "It pulls reference extracts but mostly depends on SettlementEngine and GLCore. Risk is low, though I'd still tell Ravi's team if we're not fixed by this afternoon."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 120,
+   "reply_to": -1,
+   "text": "Index is built on the replica and the plan now uses an index range scan. Test extract ran in 38 min. Promoting after the 2pm check, details are in the ticket."
+  }
+ ]
+}

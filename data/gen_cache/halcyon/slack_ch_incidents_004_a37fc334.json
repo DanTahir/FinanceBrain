@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Anyone else getting kicked out of the WireRoom console? SSO login just spins and then throws a 502. Tried two browsers."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Same here. Got in 10 min ago, session dropped, now I can't re-auth. Two wires sitting in the queue waiting for release."
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 3,
+   "reply_to": -1,
+   "text": "Heads up, not just us. Someone on the trading side said their OMS login is failing too. Looks like AuthSSO."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "Acknowledged, looking at AuthSSO now. Seeing elevated 5xx on the IdP pods and token validation latency spiking. Calling this SEV2 for now. Will update here."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 8,
+   "reply_to": 3,
+   "text": "Thanks Barbara. Did anything deploy to AuthSSO this afternoon? Checking the change calendar on my side too."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 12,
+   "reply_to": 4,
+   "text": "Yes, cert rotation on the LDAP connector went out at 14:40. Two of four IdP pods are failing health checks on the new trust chain. Rolling those back now."
+  },
+  {
+   "author_id": "e_067",
+   "minutes_after_start": 13,
+   "reply_to": 3,
+   "text": "Is there anything we can do in the meantime? We have time-sensitive wires with a 16:30 cutoff for the Fed."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 15,
+   "reply_to": 6,
+   "text": "Greg, hold off on any workarounds. Don't use shared creds. If you still have an active session, finish releasing those wires with your normal dual-approval. We'll tell you the moment login is back."
+  },
+  {
+   "author_id": "e_070",
+   "minutes_after_start": 19,
+   "reply_to": 7,
+   "text": "Understood. My session is still live, so I can release the two queued wires with Derrick as second approver."
+  },
+  {
+   "author_id": "e_078",
+   "minutes_after_start": 27,
+   "reply_to": -1,
+   "text": "Rollback complete, all four IdP pods healthy. Token latency back to baseline. Can you all try logging in again?"
+  },
+  {
+   "author_id": "e_068",
+   "minutes_after_start": 30,
+   "reply_to": 9,
+   "text": "Logged in fine on WireRoom and OMS. Greg and Mike's wires are released well before cutoff. Looks good from the wire room side."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "Resolved. Impact window was roughly 15:00 to 15:27 ET. Barbara will write the postmortem on the cert rotation, and we'll re-test it in staging with the full trust chain before retrying. Thanks all."
+  }
+ ]
+}

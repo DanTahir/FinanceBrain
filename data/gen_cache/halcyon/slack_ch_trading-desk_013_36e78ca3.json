@@ -1,0 +1,118 @@
+{
+ "messages": [
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Client on my book wants to hedge about 12mm EUR receivables out to Q1. Forward or do they want optionality? Looking for a quick take before I call back."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Depends on how firm the receivables are. If the invoices are locked, plain forwards. If there's slippage risk, a collar or partial hedge is cleaner. Forward points are carrying a little in their favor right now."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Ronald, is it a corporate or one of the wealth clients? Different paperwork depending on which. Also confirm they have an ISDA or whatever we need on file before we quote."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 5,
+   "reply_to": 2,
+   "text": "Wealth side, entity account. {{CLIENT_NAME:c_0042}} is already onboarded, docs are in. Will double check the FX addendum is signed before I show a price."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "FYI EURUSD is chopping around the figure, 3m implied vol bid a touch into the afternoon. Whoever's pricing options might want to wait for the data print."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 8,
+   "reply_to": -1,
+   "text": "Not my product but if it's staggered monthly buckets I'd just do rolling forwards instead of one big outright. Less gap risk on the roll."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 10,
+   "reply_to": 0,
+   "text": "I can run a quick hedge ratio sim on 50/75/100% coverage with the current curve. Gimme 15 min. Need the expected invoice schedule though."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 12,
+   "reply_to": 6,
+   "text": "Roughly 4mm Nov, 4mm Dec, 4mm Jan. Client says Dec is the soft one."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 15,
+   "reply_to": -1,
+   "text": "Reminder from Risk: any new FX forward over 10mm notional needs a limit check before it goes into OMS. Ronald, send me the notional and tenor and I'll confirm headroom on the counterparty line."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 17,
+   "reply_to": 8,
+   "text": "Thanks Owen. 12mm total, tenors 1m to 3m. Will split into three tickets."
+  },
+  {
+   "author_id": "e_056",
+   "minutes_after_start": 22,
+   "reply_to": 8,
+   "text": "Headroom is fine on the aggregate. Just keep the three tickets tagged to the same parent so the exposure rolls up correctly."
+  },
+  {
+   "author_id": "e_013",
+   "minutes_after_start": 24,
+   "reply_to": -1,
+   "text": "Is anyone else seeing TradeBlotter lag on the FX tab? P&L on my forwards hasn't refreshed in a few minutes."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 26,
+   "reply_to": 11,
+   "text": "Yeah mine's stale too. Might just be the pricing refresh, OMS ticket entry looks normal though."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 28,
+   "reply_to": 11,
+   "text": "Hard refresh fixed it for me. Probably a cache thing."
+  },
+  {
+   "author_id": "e_012",
+   "minutes_after_start": 33,
+   "reply_to": 6,
+   "text": "Sim's done. 75% coverage on Nov/Dec and full on Jan cuts the tail the most per unit of carry cost. 100% across the board over-hedges if Dec slips. Posting the table in a sec."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 36,
+   "reply_to": 14,
+   "text": "Perfect, that matches the story from the client. I'll pitch 75/75/100 and offer a Dec put-spread overlay as the alternative."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 38,
+   "reply_to": 15,
+   "text": "Make sure the quote has the spread disclosed for them in writing. Sales credit goes on the parent ticket."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 41,
+   "reply_to": 16,
+   "text": "Will do. Calling the client now."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Client took 75/75/100 forwards. Done at mid plus two pips all in. Tickets are in OMS and tagged to the parent, Owen."
+  }
+ ]
+}

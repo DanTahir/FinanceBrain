@@ -1,0 +1,100 @@
+{
+ "messages": [
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Hey team, I've got {{CLIENT_NAME:c_0070}} on the line, says their debit card got declined at a grocery store twice this morning. Checking account looks fine on my end, balance is healthy. Anyone seen decline issues today?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 2,
+   "reply_to": 0,
+   "text": "Nothing on my side so far. Can you see the decline reason code in the card auth log for {{CARD_NUMBER:a_00152}}?"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 4,
+   "reply_to": 1,
+   "text": "Pulling it now. Looks like it's coming back as a 'suspected fraud' hold, not insufficient funds. So the rule engine flagged it."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 6,
+   "reply_to": -1,
+   "text": "Catherine, before you do anything, make sure you've verified the member with the full MFA questions. If they pass, you can release the fraud hold from the card controls screen."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 8,
+   "reply_to": 3,
+   "text": "Already verified, they passed everything. They confirmed both grocery attempts were theirs and also a gas station charge yesterday."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 10,
+   "reply_to": -1,
+   "text": "FYI I had a member at the teller line earlier saying their card worked fine at the pump, so it doesn't look like a CardProcessor outage. Probably just individual flags."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 12,
+   "reply_to": 5,
+   "text": "Good to know Max, thanks. CoreBanking is up and the auth feed has been normal per #it, so I agree this is a one-off rule trigger."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 14,
+   "reply_to": 4,
+   "text": "Hold released. I told them to try a small purchase while we're still on the phone. Also noting it in MemberCRM so the history is there."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 17,
+   "reply_to": 7,
+   "text": "Nice. Did you ask if they've traveled recently or changed their phone number? Sometimes that trips the velocity rule. I can see the contact on file is {{CLIENT_PHONE:c_0070}}, just confirm it's still current."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 19,
+   "reply_to": 8,
+   "text": "Yep, confirmed the number is still good, and they haven't traveled. They did buy a new phone last week though, so maybe a new device pattern with the digital wallet."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 21,
+   "reply_to": -1,
+   "text": "That tracks. Catherine, please add a travel/wallet note and let them know to call us if it happens again. We can also look at whether the wallet token needs to be re-provisioned."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 25,
+   "reply_to": -1,
+   "text": "Update: test purchase went through at the grocery store, member is happy. They'd also like a text alert set up for any future declines. Where do I enable that in OnlineBanking?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 27,
+   "reply_to": 11,
+   "text": "Alerts are under Card Controls > Notifications in the member's profile on the staff view. Or they can self-enable in the mobile app under Alerts. Walk them through it if they're up for it."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 29,
+   "reply_to": -1,
+   "text": "Side note, I also had a member earlier with the same kind of decline for {{CLIENT_NAME:c_0023}}. Checking account {{ACCOUNT_NUMBER:a_00050}} shows no issues, so I'll look at the card log the same way Catherine did."
+  },
+  {
+   "author_id": "e_003",
+   "minutes_after_start": 32,
+   "reply_to": 13,
+   "text": "Max, go ahead and check the reason code first, and loop Joanna in since she's their advocate. If it's another fraud-rule flag, we should tally these and send the pattern to Operations."
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 34,
+   "reply_to": 14,
+   "text": "On it. Max, ping me once you have the code and I'll reach out to {{CLIENT_NAME:c_0023}} directly. I'll also start a quick list of today's fraud-rule declines for Rita Solano's team."
+  }
+ ]
+}

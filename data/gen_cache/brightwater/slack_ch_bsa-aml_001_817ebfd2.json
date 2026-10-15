@@ -1,0 +1,64 @@
+{
+ "messages": [
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Monthly BSA report for the board packet is due Tuesday. I'm pulling the August numbers today. Monica, can you get me final SAR and CTR counts by end of day Monday at the latest?"
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Yep. CTRs are all filed and reconciled against the BSAWatch export. SAR count is still moving until month end, so I'll give you a provisional number now and a final one Monday."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Provisional is fine. Please also flag anything that was filed late or needed an extension so I can footnote it."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 18,
+   "reply_to": -1,
+   "text": "For the investigations section I have 14 alerts closed this month, 9 no-action, 5 escalated. Average time to disposition is down to about 4.2 days from 5.1 last month. Want a one-line root cause on the faster turnaround?"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 24,
+   "reply_to": 3,
+   "text": "Yes please. If it's the tuning we did on the structuring scenario, say so. The board likes seeing that the tuning actually paid off."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 31,
+   "reply_to": 4,
+   "text": "It's mostly that. Fewer duplicate alerts on the same member. I'll also include the large wire from 08/10, t_000554 for {{CLIENT_NAME:c_0013}}, as an example of a high-value inbound we reviewed same day. Fraud score was 0.63, so it got a manual look."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 40,
+   "reply_to": 5,
+   "text": "Good example. For the report I'd keep it generic, though: inbound wire over $150K, manual review within 1 business day, cleared. No name or {{ACCOUNT_NUMBER:a_00026}} in anything that goes to the board."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 47,
+   "reply_to": 6,
+   "text": "Agreed, Monica. Aggregate and anonymized only. Chris, scrub that before you send me your section."
+  },
+  {
+   "author_id": "e_001",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Thanks, team. Wesley, can you add a short note on BSAWatch uptime this quarter? The board asked last time whether monitoring gaps tie back to CoreBanking or ACHHub outages."
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 82,
+   "reply_to": 8,
+   "text": "Will do, Gloria. BSAWatch depends on both, so I'll pull outage windows from IT and show whether any alerts were delayed. I'll have a draft to you Monday afternoon."
+  }
+ ]
+}

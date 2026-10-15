@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_073",
+    "e_074",
+    "e_079",
+    "e_081"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Q3 access recertification: AuthSSO group review due July 17",
+   "body": "Hi all,\n\nThe quarterly access recertification kicks off today. Compliance needs attestations back by Friday, July 17, so please plan time this week and next.\n\nWhat I need from each of you:\n\n1. Review the AuthSSO groups you own or approve for (engineering-prod, positionstore-admin, datalake-readwrite) and confirm every member still needs access.\n2. Flag any contractors or people who have changed teams since April.\n3. For PositionStore admin rights, note a business justification for each person. Auditors pushed back on blanket approvals last quarter.\n\nPriya, since you hold the most elevated rights, please also check the break-glass accounts and confirm the last rotation date. Leo and Vincent, you cover the service accounts for the batch jobs.\n\nI'll consolidate everything into one sheet and send it to Marcus's team by the deadline. Reply to me directly if something looks odd rather than revoking on your own, so we can avoid surprise outages.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_078",
+    "e_080"
+   ],
+   "subject": "Cloud cost review: July spend up 14% on DataLake",
+   "body": "Hi Sam,\n\nI went through the June-to-July cloud billing and wanted to share the findings before the review meeting.\n\nTotal spend is up about 14% month over month, and almost all of it is DataLake. Three drivers:\n\n- Orphaned snapshots from the March migration, roughly $6,200 per month. Barbara has confirmed they can be deleted.\n- Compute clusters that Michael's nightly feature jobs leave running for up to 6 hours after completion. Auto-termination should fix this.\n- Cross-region egress between the analytics bucket and the reporting stack, about $3,100.\n\nProposed actions: delete snapshots by next Friday, enable auto-termination on the job clusters, and move the egress-heavy queries to the same region. Estimated savings are around $11,000 per month.\n\nMichael, can you confirm the job schedule won't break if the clusters shut down early? Barbara, please tag the snapshot list with owners before we delete anything.\n\nHappy to walk through the dashboard if useful.\n\nBest,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_079",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_073"
+   ],
+   "subject": "Re: Q3 access recertification: AuthSSO group review due July 17",
+   "body": "Hi Sam,\n\nApologies for the late reply on this. I finished the recertification for the groups I approve for, but there are a few open items I'd like your call on before I submit.\n\nTwo engineers who moved to the DataLake workstream in May still have positionstore-admin. I believe they no longer need it, but one of them is covering an on-call rotation that touches PositionStore until mid-August. I would suggest a time-boxed exception with an expiry date rather than a straight revoke.\n\nAlso, I found a service account for a retired reporting job that still has read access. I plan to disable it today and delete it after 30 days if nothing breaks.\n\nEverything else is confirmed. I'll send the signed sheet by end of day tomorrow. Let me know if you disagree on the exception.\n\nThanks,\nVincent",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_081",
+   "to_ids": [
+    "e_072",
+    "e_074",
+    "e_075",
+    "e_076"
+   ],
+   "cc_ids": [
+    "e_077"
+   ],
+   "subject": "Laptop refresh: schedule and data migration checklist",
+   "body": "Hi team,\n\nThe laptop refresh for Technology starts the week of August 17. IT has confirmed the new machines arrive on August 12, and we will go in small batches so the on-call rotation isn't thinned out.\n\nBefore your slot:\n\n1. Push all local branches and stash nothing. Anything unpushed will not be migrated.\n2. Check that your AuthSSO hardware token is enrolled on the new device before you wipe the old one. Omar can help if the enrollment fails.\n3. Export local config for your IDE and the VPN profiles. The image includes the standard toolchain but not custom plugins.\n4. Remove any local copies of production extracts. They shouldn't be on laptops anyway, and the wipe will be audited.\n\nI've put the proposed batches in the shared calendar. Please reply to me by Wednesday if your slot conflicts with a release or an on-call shift, and I'll swap you.\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_078",
+   "to_ids": [
+    "e_072",
+    "e_077"
+   ],
+   "cc_ids": [
+    "e_080"
+   ],
+   "subject": "Q3 cloud cost review: results and remaining items",
+   "body": "Hi Sam, Omar,\n\nQuarter-end is tomorrow, so here is where the cost actions from July landed.\n\nDone: orphaned snapshots deleted, auto-termination enabled on all nightly job clusters, and the egress-heavy queries now run in the same region as the data. Monthly spend is down about 11% from the July peak, a little under the $11,000 we projected.\n\nStill open:\n- Two staging environments are sized like production. I'd like to shrink them, but release testing needs a signoff from Sam first.\n- Reserved instance coverage is only 58%. Committing to one-year terms on the steady workloads, such as MarketDataFeed ingestion nodes, could save roughly another $9,000 a month.\n- Log retention is set to 400 days for non-critical services. Dropping it to 90 days would cut storage costs.\n\nCould we approve the staging resize and reserved instance purchase at the next review? I can prepare a one-page summary with the numbers.\n\nThanks,\nBarbara",
+   "reply_to_previous": false
+  }
+ ]
+}

@@ -90,6 +90,7 @@ all 2,000 nodes present.
 | Tool loop (`tool_choice: auto`) | 2-step round trip correct on all three models; `tool_calls` deltas accumulate by `index`; tool IDs are `toolu_*` |
 | Reasoning | `reasoning: {effort: low/high}`, `{enabled: true}`, and `{max_tokens: N}` are all accepted (HTTP 200), but **0 reasoning tokens and no `reasoning_details`** were returned for Sonnet 5.5, on both the "Claude Platform on AWS" and the direct "Anthropic" providers, including on a multi-step arithmetic prompt. **Decision:** no feature depends on visible reasoning. The agent loop still forwards `reasoning_details` unchanged whenever a response includes them. |
 | JSON-schema `response_format` (strict) + `require_parameters: true` | Haiku 5.5 routed to **Azure**, valid JSON matching the schema |
+| Same, plus `temperature: 0` | **404 "No endpoints found that can handle the requested parameters"** (fails at the *Filter by Parameters* routing step). The structured-output endpoint does not accept `temperature`, so `chat_json` never sends it. |
 | Prompt caching (`cache_control: ephemeral` on the system block) | Call 1: `cache_write_tokens` 15,217, cost $0.0019. Call 2: `cached_tokens` 15,217, cost $0.00016 (about 12x cheaper) |
 | Usage accounting | `usage.cost` (USD) is present on every response, including streaming (final chunk) |
 | `voyageai/voyage-4` | 1024 dims by default and with `dimensions: 1024`, unit-normalized, provider "VoyageAI by MongoDB". `input_type` is accepted and changes the vector, so we send `document`/`query`. |

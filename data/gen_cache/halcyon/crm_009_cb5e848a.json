@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0044",
+   "text": "10/07/2026 - Spoke with {{CLIENT_NAME:c_0044}} re: debit card for checking {{ACCOUNT_NUMBER:a_00092}}. Client reported the card damaged and asked for a replacement. Confirmed mailing address on file, {{CLIENT_ADDRESS:c_0044}}, is still current. Card ordered, expected in 5-7 business days. Client also gave notice of two weeks of international travel later this month, so I added a travel flag to the profile. Reminded the client that the loan payment on {{ACCOUNT_NUMBER:a_00093}} is on autopay and will draft as usual. Sent confirmation to {{CLIENT_EMAIL:c_0044}}. No other requests."
+  },
+  {
+   "client_id": "c_0163",
+   "text": "07/14/2026 - Call with {{CLIENT_NAME:c_0163}}. Client lost their debit card tied to checking {{ACCOUNT_NUMBER:a_00338}} while traveling; I cancelled it and ordered a replacement to the address on file, {{CLIENT_ADDRESS:c_0163}}. Client is abroad through the end of the month, so I logged a travel notice and suggested the digital card in the meantime. Verified identity with callback to {{CLIENT_PHONE:c_0163}}. Loan {{ACCOUNT_NUMBER:a_00339}} is current, no payment issues. Follow-up email sent to {{CLIENT_EMAIL:c_0163}} with the card timeline. Will check delivery next week."
+  },
+  {
+   "client_id": "c_0167",
+   "text": "07/07/2026 - Met with {{CLIENT_NAME:c_0167}} to discuss liquidity ahead of a planned home purchase. Client expects to need roughly $85,000 for a down payment and closing costs within about 90 days. Balance in checking {{ACCOUNT_NUMBER:a_00345}} covers part of it; we talked through timing and whether to hold off on extra principal payments on loan {{ACCOUNT_NUMBER:a_00346}} so cash stays available. Client is considering a pre-approval elsewhere, so I flagged that any new debt will change the DTI picture. Will send a summary to {{CLIENT_EMAIL:c_0167}} and reconnect in two weeks."
+  },
+  {
+   "client_id": "c_0072",
+   "text": "09/25/2026 - Risk tolerance review with {{CLIENT_NAME:c_0072}}. Client is approaching a retirement milestone and wants to stay conservative, so we reconfirmed the low risk profile. Reviewed the questionnaire: the client is not comfortable with drawdowns beyond about 10% and prioritizes capital preservation and income. Brokerage {{ACCOUNT_NUMBER:a_00153}} is slightly overweight equities versus the target; will propose a modest shift toward short-duration fixed income. Cash sweep in {{ACCOUNT_NUMBER:a_00154}} stays as is. Updated profile signed electronically and sent to {{CLIENT_EMAIL:c_0072}}. Next review in 6 months."
+  },
+  {
+   "client_id": "c_0189",
+   "text": "10/01/2026 - {{CLIENT_NAME:c_0189}} called to update their contact number. New number is {{CLIENT_PHONE:c_0189}}, replacing the prior one on file. Completed verification questions before making the change and updated the CRM profile. Also confirmed that the email {{CLIENT_EMAIL:c_0189}} and address {{CLIENT_ADDRESS:c_0189}} remain correct. The change applies to checking {{ACCOUNT_NUMBER:a_00392}} and loan {{ACCOUNT_NUMBER:a_00393}} alerts. Client asked that text alerts go to the new number; set up. No other issues raised."
+  },
+  {
+   "client_id": "c_0008",
+   "text": "07/31/2026 - Annual risk tolerance check-in with {{CLIENT_NAME:c_0008}}. The business remains low risk: stable receivables, no new borrowing planned, and the owner wants operating cash in {{ACCOUNT_NUMBER:a_00017}} kept liquid. Discussed seasonal swings in the fall and whether a modest line of credit should be put in place as a buffer; client wants to think it over. Risk rating unchanged. Sent recap to {{CLIENT_EMAIL:c_0008}} and noted the main contact is still reachable at {{CLIENT_PHONE:c_0008}}. Next touchpoint in Q4."
+  },
+  {
+   "client_id": "c_0007",
+   "text": "07/17/2026 - {{CLIENT_NAME:c_0007}} requested a phone number change. New number is {{CLIENT_PHONE:c_0007}}. Verified identity per procedure before updating ClientHub. Client said the old number was disconnected, so I also confirmed the email {{CLIENT_EMAIL:c_0007}} for trade confirmations on brokerage {{ACCOUNT_NUMBER:a_00014}} and statements for {{ACCOUNT_NUMBER:a_00015}}. Address {{CLIENT_ADDRESS:c_0007}} unchanged. Given the high risk profile and active trading, I flagged for Jamie to be aware of the new contact details. Done."
+  },
+  {
+   "client_id": "c_0292",
+   "text": "09/14/2026 - Spoke with the owner of {{CLIENT_NAME:c_0292}} about personal liquidity for a home purchase. The owner wants to avoid pulling too much from the business and asked how much cash could be moved out of operating account {{ACCOUNT_NUMBER:a_00592}} without affecting working capital. Reviewed recent balances and upcoming payables; suggested a distribution plan over two quarters rather than a lump sum. Also mentioned a possible secured line as an option. Need to confirm covenants with underwriting before advising further. Will email {{CLIENT_EMAIL:c_0292}} with options this week."
+  },
+  {
+   "client_id": "c_0022",
+   "text": "08/27/2026 - Annual portfolio review with {{CLIENT_NAME:c_0022}}. Brokerage account {{ACCOUNT_NUMBER:a_00049}} returned about 6.4% over the trailing twelve months, slightly behind benchmark due to the conservative tilt. Client remains low risk and is satisfied with the allocation. We discussed rebalancing back to target, harvesting a few small losses, and keeping a cash reserve for planned expenses. No change to objectives. Reviewed contact details; {{CLIENT_EMAIL:c_0022}} is current and the review summary will go there. Next meeting set for August 2027 unless circumstances change."
+  },
+  {
+   "client_id": "c_0160",
+   "text": "09/11/2026 - {{CLIENT_NAME:c_0160}} contacted me to change their phone number to {{CLIENT_PHONE:c_0160}}. Verified identity using security questions, then updated ClientHub and the alert settings for checking {{ACCOUNT_NUMBER:a_00334}}. Client confirmed email {{CLIENT_EMAIL:c_0160}} and mailing address {{CLIENT_ADDRESS:c_0160}} are unchanged. Sent a confirmation notice to the email on file. Low risk relationship, no other requests or concerns."
+  }
+ ]
+}

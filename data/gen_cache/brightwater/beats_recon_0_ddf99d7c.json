@@ -1,0 +1,19 @@
+{
+ "items": [
+  {
+   "beat_id": "re_doc",
+   "title": "ShareRecon scripts - operator notes",
+   "text": "ShareRecon scripts - operator notes\nOwner: Hector Salas, Systems Engineer (IT)\nLast updated: Tue 2026-07-14\n\nPurpose\nShareRecon is the set of nightly scripts that reconcile share and loan balances from CoreBanking against the general ledger. It is a legacy system. The scripts are shell plus Python, and they run on the IT batch host. Their output is the morning exception report that Operations works from. These notes are for whoever is on call when it breaks.\n\nSchedule\nThe CoreBanking vendor drops the end-of-day extract files to our SFTP landing folder. The usual arrival time is between 1:15 and 1:45 AM ET. A cron job on the batch host kicks off ShareRecon at 2:30 AM ET. A normal run takes 20-35 minutes.\n\nThe exception report is emailed to Operations (Rita Solano, Larry Bernard) by about 3:15 AM. A copy is written to the recon share folder. On month-end nights the run can take close to an hour because of the interest accrual postings.\n\nInputs\n1. CoreBanking share trial balance extract (daily, fixed-width)\n2. CoreBanking loan trial balance extract (daily, fixed-width)\n3. GL posting file from CoreBanking for the business date\n4. Suspense and clearing account mapping table (maintained by Operations, stored in the recon config folder)\n\nAll three extracts must carry the same business date in the header record. The script checks this and should abort if the dates don't match. In practice it only logs a warning.\n\nKnown failure modes\nLate extract. This is the most common failure. If the vendor files land after 2:30, the cron job runs against the previous night's files, or against partial files. The result is a batch of false GL differences, usually 4-10 lines in the share suspense and dividend payable accounts.\n\nMapping table drift. When Operations adds a new GL account and the mapping table isn't updated, the new account shows up as an unmatched difference every night until someone fixes the table.\n\nACH and card settlement timing. Items that post to clearing accounts after the CoreBanking cutoff show up as differences. They self-clear the next day, so check the clearing account aging before escalating.\n\nDisk space. The batch host log volume fills up roughly every quarter. Check the free space if the job exits with no report.\n\nRe-run steps\n1. Confirm all three extract files are in the landing folder with the correct business date in the header.\n2. Move the bad output to the recon archive folder and add an _invalid suffix.\n3. Run the manual wrapper script from the ShareRecon directory with the business date argument.\n4. Compare the new exception count to the original run. Note both counts in the IT ticket.\n5. Email the corrected report to Operations and reply in the #it thread if one exists.\n\nIf the differences remain after a clean re-run, treat them as real. Hand them to Operations for investigation.\n\nOpen items\nWe want the script to hard-fail on a date mismatch instead of warning, and to poll for file arrival instead of relying on a fixed cron time. Neither is scheduled yet."
+  },
+  {
+   "beat_id": "re_slack_1",
+   "title": "",
+   "text": "Morning, ShareRecon flagged 6 GL differences overnight, mostly in share suspense and dividend payable. Larry and I can't tie them to anything we posted yesterday. Is it the scripts again @Hector Salas, or should we start digging?"
+  },
+  {
+   "beat_id": "re_slack_2",
+   "title": "",
+   "text": "Scripts, not you. The CoreBanking extract landed around 2:50 last night, so the 2:30 cron ran against the prior day's files and threw those 6 false differences. I patched the cron to start at 3:15 and wait for the file before it runs, then re-ran ShareRecon manually and it came back clean with 0 exceptions. The corrected report should be in your inbox now, and I'll log it on the ticket."
+  }
+ ]
+}

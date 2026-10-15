@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Credit committee is tomorrow at 10. Need packages for {{CLIENT_NAME:c_0203}}, {{CLIENT_NAME:c_0213}} and the two commercial renewals in the shared folder by 5 today so I can read them tonight."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Got it. {{CLIENT_NAME:c_0213}} is basically done, just waiting on an updated pay stub. I'll have the memo drafted by 4."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 7,
+   "reply_to": -1,
+   "text": "Quick heads up: I refreshed the spreading for {{CLIENT_NAME:c_0246}}. DSCR came in at 1.62x, up from 1.48x last year. Revenue is up and the term loan has amortized down nicely."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 11,
+   "reply_to": 2,
+   "text": "Nice. Did you normalize the owner distributions? Last year's number was dragged down by that one-time special distribution."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 14,
+   "reply_to": 3,
+   "text": "Yes, stripped out and footnoted on the spread tab. Even with it left in, DSCR is 1.41x, so still above covenant."
+  },
+  {
+   "author_id": "e_032",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "For {{CLIENT_NAME:c_0203}}, committee is going to ask about the debt-to-income. It's at 41% with the new payment. Client has been with us since last October and the checking account shows steady direct deposit. Any concerns on exceptions?"
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 27,
+   "reply_to": 5,
+   "text": "41% is inside policy for medium risk, but I'd flag it as upper end. I'd rather present it as a clean approval with a note on deposit history than call it an exception."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "Agree. Lynn, put the 6 months of deposit activity from {{ACCOUNT_NUMBER:a_00422}} in an exhibit. Committee likes seeing the cash flow, not just the ratio."
+  },
+  {
+   "author_id": "e_032",
+   "minutes_after_start": 35,
+   "reply_to": 7,
+   "text": "Will do, pulling it now."
+  },
+  {
+   "author_id": "e_034",
+   "minutes_after_start": 48,
+   "reply_to": -1,
+   "text": "Closing side question: if {{CLIENT_NAME:c_0213}} gets approved tomorrow, can we close early next week? I need the final conditions list so I can order the title and insurance docs."
+  },
+  {
+   "author_id": "e_035",
+   "minutes_after_start": 52,
+   "reply_to": 9,
+   "text": "Only two conditions: verification of employment and the pay stub. I'll send you the list as soon as the memo is final. Next Tuesday should work."
+  },
+  {
+   "author_id": "e_029",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Reminder for the commercial files: I want the latest financials and covenant compliance certificate for {{CLIENT_NAME:c_0197}} in the package. Tammy is out tomorrow so someone needs to cover the presentation."
+  },
+  {
+   "author_id": "e_030",
+   "minutes_after_start": 79,
+   "reply_to": 11,
+   "text": "I can present {{CLIENT_NAME:c_0197}}. The compliance cert came in this morning, and I'll tie out the borrowing base with Brandi before 5."
+  },
+  {
+   "author_id": "e_036",
+   "minutes_after_start": 83,
+   "reply_to": 12,
+   "text": "Sounds good, Joshua. I'll send you my tie-out in the next hour so you have time to review."
+  }
+ ]
+}

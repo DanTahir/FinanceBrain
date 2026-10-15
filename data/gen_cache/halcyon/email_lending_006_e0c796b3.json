@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_030",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Underwriting exception request - DTI over policy cap on c_0180 refinance",
+   "body": "Hi Brian,\n\nI'm requesting an exception approval on the refinance for {{CLIENT_NAME:c_0180}}. The debt-to-income ratio is coming in at 47% against our 43% policy cap. Our rationale: the client has been with us since 2018, has a clean repayment history, and holds roughly $310K in liquid reserves, which is about 14 months of post-close payments. Jasmine reran the cash flow analysis and the variable income looks stable over the trailing 24 months.\n\nMitigants I'd propose: cap the LTV at 70%, require autopay from {{ACCOUNT_NUMBER:a_00373}}, and add a 12-month reserve covenant. Because the client is rated high risk on our internal scale, I've copied Owen so Risk can weigh in before you sign off.\n\nThe rate lock expires on 2026-07-21, so I'd appreciate a decision by Friday if possible.\n\nThanks,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_035",
+   "to_ids": [
+    "e_029",
+    "e_038",
+    "e_031"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "HELOC rate change effective 2026-08-03 - what we tell borrowers",
+   "body": "Team,\n\nTreasury confirmed this morning that the HELOC margin is moving from prime + 0.50% to prime + 0.75% for new draws, effective Monday 2026-08-03. Existing lines keep their current margin through the next annual review. Introductory-rate promotions already quoted will be honored if the application is dated before the 3rd.\n\nTwo action items. First, I'll update the disclosure templates in LoanOrigination and send the revised rate-change notice to Marcus for a compliance read before anything goes to borrowers. Second, please flag any in-flight applications that won't fund by the 31st so we can set expectations early. {{CLIENT_NAME:c_0125}} is one of mine and will be affected, so I'll call that client directly once the notice is approved.\n\nHappy to jump on a quick call Monday if you have questions.\n\nBest,\nHeidi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_033",
+   "to_ids": [
+    "e_029",
+    "e_030"
+   ],
+   "cc_ids": [
+    "e_056",
+    "e_063"
+   ],
+   "subject": "Covenant breach - commercial term loan, DSCR below 1.20x at Q2 test",
+   "body": "Brian, Joshua,\n\nFlagging a covenant breach on one of our commercial term loans. The borrower's Q2 compliance certificate, received yesterday, shows a debt service coverage ratio of 1.08x against the 1.20x minimum. Driver is a roughly 18% drop in EBITDA tied to delayed customer collections and higher input costs. Leverage is still within the 3.5x limit.\n\nThe breach is technical for now: no missed payments, and the borrower has stayed current on all scheduled debt service. My recommendation is to issue a reservation of rights letter this week, request a revised 12-month forecast, and decide between a waiver with a fee and a covenant reset after we've seen the numbers. I've copied Owen so Risk can review the rating impact, and Ravi in case a payment hold becomes relevant.\n\nI'll circulate the full spread and variance analysis by Thursday.\n\nThanks,\nJasmine",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_037",
+   "to_ids": [
+    "e_029",
+    "e_034"
+   ],
+   "cc_ids": [
+    "e_035"
+   ],
+   "subject": "Appraisal delays - impact on September closings",
+   "body": "Hi Brian and Brandon,\n\nWe are seeing appraisal turnaround stretch from about 7 business days to 15 or more across most of our panel AMCs. Right now, 11 files in underwriting are waiting on appraisals, and 4 of them have closing dates before 2026-09-30. The vendors cite appraiser shortages and a surge in refinance volume.\n\nWhat I'd suggest: (1) escalate the four time-sensitive files with the AMC account managers, (2) approve desktop appraisals where LTV is under 65% and the policy allows, and (3) offer borrowers rate lock extensions rather than letting locks lapse. Brandon, please hold off on scheduling closers for those four until we have a firm report date. Heidi, please keep your borrowers posted, including the one on {{ACCOUNT_NUMBER:a_00265}}.\n\nI'll send an updated tracker each morning this week.\n\nThanks,\nTammy",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_038",
+   "to_ids": [
+    "e_029",
+    "e_001"
+   ],
+   "cc_ids": [
+    "e_030",
+    "e_031",
+    "e_032"
+   ],
+   "subject": "Lending pipeline report - week ending 2026-09-18",
+   "body": "Hi Brian,\n\nAttached below is the weekly pipeline summary for the week ending 2026-09-18.\n\nApplications in process: 64, up from 58 last week. Total volume: $142M. In underwriting: 23 files ($51M). Conditionally approved: 17 files ($39M). Scheduled to close in the next 30 days: 12 files ($28M), with 4 at risk because of appraisal delays.\n\nCommercial pipeline holds steady at $62M, led by two real estate bridge loans in due diligence. Residential and HELOC volume is up 9% week over week, helped by the pricing change in August. Average days from application to approval is 19, versus our 16 day target.\n\nMain risks: appraisal turnaround and a backlog of KYC re-reviews. I'm copying Catherine as she asked for a view of Q3 production ahead of the board meeting. Let me know if you want any cuts by relationship manager.\n\nRegards,\nCassandra",
+   "reply_to_previous": false
+  }
+ ]
+}

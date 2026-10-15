@@ -1,0 +1,64 @@
+{
+ "messages": [
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. Quick check: for address changes requested over the phone, are we still requiring MFA verification through MemberSSO before we update anything in CoreBanking? Got one in the queue already."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Yes, still required. Verify with the MFA push or the one-time code, and if they can't pass that, they need to come in with ID or use the secure message in online banking. No exceptions on phone-only."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 7,
+   "reply_to": -1,
+   "text": "Heads up, {{CLIENT_NAME:c_0028}} called asking to change their mailing address on both the share savings and checking. I'm handling since I'm their RM. Will confirm via MFA first."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Question from the teller line: a member walked up with a utility bill as proof of a new address. Is that enough or do we also need a photo ID with the new address on it?"
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Photo ID on file plus a recent utility bill or lease is fine. The ID doesn't have to show the new address. Just scan the proof into the member record and note it in MemberCRM."
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 17,
+   "reply_to": 4,
+   "text": "Perfect, thanks Zachary. Processing it now."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 34,
+   "reply_to": 2,
+   "text": "Done on {{CLIENT_NAME:c_0028}}. Updated the address at the member level so it applies to {{ACCOUNT_NUMBER:a_00061}} and {{ACCOUNT_NUMBER:a_00062}}. Also sent the confirmation notice to the old address like we do for every change."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "Another one: {{CLIENT_NAME:c_0058}} emailed from {{CLIENT_EMAIL:c_0058}} asking to change their address. Email alone isn't enough, right? I'm going to call back on the number on file, {{CLIENT_PHONE:c_0058}}, and verify there."
+  },
+  {
+   "author_id": "e_004",
+   "minutes_after_start": 55,
+   "reply_to": 7,
+   "text": "Right, email alone is not enough. Calling the number on file and passing MFA is good. Loop in Paul since he's their RM and can add a note on {{ACCOUNT_NUMBER:a_00131}} afterward."
+  },
+  {
+   "author_id": "e_009",
+   "minutes_after_start": 71,
+   "reply_to": 8,
+   "text": "Will do. Verified on the callback, address updated, and I tagged Paul in MemberCRM. Thanks all."
+  }
+ ]
+}

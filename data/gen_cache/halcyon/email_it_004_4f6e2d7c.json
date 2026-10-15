@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_077",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_078",
+    "e_056"
+   ],
+   "subject": "Vulnerability scan results - week of 2026-07-20",
+   "body": "Hi Sam,\n\nThe weekly authenticated scan finished overnight. Summary: 0 criticals, 4 highs, 17 mediums across the Technology-owned estate. Two of the highs are on the PricingSvc app tier, where an outdated JSON parsing library shows up in the container base image. The third is an unpatched OpenSSL build on a PositionStore replica host, and the fourth is a TLS config finding on an internal load balancer.\n\nNone of these are internet-facing, and compensating controls (network segmentation, no external ingress) are in place. Still, PricingSvc feeds RiskEngine, OMS and PortfolioMgr, so I would rather patch it before the August quarter-end load. Proposed plan: rebuild the PricingSvc image Thursday night in the standard change window, roll PositionStore replicas one at a time Friday, and defer the mediums to the August patch cycle.\n\nOwen, copying you since RiskEngine will see a brief restart of upstream pricing connections during the rollout.\n\nFull report is in the security share. Let me know if you want to adjust the timing.\n\nThanks,\nOmar",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_072",
+   "to_ids": [
+    "e_074",
+    "e_075",
+    "e_076",
+    "e_079",
+    "e_081"
+   ],
+   "cc_ids": [
+    "e_078"
+   ],
+   "subject": "Q3 access recertification - please complete by Aug 28",
+   "body": "Team,\n\nThe Q3 access recertification campaign opens today and runs through Friday, August 28. Each of you is a reviewer for a set of entitlements in your area, and you will also have to attest to your own access.\n\nWhat I need from you:\n1. Review every service account and human entitlement assigned to you in the recert tool. Revoke anything that is not required for current work.\n2. Pay special attention to production access on PositionStore, PricingSvc, and DocVault. Admin rights should be limited to people on the on-call rotation.\n3. Flag any AuthSSO group that has no clear owner so we can assign one or retire it.\n4. Leave a short justification for anything you keep with elevated privileges.\n\nLast quarter we had a handful of stale accounts from engineers who had moved teams, and Compliance noted it in their review. I would like a clean result this time. Barbara will pull a progress report at the halfway point and I will chase anything outstanding.\n\nQuestions can come straight to me.\n\nThanks,\nSam",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_081",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_078"
+   ],
+   "subject": "Access recertification - status and open items as of Sep 1",
+   "body": "Hi Sam,\n\nAn update on the Q3 recertification after the August 28 deadline. We are at 94% of entitlements attested. Remaining items:\n\n- 11 stale service accounts on the DataLake ingestion jobs, owners unclear. I suggest disabling them for two weeks before deleting.\n- Three elevated production roles on PositionStore that were granted for the July migration and never removed. I have asked the owners to confirm, and will revoke them tomorrow if nobody objects.\n- Two legacy AuthSSO groups with no members of record. Marked for retirement.\n\nMarcus, copying you so Compliance has the current numbers ahead of your review. We will send the final evidence package, including revocation tickets, by Friday.\n\nOne process note: the recert tool does not show when an entitlement was last used. Michael could pull login activity from DataLake to help next quarter, which would make the reviews faster and more defensible.\n\nThanks,\nAngelica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_080",
+   "to_ids": [
+    "e_072",
+    "e_077"
+   ],
+   "cc_ids": [
+    "e_029"
+   ],
+   "subject": "Cloud cost review - August spend and DataLake storage",
+   "body": "Hi Sam, Omar,\n\nI went through the August cloud bill ahead of tomorrow's cost review. Total spend came in at roughly $412K, up 9% from July and about $28K over budget. Main drivers:\n\n- DataLake storage and query: +$19K. Raw tick archives are still on the hot tier, and several ad hoc queries scanned full partitions. I can move anything older than 90 days to the infrequent-access tier and add partition filters to the shared notebooks, which I estimate saves $11K per month.\n- PricingSvc compute: +$6K from the larger node pool we left up after the July patch rebuild. Omar, can we scale it back?\n- Non-prod environments running overnight and on weekends, roughly $7K. An auto-shutdown schedule would cover most of that.\n\nBrian, copying you because CreditScoring reads from DataLake and the lifecycle change affects the retention of its training snapshots. I will keep those on the hot tier unless you tell me otherwise.\n\nI will bring a one-page breakdown tomorrow.\n\nThanks,\nMichael",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_078",
+   "to_ids": [
+    "e_072",
+    "e_080"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "Cloud cost review - Q3 results and Q4 savings plan",
+   "body": "Hi Sam, Michael,\n\nHere is the Q3 wrap-up for the October cost review. September closed at $389K, back under budget by about $14K. The lifecycle policy on DataLake and the non-prod auto-shutdown delivered most of the savings, roughly $18K per month combined. The PricingSvc node pool is back to its baseline size.\n\nOpen items for Q4:\n1. Reserved instance coverage for PositionStore and PricingSvc is only about 55%. Moving it to 75% should save roughly $9K per month, but it commits us for a year. I would like your sign-off, Sam.\n2. Priya leaves on October 9, and a few of her sandbox environments are still running. I am inventorying them and will tag owners or decommission.\n3. Log retention in the observability stack is longer than we need. Cutting it from 90 to 45 days saves about $4K.\n\nRavi, copying you because Operations runs a few GLCore reporting jobs in the same account and I want to confirm nothing there depends on the sandboxes.\n\nThanks,\nBarbara",
+   "reply_to_previous": false
+  }
+ ]
+}

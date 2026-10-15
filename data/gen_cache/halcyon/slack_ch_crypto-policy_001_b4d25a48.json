@@ -1,0 +1,82 @@
+{
+ "messages": [
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Morning all. While onboarding is paused (board hold runs until 10/12), I'd like us to use the time to benchmark what peer firms are doing on digital asset clients. Anyone heard anything concrete from counterparts or at industry events?"
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 6,
+   "reply_to": 0,
+   "text": "Had coffee with a contact at a regional wealth shop last week. They're onboarding digital-asset clients but only through a qualified custodian, nothing held in-house. Say it keeps the AML and safeguarding burden much lighter."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 14,
+   "reply_to": 1,
+   "text": "That tracks with what I've seen. Several firms offer exposure via spot ETFs and trusts inside managed accounts rather than direct holdings. From a portfolio construction view it's way easier to rebalance in PortfolioMgr too."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "AML angle: the peers I know of that allow direct crypto clients require on-chain source-of-funds tracing with a third-party analytics vendor, plus enhanced due diligence on every wallet address. Most also cap onboarding to a small tiered pilot first."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 31,
+   "reply_to": 3,
+   "text": "Nadia, a tiered pilot is interesting. Do you know how they tier? By asset size, by client type, or by which coins are permitted?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 40,
+   "reply_to": 4,
+   "text": "Mix of all three, from what I hear. Usually an approved-asset list limited to the large liquid names, a minimum relationship size, and no privacy coins or mixers exposure. Exceptions go to a committee. I'd want us to mirror the exceptions committee piece at minimum."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 52,
+   "reply_to": -1,
+   "text": "One more data point: the same contact said their biggest pain was client expectations. Clients want fast onboarding, but screening and EDD add weeks. They set expectations up front with a written timeline. Worth copying."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 66,
+   "reply_to": 6,
+   "text": "Agree. Also a few peers apparently disclaim any custody or staking advice in the IPS language and keep digital assets as a separately reported sleeve. Cleaner for reporting and for suitability reviews."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 85,
+   "reply_to": -1,
+   "text": "This is helpful. Can we put together a one-page peer comparison covering custody model, product wrapper, AML controls, and pilot structure? I'd like a draft before the working group meets so we have something ready well ahead of the 10/12 board checkpoint."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 97,
+   "reply_to": 8,
+   "text": "I'll take the AML and sanctions controls column. I'll also flag where peer practice looks lighter than what we'd be comfortable with, so we don't anchor on the weakest benchmark."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 120,
+   "reply_to": 8,
+   "text": "I'll cover product wrapper and portfolio side, ETFs vs direct vs custodian-held. Will note rebalancing and reporting implications."
+  },
+  {
+   "author_id": "e_018",
+   "minutes_after_start": 141,
+   "reply_to": 8,
+   "text": "I'll take custody model and client experience, including the onboarding timeline point. I'll ping a couple more contacts, informally, no confidential info shared either direction."
+  },
+  {
+   "author_id": "e_017",
+   "minutes_after_start": 165,
+   "reply_to": -1,
+   "text": "Perfect, thanks everyone. Let's aim to drop drafts in this channel by end of next week and I'll consolidate. Reminder that the pause stays in force, so no client commitments or timelines until the board decides."
+  }
+ ]
+}

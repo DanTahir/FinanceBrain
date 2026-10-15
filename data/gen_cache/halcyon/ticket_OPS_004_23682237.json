@@ -1,0 +1,98 @@
+{
+ "tickets": [
+  {
+   "title": "Outbound USD wire to Brown and Sons rejected by intermediary bank - repair needed",
+   "description": "Outbound wire of $184,500 to Brown and Sons (cp_005) for the Q2 equipment settlement was rejected by the intermediary bank this morning with a missing-field error on the beneficiary account line. The original payment was released from PaymentsGateway on 6/30 after FraudScore cleared it. Funds were returned to the suspense ledger in GLCore and have not yet been credited back to the originating account. Need to confirm the stored beneficiary account value ({{CP_ACCOUNT:cp_005}}) against the signed instruction, repair the message, and re-release same-day before the Fedwire cutoff if possible. Please also note the original value date for the counterparty.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_068",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_068",
+     "text": "Pulled the original MT103 equivalent. The account line was truncated at ingestion, so the beneficiary field lost its trailing characters. Compared to the signed instruction on file and corrected it. Re-releasing now with a second-approver check from Greg."
+    },
+    {
+     "author_id": "e_067",
+     "text": "Approved the repaired message. Fedwire confirmation received at 2:41 PM ET. Funds credited to the counterparty per their bank's acknowledgement."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Good catch. Please open a follow-up with Technology on the truncation in the gateway field mapping so this doesn't recur. Closing this one out."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair: payment stuck in WireRoom queue after OFAC secondary review",
+   "description": "A $62,300 wire for the client's cash management account ({{ACCOUNT_NUMBER:a_00291}}) for {{CLIENT_NAME:c_0139}} has been sitting in the WireRoom repair queue since yesterday afternoon. It was held for a secondary SanctionsScreen review that has since been cleared by Compliance, but the status in PaymentsGateway never moved from pending-repair to ready-to-release. The client's RM, Sandra Stone, has asked for an update twice. Need someone to manually reset the status, confirm the cleared hit disposition is attached, and release. Please confirm the release time back to the ticket so the RM can inform the client.",
+   "reporter_id": "e_070",
+   "assignee_id": "e_067",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_067",
+     "text": "Confirmed the screening hit was disposed as false positive by Compliance yesterday at 4:10 PM. The status flag did not sync back. I reset it manually and released the wire at 10:22 AM."
+    },
+    {
+     "author_id": "e_070",
+     "text": "Thanks Greg. I'll let Sandra know it's out. Leaving this resolved for now until the client confirms receipt."
+    }
+   ]
+  },
+  {
+   "title": "Incorrect beneficiary details on recurring vendor wire template for Brown and Sons",
+   "description": "During the month-end payment review, Payments flagged that the saved recurring wire template for Brown and Sons (cp_005) contains an outdated beneficiary account value ({{CP_ACCOUNT:cp_005}}) and an old bank reference. The counterparty notified us by letter that they moved their operating account in June. Two payments totaling $91,750 are scheduled to go out Monday using this template. Need to hold both, validate the new instructions through a call-back to a known contact on file, update the template, and have a second person verify. No funds have gone to the old account since the notice date per initial review.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_069",
+   "status": "closed",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_069",
+     "text": "Both scheduled payments are on hold. Call-back completed using the contact on file, not the one in the letter, and the new instructions were verbally confirmed."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Reviewed the last 60 days of outbound activity for this counterparty. No payments hit the old account after the notice date. Template updated and verified by me as second approver."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Closing. Please add the call-back step to the vendor change checklist and share it in the next ops meeting."
+    }
+   ]
+  },
+  {
+   "title": "Wire repair: unmatched credit from Brown and Sons not applied in GLCore",
+   "description": "An inbound wire of $48,200 from Brown and Sons (cp_005) arrived on 9/14 but did not auto-match to the expected receivable. The reference field was blank, so the item landed in the unapplied cash account in GLCore. Recon flagged it as an aged break at the start of today's run. Need Wire Room to retrieve the original incoming message, confirm the remitter details against {{CP_ACCOUNT:cp_005}}, and request the missing reference from the sender's bank if required. Once identified, Settlements should apply to the correct invoice. Please keep this on the daily recon agenda until it clears.",
+   "reporter_id": "e_064",
+   "assignee_id": "e_070",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_070",
+     "text": "Retrieved the incoming message. Remitter matches the counterparty, but there is no invoice reference. I've sent a request through the correspondent for the originator to supply it."
+    },
+    {
+     "author_id": "e_066",
+     "text": "Two open receivables for this counterparty are close to the amount, but only one matches exactly at $48,200. I'll hold off on applying until we get written confirmation of the reference."
+    }
+   ]
+  },
+  {
+   "title": "Returned ACH debit on checking account - R01 insufficient funds",
+   "description": "An ACH debit of $2,150 for the loan payment on {{ACCOUNT_NUMBER:a_00492}} was returned by the receiving bank with reason code R01 (insufficient funds). The debit was originated from the checking account {{ACCOUNT_NUMBER:a_00491}} belonging to {{CLIENT_NAME:c_0241}}. The return posted this morning and the loan payment reversed in GLCore. Lending's relationship manager, Brandi Palmer, should be notified so the client can be contacted. Need Payments to confirm whether a re-presentment is allowed under the origination agreement, check the late fee waiver policy, and post the reversal correctly so the loan balance is accurate.",
+   "reporter_id": "e_069",
+   "assignee_id": "e_065",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_065",
+     "text": "Verified the return code and posting. Reversal entry is correct in GLCore. I'm checking whether a second presentment is allowed within the window and will update here before end of day."
+    }
+   ]
+  }
+ ]
+}

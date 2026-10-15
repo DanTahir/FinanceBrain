@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "morning. futures bid after that jobs print setup, but implied moves on the earnings names still look rich. straddles pricing like 8% on a few of the semis"
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "yeah my clients keep asking if they should fade the implied. I'm telling them size down into the print, not get cute with gap risk"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 5,
+   "reply_to": -1,
+   "text": "heads up OMS is a little slow loading the pre-open basket for me. anyone else seeing lag on staging?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 7,
+   "reply_to": 2,
+   "text": "loaded fine on my side about 2 min ago. try a hard refresh, if it sticks ping it-ops"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 10,
+   "reply_to": 3,
+   "text": "refresh fixed it. thx"
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 22,
+   "reply_to": -1,
+   "text": "flow color: real money seller in software post-guide, mostly VWAP slices. buyers are mostly short cover, not real conviction"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 25,
+   "reply_to": 5,
+   "text": "same here. I've got two accounts wanting to buy the dip in that name but only with limits, no market orders in this tape. spreads are ugly at the open"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 31,
+   "reply_to": 6,
+   "text": "agree on limits. book depth is thin until about 9:45. I'd work it with a participation cap, 10% of volume max"
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 58,
+   "reply_to": -1,
+   "text": "TradeBlotter P&L looks off for me on the retail name, showing a stale mark. is PricingSvc lagging again?"
+  },
+  {
+   "author_id": "e_006",
+   "minutes_after_start": 61,
+   "reply_to": 8,
+   "text": "mine shows the right mark. might be a cached view. which desk book are you looking at?"
+  },
+  {
+   "author_id": "e_007",
+   "minutes_after_start": 64,
+   "reply_to": 9,
+   "text": "sales book. just reloaded and it caught up. false alarm"
+  },
+  {
+   "author_id": "e_016",
+   "minutes_after_start": 140,
+   "reply_to": -1,
+   "text": "vol bleeding out into the afternoon, VIX down a point and a half. earnings week premium getting sold off, I expect a quiet close unless something hits after the bell"
+  }
+ ]
+}

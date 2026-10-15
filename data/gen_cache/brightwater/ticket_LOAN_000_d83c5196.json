@@ -1,0 +1,93 @@
+{
+ "tickets": [
+  {
+   "title": "Payoff quote request for auto loan - member planning early payoff",
+   "description": "{{CLIENT_NAME:c_0023}} called Member Services asking for a 10-day payoff quote on the auto loan tied to share savings {{ACCOUNT_NUMBER:a_00049}}. The member plans to refinance elsewhere and wants the per-diem interest figure and written confirmation that there is no prepayment penalty. Please pull the payoff from LoanDesk, verify the figure against CoreBanking, and send the payoff letter with lien release instructions. The member prefers email delivery at {{CLIENT_EMAIL:c_0023}}. Quote should be good through 2026-07-20.",
+   "reporter_id": "e_012",
+   "assignee_id": "e_015",
+   "status": "closed",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_015",
+     "text": "Payoff pulled from LoanDesk and tied out to CoreBanking. Per-diem is correct and there is no prepay penalty on this contract. Letter drafted, good through 7/20."
+    },
+    {
+     "author_id": "e_012",
+     "text": "Thanks Richard. Sent the letter to the member and confirmed receipt by phone. Closing this out."
+    }
+   ]
+  },
+  {
+   "title": "Missing title document on auto loan funded last week",
+   "description": "During post-closing QC, Rita flagged that the original title or lien-perfection evidence for {{CLIENT_NAME:c_0023}}'s used vehicle loan is not in the loan file. The loan funded 2026-08-03 through LoanDesk. The dealer has 30 days to deliver the title package, but our checklist shows neither the title application nor a state confirmation of lien recording. Need to contact the dealer, confirm the lien filing status with the NC DMV, and update the file. Collateral exception should be logged until resolved.",
+   "reporter_id": "e_013",
+   "assignee_id": "e_014",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_014",
+     "text": "Called the dealer's title clerk. They had the application and mailed it to the DMV on 8/6, but never sent us the copy. They are emailing the receipt today."
+    },
+    {
+     "author_id": "e_013",
+     "text": "Received the receipt. Lien is recorded with Brightwater as first lienholder. I attached it to the file and cleared the collateral exception."
+    },
+    {
+     "author_id": "e_014",
+     "text": "Marking resolved. I'll ask the dealer to send the title copy at submission going forward."
+    }
+   ]
+  },
+  {
+   "title": "Title not received from dealer, past 30-day window",
+   "description": "The dealer-delivered title for a vehicle loan to {{CLIENT_NAME:c_0023}} is still outstanding 30 days after funding on 2026-07-30. Our tracking shows two reminders sent to the dealer with no response. Until the title with our lien noted is in hand, the loan sits as a collateral exception and counts against the QC aging report. Please escalate to the dealer's general manager, and if needed ask the member to request a duplicate title through the state. Member contact is {{CLIENT_PHONE:c_0023}}.",
+   "reporter_id": "e_011",
+   "assignee_id": "e_012",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_012",
+     "text": "Escalated to the dealer GM this morning. He says the title was held up at their lender payoff and should arrive by end of week."
+    },
+    {
+     "author_id": "e_011",
+     "text": "Okay. If it is not in by Friday we go the duplicate title route and I'll loop in Compliance on the exception aging."
+    },
+    {
+     "author_id": "e_012",
+     "text": "Title arrived 9/3 with our lien noted. Scanned into the file and exception cleared."
+    }
+   ]
+  },
+  {
+   "title": "Missing title document for vehicle refinance - lien release from prior lender",
+   "description": "The refinance loan for {{CLIENT_NAME:c_0023}} funded 2026-09-22 and paid off the prior lender. We are still missing the title showing our lien, and the prior lender's lien release has not been posted either. Without the release, the state will not issue a new title naming Brightwater. Please contact the prior lender's payoff department to confirm the release was sent, follow up with the DMV, and document each contact in the file. Target is to close the exception before the month-end collateral report.",
+   "reporter_id": "e_015",
+   "assignee_id": "e_014",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_014",
+     "text": "Prior lender confirmed payoff was received 9/24 and says the electronic release went to the DMV. I'm waiting on the state to confirm."
+    },
+    {
+     "author_id": "e_015",
+     "text": "Thanks Martin. I'll keep the exception flagged on the month-end report as pending state processing."
+    }
+   ]
+  },
+  {
+   "title": "Missing title document - collateral exception on new auto loan",
+   "description": "QC found that the title package for a vehicle loan to {{CLIENT_NAME:c_0023}} funded on 2026-10-02 has no title application and no lien documentation in the file. The loan was originated through LoanDesk and closed at a branch. We need to confirm with the member whether they hold the title, obtain the signed application, and submit lien recording to the NC DMV. Mailing address on file is {{CLIENT_ADDRESS:c_0023}}. Please resolve within 10 business days.",
+   "reporter_id": "e_013",
+   "assignee_id": "e_012",
+   "status": "open",
+   "priority": "P2",
+   "comments": []
+  }
+ ]
+}

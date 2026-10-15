@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_017",
+    "e_018"
+   ],
+   "cc_ids": [
+    "e_019"
+   ],
+   "subject": "Exam document request list - NCUA review kickoff",
+   "body": "Hi Monica and Chris,\n\nThe examiner's pre-exam document request arrived this morning, and the response is due back in 10 business days. Here is how I'd like to split it up:\n\nMonica: BSA/AML risk assessment, the last 12 months of BSAWatch alert tuning memos, and the CTR/SAR filing logs.\nChris: SAR decision files, investigation case notes (redacted), and the 314(a) search confirmations.\nI will cover the policy set, board minutes, and training records.\n\nAndre, we will need an export of BSAWatch user access and role assignments, plus the change tickets for the last two rule updates. Since BSAWatch pulls from CoreBanking and ACHHub, please also include confirmation of the feed reconciliation checks.\n\nPlease have drafts to me by Wednesday 8/12 so I can review before we send anything to the examiner. Flag anything you can't locate right away, and don't include any member-identifying details in the working copies. Use case IDs only.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_003",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Reg E dispute timelines - reminder on 10/45 day clocks",
+   "body": "Hi Paul and Rita,\n\nWe saw a few Reg E disputes in last month's sample that were close to missing the 10 business day provisional credit deadline. Quick reminder of the clocks:\n\n- Investigation must be completed within 10 business days of notice, or provisional credit must be issued.\n- If provisional credit is issued, we have up to 45 days to finish the investigation (90 for POS, foreign-initiated, or new accounts).\n- Results must go to the member within 3 business days of completing the investigation.\n\nThe clock starts when the member first tells us, whether by phone, branch, or secure message, not when the dispute form gets logged. For example, on the {{CLIENT_NAME:c_0044}} case the verbal notice was taken on a Friday but the form wasn't entered until Tuesday.\n\nPaul, please remind the floor to log the notice date at first contact. Rita, can Operations confirm CardProcessor and ACHHub exception reports show the original notice date?\n\nMonica will pull a fresh aging report this Friday.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_017",
+   "to_ids": [
+    "e_016"
+   ],
+   "cc_ids": [
+    "e_018"
+   ],
+   "subject": "Exam document request - draft status and gaps",
+   "body": "Hi Wesley,\n\nHere is where we stand on the exam request as of today:\n\nDone: BSA/AML risk assessment (current version), CTR filing log, and alert tuning memos for the past 12 months.\nIn progress: SAR timeliness analysis. I'm validating the 30-day filing dates against the case open dates.\nGap: The training attendance records for two quarters are in an older share drive folder. I've asked Andre's team to restore the folder.\n\nChris has the SAR decision files redacted and tagged by case ID. We noticed that one case file references {{CLIENT_NAME:c_0044}} in a note that looks like a routine inquiry, not a SAR matter, so we pulled it from the exam binder as non-responsive. Let me know if you disagree.\n\nI'll upload everything to the exam folder tonight so you can review by Wednesday EOD.\n\nThanks,\nMonica",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_018",
+   "to_ids": [
+    "e_003",
+    "e_017"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Reg E dispute aging report - two items past day 10",
+   "body": "Hi Paul, Monica,\n\nI ran the Reg E dispute aging report this morning. Two items are past day 10 without documented provisional credit:\n\n1. A debit card dispute tied to {{CARD_NUMBER:a_00099}}, notice received 8/3, no credit posted as of today.\n2. An ACH unauthorized-debit claim, notice received 8/4, still waiting on the originator's response.\n\nFor item 1, the 10 business day date is next Monday, so we have time. Please post provisional credit by Tuesday at the latest if the investigation is not complete, and document the posting date in the case file. For item 2, I'd treat it the same way.\n\nPaul, can someone on your team confirm the member was notified in writing of the provisional credit? That letter is an exam favorite.\n\nI'll rerun this report Tuesday morning.\n\nChris",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_016",
+   "to_ids": [
+    "e_001",
+    "e_003",
+    "e_023"
+   ],
+   "cc_ids": [
+    "e_017",
+    "e_018"
+   ],
+   "subject": "Reg E dispute timelines - summary and process changes",
+   "body": "Hi Gloria, Paul, Rita,\n\nFollowing the last two weeks of aging reports, here is a summary and the changes I'm making effective immediately.\n\nFindings: No missed deadlines, but two disputes came within one business day of the provisional credit cutoff. Root cause was delayed case entry, not delayed investigation.\n\nChanges:\n1. Member Services logs the notice date and time at first contact, in MemberCRM and the dispute case.\n2. Chris runs the aging report every Monday and Thursday, and anything at day 7 gets escalated to Paul and Rita.\n3. Provisional credit letters use the approved template, and a copy goes into the case file. This includes the case involving {{CLIENT_NAME:c_0044}}.\n4. Operations confirms that ACHHub and CardProcessor exception queues are worked daily.\n\nGloria, no action needed from you, just keeping you in the loop given examiner interest. I'll report results at the monthly risk meeting.\n\nThanks,\nWesley",
+   "reply_to_previous": false
+  }
+ ]
+}

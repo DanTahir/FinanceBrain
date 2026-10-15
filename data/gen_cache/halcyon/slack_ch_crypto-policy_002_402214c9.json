@@ -1,0 +1,118 @@
+{
+ "messages": [
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Before the pause kicks in tomorrow, can we get clear on what it means for clients who already hold digital assets with us? The board memo covers new onboarding only, as I read it."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Same read. Pause is on onboarding new digital-asset clients, 8/22 through 10/12. Existing clients are not being offboarded and their holdings stay as they are."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 7,
+   "reply_to": 0,
+   "text": "From the PM side, I need to know if rebalancing and additional contributions are still fine for existing crypto-holding accounts. I've got a few reviews on the calendar next week."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 11,
+   "reply_to": 2,
+   "text": "Rebalancing and normal activity continue. Where I'd draw a line is anything that looks like a new relationship, e.g. an existing client adding a new entity or a new account type. Those should come to this group first."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Agree. From AML, a new entity under an existing client would go through full CDD again anyway, so it's effectively onboarding. I'd treat it as paused."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 19,
+   "reply_to": 4,
+   "text": "That's fair. What about referrals, where an existing client introduces a family member who wants crypto exposure? That's the one I expect to come up."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 24,
+   "reply_to": 5,
+   "text": "Paused. A referral is a new client. We can log the interest and revisit after 10/12, but no onboarding steps before then."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 28,
+   "reply_to": -1,
+   "text": "On monitoring: existing digital-asset clients stay under AMLMonitor at the current thresholds. I don't want anyone assuming the pause lowers our surveillance. If anything, I'm going to review the alert tuning for that segment during the window."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 33,
+   "reply_to": 7,
+   "text": "Good use of the quiet period. Will that need any engineering support?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 38,
+   "reply_to": 8,
+   "text": "Probably a little data pull from DataLake, since AMLMonitor reads from it. I'll raise a ticket with Technology next week once I've scoped it."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 44,
+   "reply_to": -1,
+   "text": "Question on periodic KYC refreshes for the existing crypto book. Do those carry on as scheduled, or does the pause slow them down?"
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 49,
+   "reply_to": 10,
+   "text": "They carry on as scheduled. Refreshes of existing clients aren't onboarding. KYCPipeline moves to Compliance ownership on 10/6, so there may be a small handoff wobble, but nothing is being stopped."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 55,
+   "reply_to": 11,
+   "text": "Please flag early if the 10/6 handover threatens any refresh deadlines. I'd rather hear about it in September than in October."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 61,
+   "reply_to": 12,
+   "text": "Will do. I'll put a refresh calendar together for the window and share it here."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 70,
+   "reply_to": -1,
+   "text": "One more: if an existing client wants to transfer in more digital assets from an outside custodian, is that okay? Same account, same client."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 78,
+   "reply_to": 14,
+   "text": "Yes, same account and same client is existing activity. It still goes through the usual source-of-funds checks and the wire and payments controls. No special exception either way."
+  },
+  {
+   "author_id": "e_048",
+   "minutes_after_start": 84,
+   "reply_to": 15,
+   "text": "Agreed. I'd just ask that you note any large inbound transfers in the account file so we can cross-check against FraudScore and AMLMonitor hits."
+  },
+  {
+   "author_id": "e_020",
+   "minutes_after_start": 91,
+   "reply_to": 16,
+   "text": "Makes sense, I'll add that to my review checklist. Thanks both, this is clearer than the memo."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 97,
+   "reply_to": -1,
+   "text": "Summary for the channel: pause covers new digital-asset onboarding only, 8/22 to 10/12. Existing clients: business as usual, monitoring unchanged, refreshes on schedule. New entities and referrals come to this group. Shout if I missed anything."
+  }
+ ]
+}

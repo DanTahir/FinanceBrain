@@ -1,0 +1,76 @@
+{
+ "messages": [
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Pulled a PortfolioMgr screen for tax-loss candidates ahead of Q3 reviews. Quite a few lots underwater in the tech and REIT sleeves. Want me to post a summary or is it too early in the year to bother?"
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Not too early. Harvesting in July/Aug gives us room to avoid wash-sale headaches before year-end. Which accounts are you seeing the biggest unrealized losses in?"
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 9,
+   "reply_to": 2,
+   "text": "Biggest one is {{CLIENT_NAME:c_0187}}'s brokerage, {{ACCOUNT_NUMBER:a_00387}}. A couple of lots in a broad REIT ETF bought last winter, roughly $18K unrealized loss combined. Low risk profile so a like-for-like swap should work."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 14,
+   "reply_to": 2,
+   "text": "That's my client. I'm fine with the harvest, but I want to check for dividend reinvestment in the cash_management side first. If anything auto-buys the same ETF we trip wash sale."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "Good catch. DRIP is the usual culprit. Also check whether the spouse or any IRA holds the same fund, since that counts too."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 23,
+   "reply_to": 4,
+   "text": "Checked ClientHub, no linked IRA for them on our books. DRIP is off on {{ACCOUNT_NUMBER:a_00387}}. I'll note in the file that outside accounts are unknown and need the client to confirm."
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Replacement idea for the REIT sleeve: swap into a different index provider's real estate fund, similar exposure but not substantially identical. I'll draft the rationale for the file and loop in the portfolio manager."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 40,
+   "reply_to": 6,
+   "text": "Make sure the rationale says we're not giving tax advice, just flagging. Client should confirm with their CPA. Also gains offset: do they have realized gains this year to use the losses against?"
+  },
+  {
+   "author_id": "e_021",
+   "minutes_after_start": 52,
+   "reply_to": 7,
+   "text": "Yes, they sold a concentrated position in March, so there's a meaningful gain to offset. I'll call {{CLIENT_NAME:c_0187}} tomorrow morning to walk through it before we trade anything."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 65,
+   "reply_to": -1,
+   "text": "Also flagging {{CLIENT_NAME:c_0088}}, {{ACCOUNT_NUMBER:a_00187}}. Smaller loss, around $4K, probably not worth the trading cost and drift. Michael Castillo is the RM so I'll just pass it along to him as FYI."
+  },
+  {
+   "author_id": "e_025",
+   "minutes_after_start": 71,
+   "reply_to": 9,
+   "text": "Agree on skipping unless there are gains to offset. Let Michael decide. Put it in a short note instead of a full workup."
+  },
+  {
+   "author_id": "e_028",
+   "minutes_after_start": 78,
+   "reply_to": -1,
+   "text": "Will do. I'll save the full screen to the shared folder and tag both accounts in ClientHub so the notes are tracked. Posting the link here once it's up."
+  }
+ ]
+}

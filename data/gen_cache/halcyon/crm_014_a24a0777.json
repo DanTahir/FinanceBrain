@@ -1,0 +1,24 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0238",
+   "text": "Call with {{CLIENT_NAME:c_0238}} on 7/21 re: liquidity for a home purchase. Client is under contract and expects to close in roughly 45 days. Needs about $85,000 available for down payment and closing costs, currently sitting in checking {{ACCOUNT_NUMBER:a_00487}}. Discussed keeping funds liquid rather than moving into anything with term risk, and the client asked about a short-term bridge option if the sale of the current property slips. I will send a summary by email to {{CLIENT_EMAIL:c_0238}} and loop in underwriting for a preliminary view. Follow-up call next Tuesday. Risk profile unchanged at medium."
+  },
+  {
+   "client_id": "c_0140",
+   "text": "{{CLIENT_NAME:c_0140}} called on 9/1 to update the contact phone number on file. Verified identity through the standard callback questions before making any changes. New number recorded as {{CLIENT_PHONE:c_0140}} and applied to the relationship profile. Confirmed the mailing address {{CLIENT_ADDRESS:c_0140}} and email {{CLIENT_EMAIL:c_0140}} are unchanged. Client asked that the change also apply to checking {{ACCOUNT_NUMBER:a_00292}} and the loan {{ACCOUNT_NUMBER:a_00293}}; both updated. Sent written confirmation to the email on file. No other servicing requests. Next loan review stays on schedule."
+  },
+  {
+   "client_id": "c_0021",
+   "text": "Met with {{CLIENT_NAME:c_0021}} on 7/28 to discuss changing beneficiary designations following a recent life event. Client wants the updated designations applied to brokerage {{ACCOUNT_NUMBER:a_00047}} and cash management {{ACCOUNT_NUMBER:a_00048}}. Walked through the transfer-on-death forms and explained the client should review with their own estate attorney. Forms were sent to {{CLIENT_EMAIL:c_0021}} for e-signature; will confirm receipt and submit to operations once signed. Investment objectives and low risk tolerance unchanged. Portfolio allocation was not discussed in detail. Follow up in two weeks if forms are outstanding."
+  },
+  {
+   "client_id": "c_0240",
+   "text": "Intro follow-up call with {{CLIENT_NAME:c_0240}} on 7/6. Client is planning an expansion of their business and asked what financing options are available alongside the brokerage relationship {{ACCOUNT_NUMBER:a_00490}}. Discussed the possibility of a securities-based line versus a traditional commercial loan, and the tradeoffs on collateral and rate. Client is at medium risk tolerance and does not want to sell core holdings. I will gather a rough funding range and timeline and set up a conversation with our lending team. Reached the client at {{CLIENT_PHONE:c_0240}}. Escalating to the senior advisor for review before next steps."
+  },
+  {
+   "client_id": "c_0126",
+   "text": "Spoke with {{CLIENT_NAME:c_0126}} on 8/18. Client mentioned they are referring a business contact who is looking at equipment financing and a new operating account. They were happy with servicing on the existing loan {{ACCOUNT_NUMBER:a_00268}} and the operating account {{ACCOUNT_NUMBER:a_00267}}. I thanked them and asked them to have the referral reach out directly; I will send a short intro note to {{CLIENT_EMAIL:c_0126}} with my contact details to forward. Referral will go through standard KYC and credit review, no preferential treatment. Logged the referral source for tracking. Relationship remains low risk with no changes."
+  }
+ ]
+}

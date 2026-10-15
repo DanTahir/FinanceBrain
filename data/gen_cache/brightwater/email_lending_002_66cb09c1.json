@@ -1,0 +1,70 @@
+{
+ "emails": [
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_013",
+    "e_012"
+   ],
+   "subject": "July delinquency report - 30+ day bucket summary",
+   "body": "Hi Kara,\n\nThe July month-end delinquency report is ready for your review. Headline numbers: 30+ day delinquency on the consumer and auto portfolio came in at 1.9%, up from 1.7% in June. Most of the movement is in the 30-59 day bucket on indirect auto, which makes sense given the seasonal pattern.\n\nTwo accounts I want to flag for follow-up. {{CLIENT_NAME:c_0005}} (loan {{ACCOUNT_NUMBER:a_00009}}) rolled into the 30-day bucket after a missed ACH draft. The client has a long history with us and low risk, so Kathleen may want to make a courtesy call. {{CLIENT_NAME:c_0040}} (loan {{ACCOUNT_NUMBER:a_00090}}) is current but has had two late-in-the-cycle payments, so I put that one on the watch list.\n\nThe full roll-rate table is on the shared drive. Happy to walk through it before Wednesday's pipeline meeting if useful.\n\nThanks,\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_011",
+   "to_ids": [
+    "e_012",
+    "e_014",
+    "e_013"
+   ],
+   "cc_ids": [
+    "e_003"
+   ],
+   "subject": "Auto loan rate change effective Monday 9/21",
+   "body": "Team,\n\nFollowing this week's ALCO discussion, we are adjusting new auto loan pricing effective Monday 9/21. New-vehicle rates for tiers A and B come down 25 bps, and used-vehicle rates for 2021 and older model years go up 15 bps. Terms over 72 months stay unchanged.\n\nA few action items:\n- Rita, please confirm the new rate sheet is loaded in LoanDesk before open Monday. Anything already in underwriting keeps the locked rate.\n- Kathleen and Martin, please give your dealer contacts a heads-up today so nobody is surprised on Monday morning.\n- Paul, Member Services will need the updated talking points. I will send the one-pager this afternoon.\n\nIf a member with an existing application asks about refinancing into the lower rate, send them to me first. I want to review those case by case.\n\nThanks,\nKara",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_014",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_016",
+    "e_012"
+   ],
+   "subject": "Dealer agreement renewal - three agreements expiring 10/31",
+   "body": "Hi Kara,\n\nThree of our indirect dealer agreements come up for renewal on 10/31, and I want to get ahead of them. I have been working through the file and have a couple of notes.\n\nFirst, two of the dealers have asked for a higher flat dealer reserve to match what a competing credit union reportedly offers. Given the rate change we just rolled out, I would suggest we hold the reserve as is and offer a faster funding turnaround instead.\n\nSecond, Wesley, I would like your team to review the updated agreement template, especially the repurchase language for early payment defaults and the data security addendum. The current template is from 2023.\n\nCould we put 30 minutes on the calendar this Thursday to settle our position before I go back to the dealers? I can bring the volume and performance numbers for each dealer.\n\nThanks,\nMartin",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_015",
+   "to_ids": [
+    "e_011",
+    "e_014"
+   ],
+   "cc_ids": [
+    "e_013"
+   ],
+   "subject": "August delinquency report - indirect dealer vintages",
+   "body": "Hi Kara and Martin,\n\nSince the dealer renewals are in play, I cut the latest delinquency data by dealer and origination vintage. Overall 30+ day delinquency is 2.0%, but one dealer's 2025 vintage is running well above the others, with early payment defaults at about 3.4% of units funded. The other two renewing dealers sit under 1.5%.\n\nOn the individual side, {{CLIENT_NAME:c_0005}} on {{ACCOUNT_NUMBER:a_00009}} cured after a call and a payment, so that one is off the watch list. {{CLIENT_NAME:c_0040}} on {{ACCOUNT_NUMBER:a_00090}} is still on it.\n\nMartin, this may be useful leverage when you discuss the repurchase terms. I can build a one-page summary for the Thursday meeting if you want it.\n\nThanks,\nRichard",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_013",
+   "to_ids": [
+    "e_011"
+   ],
+   "cc_ids": [
+    "e_015",
+    "e_016"
+   ],
+   "subject": "September delinquency report - exception items for review",
+   "body": "Hi Kara,\n\nSeptember's delinquency report is final. 30+ day delinquency closed at 1.8%, an improvement from August, and the collection calls on the older buckets worked well.\n\nI need your guidance on two exceptions. For {{CLIENT_NAME:c_0040}} (loan {{ACCOUNT_NUMBER:a_00090}}), the client asked for a due-date change and a one-time deferral. The client is low risk and the payment pattern is explainable, so I support the due-date change, but I am hesitant on the deferral until we see another clean payment. Please let me know if you want to approve differently.\n\nAlso, Wesley, as a heads-up for compliance, we are documenting each deferral request with the reason code and the outcome, per the policy update. Notes are in the file.\n\nI can bring both items to Monday's pipeline meeting if that is easier.\n\nThanks,\nRita",
+   "reply_to_previous": false
+  }
+ ]
+}

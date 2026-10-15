@@ -1,0 +1,106 @@
+{
+ "messages": [
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, I'm starting the quarterly counterparty limit review this afternoon. Pulling current exposure vs. approved limits from RiskEngine now. Will post the breach/near-breach list by end of day."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 4,
+   "reply_to": -1,
+   "text": "Thanks Phillip. Can we make sure the review covers the prime brokers and the two regional dealers where we've been growing repo volume? Board risk committee is next week and I want to walk in with no surprises."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "Yes, both are in scope. Repo dealers are the ones I'm most watching. Utilization on one of them is sitting around 88% of its limit on a PFE basis."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Quick flag: RiskEngine intraday exposure numbers looked a bit stale around 14:30 on a couple of the dealer netting sets. Probably a pricing refresh lag but worth checking before we lock anything in."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "I saw that too. The netting set for the larger dealer didn't update for about 20 min. I'll rerun the exposure snapshot and compare to the 14:00 baseline."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 19,
+   "reply_to": 2,
+   "text": "88% is higher than I'd like. What's the driver, collateral haircuts or just notional growth?"
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 26,
+   "reply_to": 5,
+   "text": "Mostly notional growth. Desk added term repo in July. Haircuts are unchanged. Margin call thresholds are also tighter on their side, so it's not a collateral shortfall issue."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 41,
+   "reply_to": 4,
+   "text": "Reran. Delta is small, about 1.2% on the larger dealer once the refresh landed. Utilization moves from 88% to roughly 89%. Nothing that changes the ranking."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 47,
+   "reply_to": 7,
+   "text": "Good. Still, I'd note the lag in the review memo as a data-quality caveat. Market risk numbers feed the PFE inputs so any stale price could understate exposure."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Are we proposing any limit increases, or holding flat? If someone's asking for more headroom I'd want to see the credit rationale and rating outlook first."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 63,
+   "reply_to": 9,
+   "text": "Trading has requested a bump on the smaller regional dealer, from $150M to $200M. I'm leaning toward a partial increase to $175M with a review in 90 days, pending Lance's credit write-up."
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 72,
+   "reply_to": 10,
+   "text": "Write-up is mostly done. Financials are solid, capital ratios up QoQ, but there's some concentration in CRE lending. I'd support $175M with a covenant-style trigger if their outlook gets revised negative."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 80,
+   "reply_to": 11,
+   "text": "That's reasonable. I'm comfortable with $175M and the trigger. Please document the CRE concentration point explicitly in the committee pack."
+  },
+  {
+   "author_id": "e_061",
+   "minutes_after_start": 92,
+   "reply_to": -1,
+   "text": "Separately, ReportingBI is still showing last month's limit table on the counterparty dashboard. Anyone know if the refresh job is scheduled for this weekend?"
+  },
+  {
+   "author_id": "e_058",
+   "minutes_after_start": 98,
+   "reply_to": 13,
+   "text": "I believe it's tied to the overnight load, so it should refresh Saturday morning. I'll check Monday and screenshot the updated view for the pack either way."
+  },
+  {
+   "author_id": "e_059",
+   "minutes_after_start": 115,
+   "reply_to": -1,
+   "text": "Draft exceptions list is up in the shared folder. Three near-breaches, no hard breaches. Please review over the weekend if you can and send comments by Monday noon."
+  },
+  {
+   "author_id": "e_002",
+   "minutes_after_start": 121,
+   "reply_to": 15,
+   "text": "Will do. Thanks all, good work getting this together before the committee."
+  }
+ ]
+}

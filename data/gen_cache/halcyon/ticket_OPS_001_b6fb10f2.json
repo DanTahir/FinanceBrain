@@ -1,0 +1,114 @@
+{
+ "tickets": [
+  {
+   "title": "Equity sale failed to settle - SSI mismatch on Peterson and Sons delivery",
+   "description": "T+1 settlement of a block equity sale to Peterson and Sons (cp_009) failed overnight in SettlementEngine with a delivery instruction mismatch. Our stored standing instruction for the counterparty shows a different custodian reference than the one on their affirmation. The cash leg of about $2.4M is not moving, and the trade is now aging on the fails report. Trading has been told the position will show as pending delivery in TradeBlotter until this is cleared. Need to confirm the correct instruction with the counterparty, update the SSI, and resubmit before the afternoon cutoff to limit fail charges. Counterparty settlement account on the instruction: {{CP_ACCOUNT:cp_009}}.",
+   "reporter_id": "e_071",
+   "assignee_id": "e_066",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_066",
+     "text": "Called the Peterson and Sons ops desk. They changed custodian references last month and never sent a notice. They emailed the updated instruction, so I'm loading it with dual sign-off now."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Please add this to the SSI refresh list for the quarter. We should not find out about counterparty custodian changes from a fail. Approving the update."
+    },
+    {
+     "author_id": "e_066",
+     "text": "Resubmitted at 1:40 PM and it matched. Settled same day, with one day of fail interest, about $310. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Outbound wire rejected for missing intermediary details - repair and release",
+   "description": "A same-day outbound USD wire for {{CLIENT_NAME:c_0251}}, funded from checking account {{ACCOUNT_NUMBER:a_00515}}, was rejected by PaymentsGateway and landed in the WireRoom repair queue. The beneficiary bank requires intermediary bank details and the originating template left that field blank. The amount is $48,500, and the client's relationship manager says the funds are needed for a closing tomorrow morning. We need to repair the message, get a callback confirmation from the client, and release it before the wire cutoff. Please also check whether other wires built from the same template have the same gap.",
+   "reporter_id": "e_067",
+   "assignee_id": "e_068",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_068",
+     "text": "Added the intermediary from the beneficiary's wiring instructions on file and did the callback verification using the number on record. Client confirmed the details. Releasing now."
+    },
+    {
+     "author_id": "e_067",
+     "text": "Confirmed released at 2:15 PM, ahead of cutoff. I checked the template and found two other saved wires with the same blank field. I've flagged both to the owners."
+    },
+    {
+     "author_id": "e_068",
+     "text": "Closing. I'll raise a separate request to make intermediary a required field in the WireRoom template."
+    }
+   ]
+  },
+  {
+   "title": "Treasury sale failed to settle - securities short in PositionStore after allocation break",
+   "description": "A sale of Treasury notes for {{CLIENT_NAME:c_0149}} out of brokerage account {{ACCOUNT_NUMBER:a_00311}} failed on settlement date. SettlementEngine reports insufficient securities available to deliver. OMS shows the full quantity allocated, but PositionStore reflects a partial allocation after a mid-day amendment was processed twice. About $1.1M par is affected. The client has cash proceeds earmarked for a transfer to {{ACCOUNT_NUMBER:a_00312}}, so we need to fix the position break, re-deliver, and confirm the cash lands. Settlement fail charges should be tracked against the desk if the root cause is on the amendment flow.",
+   "reporter_id": "e_071",
+   "assignee_id": "e_071",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_064",
+     "text": "Recon shows the duplicate amendment in the OMS allocation log. It reduced the available quantity in PositionStore by one lot. I've sent you the before and after extract."
+    },
+    {
+     "author_id": "e_071",
+     "text": "Corrected the position with an approved adjustment and resubmitted the delivery. It settled the next morning. Proceeds posted to the cash management account and the wealth team has been told."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Good catch, thanks. Please send the duplicate amendment details to Technology so they can fix the allocation logic."
+    }
+   ]
+  },
+  {
+   "title": "Cash leg failed on settlement run after GLCore posting cutoff slipped",
+   "description": "Several DVP trades in the evening SettlementEngine run failed their cash leg. The GLCore posting window closed late, so funding entries did not post before the batch picked up the trades. Eleven trades, roughly $6.8M total, are in a failed state, including one with Peterson and Sons. The securities side is ready; only cash availability failed. We need to confirm the GLCore posting completed, re-run the failed items, and tell the affected desks. Also check that ReconLegacy did not pick up a partial state and carry breaks into the morning recon.",
+   "reporter_id": "e_066",
+   "assignee_id": "e_064",
+   "status": "closed",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_064",
+     "text": "The GLCore posting finished 22 minutes after the cutoff. ReconLegacy started before then, so I'm holding it and re-running after your resubmission."
+    },
+    {
+     "author_id": "e_066",
+     "text": "Resubmitted all eleven through SettlementEngine. Ten settled. The Peterson and Sons trade needs a re-affirmation because their window had closed."
+    },
+    {
+     "author_id": "e_064",
+     "text": "Recon is clean after the re-run. No carried breaks. Closing, with the late posting cause noted for the Technology follow-up."
+    },
+    {
+     "author_id": "e_063",
+     "text": "Thanks both. I'll raise the cutoff timing issue with Technology at the ops sync."
+    }
+   ]
+  },
+  {
+   "title": "Returned ACH on loan payment - insufficient funds, reapply and notify",
+   "description": "An ACH debit for the monthly loan payment, drawn from checking account {{ACCOUNT_NUMBER:a_00515}} for {{CLIENT_NAME:c_0251}}, was returned by the receiving bank with an insufficient funds code. The payment was meant to be applied to loan account {{ACCOUNT_NUMBER:a_00516}} and the application has already been posted in the ledger, so it needs to be reversed. Amount is $2,315. We need to reverse the payment application, check whether a late fee was triggered, and coordinate with the relationship manager before contacting the client. Please do not re-present the ACH until the client confirms funding. Reach the client through the contact details on file, {{CLIENT_PHONE:c_0251}}.",
+   "reporter_id": "e_065",
+   "assignee_id": "e_069",
+   "status": "in_progress",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_069",
+     "text": "Reversed the payment application in the ledger and put the late fee on hold pending review. I've asked the RM to reach out to the client before we send anything."
+    },
+    {
+     "author_id": "e_065",
+     "text": "The return came in under the standard window, so we can re-present once the client confirms. I'll keep an eye on the ACH queue and flag it to you."
+    }
+   ]
+  }
+ ]
+}

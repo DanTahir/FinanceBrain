@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0117",
+   "text": "10/12/2026 - Call with {{CLIENT_NAME:c_0117}}. Client reported the debit card tied to brokerage account {{ACCOUNT_NUMBER:a_00246}} was lost while travelling last week. Card blocked and replacement ordered; it will be mailed to {{CLIENT_ADDRESS:c_0117}} unless the client asks otherwise. Client also gave notice of upcoming international travel in November, so I logged the dates on the profile to avoid false fraud holds. Confirmed contact details on file: {{CLIENT_PHONE:c_0117}} and {{CLIENT_EMAIL:c_0117}}. Will follow up once the card ships. Risk profile unchanged, low."
+  },
+  {
+   "client_id": "c_0037",
+   "text": "8/24/2026 - Annual review meeting with {{CLIENT_NAME:c_0037}}. Reviewed performance of brokerage account {{ACCOUNT_NUMBER:a_00079}} against the benchmark; allocation has drifted a bit equity-heavy after the summer rally. Client is comfortable with medium risk and agreed to trim toward target and move the proceeds into cash management account {{ACCOUNT_NUMBER:a_00080}} for upcoming expenses. Discussed tax-loss harvesting before year end. Client asked for a written summary, which I will send to {{CLIENT_EMAIL:c_0037}}. Next check-in in Q1. Contact: {{CLIENT_PHONE:c_0037}}."
+  },
+  {
+   "client_id": "c_0064",
+   "text": "10/01/2026 - Spoke with the owner of {{CLIENT_NAME:c_0064}} regarding a referral. They plan to introduce a peer business owner who is looking for an operating line and treasury services. Happy with the service on operating account {{ACCOUNT_NUMBER:a_00136}} and the term loan {{ACCOUNT_NUMBER:a_00137}}, which has been paying on schedule. I will reach out to the referral this week and loop in underwriting early. Sent thank-you note to {{CLIENT_EMAIL:c_0064}}. Best number remains {{CLIENT_PHONE:c_0064}}. Risk rating stays medium."
+  },
+  {
+   "client_id": "c_0069",
+   "text": "10/07/2026 - Estate planning check-in with {{CLIENT_NAME:c_0069}}. Client wants to confirm that beneficiaries on brokerage account {{ACCOUNT_NUMBER:a_00146}} and cash management account {{ACCOUNT_NUMBER:a_00147}} reflect a recent change in family circumstances. I will coordinate with the client's attorney and send updated forms to {{CLIENT_ADDRESS:c_0069}}. Client also asked again about digital assets; I explained firm policy is still being worked through the crypto working group and nothing can be offered yet. Noted given the high risk profile. Follow-up by phone at {{CLIENT_PHONE:c_0069}} next week."
+  },
+  {
+   "client_id": "c_0224",
+   "text": "8/6/2026 - Annual portfolio review prep and call with {{CLIENT_NAME:c_0224}} on brokerage account {{ACCOUNT_NUMBER:a_00462}}. Went over year-to-date returns, current allocation, and the medium risk profile, which the client confirmed is still appropriate. Client asked whether the firm will support crypto exposure; I said I would check with the senior advisor and the policy group rather than promise anything. Will email the review package to {{CLIENT_EMAIL:c_0224}} and schedule a follow-up with the advisor. Phone on file {{CLIENT_PHONE:c_0224}}."
+  },
+  {
+   "client_id": "c_0045",
+   "text": "7/1/2026 - {{CLIENT_NAME:c_0045}} called to change the beneficiary designation connected to checking account {{ACCOUNT_NUMBER:a_00095}}. Verified identity using the standard callback to {{CLIENT_PHONE:c_0045}}. Sent the beneficiary change form to {{CLIENT_EMAIL:c_0045}} for signature; original must be returned before the update is processed. Client mentioned no other changes and the address remains {{CLIENT_ADDRESS:c_0045}}. Low risk, no concerns. I will confirm processing once the signed form is received."
+  },
+  {
+   "client_id": "c_0195",
+   "text": "9/3/2026 - {{CLIENT_NAME:c_0195}} contacted me upset about advisory fees charged on brokerage account {{ACCOUNT_NUMBER:a_00404}} last quarter, saying they were higher than expected. I walked through the fee schedule and the quarterly billing on the account; the client had also assumed cash management account {{ACCOUNT_NUMBER:a_00405}} was fee-free. Agreed to review the billing calculation and revert by end of week. If an error is found we will correct it. Client prefers email at {{CLIENT_EMAIL:c_0195}}. Escalating to Grace Lin for visibility given relationship is new."
+  },
+  {
+   "client_id": "c_0146",
+   "text": "9/21/2026 - Discussed required minimum distribution planning with {{CLIENT_NAME:c_0146}}. Client is approaching the age where distributions begin and wants to understand how this affects cash flow alongside the loan payments on {{ACCOUNT_NUMBER:a_00305}}. Reviewed funding from checking account {{ACCOUNT_NUMBER:a_00304}}. I recommended speaking with a tax professional and the wealth team for the actual calculation; I can only advise on the lending side. Will send a summary to {{CLIENT_EMAIL:c_0146}} and introduce a wealth advisor. Low risk. Phone: {{CLIENT_PHONE:c_0146}}."
+  },
+  {
+   "client_id": "c_0003",
+   "text": "9/24/2026 - {{CLIENT_NAME:c_0003}} called to update their phone number. After verifying identity with security questions, I replaced the old number with {{CLIENT_PHONE:c_0003}} in the CRM profile, which covers brokerage account {{ACCOUNT_NUMBER:a_00004}} and cash management account {{ACCOUNT_NUMBER:a_00005}}. Sent a confirmation to {{CLIENT_EMAIL:c_0003}}. Mailing address {{CLIENT_ADDRESS:c_0003}} unchanged. No other requests. Low risk profile unchanged."
+  },
+  {
+   "client_id": "c_0020",
+   "text": "9/7/2026 - {{CLIENT_NAME:c_0020}} said they are pleased with the service on checking account {{ACCOUNT_NUMBER:a_00044}} and the loan {{ACCOUNT_NUMBER:a_00045}}, and offered to refer a colleague who is looking at a personal loan. I explained the referral process and that any application goes through standard KYC and credit review. Will pass the lead to the loan officers and update {{CLIENT_NAME:c_0020}} once contact is made. Thanked the client by email at {{CLIENT_EMAIL:c_0020}}. Phone on file: {{CLIENT_PHONE:c_0020}}. Low risk, no issues."
+  }
+ ]
+}

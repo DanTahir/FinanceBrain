@@ -1,0 +1,70 @@
+{
+ "messages": [
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up, I ran the cert inventory script this morning and we have 6 TLS certs expiring in the next 45 days. Two of them are on DocVault endpoints. Spreadsheet tracking is clearly not cutting it anymore."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Which DocVault ones? I thought the ingress cert was auto-renewed via ACM."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 7,
+   "reply_to": 1,
+   "text": "The ingress one is fine. It's the internal mTLS cert for the doc indexer and the legacy upload endpoint behind the old load balancer. Those were issued manually, expiry is 2026-10-02."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Fwiw DataLake has one too. The Presto coordinator cert expires 2026-10-19, and I don't see it in the sheet at all."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 15,
+   "reply_to": 3,
+   "text": "Ugh, that's the one Michael set up last year. Kevin can you add it to the inventory? I'll open tickets for all three so they're at least visible."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 18,
+   "reply_to": 4,
+   "text": "Yep, adding it now. Should I tag owner as Technology or the data eng side?"
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 22,
+   "reply_to": 5,
+   "text": "Tag Technology with a named person. Teams as owners is how these slip. Michael Jones for DataLake, Travis for the DocVault pair."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 26,
+   "reply_to": -1,
+   "text": "Proposal: weekly cron that scans all endpoints, posts anything under 30 days to #it-ops, and pages at 7 days. Can build it this week using the existing inventory script as the base."
+  },
+  {
+   "author_id": "e_073",
+   "minutes_after_start": 31,
+   "reply_to": 7,
+   "text": "+1. Make it scan SANs from the actual live handshake, not just what we have in the sheet, so we catch the unknown ones like the Presto cert. I'm out after 2026-10-09 so let's get it done well before then."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 35,
+   "reply_to": 8,
+   "text": "Makes sense. I can handle the Slack webhook and the pager integration if you do the scanner, Travis."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 38,
+   "reply_to": 9,
+   "text": "Deal. I'll draft the scanner PR by Thursday and ping you both for review. Rotating the DocVault mTLS cert is first up, targeting 2026-09-22."
+  }
+ ]
+}

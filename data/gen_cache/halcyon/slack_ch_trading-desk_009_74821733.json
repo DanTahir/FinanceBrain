@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "monthly opex today, gamma looks heavy around the 5500 strike in SPX. dealers pinned there into the close imo"
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Yep. What's our net delta looking like going into the afternoon? Anything sitting short calls we haven't rolled?"
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "Book is roughly flat delta, but I've got a chunk of short 5500 calls expiring. Planning to roll out to the August 5550s unless it rips."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Heads up, OMS is a bit laggy on option routes this morning. Acks taking 2-3 sec vs usual sub-second."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 12,
+   "reply_to": 3,
+   "text": "Noted. Travis, are you seeing it on all venues or just the one?"
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 15,
+   "reply_to": 4,
+   "text": "Mostly CBOE routes. Equity cash looks fine. I'll keep an eye on it and ping Tech if it gets worse."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 22,
+   "reply_to": 2,
+   "text": "Also TradeBlotter P&L on the options book looks stale, still showing yesterday's marks on some legs. Anyone else?"
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 25,
+   "reply_to": 6,
+   "text": "Same here. Refresh didn't help. Probably lagging off pricing, I'd trust the OMS fills over the blotter until it catches up."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 31,
+   "reply_to": -1,
+   "text": "Reminder: no new size in the last 30 min unless it's closing out expiring risk. Pin risk is real, I don't want any surprise assignments over the weekend."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 38,
+   "reply_to": 8,
+   "text": "Understood. I'll start unwinding the short 5500s from 3:00 and keep the hedge in futures until it's flat."
+  },
+  {
+   "author_id": "e_008",
+   "minutes_after_start": 45,
+   "reply_to": 9,
+   "text": "I can work the unwind in slices through the afternoon. Want me on a TWAP or just hitting the bid near the close?"
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 49,
+   "reply_to": 10,
+   "text": "TWAP from 3:00 to 3:40, then I'll take the rest manually if there's anything left. Spreads usually widen after that."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 55,
+   "reply_to": 11,
+   "text": "Good plan. Post when you're flat on the expiring strikes so I can sign off."
+  },
+  {
+   "author_id": "e_010",
+   "minutes_after_start": 58,
+   "reply_to": 12,
+   "text": "Will do. Blotter marks look like they've refreshed now too, for what it's worth."
+  }
+ ]
+}

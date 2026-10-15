@@ -1,0 +1,77 @@
+{
+ "emails": [
+  {
+   "from_id": "e_051",
+   "to_ids": [
+    "e_047"
+   ],
+   "cc_ids": [
+    "e_039",
+    "e_017"
+   ],
+   "subject": "Marketing material review - Q3 wealth and M&A pitch decks",
+   "body": "Hi Marcus,\n\nI've completed the first-pass review of the Q3 marketing materials submitted last week. Two items need your sign-off before they go out.\n\n1. Wealth Management client brochure: the performance table uses a 5-year annualized return figure but omits the required net-of-fees disclosure. Grace's team has agreed to add the footnote and I've marked up the revised language.\n2. M&A Advisory credentials deck: slide 14 lists several completed transactions as tombstones. I need confirmation that each client has given written consent to be named. Elena's team is checking the engagement letters.\n\nI've also flagged the phrase \"consistently outperforms\" in the brochure as potentially misleading under the marketing rule. Suggested replacement: \"has historically delivered returns above its benchmark over the periods shown.\"\n\nOnce the edits are in, I'll log the final versions in the review tracker and release approval by Thursday.\n\nThanks,\nLinda Jones\nCompliance Associate",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_052",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039"
+   ],
+   "cc_ids": [
+    "e_047"
+   ],
+   "subject": "Reminder: personal trading pre-clearance requirements",
+   "body": "Hi all,\n\nA quick reminder ahead of the Q3 window. Under the Code of Ethics, all covered employees must obtain pre-clearance through the compliance portal before placing any personal trade in a reportable security.\n\nKey points:\n- Pre-clearance approvals are valid for the same trading day only. If the order doesn't execute, you must resubmit.\n- Securities on the restricted list, including any names tied to active advisory mandates, will be denied.\n- Holding period for securities is 30 days. Short-term flips will be flagged.\n- Quarterly holdings and transaction attestations are due within 30 days of quarter-end, so please start collecting your brokerage statements now.\n\nWe've identified a few late attestations from Q2 and will follow up individually. Please pass this along to your teams, since it's easy to forget, especially for new joiners who may not have completed the Code training yet.\n\nQuestions can come to me or the compliance mailbox.\n\nBest,\nAnthony Ramirez\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_047",
+   "to_ids": [
+    "e_048",
+    "e_049",
+    "e_054"
+   ],
+   "cc_ids": [
+    "e_001"
+   ],
+   "subject": "Regulatory exam - document request list due Sept 18",
+   "body": "Team,\n\nWe received the examination staff's initial document request this morning. The on-site portion begins in three weeks and the first production deadline is Friday, September 18.\n\nOwners for the main categories:\n- AML program: independent testing reports, SAR decision logs, and AMLMonitor tuning documentation. Nadia to lead.\n- Sanctions and fraud: SanctionsScreen list-update logs and FraudScore model validation. Jenna to pull system evidence and coordinate with Sam Okafor's engineers.\n- Policies and training: Code of Ethics attestations, pre-clearance logs, and training completion records. Heather to lead.\n- Client files: a sample of onboarding files, including {{CLIENT_NAME:c_0197}}, which is in the likely sample as a commercial client opened in 2024. Please make sure the KYC file is complete.\n\nPlease route every item through me for review before it goes to the examiners. Don't send anything directly. I'll set up a tracker today and we'll do a short standup each morning at 9:00.\n\nThanks,\nMarcus",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_054",
+   "to_ids": [
+    "e_005",
+    "e_017",
+    "e_029",
+    "e_039",
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_052"
+   ],
+   "subject": "Personal trading pre-clearance: quarter-end blackout and open items",
+   "body": "Hello,\n\nWith Q3 closing next week, here is a reminder on personal trading pre-clearance.\n\n- Please submit all requests in the compliance portal before placing any order. Verbal or email approvals are not valid.\n- A blackout applies to securities of issuers with live advisory or financing activity. The restricted list was refreshed on Monday, so please check it before submitting.\n- Anyone who has not completed the Q2 holdings attestation must do so by Friday. We have a short list of overdue individuals, and it will be shared with the CCO after that date.\n\nThe regulatory exam is underway, and examiners will likely request pre-clearance logs, so accurate and timely records matter right now. If you have any trade you're unsure about, such as exchange-traded funds with sector concentrations or a spouse's account, ask us first.\n\nThank you for helping us keep this clean.\n\nHeather Carlson\nCompliance Analyst",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_050",
+   "to_ids": [
+    "e_047",
+    "e_055"
+   ],
+   "cc_ids": [
+    "e_029",
+    "e_063"
+   ],
+   "subject": "KYC refresh backlog - status and proposed plan",
+   "body": "Marcus, Luis,\n\nKYC periodic refreshes are now 142 files past due. That's up from 96 at the start of September. Contributing factors:\n\n- KYCPipeline moved to Compliance ownership last week, and the handoff from Operations left some open work items without clear assignment.\n- Document requests stall in DocVault when clients don't respond, with no automatic escalation.\n- High-risk refreshes are taking priority, which pushes medium-risk files like {{CLIENT_NAME:c_0197}} further back.\n\nProposal:\n1. Luis and I take the 40 oldest high-risk files this week.\n2. Brian's lending team helps by chasing outstanding client documents for borrowers, since they own the relationships.\n3. Ravi's team gives us a list of the open work items from the old queue so we can reassign them.\n4. We report the count weekly to Marcus until we are below 50.\n\nIf you agree, I'll circulate assignments tomorrow morning.\n\nThanks,\nJohn Smith\nKYC Specialist",
+   "reply_to_previous": false
+  }
+ ]
+}

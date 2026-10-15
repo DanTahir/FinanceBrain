@@ -1,0 +1,72 @@
+{
+ "emails": [
+  {
+   "from_id": "e_003",
+   "to_ids": [
+    "e_005",
+    "e_010",
+    "e_007",
+    "e_008"
+   ],
+   "cc_ids": [
+    "e_023"
+   ],
+   "subject": "Branch coverage for the week of Aug 10",
+   "body": "Hi team,\n\nHeads up on coverage for next week. Jonathan has a planned PTO day on Wednesday and Maxwell is out Thursday afternoon for a training session, so we'll be one body short on the teller line during the lunch rush on both days.\n\nHere's my plan: Joseph covers the front teller window Wednesday 11:00 to 2:00, Catherine takes the drive-up on Thursday afternoon, and I'll float between the desk and the line. If anyone wants to swap, reply to this email by end of day Friday so I can lock the schedule before posting it.\n\nRita, I'm copying you because we'll need the vault cash order adjusted if the drive-up volume holds at the current pace. Month-end is also coming up, so please keep an eye on the cash limits.\n\nThanks for being flexible, everyone.\n\nPaul",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_005",
+   "to_ids": [
+    "e_003"
+   ],
+   "cc_ids": [
+    "e_010"
+   ],
+   "subject": "Re: Branch coverage for the week of Aug 10",
+   "body": "Hi Paul,\n\nThe drive-up on Thursday afternoon works for me. One request: could Jonathan or someone else take over my 3:00 member appointment so I'm not pulled off the window? I have a joint account opening on the calendar, and those usually run 40 minutes, so it would leave the drive-up uncovered.\n\nI can swap with Jonathan and take his Friday morning desk shift instead if he prefers.\n\nJonathan, let me know what you think.\n\nThanks,\nCatherine",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_009",
+   "to_ids": [
+    "e_003",
+    "e_004",
+    "e_006"
+   ],
+   "cc_ids": [
+    "e_011"
+   ],
+   "subject": "Fall new account promo - talking points ready",
+   "body": "Hi all,\n\nThe fall checking and share savings promo kicks off on September 1, and I've drafted a one-page talking points sheet for the floor. The short version: new members who open a checking account and set up direct deposit get a $100 bonus after 60 days, and anyone who adds a share savings account with a $50 minimum deposit gets the bonus rate for six months.\n\nTwo things I'd like feedback on before Monday. First, the wording around the direct deposit requirement. Members get frustrated when the fine print surprises them later. Second, whether we should mention the auto loan rate discount for promo accounts. Kara, can you confirm that Lending is on board with that cross-sell language?\n\nI'll use {{CLIENT_NAME:c_0001}}'s account opening in March 2022 as an example of how the onboarding checklist should flow, without sharing any details in the handout.\n\nThanks,\nNichole",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_004",
+   "to_ids": [
+    "e_003",
+    "e_006",
+    "e_009"
+   ],
+   "cc_ids": [
+    "e_016"
+   ],
+   "subject": "Dispute backlog status as of Aug 31",
+   "body": "Hi Paul and team,\n\nQuick status on the debit card dispute queue. We closed out August with 34 open disputes, down from 47 two weeks ago. Of those, 11 are waiting on merchant responses and 9 are waiting on documentation from members. The remaining 14 are on us, and I'd like to clear them by Friday.\n\nOne example: {{CLIENT_NAME:c_0022}} called again about an unrecognized charge, and the provisional credit deadline hits on Thursday. I've confirmed the file is complete and I'm routing it for final review today. I'll reach the member on {{CLIENT_PHONE:c_0022}} once the outcome is posted.\n\nWesley, I'm copying you since a few of the older items are close to the Reg E timeframes. Please flag anything you want escalated differently.\n\nJoanna and Nichole, could each of you take five from the on-us group? I'll send the list in a separate note.\n\nThanks,\nZachary",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_006",
+   "to_ids": [
+    "e_003",
+    "e_004"
+   ],
+   "cc_ids": [
+    "e_009"
+   ],
+   "subject": "Follow-up on {{CLIENT_NAME:c_0001}} complaint - resolved, closing out",
+   "body": "Hi Paul and Zachary,\n\nFollowing up on the complaint we logged on October 6 from {{CLIENT_NAME:c_0001}} about the repeated overdraft fee on the checking account. I spoke with the member this morning and walked through what happened. We refunded the two fees, and I confirmed the account on file, {{ACCOUNT_NUMBER:a_00002}}, now has the overdraft alert turned on in online banking.\n\nThe member was appreciative but asked that we make the fee disclosure clearer at account opening. I think that's fair, and Nichole may want to add a line to the checklist she's updating. I've documented the call in MemberCRM and set a reminder to check in again in 30 days.\n\nUnless either of you has concerns, I'll mark the complaint closed by end of day tomorrow.\n\nThanks,\nJoanna",
+   "reply_to_previous": false
+  }
+ ]
+}

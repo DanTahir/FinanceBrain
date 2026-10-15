@@ -1,0 +1,44 @@
+{
+ "notes": [
+  {
+   "client_id": "c_0119",
+   "text": "9/22 – Spoke with {{CLIENT_NAME:c_0119}} re: replacement debit card on operating account {{ACCOUNT_NUMBER:a_00248}}. Original card reported damaged; replacement ordered, expected in 5-7 business days to the address on file ({{CLIENT_ADDRESS:c_0119}}). Client also gave travel notice for two weeks abroad in October for supplier meetings, so I flagged the card profile for international use. Confirmed no change to the loan on {{ACCOUNT_NUMBER:a_00249}}; next payment is on schedule. Will confirm delivery by email to {{CLIENT_EMAIL:c_0119}} next week."
+  },
+  {
+   "client_id": "c_0282",
+   "text": "Call with {{CLIENT_NAME:c_0282}} on 8/25. Client mentioned plans to expand their small business to a second location and asked about financing options. Wants to avoid liquidating much from brokerage account {{ACCOUNT_NUMBER:a_00577}} given current market levels. Discussed securities-backed line vs. a traditional commercial loan; explained pros and cons and the margin risk. Agreed to loop in Lending for a conversation about term loan structure. Client prefers contact by email at {{CLIENT_EMAIL:c_0282}}. Follow-up scheduled for early September once projections are ready."
+  },
+  {
+   "client_id": "c_0016",
+   "text": "9/25 – Met with {{CLIENT_NAME:c_0016}} about financing for business expansion (new equipment and inventory, roughly $180K ask). Client already has loan {{ACCOUNT_NUMBER:a_00034}} with us and runs cash flow through checking {{ACCOUNT_NUMBER:a_00033}}. Given the high risk rating, I reviewed existing leverage and asked for the last two years of tax returns plus current debt schedule. Explained any new facility likely needs collateral and Risk sign-off. Client understands timeline of 3-4 weeks. Will reach out at {{CLIENT_PHONE:c_0016}} once documents arrive."
+  },
+  {
+   "client_id": "c_0223",
+   "text": "10/5 – {{CLIENT_NAME:c_0223}} called to update their contact number. Verified identity using standard security questions before making changes. New number recorded as {{CLIENT_PHONE:c_0223}} and applied in ClientHub; it now covers both the brokerage account {{ACCOUNT_NUMBER:a_00460}} and cash management {{ACCOUNT_NUMBER:a_00461}}. Confirmed email on file ({{CLIENT_EMAIL:c_0223}}) is still current. Sent a confirmation notice to the address on file. No other changes requested and no portfolio discussion this time."
+  },
+  {
+   "client_id": "c_0162",
+   "text": "Annual review held 7/9 with {{CLIENT_NAME:c_0162}}. Went through activity on operating account {{ACCOUNT_NUMBER:a_00337}}: balances steady, no overdrafts, seasonal swings in line with prior year. Client reports revenue up modestly and is considering adding a line of credit next year for working capital. Risk profile remains medium; no covenant concerns noted. Confirmed business contact details are current ({{CLIENT_EMAIL:c_0162}}, {{CLIENT_PHONE:c_0162}}). Action: send updated financial statement checklist and schedule a check-in in Q1."
+  },
+  {
+   "client_id": "c_0094",
+   "text": "10/13 – Annual portfolio review with {{CLIENT_NAME:c_0094}}. Brokerage account {{ACCOUNT_NUMBER:a_00201}} is tracking slightly ahead of benchmark; allocation still conservative with a heavy bond and dividend equity tilt. Cash sweep balance in {{ACCOUNT_NUMBER:a_00202}} is higher than needed, so we discussed putting some into short-duration Treasuries. Client's goals unchanged, risk tolerance low. Will send summary and proposed changes to {{CLIENT_EMAIL:c_0094}} for review before any trades. Next review in six months."
+  },
+  {
+   "client_id": "c_0093",
+   "text": "8/20 – Spoke with {{CLIENT_NAME:c_0093}} regarding an update to their risk tolerance. Client indicated they are comfortable with a bit more volatility given stable cash flows, but wants the loan on {{ACCOUNT_NUMBER:a_00199}} kept well covered by operating balances in {{ACCOUNT_NUMBER:a_00198}}. Our internal rating stays low for now; I'll pass the notes to Credit for review at the next cycle. Updated questionnaire to be sent to {{CLIENT_EMAIL:c_0093}} for signature. Called on {{CLIENT_PHONE:c_0093}}."
+  },
+  {
+   "client_id": "c_0034",
+   "text": "9/16 – {{CLIENT_NAME:c_0034}} reached out about financing to expand their side business. Discussed options: a bank loan, or borrowing against holdings in brokerage account {{ACCOUNT_NUMBER:a_00073}}. Client is cautious about selling positions, and cash in {{ACCOUNT_NUMBER:a_00074}} is modest. Explained I would need a basic business plan and projected revenue before introducing Lending. Medium risk profile; we agreed to stay conservative on leverage. Sent follow-up to {{CLIENT_EMAIL:c_0034}} with a document list. Next touchpoint in two weeks."
+  },
+  {
+   "client_id": "c_0213",
+   "text": "7/9 – Loan renewal conversation with {{CLIENT_NAME:c_0213}}. Existing loan {{ACCOUNT_NUMBER:a_00444}} comes due next quarter; payments have been on time and checking {{ACCOUNT_NUMBER:a_00443}} shows steady deposits. Client wants to renew with a similar term and asked about a lower rate. Explained pricing will depend on updated credit review. Requested recent pay documentation and confirmed mailing address ({{CLIENT_ADDRESS:c_0213}}) for renewal paperwork. Will call {{CLIENT_PHONE:c_0213}} once terms are approved."
+  },
+  {
+   "client_id": "c_0243",
+   "text": "9/14 – Intro call with {{CLIENT_NAME:c_0243}}, who referred a business contact interested in our commercial lending. Thanked them for the referral; relationship has been solid since onboarding in 2024. Operating account {{ACCOUNT_NUMBER:a_00497}} remains active and loan {{ACCOUNT_NUMBER:a_00498}} is current. Client will email an introduction from {{CLIENT_EMAIL:c_0243}} this week. I will follow the standard referral process and note it in ClientHub. Low risk, no issues to flag. Plan a thank-you note after the first meeting."
+  }
+ ]
+}

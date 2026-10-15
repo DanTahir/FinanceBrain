@@ -1,0 +1,110 @@
+{
+ "tickets": [
+  {
+   "title": "Beneficial ownership certification missing on trust-funded cash management account",
+   "description": "During the quarterly onboarding file QC, the cash management account {{ACCOUNT_NUMBER:a_00276}} for {{CLIENT_NAME:c_0130}} shows incoming funding from a family trust, but there is no beneficial ownership or controlling person certification in DocVault. KYCPipeline marked the CDD package as complete anyway because the BO field was optional for the individual segment. We need the trust agreement summary and a signed certification from the client, and the RM should be looped in. Please hold any incoming wires above $50,000 on this account until the file is cured.",
+   "reporter_id": "e_050",
+   "assignee_id": "e_055",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "Reached out via the RM, James Anderson. The client confirmed they are the sole settlor and beneficiary. Sending the BO certification form for signature through the client portal today."
+    },
+    {
+     "author_id": "e_067",
+     "text": "Wire room has placed a manual hold flag on {{ACCOUNT_NUMBER:a_00276}} for inbound wires over $50k until KYC releases it. Ping me when it's cleared."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Signed certification and trust summary are uploaded to DocVault and reviewed. BO field populated in KYCPipeline and the hold is released. Closing out. I'll raise a separate request to make the BO field mandatory when third-party funding is detected."
+    }
+   ]
+  },
+  {
+   "title": "Address verification failed after client relocation update",
+   "description": "Address refresh on the client profile failed automated verification in KYCPipeline. The new {{CLIENT_ADDRESS:c_0130}} entered in ClientHub does not match the address returned by the third-party verification vendor, and the proof of address uploaded to DocVault is a bank statement that is older than 90 days. Both brokerage account {{ACCOUNT_NUMBER:a_00275}} and the cash management account are flagged for a profile review. Need a fresh proof of address document and a manual verification sign-off. No restriction on trading yet, but statements should not be mailed to the new address until verified.",
+   "reporter_id": "e_055",
+   "assignee_id": "e_050",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_050",
+     "text": "Called the RM and requested a utility bill or government-issued letter dated within the last 60 days. The vendor database likely just hasn't picked up the move yet."
+    },
+    {
+     "author_id": "e_065",
+     "text": "Payments side note: I've paused the paper check request tied to this profile so nothing gets mailed to an unverified address."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Received a recent utility bill, matches {{CLIENT_ADDRESS:c_0130}}. Manually verified and overrode the vendor mismatch with a documented rationale. Mailing hold lifted. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Periodic KYC review overdue for low-risk wealth client",
+   "description": "{{CLIENT_NAME:c_0130}} has passed the scheduled periodic review date by about three weeks. The client has been with the firm since 2019-04-12 and is rated low risk, so the review should have been triggered automatically by KYCPipeline. The refresh task never appeared in the Compliance queue. Likely a scheduler gap, since the last review was done under the legacy cycle. Please complete the refresh: confirm ID is current, reconfirm source of funds, rerun SanctionsScreen, and check for adverse media. Also check whether other low-risk clients have missed the trigger.",
+   "reporter_id": "e_052",
+   "assignee_id": "e_054",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_054",
+     "text": "Reran SanctionsScreen with no hits. Adverse media is clear. Requesting an updated ID copy and a source-of-funds attestation from the RM."
+    },
+    {
+     "author_id": "e_064",
+     "text": "I pulled a list from the KYCPipeline batch table. Nine other low-risk files have the same missing trigger, and I'm sending that list to you and Jenna's team so they can be bulk-queued."
+    },
+    {
+     "author_id": "e_054",
+     "text": "Review completed and approved by Linda Jones as second reviewer. Next review date set. Resolving this ticket and the other nine are tracked separately."
+    }
+   ]
+  },
+  {
+   "title": "Periodic review overdue on cash management account, escalated by CCO",
+   "description": "The periodic review for the cash management account {{ACCOUNT_NUMBER:a_00276}} is now ten days past due and appeared on the weekly overdue-reviews report that goes to Marcus Bell. Backlog in the KYC queue after the August onboarding surge is the cause, not a system fault. The review needs ID validation, a recheck of occupation and expected activity against actual transaction volume, and a fresh sanctions screening. Please finish by end of next week. If the client is unresponsive, follow the standard escalation path with a 30-day notice before restricting activity.",
+   "reporter_id": "e_051",
+   "assignee_id": "e_050",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_048",
+     "text": "Activity looks consistent with the profile on my end. A few ACH credits are larger than the stated average, but nothing that triggers an AML alert. Add a note about the source."
+    },
+    {
+     "author_id": "e_050",
+     "text": "Client responded to the RM and confirmed the larger credits were from the sale of a property. Closing escrow statement received and attached in DocVault. Review is complete, so I'm closing the ticket."
+    }
+   ]
+  },
+  {
+   "title": "Controlling person information missing on power of attorney arrangement",
+   "description": "While preparing the file for the annual attestation, we found that a power of attorney was added to {{CLIENT_NAME:c_0130}}'s brokerage account {{ACCOUNT_NUMBER:a_00275}} in ClientHub, but the agent's identity and beneficial ownership or control details were never captured in KYCPipeline. The agent had been able to initiate a transfer request. Need the agent's identification, the POA document confirmation, and an updated beneficial ownership and control record. Also need to confirm that SanctionsScreen was run on the agent. Please do not release further disbursements until complete.",
+   "reporter_id": "e_053",
+   "assignee_id": "e_055",
+   "status": "resolved",
+   "priority": "P1",
+   "comments": [
+    {
+     "author_id": "e_055",
+     "text": "The POA document is in DocVault and valid. The agent ID wasn't collected at the time. Requesting it now and screening the agent against SanctionsScreen as soon as we have a legal name on file."
+    },
+    {
+     "author_id": "e_068",
+     "text": "Wire room confirms the pending transfer request is on hold. We have not released anything. I will wait for your go-ahead before I touch it."
+    },
+    {
+     "author_id": "e_055",
+     "text": "Agent ID received, SanctionsScreen is clear, and the control record is in KYCPipeline. Cleared the hold with Marcus Bell's approval. Created a follow-up for Operations to block POA additions in ClientHub without the KYC fields."
+    }
+   ]
+  }
+ ]
+}

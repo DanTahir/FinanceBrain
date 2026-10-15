@@ -1,0 +1,68 @@
+{
+ "emails": [
+  {
+   "from_id": "e_065",
+   "to_ids": [
+    "e_063"
+   ],
+   "cc_ids": [
+    "e_067"
+   ],
+   "subject": "SWIFT payment tracking - outbound wires to Mcfarland LLC not showing confirmation",
+   "body": "Hi Ravi,\n\nFlagging an issue from this week's SWIFT gpi tracking review. Three outbound wires to Mcfarland LLC (CY) released through PaymentsGateway on Tuesday and Wednesday are still showing \"in progress\" on the tracker, with no confirmation back from the beneficiary bank. Normally we'd see a credited status within a business day.\n\nI checked the beneficiary details against the standing instruction on file and they match: {{CP_IBAN:cp_020}} with {{CP_SWIFT:cp_020}}. So I don't think it's a data entry problem on our side. My guess is an intermediary is holding the messages, possibly a screening hold at a correspondent.\n\nI've asked Greg to send a gpi inquiry (tracker ticket OPS-4417) and I'll chase the correspondent desk Monday morning if nothing moves. Can you let me know whether you want Treasury looped in before the weekend, since the amounts add up to roughly $1.8M?\n\nThanks,\nCraig",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_064",
+   "to_ids": [
+    "e_066",
+    "e_071"
+   ],
+   "cc_ids": [
+    "e_063"
+   ],
+   "subject": "September month-end close checklist - draft for review",
+   "body": "Hi Wayne, Brian,\n\nAttached in the usual spot is the draft September month-end close checklist. Please review your sections by Wednesday so we can lock it before the quarter-end crunch.\n\nKey changes from August:\n1. SettlementEngine cut-off moves to 6:00 PM ET on the last business day, so nothing is posted to GLCore after that without Ravi's sign-off.\n2. ReconLegacy still runs the end-of-day batch on Oracle 11g. Please confirm the batch finishes before 11 PM on close night, and tell me about any failures right away in #recon.\n3. Add a step for open SWIFT items: any wire without a final gpi status must be listed with an expected value date for the accrual review.\n4. We have one carry-over break, a brokerage transfer tied to {{ACCOUNT_NUMBER:a_00149}}, that needs a resolution note before sign-off.\n\nPlease reply with edits or anything I've missed. I'll circulate the final version next Friday.\n\nThanks,\nTasha",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_067",
+   "to_ids": [
+    "e_063",
+    "e_065"
+   ],
+   "cc_ids": [
+    "e_070"
+   ],
+   "subject": "SWIFT payment tracking - gpi status stuck on two wires, one client-related",
+   "body": "Ravi, Craig,\n\nUpdate on the SWIFT tracking items from this morning's wire room review.\n\nThe Mcfarland LLC wires we raised on OPS-4417 were confirmed as credited late yesterday, so those are closed. Two new items are open though:\n\n- A wire for {{CLIENT_NAME:c_0070}}, debited from {{ACCOUNT_NUMBER:a_00149}}, was released Friday and still shows \"pending\" on the tracker. The client's relationship manager has already asked us for an update.\n- A second wire shows a status mismatch: WireRoom says sent, but the gpi tracker has no record of it. That may be a message-mapping gap rather than a real payment problem.\n\nMike is pulling the outbound message logs now. I'd like Craig to check whether PaymentsGateway dropped any status callbacks after the FraudScore latency last week.\n\nI'll post what we find in this thread by 3 PM.\n\nGreg",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_065",
+   "to_ids": [
+    "e_067"
+   ],
+   "cc_ids": [
+    "e_063",
+    "e_070"
+   ],
+   "subject": "Re: SWIFT payment tracking - gpi status stuck on two wires, one client-related",
+   "body": "Greg,\n\nI went through the PaymentsGateway logs. You were right to suspect the status callbacks. During the FraudScore slowdown last week, a handful of gpi status updates timed out and were never retried, so both wires you mentioned simply never got updated on the tracker. The payments themselves went out normally.\n\nFor the wire tied to {{CLIENT_NAME:c_0070}}, I've confirmed with the correspondent that it was credited on Monday. I've manually updated the tracker and you can tell the relationship manager it's done.\n\nFor the missing wire, I've re-sent the status request and it should show as complete after the next sync. I've opened OPS-4452 so Engineering can add a retry on the callback. Ravi, I'd like to raise this with Sam Okafor's team so it doesn't recur at month-end.\n\nThanks,\nCraig",
+   "reply_to_previous": true
+  },
+  {
+   "from_id": "e_063",
+   "to_ids": [
+    "e_072"
+   ],
+   "cc_ids": [
+    "e_047",
+    "e_065"
+   ],
+   "subject": "SWIFT payment tracking - callback retry fix and handover before Priya's last day",
+   "body": "Hi Sam,\n\nFollowing up on OPS-4452, the missing retry on gpi status callbacks in PaymentsGateway. Since we first raised it in September we've had two more tracker mismatches, none of them involving lost funds but all of them costing the wire room time. The September close showed how much manual cleanup this causes.\n\nTwo requests:\n1. Please confirm who will own the fix now that Priya Raman's last day is tomorrow. I'd like a short handover note on the callback design and any known edge cases, especially around timeouts when FraudScore is slow.\n2. Please give us a target release date. If it can go in before the quarter-end freeze, Craig can test it with us.\n\nMarcus is copied because KYCPipeline moved to Compliance ownership on Tuesday, and a few of the flagged payments were held for screening. We want to make sure those holds aren't mistaken for tracking failures.\n\nThanks,\nRavi",
+   "reply_to_previous": false
+  }
+ ]
+}

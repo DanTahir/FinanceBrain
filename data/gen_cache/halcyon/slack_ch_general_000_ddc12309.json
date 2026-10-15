@@ -1,0 +1,112 @@
+{
+ "messages": [
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Heads up all: the 14th floor build-out is done and Technology is moving this weekend. Badge access for 14 goes live Friday 5pm. Monday morning we'll be in the new space."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 4,
+   "reply_to": 0,
+   "text": "Trading desk too? Need to know if our monitors and the market data terminals are getting moved or replaced. We can't have a gap during the open Monday."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 9,
+   "reply_to": 1,
+   "text": "Desk hardware is being pre-staged by facilities. Terminals get cabled Saturday, and my team will validate OMS and MarketDataFeed connectivity Sunday afternoon before anyone sits down."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 12,
+   "reply_to": -1,
+   "text": "Quick question: are the network closets on 14 already patched into the core switches? I want to confirm the VLAN config before Sunday's testing."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 18,
+   "reply_to": 3,
+   "text": "Patching finished yesterday. Leo, you own the VLAN validation, so grab the port map from facilities and compare it against our spreadsheet."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 21,
+   "reply_to": 4,
+   "text": "Will do. I'll also check that AuthSSO redirects behave from the new subnet so nobody gets locked out Monday."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 30,
+   "reply_to": -1,
+   "text": "Separate ask: can the trading seats be laid out in the same order as now? The sales traders sit next to the execution guys for a reason, and moving that around slows us down."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 37,
+   "reply_to": 6,
+   "text": "I'll pass that to Linda Brandt's team, since seat plans sit with Operations/facilities. I believe the plan already mirrors the current adjacency, but I'll confirm."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 41,
+   "reply_to": 7,
+   "text": "Appreciate it. If it's off I'd rather fix it before the weekend than on Monday at 9:25."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 55,
+   "reply_to": -1,
+   "text": "Reminder for engineers: label and bag your own peripherals. Last move we lost two docking stations and a keyboard with a very specific layout."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 58,
+   "reply_to": 9,
+   "text": "Ha, yes. Facilities will have labeled bins on 12 starting at 2pm today. Name and desk number on everything please."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 75,
+   "reply_to": -1,
+   "text": "Traders: please clear your desk drawers by Friday close. Anything left behind gets boxed and sent to the new floor, and I won't be responsible for what we find."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 120,
+   "reply_to": 3,
+   "text": "Update: port map matches the spreadsheet except two drops in the east corner. I flagged those to facilities and they're fixing them this afternoon."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 126,
+   "reply_to": 12,
+   "text": "Good catch. Please re-test those two drops once they're done and post the result here, so everyone sees we're on track."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 170,
+   "reply_to": -1,
+   "text": "One more thing: is there a backup plan if the Sunday validation turns up an issue with the trading terminals? I'd like a fallback seating on 12 just in case."
+  },
+  {
+   "author_id": "e_072",
+   "minutes_after_start": 178,
+   "reply_to": 14,
+   "text": "Yes, 12 stays fully live through Monday close. If anything fails Sunday, the desk starts Monday on 12 and we move midweek. No risk to the open."
+  },
+  {
+   "author_id": "e_005",
+   "minutes_after_start": 183,
+   "reply_to": 15,
+   "text": "That's what I needed to hear. Thanks, Sam. I'll tell the desk to plan for the move but keep their 12th floor badges active."
+  },
+  {
+   "author_id": "e_074",
+   "minutes_after_start": 240,
+   "reply_to": 12,
+   "text": "Both east corner drops re-tested clean. Link lights, DHCP and AuthSSO login all good from the new subnet. Marking VLAN validation complete."
+  }
+ ]
+}

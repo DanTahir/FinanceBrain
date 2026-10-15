@@ -1,0 +1,88 @@
+{
+ "messages": [
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 0,
+   "reply_to": -1,
+   "text": "Weekly vuln scan results are in. 3 criticals, 11 highs across prod. Biggest cluster is on DocVault app nodes, looks like an outdated image library. Ticket incoming."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 3,
+   "reply_to": 0,
+   "text": "Is that the same libxml-ish finding from two weeks ago or a new CVE? We patched DocVault in July."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 6,
+   "reply_to": 1,
+   "text": "New one. Different CVE, same base image. The July patch bumped the OS packages but the image processing lib got pinned by the Dockerfile. Fix is probably a one-line version bump."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 9,
+   "reply_to": -1,
+   "text": "Fwiw I can take the DocVault bump if someone reviews. Need to check the thumbnail service doesn't break on the newer lib version."
+  },
+  {
+   "author_id": "e_079",
+   "minutes_after_start": 11,
+   "reply_to": 3,
+   "text": "I'll review. Ping me when the PR is up. Please run the doc upload integration suite against staging, not just unit tests."
+  },
+  {
+   "author_id": "e_076",
+   "minutes_after_start": 13,
+   "reply_to": 4,
+   "text": "Will do. Staging first, then we schedule prod for the Tuesday window unless it's exploitable externally."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 17,
+   "reply_to": 5,
+   "text": "It's behind AuthSSO and not internet-facing, so CVSS environmental score drops to medium-ish. Tuesday window is fine, but I'll still flag it in the exception tracker."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 24,
+   "reply_to": -1,
+   "text": "Any DataLake findings in the scan? I saw the Spark nodes got flagged last quarter for an old log4j-adjacent dependency."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 27,
+   "reply_to": 7,
+   "text": "2 highs on DataLake. One is the Jupyter gateway running an unsupported version, the other is a TLS config on the metastore. Neither is critical. Sending you the report."
+  },
+  {
+   "author_id": "e_080",
+   "minutes_after_start": 31,
+   "reply_to": 8,
+   "text": "Got it. Jupyter gateway upgrade has been on my list anyway. I can do the metastore TLS change this week, it's a config flag plus restart. Restart will pause ingestion jobs for ~10 min."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 38,
+   "reply_to": -1,
+   "text": "Quick question, are the 11 highs deduped? Last time the scanner counted the same package once per container and inflated the number."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 42,
+   "reply_to": 10,
+   "text": "Good catch, raw count was 11 but deduped by package and CVE it's closer to 6 unique. I'll update the summary so nobody panics in the leadership readout."
+  },
+  {
+   "author_id": "e_075",
+   "minutes_after_start": 45,
+   "reply_to": 11,
+   "text": "Nice. I can take two of the remaining unique ones if they're app dependencies. Send me the list and I'll open PRs this afternoon."
+  },
+  {
+   "author_id": "e_077",
+   "minutes_after_start": 49,
+   "reply_to": -1,
+   "text": "Summary posted in the ticket with owners assigned: Travis on DocVault, Michael on DataLake, Kevin on the two app deps. Target is everything closed or excepted by end of next week."
+  }
+ ]
+}

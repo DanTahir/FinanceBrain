@@ -1,0 +1,110 @@
+{
+ "tickets": [
+  {
+   "title": "VPN drops every ~20 minutes for remote SRE staff on GlobalProtect",
+   "description": "Several engineers working remotely report the corporate VPN client disconnecting roughly every 20 minutes since the weekend patch window. Sessions reconnect automatically but SSH tunnels to the bastion hosts die and long-running psql sessions are lost. Seen on both macOS and Windows clients, so it does not look OS-specific. Logs on the client show repeated 'gateway keepalive timeout' messages. Impact is mostly to on-call work: I lost a DocVault migration dry-run midway this morning. Please check the gateway keepalive and idle timeout settings and whether the firmware update on the secondary gateway changed anything.",
+   "reporter_id": "e_077",
+   "assignee_id": "e_078",
+   "status": "resolved",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_078",
+     "text": "Confirmed. The secondary gateway came back from the patch with the DPD interval reset to default, 10s with 2 retries, which is too aggressive over home ISPs. Raised it to 30s with 5 retries on both gateways. Please retest."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Ran a 2 hour tunnel test from home, no drops. Looks good on my side. Two others on the team confirmed too."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Closing as resolved. I added the DPD settings to the gateway config baseline so the next patch does not reset them."
+    }
+   ]
+  },
+  {
+   "title": "Split tunnel routing sends DocVault traffic out the public internet",
+   "description": "While troubleshooting an unrelated slowness, I noticed that with the VPN connected, requests to the DocVault internal endpoint resolve to the public load balancer address instead of the private one. It appears the split tunnel include list was edited and the DocVault subnet fell out of it. Access still works because of SSO, but traffic is not traversing the tunnel and we lose the source IP allowlisting that the document store relies on. A few contractors have already been blocked by the allowlist. Need the route list restored and a review of who changed it.",
+   "reporter_id": "e_080",
+   "assignee_id": "e_077",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_077",
+     "text": "Found it. The include list was rewritten during the cleanup last Wednesday and the DocVault private range was dropped. I have restored it and pushed the profile to all groups."
+    },
+    {
+     "author_id": "e_072",
+     "text": "Please also add a config diff review for VPN profile changes. This one could have been a compliance finding if it had gone unnoticed longer."
+    },
+    {
+     "author_id": "e_080",
+     "text": "Verified the endpoint now resolves privately and the contractors can get in again. Fine to close."
+    }
+   ]
+  },
+  {
+   "title": "VPN certificate expiring soon on client auth profile",
+   "description": "Monitoring flagged that the machine certificate used for VPN client authentication on the engineering profile expires in 9 days. If it lapses, all laptops enrolled with that profile will fail to connect and users will see a generic 'authentication failed' error. Renewal was previously done by hand by someone who has since moved to another project, and the runbook is out of date. Need someone to renew the cert through the internal CA, redistribute via MDM, and update the runbook. Ideally set up an alert at 30 days so this does not sneak up on us again.",
+   "reporter_id": "e_078",
+   "assignee_id": "e_081",
+   "status": "closed",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_081",
+     "text": "New cert issued from the internal CA and staged in MDM. Rolling out in three waves, starting with the SRE group tomorrow morning."
+    },
+    {
+     "author_id": "e_078",
+     "text": "Wave one is clean, no auth failures in the gateway logs. I added a 30 and 14 day expiry alert to the monitoring stack."
+    },
+    {
+     "author_id": "e_081",
+     "text": "All waves are complete and runbook is rewritten with the actual steps. Closing."
+    }
+   ]
+  },
+  {
+   "title": "Nightly ReconLegacy batch not triggered by cron scheduler after host patching",
+   "description": "The end-of-day reconciliation batch for ReconLegacy did not start last night. The cron entries on the batch host were present, but the scheduler wrapper exited immediately with an Oracle client library error (libclntsh not found) after OS patching earlier in the day. Operations noticed missing recon outputs this morning and had to wait for a manual run, which finished around 10:40. Need a permanent fix to the environment variables, a check that the Oracle 11g client path survived the patch, and a pre-flight health check so a failed start pages someone instead of going silent.",
+   "reporter_id": "e_076",
+   "assignee_id": "e_079",
+   "status": "resolved",
+   "priority": "P2",
+   "comments": [
+    {
+     "author_id": "e_079",
+     "text": "The patch rotated the LD_LIBRARY_PATH in the service account profile. I restored it and set it explicitly in the crontab so it no longer depends on the login shell. Tonight's run will be the test."
+    },
+    {
+     "author_id": "e_077",
+     "text": "I added a heartbeat check that alerts to #it-ops if the batch has not logged a start by 19:30. Tested with a dry run and it pages correctly."
+    },
+    {
+     "author_id": "e_079",
+     "text": "Last night's run kicked off on time and finished normally. Marking resolved."
+    }
+   ]
+  },
+  {
+   "title": "Access request: read-only DocVault audit role for incoming engineer",
+   "description": "Requesting read-only access to the DocVault audit log viewer and the metadata API for an engineer taking over Priya Raman's DocVault and platform responsibilities ahead of her departure on 2026-10-09 handover period tail. The role should not include document content access, only audit logs, retention policy settings and storage metrics. Access is needed to finish the handover checklist and continue the retention policy cleanup. Approval from the Director of Engineering is attached to this request. Please provision through AuthSSO group membership rather than a local account and set a 90 day review.",
+   "reporter_id": "e_074",
+   "assignee_id": "e_077",
+   "status": "open",
+   "priority": "P3",
+   "comments": [
+    {
+     "author_id": "e_072",
+     "text": "Approved from my side. Scope is audit and metadata only, no content. Please confirm that the group you add really excludes content read."
+    },
+    {
+     "author_id": "e_077",
+     "text": "Picking this up. I will create a new AuthSSO group rather than reuse the existing admin group, since that one includes content read. Should be done today."
+    }
+   ]
+  }
+ ]
+}

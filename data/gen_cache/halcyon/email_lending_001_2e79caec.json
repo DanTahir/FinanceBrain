@@ -1,0 +1,76 @@
+{
+ "emails": [
+  {
+   "from_id": "e_035",
+   "to_ids": [
+    "e_029",
+    "e_030"
+   ],
+   "cc_ids": [
+    "e_031"
+   ],
+   "subject": "Appraisal turnaround slipping - three files at risk of missing rate lock",
+   "body": "Hi Brian and Joshua,\n\nWanted to flag a pattern before month-end. Our two main appraisal management vendors are now quoting 14 to 18 business days on residential orders, up from about 9 in June. Three files in my pipeline are at risk of blowing through their 45-day rate locks, including the refinance for {{CLIENT_NAME:c_0080}}, whose appraisal was ordered on July 14 and still has no inspection date.\n\nWhat I'm seeing: the vendors are blaming appraiser capacity in the suburban counties, and rush fees are not moving the needle. I've asked Brendan to confirm whether any of his borrowers could take a desktop appraisal, but I know that needs a policy exception on LTV above 75%.\n\nCan we agree on (1) a standing approval for rush ordering on files within 10 days of lock expiry and (2) whether Credit can pre-clear lock extensions so I'm not chasing sign-off at the last minute? Happy to put together a list of the affected loans by Monday.\n\nThanks,\nHeidi",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_030",
+    "e_037",
+    "e_033",
+    "e_036"
+   ],
+   "cc_ids": [
+    "e_056"
+   ],
+   "subject": "Credit committee agenda - Thursday 9/17, please send items by noon Wednesday",
+   "body": "Team,\n\nHere is the draft agenda for tomorrow's credit committee. Owen is cc'd since Risk will be presenting the concentration update.\n\n1. Approval of last month's minutes\n2. Concentration review: commercial real estate exposure vs. the 35% internal limit (Lance to present Risk's numbers)\n3. Watchlist movements: two downgrades and one upgrade, Jasmine to walk through the rationale\n4. Policy exception trends: 11 exceptions in Q3 to date, Tammy to summarize themes\n5. Appraisal turnaround and its effect on rate locks\n6. Renewal of the {{CLIENT_NAME:c_0265}} facility, which is a medium-risk borrower with an upcoming covenant test\n7. AOB\n\nIf you have a file you want discussed, send me a one-page summary by noon Wednesday so I can circulate the pack by end of day. Please keep the credit memos tight and flag any open items that need a vote rather than discussion only.\n\nThanks,\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_035",
+    "e_038",
+    "e_031",
+    "e_032"
+   ],
+   "cc_ids": [
+    "e_033",
+    "e_063"
+   ],
+   "subject": "HELOC rate change effective Thursday 10/1 - action needed today",
+   "body": "All,\n\nFollowing this morning's pricing meeting, the HELOC variable margin moves from prime plus 0.75% to prime plus 1.00% for all new applications, effective at open of business Thursday, October 1. Applications taken before then stay at the current margin if the rate is locked in LoanOrigination by end of day today.\n\nWhat I need from each of you:\n- Review your open HELOC pipeline and submit anything that is ready today.\n- For existing clients, such as {{CLIENT_NAME:c_0265}}, where a line increase is being discussed, hold off until you've spoken to me. Increases are treated as new pricing.\n- Update your client talking points. Jasmine has a one-page FAQ in the Lending shared folder.\n\nRavi, copying you so Operations can update the servicing rate tables before the 1st. Please confirm once the change is configured.\n\nCall me with any edge cases.\n\nBrian",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_030",
+   "to_ids": [
+    "e_029"
+   ],
+   "cc_ids": [
+    "e_033",
+    "e_056"
+   ],
+   "subject": "Underwriting exception request - DTI above policy, loan for {{CLIENT_NAME:c_0080}}",
+   "body": "Hi Brian,\n\nI'm requesting your approval for an underwriting exception on the loan tied to account {{ACCOUNT_NUMBER:a_00171}} for {{CLIENT_NAME:c_0080}}.\n\nSummary:\n- Back-end DTI is 47.5% against our 43% policy ceiling.\n- Mitigants: credit score well above 760, 14 months of reserves after closing, stable W-2 income for over six years, and a clean payment history since the client joined us in 2024.\n- Risk rating is low and the relationship has no delinquencies.\n- Jasmine has confirmed the income calculation and Brendan supports the request as RM.\n\nOwen, copying you since the exception pushes our DTI-exception count to 12 for the quarter, which is close to the threshold Risk wanted flagged.\n\nI recommend approval with a condition that the debt being paid off at closing is documented in the closing package. The client's rate lock expires October 14, so a decision by Friday would be appreciated.\n\nThanks,\nJoshua",
+   "reply_to_previous": false
+  },
+  {
+   "from_id": "e_029",
+   "to_ids": [
+    "e_031",
+    "e_032",
+    "e_035",
+    "e_038"
+   ],
+   "cc_ids": [
+    "e_017"
+   ],
+   "subject": "Update: HELOC rate change - revised for Thursday 10/8",
+   "body": "All,\n\nA correction to the note I sent last week. After a further review with Finance, the second HELOC pricing change is now effective Thursday, October 8, not earlier. The margin on new lines will be prime plus 1.00% as announced, and the promotional rate for balances above $250,000 is withdrawn from that date.\n\nPlease note:\n- Anything already locked in LoanOrigination before open of business today keeps the old terms.\n- Cassandra, please let {{CLIENT_NAME:c_0265}} know about the timing if a new line is still on the table.\n- Brendan, please make sure any disclosures you've sent for {{CLIENT_NAME:c_0080}} reflect the right effective date.\n\nGrace, copying you because several Wealth clients use HELOCs as bridge liquidity. Feel free to point your advisors to me with questions.\n\nI'll hold a 15-minute Q&A at 3pm today. Please come with your pipeline questions.\n\nBrian",
+   "reply_to_previous": false
+  }
+ ]
+}
