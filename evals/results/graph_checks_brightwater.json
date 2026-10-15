@@ -1,0 +1,150 @@
+[
+  {
+    "check": "fraud ring component via shared PII tokens",
+    "pass": true,
+    "detail": [
+      "c_0050",
+      "c_0061",
+      "c_0064"
+    ]
+  },
+  {
+    "check": "flagged wire lands in a ring account",
+    "pass": true,
+    "detail": [
+      [
+        22000.0,
+        0.91,
+        "a_00113",
+        "c_0050"
+      ]
+    ]
+  },
+  {
+    "check": "legacy recon system: top derived expert is the recon expert",
+    "pass": true,
+    "detail": {
+      "top5 [id, weight, docs, answered, asked, documented]": [
+        [
+          "e_020",
+          11.09769,
+          30,
+          12,
+          0,
+          1
+        ],
+        [
+          "e_019",
+          7.99299,
+          24,
+          1,
+          0,
+          0
+        ],
+        [
+          "e_023",
+          6.46564,
+          28,
+          1,
+          5,
+          0
+        ],
+        [
+          "e_024",
+          2.71502,
+          13,
+          0,
+          3,
+          0
+        ],
+        [
+          "e_016",
+          2.64571,
+          14,
+          0,
+          0,
+          0
+        ]
+      ],
+      "weight_ratio_1st_2nd": 1.3884278599122482
+    }
+  },
+  {
+    "check": "no live-feed documents before replay",
+    "pass": true,
+    "detail": [
+      [
+        0.0,
+        569,
+        "2026-09-30T20:22:00Z"
+      ]
+    ]
+  },
+  {
+    "check": "MNPI documents are access-restricted",
+    "pass": true,
+    "detail": [
+      [
+        0,
+        0.0
+      ]
+    ]
+  },
+  {
+    "check": "vector index returns documents (cosine distance ascending)",
+    "pass": true,
+    "detail": [
+      [
+        "slack-00282",
+        null,
+        0.353181838989258
+      ],
+      [
+        "ticket-00021",
+        "Structuring alert on outbound transfers following large inbound wire",
+        0.379193663597107
+      ],
+      [
+        "ticket-00036",
+        "BSAWatch alert: inbound wire $22,000.00",
+        0.407218635082245
+      ],
+      [
+        "slack-00211",
+        null,
+        0.432663381099701
+      ],
+      [
+        "slack-00283",
+        null,
+        0.481838285923004
+      ]
+    ]
+  },
+  {
+    "check": "full-text index returns documents ('ShareRecon')",
+    "pass": true,
+    "detail": [
+      [
+        "email-00077",
+        0.75
+      ],
+      [
+        "email-00001",
+        0.75
+      ],
+      [
+        "slack-00062",
+        0.666666666666667
+      ],
+      [
+        "slack-00058",
+        0.666666666666667
+      ],
+      [
+        "slack-00065",
+        0.666666666666667
+      ]
+    ]
+  }
+]

@@ -73,6 +73,21 @@ CALL algo.SSpaths({sourceNode:a, relTypes:['KNOWS'], maxLen:2, pathCount:1}) YIE
 - `db.list_graphs()` lists graphs (used for visitor-graph TTL cleanup).
 - `timestamp()` returns epoch ms. `localdatetime('...')` works. ISO date strings compare lexicographically, which we use for `valid_from` and `valid_to`.
 
+### Pattern predicates and subqueries (verified during ingestion)
+
+- **Pattern predicates in `WHERE` work**, including multi-hop ones, so ACLs are pure traversal:
+  `WHERE d.public OR (p)-[:CAN_ACCESS]->(d) OR (p)-[:MEMBER_OF]->(:Team)-[:CAN_ACCESS]->(d)
+  OR (p)-[:CAN_ACCESS]->(:Channel)<-[:POSTED_IN]-(d)`.
+- **`exists((a)-[...]->(b))` is not supported**: `Unable to resolve filtered alias '(p)-[:CAN_ACCESS]->(d)'`.
+  Use the bare pattern predicate instead.
+- `CALL { WITH p MATCH ... RETURN count(c) AS n } RETURN n` subqueries work.
+- `MERGE ... ON CREATE SET k.weight = 0.0 SET k.weight = k.weight + r.w` inside `UNWIND` works for incremental
+  edge weights.
+- `GRAPH.CONSTRAINT CREATE` via `execute_command` from the async client works; constraints start `PENDING`
+  and become `OPERATIONAL` within a second on an empty graph (`CALL db.constraints() YIELD status`).
+- Client tip (Windows dev): connect to `127.0.0.1`, not `localhost`. `localhost` tries IPv6 `::1` first, which
+  adds ~2 s to every new connection and distorts latency measurements.
+
 ### Async client
 
 `falkordb.asyncio.FalkorDB(connection_pool=redis.asyncio.BlockingConnectionPool(max_connections=16, ...))`:

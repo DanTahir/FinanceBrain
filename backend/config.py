@@ -59,7 +59,7 @@ class Settings(BaseSettings):
     daily_budget_usd: float = 25.0
 
     # --- FalkorDB (also used as the Redis for vault / counters) ---
-    falkordb_host: str = "localhost"
+    falkordb_host: str = "127.0.0.1"  # not "localhost": avoids a ~2 s IPv6 fallback per connection on Windows
     falkordb_port: int = 6379
     falkordb_password: str | None = None
 

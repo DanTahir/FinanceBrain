@@ -1,0 +1,64 @@
+"""FalkorDB connection pool and graph naming.
+
+Graph topology (FalkorDB multi-graph):
+  brain__<tenant>                  company knowledge, PII tokens, ACLs, cases, tasks, blackboard, :Meta
+  pristine__<tenant>               seeded snapshot used by "Reset demo" (GRAPH.COPY)
+  mem__<tenant>__<user>            private per-user (per-visitor) memory graph
+"""
+
+from __future__ import annotations
+
+import re
+
+from falkordb.asyncio import FalkorDB
+from redis.asyncio import BlockingConnectionPool
+
+from backend.config import get_settings
+
+_SAFE = re.compile(r"[^a-z0-9_]+")
+
+
+def brain_graph(tenant: str) -> str:
+    return f"brain__{tenant}"
+
+
+def pristine_graph(tenant: str) -> str:
+    return f"pristine__{tenant}"
+
+
+def memory_graph(tenant: str, user: str) -> str:
+    return f"mem__{tenant}__{_SAFE.sub('_', user.lower()).strip('_')}"
+
+
+_db: FalkorDB | None = None
+
+
+def get_db() -> FalkorDB:
+    """Process-wide async client over a bounded connection pool (verified in the Phase 0 spike)."""
+    global _db
+    if _db is None:
+        s = get_settings()
+        pool = BlockingConnectionPool(host=s.falkordb_host, port=s.falkordb_port, password=s.falkordb_password,
+                                      max_connections=32, timeout=30, decode_responses=True)
+        _db = FalkorDB(connection_pool=pool)
+    return _db
+
+
+async def execute(*args):
+    """Raw command on the shared pool (GRAPH.COPY, GRAPH.CONSTRAINT, GRAPH.DELETE, ...)."""
+    return await get_db().connection.execute_command(*args)
+
+
+async def graph_exists(name: str) -> bool:
+    return name in await get_db().list_graphs()
+
+
+async def delete_graph(name: str) -> None:
+    if await graph_exists(name):
+        await execute("GRAPH.DELETE", name)
+
+
+async def copy_graph(src: str, dst: str) -> None:
+    """Replace dst with a copy of src (data and indexes)."""
+    await delete_graph(dst)
+    await execute("GRAPH.COPY", src, dst)

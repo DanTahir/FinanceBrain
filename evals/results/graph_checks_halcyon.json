@@ -1,0 +1,210 @@
+[
+  {
+    "check": "fraud ring component via shared PII tokens",
+    "pass": true,
+    "detail": [
+      "c_0060",
+      "c_0100",
+      "c_0112",
+      "c_0118",
+      "c_0218"
+    ]
+  },
+  {
+    "check": "flagged wire lands in a ring account",
+    "pass": true,
+    "detail": [
+      [
+        48000.0,
+        0.91,
+        "a_00128",
+        "c_0060"
+      ]
+    ]
+  },
+  {
+    "check": "PricingSvc blast radius (systems and hop counts)",
+    "pass": true,
+    "detail": {
+      "sys_oms": 1,
+      "sys_portfoliomgr": 1,
+      "sys_reconlegacy": 3,
+      "sys_reportingbi": 2,
+      "sys_riskengine": 1,
+      "sys_settlementengine": 2,
+      "sys_tradeblotter": 1
+    }
+  },
+  {
+    "check": "KYC pipeline current owner (before transfer)",
+    "pass": true,
+    "detail": [
+      [
+        "team_ops",
+        "2025-03-03",
+        null
+      ]
+    ]
+  },
+  {
+    "check": "legacy recon system: top derived expert is the recon expert",
+    "pass": true,
+    "detail": {
+      "top5 [id, weight, docs, answered, asked, documented]": [
+        [
+          "e_073",
+          15.57285,
+          31,
+          9,
+          0,
+          1
+        ],
+        [
+          "e_064",
+          10.64524,
+          38,
+          2,
+          11,
+          0
+        ],
+        [
+          "e_063",
+          10.2732,
+          31,
+          1,
+          1,
+          4
+        ],
+        [
+          "e_072",
+          6.98594,
+          22,
+          2,
+          1,
+          0
+        ],
+        [
+          "e_075",
+          5.09788,
+          10,
+          5,
+          0,
+          0
+        ]
+      ],
+      "weight_ratio_1st_2nd": 1.4628932743648806
+    }
+  },
+  {
+    "check": "Project Falcon deal team",
+    "pass": true,
+    "detail": [
+      "e_039",
+      "e_040",
+      "e_041",
+      "e_042"
+    ]
+  },
+  {
+    "check": "decision trail dec_crypto_pause",
+    "pass": true,
+    "detail": [
+      [
+        "active",
+        [
+          "meeting-00009"
+        ],
+        [
+          "slack-00531",
+          "ticket-00041",
+          "slack-00506",
+          "email-00084"
+        ],
+        []
+      ]
+    ]
+  },
+  {
+    "check": "decision dec_crypto_resume not yet known before live feed",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "check": "no live-feed documents before replay",
+    "pass": true,
+    "detail": [
+      [
+        0.0,
+        1997,
+        "2026-09-30T22:57:00Z"
+      ]
+    ]
+  },
+  {
+    "check": "MNPI documents are access-restricted",
+    "pass": true,
+    "detail": [
+      [
+        49,
+        0.0
+      ]
+    ]
+  },
+  {
+    "check": "vector index returns documents (cosine distance ascending)",
+    "pass": true,
+    "detail": [
+      [
+        "slack-01244",
+        null,
+        0.337653160095215
+      ],
+      [
+        "slack-01204",
+        null,
+        0.34302020072937
+      ],
+      [
+        "slack-01298",
+        null,
+        0.347003400325775
+      ],
+      [
+        "ticket-00117",
+        "FraudScore alert: inbound wire $48,000.00 (score 0.91)",
+        0.36080002784729
+      ],
+      [
+        "ticket-00022",
+        "FraudScore 0.77 on inbound wire to wealth account - counterparty review",
+        0.368478775024414
+      ]
+    ]
+  },
+  {
+    "check": "full-text index returns documents ('ReconLegacy')",
+    "pass": true,
+    "detail": [
+      [
+        "slack-01008",
+        4.0
+      ],
+      [
+        "slack-00135",
+        4.0
+      ],
+      [
+        "slack-00051",
+        2.66666666666667
+      ],
+      [
+        "slack-00053",
+        2.66666666666667
+      ],
+      [
+        "slack-00140",
+        2.66666666666667
+      ]
+    ]
+  }
+]
