@@ -200,6 +200,44 @@ async def test_rate_limit_is_per_viewer_address(live_db, monkeypatch):
         assert other.status_code == 200
 
 
+async def test_mcp_endpoint_rate_limit_is_per_viewer_address(live_db, monkeypatch):
+    s = get_settings()
+    monkeypatch.setattr(s, "rate_limit_enabled", True)
+    monkeypatch.setattr(s, "rate_mcp", 2)
+    assert any(m.cls is app_module.McpRateLimitMiddleware for m in app_module.app.user_middleware)
+
+    # Stub for the mounted MCP app: its session manager may only be started once per process (test_tools does).
+    async def stub(scope, receive, send):
+        await send({"type": "http.response.start", "status": 200, "headers": [(b"content-type", b"text/plain")]})
+        await send({"type": "http.response.body", "body": b"ok"})
+
+    mw = app_module.McpRateLimitMiddleware(stub)
+    me = {"cloudfront-viewer-address": viewer()}
+    async with httpx.AsyncClient(transport=httpx.ASGITransport(app=mw), base_url="http://test") as c:
+        codes = [(await c.post("/mcp", headers=me)).status_code for _ in range(3)]
+        assert codes == [200, 200, 429]
+        limited = await c.post("/mcp", headers=me)
+        assert int(limited.headers["retry-after"]) > 0 and "Rate limit" in limited.json()["detail"]
+        assert (await c.get("/api/healthz", headers=me)).status_code == 200  # only /mcp is limited here
+        other = await c.post("/mcp", headers={"cloudfront-viewer-address": viewer()})
+        assert other.status_code == 200
+
+
+async def test_mcp_token_is_read_only_and_works_as_bearer(live_db):
+    from backend.tenancy import auth_from_bearer  # what the MCP server applies to "Authorization: Bearer ..."
+
+    async with client() as c:
+        bad = await c.post("/api/mcp/token", json={"tenant": "halcyon", "persona": "ceo"})
+        assert bad.status_code == 400
+        r = await c.post("/api/mcp/token", json={"tenant": "halcyon", "persona": "compliance_officer"})
+        assert r.status_code == 200, r.text
+        body = r.json()
+        assert body["scopes"] == ["read"] and body["expires_in"] == app_module.MCP_TOKEN_TTL_S
+        a = auth_from_bearer(body["token"])
+        assert (a.tenant, a.persona, a.scopes) == ("halcyon", "compliance_officer", ("read",))
+        assert a.user.startswith("mcp-") and not a.can("act") and not a.can("approve")
+
+
 async def test_guided_answers_are_cached_per_persona_and_served_over_budget(live_db, monkeypatch):
     from backend.api import guardrails
     from backend.ingest import live

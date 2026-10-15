@@ -31,7 +31,7 @@ from backend.ingest import live
 from backend.llm.guard import guard_stats
 from backend.mcp_server.server import http_app
 from backend.memory.store import SESSION_RE, MemoryStore
-from backend.tenancy import TENANTS, AuthContext, AuthError, make_auth, personas
+from backend.tenancy import TENANTS, AuthContext, AuthError, make_auth, personas, sign_auth
 from backend.tools import memory as memtools
 from backend.tools import ops, retrieval
 from backend.tools.base import ToolContext, ToolError
@@ -81,6 +81,27 @@ class VisitorMiddleware:
         await self.app(scope, receive, send_with_cookie)
 
 
+class McpRateLimitMiddleware:
+    """Pure ASGI middleware: per-viewer-IP rate limit on the public MCP endpoint (its read-only demo token is
+    published for Claude Desktop). Pure ASGI so MCP's streamed responses are not buffered."""
+
+    def __init__(self, app) -> None:
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] == "http" and scope.get("path", "").startswith("/mcp"):
+            try:
+                await guardrails.rate_limit(Request(scope), "mcp", get_settings().rate_mcp)
+            except HTTPException as e:
+                body = json.dumps({"detail": e.detail}).encode()
+                headers = [(b"content-type", b"application/json"), (b"content-length", str(len(body)).encode())]
+                headers += [(k.lower().encode(), str(v).encode()) for k, v in (e.headers or {}).items()]
+                await send({"type": "http.response.start", "status": e.status_code, "headers": headers})
+                await send({"type": "http.response.body", "body": body})
+                return
+        await self.app(scope, receive, send)
+
+
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     # The MCP streamable-HTTP session manager starts in the mounted app's lifespan, which a mount does not run.
@@ -91,6 +112,7 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(title="FinanceBrain API", version="0.9.0", lifespan=lifespan)
 app.add_middleware(VisitorMiddleware)
+app.add_middleware(McpRateLimitMiddleware)
 
 
 class ChatTurn(BaseModel):
@@ -269,6 +291,20 @@ async def playbooks(request: Request, tenant: str, persona: str) -> dict:
 @app.get("/api/live")
 async def live_status(tenant: str) -> dict:
     return await live.status(_tenant(tenant))
+
+
+MCP_TOKEN_TTL_S = 24 * 3600
+
+
+@app.post("/api/mcp/token")
+async def mcp_token(body: PersonaRef, request: Request) -> dict:
+    """Mint a short-lived, read-only MCP bearer token for this visitor and persona (Claude Desktop or any MCP
+    client). Read scope only: no cases, actions or approvals over MCP; ACLs follow the chosen persona."""
+    await guardrails.rate_limit(request, "ops", get_settings().rate_ops)
+    a = _auth(request, body.tenant, body.persona)
+    ro = make_auth(a.tenant, a.persona, user=f"mcp-{a.user}", scopes=("read",))
+    return {"token": sign_auth(ro, ttl=MCP_TOKEN_TTL_S), "expires_in": MCP_TOKEN_TTL_S, "tenant": ro.tenant,
+            "persona": ro.persona, "scopes": list(ro.scopes), "mcp_path": "/mcp"}
 
 
 @app.post("/api/live/advance")

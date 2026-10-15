@@ -83,6 +83,7 @@ class Settings(BaseSettings):
     rate_window_s: int = 600
     rate_chat: int = 20  # agent runs per viewer IP per window
     rate_ops: int = 40  # live feed, reset, approvals, scans, previews per viewer IP per window
+    rate_mcp: int = 300  # /mcp JSON-RPC requests per viewer IP per window (the read-only demo token is public)
     guided_cache_ttl_s: int = 7 * 86400
 
 
