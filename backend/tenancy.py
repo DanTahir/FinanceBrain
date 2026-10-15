@@ -34,7 +34,7 @@ _DEFAULT_SCOPES: dict[str, tuple[str, ...]] = {
     "compliance_officer": ("read", "act", "approve", "reveal"),
     "aml_analyst": ("read", "act"),
 }
-_FALLBACK_SCOPES = ("read", "act")
+_FALLBACK_SCOPES = ("read",)  # everyone else: read-only (no investigations, cases or approvals)
 
 
 class AuthError(Exception):

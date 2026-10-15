@@ -13,8 +13,8 @@ from falkordb import Edge, Node, Path
 
 from backend.graph import queries as Q
 from backend.llm.embeddings import embed
-from backend.tools.base import (CONTENT_PROPS, ToolContext, ToolError, clean_props, fetch_docs, name_entities,
-                                resolve)
+from backend.tools.base import (CONTENT_PROPS, OPS_LABELS, OPS_RELS, ToolContext, ToolError, clean_props, fetch_docs,
+                                name_entities, resolve)
 
 KINDS = ("email", "slack", "ticket", "doc", "meeting", "crm")
 _STOP = frozenset("""the a an and or of to in on for with is are was were be been what who whom which why how when where
@@ -250,6 +250,8 @@ SCHEMA_PATTERNS = """\
 (:Transaction)-[:COUNTERPARTY]->(:Counterparty {country})
 (:Client|Account|Counterparty)-[:HAS_IDENTIFIER]->(:PiiToken {type})   a token shared by several owners = shared phone/address/device
 (:Person)-[:ON_DEAL_TEAM]->(:Deal {sensitivity})
+(:Account|Counterparty)-[:FLOWS_TO {amount, n, first_ts, last_ts, max_fraud_score, alerts}]->(:Account|Counterparty)   derived money flow
+(:Person)-[:COMMUNICATES {weight, direct, replies, last}]->(:Person)   derived from non-MNPI messages and replies
 (:Person|Team)-[:CAN_ACCESS]->(:Document|Channel)                      access control
 """
 _SCHEMA_CACHE: dict[str, tuple[float, dict]] = {}
@@ -274,28 +276,39 @@ _BLOCK = re.compile(
     r"\.\s*`?(?:text|title|statement|object|object_key|summary|codename|target|redactions|title_redactions|embedding)`?\b"
     r"|\bproperties\s*\(|\b(?:create|merge|set|delete|detach|remove|drop|foreach)\b|\bload\s+csv\b"
     r"|db\.idx\.(?:fulltext|vector)\.query", re.I)
+_OPS_RE = re.compile(r":\s*`?(?:Case|Action|Task)`?\b|\b(?:EVIDENCE|PROPOSED|FOR_CASE|TARGETS|HANDED_OFF_TO|CLAIMED_BY|"
+                     r"APPROVED_BY|REJECTED_BY|OPENED_BY|REQUESTED_BY)\b")
 
 
-def _ser(v: Any, hidden_docs: set[str], terms: list[str]) -> Any:
-    """Serialize driver values; strip content properties, mask invisible documents and restricted deal terms."""
+def _ser(v: Any, hidden_docs: set[str], terms: list[str], hide_ops: bool = False) -> Any:
+    """Serialize driver values; strip content properties, mask invisible documents, restricted deal terms and (for
+    personas without case access) case-management nodes and edges."""
+    def rec(x: Any) -> Any:
+        return _ser(x, hidden_docs, terms, hide_ops)
+
     if isinstance(v, Node):
         label = v.labels[0] if v.labels else "Node"
+        if hide_ops and label in OPS_LABELS:
+            return {"_label": "⟨restricted⟩"}
         props = {k: x for k, x in (v.properties or {}).items() if k not in CONTENT_PROPS}
         if label == "Document":
             if props.get("id") in hidden_docs:
                 return {"_label": "Document", "id": "⟨restricted⟩"}
             props = {k: props[k] for k in ("id", "kind", "ts", "sensitivity") if k in props}
-        return {"_label": label, **{k: _ser(x, hidden_docs, terms) for k, x in props.items()}}
+        return {"_label": label, **{k: rec(x) for k, x in props.items()}}
     if isinstance(v, Edge):
-        return {"_type": v.relation, **{k: _ser(x, hidden_docs, terms) for k, x in (v.properties or {}).items()}}
+        if hide_ops and v.relation in OPS_RELS:
+            return {"_type": "⟨restricted⟩"}
+        return {"_type": v.relation, **{k: rec(x) for k, x in (v.properties or {}).items()}}
     if isinstance(v, Path):
         nodes = v.nodes() if callable(getattr(v, "nodes", None)) else getattr(v, "_nodes", [])
         edges = v.edges() if callable(getattr(v, "edges", None)) else getattr(v, "_edges", [])
-        return {"_path": [_ser(n, hidden_docs, terms) for n in nodes], "_rels": [e.relation for e in edges]}
+        return {"_path": [rec(n) for n in nodes],
+                "_rels": ["⟨restricted⟩" if hide_ops and e.relation in OPS_RELS else e.relation for e in edges]}
     if isinstance(v, (list, tuple)):
-        return [_ser(x, hidden_docs, terms) for x in v[:200]]
+        return [rec(x) for x in v[:200]]
     if isinstance(v, dict):
-        return {k: _ser(x, hidden_docs, terms) for k, x in v.items()}
+        return {k: rec(x) for k, x in v.items()}
     if isinstance(v, float):
         return round(v, 4)
     if isinstance(v, str):
@@ -333,11 +346,15 @@ async def run_cypher_readonly(ctx: ToolContext, cypher: str, params: dict | None
         raise ToolError(f"Rejected ({m.group(0)!r}): run_cypher_readonly is for structural and aggregate questions. "
                         "Writes are not allowed, and document/fact content (text, title, statement, codename...) is only "
                         "served by the ACL-checked tools such as search_knowledge and get_entity.")
+    hide_ops = not ctx.auth.can("act")
+    if hide_ops and _OPS_RE.search(c):
+        raise ToolError("Rejected: case-management data (cases, actions, tasks, handoffs) is restricted to Compliance "
+                        "and AML personas.")
     limit = max(1, min(int(limit or 50), 100))
     rows = await ctx.q("run_cypher_readonly", c, params or {}, timeout_ms=5000)
     docs: set[str] = set()
     _doc_node_ids(rows[:limit], docs)
     hidden = docs - await ctx.visible_docs(docs) if docs else set()
     terms = await ctx.restricted_terms()
-    out = [_ser(r, hidden, terms) for r in rows[:limit]]
+    out = [_ser(r, hidden, terms, hide_ops) for r in rows[:limit]]
     return {"rows": out, "row_count": len(rows), "truncated": len(rows) > limit}

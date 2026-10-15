@@ -50,7 +50,8 @@ def to_openai_tool(t: Any) -> dict:
 def _summary(result: Any) -> str:
     if not isinstance(result, dict):
         return ""
-    for key in ("results", "experts", "impacted", "paths", "timeline", "neighbors", "rows", "history", "decisions"):
+    for key in ("results", "experts", "impacted", "paths", "timeline", "neighbors", "rows", "history", "decisions",
+                "alerts", "rings", "linked", "breaches", "people", "cases", "tasks"):
         if isinstance(result.get(key), list):
             return f"{len(result[key])} {key}"
     return "ok"
@@ -89,6 +90,7 @@ async def run_agent(spec: AgentSpec, auth: AuthContext, message: str,
     evidence = Evidence()
     docs: dict[str, dict] = {}
     calls: list[dict] = []
+    ops_log: list[dict] = []
     messages: list[dict] = [system_block(spec.prompt), {"role": "system", "content": spec.context(auth)}]
     for h in (history or [])[-12:]:
         if h.get("role") in ("user", "assistant") and h.get("content"):
@@ -112,7 +114,7 @@ async def run_agent(spec: AgentSpec, auth: AuthContext, message: str,
                     if not isinstance(args, dict):
                         raise ValueError("arguments must be a JSON object")
                     out["args"] = args
-                    res = await client.call_tool(name, args, meta={"fb_auth": token})
+                    res = await client.call_tool(name, args, meta={"fb_auth": token, "fb_agent": spec.name})
                     text = "".join(getattr(c, "text", "") or "" for c in (res.content or []))
                     if res.is_error:
                         out["error"] = text[:2000] or "tool error"
@@ -162,13 +164,18 @@ async def run_agent(spec: AgentSpec, auth: AuthContext, message: str,
                         if len(content) > MAX_TOOL_CHARS:
                             content = content[:MAX_TOOL_CHARS] + "...(truncated)"
                         summary = _summary(payload)
+                        ops_events = list(data.get("_events") or [])
                     else:
                         trace, content, summary = [], f"ERROR: {out['error']}", out["error"][:200]
+                        ops_events = []
                     messages.append({"role": "tool", "tool_call_id": out["id"], "content": content})
                     entry = {**{k: out[k] for k in ("id", "name", "args", "ok", "ms")}, "summary": summary,
                              "trace": trace}
                     calls.append({k: v for k, v in entry.items() if k != "trace"})
                     yield {"type": "tool_result", **entry}
+                    for e in ops_events:  # case opened, action proposed, handoff, ... (graph writes by the tool)
+                        ops_log.append(e)
+                        yield {"type": "ops", "agent": spec.name, **e}
     except Exception as e:  # noqa: BLE001
         log.exception("agent %s failed", spec.name)
         yield {"type": "error", "message": mask_secrets(f"{type(e).__name__}: {e}")[:500]}
@@ -181,5 +188,5 @@ async def run_agent(spec: AgentSpec, auth: AuthContext, message: str,
     unverified = [d for d in cited_ids if d not in docs]
     yield {"type": "final", "agent": spec.name, "text": final_text, "citations": citations,
            "unverified_citations": unverified, "evidence": final_evidence(evidence, {c["id"] for c in citations}),
-           "tool_calls": calls, "steps": step, "usage": asdict(usage), "cost_usd": round(usage.cost_usd, 5),
+           "tool_calls": calls, "ops": ops_log, "steps": step, "usage": asdict(usage), "cost_usd": round(usage.cost_usd, 5),
            "ms": round((time.perf_counter() - t0) * 1000)}

@@ -1,6 +1,7 @@
-"""CLI: ask an agent a question as a persona and stream the answer, tool calls and citations.
+"""CLI: ask an agent a question as a persona and stream the answer, tool calls, handoffs and citations.
 
     python -m backend.agents.ask --tenant halcyon --persona engineer "Who should I ask about ReconLegacy?"
+    python -m backend.agents.ask --persona aml_analyst --agent investigator "Investigate the flagged 48k wire"
 """
 
 from __future__ import annotations
@@ -12,11 +13,8 @@ import logging
 import sys
 from pathlib import Path
 
-from backend.agents.brain import brain_spec
-from backend.agents.runtime import run_agent
+from backend.agents.orchestrator import SPECS, run_flow
 from backend.tenancy import make_auth
-
-AGENTS = {"brain": brain_spec}
 
 
 async def main() -> int:
@@ -24,19 +22,20 @@ async def main() -> int:
     ap.add_argument("question")
     ap.add_argument("--tenant", default="halcyon")
     ap.add_argument("--persona", default="engineer")
-    ap.add_argument("--agent", default="brain", choices=sorted(AGENTS))
-    ap.add_argument("--out", help="write the final event as JSON to this path")
+    ap.add_argument("--agent", default="brain", choices=sorted(SPECS))
+    ap.add_argument("--out", help="write the final event(s) as JSON to this path")
     ap.add_argument("--trace", action="store_true", help="print every Cypher query run by the tools")
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
     logging.basicConfig(level=logging.WARNING)
 
     auth = make_auth(args.tenant, args.persona, user="cli")
-    final = None
-    async for ev in run_agent(AGENTS[args.agent](), auth, args.question):
+    finals: list[dict] = []
+    ops_events: list[dict] = []
+    async for ev in run_flow(args.agent, auth, args.question):
         t = ev["type"]
         if t == "start":
-            print(f"[{ev['agent']} | {ev['model']} | {ev['tenant']}/{ev['persona']} {auth.persona_info.name}]")
+            print(f"\n[{ev['agent']} | {ev['model']} | {ev['tenant']}/{ev['persona']} {auth.persona_info.name}]")
         elif t == "text":
             print(ev["delta"], end="", flush=True)
         elif t == "tool_call":
@@ -47,23 +46,30 @@ async def main() -> int:
             if args.trace:
                 for q in ev["trace"]:
                     print(f"     [{q.get('ms')} ms, {q.get('rows', '-')} rows] {q['query']}")
+        elif t == "ops":
+            ops_events.append(ev)
+            detail = {k: v for k, v in ev.items() if k not in ("type", "note")}
+            print(f"  ** {json.dumps(detail, ensure_ascii=False)[:240]}")
+        elif t == "handoff":
+            print(f"\n==> handoff {ev['from']} -> {ev['to']} (task {ev['task_id']}, case {ev['case_id']})")
         elif t == "error":
             print(f"\nERROR: {ev['message']}")
             return 1
         elif t == "final":
-            final = ev
-    if final is None:
+            finals.append(ev)
+            print("\n\n--- citations")
+            for c in ev["citations"]:
+                print(f"[{c['n']}] {c['id']}  {c.get('display', '')}")
+            if ev["unverified_citations"]:
+                print("unverified (not returned by any tool):", ev["unverified_citations"])
+            e = ev["evidence"]
+            print(f"--- {ev['agent']}: evidence {len(e['nodes'])} nodes, {len(e['edges'])} edges | steps {ev['steps']} | "
+                  f"tools {len(ev['tool_calls'])} | ${ev['cost_usd']:.4f} | {ev['ms'] / 1000:.1f}s")
+    if not finals:
         return 1
-    print("\n\n--- citations")
-    for c in final["citations"]:
-        print(f"[{c['n']}] {c['id']}  {c.get('display', '')}")
-    if final["unverified_citations"]:
-        print("unverified (not returned by any tool):", final["unverified_citations"])
-    ev = final["evidence"]
-    print(f"--- evidence: {len(ev['nodes'])} nodes, {len(ev['edges'])} edges | steps {final['steps']} | "
-          f"tools {len(final['tool_calls'])} | ${final['cost_usd']:.4f} | {final['ms'] / 1000:.1f}s")
     if args.out:
-        Path(args.out).write_text(json.dumps(final, ensure_ascii=False, indent=2), encoding="utf-8")
+        Path(args.out).write_text(json.dumps({"finals": finals, "ops": ops_events}, ensure_ascii=False, indent=2),
+                                  encoding="utf-8")
     return 0
 
 

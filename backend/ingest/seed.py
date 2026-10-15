@@ -19,6 +19,7 @@ from backend.config import REPO_ROOT
 from backend.graph import queries as Q
 from backend.graph.db import brain_graph, copy_graph, delete_graph, get_db, pristine_graph
 from backend.graph.schema import apply_schema, ensure_meta, wait_constraints
+from backend.ingest.derive import derive_edges
 from backend.ingest.pipeline import Ingestor
 from backend.ingest.sources import load_redacted_docs, load_world
 from backend.llm.client import COSTS
@@ -49,6 +50,7 @@ async def seed(tenant: str, *, drop: bool = False, offline: bool = False, limit:
                  time.perf_counter() - t0, COSTS.total_usd())
     t_total = time.perf_counter() - t0
 
+    derived = await derive_edges(gname)  # FLOWS_TO + COMMUNICATES (before the canary scan and pristine copy)
     g = get_db().select_graph(gname)
     labels = {r[0]: r[1] for r in (await g.query(Q.LABEL_COUNTS)).result_set}
     rels = {r[0]: r[1] for r in (await g.query(Q.REL_COUNTS)).result_set}
@@ -62,7 +64,7 @@ async def seed(tenant: str, *, drop: bool = False, offline: bool = False, limit:
         "tenant": tenant, "graph": gname, "cutoff": ing.cutoff, "docs_ingested": len(docs), "schema_created": made,
         "meta": meta, "seconds": {"world": round(t_world, 1), "total": round(t_total, 1)},
         "extraction": dict(ing.extractor.stats), "pipeline": dict(sorted(ing.stats.items())),
-        "labels": labels, "relationships": rels,
+        "labels": labels, "relationships": rels, "derived": derived,
         "canary": {"strings_scanned": canary.strings_scanned, "hits": sum(canary.hits.values()),
                    "by_type": dict(canary.hits), "examples": canary.examples[:10]},
         "pristine_copy": pristine_graph(tenant) if pristine else None,

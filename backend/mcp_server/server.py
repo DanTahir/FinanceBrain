@@ -18,10 +18,10 @@ from typing import Annotated, Any
 from mcp.server.mcpserver import Context, MCPServer
 from mcp.server.mcpserver.exceptions import ToolError as MCPToolError
 from mcp.server.transport_security import TransportSecuritySettings
-from pydantic import Field
+from pydantic import BaseModel, Field
 
 from backend.tenancy import AuthContext, AuthError, auth_from_bearer, verify_auth
-from backend.tools import reasoning, retrieval
+from backend.tools import investigation, ops, reasoning, retrieval
 from backend.tools.base import ToolContext, ToolError
 
 log = logging.getLogger(__name__)
@@ -30,18 +30,26 @@ INSTRUCTIONS = """FinanceBrain is the knowledge graph (FalkorDB) of a finance co
 meetings and CRM notes, plus people, teams, systems, ownership, expertise, decisions, clients, accounts and
 transactions. Personal data appears only as pseudonymous tokens like ⟨PHONE_0042⟩. Every result is filtered by the
 caller's access rights. Start with search_knowledge; use who_knows / who_owns / trace_decision / blast_radius /
-find_path for expertise, ownership, decision rationale, dependency impact and connections."""
+find_path for expertise, ownership, decision rationale, dependency impact and connections, and key_people for
+PageRank / betweenness over the communication network. Compliance and AML personas can also investigate
+(list_alerts, detect_rings, linked_accounts, trace_funds, barrier_check) and run cases on the shared blackboard
+(open_case, propose_action, handoff, claim_task, ...). Actions are only proposed: a human approves them in the
+FinanceBrain UI."""
 
-server = MCPServer(name="financebrain", title="FinanceBrain", version="0.6.0", instructions=INSTRUCTIONS)
+server = MCPServer(name="financebrain", title="FinanceBrain", version="0.7.0", instructions=INSTRUCTIONS)
 
 
-def _meta_token(ctx: Context) -> str | None:
+def _meta_value(ctx: Context, key: str) -> str | None:
     meta = getattr(ctx.request_context, "meta", None)
     if meta is None:
         return None
     if isinstance(meta, dict):
-        return meta.get("fb_auth")
-    return getattr(meta, "fb_auth", None) or (getattr(meta, "model_extra", None) or {}).get("fb_auth")
+        return meta.get(key)
+    return getattr(meta, key, None) or (getattr(meta, "model_extra", None) or {}).get(key)
+
+
+def _meta_token(ctx: Context) -> str | None:
+    return _meta_value(ctx, "fb_auth")
 
 
 def auth_of(ctx: Context) -> AuthContext:
@@ -64,7 +72,8 @@ async def _run(ctx: Context, fn: Callable[..., Awaitable[Any]], **kwargs: Any) -
         auth = auth_of(ctx)
     except AuthError as e:
         raise MCPToolError(f"unauthorized: {e}") from None
-    tc = ToolContext(auth)
+    agent = _meta_value(ctx, "fb_agent")
+    tc = ToolContext(auth, agent=agent if agent in ops.AGENTS else "external")
     try:
         result = await fn(tc, **kwargs)
     except ToolError as e:
@@ -188,6 +197,203 @@ async def find_path(
     """All shortest connections between two entities (e.g. two clients sharing a phone token, a person and a
     system). Paths through documents or deals outside the caller's access are omitted."""
     return await _run(ctx, reasoning.find_path, source=source, target=target, max_hops=max_hops)
+
+
+@server.tool(title="Key people")
+async def key_people(
+    ctx: Context,
+    team: Annotated[str | None, Field(description="Optional team name or id to rank within.")] = None,
+    limit: Annotated[int, Field(description="Max people (1-20, default 8).")] = 8,
+) -> dict:
+    """The most central people in the firm's communication network (derived from who messages and replies to
+    whom, MNPI excluded): PageRank (most consulted) and betweenness (bridges between groups, key-person risk),
+    with departure dates."""
+    return await _run(ctx, investigation.key_people, team=team, limit=limit)
+
+
+# ------------------------------------------------------------------------------------------------ investigation
+@server.tool(title="List alerts")
+async def list_alerts(
+    ctx: Context,
+    min_score: Annotated[float, Field(description="Also include unalerted transactions with fraud_score at or "
+                                                  "above this (0-1, default 0.8).")] = 0.8,
+    limit: Annotated[int, Field(description="Max transactions (1-50, default 15).")] = 15,
+) -> dict:
+    """Flagged transactions (monitoring alerts and high fraud scores) with accounts, holders and counterparty,
+    highest risk first. Requires investigation rights."""
+    return await _run(ctx, investigation.list_alerts, min_score=min_score, limit=limit)
+
+
+@server.tool(title="Detect rings")
+async def detect_rings(
+    ctx: Context,
+    min_clients: Annotated[int, Field(description="Minimum clients per group (2-10, default 3).")] = 3,
+    limit: Annotated[int, Field(description="Max groups returned (1-10, default 5).")] = 5,
+) -> dict:
+    """Find groups of clients tied together by shared identifiers (phone, address, device, email, SSN) using
+    Weakly Connected Components, then risk-score each group from identifier strength, money moving between member
+    accounts, common exit counterparties, structuring and alerts (with plain-language signals). Requires
+    investigation rights."""
+    return await _run(ctx, investigation.detect_rings, min_clients=min_clients, limit=limit)
+
+
+@server.tool(title="Linked accounts")
+async def linked_accounts(
+    ctx: Context,
+    entity: Annotated[str, Field(description="Start: a transaction (t_r016), account, client or PII token.")],
+    hops: Annotated[int, Field(description="Identifier hops to expand (1-3, default 2).")] = 2,
+    identifier_types: Annotated[list[str] | None, Field(
+        description="Optional identifier types to follow, e.g. ['PHONE','DEVICE_ID'] (default: all strong ones plus "
+                    "ADDRESS; DOB is excluded).")] = None,
+) -> dict:
+    """Multi-hop identifier linking: every client connected to the start through shared PII tokens, how each was
+    reached, their accounts, and money flows among those accounts. Requires investigation rights."""
+    return await _run(ctx, investigation.linked_accounts, entity=entity, hops=hops,
+                      identifier_types=identifier_types)
+
+
+@server.tool(title="Trace funds")
+async def trace_funds(
+    ctx: Context,
+    start: Annotated[str, Field(description="A transaction, account, client or counterparty id.")],
+    direction: Annotated[str, Field(description="'downstream' (where money went, default) or 'upstream'.")] =
+    "downstream",
+    hops: Annotated[int, Field(description="Max hops (1-4, default 3).")] = 3,
+    since: Annotated[str | None, Field(description="Optional ISO date; only flows active since then (defaults to "
+                                                   "the transaction date when starting from a transaction).")] = None,
+) -> dict:
+    """Follow money through accounts along aggregated FLOWS_TO edges: paths, exit (or source) counterparties with
+    amounts, and the clients holding each account. Requires investigation rights."""
+    return await _run(ctx, investigation.trace_funds, start=start, direction=direction, hops=hops, since=since)
+
+
+@server.tool(title="Information-barrier check")
+async def barrier_check(
+    ctx: Context,
+    deal: Annotated[str, Field(description="Deal id or codename, e.g. 'Project Falcon'.")],
+) -> dict:
+    """Audit a deal's information barrier: the wall (deal team + Compliance), every document that references the
+    deal, and which of them reached people outside the wall (recipients, channel members, access grants).
+    Requires investigation rights."""
+    return await _run(ctx, investigation.barrier_check, deal=deal)
+
+
+# ------------------------------------------------------------------------------------------------ cases
+class EvidenceItem(BaseModel):
+    entity: str = Field(description="Entity id or name: transaction, account, client, PII token, document, ...")
+    note: str = Field(default="", description="Why it matters, one line.")
+
+
+def _items(evidence: list[EvidenceItem | str] | None) -> list:
+    return [e.model_dump() if isinstance(e, BaseModel) else e for e in (evidence or [])]
+
+
+@server.tool(title="Open case")
+async def open_case(
+    ctx: Context,
+    title: Annotated[str, Field(description="Short case title.")],
+    kind: Annotated[str, Field(description="fraud_ring, suspicious_activity, mnpi_breach, access_review or other.")],
+    severity: Annotated[str, Field(description="low, medium, high or critical.")] = "medium",
+    summary: Annotated[str, Field(description="What was found and why it matters.")] = "",
+    evidence: Annotated[list[EvidenceItem | str] | None, Field(
+        description="Key evidence entities with optional notes.")] = None,
+) -> dict:
+    """Open an investigation case in the shared graph with linked evidence. Reuses an open case of the same kind
+    that already holds any of this evidence. Requires investigation rights."""
+    return await _run(ctx, ops.open_case, title=title, kind=kind, severity=severity, summary=summary,
+                      evidence=_items(evidence))
+
+
+@server.tool(title="Add case evidence")
+async def add_case_evidence(
+    ctx: Context,
+    case_id: Annotated[str, Field(description="Case id (case_...).")],
+    evidence: Annotated[list[EvidenceItem | str], Field(description="Evidence entities with optional notes.")],
+) -> dict:
+    """Link more evidence to a case."""
+    return await _run(ctx, ops.add_case_evidence, case_id=case_id, evidence=_items(evidence))
+
+
+@server.tool(title="Get case")
+async def get_case(ctx: Context, case_id: Annotated[str, Field(description="Case id (case_...).")]) -> dict:
+    """A case with its evidence, proposed actions (and human decisions), tasks and handoff history."""
+    return await _run(ctx, ops.get_case, case_id=case_id)
+
+
+@server.tool(title="List cases")
+async def list_cases(
+    ctx: Context,
+    status: Annotated[str | None, Field(description="Optional: open, in_review, pending_approval, escalated, "
+                                                    "actioned, closed.")] = None,
+    limit: Annotated[int, Field(description="Max cases (1-50, default 20).")] = 20,
+) -> dict:
+    """Cases on the blackboard, most recently updated first, with evidence and pending-approval counts."""
+    return await _run(ctx, ops.list_cases, status=status, limit=limit)
+
+
+@server.tool(title="Update case")
+async def update_case(
+    ctx: Context,
+    case_id: Annotated[str, Field(description="Case id (case_...).")],
+    status: Annotated[str | None, Field(description="Optional new status (e.g. pending_approval, escalated).")] = None,
+    severity: Annotated[str | None, Field(description="Optional new severity.")] = None,
+    summary: Annotated[str | None, Field(description="Optional replacement summary.")] = None,
+) -> dict:
+    """Change a case's status, severity or summary."""
+    return await _run(ctx, ops.update_case, case_id=case_id, status=status, severity=severity, summary=summary)
+
+
+@server.tool(title="Propose action")
+async def propose_action(
+    ctx: Context,
+    case_id: Annotated[str, Field(description="Case id (case_...).")],
+    kind: Annotated[str, Field(description="freeze_account, file_sar, notify_owner or restrict_channel.")],
+    target: Annotated[str | None, Field(description="Account for freeze_account, channel for restrict_channel, "
+                                                    "person/team/system for notify_owner; omit for file_sar.")] = None,
+    rationale: Annotated[str, Field(description="Why, referring to the evidence.")] = "",
+    details: Annotated[str | None, Field(description="Optional payload, e.g. the SAR narrative draft.")] = None,
+) -> dict:
+    """Propose an action on a case. It is NOT executed: it waits for a human with approval rights."""
+    return await _run(ctx, ops.propose_action, case_id=case_id, kind=kind, target=target, rationale=rationale,
+                      details=details)
+
+
+# ------------------------------------------------------------------------------------------------ blackboard
+@server.tool(title="Hand off")
+async def handoff(
+    ctx: Context,
+    case_id: Annotated[str, Field(description="Case id (case_...).")],
+    to_agent: Annotated[str, Field(description="Receiving agent: 'compliance' or 'investigator'.")],
+    note: Annotated[str, Field(description="Findings so far and what the receiving agent should do.")],
+) -> dict:
+    """Hand a case to another agent: posts a task on the shared blackboard and reassigns the case."""
+    return await _run(ctx, ops.handoff, case_id=case_id, to_agent=to_agent, note=note)
+
+
+@server.tool(title="Claim task")
+async def claim_task(ctx: Context, task_id: Annotated[str, Field(description="Task id (task_...).")]) -> dict:
+    """Claim an open task assigned to you; returns the task and its case."""
+    return await _run(ctx, ops.claim_task, task_id=task_id)
+
+
+@server.tool(title="List tasks")
+async def list_tasks(
+    ctx: Context,
+    status: Annotated[str | None, Field(description="open (default), claimed, done or any.")] = "open",
+    mine: Annotated[bool, Field(description="Only tasks assigned to the calling agent (default true).")] = True,
+) -> dict:
+    """Tasks on the shared blackboard."""
+    return await _run(ctx, ops.list_tasks, status=status, mine=mine)
+
+
+@server.tool(title="Complete task")
+async def complete_task(
+    ctx: Context,
+    task_id: Annotated[str, Field(description="Task id (task_...).")],
+    result: Annotated[str, Field(description="One paragraph: what was done and what awaits approval.")],
+) -> dict:
+    """Mark a task done with a result summary."""
+    return await _run(ctx, ops.complete_task, task_id=task_id, result=result)
 
 
 def http_app():

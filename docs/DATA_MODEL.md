@@ -67,7 +67,11 @@ erDiagram
 | `Decision` | id, title, status, effective, summary | decision log + LLM extraction |
 | `PiiToken` | id (= token, e.g. `⟨PHONE_0042⟩`), type | redaction vault; the raw value lives only in the encrypted vault |
 | `RedactionEvent` | id, counts (JSON) | redaction pipeline audit trail |
-| `Agent`, `Task`, `Case`, `Action`, `Playbook`, `Step` | id, status, ... | agents at runtime (items 6–8) |
+| `Agent` | id (`brain`, `investigator`, `compliance`, ...), name, role, model | agent roster (`ensure_agents`) |
+| `Case` | id (`case_…`), title, kind (fraud_ring, suspicious_activity, mnpi_breach, ...), severity, status (open → in_review → pending_approval → actioned / escalated / closed), summary, created, updated, opened_by, sar_ref | agents at runtime |
+| `Action` | id (`act_…`), kind (freeze_account, file_sar, notify_owner, restrict_channel), status (proposed → approved / rejected → executed), target_label, target_id, case_id, rationale, details (e.g. SAR narrative), effect | proposed by agents, decided by a human |
+| `Task` | id (`task_…`), title, kind, status (open → claimed → done), from_agent, to_agent, case_id, note, result | the shared blackboard (handoffs) |
+| `Playbook`, `Step` | id, ... | procedural memory (item 8) |
 | `Meta` | embed_model, embed_dims, schema_version, tenant | `ensure_meta` refuses to mix vector spaces |
 
 Memory graph labels: `User`, `Session`, `Turn` (text, ts, embedding), `MemoryFact` (text, embedding),
@@ -85,6 +89,9 @@ Memory graph labels: `User`, `Session`, `Turn` (text, ts, embedding), `MemoryFac
 | Finance | `HOLDS`, `FROM_ACCOUNT`, `TO_ACCOUNT`, `COUNTERPARTY`, `ON_DEAL_TEAM` |
 | Privacy | `HAS_IDENTIFIER` (Client, Account, Counterparty → PiiToken), `HAD_REDACTION` |
 | Access | `CAN_ACCESS` (Person → Channel, Person → Document, Team → Document) |
+| Derived money flow | `FLOWS_TO {amount, n, first_ts, last_ts, max_fraud_score, alerts, kind}` (Counterparty → Account, Account → Account, Account → Counterparty) |
+| Derived communication | `COMMUNICATES {weight, direct, replies, last}` (Person → Person, MNPI documents excluded) |
+| Operations | `OPENED_BY`, `REQUESTED_BY` (Case → Agent / Person), `ASSIGNED_TO` (Case or Task → Agent), `EVIDENCE {note, added_by, ts}` (Case → any entity), `PROPOSED` (Agent → Action), `FOR_CASE` (Action or Task → Case), `TARGETS` (Action → Account / Channel / Person / ...), `APPROVED_BY` / `REJECTED_BY {ts, note}` (Action → Person), `HANDED_OFF_TO {note, ts, task_id, case_id}` (Agent → Agent), `CLAIMED_BY` (Task → Agent) |
 
 ## How the graph does the work
 
@@ -99,8 +106,15 @@ any *single* client.
 A persona may read a `Document` if it is `public`, or if any of these paths exist:
 `(Person)-[:CAN_ACCESS]->(Document)`, `(Person)-[:MEMBER_OF]->(Team)-[:CAN_ACCESS]->(Document)`, or
 `(Person)-[:CAN_ACCESS]->(Channel)<-[:POSTED_IN]-(Document)`. MNPI documents (deal codenames) are never public.
-They are reachable only by deal-team members, so an information-barrier breach shows up as an MNPI document
-posted in a channel whose `CAN_ACCESS` set includes people outside `ON_DEAL_TEAM`.
+They are reachable only by deal-team members (and Compliance for deal metadata). An information-barrier breach is
+a document that references the deal (via `MENTIONS`, or found by the full-text index on the codename or target)
+whose audience includes someone outside the wall. The audience is the author, the `SENT_TO` recipients, the members
+of the channel it was posted in, and anyone granted `CAN_ACCESS`. The wall is the `ON_DEAL_TEAM` set plus the
+Compliance team. `barrier_check` computes exactly this. For the CCO only, it also returns the redacted content of
+the flagged documents through an audit-logged surveillance read; everyone else gets metadata only.
+
+Case-management nodes (`Case`, `Action`, `Task`) and their edges are invisible to personas without the `act`
+scope, in every tool and in `run_cypher_readonly`, so an investigation cannot tip anyone off.
 
 ### Bitemporal knowledge
 - `OWNS` edges carry `valid_from` / `valid_to`, and successive owners are separate edges, so
@@ -137,6 +151,57 @@ Weights accumulate incrementally (`ON CREATE SET … SET k.weight = k.weight + r
 expertise without a rebuild. Contrast this with formal `OWNS`. ReconLegacy is formally owned by the Director of
 Engineering, but the knowledge sits with one Staff Engineer whose last day is 2026-10-09. The bus-factor demo is
 the gap between "who owns X" and "who actually knows X".
+
+### Derived analytics edges (`FLOWS_TO`, `COMMUNICATES`)
+The ledger stores `FROM_ACCOUNT` and `TO_ACCOUNT` as edges *out of* each `Transaction`, so money is not directly
+traversable. `backend/ingest/derive.py` aggregates the ledger into one `FLOWS_TO` edge per ordered pair, by
+transaction kind:
+- inbound (`wire_in`, `ach_in`): Counterparty → Account;
+- internal: Account → Account;
+- outbound (`wire_out`, `ach_out`): Account → Counterparty;
+- card transactions are ignored.
+
+It also aggregates addressed messages and replies into `COMMUNICATES`, leaving out MNPI documents so that the
+derived network never reveals walled-off deal activity. Both edge types are rebuilt in about 0.5 s (halcyon has
+3,131 `FLOWS_TO` and 746 `COMMUNICATES` edges) after the seed and after live-feed batches. They power:
+- `trace_funds`: variable-length `FLOWS_TO*1..h` paths whose intermediate hops are accounts;
+- `algo.betweenness` over the money-flow network, which finds pass-through hubs;
+- `key_people`: `algo.pageRank` and `algo.betweenness` over `COMMUNICATES`.
+
+### Fraud-ring scoring
+`detect_rings` runs `algo.WCC` over `(:Client)-[:HAS_IDENTIFIER]->(:PiiToken)`. It skips the routing-number hub
+token and components larger than 40 clients. Each component then gets a risk score from five parts:
+
+| Part | Weight |
+|---|---|
+| Identifier strength (SSN/device/phone/email strong; address/DOB weak) | 0.30 |
+| `FLOWS_TO` transfers between accounts of *different* member clients | 0.20 |
+| A common exit counterparty that is **exclusive** to the group (members are at least half of all its payers) | 0.15 |
+| Inbound deposits between 8,000 and 10,000 (structuring) | 0.15 |
+| Alerts and fraud scores | 0.20 |
+
+The two qualifiers came from a test failure. A benign 3-client household first scored "medium" for two reasons:
+money moving between one client's own accounts, and payments to a popular merchant that 33 accounts pay. With the
+qualifiers it scores low, and the planted ring (5 clients, phone + address + device, FRAUD-2291, exit cp_063)
+scores high.
+
+### Cases, actions and the blackboard
+Agents write their work into the tenant graph:
+1. The Investigator calls `open_case` (a `Case` with `EVIDENCE` edges to transactions, accounts, clients, tokens and
+   documents). It de-duplicates against open cases of the same kind that share evidence.
+2. It calls `propose_action` (`Agent-[:PROPOSED]->Action-[:FOR_CASE]->Case`, `Action-[:TARGETS]->Account`).
+3. It calls `handoff`. This creates a `Task` `ASSIGNED_TO` the Compliance agent and an
+   `Agent-[:HANDED_OFF_TO {note}]->Agent` edge, and moves the case to `in_review`.
+4. The Compliance agent calls `claim_task` (`CLAIMED_BY`), verifies the work, drafts the SAR as a `file_sar` action,
+   sets `pending_approval` and calls `complete_task`.
+
+There is deliberately **no MCP tool that approves**. Approval is a REST call from the UI by a persona with the
+`approve` scope (the CCO). It records `APPROVED_BY` / `REJECTED_BY` to that `Person` and then executes the effect:
+- `freeze_account` sets `Account.status = 'frozen'` and remembers the prior status;
+- `restrict_channel` flags the channel;
+- `file_sar` stamps a SAR reference on the case.
+
+"Reset demo" (`ops --clear`) restores the accounts and channels and deletes the ops nodes.
 
 ### Seed cut and live feed
 The seed loads the world **as of the cutoff** (2026-10-01): pre-cutoff documents and transactions, ownership

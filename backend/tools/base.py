@@ -21,12 +21,20 @@ class ToolError(Exception):
 
 DOC_ID_RE = re.compile(r"\b(?:slack|email|ticket|doc|meeting|crm)-\d{5}\b")
 _ID_RE = re.compile(r"^(?:e_\d+|team_\w+|sys_\w+|c_\d+|a_\d+|t_\w+|deal_\w+|topic_\w+|f_[0-9a-f]+|dec_\w+|cp_\w+|"
-                    r"case_\w+|task_\w+|(?:slack|email|ticket|doc|meeting|crm)-\d{5}|⟨[A-Z_]+_\d+⟩)$")
-_PREFIXES = (("team_", "Team"), ("topic_", "Topic"), ("sys_", "System"), ("deal_", "Deal"), ("dec_", "Decision"),
-             ("case_", "Case"), ("task_", "Task"), ("act_", "Action"), ("e_", "Person"), ("c_", "Client"),
-             ("a_", "Account"), ("f_", "Fact"), ("t_", "Transaction"))
+                    r"case_\w+|task_\w+|act_\w+|agent_\w+|ch_[\w-]+|(?:slack|email|ticket|doc|meeting|crm)-\d{5}|"
+                    r"⟨[A-Z_]+_\d+⟩)$")
+# Longer prefixes first: cp_ / ch_ before c_, agent_ / act_ before a_.
+_PREFIXES = (("agent_", "Agent"), ("cp_", "Counterparty"), ("ch_", "Channel"), ("team_", "Team"), ("topic_", "Topic"),
+             ("sys_", "System"), ("deal_", "Deal"), ("dec_", "Decision"), ("case_", "Case"), ("task_", "Task"),
+             ("act_", "Action"), ("e_", "Person"), ("c_", "Client"), ("a_", "Account"), ("f_", "Fact"),
+             ("t_", "Transaction"))
 # Labels whose *names* can betray a walled-off deal (e.g. channel #project-falcon): filtered by restricted terms.
-RESTRICTABLE = frozenset({"Channel", "Thread", "Topic", "Decision", "Fact", "Deal", "Document"})
+RESTRICTABLE = frozenset({"Channel", "Thread", "Topic", "Decision", "Fact", "Deal", "Document", "Case", "Task",
+                          "Action"})
+# Case-management nodes: invisible to personas without the `act` scope (no tipping-off about investigations).
+OPS_LABELS = frozenset({"Case", "Action", "Task"})
+OPS_RELS = frozenset({"EVIDENCE", "PROPOSED", "FOR_CASE", "TARGETS", "HANDED_OFF_TO", "CLAIMED_BY", "APPROVED_BY",
+                      "REJECTED_BY", "OPENED_BY", "REQUESTED_BY"})
 # Properties that carry document / fact / MNPI content: never returned by raw Cypher, only by ACL-checked tools.
 CONTENT_PROPS = frozenset({"text", "title", "statement", "object", "object_key", "summary", "codename", "target",
                            "redactions", "title_redactions", "embedding"})
@@ -120,13 +128,15 @@ def doc_display(d: dict) -> str:
 class ToolContext:
     """Everything one tool invocation needs: the caller's tenant graph and persona, plus trace and evidence sinks."""
 
-    def __init__(self, auth: AuthContext) -> None:
+    def __init__(self, auth: AuthContext, agent: str = "external") -> None:
         self.auth = auth
+        self.agent = agent  # which agent is calling (from MCP _meta fb_agent); recorded on cases, actions, handoffs
         self.graph_name = brain_graph(auth.tenant)
         self.g = get_db().select_graph(self.graph_name)
         self.trace: list[dict] = []
         self.evidence = Evidence()
         self.docs: dict[str, dict] = {}
+        self.events: list[dict] = []  # ops events (case opened, action proposed, handoff...) streamed to the UI
         self._deals: dict[str, dict] | None = None
 
     @property
@@ -136,6 +146,18 @@ class ToolContext:
     @property
     def today(self) -> str:
         return get_settings().demo_today
+
+    @staticmethod
+    def now() -> str:
+        """Wall-clock UTC timestamp for operational records (cases, actions, tasks)."""
+        from datetime import datetime, timezone
+        return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    def require(self, scope: str, what: str = "this tool") -> None:
+        if not self.auth.can(scope):
+            raise ToolError(f"Permission denied: {what} requires the '{scope}' permission, which "
+                            f"{self.auth.persona_info.name} ({self.auth.persona}) does not have. Investigations and "
+                            "case work are limited to Compliance and AML personas.")
 
     async def q(self, name: str, cypher: str, params: dict | None = None, *, timeout_ms: int = 10_000,
                 write: bool = False) -> list[list[Any]]:
@@ -193,6 +215,8 @@ class ToolContext:
 
     async def node_hidden(self, label: str, nid: str, name: Any) -> bool:
         """True if a node returned by a structural query must be withheld by the information barrier."""
+        if label in OPS_LABELS and not self.auth.can("act"):
+            return True
         if label == "Deal" and not await self.deal_visible(nid):
             return True
         return label in RESTRICTABLE and label != "Document" and await self.is_restricted(name)
@@ -224,7 +248,7 @@ class ToolContext:
 
     def envelope(self, result: Any) -> dict:
         return {"result": result, "_trace": self.trace, "_evidence": self.evidence.to_dict(),
-                "_docs": list(self.docs.values())}
+                "_docs": list(self.docs.values()), "_events": self.events}
 
 
 def _window(text: str, words: list[str] | tuple[str, ...], size: int) -> str:
@@ -334,6 +358,8 @@ async def resolve(ctx: ToolContext, text: str | None, labels: set[str] | None = 
 
 async def _vet(ctx: ToolContext, ent: dict) -> dict | None:
     out = {"label": ent["label"], "id": ent["id"], "name": ent.get("name") or ent["id"]}
+    if out["label"] in OPS_LABELS and not ctx.auth.can("act"):
+        return None
     if out["label"] == "Document" and out["id"] not in await ctx.visible_docs([out["id"]]):
         return None
     if out["label"] == "Deal" and not await ctx.deal_visible(out["id"]):

@@ -142,6 +142,53 @@ Relationship count per type (seed report).
 MATCH ()-[e]->() RETURN type(e) AS type, count(*) AS n ORDER BY n DESC
 ```
 
+## Derived analytics edges
+
+### `DERIVE_CLEAR` (2 variants)
+
+Drop one derived edge type before its idempotent full rebuild.
+
+Variants: `FLOWS_TO`, `COMMUNICATES`. Example (`FLOWS_TO`):
+
+```cypher
+MATCH ()-[e:FLOWS_TO]->() DELETE e
+```
+
+### `DERIVE_FLOWS` (3 variants)
+
+Derived money-flow edges from internal transfers (Account -> Account), one per ordered pair: total amount, transaction count, first/last
+timestamp, highest fraud score and number of alerted transactions. The ledger stores both FROM_ACCOUNT and
+TO_ACCOUNT as edges *out of* the Transaction, so FLOWS_TO is what makes money movement traversable (fund tracing,
+ring scoring, flow betweenness). Rebuilt after the seed and after each live-feed batch.
+
+Variants: `internal`, `inbound`, `outbound`. Example (`internal`):
+
+```cypher
+MATCH (t:Transaction)-[:FROM_ACCOUNT]->(src:Account)
+MATCH (t)-[:TO_ACCOUNT]->(dst:Account)
+WITH src, dst, sum(t.amount) AS amt, count(t) AS n, min(t.ts) AS first_ts, max(t.ts) AS last_ts,
+     max(coalesce(t.fraud_score, 0.0)) AS risk, collect(DISTINCT t.alert) AS alerts
+MERGE (src)-[f:FLOWS_TO]->(dst)
+SET f.amount = round(amt * 100) / 100.0, f.n = n, f.first_ts = first_ts, f.last_ts = last_ts,
+    f.max_fraud_score = risk, f.alerts = size(alerts), f.kind = 'internal'
+```
+
+### `DERIVE_COMMUNICATES` (3 variants)
+
+Derived Person -> Person communication edges from addressed messages (author -> each recipient). Feeds
+key_people (PageRank / betweenness). MNPI documents are excluded so the derived network never reveals
+walled-off deal activity.
+
+Variants: `direct`, `replies`, `weight`. Example (`direct`):
+
+```cypher
+MATCH (a:Person)-[:AUTHORED]->(d:Document)-[:SENT_TO]->(b:Person)
+WHERE a.id <> b.id AND coalesce(d.sensitivity, '') <> 'MNPI'
+WITH a, b, count(DISTINCT d) AS n, max(d.ts) AS last
+MERGE (a)-[c:COMMUNICATES]->(b)
+SET c.direct = n, c.last = last
+```
+
 ## Retrieval (ACL-filtered)
 
 ### `SEARCH_DOCS_VECTOR`
@@ -254,11 +301,11 @@ WHERE x:Person OR x:Team OR x:System OR x:Deal OR x:Channel OR x:Decision OR x:C
 RETURN labels(x)[0], x.id, coalesce(x.name, x.codename, x.title), x.target, x.title
 ```
 
-### `ENTITY_NAMES` (18 variants)
+### `ENTITY_NAMES` (19 variants)
 
 Display names for a batch of entity ids of one label.
 
-Variants: `Person`, `Team`, `System`, `Client`, `Account`, `Counterparty`, `Transaction`, `Deal`, `Channel`, `Topic`, `Decision`, `PiiToken`, `Document`, `Fact`, `Thread`, `Case`, `Task`, `Action`. Example (`Person`):
+Variants: `Person`, `Team`, `System`, `Client`, `Account`, `Counterparty`, `Transaction`, `Deal`, `Channel`, `Topic`, `Decision`, `PiiToken`, `Document`, `Fact`, `Thread`, `Case`, `Task`, `Action`, `Agent`. Example (`Person`):
 
 ```cypher
 UNWIND $ids AS id
@@ -266,11 +313,11 @@ MATCH (n:Person {id: id})
 RETURN n.id, coalesce(n.name, n.title, n.id)
 ```
 
-### `GET_ENTITY` (18 variants)
+### `GET_ENTITY` (19 variants)
 
 All properties of one entity plus its relationship-type degree summary.
 
-Variants: `Person`, `Team`, `System`, `Client`, `Account`, `Counterparty`, `Transaction`, `Deal`, `Channel`, `Topic`, `Decision`, `PiiToken`, `Document`, `Fact`, `Thread`, `Case`, `Task`, `Action`. Example (`Person`):
+Variants: `Person`, `Team`, `System`, `Client`, `Account`, `Counterparty`, `Transaction`, `Deal`, `Channel`, `Topic`, `Decision`, `PiiToken`, `Document`, `Fact`, `Thread`, `Case`, `Task`, `Action`, `Agent`. Example (`Person`):
 
 ```cypher
 MATCH (n:Person {id: $id})
@@ -278,12 +325,12 @@ OPTIONAL MATCH (n)-[r]-()
 RETURN properties(n), type(r) AS rel, count(r) AS n
 ```
 
-### `NEIGHBORHOOD` (18 variants)
+### `NEIGHBORHOOD` (19 variants)
 
 One-hop neighbourhood of an entity, strongest edges first. Neighbouring documents are ACL-filtered;
 facts and redaction events are excluded (facts are only served through ACL-checked fact search).
 
-Variants: `Person`, `Team`, `System`, `Client`, `Account`, `Counterparty`, `Transaction`, `Deal`, `Channel`, `Topic`, `Decision`, `PiiToken`, `Document`, `Fact`, `Thread`, `Case`, `Task`, `Action`. Example (`Person`):
+Variants: `Person`, `Team`, `System`, `Client`, `Account`, `Counterparty`, `Transaction`, `Deal`, `Channel`, `Topic`, `Decision`, `PiiToken`, `Document`, `Fact`, `Thread`, `Case`, `Task`, `Action`, `Agent`. Example (`Person`):
 
 ```cypher
 MATCH (n:Person {id: $id})-[r]-(m)
@@ -478,5 +525,610 @@ MATCH path = allShortestPaths((a)-[*..2]-(b))
 RETURN [n IN nodes(path) | [labels(n)[0], n.id, coalesce(n.name, n.codename, n.title, n.id)]],
        [r IN relationships(path) | type(r)]
 LIMIT 12
+```
+
+## Investigation (graph algorithms)
+
+### `ALERTS`
+
+Transactions under suspicion: an alert id from transaction monitoring, or a fraud score at or above min_score,
+with both accounts and the counterparty. Entry point for investigations (list_alerts).
+
+```cypher
+MATCH (t:Transaction)
+WHERE t.alert IS NOT NULL OR t.fraud_score >= $min_score
+OPTIONAL MATCH (t)-[:FROM_ACCOUNT]->(fa:Account)
+OPTIONAL MATCH (t)-[:TO_ACCOUNT]->(ta:Account)
+OPTIONAL MATCH (t)-[:COUNTERPARTY]->(cp:Counterparty)
+RETURN t.id, t.kind, t.amount, t.currency, t.ts, t.alert, t.fraud_score, fa.id, ta.id, cp.id, cp.name, cp.country
+ORDER BY coalesce(t.fraud_score, 0.0) DESC, t.ts DESC
+LIMIT $limit
+```
+
+### `TXN_PARTIES`
+
+Both accounts, their holders and the counterparty of transactions (seed set).
+
+```cypher
+UNWIND $ids AS tid
+MATCH (t:Transaction {id: tid})
+OPTIONAL MATCH (t)-[:FROM_ACCOUNT]->(fa:Account)
+OPTIONAL MATCH (fc:Client)-[:HOLDS]->(fa)
+OPTIONAL MATCH (t)-[:TO_ACCOUNT]->(ta:Account)
+OPTIONAL MATCH (tc:Client)-[:HOLDS]->(ta)
+OPTIONAL MATCH (t)-[:COUNTERPARTY]->(cp:Counterparty)
+RETURN t.id, t.kind, t.amount, t.ts, t.alert, t.fraud_score, fa.id, fc.id, ta.id, tc.id, cp.id, cp.name
+```
+
+### `ACCOUNT_HOLDERS`
+
+Clients holding the given accounts.
+
+```cypher
+UNWIND $ids AS aid
+MATCH (c:Client)-[:HOLDS]->(a:Account {id: aid})
+RETURN a.id, c.id
+```
+
+### `TOKEN_HOLDERS`
+
+Clients carrying the given PII tokens.
+
+```cypher
+UNWIND $ids AS kid
+MATCH (c:Client)-[:HAS_IDENTIFIER]->(k:PiiToken {id: kid})
+RETURN k.id, c.id
+```
+
+### `CLIENT_ACCOUNTS`
+
+Clients with risk rating, KYC status and the accounts they hold.
+
+```cypher
+UNWIND $ids AS cid
+MATCH (c:Client {id: cid})
+OPTIONAL MATCH (c)-[:HOLDS]->(a:Account)
+RETURN c.id, c.name, c.risk_rating, c.kyc_status, a.id, a.kind, a.status
+```
+
+### `SHARED_IDENTIFIERS`
+
+One BFS hop of identifier linking: for each frontier client, the PII tokens of the requested types that other
+clients also carry. Tokens held by more than max_share clients are hubs (an office address) and are skipped, so
+one popular value cannot glue unrelated clients together.
+
+```cypher
+UNWIND $ids AS cid
+MATCH (c:Client {id: cid})-[:HAS_IDENTIFIER]->(k:PiiToken)
+WHERE k.type IN $types
+MATCH (k)<-[:HAS_IDENTIFIER]-(h:Client)
+WITH c, k, collect(DISTINCT h.id) AS holders
+WHERE size(holders) >= 2 AND size(holders) <= $max_share
+RETURN c.id, k.id, k.type, size(holders), [x IN holders WHERE x <> c.id]
+```
+
+### `RING_COMPONENTS`
+
+Ring candidates: Weakly Connected Components of the client / identifier-token graph. Clients land in one
+component when any chain of shared identifiers connects them; components with at least min_clients clients are
+returned for risk scoring.
+
+```cypher
+CALL algo.WCC({nodeLabels: ['Client', 'PiiToken'], relationshipTypes: ['HAS_IDENTIFIER']})
+YIELD node, componentId
+WITH componentId, collect(CASE WHEN labels(node)[0] = 'Client' THEN node.id END) AS clients
+WHERE size(clients) >= $min_clients
+RETURN componentId, clients
+ORDER BY size(clients) DESC
+LIMIT 60
+```
+
+### `RING_SHARED_TOKENS`
+
+Tokens shared by two or more of the given clients.
+
+```cypher
+MATCH (c:Client)-[:HAS_IDENTIFIER]->(k:PiiToken)
+WHERE c.id IN $ids
+WITH k, collect(DISTINCT c.id) AS holders
+WHERE size(holders) >= 2
+RETURN k.id, k.type, holders
+```
+
+### `ACCOUNT_ACTIVITY`
+
+Per account: status, transaction count, deposits between 8,000 and 10,000 (structuring just under the cash
+reporting threshold), highest fraud score and alert ids.
+
+```cypher
+UNWIND $ids AS aid
+MATCH (a:Account {id: aid})
+OPTIONAL MATCH (t:Transaction)-[:FROM_ACCOUNT|TO_ACCOUNT]->(a)
+RETURN a.id, a.status, count(t),
+       sum(CASE WHEN t.kind IN ['ach_in', 'wire_in', 'cash_in'] AND t.amount >= 8000 AND t.amount < 10000
+                THEN 1 ELSE 0 END),
+       max(coalesce(t.fraud_score, 0.0)), collect(DISTINCT t.alert)
+```
+
+### `FLOWS_AROUND`
+
+Derived FLOWS_TO edges into or out of the given accounts.
+
+```cypher
+MATCH (x)-[f:FLOWS_TO]->(y)
+WHERE x.id IN $ids OR y.id IN $ids
+RETURN labels(x)[0], x.id, coalesce(x.name, x.id), labels(y)[0], y.id, coalesce(y.name, y.id), f.amount, f.n,
+       f.first_ts, f.last_ts, f.max_fraud_score, f.alerts
+```
+
+### `CP_SENDERS`
+
+Firm-wide number of distinct accounts paying each counterparty. A common exit only means something when the
+counterparty is exclusive to the group, not a popular merchant that hundreds of clients pay.
+
+```cypher
+UNWIND $ids AS cid
+MATCH (a:Account)-[:FLOWS_TO]->(cp:Counterparty {id: cid})
+RETURN cp.id, count(DISTINCT a)
+```
+
+### `FLOW_CENTRALITY`
+
+Betweenness centrality over the money-flow network (accounts and counterparties via FLOWS_TO): high scores mark
+pass-through hubs. Returns score, rank and network size for the requested accounts.
+
+```cypher
+CALL algo.betweenness({nodeLabels: ['Account', 'Counterparty'], relationshipTypes: ['FLOWS_TO']})
+YIELD node, score
+WITH node, score ORDER BY score DESC
+WITH collect([node.id, score]) AS ranked
+UNWIND range(0, size(ranked) - 1) AS i
+WITH ranked[i] AS r, i, size(ranked) AS total
+WHERE r[0] IN $ids
+RETURN r[0], r[1], i + 1, total
+```
+
+### `TRACE_FUNDS` (8 variants)
+
+Follow money downstream from the start accounts along FLOWS_TO edges active since the given date.
+Intermediate hops must be accounts (money paid out to a counterparty ends the trail). One variant per
+maximum hop count, because variable-length bounds must be literals.
+
+Variants: `downstream1`, `upstream1`, `downstream2`, `upstream2`, `downstream3`, `upstream3`, `downstream4`, `upstream4`. Example (`downstream1`):
+
+```cypher
+MATCH (s) WHERE s.id IN $ids AND labels(s)[0] IN ['Account', 'Counterparty']
+MATCH p = (s)-[:FLOWS_TO*1..1]->(x)
+WHERE all(f IN relationships(p) WHERE f.last_ts >= $since)
+  AND all(m IN nodes(p)[1..-1] WHERE labels(m)[0] = 'Account')
+RETURN [n IN nodes(p) | [labels(n)[0], n.id, coalesce(n.name, n.id)]],
+       [f IN relationships(p) | [f.amount, f.n, f.first_ts, f.last_ts, f.max_fraud_score]]
+LIMIT 300
+```
+
+### `KEY_PEOPLE_PAGERANK`
+
+PageRank over the derived Person-COMMUNICATES-Person network: who is most consulted. Optional team filter.
+
+```cypher
+CALL algo.pageRank('Person', 'COMMUNICATES') YIELD node, score
+WITH node, score WHERE $team IS NULL OR node.team_id = $team
+RETURN node.id, node.name, node.title, node.team_id, node.end_date, score
+ORDER BY score DESC
+LIMIT $limit
+```
+
+### `KEY_PEOPLE_BETWEENNESS`
+
+Betweenness centrality over the communication network: who bridges otherwise separate groups (key-person risk).
+
+```cypher
+CALL algo.betweenness({nodeLabels: ['Person'], relationshipTypes: ['COMMUNICATES']}) YIELD node, score
+WITH node, score WHERE $team IS NULL OR node.team_id = $team
+RETURN node.id, node.name, node.title, node.team_id, node.end_date, score
+ORDER BY score DESC
+LIMIT $limit
+```
+
+### `DEAL_WALL`
+
+The information barrier around a deal: its properties, the deal team (ON_DEAL_TEAM) and the Compliance team,
+who are the only people allowed to see MNPI about it.
+
+```cypher
+MATCH (x:Deal {id: $id})
+OPTIONAL MATCH (p:Person)-[:ON_DEAL_TEAM]->(x)
+WITH x, collect(DISTINCT p.id) AS team
+OPTIONAL MATCH (c:Person {team_id: 'team_compliance'})
+RETURN properties(x), team, collect(DISTINCT c.id)
+```
+
+### `DEAL_DOCS`
+
+Documents linked to a deal by extraction (MENTIONS).
+
+```cypher
+MATCH (d:Document)-[:MENTIONS]->(:Deal {id: $id})
+RETURN DISTINCT d.id
+```
+
+### `DEAL_DOCS_FULLTEXT`
+
+Documents naming a deal's codename or target, found with the full-text index and confirmed by substring match
+(catches leaks the extractor did not link).
+
+```cypher
+CALL db.idx.fulltext.queryNodes('Document', $q) YIELD node AS d
+WITH d WHERE toLower(coalesce(d.text, '') + ' ' + coalesce(d.title, '')) CONTAINS $needle
+RETURN d.id
+LIMIT 400
+```
+
+### `DOC_AUDIENCE`
+
+Everyone a document reached: author, recipients (SENT_TO), members of the channel it was posted in, people and
+teams granted access (CAN_ACCESS), and whether it is public. Compared with the deal wall by barrier_check.
+
+```cypher
+UNWIND $ids AS did
+MATCH (d:Document {id: did})
+OPTIONAL MATCH (a:Person)-[:AUTHORED]->(d)
+OPTIONAL MATCH (d)-[:POSTED_IN]->(ch:Channel)
+WITH d, a, ch
+OPTIONAL MATCH (d)-[:SENT_TO]->(r:Person)
+WITH d, a, ch, collect(DISTINCT r.id) AS recipients
+OPTIONAL MATCH (m:Person)-[:CAN_ACCESS]->(ch)
+WITH d, a, ch, recipients, collect(DISTINCT m.id) AS members
+OPTIONAL MATCH (g:Person)-[:CAN_ACCESS]->(d)
+WITH d, a, ch, recipients, members, collect(DISTINCT g.id) AS granted
+OPTIONAL MATCH (tm:Person)-[:MEMBER_OF]->(:Team)-[:CAN_ACCESS]->(d)
+RETURN d.id, d.kind, d.ts, d.sensitivity, d.public, a.id, ch.id, ch.name, recipients, members, granted,
+       collect(DISTINCT tm.id)
+```
+
+### `DOC_SURVEILLANCE`
+
+Compliance surveillance read: the (already PII-redacted) content of documents that barrier_check flagged as
+breaches, bypassing the per-recipient document ACL. Only used for callers with the CCO 'reveal' scope, and every
+use is audit-logged as a surveillance_read ops event.
+
+```cypher
+UNWIND $ids AS did
+MATCH (d:Document {id: did})
+OPTIONAL MATCH (a:Person)-[:AUTHORED]->(d)
+OPTIONAL MATCH (d)-[:POSTED_IN]->(c:Channel)
+RETURN d.id, d.kind, d.ts, d.title, d.text, d.sensitivity, a.id, a.name, c.id, c.name
+```
+
+## Operations (cases, actions, blackboard)
+
+### `ENSURE_AGENTS`
+
+Register the agent roster as :Agent nodes (idempotent).
+
+```cypher
+UNWIND $rows AS r
+MERGE (a:Agent {id: r.id})
+SET a.name = r.name, a.role = r.role, a.model = r.model
+```
+
+### `CREATE_CASE`
+
+Open a case: who opened it (agent), on whose request (persona) and the initial assignee (the opening agent).
+
+```cypher
+MATCH (ag:Agent {id: $agent})
+MATCH (p:Person {id: $pid})
+CREATE (c:Case {id: $id, title: $title, kind: $kind, severity: $severity, status: 'open', summary: $summary,
+                created: $now, updated: $now, opened_by: $agent})
+CREATE (c)-[:OPENED_BY {ts: $now}]->(ag)
+CREATE (c)-[:REQUESTED_BY {ts: $now}]->(p)
+CREATE (c)-[:ASSIGNED_TO {ts: $now}]->(ag)
+RETURN c.id
+```
+
+### `FIND_OPEN_CASE`
+
+De-duplication: an unclosed case of the same kind that already holds any of the new evidence.
+
+```cypher
+MATCH (c:Case)-[:EVIDENCE]->(x)
+WHERE c.kind = $kind AND c.status <> 'closed' AND x.id IN $ids
+WITH c, count(DISTINCT x) AS shared
+RETURN c.id, shared
+ORDER BY shared DESC, c.created DESC
+LIMIT 1
+```
+
+### `ADD_EVIDENCE` (11 variants)
+
+Attach evidence nodes of one label to a case (MERGE; the note is updated).
+
+Variants: `Transaction`, `Account`, `Client`, `PiiToken`, `Counterparty`, `Document`, `Person`, `Channel`, `Deal`, `System`, `Team`. Example (`Transaction`):
+
+```cypher
+MATCH (c:Case {id: $case})
+UNWIND $rows AS r
+MATCH (x:Transaction {id: r.id})
+MERGE (c)-[e:EVIDENCE]->(x)
+ON CREATE SET e.ts = $now, e.added_by = $agent
+SET e.note = r.note, c.updated = $now
+RETURN x.id
+```
+
+### `GET_CASE`
+
+A case with its current assignee(s) and every evidence item (label, id, note).
+
+```cypher
+MATCH (c:Case {id: $id})
+OPTIONAL MATCH (c)-[:ASSIGNED_TO]->(ag:Agent)
+WITH c, collect(ag.id) AS assignees
+OPTIONAL MATCH (c)-[e:EVIDENCE]->(x)
+RETURN c.id, c.title, c.kind, c.severity, c.status, c.summary, c.created, c.updated, c.opened_by, c.sar_ref,
+       assignees, collect([labels(x)[0], x.id, e.note, e.added_by, e.ts])
+```
+
+### `CASE_ACTIONS`
+
+Actions proposed for a case, with the human decision if any.
+
+```cypher
+MATCH (a:Action)-[:FOR_CASE]->(:Case {id: $id})
+OPTIONAL MATCH (a)-[d:APPROVED_BY|REJECTED_BY]->(p:Person)
+RETURN a.id, a.kind, a.status, a.target_label, a.target_id, a.rationale, a.details, a.proposed_by, a.created,
+       a.effect, type(d), p.id, p.name, d.ts, d.note
+ORDER BY a.created
+```
+
+### `CASE_TASKS`
+
+Blackboard tasks attached to a case.
+
+```cypher
+MATCH (t:Task)-[:FOR_CASE]->(:Case {id: $id})
+RETURN t.id, t.title, t.status, t.from_agent, t.to_agent, t.note, t.created, t.claimed, t.done, t.result
+ORDER BY t.created
+```
+
+### `CASE_HANDOFFS`
+
+Agent-to-agent handoffs for a case, in time order.
+
+```cypher
+MATCH (a:Agent)-[h:HANDED_OFF_TO]->(b:Agent)
+WHERE h.case_id = $id
+RETURN a.id, b.id, h.note, h.ts, h.task_id
+ORDER BY h.ts
+```
+
+### `LIST_CASES`
+
+Cases (optionally by status), most recently updated first, with counts.
+
+```cypher
+MATCH (c:Case)
+WHERE $status IS NULL OR c.status = $status
+OPTIONAL MATCH (c)-[:EVIDENCE]->(x)
+WITH c, count(DISTINCT x) AS evidence
+OPTIONAL MATCH (a:Action)-[:FOR_CASE]->(c)
+WITH c, evidence, count(a) AS actions, sum(CASE WHEN a.status = 'proposed' THEN 1 ELSE 0 END) AS pending
+OPTIONAL MATCH (c)-[:ASSIGNED_TO]->(ag:Agent)
+RETURN c.id, c.title, c.kind, c.severity, c.status, c.created, c.updated, evidence, actions, pending,
+       collect(ag.id)
+ORDER BY c.updated DESC
+LIMIT $limit
+```
+
+### `UPDATE_CASE`
+
+Update case status / severity / summary (null parameters leave a field as is).
+
+```cypher
+MATCH (c:Case {id: $id})
+SET c.status = coalesce($status, c.status), c.severity = coalesce($severity, c.severity),
+    c.summary = coalesce($summary, c.summary), c.updated = $now
+RETURN c.id, c.status, c.severity
+```
+
+### `FIND_ACTION`
+
+An identical action still awaiting approval (de-duplication).
+
+```cypher
+MATCH (a:Action {case_id: $case, kind: $kind, target_id: $target})
+WHERE a.status = 'proposed'
+RETURN a.id
+LIMIT 1
+```
+
+### `CREATE_ACTION` (6 variants)
+
+Propose an action: the proposing agent (PROPOSED), the case (FOR_CASE) and the target node (TARGETS). It
+stays 'proposed' until a human decides.
+
+Variants: `Account`, `Case`, `Person`, `Team`, `System`, `Channel`. Example (`Account`):
+
+```cypher
+MATCH (c:Case {id: $case})
+MATCH (ag:Agent {id: $agent})
+MATCH (x:Account {id: $target})
+CREATE (a:Action {id: $id, kind: $kind, status: 'proposed', rationale: $rationale, details: $details,
+                  created: $now, case_id: $case, target_id: $target, target_label: 'Account',
+                  proposed_by: $agent})
+CREATE (ag)-[:PROPOSED {ts: $now}]->(a)
+CREATE (a)-[:FOR_CASE]->(c)
+CREATE (a)-[:TARGETS]->(x)
+SET c.updated = $now
+RETURN a.id
+```
+
+### `GET_ACTION`
+
+One action with its target and case.
+
+```cypher
+MATCH (a:Action {id: $id})
+RETURN a.id, a.kind, a.status, a.target_label, a.target_id, a.case_id, a.rationale, a.details
+```
+
+### `DECIDE_ACTION` (2 variants)
+
+Record a human decision on a proposed action (human-in-the-loop).
+
+Variants: `APPROVED_BY`, `REJECTED_BY`. Example (`APPROVED_BY`):
+
+```cypher
+MATCH (a:Action {id: $id})
+WHERE a.status = 'proposed'
+MATCH (p:Person {id: $pid})
+SET a.status = 'approved', a.decided = $now, a.decision_note = $note
+CREATE (a)-[:APPROVED_BY {ts: $now, note: $note}]->(p)
+RETURN a.id
+```
+
+### `FREEZE_ACCOUNT`
+
+Effect of an approved freeze: remember the prior status, then freeze.
+
+```cypher
+MATCH (x:Account {id: $id})
+SET x.status_before_freeze = coalesce(x.status_before_freeze, x.status), x.status = 'frozen',
+    x.frozen_by = $action, x.frozen_at = $now
+RETURN x.id, x.status_before_freeze
+```
+
+### `RESTRICT_CHANNEL`
+
+Effect of an approved channel restriction.
+
+```cypher
+MATCH (x:Channel {id: $id})
+SET x.restricted = true, x.restricted_by = $action, x.restricted_at = $now
+RETURN x.id, x.name
+```
+
+### `FILE_SAR`
+
+Effect of an approved SAR: stamp the (simulated) filing reference on the case.
+
+```cypher
+MATCH (c:Case {id: $id})
+SET c.sar_ref = $ref, c.sar_filed = $now
+RETURN c.id
+```
+
+### `MARK_EXECUTED`
+
+Mark an approved action as executed with a description of its effect.
+
+```cypher
+MATCH (a:Action {id: $id})
+SET a.status = 'executed', a.executed = $now, a.effect = $effect
+RETURN a.id
+```
+
+### `PENDING_FOR_CASE`
+
+How many actions on a case still await a decision.
+
+```cypher
+MATCH (c:Case {id: $case})
+OPTIONAL MATCH (a:Action {case_id: $case})
+RETURN sum(CASE WHEN a.status = 'proposed' THEN 1 ELSE 0 END)
+```
+
+### `CREATE_HANDOFF`
+
+Agent-to-agent handoff on the shared blackboard: a Task for the receiving agent (ASSIGNED_TO), a HANDED_OFF_TO
+edge between the agents carrying the note, and the case moves to in_review.
+
+```cypher
+MATCH (c:Case {id: $case})
+MATCH (src:Agent {id: $from})
+MATCH (dst:Agent {id: $to})
+CREATE (t:Task {id: $task, title: $title, kind: 'case_review', status: 'open', note: $note, created: $now,
+                case_id: $case, from_agent: $from, to_agent: $to})
+CREATE (t)-[:FOR_CASE]->(c)
+CREATE (t)-[:ASSIGNED_TO {ts: $now}]->(dst)
+CREATE (src)-[:HANDED_OFF_TO {ts: $now, note: $note, task_id: $task, case_id: $case}]->(dst)
+SET c.status = 'in_review', c.updated = $now
+RETURN t.id
+```
+
+### `UNASSIGN_CASE`
+
+Drop a case's current assignment(s) before reassigning it.
+
+```cypher
+MATCH (:Case {id: $case})-[old:ASSIGNED_TO]->(:Agent)
+DELETE old
+```
+
+### `ASSIGN_CASE`
+
+Assign a case to an agent.
+
+```cypher
+MATCH (c:Case {id: $case})
+MATCH (ag:Agent {id: $agent})
+MERGE (c)-[e:ASSIGNED_TO]->(ag)
+SET e.ts = $now
+```
+
+### `CLAIM_TASK`
+
+Claim an open task. Only the agent it is assigned to may claim it (agent null = an external MCP client).
+
+```cypher
+MATCH (t:Task {id: $id})
+WHERE t.status = 'open' AND ($agent IS NULL OR t.to_agent = $agent)
+MATCH (ag:Agent {id: t.to_agent})
+SET t.status = 'claimed', t.claimed = $now
+CREATE (t)-[:CLAIMED_BY {ts: $now}]->(ag)
+RETURN t.id, t.case_id, t.from_agent, t.note
+```
+
+### `TASK_STATUS`
+
+Status and assignee of a task (for error messages).
+
+```cypher
+MATCH (t:Task {id: $id})
+RETURN t.id, t.status, t.to_agent, t.case_id
+```
+
+### `COMPLETE_TASK`
+
+Complete a task with a result summary.
+
+```cypher
+MATCH (t:Task {id: $id})
+WHERE t.status IN ['open', 'claimed']
+SET t.status = 'done', t.done = $now, t.result = $result
+RETURN t.id, t.case_id
+```
+
+### `LIST_TASKS`
+
+Blackboard tasks, optionally for one agent and status, newest first.
+
+```cypher
+MATCH (t:Task)
+WHERE ($agent IS NULL OR t.to_agent = $agent) AND ($status IS NULL OR t.status = $status)
+RETURN t.id, t.title, t.status, t.case_id, t.from_agent, t.to_agent, t.note, t.created
+ORDER BY t.created DESC
+LIMIT $limit
+```
+
+### `CLEAR_OPS` (4 variants)
+
+Reset demo: unfreeze accounts frozen by approved actions.
+
+Variants: `accounts`, `channels`, `handoffs`, `nodes`. Example (`accounts`):
+
+```cypher
+MATCH (x:Account) WHERE x.status_before_freeze IS NOT NULL
+SET x.status = x.status_before_freeze, x.status_before_freeze = NULL, x.frozen_by = NULL, x.frozen_at = NULL
 ```
 

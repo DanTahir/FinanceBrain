@@ -109,6 +109,25 @@ CALL algo.SSpaths({sourceNode:a, relTypes:['KNOWS'], maxLen:2, pathCount:1}) YIE
 - Measured locally on halcyon (~13k nodes): ACL-filtered hybrid search makes 7–13 queries in 300–500 ms total,
   including graph expansion. Single structural tools take 2–60 ms.
 
+### Verified while building the investigation and case tools
+
+- **`TIMEOUT_MAX` is 60000 ms** (`TIMEOUT_DEFAULT` is 15000). A per-query `timeout` above it is an error ("The
+  query TIMEOUT parameter value cannot exceed the TIMEOUT_MAX configuration parameter value"), not a clamp.
+- **`ORDER BY` after an aggregating `RETURN` can only use projected columns.**
+  `RETURN c.id, count(x) AS n ORDER BY n, c.created` fails ("ORDER BY cannot reference variables not projected or
+  grouped in this scope"). Aggregate in `WITH c, count(x) AS n` first, then `RETURN ... ORDER BY n, c.created`.
+- `algo.WCC({nodeLabels: ['Client','PiiToken'], relationshipTypes: ['HAS_IDENTIFIER']}) YIELD node, componentId`
+  works on a bipartite subgraph. Collect clients with
+  `collect(CASE WHEN labels(node)[0] = 'Client' THEN node.id END)`; `collect` drops the nulls.
+- `algo.betweenness({nodeLabels: ['Account','Counterparty'], relationshipTypes: ['FLOWS_TO']})` and
+  `algo.pageRank('Person', 'COMMUNICATES')` both run on derived edges in under 100 ms at this scale.
+- Variable-length paths with per-hop filters work:
+  `MATCH p = (s)-[:FLOWS_TO*1..3]->(x) WHERE all(f IN relationships(p) WHERE f.last_ts >= $since) AND all(m IN
+  nodes(p)[1..-1] WHERE labels(m)[0] = 'Account')`. Variable-length bounds must be literals, so the registry has
+  one query per hop count.
+- `MATCH ()-[e:FROM_ACCOUNT|TO_ACCOUNT]->(a)` multi-type patterns, `ON CREATE SET ... SET ...` after `MERGE` on a
+  relationship, `properties(n)` (returned as a map) and `SET x.prop = NULL` (removes the property) all work.
+
 ### MCP server (Python SDK v2)
 
 - The SDK in use is `mcp` 2.x: `from mcp.server.mcpserver import MCPServer, Context`. The client is
