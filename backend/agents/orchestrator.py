@@ -20,13 +20,15 @@ SPECS: dict[str, Callable[[], AgentSpec]] = {
 
 
 async def run_flow(agent: str, auth: AuthContext, message: str, history: list[dict] | None = None,
-                   max_handoffs: int = 2) -> AsyncIterator[dict]:
+                   max_handoffs: int = 2, *, memory: str | None = None,
+                   session_id: str | None = None) -> AsyncIterator[dict]:
+    """``memory`` (the user's long-term memory block) and ``session_id`` go to every agent in the flow."""
     if agent not in SPECS:
         raise ValueError(f"unknown agent {agent!r}")
     current, msg, hist = agent, message, history
     for hop in range(max_handoffs + 1):
         handoff = None
-        async for ev in run_agent(SPECS[current](), auth, msg, hist):
+        async for ev in run_agent(SPECS[current](), auth, msg, hist, memory=memory, session_id=session_id):
             if ev["type"] == "ops" and ev.get("kind") == "handoff":
                 handoff = ev
             yield ev

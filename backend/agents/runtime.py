@@ -51,7 +51,8 @@ def _summary(result: Any) -> str:
     if not isinstance(result, dict):
         return ""
     for key in ("results", "experts", "impacted", "paths", "timeline", "neighbors", "rows", "history", "decisions",
-                "alerts", "rings", "linked", "breaches", "people", "cases", "tasks"):
+                "alerts", "rings", "linked", "breaches", "people", "cases", "tasks", "facts", "turns", "sessions",
+                "playbooks", "saved"):
         if isinstance(result.get(key), list):
             return f"{len(result[key])} {key}"
     return "ok"
@@ -81,9 +82,12 @@ def final_evidence(ev: Evidence, cited: set[str]) -> dict:
     return {"nodes": nodes, "edges": edges}
 
 
-async def run_agent(spec: AgentSpec, auth: AuthContext, message: str,
-                    history: list[dict] | None = None) -> AsyncIterator[dict]:
-    """Run one agent turn, yielding UI events: start, step, text, tool_call, tool_result, final | error."""
+async def run_agent(spec: AgentSpec, auth: AuthContext, message: str, history: list[dict] | None = None, *,
+                    memory: str | None = None, session_id: str | None = None) -> AsyncIterator[dict]:
+    """Run one agent turn, yielding UI events: start, step, text, tool_call, tool_result, final | error.
+
+    ``memory`` is the user's long-term memory block (from their memory graph), injected as a system message;
+    ``session_id`` is forwarded to tools in MCP ``_meta`` so memory tools know the conversation."""
     t0 = time.perf_counter()
     token = sign_auth(auth, ttl=900)
     usage = Usage()
@@ -92,6 +96,9 @@ async def run_agent(spec: AgentSpec, auth: AuthContext, message: str,
     calls: list[dict] = []
     ops_log: list[dict] = []
     messages: list[dict] = [system_block(spec.prompt), {"role": "system", "content": spec.context(auth)}]
+    if memory:
+        messages.append({"role": "system", "content": memory})
+    meta = {"fb_auth": token, "fb_agent": spec.name, **({"fb_session": session_id} if session_id else {})}
     for h in (history or [])[-12:]:
         if h.get("role") in ("user", "assistant") and h.get("content"):
             messages.append({"role": h["role"], "content": str(h["content"])[:6000]})
@@ -114,7 +121,7 @@ async def run_agent(spec: AgentSpec, auth: AuthContext, message: str,
                     if not isinstance(args, dict):
                         raise ValueError("arguments must be a JSON object")
                     out["args"] = args
-                    res = await client.call_tool(name, args, meta={"fb_auth": token, "fb_agent": spec.name})
+                    res = await client.call_tool(name, args, meta=meta)
                     text = "".join(getattr(c, "text", "") or "" for c in (res.content or []))
                     if res.is_error:
                         out["error"] = text[:2000] or "tool error"

@@ -7,7 +7,7 @@ from backend.config import get_settings
 from backend.tenancy import TENANTS, AuthContext
 
 BRAIN_TOOLS = ("search_knowledge", "get_entity", "neighborhood", "graph_schema", "run_cypher_readonly", "who_knows",
-               "who_owns", "trace_decision", "blast_radius", "find_path")
+               "who_owns", "trace_decision", "blast_radius", "find_path", "recall", "get_session_history", "remember")
 
 BRAIN_PROMPT = """You are the Brain agent of FinanceBrain, the company brain of a financial firm. You answer employees'
 questions from the firm's knowledge graph (FalkorDB), which links email, Slack, tickets, documents, meeting
@@ -29,6 +29,10 @@ transactions. All data is synthetic.
   evidence answers the question.
 - Combine tools when it helps: e.g. who_knows for expertise plus search_knowledge for what was actually said;
   trace_decision plus search_knowledge for anything that happened after the decision.
+- Memory: the user has a private memory graph. Use recall or get_session_history when they refer to earlier
+  conversations ("last time", "what did you tell me about..."); a past answer lists the entities it used, so
+  re-check those with tools before repeating a claim. Use remember only when the user states a lasting preference
+  or asks you to remember something.
 
 ## Rules
 - Cite sources inline with their document id in square brackets right after the claim, e.g. [email-00084] or

@@ -128,6 +128,25 @@ CALL algo.SSpaths({sourceNode:a, relTypes:['KNOWS'], maxLen:2, pathCount:1}) YIE
 - `MATCH ()-[e:FROM_ACCOUNT|TO_ACCOUNT]->(a)` multi-type patterns, `ON CREATE SET ... SET ...` after `MERGE` on a
   relationship, `properties(n)` (returned as a map) and `SET x.prop = NULL` (removes the property) all work.
 
+### Verified while building memory, playbooks and the live feed
+
+- **`GRAPH.COPY` forks the server process**, and Redis allows one fork child at a time. If an AOF auto-rewrite or
+  `BGSAVE` is running, the copy fails with `GRAPH.COPY failed, could not fork`. Copying the ~70 MB
+  `pristine__halcyon` graph is enough by itself to push the AOF past its auto-rewrite threshold, so two copies in
+  quick succession (test fixtures, repeated "Reset demo") can collide. `db.copy_graph` retries with backoff for up
+  to 30 s.
+- **Reading a graph that does not exist is an error**, not an empty result: `GRAPH.RO_QUERY` (including a vector
+  `queryNodes`) against a missing key returns `Invalid graph operation on empty key`. A write (`GRAPH.QUERY` with
+  `MERGE`/`CREATE`) creates the key implicitly, but without our indexes. `MemoryStore` therefore creates memory
+  graphs lazily (schema, `:Meta` and the `User` node on the first write) and answers reads on a missing graph with
+  no rows.
+- **Calibrated voyage-4 cosine distances** (query vs stored text, `queryNodes` score): a task matching a playbook
+  scores 0.37–0.63 and an unrelated task ≥ 0.72, so `PLAYBOOK_MATCH = 0.65`. A relevant memory sentence scores
+  0.44–0.63 and an unrelated one mostly ≥ 0.72, so `RECALL_MAX_DISTANCE = 0.68`. Restating the same sentence scores
+  about 0.003, so `DUP_DISTANCE = 0.06` catches restatements.
+- One vector index per label is enough for shared procedural memory: `Playbook.embedding` in the tenant brain
+  graph, with `PLAYBOOK_SEARCH` over-fetching and then dropping playbooks that name a deal the caller cannot see.
+
 ### MCP server (Python SDK v2)
 
 - The SDK in use is `mcp` 2.x: `from mcp.server.mcpserver import MCPServer, Context`. The client is

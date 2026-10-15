@@ -10,7 +10,7 @@ which is generated from `backend/graph/queries.py`.
 | Graph | Contents | Written by |
 |---|---|---|
 | `brain__<tenant>` | Org, systems, clients/accounts/transactions (tokens only), documents, topics, facts, decisions, PII tokens, ACL edges, cases/tasks/actions, playbooks, `:Meta` | ingestion, live feed, agents |
-| `mem__<tenant>__<user>` | One user's private memory: sessions, turns, memory facts, entity refs, preferences | Librarian and agents, for that user only |
+| `mem__<tenant>__<persona>__<user>` | One user's (one browser visitor's) private memory: sessions, turns, memory facts (preferences, facts, goals, open threads), entity refs | Librarian and agents, for that user only |
 | `pristine__<tenant>` | `GRAPH.COPY` of the freshly seeded brain; "Reset demo" copies it back | `backend/ingest/seed.py` |
 
 Tenants (`halcyon`, `brightwater`) never share a graph, so isolation is a property of *which graph a query
@@ -71,11 +71,19 @@ erDiagram
 | `Case` | id (`case_…`), title, kind (fraud_ring, suspicious_activity, mnpi_breach, ...), severity, status (open → in_review → pending_approval → actioned / escalated / closed), summary, created, updated, opened_by, sar_ref | agents at runtime |
 | `Action` | id (`act_…`), kind (freeze_account, file_sar, notify_owner, restrict_channel), status (proposed → approved / rejected → executed), target_label, target_id, case_id, rationale, details (e.g. SAR narrative), effect | proposed by agents, decided by a human |
 | `Task` | id (`task_…`), title, kind, status (open → claimed → done), from_agent, to_agent, case_id, note, result | the shared blackboard (handoffs) |
-| `Playbook`, `Step` | id, ... | procedural memory (item 8) |
-| `Meta` | embed_model, embed_dims, schema_version, tenant | `ensure_meta` refuses to mix vector spaces |
+| `Playbook` | id (`pb_…`), name, trigger, description, tool sequence, use count, created/updated, embedding | procedural memory shared by the tenant's agents: learned by the Librarian from successful sessions (or saved with `save_playbook`), reinforced when a later session repeats it, found with `find_playbook` |
+| `Step` | id, n, tool, instruction | ordered steps of a playbook |
+| `Meta` | embed_model, embed_dims, schema_version, tenant, live_cursor, live_batches, live_updated | `ensure_meta` refuses to mix vector spaces; the live feed records the last replayed day |
 
-Memory graph labels: `User`, `Session`, `Turn` (text, ts, embedding), `MemoryFact` (text, embedding),
-`EntityRef` (points at a brain `id` by value), `Preference`.
+Memory graph labels (`mem__…`):
+
+| Label | Key properties | Notes |
+|---|---|---|
+| `User` | id (persona + visitor), tenant, persona, person_id | one per memory graph |
+| `Session` | id (`sess_…`), title, summary, started, updated, turns, agent, consolidated_n | episodic memory; title and summary are written by the Librarian |
+| `Turn` | id, n, role, text, ts, agent, tools, cost_usd, embedding | conversation history lives in the graph, not the browser |
+| `MemoryFact` | id (`mf_…`), kind (preference, fact, goal, open_thread), text, created, valid_to, by, embedding | semantic memory; never deleted by consolidation, only closed (`valid_to`) or superseded |
+| `EntityRef` | id (= a brain-graph entity id), label | points at company entities by value, across graphs |
 
 ## Relationship types
 
@@ -92,6 +100,8 @@ Memory graph labels: `User`, `Session`, `Turn` (text, ts, embedding), `MemoryFac
 | Derived money flow | `FLOWS_TO {amount, n, first_ts, last_ts, max_fraud_score, alerts, kind}` (Counterparty → Account, Account → Account, Account → Counterparty) |
 | Derived communication | `COMMUNICATES {weight, direct, replies, last}` (Person → Person, MNPI documents excluded) |
 | Operations | `OPENED_BY`, `REQUESTED_BY` (Case → Agent / Person), `ASSIGNED_TO` (Case or Task → Agent), `EVIDENCE {note, added_by, ts}` (Case → any entity), `PROPOSED` (Agent → Action), `FOR_CASE` (Action or Task → Case), `TARGETS` (Action → Account / Channel / Person / ...), `APPROVED_BY` / `REJECTED_BY {ts, note}` (Action → Person), `HANDED_OFF_TO {note, ts, task_id, case_id}` (Agent → Agent), `CLAIMED_BY` (Task → Agent) |
+| Procedural memory | `HAS_STEP` (Playbook → Step), `NEXT_STEP` (Step → Step), `FOLLOWS_PLAYBOOK` (Case → Playbook) |
+| Memory graph | `HAD_SESSION` (User → Session), `HAS_TURN` (Session → Turn), `NEXT` (Turn → Turn), `USED_EVIDENCE` (Turn → EntityRef), `REMEMBERS` (User → MemoryFact), `LEARNED_FROM` (MemoryFact → Session), `ABOUT` (MemoryFact → EntityRef), `SUPERSEDES` (MemoryFact → MemoryFact) |
 
 ## How the graph does the work
 
@@ -187,8 +197,9 @@ scores high.
 
 ### Cases, actions and the blackboard
 Agents write their work into the tenant graph:
-1. The Investigator calls `open_case` (a `Case` with `EVIDENCE` edges to transactions, accounts, clients, tokens and
-   documents). It de-duplicates against open cases of the same kind that share evidence.
+1. The Investigator (or the Sentinel) calls `open_case` (a `Case` with `EVIDENCE` edges to transactions, accounts,
+   clients, tokens and documents). It de-duplicates against open cases of the same kind that share non-person
+   evidence. People recur across unrelated cases (deal teams, analysts), so a shared person never merges two cases.
 2. It calls `propose_action` (`Agent-[:PROPOSED]->Action-[:FOR_CASE]->Case`, `Action-[:TARGETS]->Account`).
 3. It calls `handoff`. This creates a `Task` `ASSIGNED_TO` the Compliance agent and an
    `Agent-[:HANDED_OFF_TO {note}]->Agent` edge, and moves the case to `in_review`.
@@ -209,6 +220,26 @@ intervals and employment as they stood then. Later events stay out of the graph 
 through the same pipeline. These are the KYC ownership transfer (10-06), the recon expert's departure (10-09),
 the second ring wire, the Falcon leak and the crypto-onboarding reversal (10-12).
 
+Each replayed day (`backend/ingest/live.py`) writes that day's transactions, closes and opens `OWNS` intervals,
+marks leavers `active = false`, ingests the day's documents (cached extraction, or Haiku on a cache miss), rebuilds
+the derived `FLOWS_TO` / `COMMUNICATES` edges, runs the Sentinel and moves `Meta.live_cursor`. The Sentinel's
+detectors are deterministic graph work; only the case write-up is written by an LLM:
+
+| Detector | Graph work | Result on the Halcyon timeline |
+|---|---|---|
+| Transaction monitoring | alerted or fraud score ≥ 0.6 → `linked_accounts` over shared `PiiToken`s | 10-03 ring wire `t_r025` → `fraud_ring` case with the linked clients and shared tokens, handed to the Investigator; two moderate-score transfers → `suspicious_activity` cases |
+| Information barrier | `barrier_check` on every MNPI deal, restricted to the day's documents, as audit-logged compliance surveillance | 10-07 Falcon leak `slack-01399` → `mnpi_breach` case with the document as evidence, handed to Compliance; non-MNPI logistics documents that only name a deal → `barrier_watch` alerts, no case |
+| Bus factor | departing person's `KNOWS_ABOUT` weight vs the best remaining expert | 10-09 departure of the ReconLegacy expert (18.5 vs best backup 12.1) → `key_person_risk` (high) |
+| Ownership | `OWNS` intervals closed and opened in the batch | 10-06 `sys_kycpipeline`: Ops → Compliance |
+
+### Memory and playbooks
+Every chat runs as a session in the caller's memory graph. Before the agent answers, the preferences, open threads
+and memories relevant to the message (vector recall over `MemoryFact` and earlier `Turn`s) are injected as a system
+message. After the answer, the Librarian (Haiku) consolidates the new turns into `MemoryFact`s, deduplicated by
+vector distance and superseded rather than overwritten, and into a session title and summary. When a session
+followed a successful multi-tool method, it also learns a tenant-wide `Playbook`, or reinforces one that already
+exists. A playbook that names a deal the caller cannot see stays behind the information barrier.
+
 ## Indexes and constraints
 
 | Kind | Brain graph | Memory graph |
@@ -216,7 +247,7 @@ the second ring wire, the Falcon leak and the crypto-onboarding reversal (10-12)
 | Range | `id` on every label; `Document.ts/kind/thread_id/ticket_key`; `Transaction.ts`; `Fact.subject_id/predicate/valid_from`; `PiiToken.type`; `Person.name/team_id`; `Task/Case/Action.status`; edge `OWNS.valid_from`, `KNOWS_ABOUT.weight` | `id` on every label; `Session.started`; `Turn.ts` |
 | Unique | `id` on every label (`GRAPH.CONSTRAINT … UNIQUE NODE <Label> PROPERTIES 1 id`) | same |
 | Full-text | `Document(title, text)`, `Person(name, title)`, `System(name, description)`, `Topic(name)`, `Deal(codename, target)`, `Fact(statement)` | `MemoryFact(text)`, `Turn(text)` |
-| Vector (1024-d, cosine) | `Document.embedding`, `Fact.embedding`, `Topic.embedding` | `MemoryFact.embedding`, `Turn.embedding` |
+| Vector (1024-d, cosine) | `Document.embedding`, `Fact.embedding`, `Topic.embedding`, `Playbook.embedding` | `MemoryFact.embedding`, `Turn.embedding` |
 
 Embeddings come from `voyageai/voyage-4` via OpenRouter, run on redacted text only. They are cached in
 `data/extracted/embeddings/`, so reseeding makes no embedding calls.

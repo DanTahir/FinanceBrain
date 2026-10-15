@@ -21,12 +21,12 @@ class ToolError(Exception):
 
 DOC_ID_RE = re.compile(r"\b(?:slack|email|ticket|doc|meeting|crm)-\d{5}\b")
 _ID_RE = re.compile(r"^(?:e_\d+|team_\w+|sys_\w+|c_\d+|a_\d+|t_\w+|deal_\w+|topic_\w+|f_[0-9a-f]+|dec_\w+|cp_\w+|"
-                    r"case_\w+|task_\w+|act_\w+|agent_\w+|ch_[\w-]+|(?:slack|email|ticket|doc|meeting|crm)-\d{5}|"
+                    r"case_\w+|task_\w+|act_\w+|agent_\w+|pb_\w+|ch_[\w-]+|(?:slack|email|ticket|doc|meeting|crm)-\d{5}|"
                     r"⟨[A-Z_]+_\d+⟩)$")
 # Longer prefixes first: cp_ / ch_ before c_, agent_ / act_ before a_.
 _PREFIXES = (("agent_", "Agent"), ("cp_", "Counterparty"), ("ch_", "Channel"), ("team_", "Team"), ("topic_", "Topic"),
              ("sys_", "System"), ("deal_", "Deal"), ("dec_", "Decision"), ("case_", "Case"), ("task_", "Task"),
-             ("act_", "Action"), ("e_", "Person"), ("c_", "Client"), ("a_", "Account"), ("f_", "Fact"),
+             ("act_", "Action"), ("pb_", "Playbook"), ("e_", "Person"), ("c_", "Client"), ("a_", "Account"), ("f_", "Fact"),
              ("t_", "Transaction"))
 # Labels whose *names* can betray a walled-off deal (e.g. channel #project-falcon): filtered by restricted terms.
 RESTRICTABLE = frozenset({"Channel", "Thread", "Topic", "Decision", "Fact", "Deal", "Document", "Case", "Task",
@@ -128,10 +128,12 @@ def doc_display(d: dict) -> str:
 class ToolContext:
     """Everything one tool invocation needs: the caller's tenant graph and persona, plus trace and evidence sinks."""
 
-    def __init__(self, auth: AuthContext, agent: str = "external") -> None:
+    def __init__(self, auth: AuthContext, agent: str = "external", *, graph: str | None = None,
+                 session_id: str | None = None) -> None:
         self.auth = auth
         self.agent = agent  # which agent is calling (from MCP _meta fb_agent); recorded on cases, actions, handoffs
-        self.graph_name = brain_graph(auth.tenant)
+        self.session_id = session_id  # conversation session (from MCP _meta fb_session), for memory tools
+        self.graph_name = graph or brain_graph(auth.tenant)  # graph override: live-feed replays into test copies
         self.g = get_db().select_graph(self.graph_name)
         self.trace: list[dict] = []
         self.evidence = Evidence()

@@ -829,7 +829,7 @@ RETURN c.id
 
 ### `FIND_OPEN_CASE`
 
-De-duplication: an unclosed case of the same kind that already holds any of the new evidence.
+De-duplication: an unclosed case of the same kind that already holds any of the new (non-person) evidence.
 
 ```cypher
 MATCH (c:Case)-[:EVIDENCE]->(x)
@@ -1130,5 +1130,464 @@ Variants: `accounts`, `channels`, `handoffs`, `nodes`. Example (`accounts`):
 ```cypher
 MATCH (x:Account) WHERE x.status_before_freeze IS NOT NULL
 SET x.status = x.status_before_freeze, x.status_before_freeze = NULL, x.frozen_by = NULL, x.frozen_at = NULL
+```
+
+## Memory graphs (one private graph per tenant, persona and visitor: mem__<tenant>__<persona>__<visitor>)
+
+### `MEM_USER`
+
+Create or touch the owner of a private memory graph.
+
+```cypher
+MERGE (u:User {id: $uid})
+ON CREATE SET u.created = $now, u.tenant = $tenant, u.persona = $persona, u.person_id = $pid
+SET u.last_seen = $now
+RETURN u.id
+```
+
+### `MEM_SESSION`
+
+Start or resume a conversation session (episodic memory).
+
+```cypher
+MATCH (u:User {id: $uid})
+MERGE (s:Session {id: $sid})
+ON CREATE SET s.started = $now, s.turns = 0, s.agent = $agent
+SET s.updated = $now
+MERGE (u)-[:HAD_SESSION]->(s)
+RETURN s.id, s.turns, s.consolidated_n
+```
+
+### `MEM_ADD_TURN`
+
+Append one turn (user message or agent answer) to a session.
+
+```cypher
+MATCH (s:Session {id: $sid})
+CREATE (t:Turn {id: $id, n: $n, ts: $ts, role: $role, text: $text})
+SET t += $props
+CREATE (s)-[:HAS_TURN]->(t)
+SET s.turns = $n, s.updated = $ts
+RETURN t.id
+```
+
+### `MEM_LINK_TURN`
+
+Chain consecutive turns of a session (previous turn by its number).
+
+```cypher
+MATCH (s:Session {id: $sid})-[:HAS_TURN]->(a:Turn {n: $prev})
+MATCH (s)-[:HAS_TURN]->(b:Turn {id: $id})
+MERGE (a)-[:NEXT]->(b)
+```
+
+### `MEM_SESSION_INFO`
+
+One session's header (Librarian watermark: consolidated_n).
+
+```cypher
+MATCH (s:Session {id: $sid})
+RETURN s.id, s.title, s.summary, s.started, s.updated, s.turns, s.agent, s.consolidated_n
+```
+
+### `MEM_TURN_REFS`
+
+Record which company entities an answer used (USED_EVIDENCE to EntityRef stubs carrying only the stable entity
+id), so a later session can answer 'why did you tell me X?' by re-opening the same evidence.
+
+```cypher
+MATCH (t:Turn {id: $tid})
+UNWIND $refs AS r
+MERGE (e:EntityRef {id: r.id})
+ON CREATE SET e.label = r.label, e.name = r.name
+MERGE (t)-[u:USED_EVIDENCE]->(e)
+SET u.cited = r.cited
+```
+
+### `MEM_SET_EMBEDDINGS` (2 variants)
+
+Attach voyage-4 vectors to Turn nodes.
+
+Variants: `Turn`, `MemoryFact`. Example (`Turn`):
+
+```cypher
+UNWIND $rows AS r
+MATCH (n:Turn {id: r.id})
+SET n.embedding = vecf32(r.v)
+```
+
+### `MEM_SESSIONS`
+
+A user's sessions, most recent first.
+
+```cypher
+MATCH (:User {id: $uid})-[:HAD_SESSION]->(s:Session)
+RETURN s.id, s.title, s.summary, s.started, s.updated, s.turns, s.agent, s.consolidated_n
+ORDER BY s.updated DESC
+LIMIT $limit
+```
+
+### `MEM_TURNS`
+
+Turns of one session after turn number $after, with the entities each answer used.
+
+```cypher
+MATCH (:Session {id: $sid})-[:HAS_TURN]->(t:Turn)
+WHERE t.n > $after
+OPTIONAL MATCH (t)-[:USED_EVIDENCE]->(e:EntityRef)
+WITH t, collect(e.id) AS refs
+RETURN t.id AS id, t.n AS n, t.role AS role, t.agent AS agent, t.text AS text, t.ts AS ts, t.tools AS tools,
+       t.cost_usd AS cost, refs
+ORDER BY n
+```
+
+### `MEM_FACTS`
+
+Semantic memories (current unless $all), newest first, with the entities they are about.
+
+```cypher
+MATCH (f:MemoryFact)
+WHERE $all OR f.valid_to IS NULL
+OPTIONAL MATCH (f)-[:ABOUT]->(e:EntityRef)
+WITH f, collect(e.id) AS about
+RETURN f.id AS id, f.kind AS kind, f.text AS text, f.created AS created, f.valid_to AS valid_to,
+       f.source_session AS session, f.by AS by, f.superseded_by AS superseded_by, about
+ORDER BY created DESC
+LIMIT $limit
+```
+
+### `MEM_FACT_SEARCH`
+
+Vector recall over current memories (score is cosine distance).
+
+```cypher
+CALL db.idx.vector.queryNodes('MemoryFact', 'embedding', $k, vecf32($v)) YIELD node, score
+WHERE node.valid_to IS NULL
+RETURN node.id, node.kind, node.text, node.created, node.source_session, score
+ORDER BY score ASC
+```
+
+### `MEM_TURN_SEARCH`
+
+Vector recall over past conversation turns, excluding the current session.
+
+```cypher
+CALL db.idx.vector.queryNodes('Turn', 'embedding', $k, vecf32($v)) YIELD node, score
+MATCH (s:Session)-[:HAS_TURN]->(node)
+WHERE s.id <> $exclude
+RETURN node.id, node.role, node.agent, node.text, node.ts, s.id, s.title, score
+ORDER BY score ASC
+```
+
+### `MEM_ADD_FACT`
+
+Store one semantic memory owned by the user.
+
+```cypher
+MATCH (u:User {id: $uid})
+CREATE (f:MemoryFact {id: $id, kind: $kind, text: $text, created: $now, by: $by})
+SET f += $props
+CREATE (u)-[:REMEMBERS]->(f)
+RETURN f.id
+```
+
+### `MEM_FACT_SOURCE`
+
+Provenance: the session a memory was learned from.
+
+```cypher
+MATCH (f:MemoryFact {id: $id})
+MATCH (s:Session {id: $sid})
+MERGE (f)-[:LEARNED_FROM]->(s)
+```
+
+### `MEM_FACT_ABOUT`
+
+Link a memory to the company entities it is about (by stable id).
+
+```cypher
+MATCH (f:MemoryFact {id: $id})
+UNWIND $refs AS r
+MERGE (e:EntityRef {id: r.id})
+ON CREATE SET e.label = r.label, e.name = r.name
+MERGE (f)-[:ABOUT]->(e)
+```
+
+### `MEM_SUPERSEDE`
+
+A newer memory replaces an older one: the old one is closed (valid_to) and linked by SUPERSEDES, never deleted,
+so the memory graph keeps its own history.
+
+```cypher
+MATCH (n:MemoryFact {id: $new})
+MATCH (o:MemoryFact {id: $old})
+WHERE o.valid_to IS NULL AND o.id <> n.id
+SET o.valid_to = $now, o.superseded_by = $new
+MERGE (n)-[:SUPERSEDES]->(o)
+RETURN o.id
+```
+
+### `MEM_RETIRE`
+
+Close memories that are no longer true (e.g. a resolved open thread).
+
+```cypher
+MATCH (f:MemoryFact)
+WHERE f.id IN $ids AND f.valid_to IS NULL
+SET f.valid_to = $now, f.retired = true
+RETURN f.id
+```
+
+### `MEM_CAP`
+
+Keep at most $keep current memories: the oldest beyond the cap are retired.
+
+```cypher
+MATCH (f:MemoryFact)
+WHERE f.valid_to IS NULL
+WITH f ORDER BY f.created DESC
+SKIP $keep
+SET f.valid_to = $now, f.retired = true
+RETURN count(f)
+```
+
+### `MEM_FORGET_FACT`
+
+Forget one memory (hard delete, user-initiated).
+
+```cypher
+MATCH (f:MemoryFact {id: $id})
+WITH f, f.id AS id
+DETACH DELETE f
+RETURN id
+```
+
+### `MEM_DELETE_TURNS`
+
+Forget a session, step 1: its turns.
+
+```cypher
+MATCH (:Session {id: $sid})-[:HAS_TURN]->(t:Turn)
+DETACH DELETE t
+```
+
+### `MEM_DELETE_SESSION`
+
+Forget a session, step 2: the session node.
+
+```cypher
+MATCH (s:Session {id: $sid})
+WITH s, s.id AS id
+DETACH DELETE s
+RETURN id
+```
+
+### `MEM_SET_SESSION`
+
+Librarian output on a session: title, summary, consolidation watermark.
+
+```cypher
+MATCH (s:Session {id: $sid})
+SET s += $props
+RETURN s.id
+```
+
+### `MEM_COUNTS`
+
+Node counts per label in a memory graph (Memory Inspector header).
+
+```cypher
+MATCH (n)
+RETURN labels(n)[0] AS label, count(n) AS n
+```
+
+## Procedural memory (playbooks in the shared tenant graph)
+
+### `PLAYBOOK_SEARCH`
+
+Find learned procedures similar to a task description (vector index on Playbook.embedding; score is cosine
+distance), with their ordered steps.
+
+```cypher
+CALL db.idx.vector.queryNodes('Playbook', 'embedding', $k, vecf32($v)) YIELD node, score
+OPTIONAL MATCH (node)-[:HAS_STEP]->(s:Step)
+WITH node, score, s ORDER BY s.n
+WITH node, score, collect([s.n, s.tool, s.instruction]) AS steps
+RETURN node.id AS id, node.name AS name, node.trigger AS trigger, node.description AS description,
+       node.uses AS uses, node.created AS created, node.updated AS updated, node.learned_by AS learned_by,
+       score, steps
+ORDER BY score ASC
+```
+
+### `PLAYBOOK_LIST`
+
+All playbooks with their steps, most recently updated first.
+
+```cypher
+MATCH (p:Playbook)
+OPTIONAL MATCH (p)-[:HAS_STEP]->(s:Step)
+WITH p, s ORDER BY s.n
+WITH p, collect([s.n, s.tool, s.instruction]) AS steps
+RETURN p.id AS id, p.name AS name, p.trigger AS trigger, p.description AS description, p.uses AS uses,
+       p.created AS created, p.updated AS updated, p.learned_by AS learned_by, p.source AS source, steps
+ORDER BY updated DESC
+LIMIT $limit
+```
+
+### `PLAYBOOK_UPSERT`
+
+Create or update a playbook header.
+
+```cypher
+MERGE (p:Playbook {id: $id})
+ON CREATE SET p.created = $now, p.uses = 0
+SET p += $props, p.updated = $now
+RETURN p.id
+```
+
+### `PLAYBOOK_CLEAR_STEPS`
+
+Drop a playbook's steps before rewriting them.
+
+```cypher
+MATCH (:Playbook {id: $id})-[:HAS_STEP]->(s:Step)
+DETACH DELETE s
+```
+
+### `PLAYBOOK_ADD_STEPS`
+
+Write a playbook's ordered steps (HAS_STEP from the playbook).
+
+```cypher
+MATCH (p:Playbook {id: $id})
+UNWIND $steps AS st
+CREATE (s:Step {id: st.id, n: st.n, tool: st.tool, instruction: st.instruction, playbook_id: $id})
+CREATE (p)-[:HAS_STEP {n: st.n}]->(s)
+```
+
+### `PLAYBOOK_LINK_STEPS`
+
+Chain steps in order with NEXT_STEP.
+
+```cypher
+UNWIND $pairs AS r
+MATCH (a:Step {id: r.a})
+MATCH (b:Step {id: r.b})
+MERGE (a)-[:NEXT_STEP]->(b)
+```
+
+### `PLAYBOOK_SET_VEC`
+
+Embed a playbook (name + trigger + description + tool sequence).
+
+```cypher
+MATCH (p:Playbook {id: $id})
+SET p.embedding = vecf32($v)
+```
+
+### `PLAYBOOK_REINFORCE`
+
+A session re-confirmed a playbook: count the use.
+
+```cypher
+MATCH (p:Playbook {id: $id})
+SET p.uses = coalesce(p.uses, 0) + 1, p.last_used = $now, p.updated = $now
+RETURN p.uses
+```
+
+### `CASE_FOLLOWS_PLAYBOOK`
+
+Record that a case was worked by following a playbook.
+
+```cypher
+MATCH (c:Case {id: $case})
+MATCH (p:Playbook {id: $id})
+MERGE (c)-[e:FOLLOWS_PLAYBOOK]->(p)
+SET e.ts = $now
+```
+
+## Live feed and Sentinel
+
+### `LIVE_CURSOR`
+
+Last live-feed day replayed into this graph (stored on :Meta).
+
+```cypher
+MATCH (m:Meta)
+RETURN m.live_cursor, m.live_batches, m.live_updated
+LIMIT 1
+```
+
+### `SET_LIVE_CURSOR`
+
+Advance the live-feed cursor after a day's batch is ingested.
+
+```cypher
+MATCH (m:Meta)
+SET m.live_cursor = $day, m.live_batches = coalesce(m.live_batches, 0) + 1, m.live_updated = $now
+RETURN m.live_cursor
+```
+
+### `SENTINEL_TXNS`
+
+Sentinel, detector 1: transactions in the new batch that carry a monitoring alert or a fraud score at or above
+$min_score, with both accounts (and whether either is already frozen) and the counterparty.
+
+```cypher
+MATCH (t:Transaction)
+WHERE t.id IN $ids AND (t.alert IS NOT NULL OR t.fraud_score >= $min_score)
+OPTIONAL MATCH (t)-[:FROM_ACCOUNT]->(fa:Account)
+OPTIONAL MATCH (t)-[:TO_ACCOUNT]->(ta:Account)
+OPTIONAL MATCH (t)-[:COUNTERPARTY]->(cp:Counterparty)
+RETURN t.id, t.kind, t.amount, t.ts, t.alert, t.fraud_score, fa.id, fa.status, ta.id, ta.status, cp.id, cp.name,
+       cp.country
+ORDER BY t.ts
+```
+
+### `SENTINEL_MNPI_DEALS`
+
+Sentinel, detector 2: the walled-off (MNPI) deals to barrier-check.
+
+```cypher
+MATCH (d:Deal)
+WHERE d.sensitivity = 'MNPI'
+RETURN d.id, d.codename
+ORDER BY d.id
+```
+
+### `SENTINEL_DEPARTURE_RISK`
+
+Sentinel, detector 3 (bus factor): systems a departing person knows well (KNOWS_ABOUT weight), with the best
+remaining active expert's weight as backup coverage.
+
+```cypher
+MATCH (p:Person)-[k:KNOWS_ABOUT]->(s:System)
+WHERE p.id IN $ids AND k.weight >= $min_weight
+OPTIONAL MATCH (o:Person)-[k2:KNOWS_ABOUT]->(s)
+WHERE o.id <> p.id AND coalesce(o.active, true)
+WITH p, s, k.weight AS w, max(k2.weight) AS backup
+RETURN p.id AS pid, p.name AS name, s.id AS sid, s.name AS system, w, backup
+ORDER BY w DESC
+LIMIT 12
+```
+
+### `TASK_INFO`
+
+One blackboard task (who it is for, which case) so the UI can run its assigned agent.
+
+```cypher
+MATCH (t:Task {id: $id})
+RETURN t.id, t.status, t.to_agent, t.from_agent, t.case_id, t.note, t.title
+```
+
+### `RECENT_HANDOFFS`
+
+Agent-to-agent handoff timeline (HANDED_OFF_TO edges), newest first.
+
+```cypher
+MATCH (a:Agent)-[h:HANDED_OFF_TO]->(b:Agent)
+RETURN a.id, b.id, h.ts, h.note, h.task_id, h.case_id
+ORDER BY h.ts DESC
+LIMIT $limit
 ```
 

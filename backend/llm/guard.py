@@ -75,6 +75,24 @@ def find_pii(text: str) -> list[Finding]:
     return sorted(kept, key=lambda f: f.start)
 
 
+def scrub_pii(text: str) -> tuple[str, dict[str, int]]:
+    """Mask raw high-confidence PII in user-typed text (chat messages, memories) before it is stored in a graph or
+    sent to any model. Returns the masked text and counts per type."""
+    found = find_pii(text or "")
+    if not found:
+        return text, {}
+    parts: list[str] = []
+    counts: dict[str, int] = {}
+    pos = 0
+    for f in found:
+        parts.append(text[pos:f.start])
+        parts.append(f"⟨REDACTED_{f.type}⟩")
+        counts[f.type] = counts.get(f.type, 0) + 1
+        pos = f.end
+    parts.append(text[pos:])
+    return "".join(parts), counts
+
+
 def guard_enabled() -> bool:
     return os.environ.get("FB_OUTBOUND_GUARD", "1") != "0"
 

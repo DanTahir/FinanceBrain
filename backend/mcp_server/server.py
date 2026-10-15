@@ -22,6 +22,7 @@ from pydantic import BaseModel, Field
 
 from backend.tenancy import AuthContext, AuthError, auth_from_bearer, verify_auth
 from backend.tools import investigation, ops, reasoning, retrieval
+from backend.tools import memory as memtools
 from backend.tools.base import ToolContext, ToolError
 
 log = logging.getLogger(__name__)
@@ -34,9 +35,10 @@ find_path for expertise, ownership, decision rationale, dependency impact and co
 PageRank / betweenness over the communication network. Compliance and AML personas can also investigate
 (list_alerts, detect_rings, linked_accounts, trace_funds, barrier_check) and run cases on the shared blackboard
 (open_case, propose_action, handoff, claim_task, ...). Actions are only proposed: a human approves them in the
-FinanceBrain UI."""
+FinanceBrain UI. Each user also has a private memory graph (remember, recall, get_session_history), and the tenant
+shares procedural memory: find_playbook returns learned investigation procedures, save_playbook stores one."""
 
-server = MCPServer(name="financebrain", title="FinanceBrain", version="0.7.0", instructions=INSTRUCTIONS)
+server = MCPServer(name="financebrain", title="FinanceBrain", version="0.8.0", instructions=INSTRUCTIONS)
 
 
 def _meta_value(ctx: Context, key: str) -> str | None:
@@ -73,7 +75,9 @@ async def _run(ctx: Context, fn: Callable[..., Awaitable[Any]], **kwargs: Any) -
     except AuthError as e:
         raise MCPToolError(f"unauthorized: {e}") from None
     agent = _meta_value(ctx, "fb_agent")
-    tc = ToolContext(auth, agent=agent if agent in ops.AGENTS else "external")
+    session = _meta_value(ctx, "fb_session")
+    tc = ToolContext(auth, agent=agent if agent in ops.AGENTS else "external",
+                     session_id=session if isinstance(session, str) else None)
     try:
         result = await fn(tc, **kwargs)
     except ToolError as e:
@@ -394,6 +398,70 @@ async def complete_task(
 ) -> dict:
     """Mark a task done with a result summary."""
     return await _run(ctx, ops.complete_task, task_id=task_id, result=result)
+
+
+# ------------------------------------------------------------------------------------------------ memory
+@server.tool(title="Remember")
+async def remember(
+    ctx: Context,
+    text: Annotated[str, Field(description="One self-contained sentence to remember about the user, e.g. 'Prefers "
+                                           "SAR drafts as bullet points.'")],
+    kind: Annotated[str, Field(description="preference, fact, goal or open_thread (default fact).")] = "fact",
+    about: Annotated[list[str] | None, Field(description="Optional entity ids the memory concerns.")] = None,
+) -> dict:
+    """Save a memory in the current user's private memory graph (persists across sessions). Use when the user states
+    a lasting preference or explicitly asks you to remember something."""
+    return await _run(ctx, memtools.remember, text=text, kind=kind, about=about)
+
+
+@server.tool(title="Recall")
+async def recall(
+    ctx: Context,
+    query: Annotated[str, Field(description="What to look for in the user's memory.")],
+    k: Annotated[int, Field(description="How many memories / turns to return (1-12, default 6).")] = 6,
+) -> dict:
+    """Search the current user's private memory: remembered facts and earlier conversation turns (vector recall)."""
+    return await _run(ctx, memtools.recall, query=query, k=k)
+
+
+@server.tool(title="Session history")
+async def get_session_history(
+    ctx: Context,
+    session_id: Annotated[str | None, Field(description="A session id (sess_...) to read its turns; omit to list "
+                                                        "the user's recent sessions.")] = None,
+    limit: Annotated[int, Field(description="How many sessions to list (default 5).")] = 5,
+) -> dict:
+    """The current user's earlier sessions (title, summary), or the turns of one session including the entities
+    each answer used."""
+    return await _run(ctx, memtools.get_session_history, session_id=session_id, limit=limit)
+
+
+class PlaybookStep(BaseModel):
+    tool: str = Field(description="Tool used in this step, e.g. linked_accounts.")
+    instruction: str = Field(description="What to do, generalised (no case-specific ids, amounts or names).")
+
+
+@server.tool(title="Save playbook")
+async def save_playbook(
+    ctx: Context,
+    name: Annotated[str, Field(description="Short imperative name of the procedure.")],
+    trigger: Annotated[str, Field(description="When to use it, in generic terms.")],
+    steps: Annotated[list[PlaybookStep], Field(description="Ordered steps (2-10).")],
+    description: Annotated[str, Field(description="One or two sentences on the approach.")] = "",
+) -> dict:
+    """Store a reusable procedure in the tenant's shared procedural memory (or reinforce an equivalent one)."""
+    return await _run(ctx, memtools.save_playbook, name=name, trigger=trigger, description=description,
+                      steps=[s.model_dump() if isinstance(s, BaseModel) else s for s in steps])
+
+
+@server.tool(title="Find playbook")
+async def find_playbook(
+    ctx: Context,
+    query: Annotated[str, Field(description="One-line description of the task at hand.")],
+    k: Annotated[int, Field(description="How many playbooks to return (1-5, default 3).")] = 3,
+) -> dict:
+    """Learned procedures for similar tasks (procedural memory, vector-matched), with their ordered steps."""
+    return await _run(ctx, memtools.find_playbook, query=query, k=k)
 
 
 def http_app():

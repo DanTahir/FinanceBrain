@@ -89,6 +89,10 @@ async def _resolve_items(ctx: ToolContext, items: Any) -> tuple[list[dict], list
         else:
             continue
         ent = await resolve(ctx, ref, set(EVIDENCE_LABELS))
+        if not ent and ref in ctx.docs:
+            # A document this same run already read (normal access, or an audit-logged compliance surveillance
+            # read in barrier_check) may be attached even though the persona's everyday ACL would hide it.
+            ent = {"label": "Document", "id": ref, "name": ctx.docs[ref].get("title") or ref}
         if not ent:
             skipped.append(ref)
             continue
@@ -171,8 +175,10 @@ async def open_case(ctx: ToolContext, title: str, kind: str, severity: str = "me
     await ensure_agents(ctx)
     now, me = ctx.now(), _me(ctx)
     case_id, reused = None, False
-    if items:
-        rows = await ctx.q("FIND_OPEN_CASE", Q.FIND_OPEN_CASE, {"kind": kind, "ids": [i["id"] for i in items]})
+    # People recur across unrelated cases (deal teams, analysts), so they never make two cases "the same case".
+    dedup_ids = [i["id"] for i in items if i["label"] != "Person"]
+    if dedup_ids:
+        rows = await ctx.q("FIND_OPEN_CASE", Q.FIND_OPEN_CASE, {"kind": kind, "ids": dedup_ids})
         if rows:
             case_id, reused = rows[0][0], True
     if case_id is None:

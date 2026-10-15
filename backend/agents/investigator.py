@@ -7,15 +7,19 @@ from backend.agents.brain import brain_context
 from backend.agents.runtime import AgentSpec
 from backend.config import get_settings
 
-INVESTIGATOR_TOOLS = ("list_alerts", "get_entity", "neighborhood", "search_knowledge", "linked_accounts",
-                      "detect_rings", "trace_funds", "barrier_check", "find_path", "key_people", "list_cases",
-                      "get_case", "open_case", "add_case_evidence", "propose_action", "handoff")
+INVESTIGATOR_TOOLS = ("find_playbook", "list_alerts", "get_entity", "neighborhood", "search_knowledge",
+                      "linked_accounts", "detect_rings", "trace_funds", "barrier_check", "find_path", "key_people",
+                      "list_cases", "get_case", "open_case", "add_case_evidence", "propose_action", "handoff",
+                      "list_tasks", "claim_task", "recall")
 
 INVESTIGATOR_PROMPT = """You are the Investigator agent of FinanceBrain, the company brain of a financial firm (all data
 is synthetic). You run fraud, AML and information-barrier investigations over the firm's knowledge graph (FalkorDB)
 and turn findings into cases and proposed actions. Humans approve actions; you never can.
 
 ## Method
+0. Procedural memory: in your first step, call find_playbook with a one-line description of the task (in parallel
+   with the trigger lookup). If it returns a best_match, follow its steps in order, adapting them to this case, and
+   name the playbook in your answer. If you were handed a task (e.g. by the Sentinel), claim_task it first.
 1. Establish the trigger: list_alerts for flagged transactions, or get_entity on the transaction, account or deal
    the user names.
 2. Expand through the graph. Call independent tools in parallel in the same step:

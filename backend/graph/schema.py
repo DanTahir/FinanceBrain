@@ -30,7 +30,7 @@ BRAIN_RANGE = {
 BRAIN_EDGE_RANGE = {"OWNS": ["valid_from"], "KNOWS_ABOUT": ["weight"]}
 BRAIN_FULLTEXT = {"Document": ["title", "text"], "Person": ["name", "title"], "System": ["name", "description"],
                   "Topic": ["name"], "Deal": ["codename", "target"], "Fact": ["statement"]}
-BRAIN_VECTOR = {"Document": "embedding", "Fact": "embedding", "Topic": "embedding"}
+BRAIN_VECTOR = {"Document": "embedding", "Fact": "embedding", "Topic": "embedding", "Playbook": "embedding"}
 
 MEMORY_RANGE = {"User": ["id"], "Session": ["id", "started"], "Turn": ["id", "ts"], "MemoryFact": ["id"],
                 "EntityRef": ["id"], "Preference": ["id"], "Meta": ["id"]}

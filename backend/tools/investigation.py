@@ -463,12 +463,19 @@ async def barrier_check(ctx: ToolContext, deal: str) -> dict:
     breaches = []
     for did, kind, ts, sens, public, author, chid, chname, how in sorted(raw, key=lambda r: str(r[2] or "")):
         outsiders = [{"id": o, "name": names.get(o, o), "how": h} for o, h in sorted(how.items())]
-        item = {"id": did, "kind": kind, "ts": ts, "sensitivity": sens, "public": public or None,
+        mnpi = sens == "MNPI"
+        if not mnpi:
+            pattern = ("a non-MNPI document naming the deal (often logistics or a sanctioned wall-crossing) reached "
+                       "people outside the wall; review, lower confidence")
+        elif author in wall:
+            pattern = "deal-team member disclosed MNPI to people outside the wall"
+        else:
+            pattern = "someone outside the wall is handling MNPI about the deal"
+        item = {"id": did, "kind": kind, "ts": ts, "sensitivity": sens, "mnpi_content": mnpi,
+                "public": public or None,
                 "author": {"id": author, "name": names.get(author, author)} if author else None,
                 "author_inside_wall": author in wall if author else None, "channel": chname,
-                "outsiders": outsiders[:15], "outsider_count": len(outsiders),
-                "pattern": ("deal-team member disclosed deal information to people outside the wall"
-                            if author in wall else "someone outside the wall is handling deal information")}
+                "outsiders": outsiders[:15], "outsider_count": len(outsiders), "pattern": pattern}
         if did in docs:
             item["excerpt"] = docs[did]["text"]
             if did in surveilled:
@@ -496,13 +503,15 @@ async def barrier_check(ctx: ToolContext, deal: str) -> dict:
         ctx.evidence.node(p, "Person", names.get(p, p))
         ctx.evidence.edge(p, "ON_DEAL_TEAM", ent["id"])
     outsiders_all = sorted({o["id"] for b in breaches for o in b.get("outsiders", [])})
+    confirmed = sum(1 for b in breaches if b.get("mnpi_content"))
     return {
         "deal": _drop_none({k: props.get(k) for k in ("id", "codename", "target", "kind", "status", "sensitivity")}),
         "wall": {"deal_team": [{"id": p, "name": names.get(p, p)} for p in team],
                  "compliance": [{"id": p, "name": names.get(p, p)} for p in compliance]},
-        "documents_checked": len(doc_ids), "breach_count": len(breaches), "clean": not breaches,
-        "breaches": breaches[:25], "surveillance_reads": surveilled or None,
+        "documents_checked": len(doc_ids), "breach_count": len(breaches), "mnpi_breach_count": confirmed,
+        "clean": not breaches, "breaches": breaches[:25], "surveillance_reads": surveilled or None,
         "summary": (f"{len(doc_ids)} document(s) reference the deal; {len(breaches)} reached people outside the wall "
-                    f"({len(outsiders_all)} distinct outsider(s))." if breaches else
+                    f"({len(outsiders_all)} distinct outsider(s)); {confirmed} of them carry MNPI-classified content "
+                    f"(confirmed breaches), the rest only name the deal." if breaches else
                     f"{len(doc_ids)} document(s) reference the deal; all stayed inside the wall."),
     }

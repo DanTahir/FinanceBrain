@@ -8,10 +8,12 @@ Graph topology (FalkorDB multi-graph):
 
 from __future__ import annotations
 
+import asyncio
 import re
 
 from falkordb.asyncio import FalkorDB
 from redis.asyncio import BlockingConnectionPool
+from redis.exceptions import ResponseError
 
 from backend.config import get_settings
 
@@ -58,7 +60,21 @@ async def delete_graph(name: str) -> None:
         await execute("GRAPH.DELETE", name)
 
 
-async def copy_graph(src: str, dst: str) -> None:
-    """Replace dst with a copy of src (data and indexes)."""
+async def copy_graph(src: str, dst: str, *, wait_s: float = 30.0) -> None:
+    """Replace dst with a copy of src (data and indexes).
+
+    GRAPH.COPY forks the server, and Redis allows one fork child at a time: while an AOF auto-rewrite or BGSAVE is
+    running (copying a large graph is itself enough to trigger the AOF rewrite) it fails with "could not fork".
+    That is transient, so retry with backoff for up to ``wait_s`` seconds."""
     await delete_graph(dst)
-    await execute("GRAPH.COPY", src, dst)
+    loop = asyncio.get_running_loop()
+    deadline, delay = loop.time() + wait_s, 0.2
+    while True:
+        try:
+            await execute("GRAPH.COPY", src, dst)
+            return
+        except ResponseError as e:
+            if "fork" not in str(e).lower() or loop.time() + delay > deadline:
+                raise
+        await asyncio.sleep(delay)
+        delay = min(delay * 2, 2.0)
