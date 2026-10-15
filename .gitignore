@@ -7,6 +7,9 @@ Openrouterkey.txt
 .env.*
 !.env.example
 secrets/
+infra/.state.env
+infra/.state.env.tmp
+infra/.tmp/
 
 # ---- Python ----
 __pycache__/
