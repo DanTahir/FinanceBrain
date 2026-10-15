@@ -71,6 +71,12 @@ class Settings(BaseSettings):
     spacy_model: str = "en_core_web_md"
     aws_region: str = "us-east-1"
 
+    # --- Agents / API / MCP ---
+    session_secret: str | None = None  # HMAC key for signed auth tokens (prod: SSM /financebrain/session_secret)
+    demo_mcp_token: str | None = None  # read-only public MCP token (prod: SSM /financebrain/demo_mcp_token)
+    demo_today: str = "2026-10-15"  # "today" inside the synthetic world
+    agent_max_steps: int = 8
+
 
 @lru_cache
 def get_settings() -> Settings:

@@ -53,7 +53,7 @@ erDiagram
 |---|---|---|
 | `Person` | id, name, title, email (work), team_id, start_date, end_date | world model (salary, home address and medical notes are **not** ingested) |
 | `Team` | id (`team_ops`), name | world model |
-| `System` | id (`sys_reconlegacy`), name, description, criticality | world model |
+| `System` | id (`sys_reconlegacy`), name, description, tier | world model |
 | `Client` | id, name (= `⟨CLIENT_NAME_NNNN⟩` token), segment, risk_rating, kyc_status | world model, tokens only |
 | `Account` | id, kind, number (= token), opened, status | world model, tokens only |
 | `Counterparty` | id, name, country, bank | world model; bank identifiers are tokens |

@@ -62,7 +62,12 @@ CALL algo.SSpaths({sourceNode:a, relTypes:['KNOWS'], maxLen:2, pathCount:1}) YIE
 
 - **`shortestPath()` only works in `WITH`/`RETURN`**, not in `MATCH p = shortestPath(...)`:
   `MATCH (a {id:$a}), (b {id:$b}) RETURN shortestPath((a)-[:KNOWS*..10]->(b))`.
-- `MATCH p = allShortestPaths((a)-[:KNOWS*..10]->(b))` works in `MATCH`.
+- `MATCH p = allShortestPaths((a)-[:KNOWS*..10]->(b))` works in `MATCH`, **but only when `a` and `b` are bound in
+  earlier clauses and carried through `WITH`**:
+  `MATCH (a {id:$a}) MATCH (b {id:$b}) WITH a, b MATCH p = allShortestPaths((a)-[*..5]-(b)) RETURN ...`
+  (`find_path` uses this form; it also works undirected).
+- `shortestPath()` does **not** support undirected traversals. It needs a direction, so `find_path` uses
+  `allShortestPaths`.
 - Undirected variable-length patterns (`-[:KNOWS*1..2]-`) work.
 
 ### Query APIs
@@ -87,6 +92,36 @@ CALL algo.SSpaths({sourceNode:a, relTypes:['KNOWS'], maxLen:2, pathCount:1}) YIE
   and become `OPERATIONAL` within a second on an empty graph (`CALL db.constraints() YIELD status`).
 - Client tip (Windows dev): connect to `127.0.0.1`, not `localhost`. `localhost` tries IPv6 `::1` first, which
   adds ~2 s to every new connection and distorts latency measurements.
+
+### Verified while building the tool layer
+
+- **Pattern predicates inside a list comprehension `WHERE` fail**:
+  `[(dec)-[:JUSTIFIED_BY]->(d) WHERE (p)-[:CAN_ACCESS]->(d) | d.id]` raises
+  `Type mismatch: expected Null but was Pointer`. Property predicates inside comprehensions work. For ACL-filtered
+  collections, use `OPTIONAL MATCH ... WITH ... WHERE d IS NULL OR <acl> ... collect(...)`.
+- **Vector search and ACL:** `db.idx.vector.queryNodes` returns the global top-k and filters only after `YIELD`.
+  With a selective ACL (for example, a persona that sees ~15% of documents), a small k returns few rows.
+  `search_knowledge` over-fetches adaptively (k = 40, then 200 if fewer than the wanted rows survive the ACL). The
+  score is cosine **distance** (lower is closer), so sort ascending.
+- **Map properties are rejected.** Nested values are stored as JSON strings (for example `Document.redactions`).
+- Bitemporal `as_of` filtering on relationship properties works:
+  `WHERE e.valid_from <= $d AND (e.valid_to IS NULL OR e.valid_to > $d)`. ISO date strings compare lexicographically.
+- Measured locally on halcyon (~13k nodes): ACL-filtered hybrid search makes 7–13 queries in 300–500 ms total,
+  including graph expansion. Single structural tools take 2–60 ms.
+
+### MCP server (Python SDK v2)
+
+- The SDK in use is `mcp` 2.x: `from mcp.server.mcpserver import MCPServer, Context`. The client is
+  `mcp.client.client.Client(server)` (in-memory) and `call_tool(name, args, meta={...})`.
+- Per-call identity: in-process agents send a signed token in `_meta` (`meta={"fb_auth": token}`). The tool reads it
+  from `ctx.request_context.meta`. HTTP clients send `Authorization: Bearer <token>`. Contextvars set by the caller
+  do **not** cross the in-memory transport, so `_meta` is required.
+- Any exception raised in a tool, except `mcp.server.mcpserver.exceptions.ToolError`, is replaced by the generic
+  `Error executing tool <name>`. Our `_run` wrapper re-raises domain errors as the SDK `ToolError`, so the model sees
+  actionable messages such as "No entity matching 'Project Falcon' is visible to you".
+- `streamable_http_app(stateless_http=True, json_response=True)` is mounted inside FastAPI. The MCP app's lifespan
+  (its session manager) must be entered from the FastAPI lifespan. DNS-rebinding protection is disabled because
+  CloudFront and Caddy rewrite `Host`; the origin is protected by the CloudFront secret header instead.
 
 ### Async client
 
