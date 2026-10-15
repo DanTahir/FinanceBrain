@@ -1,0 +1,16 @@
+# Secrets must never enter a build context
+Openrouterkey.txt
+*key.txt
+*.key
+*.pem
+.env
+.env.*
+secrets/
+
+.git
+**/__pycache__
+**/.venv
+**/node_modules
+**/.next
+falkordb-data/
+logs/

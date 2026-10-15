@@ -1,0 +1,43 @@
+# ---- Secrets (NEVER commit) ----
+Openrouterkey.txt
+*key.txt
+*.key
+*.pem
+.env
+.env.*
+!.env.example
+secrets/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# ---- Node / Next.js ----
+node_modules/
+.next/
+frontend/out/
+*.tsbuildinfo
+next-env.d.ts
+
+# ---- Local data / runtime ----
+falkordb-data/
+*.rdb
+*.aof
+appendonlydir/
+logs/
+*.log
+.local/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
