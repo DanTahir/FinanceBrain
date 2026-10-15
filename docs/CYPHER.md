@@ -1591,3 +1591,46 @@ ORDER BY h.ts DESC
 LIMIT $limit
 ```
 
+### `DOC_REDACTION`
+
+Redaction audit event of one document: PII counts per type (values are never stored).
+
+```cypher
+MATCH (:Document {id: $id})-[:HAD_REDACTION]->(r:RedactionEvent)
+RETURN r.counts, r.total
+```
+
+### `REDACTION_TOTALS`
+
+Every redaction audit event in the tenant graph; the caller sums the per-type counts.
+
+```cypher
+MATCH (r:RedactionEvent)
+RETURN r.counts, r.total
+```
+
+### `RECENT_REDACTIONS`
+
+Newest documents the person may read that had PII redacted, with their counts.
+
+```cypher
+MATCH (p:Person {id: $pid})
+MATCH (d:Document)-[:HAD_REDACTION]->(r:RedactionEvent)
+WHERE (d.public = true OR (p)-[:CAN_ACCESS]->(d) OR (p)-[:MEMBER_OF]->(:Team)-[:CAN_ACCESS]->(d) OR (p)-[:CAN_ACCESS]->(:Channel)<-[:POSTED_IN]-(d))
+RETURN d.id, d.kind, d.ts, d.title, r.counts, r.total
+ORDER BY d.ts DESC
+LIMIT $limit
+```
+
+### `TOKEN_TYPE_COUNTS`
+
+Pseudonymous PII tokens per type, and how many are shared by more than one owner.
+
+```cypher
+MATCH (k:PiiToken)
+OPTIONAL MATCH (o)-[:HAS_IDENTIFIER]->(k)
+WITH k, count(o) AS owners
+RETURN k.type, count(k) AS tokens, sum(CASE WHEN owners > 1 THEN 1 ELSE 0 END) AS shared
+ORDER BY tokens DESC
+```
+

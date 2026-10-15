@@ -13,8 +13,8 @@ from falkordb import Edge, Node, Path
 
 from backend.graph import queries as Q
 from backend.llm.embeddings import embed
-from backend.tools.base import (CONTENT_PROPS, OPS_LABELS, OPS_RELS, ToolContext, ToolError, clean_props, fetch_docs,
-                                name_entities, resolve)
+from backend.tools.base import (CONTENT_PROPS, OPS_LABELS, OPS_RELS, ToolContext, ToolError, _vet, catalog,
+                                clean_props, fetch_docs, label_for_id, name_entities, resolve)
 
 KINDS = ("email", "slack", "ticket", "doc", "meeting", "crm")
 _STOP = frozenset("""the a an and or of to in on for with is are was were be been what who whom which why how when where
@@ -230,6 +230,32 @@ async def neighborhood(ctx: ToolContext, entity: str, rel_types: list[str] | Non
         else:
             ctx.evidence.edge(mid, rel, eid, weight=weight)
     return {"entity": ent, "neighbors": out, "counts": dict(counts)}
+
+
+async def find_entities(ctx: ToolContext, text: str, limit: int = 20) -> list[dict]:
+    """Graph Explorer search: entities whose id or name contains the text. Ids (c_0060, a_00238, t_r025, ...) resolve
+    directly; names are matched against the entity catalog. Every hit is vetted against ACL and the barrier."""
+    t = (text or "").strip()
+    if not t:
+        return []
+    if label_for_id(t):
+        ent = await resolve(ctx, t)
+        return [ent] if ent else []
+    low = t.lower()
+    hits = []
+    for c in await catalog(ctx):
+        names = [str(n) for n in (c["name"], *c["alt"]) if n]
+        if low in c["id"].lower() or any(low in n.lower() for n in names):
+            hits.append(((0 if str(c["name"]).lower().startswith(low) else 1, len(str(c["name"]))), c))
+    hits.sort(key=lambda h: h[0])
+    out: list[dict] = []
+    for _rank, c in hits:
+        ent = await _vet(ctx, c)
+        if ent:
+            out.append(ent)
+            if len(out) >= limit:
+                break
+    return out
 
 
 # ------------------------------------------------------------------------------------------------ schema / cypher

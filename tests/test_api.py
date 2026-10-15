@@ -7,6 +7,7 @@ import hashlib
 import json
 import math
 import re
+import secrets
 
 import httpx
 import pytest
@@ -43,6 +44,7 @@ def live_db(monkeypatch):
         return [fake_vec(t) for t in texts]
 
     monkeypatch.setattr(embeddings, "embed", embed)
+    monkeypatch.setattr(s, "rate_limit_enabled", False)  # the rate-limit test turns it back on with its own IP
     db._db = None
     yield
     db._db = None
@@ -167,3 +169,117 @@ async def test_live_status_and_tenant_validation(live_db):
         assert (await c.get("/api/live", params={"tenant": "nope"})).status_code == 400
         tenants = (await c.get("/api/tenants")).json()
         assert {t["id"] for t in tenants} == {"halcyon", "brightwater"}
+        guided = (await c.get("/api/guided", params={"tenant": "halcyon"})).json()["questions"]
+        assert {g["track"] for g in guided} == {"T1", "T2", "T3"}
+        assert (await c.get("/api/guided", params={"tenant": "nope"})).status_code == 400
+
+
+def viewer() -> str:
+    return f"[2001:db8::{secrets.token_hex(2)}:{secrets.token_hex(2)}]:443"  # fresh rate-limit identity per run
+
+
+async def test_rate_limit_is_per_viewer_address(live_db, monkeypatch):
+    s = get_settings()
+    monkeypatch.setattr(s, "rate_limit_enabled", True)
+    monkeypatch.setattr(s, "rate_chat", 2)
+
+    async def fake_run_session(auth, message, **kw):
+        yield {"type": "final", "text": "ok"}
+        yield {"type": "done"}
+
+    monkeypatch.setattr(app_module, "run_session", fake_run_session)
+    body = {"tenant": "halcyon", "persona": "aml_analyst", "message": "hello there"}
+    me = {"cloudfront-viewer-address": viewer()}
+    async with client() as c:
+        codes = [(await c.post("/api/chat", json=body, headers=me)).status_code for _ in range(3)]
+        assert codes == [200, 200, 429]
+        limited = await c.post("/api/chat", json=body, headers=me)
+        assert limited.status_code == 429 and int(limited.headers["retry-after"]) > 0
+        assert "Rate limit" in limited.json()["detail"]
+        other = await c.post("/api/chat", json=body, headers={"cloudfront-viewer-address": viewer()})
+        assert other.status_code == 200
+
+
+async def test_guided_answers_are_cached_per_persona_and_served_over_budget(live_db, monkeypatch):
+    from backend.api import guardrails
+    from backend.ingest import live
+
+    calls = []
+
+    async def fake_run_session(auth, message, **kw):
+        calls.append((auth.persona, message))
+        yield {"type": "session", "session_id": "sess_0123456789", "resumed": False}
+        yield {"type": "start", "agent": "brain"}
+        yield {"type": "tool_call", "id": "c1", "name": "blast_radius", "args": {"system": "PricingSvc"}}
+        yield {"type": "final", "agent": "brain", "text": "Trade pricing and risk reports break.", "citations": []}
+        yield {"type": "memory", "facts_added": 0}
+        yield {"type": "done", "session_id": "sess_0123456789"}
+
+    monkeypatch.setattr(app_module, "run_session", fake_run_session)
+    q = "What breaks if PricingSvc goes down?"
+    cursor = await live.cursor("halcyon", None)
+    keys = [guardrails.guided_key("halcyon", p, q, cursor) for p in ("engineer", "aml_analyst")]
+    await db.execute("DEL", *keys)
+    body = {"tenant": "halcyon", "persona": "engineer", "message": q}
+    try:
+        async with client() as c:
+            first = sse_events((await c.post("/api/chat", json=body)).text)
+            assert [e for e, _ in first] == ["session", "start", "tool_call", "final", "memory", "done"]
+            again = await c.post("/api/chat", json={**body, "message": "  what breaks if pricingsvc goes down "})
+            second = sse_events(again.text)
+            assert [e for e, _ in second] == ["session", "start", "tool_call", "final", "done"]
+            assert second[0][1]["cached"] is True and len(calls) == 1
+
+            await c.post("/api/chat", json={**body, "persona": "aml_analyst"})  # other ACLs: its own live run
+            assert len(calls) == 2
+            await c.post("/api/chat", json={**body, "history": [{"role": "user", "content": "hi"}]})  # follow-up
+            assert len(calls) == 3
+
+            monkeypatch.setattr(get_settings(), "daily_budget_usd", 0.0)
+            refused = await c.post("/api/chat", json={**body, "message": "Tell me a story"})
+            assert refused.status_code == 429 and "budget" in refused.json()["detail"]
+            still = sse_events((await c.post("/api/chat", json=body)).text)
+            assert still[0][1]["cached"] is True and len(calls) == 3
+            assert (await c.get("/api/budget")).json()["over"] is True
+    finally:
+        await db.execute("DEL", *keys)
+
+
+async def test_graph_explorer_documents_and_redaction_view_respect_acl(live_db):
+    eng = {"tenant": "halcyon", "persona": "engineer"}
+    cco = {"tenant": "halcyon", "persona": "compliance_officer"}
+    async with client() as c:
+        found = (await c.get("/api/graph/search", params={**eng, "q": "ReconLegacy"})).json()["results"]
+        system = next(r for r in found if r["label"] == "System")
+        assert system["name"] == "ReconLegacy"
+        eng_falcon = (await c.get("/api/graph/search", params={**eng, "q": "Falcon"})).json()["results"]
+        cco_falcon = (await c.get("/api/graph/search", params={**cco, "q": "Falcon"})).json()["results"]
+        assert not any(r["label"] == "Deal" for r in eng_falcon)  # behind the information barrier
+        assert any(r["label"] == "Deal" for r in cco_falcon)
+
+        nb = (await c.get("/api/graph/neighborhood", params={**eng, "entity": system["id"]})).json()
+        ids = {n["id"] for n in nb["graph"]["nodes"]}
+        assert system["id"] in ids and len(ids) > 3 and nb["graph"]["edges"]
+        hidden = await c.get("/api/graph/neighborhood", params={**eng, "entity": "Project Falcon"})
+        assert hidden.status_code == 404
+
+        red = (await c.get("/api/redaction", params=eng)).json()
+        assert red["documents_redacted"] > 100 and red["by_type"] and red["tokens"]
+        assert red["eval"]["summary"]["recall_any"] == 1.0 and "blocked_total" in red["outbound_guard"]
+        doc_id = red["recent"][0]["id"]
+        doc = (await c.get(f"/api/docs/{doc_id}", params=eng)).json()
+        assert doc["label"] == "Document" and doc["redaction"]["total"] >= 1 and "\u27e8" in doc["text"]
+        assert (await c.get("/api/docs/email-99999", params=eng)).status_code == 404
+        assert (await c.get("/api/docs/not_a_doc", params=eng)).status_code == 400
+
+
+async def test_redaction_preview_masks_without_storing_and_canary_is_clean(live_db):
+    async with client() as c:
+        text = "Please charge card 4111 1111 1111 1111 for the onboarding fee."
+        r = (await c.post("/api/redaction/preview", json={"tenant": "halcyon", "text": text})).json()
+        assert "4111 1111 1111 1111" not in r["redacted"] and r["counts"].get("CARD_NUMBER") == 1
+        assert r["spans"][0]["type"] == "CARD_NUMBER" and text[r["spans"][0]["start"]:].startswith("4111")
+        can = (await c.post("/api/redaction/canary", json={"tenant": "brightwater"})).json()
+        assert can["clean"] is True and can["hits"] == 0 and can["strings_scanned"] > 10000
+        last = (await c.get("/api/redaction", params={"tenant": "brightwater", "persona": "engineer"})).json()
+        assert last["canary"]["ts"] == can["ts"]

@@ -1339,6 +1339,34 @@ RECENT_HANDOFFS = _q("RECENT_HANDOFFS", "Agent-to-agent handoff timeline (HANDED
     LIMIT $limit
     """)
 
+# ------------------------------------------------------------------------------------------------ redaction view
+DOC_REDACTION = _q("DOC_REDACTION", "Redaction audit event of one document: PII counts per type (values are never stored).", """
+    MATCH (:Document {id: $id})-[:HAD_REDACTION]->(r:RedactionEvent)
+    RETURN r.counts, r.total
+    """)
+
+REDACTION_TOTALS = _q("REDACTION_TOTALS", "Every redaction audit event in the tenant graph; the caller sums the per-type counts.", """
+    MATCH (r:RedactionEvent)
+    RETURN r.counts, r.total
+    """)
+
+RECENT_REDACTIONS = _q("RECENT_REDACTIONS", "Newest documents the person may read that had PII redacted, with their counts.", f"""
+    MATCH (p:Person {{id: $pid}})
+    MATCH (d:Document)-[:HAD_REDACTION]->(r:RedactionEvent)
+    WHERE {ACL_DOC}
+    RETURN d.id, d.kind, d.ts, d.title, r.counts, r.total
+    ORDER BY d.ts DESC
+    LIMIT $limit
+    """)
+
+TOKEN_TYPE_COUNTS = _q("TOKEN_TYPE_COUNTS", "Pseudonymous PII tokens per type, and how many are shared by more than one owner.", """
+    MATCH (k:PiiToken)
+    OPTIONAL MATCH (o)-[:HAS_IDENTIFIER]->(k)
+    WITH k, count(o) AS owners
+    RETURN k.type, count(k) AS tokens, sum(CASE WHEN owners > 1 THEN 1 ELSE 0 END) AS shared
+    ORDER BY tokens DESC
+    """)
+
 
 def to_markdown() -> str:
     out = ["# Cypher reference", "",

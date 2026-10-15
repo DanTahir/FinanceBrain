@@ -77,6 +77,14 @@ class Settings(BaseSettings):
     demo_today: str = "2026-10-15"  # "today" inside the synthetic world
     agent_max_steps: int = 8
 
+    # --- Public demo guardrails ---
+    origin_secret: str | None = None  # CloudFront X-Origin-Secret, enforced by Caddy (prod: SSM /financebrain/origin_secret)
+    rate_limit_enabled: bool = True
+    rate_window_s: int = 600
+    rate_chat: int = 20  # agent runs per viewer IP per window
+    rate_ops: int = 40  # live feed, reset, approvals, scans, previews per viewer IP per window
+    guided_cache_ttl_s: int = 7 * 86400
+
 
 @lru_cache
 def get_settings() -> Settings:

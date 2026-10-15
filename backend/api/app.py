@@ -12,24 +12,28 @@ import json
 import logging
 import re
 import secrets
+from collections import Counter
 from contextlib import asynccontextmanager
 from http.cookies import CookieError, SimpleCookie
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 from sse_starlette.sse import EventSourceResponse
 
 from backend.agents.orchestrator import SPECS
 from backend.agents.session import run_session
-from backend.config import mask_secrets
+from backend.api import guardrails, redaction_view
+from backend.api.guided import find_guided, guided_for
+from backend.config import get_settings, mask_secrets
 from backend.graph import queries as Q
 from backend.graph.db import get_db
 from backend.ingest import live
+from backend.llm.guard import guard_stats
 from backend.mcp_server.server import http_app
 from backend.memory.store import SESSION_RE, MemoryStore
 from backend.tenancy import TENANTS, AuthContext, AuthError, make_auth, personas
 from backend.tools import memory as memtools
-from backend.tools import ops
+from backend.tools import ops, retrieval
 from backend.tools.base import ToolContext, ToolError
 
 log = logging.getLogger(__name__)
@@ -80,11 +84,12 @@ class VisitorMiddleware:
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     # The MCP streamable-HTTP session manager starts in the mounted app's lifespan, which a mount does not run.
+    guardrails.install_budget_hook()  # every model call's real cost feeds the daily demo budget
     async with mcp_app.router.lifespan_context(mcp_app):
         yield
 
 
-app = FastAPI(title="FinanceBrain API", version="0.8.0", lifespan=lifespan)
+app = FastAPI(title="FinanceBrain API", version="0.9.0", lifespan=lifespan)
 app.add_middleware(VisitorMiddleware)
 
 
@@ -122,6 +127,11 @@ class LiveAdvance(BaseModel):
 
 class TenantRef(BaseModel):
     tenant: str
+
+
+class RedactPreview(BaseModel):
+    tenant: str
+    text: str = Field(min_length=1, max_length=4000)
 
 
 def visitor(request: Request) -> str:
@@ -187,8 +197,20 @@ async def chat(req: ChatRequest, request: Request) -> EventSourceResponse:
         raise HTTPException(400, f"unknown agent {req.agent!r}")
     if req.session_id and not SESSION_RE.match(req.session_id):
         raise HTTPException(400, "bad session_id")
-    return _sse(run_session(auth, req.message, agent=req.agent, session_id=req.session_id, memory=req.memory,
-                            history=[h.model_dump() for h in req.history]))
+    key = None
+    g = find_guided(req.tenant, req.message)
+    if g and g["cacheable"] and not req.history and not req.session_id:
+        # Read-only showcase question opening a conversation: replay the cached answer for this tenant, persona and
+        # live-feed position if there is one (free, and still served when the daily budget is used up).
+        key = guardrails.guided_key(req.tenant, req.persona, req.message, await live.cursor(req.tenant, None))
+        cached = await guardrails.cached_answer(key)
+        if cached:
+            return _sse(guardrails.replay(cached))
+    await guardrails.rate_limit(request, "chat", get_settings().rate_chat)
+    await guardrails.require_budget()
+    gen = run_session(auth, req.message, agent=req.agent, session_id=req.session_id, memory=req.memory,
+                      history=[h.model_dump() for h in req.history])
+    return _sse(guardrails.record_answer(key, gen) if key else gen)
 
 
 # ------------------------------------------------------------------------------------------------ memory
@@ -250,19 +272,24 @@ async def live_status(tenant: str) -> dict:
 
 
 @app.post("/api/live/advance")
-async def live_advance(body: LiveAdvance) -> dict:
+async def live_advance(body: LiveAdvance, request: Request) -> dict:
     """Replay the next day(s) of the live feed through the real pipeline; the Sentinel reacts to each batch."""
+    tenant = _tenant(body.tenant)
+    await guardrails.rate_limit(request, "ops", get_settings().rate_ops)
+    await guardrails.require_budget()
     try:
-        return await live.advance(_tenant(body.tenant), body.days)
+        return await live.advance(tenant, body.days)
     except ValueError as e:
         raise HTTPException(400, str(e)) from None
 
 
 @app.post("/api/demo/reset")
-async def demo_reset(body: TenantRef) -> dict:
+async def demo_reset(body: TenantRef, request: Request) -> dict:
     """Reset demo: restore the tenant graph from its pristine snapshot (GRAPH.COPY)."""
+    tenant = _tenant(body.tenant)
+    await guardrails.rate_limit(request, "ops", get_settings().rate_ops)
     try:
-        return await live.reset_tenant(_tenant(body.tenant))
+        return await live.reset_tenant(tenant)
     except RuntimeError as e:
         raise HTTPException(409, str(e)) from None
 
@@ -329,6 +356,8 @@ async def run_task(task_id: str, body: PersonaRef, request: Request) -> EventSou
         raise HTTPException(409, f"task {tid} is {status}")
     if agent not in SPECS:
         raise HTTPException(400, f"task {tid} is assigned to {agent!r}, which cannot be run from the UI")
+    await guardrails.rate_limit(request, "chat", get_settings().rate_chat)
+    await guardrails.require_budget()
     msg = (f"Task {tid} for case {case_id} was handed to you by the {str(from_agent or '').removeprefix('agent_')} "
            f"agent.\nHandoff note: {note}\n\nClaim the task, review the case and complete your part.")
     return _sse(run_session(auth, msg, agent=agent))
@@ -337,10 +366,101 @@ async def run_task(task_id: str, body: PersonaRef, request: Request) -> EventSou
 @app.post("/api/actions/{action_id}/decision")
 async def decide(action_id: str, body: Decision, request: Request) -> dict:
     """Human-in-the-loop approval. Requires the `approve` scope (Compliance Officer persona)."""
+    auth = _auth(request, body.tenant, body.persona)
+    await guardrails.rate_limit(request, "ops", get_settings().rate_ops)
     try:
-        return await ops.decide_action(_auth(request, body.tenant, body.persona), action_id, body.approve, body.note)
+        return await ops.decide_action(auth, action_id, body.approve, body.note)
     except ToolError as e:
         raise _tool_http_error(e) from None
+
+
+# ------------------------------------------------------------------------------------------------ guided / budget
+@app.get("/api/guided")
+async def guided(tenant: str) -> dict:
+    """"Try these" questions for the tenant, tagged by hackathon track."""
+    return {"tenant": _tenant(tenant), "questions": guided_for(tenant)}
+
+
+@app.get("/api/budget")
+async def budget() -> dict:
+    return await guardrails.budget_status()
+
+
+# ------------------------------------------------------------------------------------------------ graph explorer
+@app.get("/api/graph/search")
+async def graph_search(request: Request, tenant: str, persona: str, q: str = Query(min_length=1, max_length=100),
+                       limit: int = Query(20, ge=1, le=50)) -> dict:
+    ctx = ToolContext(_auth(request, tenant, persona), agent="human")
+    return {"query": q, "results": await retrieval.find_entities(ctx, q, limit)}
+
+
+@app.get("/api/graph/neighborhood")
+async def graph_neighborhood(request: Request, tenant: str, persona: str,
+                             entity: str = Query(min_length=1, max_length=200),
+                             limit: int = Query(30, ge=1, le=60)) -> dict:
+    """One-hop neighbourhood (ACL- and barrier-filtered) as Cytoscape-ready nodes and edges."""
+    ctx = ToolContext(_auth(request, tenant, persona), agent="human")
+    try:
+        out = await retrieval.neighborhood(ctx, entity, limit=limit)
+    except ToolError as e:
+        raise _tool_http_error(e) from None
+    return {**out, "graph": ctx.evidence.to_dict()}
+
+
+_DOC_ID = re.compile(r"^[a-z]+-[0-9]{3,6}$")
+
+
+@app.get("/api/docs/{doc_id}")
+async def document(doc_id: str, request: Request, tenant: str, persona: str) -> dict:
+    """A redacted source document (citations open this) with its redaction audit counts."""
+    if not _DOC_ID.match(doc_id):
+        raise HTTPException(400, "bad document id")
+    ctx = ToolContext(_auth(request, tenant, persona), agent="human")
+    try:
+        doc = await retrieval.get_entity(ctx, doc_id)
+    except ToolError as e:
+        raise _tool_http_error(e) from None
+    if doc.get("label") != "Document":
+        raise HTTPException(404, f"No document {doc_id}")
+    rows = await ctx.q("DOC_REDACTION", Q.DOC_REDACTION, {"id": doc_id})
+    red = {"counts": redaction_view.counts_of(rows[0][0]), "total": rows[0][1]} if rows else None
+    return {**doc, "redaction": red}
+
+
+# ------------------------------------------------------------------------------------------------ redaction view
+@app.get("/api/redaction")
+async def redaction_summary(request: Request, tenant: str, persona: str) -> dict:
+    ctx = ToolContext(_auth(request, tenant, persona), agent="human")
+    totals: Counter = Counter()
+    n_docs = 0
+    for counts, _total in await ctx.q("REDACTION_TOTALS", Q.REDACTION_TOTALS, {}):
+        n_docs += 1
+        totals.update(redaction_view.counts_of(counts))
+    tokens = [{"type": t, "tokens": n, "shared": s}
+              for t, n, s in await ctx.q("TOKEN_TYPE_COUNTS", Q.TOKEN_TYPE_COUNTS, {})]
+    recent = [{"id": i, "kind": k, "ts": ts, "title": title, "counts": redaction_view.counts_of(c), "total": tot}
+              for i, k, ts, title, c, tot in await ctx.q("RECENT_REDACTIONS", Q.RECENT_REDACTIONS,
+                                                          {"pid": ctx.pid, "limit": 25})]
+    return {"tenant": tenant, "documents_redacted": n_docs, "by_type": dict(totals.most_common()), "tokens": tokens,
+            "recent": recent, "eval": redaction_view.eval_for(tenant),
+            "canary": await redaction_view.last_canary(tenant), "outbound_guard": guard_stats(),
+            "policy": redaction_view.POLICY}
+
+
+@app.post("/api/redaction/preview")
+async def redaction_preview(body: RedactPreview, request: Request) -> dict:
+    """Run the tenant's redaction analyzer on visitor-typed text. Nothing is tokenized, stored or sent to a model."""
+    tenant = _tenant(body.tenant)
+    await guardrails.rate_limit(request, "ops", get_settings().rate_ops)
+    return await redaction_view.preview(tenant, body.text)
+
+
+@app.post("/api/redaction/canary")
+async def redaction_canary(body: TenantRef, request: Request) -> dict:
+    """Canary scan of every string in the tenant's brain and memory graphs; must find 0 raw PII values."""
+    tenant = _tenant(body.tenant)
+    await guardrails.rate_limit(request, "ops", get_settings().rate_ops)
+    return await redaction_view.run_canary(tenant)
 
 
 app.mount("/", mcp_app)  # serves /mcp; registered last so the /api routes above take precedence
