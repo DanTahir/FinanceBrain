@@ -14,3 +14,9 @@ secrets/
 **/.next
 falkordb-data/
 logs/
+infra/.state.env
+infra/.tmp/
+frontend/out/
+**/*.tsbuildinfo
+**/.pytest_cache
+**/.ruff_cache

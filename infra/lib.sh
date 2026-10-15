@@ -39,6 +39,9 @@ AMI_PARAM=/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64
 CF_CACHING_OPTIMIZED=658327ea-f89d-4fab-a63d-7e88639e58f6
 CF_CACHING_DISABLED=4135ea2d-6df8-44a3-9df3-4b5a84be39ad
 CF_ORP_ALL_VIEWER_EXCEPT_HOST=b689b0a8-53d0-40ab-baf2-68738e2966ac
+# AllViewerAndCloudFrontHeaders-2022-06: also forwards CloudFront-Viewer-Address, which the API's per-IP
+# rate limiter uses (X-Forwarded-For alone can be prefixed by the client).
+CF_ORP_ALL_VIEWER_AND_CF=33f36d7e-f396-46d9-90e0-52428a34d9dc
 
 # Windows aws.exe emits CRLF; strip CR so values compare cleanly.
 awsx() { aws "$@" | tr -d '\r'; }
@@ -82,4 +85,32 @@ ssm_ensure_random() {
 
 ssm_get_secret() {
   awsx ssm get-parameter --name "$SSM_PREFIX/$1" --with-decryption --query Parameter.Value --output text
+}
+
+# Run a local script on the instance as root via SSM Run Command, wait, and print its output.
+# Usage: [SSM_EXTRA_CMDS='"cmd1","cmd2",'] ssm_run_script <comment> <timeout_s> <script> [args...]
+# SSM_EXTRA_CMDS are JSON string items (comma-terminated) run before the script. Returns 0 on Success.
+ssm_run_script() {
+  local comment="$1" timeout="$2" script="$3"; shift 3
+  local iid; iid="$(state_get INSTANCE_ID)"
+  nonempty "$iid" || die "INSTANCE_ID missing; run infra/10_base.sh"
+  local b64; b64="$(base64 -w0 "$script")"
+  local params; params="$(tmpjson "ssm-${RANDOM}-${RANDOM}" <<EOF
+{"commands":[${SSM_EXTRA_CMDS:-}"echo $b64 | base64 -d > /tmp/fb-run.sh","bash /tmp/fb-run.sh $*"],"executionTimeout":["$timeout"]}
+EOF
+)"
+  local cmd_id; cmd_id="$(awsx ssm send-command --instance-ids "$iid" --document-name AWS-RunShellScript \
+    --comment "$comment" --parameters "$params" --query Command.CommandId --output text)"
+  log "ssm command $cmd_id ($comment)"
+  local st=Pending i
+  for i in $(seq 1 $(( timeout / 10 + 6 ))); do
+    sleep 10
+    st="$(awsx ssm get-command-invocation --command-id "$cmd_id" --instance-id "$iid" --query Status --output text 2>/dev/null || echo Pending)"
+    case "$st" in Success|Failed|Cancelled|TimedOut) break ;; esac
+  done
+  awsx ssm get-command-invocation --command-id "$cmd_id" --instance-id "$iid" --query StandardOutputContent --output text
+  local err; err="$(awsx ssm get-command-invocation --command-id "$cmd_id" --instance-id "$iid" --query StandardErrorContent --output text)"
+  [ -n "$err" ] && printf 'stderr:\n%s\n' "$err" | tail -25 >&2
+  log "ssm status: $st"
+  [ "$st" = Success ]
 }

@@ -113,6 +113,10 @@ CALL algo.SSpaths({sourceNode:a, relTypes:['KNOWS'], maxLen:2, pathCount:1}) YIE
 
 - **`TIMEOUT_MAX` is 60000 ms** (`TIMEOUT_DEFAULT` is 15000). A per-query `timeout` above it is an error ("The
   query TIMEOUT parameter value cannot exceed the TIMEOUT_MAX configuration parameter value"), not a clamp.
+- **redis-py 8 defaults `socket_timeout` to 5 s** (older releases had none). The `falkordb` client inherits it,
+  so any query that takes more than 5 s fails client-side with `TimeoutError: Timeout reading from host:6379`,
+  even though the server would have finished it. The post-seed canary scan hit this on the t3.xlarge in
+  production. `backend/graph/db.py` sets `socket_timeout=65` (just above `TIMEOUT_MAX`) on the shared pool.
 - **`ORDER BY` after an aggregating `RETURN` can only use projected columns.**
   `RETURN c.id, count(x) AS n ORDER BY n, c.created` fails ("ORDER BY cannot reference variables not projected or
   grouped in this scope"). Aggregate in `WITH c, count(x) AS n` first, then `RETURN ... ORDER BY n, c.created`.

@@ -1,0 +1,59 @@
+# Production stack on the EC2 instance (/opt/financebrain/docker-compose.yml).
+# /opt/financebrain/.env is written by infra/remote/deploy.sh from SSM Parameter Store (mode 600) and
+# provides both compose interpolation (TAG, ECR_REGISTRY, FB_FALKORDB_PASSWORD) and the API env.
+name: financebrain
+
+services:
+  falkordb:
+    # Pinned to the exact image digest used in development and the FalkorDB spike.
+    image: falkordb/falkordb@sha256:b0bdcac2cbaff989e77cb0610439b7a9289e86de033ccbbd4368b66fb680ae7a
+    container_name: fb-falkordb
+    environment:
+      FB_FALKORDB_PASSWORD: ${FB_FALKORDB_PASSWORD:?missing}
+      REDIS_ARGS: "--appendonly yes --appendfsync everysec --requirepass ${FB_FALKORDB_PASSWORD:?missing}"
+      FALKORDB_ARGS: "MAX_QUEUED_QUERIES 200 TIMEOUT_DEFAULT 15000 TIMEOUT_MAX 60000 RESULTSET_SIZE 10000"
+      BROWSER: "0"
+    volumes:
+      - /opt/financebrain/falkordb-data:/var/lib/falkordb/data   # AOF + RDB on the gp3 root volume
+    healthcheck:
+      test: ["CMD-SHELL", "REDISCLI_AUTH=\"$${FB_FALKORDB_PASSWORD}\" redis-cli ping | grep -q PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+    # No ports published: only the api container talks to FalkorDB.
+
+  api:
+    image: ${ECR_REGISTRY:?missing}/financebrain/api:${TAG:?missing}
+    container_name: fb-api
+    env_file: /opt/financebrain/.env
+    environment:
+      FB_ENV: prod
+      FB_FALKORDB_HOST: falkordb
+      FB_FALKORDB_PORT: "6379"
+      FB_VAULT_KMS: "true"
+      AWS_REGION: us-east-1
+      AWS_DEFAULT_REGION: us-east-1
+    volumes:
+      - /opt/financebrain/logs:/app/logs
+    depends_on:
+      falkordb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/healthz', timeout=4)"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+    restart: unless-stopped
+
+  web:
+    image: ${ECR_REGISTRY:?missing}/financebrain/web:${TAG:?missing}
+    container_name: fb-web
+    environment:
+      ORIGIN_SECRET: ${FB_ORIGIN_SECRET:?missing}
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    restart: unless-stopped

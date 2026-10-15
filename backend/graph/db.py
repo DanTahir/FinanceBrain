@@ -33,6 +33,7 @@ def memory_graph(tenant: str, user: str) -> str:
 
 
 _db: FalkorDB | None = None
+SOCKET_TIMEOUT_S = 65.0  # > FalkorDB TIMEOUT_MAX (60000 ms)
 
 
 def get_db() -> FalkorDB:
@@ -40,8 +41,12 @@ def get_db() -> FalkorDB:
     global _db
     if _db is None:
         s = get_settings()
+        # redis-py 8 defaults socket_timeout to 5 s. Graph algorithms and paged scans can legitimately run longer,
+        # so the read timeout sits just above FalkorDB's TIMEOUT_MAX (60 s): slow queries then fail with
+        # FalkorDB's own timeout error instead of a client-side socket drop. `timeout` is the pool-wait limit.
         pool = BlockingConnectionPool(host=s.falkordb_host, port=s.falkordb_port, password=s.falkordb_password,
-                                      max_connections=32, timeout=30, decode_responses=True)
+                                      max_connections=32, timeout=30, socket_timeout=SOCKET_TIMEOUT_S,
+                                      socket_connect_timeout=5, decode_responses=True)
         _db = FalkorDB(connection_pool=pool)
     return _db
 

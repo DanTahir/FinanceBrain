@@ -84,7 +84,7 @@ def local_secret(name: str) -> bytes:
 def redis_client() -> aioredis.Redis:
     s = get_settings()
     return aioredis.Redis(host=s.falkordb_host, port=s.falkordb_port, password=s.falkordb_password,
-                          decode_responses=True)
+                          socket_timeout=30, socket_connect_timeout=5, decode_responses=True)
 
 
 def _kms():

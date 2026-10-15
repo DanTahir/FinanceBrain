@@ -12,6 +12,30 @@ if nonempty "$DIST_ID"; then
   CUR_ORIGIN="$(awsx cloudfront get-distribution --id "$DIST_ID" --query 'Distribution.DistributionConfig.Origins.Items[0].DomainName' --output text)"
   [ "$CUR_ORIGIN" = "$ORIGIN_DNS" ] || log "WARNING: distribution origin $CUR_ORIGIN differs from $ORIGIN_DNS (update manually)"
   log "distribution exists $DIST_ID"
+  # Converge: /api/* and /mcp* must use the origin request policy that forwards CloudFront-Viewer-Address.
+  PY="${PY:-.venv/Scripts/python}"; [ -x "$PY" ] || PY=python
+  CUR="$(awsx cloudfront get-distribution-config --id "$DIST_ID" --output json)"
+  ETAG="$(printf '%s' "$CUR" | "$PY" -c 'import json,sys; print(json.load(sys.stdin)["ETag"])')"
+  NEW="$(printf '%s' "$CUR" | ORP="$CF_ORP_ALL_VIEWER_AND_CF" "$PY" -c '
+import json, os, sys
+d = json.load(sys.stdin)["DistributionConfig"]
+changed = False
+for b in d.get("CacheBehaviors", {}).get("Items", []):
+    if b["PathPattern"] in ("/api/*", "/mcp*") and b.get("OriginRequestPolicyId") != os.environ["ORP"]:
+        b["OriginRequestPolicyId"] = os.environ["ORP"]
+        changed = True
+print(json.dumps(d) if changed else "")
+')"
+  unset CUR
+  if [ -n "$NEW" ]; then
+    CFG="$(printf '%s' "$NEW" | tmpjson cfupdate)"
+    unset NEW
+    awsx cloudfront update-distribution --id "$DIST_ID" --if-match "$ETAG" --distribution-config "$CFG" \
+      --query Distribution.Status --output text >/dev/null
+    log "updated /api/* and /mcp* origin request policy -> AllViewerAndCloudFrontHeaders"
+  else
+    log "origin request policy already current"
+  fi
 else
   ORIGIN_SECRET="$(ssm_get_secret origin_secret)"
   API_BEHAVIOR() {
@@ -19,7 +43,7 @@ else
 {"PathPattern":"$1","TargetOriginId":"ec2-origin","ViewerProtocolPolicy":"redirect-to-https",
  "AllowedMethods":{"Quantity":7,"Items":["GET","HEAD","OPTIONS","PUT","POST","PATCH","DELETE"],
    "CachedMethods":{"Quantity":2,"Items":["GET","HEAD"]}},
- "Compress":false,"CachePolicyId":"$CF_CACHING_DISABLED","OriginRequestPolicyId":"$CF_ORP_ALL_VIEWER_EXCEPT_HOST",
+ "Compress":false,"CachePolicyId":"$CF_CACHING_DISABLED","OriginRequestPolicyId":"$CF_ORP_ALL_VIEWER_AND_CF",
  "SmoothStreaming":false,"FieldLevelEncryptionId":""}
 EOF
   }

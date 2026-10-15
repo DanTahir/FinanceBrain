@@ -1,0 +1,37 @@
+# Origin web server behind CloudFront. Only requests carrying the CloudFront-injected X-Origin-Secret
+# header are served; anything else gets 403. Access logging is left off so the secret header is never logged.
+{
+	admin off
+	servers {
+		# The security group only admits CloudFront origin-facing IPs, so forwarded headers are trusted.
+		trusted_proxies static 0.0.0.0/0 ::/0
+	}
+}
+
+:80 {
+	# route keeps directives in the literal order written below.
+	route {
+		@untrusted not header X-Origin-Secret {$ORIGIN_SECRET}
+		respond @untrusted "forbidden" 403
+
+		respond /healthz "ok" 200
+
+		# API and MCP: stream SSE without buffering.
+		reverse_proxy /api/* api:8000 {
+			flush_interval -1
+		}
+		reverse_proxy /mcp* api:8000 {
+			flush_interval -1
+		}
+
+		# Static frontend. Hashed assets are immutable; HTML is short-lived so deploys show up quickly.
+		@hashed path /_next/static/*
+		header @hashed Cache-Control "public, max-age=31536000, immutable"
+		@html not path /_next/static/*
+		header @html Cache-Control "public, max-age=60"
+		encode zstd gzip
+		root * /srv/web
+		try_files {path} {path}.html /index.html
+		file_server
+	}
+}
