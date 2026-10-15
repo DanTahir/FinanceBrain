@@ -1,0 +1,310 @@
+{
+  "generated_at": "2026-10-15T22:16:00.073806+00:00",
+  "env": "dev",
+  "falkordb_host": "127.0.0.1",
+  "tenant": "halcyon",
+  "source_graph": "pristine__halcyon",
+  "scratch_graph": "test__eval_load_brain",
+  "pool_size": 32,
+  "client_versions": {
+    "redis": "8.1.0",
+    "falkordb": "1.8.0"
+  },
+  "config": {
+    "seconds": 15.0,
+    "writers": 8,
+    "readers": 16,
+    "batch": 50,
+    "scenarios": [
+      "shared_graph",
+      "graph_per_user",
+      "read_only"
+    ]
+  },
+  "read_ops": [
+    "neighborhood",
+    "blast_radius",
+    "fulltext",
+    "ring_hops",
+    "vector_knn"
+  ],
+  "error_rate_gate": 0.01,
+  "notes": [
+    "GRAPH.COPY pristine__halcyon -> test__eval_load_brain: 16117 nodes in 2581 ms",
+    "vector_knn query vector: stored embedding of slack-00122 (1024 dims)"
+  ],
+  "scenarios": [
+    {
+      "name": "shared_graph",
+      "description": "W writers + R readers all on the single scratch brain copy (writes serialize on one graph)",
+      "writers": 8,
+      "readers": 16,
+      "seconds": 15.0,
+      "elapsed_s": 15.038,
+      "batch": 50,
+      "total_ops": 15551,
+      "total_ops_per_s": 1034.12,
+      "errors": 0,
+      "error_rate": 0.0,
+      "ops": {
+        "blast_radius": {
+          "count": 2347,
+          "ops_per_s": 156.07,
+          "p50_ms": 19.52,
+          "p95_ms": 26.68,
+          "p99_ms": 32.18,
+          "max_ms": 69.53,
+          "errors": 0
+        },
+        "fulltext": {
+          "count": 2350,
+          "ops_per_s": 156.27,
+          "p50_ms": 17.72,
+          "p95_ms": 25.06,
+          "p99_ms": 29.09,
+          "max_ms": 82.3,
+          "errors": 0
+        },
+        "neighborhood": {
+          "count": 2349,
+          "ops_per_s": 156.2,
+          "p50_ms": 22.11,
+          "p95_ms": 30.84,
+          "p99_ms": 36.97,
+          "max_ms": 64.74,
+          "errors": 0
+        },
+        "ring_hops": {
+          "count": 2351,
+          "ops_per_s": 156.34,
+          "p50_ms": 19.03,
+          "p95_ms": 26.21,
+          "p99_ms": 32.48,
+          "max_ms": 66.1,
+          "errors": 0
+        },
+        "vector_knn": {
+          "count": 2352,
+          "ops_per_s": 156.4,
+          "p50_ms": 21.32,
+          "p95_ms": 29.48,
+          "p99_ms": 36.41,
+          "max_ms": 67.65,
+          "errors": 0
+        },
+        "write_merge": {
+          "count": 3802,
+          "ops_per_s": 252.83,
+          "p50_ms": 30.09,
+          "p95_ms": 48.06,
+          "p99_ms": 58.94,
+          "max_ms": 80.0,
+          "errors": 0
+        }
+      },
+      "reads": {
+        "count": 11749,
+        "ops_per_s": 781.29,
+        "p50_ms": 20.06,
+        "p95_ms": 28.17,
+        "p99_ms": 34.12,
+        "max_ms": 82.3,
+        "errors": 0
+      },
+      "writes": {
+        "count": 3802,
+        "ops_per_s": 252.83,
+        "p50_ms": 30.09,
+        "p95_ms": 48.06,
+        "p99_ms": 58.94,
+        "max_ms": 80.0,
+        "errors": 0,
+        "rows_per_s": 12641.3
+      },
+      "write_graphs": [
+        "test__eval_load_brain"
+      ],
+      "error_messages": {},
+      "concurrency_note": null,
+      "interpretation": "8 writers on one shared graph (writes serialize on its lock): 252.83 writes/s (12641.3 rows/s), write p95 48.06 ms. Concurrent reads: 781.29 reads/s, p95 28.17 ms (1.63x read-only baseline p95).",
+      "gate_passed": true
+    },
+    {
+      "name": "graph_per_user",
+      "description": "W writers each on their own graph test__eval_load_mem_<i> + R readers on the brain copy",
+      "writers": 8,
+      "readers": 16,
+      "seconds": 15.0,
+      "elapsed_s": 15.013,
+      "batch": 50,
+      "total_ops": 16131,
+      "total_ops_per_s": 1074.45,
+      "errors": 0,
+      "error_rate": 0.0,
+      "ops": {
+        "blast_radius": {
+          "count": 2371,
+          "ops_per_s": 157.93,
+          "p50_ms": 18.45,
+          "p95_ms": 26.52,
+          "p99_ms": 32.79,
+          "max_ms": 44.69,
+          "errors": 0
+        },
+        "fulltext": {
+          "count": 2373,
+          "ops_per_s": 158.06,
+          "p50_ms": 18.31,
+          "p95_ms": 26.82,
+          "p99_ms": 34.41,
+          "max_ms": 55.33,
+          "errors": 0
+        },
+        "neighborhood": {
+          "count": 2370,
+          "ops_per_s": 157.86,
+          "p50_ms": 21.02,
+          "p95_ms": 30.38,
+          "p99_ms": 36.83,
+          "max_ms": 53.62,
+          "errors": 0
+        },
+        "ring_hops": {
+          "count": 2372,
+          "ops_per_s": 157.99,
+          "p50_ms": 19.85,
+          "p95_ms": 28.99,
+          "p99_ms": 35.55,
+          "max_ms": 49.44,
+          "errors": 0
+        },
+        "vector_knn": {
+          "count": 2373,
+          "ops_per_s": 158.06,
+          "p50_ms": 20.93,
+          "p95_ms": 29.98,
+          "p99_ms": 36.78,
+          "max_ms": 52.0,
+          "errors": 0
+        },
+        "write_merge": {
+          "count": 4272,
+          "ops_per_s": 284.55,
+          "p50_ms": 27.48,
+          "p95_ms": 40.58,
+          "p99_ms": 48.08,
+          "max_ms": 67.14,
+          "errors": 0
+        }
+      },
+      "reads": {
+        "count": 11859,
+        "ops_per_s": 789.9,
+        "p50_ms": 19.71,
+        "p95_ms": 28.85,
+        "p99_ms": 35.58,
+        "max_ms": 55.33,
+        "errors": 0
+      },
+      "writes": {
+        "count": 4272,
+        "ops_per_s": 284.55,
+        "p50_ms": 27.48,
+        "p95_ms": 40.58,
+        "p99_ms": 48.08,
+        "max_ms": 67.14,
+        "errors": 0,
+        "rows_per_s": 14227.4
+      },
+      "write_graphs": [
+        "test__eval_load_mem_0",
+        "test__eval_load_mem_1",
+        "test__eval_load_mem_2",
+        "test__eval_load_mem_3",
+        "test__eval_load_mem_4",
+        "test__eval_load_mem_5",
+        "test__eval_load_mem_6",
+        "test__eval_load_mem_7"
+      ],
+      "error_messages": {},
+      "concurrency_note": null,
+      "interpretation": "8 writers on 8 separate graphs: 284.55 writes/s (14227.4 rows/s), write p95 40.58 ms (1.13x shared_graph write throughput). Concurrent reads: 789.9 reads/s, p95 28.85 ms (1.67x read-only baseline p95).",
+      "gate_passed": true
+    },
+    {
+      "name": "read_only",
+      "description": "R readers only on the scratch brain copy (baseline read throughput/latency)",
+      "writers": 0,
+      "readers": 16,
+      "seconds": 15.0,
+      "elapsed_s": 15.006,
+      "batch": 50,
+      "total_ops": 17530,
+      "total_ops_per_s": 1168.21,
+      "errors": 0,
+      "error_rate": 0.0,
+      "ops": {
+        "blast_radius": {
+          "count": 3507,
+          "ops_per_s": 233.71,
+          "p50_ms": 12.95,
+          "p95_ms": 16.67,
+          "p99_ms": 19.44,
+          "max_ms": 24.97,
+          "errors": 0
+        },
+        "fulltext": {
+          "count": 3507,
+          "ops_per_s": 233.71,
+          "p50_ms": 12.71,
+          "p95_ms": 16.43,
+          "p99_ms": 18.52,
+          "max_ms": 25.2,
+          "errors": 0
+        },
+        "neighborhood": {
+          "count": 3506,
+          "ops_per_s": 233.64,
+          "p50_ms": 14.26,
+          "p95_ms": 18.15,
+          "p99_ms": 21.28,
+          "max_ms": 27.21,
+          "errors": 0
+        },
+        "ring_hops": {
+          "count": 3505,
+          "ops_per_s": 233.58,
+          "p50_ms": 12.86,
+          "p95_ms": 16.54,
+          "p99_ms": 19.03,
+          "max_ms": 26.02,
+          "errors": 0
+        },
+        "vector_knn": {
+          "count": 3505,
+          "ops_per_s": 233.58,
+          "p50_ms": 14.04,
+          "p95_ms": 17.92,
+          "p99_ms": 20.54,
+          "max_ms": 27.95,
+          "errors": 0
+        }
+      },
+      "reads": {
+        "count": 17530,
+        "ops_per_s": 1168.21,
+        "p50_ms": 13.36,
+        "p95_ms": 17.29,
+        "p99_ms": 19.93,
+        "max_ms": 27.95,
+        "errors": 0
+      },
+      "writes": null,
+      "write_graphs": [],
+      "error_messages": {},
+      "concurrency_note": null,
+      "interpretation": "Baseline: 16 readers sustain 1168.21 reads/s, p50 13.36 ms, p95 17.29 ms.",
+      "gate_passed": true
+    }
+  ]
+}

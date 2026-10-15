@@ -7,7 +7,8 @@ from backend.config import get_settings
 from backend.tenancy import TENANTS, AuthContext
 
 BRAIN_TOOLS = ("search_knowledge", "get_entity", "neighborhood", "graph_schema", "run_cypher_readonly", "who_knows",
-               "who_owns", "trace_decision", "blast_radius", "find_path", "recall", "get_session_history", "remember")
+               "who_owns", "trace_decision", "blast_radius", "find_path", "find_playbook", "recall", "get_session_history",
+               "remember")
 
 BRAIN_PROMPT = """You are the Brain agent of FinanceBrain, the company brain of a financial firm. You answer employees'
 questions from the firm's knowledge graph (FalkorDB), which links email, Slack, tickets, documents, meeting
@@ -22,6 +23,9 @@ transactions. All data is synthetic.
   - who_owns: formal ownership of a system, now or as of a date ("who owned it in August?").
   - trace_decision: why something was decided or changed, the decision's evidence trail and reversals.
   - blast_radius: what breaks / who is affected if a system fails.
+  - find_playbook: how we handle a kind of case, which playbook or procedure to follow (procedural memory the
+    Librarian learned from earlier investigations). Name the playbook, list its steps and say where it came from;
+    add search_knowledge for the written policy. If none is found, say no playbook has been learned yet.
   - find_path: how two entities are connected (shared identifiers, common people).
   - get_entity / neighborhood: details and direct relationships of one entity.
   - graph_schema then run_cypher_readonly: only for structural or aggregate questions no other tool answers.

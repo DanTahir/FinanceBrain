@@ -1,0 +1,963 @@
+{
+  "generated_at": "2026-10-15T22:15:11.659393+00:00",
+  "env": "dev",
+  "summary": {
+    "n": 155,
+    "passed": 155,
+    "failed": 0
+  },
+  "by_category": {
+    "tenant_isolation": {
+      "n": 52,
+      "passed": 52,
+      "failed": 0
+    },
+    "information_barrier": {
+      "n": 73,
+      "passed": 73,
+      "failed": 0
+    },
+    "memory_privacy": {
+      "n": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "auth": {
+      "n": 20,
+      "passed": 20,
+      "failed": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "halcyon/compliance_officer: ToolContext graph is brain__halcyon",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__halcyon"
+    },
+    {
+      "check": "halcyon/aml_analyst: ToolContext graph is brain__halcyon",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__halcyon"
+    },
+    {
+      "check": "halcyon/ma_banker: ToolContext graph is brain__halcyon",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__halcyon"
+    },
+    {
+      "check": "halcyon/engineer: ToolContext graph is brain__halcyon",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__halcyon"
+    },
+    {
+      "check": "brightwater/compliance_officer: ToolContext graph is brain__brightwater",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__brightwater"
+    },
+    {
+      "check": "brightwater/aml_analyst: ToolContext graph is brain__brightwater",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__brightwater"
+    },
+    {
+      "check": "brightwater/lender: ToolContext graph is brain__brightwater",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__brightwater"
+    },
+    {
+      "check": "brightwater/engineer: ToolContext graph is brain__brightwater",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "graph_name=brain__brightwater"
+    },
+    {
+      "check": "brightwater/compliance_officer: search 'ReconLegacy Perl batch reconciliation' has no 'reconlegacy'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "10 results, 8 facts; 'reconlegacy' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/compliance_officer: search 'PricingSvc outage blast radius' has no 'pricingsvc'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "10 results, 0 facts; 'pricingsvc' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/compliance_officer: search 'Project Falcon acquisition diligence' has no 'falcon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "15 results, 0 facts; 'falcon' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/compliance_officer: sys_reconlegacy does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_reconlegacy' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/compliance_officer: deal_falcon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'deal_falcon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/compliance_officer: sys_pricingsvc does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_pricingsvc' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/compliance_officer: find_entities 'ReconLegacy' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ReconLegacy') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "brightwater/aml_analyst: search 'ReconLegacy Perl batch reconciliation' has no 'reconlegacy'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "12 results, 3 facts; 'reconlegacy' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/aml_analyst: search 'PricingSvc outage blast radius' has no 'pricingsvc'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "10 results, 0 facts; 'pricingsvc' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/aml_analyst: search 'Project Falcon acquisition diligence' has no 'falcon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "16 results, 0 facts; 'falcon' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/aml_analyst: sys_reconlegacy does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_reconlegacy' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/aml_analyst: deal_falcon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'deal_falcon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/aml_analyst: sys_pricingsvc does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_pricingsvc' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/aml_analyst: find_entities 'ReconLegacy' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ReconLegacy') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "brightwater/lender: search 'ReconLegacy Perl batch reconciliation' has no 'reconlegacy'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "10 results, 7 facts; 'reconlegacy' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/lender: search 'PricingSvc outage blast radius' has no 'pricingsvc'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "14 results, 0 facts; 'pricingsvc' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/lender: search 'Project Falcon acquisition diligence' has no 'falcon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "15 results, 0 facts; 'falcon' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/lender: sys_reconlegacy does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_reconlegacy' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/lender: deal_falcon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'deal_falcon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/lender: sys_pricingsvc does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_pricingsvc' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/lender: find_entities 'ReconLegacy' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ReconLegacy') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "brightwater/engineer: search 'ReconLegacy Perl batch reconciliation' has no 'reconlegacy'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "10 results, 8 facts; 'reconlegacy' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/engineer: search 'PricingSvc outage blast radius' has no 'pricingsvc'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "11 results, 0 facts; 'pricingsvc' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/engineer: search 'Project Falcon acquisition diligence' has no 'falcon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "16 results, 0 facts; 'falcon' in results=[] facts=0"
+    },
+    {
+      "check": "brightwater/engineer: sys_reconlegacy does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_reconlegacy' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/engineer: deal_falcon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'deal_falcon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/engineer: sys_pricingsvc does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_pricingsvc' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "brightwater/engineer: find_entities 'ReconLegacy' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ReconLegacy') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "halcyon/compliance_officer: search 'ShareRecon share reconciliation' has no 'sharerecon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "14 results, 0 facts; 'sharerecon' in results=[] facts=0"
+    },
+    {
+      "check": "halcyon/compliance_officer: sys_sharerecon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_sharerecon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/compliance_officer: find_entities 'ShareRecon' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ShareRecon') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "halcyon/aml_analyst: search 'ShareRecon share reconciliation' has no 'sharerecon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "16 results, 0 facts; 'sharerecon' in results=[] facts=0"
+    },
+    {
+      "check": "halcyon/aml_analyst: sys_sharerecon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_sharerecon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/aml_analyst: find_entities 'ShareRecon' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ShareRecon') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "halcyon/ma_banker: search 'ShareRecon share reconciliation' has no 'sharerecon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "15 results, 0 facts; 'sharerecon' in results=[] facts=0"
+    },
+    {
+      "check": "halcyon/ma_banker: sys_sharerecon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_sharerecon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/ma_banker: find_entities 'ShareRecon' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ShareRecon') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "halcyon/engineer: search 'ShareRecon share reconciliation' has no 'sharerecon'",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "14 results, 0 facts; 'sharerecon' in results=[] facts=0"
+    },
+    {
+      "check": "halcyon/engineer: sys_sharerecon does not resolve",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'sys_sharerecon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: find_entities 'ShareRecon' finds nothing",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "find_entities('ShareRecon') -> 0 hits, matching=[]"
+    },
+    {
+      "check": "control: halcyon/engineer resolves sys_reconlegacy",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve={'label': 'System', 'id': 'sys_reconlegacy', 'name': 'ReconLegacy'}"
+    },
+    {
+      "check": "control: halcyon/engineer resolves sys_pricingsvc",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve={'label': 'System', 'id': 'sys_pricingsvc', 'name': 'PricingSvc'}"
+    },
+    {
+      "check": "control: brightwater/engineer resolves sys_sharerecon",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "resolve={'label': 'System', 'id': 'sys_sharerecon', 'name': 'ShareRecon'}"
+    },
+    {
+      "check": "control: halcyon/engineer search finds ReconLegacy content",
+      "category": "tenant_isolation",
+      "passed": true,
+      "detail": "halcyon results mentioning reconlegacy: ['slack-01259', 'slack-00918', 'slack-00140', 'ticket-00115', 'slack-00987']"
+    },
+    {
+      "check": "ground truth lists MNPI documents",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "50 mnpi docs"
+    },
+    {
+      "check": "halcyon/engineer: search 'Project Falcon valuation' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "14 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/engineer: search 'Falcon deal terms' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "14 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/engineer: search 'Project Falcon diligence meeting' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "18 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/engineer: search 'acquisition target purchase price per share' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "18 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/engineer: search with meeting-00012 vector returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "14 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/engineer: deal_falcon does not resolve",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "resolve=None; get_entity: ToolError: No entity matching 'deal_falcon' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: 'Project Falcon' does not resolve",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "resolve('Project Falcon')=None"
+    },
+    {
+      "check": "halcyon/engineer: visible_docs(mnpi_docs) is empty",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "visible mnpi docs: [] of 50"
+    },
+    {
+      "check": "halcyon/engineer: 'Project Falcon' is a restricted term",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "is_restricted('Project Falcon')=True"
+    },
+    {
+      "check": "halcyon/aml_analyst: search 'Project Falcon valuation' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "15 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/aml_analyst: search 'Falcon deal terms' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "14 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/aml_analyst: search 'Project Falcon diligence meeting' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "17 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/aml_analyst: search 'acquisition target purchase price per share' returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "14 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "halcyon/aml_analyst: search with meeting-00012 vector returns no MNPI",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "13 results; mnpi ids=[] sensitivity=MNPI=[] 'falcon' in title/text=[] fact cites mnpi=[]"
+    },
+    {
+      "check": "control room: halcyon/aml_analyst (Compliance team) sees the deal entity but no MNPI documents",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "deal resolves=True; visible mnpi docs=0 of 50"
+    },
+    {
+      "check": "halcyon/aml_analyst: visible_docs(mnpi_docs) is empty",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "visible mnpi docs: [] of 50"
+    },
+    {
+      "check": "halcyon/engineer: get_entity(doc-00014) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'doc-00014' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(email-00301) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'email-00301' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(meeting-00012) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'meeting-00012' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00543) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00543' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00545) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00545' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00546) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00546' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00548) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00548' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00551) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00551' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00552) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00552' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00554) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00554' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00555) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00555' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00557) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00557' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00558) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00558' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00559) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00559' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00560) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00560' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00561) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00561' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00562) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00562' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00563) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00563' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00704) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00704' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00705) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00705' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00821) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00821' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00822) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00822' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00823) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00823' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00824) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00824' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00825) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00825' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00826) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00826' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00827) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00827' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00828) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00828' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00829) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00829' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00830) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00830' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00831) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00831' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00832) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00832' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00833) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00833' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00834) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00834' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00942) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00942' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00943) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00943' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00944) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00944' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00945) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00945' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00946) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00946' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00947) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00947' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00948) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00948' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00949) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00949' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00950) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00950' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00951) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00951' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00952) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00952' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00953) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00953' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00954) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00954' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-00955) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-00955' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-01172) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-01172' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "halcyon/engineer: get_entity(slack-01399) is denied",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "ToolError: No entity matching 'slack-01399' is visible to you. Use search_knowledge to find names/ids."
+    },
+    {
+      "check": "control: halcyon/ma_banker (deal team) search returns MNPI docs",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "mnpi docs returned to deal team: ['meeting-00012', 'slack-01172', 'slack-00543', 'doc-00014', 'slack-00821', 'slack-00955', 'slack-00545', 'slack-00546']"
+    },
+    {
+      "check": "control: halcyon/ma_banker sees meeting-00012",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "meeting-00012 in results: True"
+    },
+    {
+      "check": "control: halcyon/ma_banker visible_docs(mnpi_docs) non-empty",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "48 of 50 mnpi docs visible to deal team"
+    },
+    {
+      "check": "control: halcyon/ma_banker resolves deal_falcon",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "resolve={'label': 'Deal', 'id': 'deal_falcon', 'name': 'Project Falcon'}"
+    },
+    {
+      "check": "control: halcyon/compliance_officer get_entity(deal_falcon) unrestricted",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "codename restricted: False"
+    },
+    {
+      "check": "control: halcyon/compliance_officer resolves #project-falcon",
+      "category": "information_barrier",
+      "passed": true,
+      "detail": "resolve('#project-falcon') -> ch_project-falcon"
+    },
+    {
+      "check": "memory graph names differ per (tenant, persona, user)",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "mem__halcyon__aml_analyst__eval_iso_a_3a7c76b8; mem__halcyon__aml_analyst__eval_iso_b_3a7c76b8; mem__halcyon__engineer__eval_iso_a_3a7c76b8; mem__brightwater__aml_analyst__eval_iso_a_3a7c76b8"
+    },
+    {
+      "check": "user A stores a distinctive memory",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "stored 1 memory in mem__halcyon__aml_analyst__eval_iso_a_3a7c76b8"
+    },
+    {
+      "check": "control: user A recalls own memory",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "user A recall: 1 facts, marker hits=1"
+    },
+    {
+      "check": "control: user A facts() lists own memory",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "user A facts(): 1, marker hits=1"
+    },
+    {
+      "check": "other user, same tenant+persona: memory not recalled",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "mem__halcyon__aml_analyst__eval_iso_b_3a7c76b8: recall marker hits=0, facts() marker hits=0"
+    },
+    {
+      "check": "other user, same tenant+persona: no memory graph created by reads",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "mem__halcyon__aml_analyst__eval_iso_b_3a7c76b8 exists=False"
+    },
+    {
+      "check": "same user, other persona: memory not recalled",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "mem__halcyon__engineer__eval_iso_a_3a7c76b8: recall marker hits=0, facts() marker hits=0"
+    },
+    {
+      "check": "same user, other persona: no memory graph created by reads",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "mem__halcyon__engineer__eval_iso_a_3a7c76b8 exists=False"
+    },
+    {
+      "check": "same user, other tenant: memory not recalled",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "mem__brightwater__aml_analyst__eval_iso_a_3a7c76b8: recall marker hits=0, facts() marker hits=0"
+    },
+    {
+      "check": "same user, other tenant: no memory graph created by reads",
+      "category": "memory_privacy",
+      "passed": true,
+      "detail": "mem__brightwater__aml_analyst__eval_iso_a_3a7c76b8 exists=False"
+    },
+    {
+      "check": "make_auth('acme', 'engineer') raises AuthError",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: unknown tenant 'acme'"
+    },
+    {
+      "check": "make_auth('halcyon', 'ceo') raises AuthError",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: unknown persona 'ceo' for tenant 'halcyon'"
+    },
+    {
+      "check": "make_auth('brightwater', 'ma_banker') raises AuthError",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: unknown persona 'ma_banker' for tenant 'brightwater'"
+    },
+    {
+      "check": "make_auth('halcyon', 'lender') raises AuthError",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: unknown persona 'lender' for tenant 'halcyon'"
+    },
+    {
+      "check": "halcyon token round-trips",
+      "category": "auth",
+      "passed": true,
+      "detail": "tenant=halcyon persona=aml_analyst"
+    },
+    {
+      "check": "verified halcyon token targets brain__halcyon",
+      "category": "auth",
+      "passed": true,
+      "detail": "graph_name=brain__halcyon"
+    },
+    {
+      "check": "halcyon signature cannot be re-targeted to brightwater",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: bad token signature"
+    },
+    {
+      "check": "forged persona/scope escalation rejected",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: bad token signature"
+    },
+    {
+      "check": "tampered signature rejected",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: bad token signature"
+    },
+    {
+      "check": "malformed token rejected",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: malformed token"
+    },
+    {
+      "check": "expired token rejected",
+      "category": "auth",
+      "passed": true,
+      "detail": "AuthError: token expired"
+    },
+    {
+      "check": "halcyon/compliance_officer: default scopes read+act+approve",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read', 'act', 'approve', 'reveal']"
+    },
+    {
+      "check": "halcyon/aml_analyst: default scopes act, no approve",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read', 'act']"
+    },
+    {
+      "check": "halcyon/ma_banker: default scopes read-only (no act/approve)",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read']"
+    },
+    {
+      "check": "halcyon/engineer: default scopes read-only (no act/approve)",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read']"
+    },
+    {
+      "check": "brightwater/compliance_officer: default scopes read+act+approve",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read', 'act', 'approve', 'reveal']"
+    },
+    {
+      "check": "brightwater/aml_analyst: default scopes act, no approve",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read', 'act']"
+    },
+    {
+      "check": "brightwater/lender: default scopes read-only (no act/approve)",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read']"
+    },
+    {
+      "check": "brightwater/engineer: default scopes read-only (no act/approve)",
+      "category": "auth",
+      "passed": true,
+      "detail": "scopes=['read']"
+    },
+    {
+      "check": "halcyon/engineer ToolContext.require('act') denied",
+      "category": "auth",
+      "passed": true,
+      "detail": "ToolError: Permission denied: opening a case requires the 'act' permission, which Kevin Zhao (engineer) does not have. Investigatio"
+    }
+  ]
+}

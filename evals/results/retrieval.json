@@ -1,0 +1,1145 @@
+{
+  "generated_at": "2026-10-15T22:13:40+00:00",
+  "env": "dev",
+  "embed_model": "voyageai/voyage-4",
+  "phase": "seed",
+  "k": 10,
+  "summary": {
+    "n": 11,
+    "recall@5": 0.3,
+    "recall@10": 0.3076,
+    "hit@5": 0.6364,
+    "hit@10": 0.7273,
+    "mrr": 0.5101
+  },
+  "modes": {
+    "hybrid": {
+      "n": 11,
+      "recall@5": 0.3,
+      "recall@10": 0.3076,
+      "hit@5": 0.6364,
+      "hit@10": 0.7273,
+      "mrr": 0.5101
+    },
+    "vector": {
+      "n": 11,
+      "recall@5": 0.2409,
+      "recall@10": 0.3189,
+      "hit@5": 0.6364,
+      "hit@10": 0.7273,
+      "mrr": 0.4242
+    },
+    "fulltext": {
+      "n": 11,
+      "recall@5": 0.0864,
+      "recall@10": 0.1386,
+      "hit@5": 0.1818,
+      "hit@10": 0.2727,
+      "mrr": 0.1919
+    }
+  },
+  "questions": [
+    {
+      "id": "crypto_why",
+      "tenant": "halcyon",
+      "persona": "compliance_officer",
+      "phase": "seed",
+      "query": "Why did we stop onboarding crypto clients?",
+      "expected": [
+        "email-00084",
+        "ticket-00041",
+        "meeting-00009",
+        "doc-00021",
+        "slack-00506",
+        "slack-00531"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "ticket-00041",
+        "slack-00791",
+        "meeting-00009",
+        "doc-00021",
+        "slack-00793",
+        "slack-00805",
+        "slack-00794",
+        "crm-00108",
+        "slack-00800",
+        "slack-00506"
+      ],
+      "context": [
+        "slack-00795"
+      ],
+      "recall@5": 0.6,
+      "recall@10": 0.6666666666666666,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "rr": 1.0,
+      "first_rank": 1,
+      "missed": [
+        "email-00084",
+        "slack-00531"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.6,
+          "recall@10": 0.6666666666666666,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0
+        },
+        "vector": {
+          "recall@5": 0.4,
+          "recall@10": 0.6666666666666666,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0,
+          "ranked": [
+            "slack-00531",
+            "slack-01130",
+            "doc-00021",
+            "slack-01127",
+            "slack-01128",
+            "slack-00793",
+            "ticket-00041",
+            "slack-00791",
+            "crm-00108",
+            "meeting-00009"
+          ],
+          "first_rank": 1
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00613",
+            "crm-00010",
+            "slack-00275",
+            "crm-00056",
+            "slack-00714",
+            "slack-00277",
+            "slack-00367",
+            "slack-01245",
+            "slack-00726",
+            "slack-01247"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "crypto_evidence",
+      "tenant": "halcyon",
+      "persona": "compliance_officer",
+      "phase": "seed",
+      "query": "What evidence justified the decision to pause digital-asset onboarding, and where was the decision made?",
+      "expected": [
+        "email-00084",
+        "ticket-00041",
+        "slack-00506",
+        "slack-00531",
+        "meeting-00009"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "meeting-00009",
+        "slack-00817",
+        "ticket-00041",
+        "slack-01134",
+        "crm-00002",
+        "slack-01128",
+        "slack-00609",
+        "doc-00021",
+        "slack-00805",
+        "crm-00067"
+      ],
+      "context": [
+        "slack-01133"
+      ],
+      "recall@5": 0.4,
+      "recall@10": 0.4,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "rr": 1.0,
+      "first_rank": 1,
+      "missed": [
+        "email-00084",
+        "slack-00506",
+        "slack-00531"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.4,
+          "recall@10": 0.4,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0
+        },
+        "vector": {
+          "recall@5": 0.4,
+          "recall@10": 0.6,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5,
+          "ranked": [
+            "doc-00021",
+            "meeting-00009",
+            "slack-01127",
+            "ticket-00041",
+            "slack-00793",
+            "slack-00791",
+            "slack-00817",
+            "slack-01128",
+            "email-00084",
+            "slack-00800"
+          ],
+          "first_rank": 2
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00609",
+            "slack-00812",
+            "slack-01134",
+            "slack-01061",
+            "crm-00002",
+            "slack-00817",
+            "slack-01139",
+            "slack-00610",
+            "slack-00613",
+            "slack-00805"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "crypto_debate",
+      "tenant": "halcyon",
+      "persona": "compliance_officer",
+      "phase": "seed",
+      "query": "How was the crypto onboarding pause debated internally before it was decided?",
+      "expected": [
+        "slack-00496",
+        "slack-00506",
+        "slack-00531",
+        "ticket-00041"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-00791",
+        "ticket-00041",
+        "slack-01127",
+        "slack-00609",
+        "slack-00793",
+        "doc-00021",
+        "slack-00722",
+        "slack-00800",
+        "slack-00794",
+        "slack-00768"
+      ],
+      "context": [
+        "slack-01128",
+        "slack-01129",
+        "slack-00610",
+        "slack-00795"
+      ],
+      "recall@5": 0.25,
+      "recall@10": 0.25,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "rr": 0.5,
+      "first_rank": 2,
+      "missed": [
+        "slack-00496",
+        "slack-00506",
+        "slack-00531"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.25,
+          "recall@10": 0.25,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5
+        },
+        "vector": {
+          "recall@5": 0.0,
+          "recall@10": 0.5,
+          "hit@5": 0.0,
+          "hit@10": 1.0,
+          "rr": 0.16666666666666666,
+          "ranked": [
+            "slack-01127",
+            "doc-00021",
+            "meeting-00009",
+            "slack-00791",
+            "slack-00793",
+            "ticket-00041",
+            "slack-00531",
+            "slack-00805",
+            "slack-00817",
+            "slack-01130"
+          ],
+          "first_rank": 6
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00609",
+            "slack-00613",
+            "crm-00010",
+            "crm-00061",
+            "slack-00277",
+            "slack-00731",
+            "slack-00722",
+            "slack-00768",
+            "slack-00675",
+            "slack-01138"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "recon_who",
+      "tenant": "halcyon",
+      "persona": "engineer",
+      "phase": "seed",
+      "query": "Who should I ask about ReconLegacy, and what is our risk if that person leaves?",
+      "expected": [
+        "doc-00003",
+        "slack-00293",
+        "slack-00294",
+        "ticket-00073",
+        "ticket-00098"
+      ],
+      "dropped_missing": [
+        "meeting-00017"
+      ],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-00494",
+        "slack-01008",
+        "slack-01155",
+        "slack-01163",
+        "slack-00084",
+        "slack-00987",
+        "slack-01154",
+        "slack-01267",
+        "slack-01223",
+        "slack-00140"
+      ],
+      "context": [
+        "slack-01009",
+        "slack-01010",
+        "slack-01161",
+        "slack-01162",
+        "slack-00085",
+        "slack-00086"
+      ],
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "hit@5": 0.0,
+      "hit@10": 0.0,
+      "rr": 0.0,
+      "first_rank": null,
+      "missed": [
+        "doc-00003",
+        "slack-00293",
+        "slack-00294",
+        "ticket-00073",
+        "ticket-00098"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0
+        },
+        "vector": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-01267",
+            "slack-00084",
+            "slack-00494",
+            "slack-01163",
+            "slack-00490",
+            "slack-01161",
+            "slack-00987",
+            "slack-00140",
+            "slack-01155",
+            "slack-01154"
+          ],
+          "first_rank": null
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-01265",
+            "slack-01223",
+            "slack-01008",
+            "slack-00135",
+            "slack-00887",
+            "slack-00671",
+            "slack-00988",
+            "slack-01155",
+            "slack-00132",
+            "slack-01154"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "recon_problems",
+      "tenant": "halcyon",
+      "persona": "engineer",
+      "phase": "seed",
+      "query": "What recurring problems has ReconLegacy had since July?",
+      "expected": [
+        "ticket-00073",
+        "ticket-00098",
+        "slack-00673",
+        "slack-00674"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-00987",
+        "slack-00140",
+        "slack-00511",
+        "slack-00494",
+        "slack-00293",
+        "slack-00135",
+        "slack-01257",
+        "slack-00132",
+        "slack-01163",
+        "slack-00671"
+      ],
+      "context": [
+        "slack-00988",
+        "slack-00989",
+        "slack-00983",
+        "slack-00984",
+        "slack-00141",
+        "slack-00142"
+      ],
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "hit@5": 0.0,
+      "hit@10": 0.0,
+      "rr": 0.0,
+      "first_rank": null,
+      "missed": [
+        "ticket-00073",
+        "ticket-00098",
+        "slack-00673",
+        "slack-00674"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0
+        },
+        "vector": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00066",
+            "slack-00987",
+            "slack-00293",
+            "slack-00140",
+            "slack-01257",
+            "slack-00494",
+            "slack-00490",
+            "ticket-00115",
+            "slack-00132",
+            "slack-01163"
+          ],
+          "first_rank": null
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00135",
+            "slack-00511",
+            "slack-01008",
+            "slack-01109",
+            "slack-01112",
+            "slack-00988",
+            "slack-00893",
+            "slack-00140",
+            "slack-00671",
+            "slack-00920"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "pricing_blast",
+      "tenant": "halcyon",
+      "persona": "engineer",
+      "phase": "seed",
+      "query": "What breaks if PricingSvc goes down?",
+      "expected": [
+        "slack-00668",
+        "slack-00669",
+        "slack-00670",
+        "slack-00671",
+        "slack-00672",
+        "ticket-00059",
+        "doc-00019",
+        "doc-00025"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-00668",
+        "slack-00671",
+        "doc-00019",
+        "doc-00025",
+        "ticket-00059",
+        "slack-00231",
+        "meeting-00004",
+        "slack-01232",
+        "slack-00672",
+        "ticket-00082"
+      ],
+      "context": [
+        "slack-00669",
+        "slack-00670"
+      ],
+      "recall@5": 1.0,
+      "recall@10": 0.75,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "rr": 1.0,
+      "first_rank": 1,
+      "missed": [
+        "slack-00669",
+        "slack-00670"
+      ],
+      "context_hits": [
+        "slack-00669",
+        "slack-00670"
+      ],
+      "modes": {
+        "hybrid": {
+          "recall@5": 1.0,
+          "recall@10": 0.75,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0
+        },
+        "vector": {
+          "recall@5": 0.8,
+          "recall@10": 0.625,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5,
+          "ranked": [
+            "slack-01232",
+            "doc-00025",
+            "slack-00668",
+            "doc-00019",
+            "ticket-00059",
+            "slack-00672",
+            "ticket-00082",
+            "ticket-00091",
+            "slack-00674",
+            "slack-00294"
+          ],
+          "first_rank": 2
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.125,
+          "hit@5": 0.0,
+          "hit@10": 1.0,
+          "rr": 0.1111111111111111,
+          "ranked": [
+            "slack-00984",
+            "slack-00055",
+            "slack-01266",
+            "slack-00186",
+            "slack-00137",
+            "slack-00048",
+            "slack-00132",
+            "slack-00485",
+            "slack-00671",
+            "slack-00293"
+          ],
+          "first_rank": 9
+        }
+      }
+    },
+    {
+      "id": "pricing_incident",
+      "tenant": "halcyon",
+      "persona": "engineer",
+      "phase": "seed",
+      "query": "What happened during the PricingSvc incident, and which downstream systems were affected?",
+      "expected": [
+        "slack-00668",
+        "slack-00669",
+        "slack-00670",
+        "slack-00671",
+        "slack-00672",
+        "ticket-00059"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-00668",
+        "slack-00673",
+        "slack-01232",
+        "slack-00672",
+        "ticket-00091",
+        "slack-01112",
+        "slack-00294",
+        "doc-00019",
+        "ticket-00059",
+        "doc-00025"
+      ],
+      "context": [
+        "slack-00669",
+        "slack-00670",
+        "slack-00674",
+        "slack-01233",
+        "slack-01230",
+        "slack-01231"
+      ],
+      "recall@5": 0.4,
+      "recall@10": 0.5,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "rr": 1.0,
+      "first_rank": 1,
+      "missed": [
+        "slack-00669",
+        "slack-00670",
+        "slack-00671"
+      ],
+      "context_hits": [
+        "slack-00669",
+        "slack-00670"
+      ],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.4,
+          "recall@10": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0
+        },
+        "vector": {
+          "recall@5": 0.4,
+          "recall@10": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0,
+          "ranked": [
+            "slack-00668",
+            "doc-00019",
+            "doc-00025",
+            "ticket-00059",
+            "slack-01232",
+            "slack-00672",
+            "ticket-00082",
+            "slack-00674",
+            "ticket-00091",
+            "doc-00002"
+          ],
+          "first_rank": 1
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-01126",
+            "slack-00426",
+            "slack-01112",
+            "slack-00664",
+            "slack-00673",
+            "slack-00365",
+            "slack-00184",
+            "slack-00193",
+            "ticket-00126",
+            "slack-00864"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "wire_investigate",
+      "tenant": "halcyon",
+      "persona": "aml_analyst",
+      "phase": "seed",
+      "query": "Investigate the flagged $48k wire and tell me what we should do about it.",
+      "expected": [
+        "crm-00010",
+        "crm-00011",
+        "crm-00022",
+        "crm-00056",
+        "crm-00061",
+        "ticket-00117"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "ticket-00023",
+        "email-00332",
+        "ticket-00036",
+        "slack-00521",
+        "slack-01204",
+        "doc-00012",
+        "slack-01236",
+        "slack-01298",
+        "ticket-00117",
+        "slack-01244"
+      ],
+      "context": [
+        "slack-00524",
+        "slack-00526",
+        "slack-01205",
+        "slack-01206"
+      ],
+      "recall@5": 0.0,
+      "recall@10": 0.16666666666666666,
+      "hit@5": 0.0,
+      "hit@10": 1.0,
+      "rr": 0.1111111111111111,
+      "first_rank": 9,
+      "missed": [
+        "crm-00010",
+        "crm-00011",
+        "crm-00022",
+        "crm-00056",
+        "crm-00061"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.0,
+          "recall@10": 0.16666666666666666,
+          "hit@5": 0.0,
+          "hit@10": 1.0,
+          "rr": 0.1111111111111111
+        },
+        "vector": {
+          "recall@5": 0.2,
+          "recall@10": 0.16666666666666666,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5,
+          "ranked": [
+            "slack-01298",
+            "ticket-00117",
+            "slack-01244",
+            "email-00332",
+            "ticket-00023",
+            "ticket-00022",
+            "ticket-00036",
+            "ticket-00110",
+            "slack-01299",
+            "ticket-00054"
+          ],
+          "first_rank": 2
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00521",
+            "ticket-00023",
+            "slack-01204",
+            "slack-00777",
+            "slack-00875",
+            "slack-00757",
+            "ticket-00036",
+            "slack-01236",
+            "doc-00012",
+            "slack-00280"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "falcon_status",
+      "tenant": "halcyon",
+      "persona": "ma_banker",
+      "phase": "seed",
+      "query": "Give me a status summary of Project Falcon from our deal documents.",
+      "expected": [
+        "doc-00005",
+        "doc-00014",
+        "slack-00704",
+        "slack-00705",
+        "meeting-00012"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-01172",
+        "doc-00014",
+        "meeting-00012",
+        "slack-00821",
+        "slack-00952",
+        "slack-00950",
+        "slack-00484",
+        "slack-00555",
+        "slack-00562",
+        "email-00159"
+      ],
+      "context": [
+        "slack-00822",
+        "slack-00823",
+        "slack-00953",
+        "slack-00954"
+      ],
+      "recall@5": 0.4,
+      "recall@10": 0.4,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "rr": 0.5,
+      "first_rank": 2,
+      "missed": [
+        "doc-00005",
+        "slack-00704",
+        "slack-00705"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.4,
+          "recall@10": 0.4,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5
+        },
+        "vector": {
+          "recall@5": 0.2,
+          "recall@10": 0.2,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5,
+          "ranked": [
+            "slack-00821",
+            "doc-00014",
+            "slack-00952",
+            "slack-01172",
+            "slack-00950",
+            "slack-00555",
+            "slack-00569",
+            "slack-00543",
+            "email-00275",
+            "email-00295"
+          ],
+          "first_rank": 2
+        },
+        "fulltext": {
+          "recall@5": 0.2,
+          "recall@10": 0.4,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0,
+          "ranked": [
+            "doc-00014",
+            "slack-00946",
+            "slack-00484",
+            "slack-00951",
+            "slack-00564",
+            "slack-00643",
+            "slack-00952",
+            "slack-00950",
+            "slack-00581",
+            "doc-00005"
+          ],
+          "first_rank": 1
+        }
+      }
+    },
+    {
+      "id": "b_sharerecon",
+      "tenant": "brightwater",
+      "persona": "engineer",
+      "phase": "seed",
+      "query": "Who should I ask about ShareRecon, and is it a key-person risk?",
+      "expected": [
+        "doc-00001",
+        "slack-00180",
+        "slack-00181"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-00274",
+        "slack-00044",
+        "slack-00163",
+        "slack-00236",
+        "slack-00036",
+        "slack-00038",
+        "slack-00234",
+        "slack-00023",
+        "slack-00218",
+        "slack-00065"
+      ],
+      "context": [
+        "slack-00275",
+        "slack-00276",
+        "slack-00046",
+        "slack-00048",
+        "slack-00164",
+        "slack-00238"
+      ],
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "hit@5": 0.0,
+      "hit@10": 0.0,
+      "rr": 0.0,
+      "first_rank": null,
+      "missed": [
+        "doc-00001",
+        "slack-00180",
+        "slack-00181"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0
+        },
+        "vector": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00274",
+            "slack-00163",
+            "slack-00036",
+            "slack-00044",
+            "slack-00236",
+            "slack-00024",
+            "slack-00023",
+            "slack-00234",
+            "slack-00038",
+            "slack-00356"
+          ],
+          "first_rank": null
+        },
+        "fulltext": {
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "hit@5": 0.0,
+          "hit@10": 0.0,
+          "rr": 0.0,
+          "ranked": [
+            "slack-00339",
+            "slack-00260",
+            "slack-00353",
+            "slack-00223",
+            "slack-00218",
+            "slack-00271",
+            "email-00077",
+            "email-00001",
+            "slack-00038",
+            "slack-00107"
+          ],
+          "first_rank": null
+        }
+      }
+    },
+    {
+      "id": "b_ring_wire",
+      "tenant": "brightwater",
+      "persona": "aml_analyst",
+      "phase": "seed",
+      "query": "Investigate wire t_r010 and tell me whether it is suspicious.",
+      "expected": [
+        "crm-00010",
+        "crm-00014",
+        "crm-00015",
+        "ticket-00036"
+      ],
+      "dropped_missing": [],
+      "dropped_invisible": [],
+      "ranked": [
+        "slack-00282",
+        "ticket-00036",
+        "slack-00283",
+        "crm-00038",
+        "ticket-00021",
+        "ticket-00019",
+        "ticket-00024",
+        "slack-00373",
+        "ticket-00035",
+        "ticket-00017"
+      ],
+      "context": [
+        "slack-00284",
+        "slack-00280",
+        "slack-00281"
+      ],
+      "recall@5": 0.25,
+      "recall@10": 0.25,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "rr": 0.5,
+      "first_rank": 2,
+      "missed": [
+        "crm-00010",
+        "crm-00014",
+        "crm-00015"
+      ],
+      "context_hits": [],
+      "modes": {
+        "hybrid": {
+          "recall@5": 0.25,
+          "recall@10": 0.25,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5
+        },
+        "vector": {
+          "recall@5": 0.25,
+          "recall@10": 0.25,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 0.5,
+          "ranked": [
+            "ticket-00021",
+            "ticket-00036",
+            "slack-00282",
+            "slack-00364",
+            "meeting-00001",
+            "slack-00123",
+            "slack-00368",
+            "slack-00371",
+            "slack-00283",
+            "crm-00038"
+          ],
+          "first_rank": 2
+        },
+        "fulltext": {
+          "recall@5": 0.75,
+          "recall@10": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "rr": 1.0,
+          "ranked": [
+            "crm-00014",
+            "crm-00010",
+            "crm-00015",
+            "slack-00282",
+            "slack-00283",
+            "slack-00280",
+            "slack-00285",
+            "slack-00373",
+            "ticket-00036",
+            "crm-00038"
+          ],
+          "first_rank": 1
+        }
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "id": "crypto_regulator",
+      "tenant": "halcyon",
+      "persona": "aml_analyst",
+      "phase": "seed",
+      "query": "What did the regulator tell us that led to the crypto onboarding pause?",
+      "expected": [],
+      "dropped_missing": [],
+      "dropped_invisible": [
+        "email-00084"
+      ],
+      "skipped": true,
+      "reason": "no expected document exists in the graph and is visible to the persona"
+    },
+    {
+      "id": "kyc_august",
+      "tenant": "halcyon",
+      "persona": "engineer",
+      "phase": "seed",
+      "query": "Who owned the KYC pipeline in August 2026?",
+      "expected": [],
+      "dropped_missing": [],
+      "dropped_invisible": [
+        "slack-00292",
+        "ticket-00052",
+        "email-00273"
+      ],
+      "skipped": true,
+      "reason": "no expected document exists in the graph and is visible to the persona"
+    },
+    {
+      "id": "falcon_breach",
+      "tenant": "halcyon",
+      "persona": "compliance_officer",
+      "phase": "seed",
+      "query": "Has Project Falcon leaked outside the deal team?",
+      "expected": [],
+      "dropped_missing": [],
+      "dropped_invisible": [
+        "email-00301"
+      ],
+      "skipped": true,
+      "reason": "no expected document exists in the graph and is visible to the persona"
+    }
+  ]
+}
