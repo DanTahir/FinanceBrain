@@ -66,6 +66,9 @@ class Settings(BaseSettings):
     # --- App ---
     env: str = "dev"
     kms_key_alias: str = "alias/financebrain-vault"
+    vault_kms: bool = False  # prod: wrap the vault data key with KMS; dev: local key in secrets/
+    pii_hmac_key: str | None = None  # prod: from SSM /financebrain/pii_hmac_key; dev: secrets/pii_hmac.key
+    spacy_model: str = "en_core_web_md"
     aws_region: str = "us-east-1"
 
 

@@ -1,0 +1,219 @@
+[
+ {
+  "tenant": "halcyon",
+  "summary": {
+   "gt_spans": 1345,
+   "detections": 1351,
+   "recall_any": 1.0,
+   "recall_typed": 1.0,
+   "precision": 0.9956,
+   "docs": 2219,
+   "seconds": 68.3
+  },
+  "by_type": {
+   "ACCOUNT_NUMBER": {
+    "gt": 506,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 506,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gt": 53,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 53,
+    "precision": 1.0
+   },
+   "CARD_NUMBER": {
+    "gt": 3,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 3,
+    "precision": 1.0
+   },
+   "CLIENT_NAME": {
+    "gt": 479,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 485,
+    "precision": 0.9876
+   },
+   "DEVICE_ID": {
+    "gt": 5,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 5,
+    "precision": 1.0
+   },
+   "DOB": {
+    "gt": 5,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 5,
+    "precision": 1.0
+   },
+   "EIN": {
+    "gt": 4,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 4,
+    "precision": 1.0
+   },
+   "EMAIL": {
+    "gt": 155,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 155,
+    "precision": 1.0
+   },
+   "IBAN": {
+    "gt": 13,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 13,
+    "precision": 1.0
+   },
+   "MEDICAL": {
+    "gt": 2,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 2,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gt": 103,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 103,
+    "precision": 1.0
+   },
+   "SALARY": {
+    "gt": 1,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 1,
+    "precision": 1.0
+   },
+   "SSN": {
+    "gt": 2,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 2,
+    "precision": 1.0
+   },
+   "SWIFT": {
+    "gt": 14,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 14,
+    "precision": 1.0
+   }
+  }
+ },
+ {
+  "tenant": "brightwater",
+  "summary": {
+   "gt_spans": 546,
+   "detections": 546,
+   "recall_any": 1.0,
+   "recall_typed": 1.0,
+   "precision": 1.0,
+   "docs": 666,
+   "seconds": 19.2
+  },
+  "by_type": {
+   "ACCOUNT_NUMBER": {
+    "gt": 187,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 187,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gt": 20,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 20,
+    "precision": 1.0
+   },
+   "CARD_NUMBER": {
+    "gt": 11,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 11,
+    "precision": 1.0
+   },
+   "CLIENT_NAME": {
+    "gt": 210,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 210,
+    "precision": 1.0
+   },
+   "DEVICE_ID": {
+    "gt": 3,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 3,
+    "precision": 1.0
+   },
+   "DOB": {
+    "gt": 2,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 2,
+    "precision": 1.0
+   },
+   "EMAIL": {
+    "gt": 46,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 46,
+    "precision": 1.0
+   },
+   "IBAN": {
+    "gt": 2,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 2,
+    "precision": 1.0
+   },
+   "MEDICAL": {
+    "gt": 2,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 2,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gt": 59,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 59,
+    "precision": 1.0
+   },
+   "SALARY": {
+    "gt": 1,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 1,
+    "precision": 1.0
+   },
+   "SSN": {
+    "gt": 2,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 2,
+    "precision": 1.0
+   },
+   "SWIFT": {
+    "gt": 1,
+    "recall_any": 1.0,
+    "recall_typed": 1.0,
+    "detections": 1,
+    "precision": 1.0
+   }
+  }
+ }
+]

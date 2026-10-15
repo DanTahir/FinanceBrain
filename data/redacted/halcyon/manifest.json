@@ -1,0 +1,51 @@
+{
+ "tenant": "halcyon",
+ "docs": 2219,
+ "redactions_by_type": {
+  "ACCOUNT_NUMBER": 506,
+  "CLIENT_NAME": 485,
+  "EMAIL": 155,
+  "PHONE": 103,
+  "ADDRESS": 53,
+  "SWIFT": 14,
+  "IBAN": 13,
+  "DEVICE_ID": 5,
+  "DOB": 5,
+  "EIN": 4,
+  "CARD_NUMBER": 3,
+  "MEDICAL": 2,
+  "SSN": 2,
+  "SALARY": 1
+ },
+ "redactions_total": 1351,
+ "entities": 963,
+ "vault": {
+  "tokens": 2840,
+  "by_type": {
+   "CLIENT_NAME": "306",
+   "PHONE": "298",
+   "EMAIL": "300",
+   "ADDRESS": "293",
+   "SSN": "230",
+   "DOB": "227",
+   "DEVICE_ID": "299",
+   "EIN": "70",
+   "ACCOUNT_NUMBER": "629",
+   "ROUTING_NUMBER": "1",
+   "CARD_NUMBER": "116",
+   "IBAN": "34",
+   "SWIFT": "34",
+   "MEDICAL": "2",
+   "SALARY": "1"
+  },
+  "key_mode": "local"
+ },
+ "canary": {
+  "strings_scanned": 41444,
+  "hits": 0,
+  "by_type": {},
+  "examples": [],
+  "clean": true
+ },
+ "seconds": 90.2
+}
